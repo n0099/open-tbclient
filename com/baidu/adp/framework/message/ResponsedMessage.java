@@ -1,11 +1,10 @@
 package com.baidu.adp.framework.message;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tieba.ta;
-import com.baidu.tieba.wb;
+import com.baidu.tieba.ua;
+import com.baidu.tieba.xb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class ResponsedMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public Object decodeData;
     public final int mCmd;
     public long mCostTime;
@@ -25,7 +23,23 @@ public abstract class ResponsedMessage<T> {
     public Message<?> mOrginalMessage;
     public long mProcessTime;
     public long mStartTime;
-    public wb performanceData;
+    public xb performanceData;
+
+    public void afterDispatchInBackGround(int i, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
+        }
+    }
+
+    public void beforeDispatchInBackGround(int i, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, t) == null) {
+        }
+    }
+
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
+
+    public abstract boolean hasError();
 
     public ResponsedMessage(int i) {
         Interceptable interceptable = $ic;
@@ -48,90 +62,103 @@ public abstract class ResponsedMessage<T> {
         this.mProcessTime = 0L;
         this.mDownSize = 0;
         this.mCostTime = 0L;
-        this.performanceData = new wb();
+        this.performanceData = new xb();
         this.mCmd = i;
     }
-
-    public void afterDispatchInBackGround(int i, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
-        }
-    }
-
-    public void beforeDispatchInBackGround(int i, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, t) == null) {
-        }
-    }
-
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
     public int getCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCmd : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCmd;
+        }
+        return invokeV.intValue;
     }
 
     public long getCostTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCostTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCostTime;
+        }
+        return invokeV.longValue;
     }
 
-    @Nullable
     public Object getDecodeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.decodeData : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.decodeData;
+        }
+        return invokeV.objValue;
     }
 
     public int getDownSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDownSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mDownSize;
+        }
+        return invokeV.intValue;
     }
 
     public int getError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mError : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mError;
+        }
+        return invokeV.intValue;
     }
 
     public String getErrorString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mErrorString : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mErrorString;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Message<?> getOrginalMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mOrginalMessage : (Message) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mOrginalMessage;
+        }
+        return (Message) invokeV.objValue;
     }
 
     public long getProcessTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mProcessTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mProcessTime;
+        }
+        return invokeV.longValue;
     }
 
     public long getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mStartTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mStartTime;
+        }
+        return invokeV.longValue;
     }
 
     public Message<?> getmOrginalMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mOrginalMessage : (Message) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mOrginalMessage;
+        }
+        return (Message) invokeV.objValue;
     }
-
-    public abstract boolean hasError();
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == ta.c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == ua.c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

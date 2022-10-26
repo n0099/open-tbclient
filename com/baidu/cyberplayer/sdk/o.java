@@ -259,7 +259,7 @@ public class o {
         return (String) invokeLL.objValue;
     }
 
-    public static ArrayList<String> a(File file, String str) throws Exception {
+    public static ArrayList a(File file, String str) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, str)) == null) {
@@ -270,7 +270,7 @@ public class o {
                         if (str != null) {
                             File file2 = new File(str);
                             if (file2.exists() && file2.isDirectory()) {
-                                ArrayList<String> arrayList = new ArrayList<>();
+                                ArrayList arrayList = new ArrayList();
                                 ZipFile zipFile = new ZipFile(file);
                                 Enumeration<? extends ZipEntry> entries = zipFile.entries();
                                 byte[] bArr = new byte[1024];
@@ -326,14 +326,14 @@ public class o {
         return (ArrayList) invokeLL.objValue;
     }
 
-    public static Map<String, String> a(Map<String, String> map) {
+    public static Map a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, map)) == null) {
             if (map == null) {
-                map = new HashMap<>();
+                map = new HashMap();
             }
-            String str = map.get("User-Agent");
+            String str = (String) map.get("User-Agent");
             if (TextUtils.isEmpty(str)) {
                 str = "dumedia/7.32.10.41";
             } else if (str.indexOf("dumedia") == -1) {
@@ -359,13 +359,13 @@ public class o {
         }
     }
 
-    public static void a(String str, ArrayList<String> arrayList) {
+    public static void a(String str, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65548, null, str, arrayList) == null) || str == null || arrayList == null) {
             return;
         }
         for (int i = 0; i < arrayList.size(); i++) {
-            a(str + File.separator + arrayList.get(i));
+            a(str + File.separator + ((String) arrayList.get(i)));
         }
     }
 
@@ -496,7 +496,7 @@ public class o {
         return (String) invokeV.objValue;
     }
 
-    public static Map<String, String> c(String str) {
+    public static Map c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {

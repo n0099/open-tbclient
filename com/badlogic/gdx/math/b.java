@@ -47,7 +47,10 @@ public final class b {
                 f = f4;
                 f2 = f5;
             }
-            return f3 < 0.0f;
+            if (f3 >= 0.0f) {
+                return false;
+            }
+            return true;
         }
         return invokeLII.booleanValue;
     }

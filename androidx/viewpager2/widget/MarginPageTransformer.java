@@ -2,8 +2,6 @@ package androidx.viewpager2.widget;
 
 import android.view.View;
 import android.view.ViewParent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Px;
 import androidx.core.util.Preconditions;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -18,7 +16,7 @@ public final class MarginPageTransformer implements ViewPager2.PageTransformer {
     public transient /* synthetic */ FieldHolder $fh;
     public final int mMarginPx;
 
-    public MarginPageTransformer(@Px int i) {
+    public MarginPageTransformer(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +35,7 @@ public final class MarginPageTransformer implements ViewPager2.PageTransformer {
         this.mMarginPx = i;
     }
 
-    private ViewPager2 requireViewPager(@NonNull View view2) {
+    private ViewPager2 requireViewPager(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, view2)) == null) {
@@ -52,7 +50,7 @@ public final class MarginPageTransformer implements ViewPager2.PageTransformer {
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.PageTransformer
-    public void transformPage(@NonNull View view2, float f) {
+    public void transformPage(View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
             ViewPager2 requireViewPager = requireViewPager(view2);

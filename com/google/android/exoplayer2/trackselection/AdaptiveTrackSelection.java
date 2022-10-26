@@ -35,8 +35,18 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
     public int reason;
     public int selectedIndex;
 
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public Object getSelectionData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class Factory implements TrackSelection.Factory {
+    public final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float bandwidthFraction;
@@ -89,14 +99,6 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.exoplayer2.trackselection.TrackSelection.Factory
-        public AdaptiveTrackSelection createTrackSelection(TrackGroup trackGroup, int... iArr) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trackGroup, iArr)) == null) ? new AdaptiveTrackSelection(trackGroup, iArr, this.bandwidthMeter, this.maxInitialBitrate, this.minDurationForQualityIncreaseMs, this.maxDurationForQualityDecreaseMs, this.minDurationToRetainAfterDiscardMs, this.bandwidthFraction, this.bufferedFractionToLiveEdgeForQualityIncrease) : (AdaptiveTrackSelection) invokeLL.objValue;
-        }
-
         public Factory(BandwidthMeter bandwidthMeter, int i, int i2, int i3, int i4, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -120,6 +122,17 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
             this.bandwidthFraction = f;
             this.bufferedFractionToLiveEdgeForQualityIncrease = f2;
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.android.exoplayer2.trackselection.TrackSelection.Factory
+        public AdaptiveTrackSelection createTrackSelection(TrackGroup trackGroup, int... iArr) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trackGroup, iArr)) == null) {
+                return new AdaptiveTrackSelection(trackGroup, iArr, this.bandwidthMeter, this.maxInitialBitrate, this.minDurationForQualityIncreaseMs, this.maxDurationForQualityDecreaseMs, this.minDurationToRetainAfterDiscardMs, this.bandwidthFraction, this.bufferedFractionToLiveEdgeForQualityIncrease);
+            }
+            return (AdaptiveTrackSelection) invokeLL.objValue;
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -139,112 +152,6 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-    }
-
-    private int determineIdealSelectedIndex(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
-            long bitrateEstimate = this.bandwidthMeter.getBitrateEstimate();
-            long j2 = bitrateEstimate == -1 ? this.maxInitialBitrate : ((float) bitrateEstimate) * this.bandwidthFraction;
-            int i = 0;
-            for (int i2 = 0; i2 < this.length; i2++) {
-                if (j == Long.MIN_VALUE || !isBlacklisted(i2, j)) {
-                    if (getFormat(i2).bitrate <= j2) {
-                        return i2;
-                    }
-                    i = i2;
-                }
-            }
-            return i;
-        }
-        return invokeJ.intValue;
-    }
-
-    private long minDurationForQualityIncreaseUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
-            return (j > C.TIME_UNSET ? 1 : (j == C.TIME_UNSET ? 0 : -1)) != 0 && (j > this.minDurationForQualityIncreaseUs ? 1 : (j == this.minDurationForQualityIncreaseUs ? 0 : -1)) <= 0 ? ((float) j) * this.bufferedFractionToLiveEdgeForQualityIncrease : this.minDurationForQualityIncreaseUs;
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.BaseTrackSelection, com.google.android.exoplayer2.trackselection.TrackSelection
-    public int evaluateQueueSize(long j, List<? extends MediaChunk> list) {
-        InterceptResult invokeJL;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, list)) == null) {
-            if (list.isEmpty()) {
-                return 0;
-            }
-            int size = list.size();
-            if (list.get(size - 1).endTimeUs - j < this.minDurationToRetainAfterDiscardUs) {
-                return size;
-            }
-            Format format = getFormat(determineIdealSelectedIndex(SystemClock.elapsedRealtime()));
-            for (int i3 = 0; i3 < size; i3++) {
-                MediaChunk mediaChunk = list.get(i3);
-                Format format2 = mediaChunk.trackFormat;
-                if (mediaChunk.startTimeUs - j >= this.minDurationToRetainAfterDiscardUs && format2.bitrate < format.bitrate && (i = format2.height) != -1 && i < 720 && (i2 = format2.width) != -1 && i2 < 1280 && i < format.height) {
-                    return i3;
-                }
-            }
-            return size;
-        }
-        return invokeJL.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public int getSelectedIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.selectedIndex : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public Object getSelectionData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public int getSelectionReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.reason : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public void updateSelectedTrack(long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            int i = this.selectedIndex;
-            int determineIdealSelectedIndex = determineIdealSelectedIndex(elapsedRealtime);
-            this.selectedIndex = determineIdealSelectedIndex;
-            if (determineIdealSelectedIndex == i) {
-                return;
-            }
-            if (!isBlacklisted(i, elapsedRealtime)) {
-                Format format = getFormat(i);
-                Format format2 = getFormat(this.selectedIndex);
-                if (format2.bitrate > format.bitrate && j2 < minDurationForQualityIncreaseUs(j3)) {
-                    this.selectedIndex = i;
-                } else if (format2.bitrate < format.bitrate && j2 >= this.maxDurationForQualityDecreaseUs) {
-                    this.selectedIndex = i;
-                }
-            }
-            if (this.selectedIndex != i) {
-                this.reason = 3;
             }
         }
     }
@@ -277,5 +184,121 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
         this.bufferedFractionToLiveEdgeForQualityIncrease = f2;
         this.selectedIndex = determineIdealSelectedIndex(Long.MIN_VALUE);
         this.reason = 1;
+    }
+
+    private int determineIdealSelectedIndex(long j) {
+        InterceptResult invokeJ;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
+            long bitrateEstimate = this.bandwidthMeter.getBitrateEstimate();
+            if (bitrateEstimate == -1) {
+                j2 = this.maxInitialBitrate;
+            } else {
+                j2 = ((float) bitrateEstimate) * this.bandwidthFraction;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < this.length; i2++) {
+                if (j == Long.MIN_VALUE || !isBlacklisted(i2, j)) {
+                    if (getFormat(i2).bitrate <= j2) {
+                        return i2;
+                    }
+                    i = i2;
+                }
+            }
+            return i;
+        }
+        return invokeJ.intValue;
+    }
+
+    private long minDurationForQualityIncreaseUs(long j) {
+        InterceptResult invokeJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
+            if (j != C.TIME_UNSET && j <= this.minDurationForQualityIncreaseUs) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return ((float) j) * this.bufferedFractionToLiveEdgeForQualityIncrease;
+            }
+            return this.minDurationForQualityIncreaseUs;
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.BaseTrackSelection, com.google.android.exoplayer2.trackselection.TrackSelection
+    public int evaluateQueueSize(long j, List list) {
+        InterceptResult invokeJL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, list)) == null) {
+            if (list.isEmpty()) {
+                return 0;
+            }
+            int size = list.size();
+            if (((MediaChunk) list.get(size - 1)).endTimeUs - j < this.minDurationToRetainAfterDiscardUs) {
+                return size;
+            }
+            Format format = getFormat(determineIdealSelectedIndex(SystemClock.elapsedRealtime()));
+            for (int i3 = 0; i3 < size; i3++) {
+                MediaChunk mediaChunk = (MediaChunk) list.get(i3);
+                Format format2 = mediaChunk.trackFormat;
+                if (mediaChunk.startTimeUs - j >= this.minDurationToRetainAfterDiscardUs && format2.bitrate < format.bitrate && (i = format2.height) != -1 && i < 720 && (i2 = format2.width) != -1 && i2 < 1280 && i < format.height) {
+                    return i3;
+                }
+            }
+            return size;
+        }
+        return invokeJL.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public int getSelectedIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.selectedIndex;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public int getSelectionReason() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.reason;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public void updateSelectedTrack(long j, long j2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            int i = this.selectedIndex;
+            int determineIdealSelectedIndex = determineIdealSelectedIndex(elapsedRealtime);
+            this.selectedIndex = determineIdealSelectedIndex;
+            if (determineIdealSelectedIndex == i) {
+                return;
+            }
+            if (!isBlacklisted(i, elapsedRealtime)) {
+                Format format = getFormat(i);
+                Format format2 = getFormat(this.selectedIndex);
+                if (format2.bitrate > format.bitrate && j2 < minDurationForQualityIncreaseUs(j3)) {
+                    this.selectedIndex = i;
+                } else if (format2.bitrate < format.bitrate && j2 >= this.maxDurationForQualityDecreaseUs) {
+                    this.selectedIndex = i;
+                }
+            }
+            if (this.selectedIndex != i) {
+                this.reason = 3;
+            }
+        }
     }
 }

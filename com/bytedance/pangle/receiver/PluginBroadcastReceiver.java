@@ -2,16 +2,16 @@ package com.bytedance.pangle.receiver;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public abstract class PluginBroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void onReceive(Context context, Intent intent);
 
     public PluginBroadcastReceiver() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,4 @@ public abstract class PluginBroadcastReceiver {
             }
         }
     }
-
-    public abstract void onReceive(Context context, Intent intent);
 }

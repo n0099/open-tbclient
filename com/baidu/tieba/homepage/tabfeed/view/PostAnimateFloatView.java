@@ -3,7 +3,6 @@ package com.baidu.tieba.homepage.tabfeed.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -14,23 +13,22 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.o37;
-import com.baidu.tieba.xx;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.w37;
+import com.baidu.tieba.yx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PostAnimateFloatView extends FrameLayout implements xx {
+public class PostAnimateFloatView extends FrameLayout implements yx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +102,7 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                o37.g();
+                w37.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -179,7 +177,7 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.a.d) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, animator) != null) || this.a.d) {
                 return;
             }
             this.a.e = false;
@@ -188,7 +186,7 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.a.d) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.a.d) {
                 return;
             }
             this.a.e = false;
@@ -197,9 +195,10 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) && this.a.d) {
-                this.a.e = true;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) != null) || !this.a.d) {
+                return;
             }
+            this.a.e = true;
         }
     }
 
@@ -270,24 +269,26 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.a.d) {
-                this.a.e = false;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, animator) != null) || !this.a.d) {
+                return;
             }
+            this.a.e = false;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.d) {
-                this.a.e = false;
-                gh.a().postDelayed(this.a.i, 5000L);
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || !this.a.d) {
+                return;
             }
+            this.a.e = false;
+            hh.a().postDelayed(this.a.i, 5000L);
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.a.d) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) != null) || this.a.d) {
                 return;
             }
             this.a.e = true;
@@ -315,126 +316,8 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.e && this.d) {
-            k();
-            this.d = false;
-            this.h.setStartDelay(0L);
-            this.g.setStartDelay(300L);
-            this.h.start();
-            this.g.start();
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.e || this.d) {
-            return;
-        }
-        k();
-        this.d = true;
-        this.g.setStartDelay(0L);
-        this.h.setStartDelay(250L);
-        this.g.start();
-        this.h.start();
-    }
-
-    @SuppressLint({"NewApi"})
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ValueAnimator valueAnimator = this.h;
-            if (valueAnimator != null) {
-                valueAnimator.removeAllUpdateListeners();
-                this.h.removeAllListeners();
-            }
-            ValueAnimator valueAnimator2 = this.g;
-            if (valueAnimator2 != null) {
-                valueAnimator2.removeAllUpdateListeners();
-                this.g.removeAllListeners();
-            }
-            gh.a().removeCallbacks(this.i);
-        }
-    }
-
-    public final void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04c5, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6d);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a45);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a5d);
-            this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0efd));
-            j();
-            this.a.setOnClickListener(new b(this));
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.g == null) {
-                ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(350L);
-                this.g = duration;
-                duration.setInterpolator(new LinearInterpolator());
-            }
-            if (this.h == null) {
-                ValueAnimator duration2 = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(400L);
-                this.h = duration2;
-                duration2.setInterpolator(new LinearInterpolator());
-            }
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ValueAnimator valueAnimator = this.g;
-            if (valueAnimator != null) {
-                valueAnimator.removeAllUpdateListeners();
-                this.g.removeAllListeners();
-                this.g.addUpdateListener(new c(this));
-                this.g.addListener(new d(this));
-            }
-            ValueAnimator valueAnimator2 = this.h;
-            if (valueAnimator2 != null) {
-                valueAnimator2.removeAllUpdateListeners();
-                this.h.removeAllListeners();
-                this.h.addUpdateListener(new e(this));
-                this.h.addListener(new f(this));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
-            ImageView imageView = this.b;
-            if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0101, null);
-            }
-            TextView textView = this.c;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            }
-            LinearLayout linearLayout = this.a;
-            if (linearLayout != null) {
-                hv4 d2 = hv4.d(linearLayout);
-                d2.n(R.string.J_X01);
-                d2.h(R.color.CAM_X0302);
-            }
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PostAnimateFloatView(Context context, @Nullable AttributeSet attributeSet) {
+    public PostAnimateFloatView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -455,7 +338,7 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PostAnimateFloatView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PostAnimateFloatView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -475,5 +358,119 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         }
         this.i = new a(this);
         i(context);
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e || !this.d) {
+            return;
+        }
+        k();
+        this.d = false;
+        this.h.setStartDelay(0L);
+        this.g.setStartDelay(300L);
+        this.h.start();
+        this.g.start();
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.e || this.d) {
+            return;
+        }
+        k();
+        this.d = true;
+        this.g.setStartDelay(0L);
+        this.h.setStartDelay(250L);
+        this.g.start();
+        this.h.start();
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ValueAnimator valueAnimator = this.h;
+            if (valueAnimator != null) {
+                valueAnimator.removeAllUpdateListeners();
+                this.h.removeAllListeners();
+            }
+            ValueAnimator valueAnimator2 = this.g;
+            if (valueAnimator2 != null) {
+                valueAnimator2.removeAllUpdateListeners();
+                this.g.removeAllListeners();
+            }
+            hh.a().removeCallbacks(this.i);
+        }
+    }
+
+    public final void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04c2, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c69);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a41);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a59);
+            this.c = textView;
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0f0f));
+            j();
+            this.a.setOnClickListener(new b(this));
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.g == null) {
+                ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(350L);
+                this.g = duration;
+                duration.setInterpolator(new LinearInterpolator());
+            }
+            if (this.h == null) {
+                ValueAnimator duration2 = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(400L);
+                this.h = duration2;
+                duration2.setInterpolator(new LinearInterpolator());
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ValueAnimator valueAnimator = this.g;
+            if (valueAnimator != null) {
+                valueAnimator.removeAllUpdateListeners();
+                this.g.removeAllListeners();
+                this.g.addUpdateListener(new c(this));
+                this.g.addListener(new d(this));
+            }
+            ValueAnimator valueAnimator2 = this.h;
+            if (valueAnimator2 != null) {
+                valueAnimator2.removeAllUpdateListeners();
+                this.h.removeAllListeners();
+                this.h.addUpdateListener(new e(this));
+                this.h.addListener(new f(this));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
+            ImageView imageView = this.b;
+            if (imageView != null) {
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0101, null);
+            }
+            TextView textView = this.c;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            }
+            LinearLayout linearLayout = this.a;
+            if (linearLayout != null) {
+                nv4 d2 = nv4.d(linearLayout);
+                d2.n(R.string.J_X01);
+                d2.h(R.color.CAM_X0302);
+            }
+        }
     }
 }

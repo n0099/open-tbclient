@@ -47,10 +47,10 @@ public class c {
         }
     }
 
-    public static void a(boolean z) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            b = z;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && b) {
+            Log.e("CMCC-SDK:" + str, "" + str2);
         }
     }
 
@@ -61,10 +61,10 @@ public class c {
         }
     }
 
-    public static void a(String str, String str2) {
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && b) {
-            Log.e("CMCC-SDK:" + str, "" + str2);
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            b = z;
         }
     }
 }

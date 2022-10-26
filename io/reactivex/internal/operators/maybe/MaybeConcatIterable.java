@@ -23,24 +23,24 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class MaybeConcatIterable<T> extends Flowable<T> {
+public final class MaybeConcatIterable extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable<? extends MaybeSource<? extends T>> sources;
+    public final Iterable sources;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatMaybeObserver<T> extends AtomicInteger implements MaybeObserver<T>, Subscription {
+    public final class ConcatMaybeObserver extends AtomicInteger implements MaybeObserver, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3520831347801429610L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
-        public final AtomicReference<Object> current;
+        public final Subscriber actual;
+        public final AtomicReference current;
         public final SequentialDisposable disposables;
         public long produced;
         public final AtomicLong requested;
-        public final Iterator<? extends MaybeSource<? extends T>> sources;
+        public final Iterator sources;
 
-        public ConcatMaybeObserver(Subscriber<? super T> subscriber, Iterator<? extends MaybeSource<? extends T>> it) {
+        public ConcatMaybeObserver(Subscriber subscriber, Iterator it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
             this.sources = it;
             this.requested = new AtomicLong();
             this.disposables = new SequentialDisposable();
-            this.current = new AtomicReference<>(NotificationLite.COMPLETE);
+            this.current = new AtomicReference(NotificationLite.COMPLETE);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -70,56 +70,6 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
             }
         }
 
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
-                AtomicReference<Object> atomicReference = this.current;
-                Subscriber<? super T> subscriber = this.actual;
-                SequentialDisposable sequentialDisposable = this.disposables;
-                while (!sequentialDisposable.isDisposed()) {
-                    Object obj = atomicReference.get();
-                    if (obj != null) {
-                        boolean z = true;
-                        if (obj != NotificationLite.COMPLETE) {
-                            long j = this.produced;
-                            if (j != this.requested.get()) {
-                                this.produced = j + 1;
-                                atomicReference.lazySet(null);
-                                subscriber.onNext(obj);
-                            } else {
-                                z = false;
-                            }
-                        } else {
-                            atomicReference.lazySet(null);
-                        }
-                        if (z && !sequentialDisposable.isDisposed()) {
-                            try {
-                                if (this.sources.hasNext()) {
-                                    try {
-                                        ((MaybeSource) ObjectHelper.requireNonNull(this.sources.next(), "The source Iterator returned a null MaybeSource")).subscribe(this);
-                                    } catch (Throwable th) {
-                                        Exceptions.throwIfFatal(th);
-                                        subscriber.onError(th);
-                                        return;
-                                    }
-                                } else {
-                                    subscriber.onComplete();
-                                }
-                            } catch (Throwable th2) {
-                                Exceptions.throwIfFatal(th2);
-                                subscriber.onError(th2);
-                                return;
-                            }
-                        }
-                    }
-                    if (decrementAndGet() == 0) {
-                        return;
-                    }
-                }
-                atomicReference.lazySet(null);
-            }
-        }
-
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
@@ -127,6 +77,57 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
                 this.current.lazySet(NotificationLite.COMPLETE);
                 drain();
             }
+        }
+
+        public void drain() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            AtomicReference atomicReference = this.current;
+            Subscriber subscriber = this.actual;
+            SequentialDisposable sequentialDisposable = this.disposables;
+            while (!sequentialDisposable.isDisposed()) {
+                Object obj = atomicReference.get();
+                if (obj != null) {
+                    boolean z = true;
+                    if (obj != NotificationLite.COMPLETE) {
+                        long j = this.produced;
+                        if (j != this.requested.get()) {
+                            this.produced = j + 1;
+                            atomicReference.lazySet(null);
+                            subscriber.onNext(obj);
+                        } else {
+                            z = false;
+                        }
+                    } else {
+                        atomicReference.lazySet(null);
+                    }
+                    if (z && !sequentialDisposable.isDisposed()) {
+                        try {
+                            if (this.sources.hasNext()) {
+                                try {
+                                    ((MaybeSource) ObjectHelper.requireNonNull(this.sources.next(), "The source Iterator returned a null MaybeSource")).subscribe(this);
+                                } catch (Throwable th) {
+                                    Exceptions.throwIfFatal(th);
+                                    subscriber.onError(th);
+                                    return;
+                                }
+                            } else {
+                                subscriber.onComplete();
+                            }
+                        } catch (Throwable th2) {
+                            Exceptions.throwIfFatal(th2);
+                            subscriber.onError(th2);
+                            return;
+                        }
+                    }
+                }
+                if (decrementAndGet() == 0) {
+                    return;
+                }
+            }
+            atomicReference.lazySet(null);
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -146,10 +147,10 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.current.lazySet(t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.current.lazySet(obj);
                 drain();
             }
         }
@@ -164,7 +165,7 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
         }
     }
 
-    public MaybeConcatIterable(Iterable<? extends MaybeSource<? extends T>> iterable) {
+    public MaybeConcatIterable(Iterable iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +184,7 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

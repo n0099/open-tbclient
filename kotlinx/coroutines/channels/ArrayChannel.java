@@ -1,5 +1,6 @@
 package kotlinx.coroutines.channels;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import java.util.concurrent.locks.ReentrantLock;
@@ -14,14 +15,24 @@ import kotlinx.coroutines.internal.AtomicKt;
 import kotlinx.coroutines.internal.Symbol;
 import kotlinx.coroutines.selects.SelectInstance;
 import kotlinx.coroutines.selects.SelectKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0010\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B\u000f\u0012\u0006\u0010'\u001a\u00020\r¢\u0006\u0004\b8\u0010\u0011J\u001d\u0010\u0006\u001a\u00020\u00052\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003H\u0014¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00028\u0000H\u0014¢\u0006\u0004\b\u0013\u0010\u0014J#\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00028\u00002\n\u0010\u0016\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0014¢\u0006\u0004\b\u0017\u0010\u0018J\u0017\u0010\u001a\u001a\u00020\u000f2\u0006\u0010\u0019\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u001a\u0010\u001bJ\u0011\u0010\u001c\u001a\u0004\u0018\u00010\nH\u0014¢\u0006\u0004\b\u001c\u0010\u001dJ\u001d\u0010\u001e\u001a\u0004\u0018\u00010\n2\n\u0010\u0016\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0014¢\u0006\u0004\b\u001e\u0010\u001fR\u001e\u0010!\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\n0 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R\u0016\u0010&\u001a\u00020#8T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b$\u0010%R\u0019\u0010'\u001a\u00020\r8\u0006@\u0006¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010(R\u0016\u0010,\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b,\u0010-R\u0016\u0010.\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b.\u0010-R\u0016\u0010/\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b/\u0010-R\u0016\u00100\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b0\u0010-R\u0016\u00101\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b1\u0010-R\u0016\u00102\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b2\u0010-R\u0016\u00103\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b3\u0010-R\u001a\u00106\u001a\u000604j\u0002`58\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b6\u00107¨\u00069"}, d2 = {"Lkotlinx/coroutines/channels/ArrayChannel;", "E", "Lkotlinx/coroutines/channels/AbstractChannel;", "Lkotlinx/coroutines/channels/Receive;", StatConstants.VALUE_TYPE_RECEIVE, "", "enqueueReceiveInternal", "(Lkotlinx/coroutines/channels/Receive;)Z", "Lkotlinx/coroutines/channels/Send;", "send", "", "enqueueSend", "(Lkotlinx/coroutines/channels/Send;)Ljava/lang/Object;", "", "currentSize", "", "ensureCapacity", "(I)V", "element", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "offerSelectInternal", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "wasClosed", "onCancelIdempotent", "(Z)V", "pollInternal", "()Ljava/lang/Object;", "pollSelectInternal", "(Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "", "buffer", "[Ljava/lang/Object;", "", "getBufferDebugString", "()Ljava/lang/String;", "bufferDebugString", "capacity", "I", "getCapacity", "()I", "head", "isBufferAlwaysEmpty", "()Z", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "isClosedForReceive", "isEmpty", "isFull", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "lock", "Ljava/util/concurrent/locks/ReentrantLock;", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0010\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B\u000f\u0012\u0006\u0010'\u001a\u00020\r¢\u0006\u0004\b8\u0010\u0011J\u001d\u0010\u0006\u001a\u00020\u00052\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003H\u0014¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00028\u0000H\u0014¢\u0006\u0004\b\u0013\u0010\u0014J#\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00028\u00002\n\u0010\u0016\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0014¢\u0006\u0004\b\u0017\u0010\u0018J\u0017\u0010\u001a\u001a\u00020\u000f2\u0006\u0010\u0019\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u001a\u0010\u001bJ\u0011\u0010\u001c\u001a\u0004\u0018\u00010\nH\u0014¢\u0006\u0004\b\u001c\u0010\u001dJ\u001d\u0010\u001e\u001a\u0004\u0018\u00010\n2\n\u0010\u0016\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0014¢\u0006\u0004\b\u001e\u0010\u001fR\u001e\u0010!\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\n0 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R\u0016\u0010&\u001a\u00020#8T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b$\u0010%R\u0019\u0010'\u001a\u00020\r8\u0006@\u0006¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010(R\u0016\u0010,\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b,\u0010-R\u0016\u0010.\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b.\u0010-R\u0016\u0010/\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b/\u0010-R\u0016\u00100\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b0\u0010-R\u0016\u00101\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b1\u0010-R\u0016\u00102\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b2\u0010-R\u0016\u00103\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b3\u0010-R\u001a\u00106\u001a\u000604j\u0002`58\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b6\u00107¨\u00069"}, d2 = {"Lkotlinx/coroutines/channels/ArrayChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/AbstractChannel;", "Lkotlinx/coroutines/channels/Receive;", StatConstants.VALUE_TYPE_RECEIVE, "", "enqueueReceiveInternal", "(Lkotlinx/coroutines/channels/Receive;)Z", "Lkotlinx/coroutines/channels/Send;", "send", "", "enqueueSend", "(Lkotlinx/coroutines/channels/Send;)Ljava/lang/Object;", "", "currentSize", "", "ensureCapacity", "(I)V", "element", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "offerSelectInternal", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "wasClosed", "onCancelIdempotent", "(Z)V", "pollInternal", "()Ljava/lang/Object;", "pollSelectInternal", "(Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "", "buffer", "[Ljava/lang/Object;", "", "getBufferDebugString", "()Ljava/lang/String;", "bufferDebugString", "capacity", "I", "getCapacity", "()I", "head", "isBufferAlwaysEmpty", "()Z", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "isClosedForReceive", "isEmpty", "isFull", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "lock", "Ljava/util/concurrent/locks/ReentrantLock;", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public class ArrayChannel<E> extends AbstractChannel<E> {
+public class ArrayChannel extends AbstractChannel {
     public Object[] buffer;
     public final int capacity;
     public int head;
     public final ReentrantLock lock;
     public volatile int size;
+
+    @Override // kotlinx.coroutines.channels.AbstractChannel
+    public final boolean isBufferAlwaysEmpty() {
+        return false;
+    }
+
+    @Override // kotlinx.coroutines.channels.AbstractSendChannel
+    public final boolean isBufferAlwaysFull() {
+        return false;
+    }
 
     public ArrayChannel(int i) {
         this.capacity = i;
@@ -32,6 +43,26 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             return;
         }
         throw new IllegalArgumentException(("ArrayChannel capacity must be at least 1, but " + this.capacity + " was specified").toString());
+    }
+
+    @Override // kotlinx.coroutines.channels.AbstractChannel
+    public void onCancelIdempotent(boolean z) {
+        if (z) {
+            ReentrantLock reentrantLock = this.lock;
+            reentrantLock.lock();
+            try {
+                int i = this.size;
+                for (int i2 = 0; i2 < i; i2++) {
+                    this.buffer[this.head] = 0;
+                    this.head = (this.head + 1) % this.buffer.length;
+                }
+                this.size = 0;
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        super.onCancelIdempotent(z);
     }
 
     private final void ensureCapacity(int i) {
@@ -48,7 +79,7 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractChannel
-    public boolean enqueueReceiveInternal(Receive<? super E> receive) {
+    public boolean enqueueReceiveInternal(Receive receive) {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -79,23 +110,19 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractChannel
-    public final boolean isBufferAlwaysEmpty() {
-        return false;
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public final boolean isBufferAlwaysFull() {
-        return false;
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractChannel
     public final boolean isBufferEmpty() {
-        return this.size == 0;
+        if (this.size == 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
     public final boolean isBufferFull() {
-        return this.size == this.capacity;
+        if (this.size == this.capacity) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlinx.coroutines.channels.AbstractChannel, kotlinx.coroutines.channels.ReceiveChannel
@@ -132,14 +159,15 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerInternal(E e) {
-        ReceiveOrClosed<E> takeFirstReceiveOrPeekClosed;
+    public Object offerInternal(Object obj) {
+        ReceiveOrClosed takeFirstReceiveOrPeekClosed;
         Symbol tryResumeReceive;
+        boolean z;
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
             int i = this.size;
-            Closed<?> closedForSend = getClosedForSend();
+            Closed closedForSend = getClosedForSend();
             if (closedForSend != null) {
                 return closedForSend;
             }
@@ -159,11 +187,16 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                             if (takeFirstReceiveOrPeekClosed == null) {
                                 Intrinsics.throwNpe();
                             }
-                            tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(e, null);
+                            tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(obj, null);
                         }
                     } while (tryResumeReceive == null);
                     if (DebugKt.getASSERTIONS_ENABLED()) {
-                        if (!(tryResumeReceive == CancellableContinuationImplKt.RESUME_TOKEN)) {
+                        if (tryResumeReceive == CancellableContinuationImplKt.RESUME_TOKEN) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (!z) {
                             throw new AssertionError();
                         }
                     }
@@ -172,14 +205,14 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                     if (takeFirstReceiveOrPeekClosed == null) {
                         Intrinsics.throwNpe();
                     }
-                    takeFirstReceiveOrPeekClosed.completeResumeReceive(e);
+                    takeFirstReceiveOrPeekClosed.completeResumeReceive(obj);
                     if (takeFirstReceiveOrPeekClosed == null) {
                         Intrinsics.throwNpe();
                     }
                     return takeFirstReceiveOrPeekClosed.getOfferResult();
                 }
                 ensureCapacity(i);
-                this.buffer[(this.head + i) % this.buffer.length] = e;
+                this.buffer[(this.head + i) % this.buffer.length] = obj;
                 return AbstractChannelKt.OFFER_SUCCESS;
             }
             return AbstractChannelKt.OFFER_FAILED;
@@ -189,12 +222,12 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerSelectInternal(E e, SelectInstance<?> selectInstance) {
+    public Object offerSelectInternal(Object obj, SelectInstance selectInstance) {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
             int i = this.size;
-            Closed<?> closedForSend = getClosedForSend();
+            Closed closedForSend = getClosedForSend();
             if (closedForSend != null) {
                 return closedForSend;
             }
@@ -202,20 +235,20 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                 this.size = i + 1;
                 if (i == 0) {
                     while (true) {
-                        AbstractSendChannel.TryOfferDesc<E> describeTryOffer = describeTryOffer(e);
+                        AbstractSendChannel.TryOfferDesc describeTryOffer = describeTryOffer(obj);
                         Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeTryOffer);
                         if (performAtomicTrySelect == null) {
                             this.size = i;
-                            ReceiveOrClosed<? super E> result = describeTryOffer.getResult();
+                            ReceiveOrClosed receiveOrClosed = (ReceiveOrClosed) describeTryOffer.getResult();
                             Unit unit = Unit.INSTANCE;
-                            if (result == null) {
+                            if (receiveOrClosed == null) {
                                 Intrinsics.throwNpe();
                             }
-                            result.completeResumeReceive(e);
-                            if (result == null) {
+                            receiveOrClosed.completeResumeReceive(obj);
+                            if (receiveOrClosed == null) {
                                 Intrinsics.throwNpe();
                             }
-                            return result.getOfferResult();
+                            return receiveOrClosed.getOfferResult();
                         } else if (performAtomicTrySelect == AbstractChannelKt.OFFER_FAILED) {
                             break;
                         } else if (performAtomicTrySelect != AtomicKt.RETRY_ATOMIC) {
@@ -232,33 +265,13 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                     return SelectKt.getALREADY_SELECTED();
                 }
                 ensureCapacity(i);
-                this.buffer[(this.head + i) % this.buffer.length] = e;
+                this.buffer[(this.head + i) % this.buffer.length] = obj;
                 return AbstractChannelKt.OFFER_SUCCESS;
             }
             return AbstractChannelKt.OFFER_FAILED;
         } finally {
             reentrantLock.unlock();
         }
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractChannel
-    public void onCancelIdempotent(boolean z) {
-        if (z) {
-            ReentrantLock reentrantLock = this.lock;
-            reentrantLock.lock();
-            try {
-                int i = this.size;
-                for (int i2 = 0; i2 < i; i2++) {
-                    this.buffer[this.head] = 0;
-                    this.head = (this.head + 1) % this.buffer.length;
-                }
-                this.size = 0;
-                Unit unit = Unit.INSTANCE;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        super.onCancelIdempotent(z);
     }
 
     @Override // kotlinx.coroutines.channels.AbstractChannel
@@ -279,32 +292,37 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             this.buffer[this.head] = null;
             this.size = i - 1;
             Object obj2 = AbstractChannelKt.POLL_FAILED;
+            boolean z = false;
             if (i == this.capacity) {
                 Send send2 = null;
                 while (true) {
                     Send takeFirstSendOrPeekClosed = takeFirstSendOrPeekClosed();
-                    if (takeFirstSendOrPeekClosed == null) {
-                        send = send2;
-                        break;
-                    }
-                    if (takeFirstSendOrPeekClosed == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    Symbol tryResumeSend = takeFirstSendOrPeekClosed.tryResumeSend(null);
-                    if (tryResumeSend != null) {
-                        if (DebugKt.getASSERTIONS_ENABLED()) {
-                            if (!(tryResumeSend == CancellableContinuationImplKt.RESUME_TOKEN)) {
-                                throw new AssertionError();
-                            }
-                        }
+                    if (takeFirstSendOrPeekClosed != null) {
                         if (takeFirstSendOrPeekClosed == null) {
                             Intrinsics.throwNpe();
                         }
-                        obj2 = takeFirstSendOrPeekClosed.getPollResult();
-                        send = takeFirstSendOrPeekClosed;
-                        r6 = true;
+                        Symbol tryResumeSend = takeFirstSendOrPeekClosed.tryResumeSend(null);
+                        if (tryResumeSend != null) {
+                            if (DebugKt.getASSERTIONS_ENABLED()) {
+                                if (tryResumeSend == CancellableContinuationImplKt.RESUME_TOKEN) {
+                                    z = true;
+                                }
+                                if (!z) {
+                                    throw new AssertionError();
+                                }
+                            }
+                            if (takeFirstSendOrPeekClosed == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            obj2 = takeFirstSendOrPeekClosed.getPollResult();
+                            send = takeFirstSendOrPeekClosed;
+                            z = true;
+                        } else {
+                            send2 = takeFirstSendOrPeekClosed;
+                        }
                     } else {
-                        send2 = takeFirstSendOrPeekClosed;
+                        send = send2;
+                        break;
                     }
                 }
             }
@@ -314,7 +332,7 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             }
             this.head = (this.head + 1) % this.buffer.length;
             Unit unit = Unit.INSTANCE;
-            if (r6) {
+            if (z) {
                 if (send == null) {
                     Intrinsics.throwNpe();
                 }
@@ -333,7 +351,7 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Object pollSelectInternal(SelectInstance<?> selectInstance) {
+    public Object pollSelectInternal(SelectInstance selectInstance) {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -352,10 +370,10 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             Object obj2 = AbstractChannelKt.POLL_FAILED;
             if (i == this.capacity) {
                 while (true) {
-                    AbstractChannel.TryPollDesc<E> describeTryPoll = describeTryPoll();
+                    AbstractChannel.TryPollDesc describeTryPoll = describeTryPoll();
                     Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeTryPoll);
                     if (performAtomicTrySelect == null) {
-                        send = describeTryPoll.getResult();
+                        send = (Send) describeTryPoll.getResult();
                         if (send == null) {
                             Intrinsics.throwNpe();
                         }

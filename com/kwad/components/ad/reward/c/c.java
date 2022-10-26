@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.c;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,6 @@ import com.kwad.sdk.api.KsInnerAd;
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public Object oR;
 
     public c(Object obj) {

@@ -18,6 +18,31 @@ public class PbChosenActivityConfig extends IntentConfig {
     public static final int PBCHOSEN_FROM_PUSH = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PbChosenActivityConfig(Context context, long j, long j2, long j3, String str, int i) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra(KEY_TID, j);
+        getIntent().putExtra(KEY_SHARE_URL, str);
+        getIntent().putExtra("from", i);
+        getIntent().putExtra(KEY_TAG_CODE, j2);
+        getIntent().putExtra("thread_id", j3);
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbChosenActivityConfig(Context context, long j, String str) {
         this(context, j, str, 1);
@@ -58,30 +83,5 @@ public class PbChosenActivityConfig extends IntentConfig {
                 return;
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbChosenActivityConfig(Context context, long j, long j2, long j3, String str, int i) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra(KEY_TID, j);
-        getIntent().putExtra(KEY_SHARE_URL, str);
-        getIntent().putExtra("from", i);
-        getIntent().putExtra(KEY_TAG_CODE, j2);
-        getIntent().putExtra("thread_id", j3);
     }
 }

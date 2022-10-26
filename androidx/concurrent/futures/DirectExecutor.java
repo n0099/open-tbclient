@@ -17,6 +17,13 @@ public final class DirectExecutor implements Executor {
     public static final DirectExecutor INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // java.lang.Enum
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "DirectExecutor" : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -33,6 +40,15 @@ public final class DirectExecutor implements Executor {
         DirectExecutor directExecutor = new DirectExecutor("INSTANCE", 0);
         INSTANCE = directExecutor;
         $VALUES = new DirectExecutor[]{directExecutor};
+    }
+
+    public static DirectExecutor[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DirectExecutor[]) $VALUES.clone();
+        }
+        return (DirectExecutor[]) invokeV.objValue;
     }
 
     public DirectExecutor(String str, int i) {
@@ -57,13 +73,10 @@ public final class DirectExecutor implements Executor {
     public static DirectExecutor valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DirectExecutor) Enum.valueOf(DirectExecutor.class, str) : (DirectExecutor) invokeL.objValue;
-    }
-
-    public static DirectExecutor[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DirectExecutor[]) $VALUES.clone() : (DirectExecutor[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DirectExecutor) Enum.valueOf(DirectExecutor.class, str);
+        }
+        return (DirectExecutor) invokeL.objValue;
     }
 
     @Override // java.util.concurrent.Executor
@@ -72,12 +85,5 @@ public final class DirectExecutor implements Executor {
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             runnable.run();
         }
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "DirectExecutor" : (String) invokeV.objValue;
     }
 }

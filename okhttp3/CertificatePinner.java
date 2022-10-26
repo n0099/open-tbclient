@@ -53,6 +53,15 @@ public final class CertificatePinner {
             this.pins = new ArrayList();
         }
 
+        public CertificatePinner build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new CertificatePinner(new LinkedHashSet(this.pins), null);
+            }
+            return (CertificatePinner) invokeV.objValue;
+        }
+
         public Builder add(String str, String... strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -66,12 +75,6 @@ public final class CertificatePinner {
                 throw new NullPointerException("pattern == null");
             }
             return (Builder) invokeLL.objValue;
-        }
-
-        public CertificatePinner build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new CertificatePinner(new LinkedHashSet(this.pins), null) : (CertificatePinner) invokeV.objValue;
         }
     }
 
@@ -141,7 +144,19 @@ public final class CertificatePinner {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((((527 + this.pattern.hashCode()) * 31) + this.hashAlgorithm.hashCode()) * 31) + this.hash.hashCode() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return ((((527 + this.pattern.hashCode()) * 31) + this.hashAlgorithm.hashCode()) * 31) + this.hash.hashCode();
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.hashAlgorithm + this.hash.base64();
+            }
+            return (String) invokeV.objValue;
         }
 
         public boolean matches(String str) {
@@ -162,15 +177,6 @@ public final class CertificatePinner {
             }
             return invokeL.booleanValue;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.hashAlgorithm + this.hash.base64();
-            }
-            return (String) invokeV.objValue;
-        }
     }
 
     static {
@@ -187,6 +193,22 @@ public final class CertificatePinner {
             }
         }
         DEFAULT = new Builder().build();
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            CertificateChainCleaner certificateChainCleaner = this.certificateChainCleaner;
+            if (certificateChainCleaner != null) {
+                i = certificateChainCleaner.hashCode();
+            } else {
+                i = 0;
+            }
+            return (i * 31) + this.pins.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public CertificatePinner(Set<Pin> set, @Nullable CertificateChainCleaner certificateChainCleaner) {
@@ -220,16 +242,70 @@ public final class CertificatePinner {
         return (String) invokeL.objValue;
     }
 
+    public List<Pin> findMatchingPins(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            List<Pin> emptyList = Collections.emptyList();
+            for (Pin pin : this.pins) {
+                if (pin.matches(str)) {
+                    if (emptyList.isEmpty()) {
+                        emptyList = new ArrayList<>();
+                    }
+                    emptyList.add(pin);
+                }
+            }
+            return emptyList;
+        }
+        return (List) invokeL.objValue;
+    }
+
     public static ByteString sha1(X509Certificate x509Certificate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x509Certificate)) == null) ? ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha1() : (ByteString) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x509Certificate)) == null) {
+            return ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha1();
+        }
+        return (ByteString) invokeL.objValue;
     }
 
     public static ByteString sha256(X509Certificate x509Certificate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) ? ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha256() : (ByteString) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) {
+            return ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha256();
+        }
+        return (ByteString) invokeL.objValue;
+    }
+
+    public boolean equals(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj instanceof CertificatePinner) {
+                CertificatePinner certificatePinner = (CertificatePinner) obj;
+                if (Util.equal(this.certificateChainCleaner, certificatePinner.certificateChainCleaner) && this.pins.equals(certificatePinner.pins)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public CertificatePinner withCertificateChainCleaner(@Nullable CertificateChainCleaner certificateChainCleaner) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, certificateChainCleaner)) == null) {
+            if (Util.equal(this.certificateChainCleaner, certificateChainCleaner)) {
+                return this;
+            }
+            return new CertificatePinner(this.pins, certificateChainCleaner);
+        }
+        return (CertificatePinner) invokeL.objValue;
     }
 
     public void check(String str, List<Certificate> list) throws SSLPeerUnverifiedException {
@@ -291,58 +367,6 @@ public final class CertificatePinner {
             }
             throw new SSLPeerUnverifiedException(sb.toString());
         }
-    }
-
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof CertificatePinner) {
-                CertificatePinner certificatePinner = (CertificatePinner) obj;
-                if (Util.equal(this.certificateChainCleaner, certificatePinner.certificateChainCleaner) && this.pins.equals(certificatePinner.pins)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public List<Pin> findMatchingPins(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            List<Pin> emptyList = Collections.emptyList();
-            for (Pin pin : this.pins) {
-                if (pin.matches(str)) {
-                    if (emptyList.isEmpty()) {
-                        emptyList = new ArrayList<>();
-                    }
-                    emptyList.add(pin);
-                }
-            }
-            return emptyList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            CertificateChainCleaner certificateChainCleaner = this.certificateChainCleaner;
-            return ((certificateChainCleaner != null ? certificateChainCleaner.hashCode() : 0) * 31) + this.pins.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public CertificatePinner withCertificateChainCleaner(@Nullable CertificateChainCleaner certificateChainCleaner) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, certificateChainCleaner)) == null) ? Util.equal(this.certificateChainCleaner, certificateChainCleaner) ? this : new CertificatePinner(this.pins, certificateChainCleaner) : (CertificatePinner) invokeL.objValue;
     }
 
     public void check(String str, Certificate... certificateArr) throws SSLPeerUnverifiedException {

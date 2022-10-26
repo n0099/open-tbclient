@@ -33,7 +33,7 @@ public class a extends com.sdk.i.a {
         isDebug = g.b;
     }
 
-    public static String a(String str, String str2, TreeMap<String, Object> treeMap) {
+    public static String a(String str, String str2, TreeMap treeMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, treeMap)) == null) {
@@ -45,14 +45,14 @@ public class a extends com.sdk.i.a {
                 stringBuffer.append(str);
                 stringBuffer.append(str2);
                 stringBuffer.append('?');
-                for (Map.Entry<String, Object> entry : treeMap.entrySet()) {
-                    String key = entry.getKey();
+                for (Map.Entry entry : treeMap.entrySet()) {
+                    String str3 = (String) entry.getKey();
                     StringBuilder sb = new StringBuilder();
                     sb.append(entry.getValue());
                     sb.append("");
                     String sb2 = sb.toString();
-                    if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
-                        stringBuffer.append(key);
+                    if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(str3) && !str3.startsWith("_") && !"file".equals(str3)) {
+                        stringBuffer.append(str3);
                         stringBuffer.append('=');
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append('&');

@@ -7,12 +7,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.annotations.Nullable;
 /* loaded from: classes8.dex */
-public abstract class Subject<T> extends Observable<T> implements Observer<T> {
+public abstract class Subject extends Observable implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Throwable getThrowable();
+
+    public abstract boolean hasComplete();
+
+    public abstract boolean hasObservers();
+
+    public abstract boolean hasThrowable();
 
     public Subject() {
         Interceptable interceptable = $ic;
@@ -28,19 +34,15 @@ public abstract class Subject<T> extends Observable<T> implements Observer<T> {
         }
     }
 
-    @Nullable
-    public abstract Throwable getThrowable();
-
-    public abstract boolean hasComplete();
-
-    public abstract boolean hasObservers();
-
-    public abstract boolean hasThrowable();
-
-    @NonNull
-    public final Subject<T> toSerialized() {
+    public final Subject toSerialized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this instanceof SerializedSubject ? this : new SerializedSubject(this) : (Subject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this instanceof SerializedSubject) {
+                return this;
+            }
+            return new SerializedSubject(this);
+        }
+        return (Subject) invokeV.objValue;
     }
 }

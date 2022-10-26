@@ -121,13 +121,6 @@ public class GlShader {
         }
     }
 
-    public void setVertexAttribArray(String str, int i, FloatBuffer floatBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, floatBuffer) == null) {
-            setVertexAttribArray(str, i, 0, floatBuffer);
-        }
-    }
-
     public void useProgram() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -152,6 +145,13 @@ public class GlShader {
                 return;
             }
             throw new RuntimeException("The program has been released");
+        }
+    }
+
+    public void setVertexAttribArray(String str, int i, FloatBuffer floatBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, floatBuffer) == null) {
+            setVertexAttribArray(str, i, 0, floatBuffer);
         }
     }
 }

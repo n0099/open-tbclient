@@ -52,38 +52,14 @@ public final class DefaultLoadControl implements LoadControl {
         }
     }
 
-    private int getBufferTimeState(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) {
-            if (j > this.maxBufferUs) {
-                return 0;
-            }
-            return j < this.minBufferUs ? 2 : 1;
-        }
-        return invokeJ.intValue;
-    }
-
-    private void reset(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            this.targetBufferSize = 0;
-            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
-            if (priorityTaskManager != null && this.isBuffering) {
-                priorityTaskManager.remove(0);
-            }
-            this.isBuffering = false;
-            if (z) {
-                this.allocator.reset();
-            }
-        }
-    }
-
     @Override // com.google.android.exoplayer2.LoadControl
     public Allocator getAllocator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.allocator : (Allocator) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.allocator;
+        }
+        return (Allocator) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.LoadControl
@@ -108,57 +84,6 @@ public final class DefaultLoadControl implements LoadControl {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             reset(true);
         }
-    }
-
-    @Override // com.google.android.exoplayer2.LoadControl
-    public void onTracksSelected(Renderer[] rendererArr, TrackGroupArray trackGroupArray, TrackSelectionArray trackSelectionArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, rendererArr, trackGroupArray, trackSelectionArray) == null) {
-            this.targetBufferSize = 0;
-            for (int i = 0; i < rendererArr.length; i++) {
-                if (trackSelectionArray.get(i) != null) {
-                    this.targetBufferSize += Util.getDefaultBufferSize(rendererArr[i].getTrackType());
-                }
-            }
-            this.allocator.setTargetBufferSize(this.targetBufferSize);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.LoadControl
-    public boolean shouldContinueLoading(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            int bufferTimeState = getBufferTimeState(j);
-            boolean z = true;
-            boolean z2 = this.allocator.getTotalBytesAllocated() >= this.targetBufferSize;
-            boolean z3 = this.isBuffering;
-            if (bufferTimeState != 2 && (bufferTimeState != 1 || !z3 || z2)) {
-                z = false;
-            }
-            this.isBuffering = z;
-            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
-            if (priorityTaskManager != null && z != z3) {
-                if (z) {
-                    priorityTaskManager.add(0);
-                } else {
-                    priorityTaskManager.remove(0);
-                }
-            }
-            return this.isBuffering;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.LoadControl
-    public boolean shouldStartPlayback(long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            long j2 = z ? this.bufferForPlaybackAfterRebufferUs : this.bufferForPlaybackUs;
-            return j2 <= 0 || j >= j2;
-        }
-        return invokeCommon.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -224,5 +149,99 @@ public final class DefaultLoadControl implements LoadControl {
         this.bufferForPlaybackUs = j * 1000;
         this.bufferForPlaybackAfterRebufferUs = j2 * 1000;
         this.priorityTaskManager = priorityTaskManager;
+    }
+
+    private int getBufferTimeState(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) {
+            if (j > this.maxBufferUs) {
+                return 0;
+            }
+            if (j < this.minBufferUs) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeJ.intValue;
+    }
+
+    private void reset(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
+            this.targetBufferSize = 0;
+            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
+            if (priorityTaskManager != null && this.isBuffering) {
+                priorityTaskManager.remove(0);
+            }
+            this.isBuffering = false;
+            if (z) {
+                this.allocator.reset();
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.LoadControl
+    public void onTracksSelected(Renderer[] rendererArr, TrackGroupArray trackGroupArray, TrackSelectionArray trackSelectionArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, rendererArr, trackGroupArray, trackSelectionArray) == null) {
+            this.targetBufferSize = 0;
+            for (int i = 0; i < rendererArr.length; i++) {
+                if (trackSelectionArray.get(i) != null) {
+                    this.targetBufferSize += Util.getDefaultBufferSize(rendererArr[i].getTrackType());
+                }
+            }
+            this.allocator.setTargetBufferSize(this.targetBufferSize);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.LoadControl
+    public boolean shouldContinueLoading(long j) {
+        InterceptResult invokeJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            int bufferTimeState = getBufferTimeState(j);
+            boolean z2 = true;
+            if (this.allocator.getTotalBytesAllocated() >= this.targetBufferSize) {
+                z = true;
+            } else {
+                z = false;
+            }
+            boolean z3 = this.isBuffering;
+            if (bufferTimeState != 2 && (bufferTimeState != 1 || !z3 || z)) {
+                z2 = false;
+            }
+            this.isBuffering = z2;
+            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
+            if (priorityTaskManager != null && z2 != z3) {
+                if (z2) {
+                    priorityTaskManager.add(0);
+                } else {
+                    priorityTaskManager.remove(0);
+                }
+            }
+            return this.isBuffering;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.LoadControl
+    public boolean shouldStartPlayback(long j, boolean z) {
+        InterceptResult invokeCommon;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                j2 = this.bufferForPlaybackAfterRebufferUs;
+            } else {
+                j2 = this.bufferForPlaybackUs;
+            }
+            if (j2 > 0 && j < j2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

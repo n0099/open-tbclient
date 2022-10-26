@@ -14,19 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public abstract class PathUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static AsyncTask<Void, Void, String[]> a;
+    public static AsyncTask a;
     public static Context b;
     public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,10 +77,87 @@ public abstract class PathUtils {
         }
     }
 
+    public static String getExternalStorageDirectory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return Environment.getExternalStorageDirectory().getAbsolutePath();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? a.a[i] : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return a.a[i];
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String getCacheDirectory(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return b(3);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getDataDirectory(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return b(0);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getDatabaseDirectory(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return b(2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getDownloadsDirectory(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
+            try {
+                SystemClock.elapsedRealtime();
+                return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+            } finally {
+                StrictMode.setThreadPolicy(allowThreadDiskReads);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getNativeLibraryDirectory(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            ApplicationInfo applicationInfo = context.getApplicationInfo();
+            int i = applicationInfo.flags;
+            if ((i & 128) == 0 && (i & 1) != 0) {
+                return "/system/lib/";
+            }
+            return applicationInfo.nativeLibraryDir;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getThumbnailCacheDirectory(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            return b(1);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String[] c() {
@@ -96,7 +172,7 @@ public abstract class PathUtils {
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                     return d;
                 }
-                return a.get();
+                return (String[]) a.get();
             } catch (InterruptedException | ExecutionException unused) {
                 return null;
             }
@@ -118,68 +194,5 @@ public abstract class PathUtils {
             return strArr;
         }
         return (String[]) invokeV.objValue;
-    }
-
-    @CalledByNative
-    public static String getCacheDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? b(3) : (String) invokeL.objValue;
-    }
-
-    @CalledByNative
-    public static String getDataDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? b(0) : (String) invokeL.objValue;
-    }
-
-    @CalledByNative
-    public static String getDatabaseDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? b(2) : (String) invokeL.objValue;
-    }
-
-    @CalledByNative
-    public static String getDownloadsDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
-            try {
-                SystemClock.elapsedRealtime();
-                return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
-            } finally {
-                StrictMode.setThreadPolicy(allowThreadDiskReads);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @CalledByNative
-    public static String getExternalStorageDirectory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? Environment.getExternalStorageDirectory().getAbsolutePath() : (String) invokeV.objValue;
-    }
-
-    @CalledByNative
-    public static String getNativeLibraryDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            ApplicationInfo applicationInfo = context.getApplicationInfo();
-            int i = applicationInfo.flags;
-            return ((i & 128) != 0 || (i & 1) == 0) ? applicationInfo.nativeLibraryDir : "/system/lib/";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @CalledByNative
-    public static String getThumbnailCacheDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) ? b(1) : (String) invokeL.objValue;
     }
 }

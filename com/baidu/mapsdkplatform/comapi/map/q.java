@@ -15,7 +15,7 @@ public class q {
     public String b;
     public int c;
     public int d;
-    public ArrayList<q> e;
+    public ArrayList e;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class q {
         }
     }
 
-    public ArrayList<q> a() {
+    public ArrayList a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
     }
 
-    public void a(ArrayList<q> arrayList) {
+    public void a(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             this.e = arrayList;

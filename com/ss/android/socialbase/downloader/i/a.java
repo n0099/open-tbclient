@@ -3,6 +3,9 @@ package com.ss.android.socialbase.downloader.i;
 /* loaded from: classes8.dex */
 public class a {
     public static boolean a(int i) {
-        return (com.ss.android.socialbase.downloader.downloader.c.D() & i) == i;
+        if ((com.ss.android.socialbase.downloader.downloader.c.D() & i) == i) {
+            return true;
+        }
+        return false;
     }
 }

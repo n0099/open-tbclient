@@ -20,7 +20,7 @@ import java.util.Map;
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public static com.baidu.ar.lua.c wS;
-    public static final List<String> wT;
+    public static final List wT;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public class p {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public void a(int i, int i2, HashMap<String, Object> hashMap) {
+                public void a(int i, int i2, HashMap hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) {
                         if (i == 1801) {
@@ -73,7 +73,7 @@ public class p {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public List<Integer> n() {
+                public List n() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -102,7 +102,7 @@ public class p {
         wS = null;
     }
 
-    public static void n(HashMap<String, Object> hashMap) {
+    public static void n(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, hashMap) == null) && hashMap != null && hashMap.containsKey("event_name") && hashMap.containsKey("event_id") && "statistic_lua_event".equals((String) hashMap.get("event_name"))) {
             String str = (String) hashMap.get("event_id");
@@ -115,7 +115,7 @@ public class p {
         }
     }
 
-    public static void o(HashMap<String, Object> hashMap) {
+    public static void o(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap) == null) || hashMap == null) {
             return;
@@ -127,7 +127,7 @@ public class p {
         }
         HashMap hashMap2 = new HashMap();
         if (hashMap.size() > 1) {
-            for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+            for (Map.Entry entry : hashMap.entrySet()) {
                 if (entry.getValue() != null) {
                     hashMap2.put(entry.getKey(), entry.getValue().toString());
                 }

@@ -6,7 +6,7 @@ import java.util.Map;
 public interface WebResourceRequest {
     String getMethod();
 
-    Map<String, String> getRequestHeaders();
+    Map getRequestHeaders();
 
     Uri getUrl();
 

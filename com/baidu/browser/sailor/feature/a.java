@@ -2,7 +2,7 @@ package com.baidu.browser.sailor.feature;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yw;
+import com.baidu.tieba.zw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,14 +17,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BdSailorFeature";
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, yw> mClientsMap;
+    public Map mClientsMap;
     public Context mContext;
-    public Enum<EnumC0082a> mStatus;
+    public Enum mStatus;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0082a {
+    public final class EnumC0082a {
         public static /* synthetic */ Interceptable $ic;
         public static final EnumC0082a a;
         public static final EnumC0082a b;
@@ -126,10 +126,10 @@ public class a {
         }
     }
 
-    public yw getListenerFromActivity(String str) {
+    public zw getListenerFromActivity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mClientsMap.get(str) : (yw) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? (zw) this.mClientsMap.get(str) : (zw) invokeL.objValue;
     }
 
     public String getName() {
@@ -144,12 +144,12 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == EnumC0082a.a : invokeV.booleanValue;
     }
 
-    public void regActivityResultCallback(String str, yw ywVar) {
+    public void regActivityResultCallback(String str, zw zwVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, ywVar) == null) || this.mClientsMap.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, zwVar) == null) || this.mClientsMap.containsKey(str)) {
             return;
         }
-        this.mClientsMap.put(str, ywVar);
+        this.mClientsMap.put(str, zwVar);
     }
 
     public void unregActivityResultCallback(String str) {

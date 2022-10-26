@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Notification;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.functions.Predicate;
@@ -20,7 +19,6 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.VolatileSizeArrayList;
-import io.reactivex.observers.BaseTestConsumer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -29,30 +27,34 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> implements Disposable {
+public abstract class BaseTestConsumer implements Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean checkSubscriptionOnce;
     public long completions;
     public final CountDownLatch done;
-    public final List<Throwable> errors;
+    public final List errors;
     public int establishedFusionMode;
     public int initialFusionMode;
     public Thread lastThread;
     public CharSequence tag;
     public boolean timeout;
-    public final List<T> values;
+    public final List values;
 
     /* renamed from: io.reactivex.observers.BaseTestConsumer$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public abstract BaseTestConsumer assertNotSubscribed();
+
+    public abstract BaseTestConsumer assertSubscribed();
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static abstract class TestWaitStrategy implements Runnable {
+    public abstract class TestWaitStrategy implements Runnable {
         public static final /* synthetic */ TestWaitStrategy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TestWaitStrategy SLEEP_1000MS;
@@ -62,6 +64,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         public static final TestWaitStrategy SPIN;
         public static final TestWaitStrategy YIELD;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // java.lang.Runnable
+        public abstract void run();
 
         static {
             InterceptResult invokeClinit;
@@ -79,6 +84,13 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             SPIN = new TestWaitStrategy("SPIN", 0) { // from class: io.reactivex.observers.BaseTestConsumer.TestWaitStrategy.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // io.reactivex.observers.BaseTestConsumer.TestWaitStrategy, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    }
+                }
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -98,13 +110,6 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
-                    }
-                }
-
-                @Override // io.reactivex.observers.BaseTestConsumer.TestWaitStrategy, java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     }
                 }
             };
@@ -296,6 +301,10 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             }
         }
 
+        public /* synthetic */ TestWaitStrategy(String str, int i, AnonymousClass1 anonymousClass1) {
+            this(str, i);
+        }
+
         public static void sleep(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
@@ -310,20 +319,19 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         public static TestWaitStrategy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TestWaitStrategy) Enum.valueOf(TestWaitStrategy.class, str) : (TestWaitStrategy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (TestWaitStrategy) Enum.valueOf(TestWaitStrategy.class, str);
+            }
+            return (TestWaitStrategy) invokeL.objValue;
         }
 
         public static TestWaitStrategy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (TestWaitStrategy[]) $VALUES.clone() : (TestWaitStrategy[]) invokeV.objValue;
-        }
-
-        @Override // java.lang.Runnable
-        public abstract void run();
-
-        public /* synthetic */ TestWaitStrategy(String str, int i, AnonymousClass1 anonymousClass1) {
-            this(str, i);
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (TestWaitStrategy[]) $VALUES.clone();
+            }
+            return (TestWaitStrategy[]) invokeV.objValue;
         }
     }
 
@@ -345,19 +353,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         this.done = new CountDownLatch(1);
     }
 
-    public static String valueAndClass(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            if (obj != null) {
-                return obj + " (class: " + obj.getClass().getSimpleName() + SmallTailInfo.EMOTION_SUFFIX;
-            }
-            return StringUtil.NULL_STRING;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final U assertComplete() {
+    public final BaseTestConsumer assertComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -370,69 +366,10 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             }
             throw fail("Not completed");
         }
-        return (U) invokeV.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
-    public final U assertEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (U) assertSubscribed().assertNoValues().assertNoErrors().assertNotComplete() : (U) invokeV.objValue;
-    }
-
-    public final U assertError(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, th)) == null) ? assertError(Functions.equalsWith(th)) : (U) invokeL.objValue;
-    }
-
-    public final U assertErrorMessage(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            int size = this.errors.size();
-            if (size != 0) {
-                if (size == 1) {
-                    String message = this.errors.get(0).getMessage();
-                    if (ObjectHelper.equals(str, message)) {
-                        return this;
-                    }
-                    throw fail("Error message differs; Expected: " + str + ", Actual: " + message);
-                }
-                throw fail("Multiple errors");
-            }
-            throw fail("No errors");
-        }
-        return (U) invokeL.objValue;
-    }
-
-    public final U assertFailure(Class<? extends Throwable> cls, T... tArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, cls, tArr)) == null) ? (U) assertSubscribed().assertValues(tArr).assertError(cls).assertNotComplete() : (U) invokeLL.objValue;
-    }
-
-    public final U assertFailureAndMessage(Class<? extends Throwable> cls, String str, T... tArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, str, tArr)) == null) ? (U) assertSubscribed().assertValues(tArr).assertError(cls).assertErrorMessage(str).assertNotComplete() : (U) invokeLLL.objValue;
-    }
-
-    public final U assertNever(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, t)) == null) {
-            int size = this.values.size();
-            for (int i = 0; i < size; i++) {
-                if (ObjectHelper.equals(this.values.get(i), t)) {
-                    throw fail("Value at position " + i + " is equal to " + valueAndClass(t) + "; Expected them to be different");
-                }
-            }
-            return this;
-        }
-        return (U) invokeL.objValue;
-    }
-
-    public final U assertNoErrors() {
+    public final BaseTestConsumer assertNoErrors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -441,28 +378,10 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             }
             throw fail("Error(s) present: " + this.errors);
         }
-        return (U) invokeV.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
-    public final U assertNoTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.timeout) {
-                throw fail("Timeout?!");
-            }
-            return this;
-        }
-        return (U) invokeV.objValue;
-    }
-
-    public final U assertNoValues() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? assertValueCount(0) : (U) invokeV.objValue;
-    }
-
-    public final U assertNotComplete() {
+    public final BaseTestConsumer assertNotComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -476,104 +395,39 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             }
             throw fail("Completed!");
         }
-        return (U) invokeV.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
-    public abstract U assertNotSubscribed();
-
-    public final U assertNotTerminated() {
+    public final List getEvents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.done.getCount() != 0) {
-                return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(values());
+            arrayList.add(errors());
+            ArrayList arrayList2 = new ArrayList();
+            for (long j = 0; j < this.completions; j++) {
+                arrayList2.add(Notification.createOnComplete());
             }
-            throw fail("Subscriber terminated!");
+            arrayList.add(arrayList2);
+            return arrayList;
         }
-        return (U) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final U assertResult(T... tArr) {
+    public static String valueAndClass(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, tArr)) == null) ? (U) assertSubscribed().assertValues(tArr).assertNoErrors().assertComplete() : (U) invokeL.objValue;
-    }
-
-    public abstract U assertSubscribed();
-
-    public final U assertTerminated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.done.getCount() == 0) {
-                long j = this.completions;
-                if (j <= 1) {
-                    int size = this.errors.size();
-                    if (size > 1) {
-                        throw fail("Terminated with multiple errors: " + size);
-                    } else if (j == 0 || size == 0) {
-                        return this;
-                    } else {
-                        throw fail("Terminated with multiple completions and errors: " + j);
-                    }
-                }
-                throw fail("Terminated with multiple completions: " + j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+            if (obj != null) {
+                return obj + " (class: " + obj.getClass().getSimpleName() + SmallTailInfo.EMOTION_SUFFIX;
             }
-            throw fail("Subscriber still running!");
+            return StringUtil.NULL_STRING;
         }
-        return (U) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final U assertTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.timeout) {
-                return this;
-            }
-            throw fail("No timeout?!");
-        }
-        return (U) invokeV.objValue;
-    }
-
-    public final U assertValue(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, t)) == null) {
-            if (this.values.size() == 1) {
-                T t2 = this.values.get(0);
-                if (ObjectHelper.equals(t, t2)) {
-                    return this;
-                }
-                throw fail("Expected: " + valueAndClass(t) + ", Actual: " + valueAndClass(t2));
-            }
-            throw fail("Expected: " + valueAndClass(t) + ", Actual: " + this.values);
-        }
-        return (U) invokeL.objValue;
-    }
-
-    @Experimental
-    public final U assertValueAt(int i, T t) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, t)) == null) {
-            int size = this.values.size();
-            if (size != 0) {
-                if (i < size) {
-                    T t2 = this.values.get(i);
-                    if (ObjectHelper.equals(t, t2)) {
-                        return this;
-                    }
-                    throw fail("Expected: " + valueAndClass(t) + ", Actual: " + valueAndClass(t2));
-                }
-                throw fail("Invalid index: " + i);
-            }
-            throw fail("No values");
-        }
-        return (U) invokeIL.objValue;
-    }
-
-    public final U assertValueCount(int i) {
+    public final BaseTestConsumer assertValueCount(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
@@ -583,88 +437,64 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             }
             throw fail("Value counts differ; Expected: " + i + ", Actual: " + size);
         }
-        return (U) invokeI.objValue;
+        return (BaseTestConsumer) invokeI.objValue;
     }
 
-    public final U assertValueSequence(Iterable<? extends T> iterable) {
-        InterceptResult invokeL;
-        boolean hasNext;
-        boolean hasNext2;
+    public final BaseTestConsumer assertEmpty() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, iterable)) == null) {
-            Iterator<T> it = this.values.iterator();
-            Iterator<? extends T> it2 = iterable.iterator();
-            int i = 0;
-            while (true) {
-                hasNext = it2.hasNext();
-                hasNext2 = it.hasNext();
-                if (!hasNext2 || !hasNext) {
-                    break;
-                }
-                T next = it2.next();
-                T next2 = it.next();
-                if (!ObjectHelper.equals(next, next2)) {
-                    throw fail("Values at position " + i + " differ; Expected: " + valueAndClass(next) + ", Actual: " + valueAndClass(next2));
-                }
-                i++;
-            }
-            if (hasNext2) {
-                throw fail("More values received than expected (" + i + SmallTailInfo.EMOTION_SUFFIX);
-            } else if (hasNext) {
-                throw fail("Fewer values received than expected (" + i + SmallTailInfo.EMOTION_SUFFIX);
-            } else {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return assertSubscribed().assertNoValues().assertNoErrors().assertNotComplete();
+        }
+        return (BaseTestConsumer) invokeV.objValue;
+    }
+
+    public final BaseTestConsumer assertNoTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (!this.timeout) {
                 return this;
             }
+            throw fail("Timeout?!");
         }
-        return (U) invokeL.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
-    public final U assertValueSet(Collection<? extends T> collection) {
-        InterceptResult invokeL;
+    public final BaseTestConsumer assertNoValues() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
-            if (collection.isEmpty()) {
-                assertNoValues();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return assertValueCount(0);
+        }
+        return (BaseTestConsumer) invokeV.objValue;
+    }
+
+    public final BaseTestConsumer assertNotTerminated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.done.getCount() != 0) {
                 return this;
             }
-            for (T t : this.values) {
-                if (!collection.contains(t)) {
-                    throw fail("Value not in the expected collection: " + valueAndClass(t));
-                }
-            }
-            return this;
+            throw fail("Subscriber terminated!");
         }
-        return (U) invokeL.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
-    public final U assertValues(T... tArr) {
-        InterceptResult invokeL;
+    public final BaseTestConsumer assertTimeout() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, tArr)) == null) {
-            int size = this.values.size();
-            if (size != tArr.length) {
-                throw fail("Value count differs; Expected: " + tArr.length + " " + Arrays.toString(tArr) + ", Actual: " + size + " " + this.values);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (this.timeout) {
+                return this;
             }
-            for (int i = 0; i < size; i++) {
-                T t = this.values.get(i);
-                T t2 = tArr[i];
-                if (!ObjectHelper.equals(t2, t)) {
-                    throw fail("Values at position " + i + " differ; Expected: " + valueAndClass(t2) + ", Actual: " + valueAndClass(t));
-                }
-            }
-            return this;
+            throw fail("No timeout?!");
         }
-        return (U) invokeL.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
-    @Experimental
-    public final U assertValuesOnly(T... tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, tArr)) == null) ? (U) assertSubscribed().assertValues(tArr).assertNoErrors().assertNotComplete() : (U) invokeL.objValue;
-    }
-
-    public final U await() throws InterruptedException {
+    public final BaseTestConsumer await() throws InterruptedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
@@ -674,31 +504,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             this.done.await();
             return this;
         }
-        return (U) invokeV.objValue;
-    }
-
-    public final U awaitCount(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) ? awaitCount(i, TestWaitStrategy.SLEEP_10MS, 5000L) : (U) invokeI.objValue;
-    }
-
-    public final U awaitDone(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048611, this, j, timeUnit)) == null) {
-            try {
-                if (!this.done.await(j, timeUnit)) {
-                    this.timeout = true;
-                    dispose();
-                }
-                return this;
-            } catch (InterruptedException e) {
-                dispose();
-                throw ExceptionHelper.wrapOrThrow(e);
-            }
-        }
-        return (U) invokeJL.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
     public final boolean awaitTerminalEvent() {
@@ -716,32 +522,482 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return invokeV.booleanValue;
     }
 
-    public final U clearTimeout() {
+    public final BaseTestConsumer clearTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             this.timeout = false;
             return this;
         }
-        return (U) invokeV.objValue;
+        return (BaseTestConsumer) invokeV.objValue;
     }
 
     public final long completions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.completions : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.completions;
+        }
+        return invokeV.longValue;
     }
 
     public final int errorCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.errors.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return this.errors.size();
+        }
+        return invokeV.intValue;
     }
 
-    public final List<Throwable> errors() {
+    public final List errors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.errors : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return this.errors;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean isTerminated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            if (this.done.getCount() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            return this.timeout;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Thread lastThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            return this.lastThread;
+        }
+        return (Thread) invokeV.objValue;
+    }
+
+    public final int valueCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            return this.values.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public final List values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            return this.values;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final BaseTestConsumer assertError(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, predicate)) == null) {
+            int size = this.errors.size();
+            if (size != 0) {
+                boolean z = false;
+                Iterator it = this.errors.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    try {
+                        if (predicate.test((Throwable) it.next())) {
+                            z = true;
+                            break;
+                        }
+                    } catch (Exception e) {
+                        throw ExceptionHelper.wrapOrThrow(e);
+                    }
+                }
+                if (z) {
+                    if (size == 1) {
+                        return this;
+                    }
+                    throw fail("Error present but other errors as well");
+                }
+                throw fail("Error not present");
+            }
+            throw fail("No errors");
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertErrorMessage(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            int size = this.errors.size();
+            if (size != 0) {
+                if (size == 1) {
+                    String message = ((Throwable) this.errors.get(0)).getMessage();
+                    if (ObjectHelper.equals(str, message)) {
+                        return this;
+                    }
+                    throw fail("Error message differs; Expected: " + str + ", Actual: " + message);
+                }
+                throw fail("Multiple errors");
+            }
+            throw fail("No errors");
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertNever(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, predicate)) == null) {
+            int size = this.values.size();
+            for (int i = 0; i < size; i++) {
+                try {
+                    if (predicate.test(this.values.get(i))) {
+                        throw fail("Value at position " + i + " matches predicate " + predicate.toString() + ", which was not expected.");
+                    }
+                } catch (Exception e) {
+                    throw ExceptionHelper.wrapOrThrow(e);
+                }
+            }
+            return this;
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertValueSet(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
+            if (collection.isEmpty()) {
+                assertNoValues();
+                return this;
+            }
+            for (Object obj : this.values) {
+                if (!collection.contains(obj)) {
+                    throw fail("Value not in the expected collection: " + valueAndClass(obj));
+                }
+            }
+            return this;
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertError(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
+            return assertError(Functions.isInstanceOf(cls));
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertResult(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, objArr)) == null) {
+            return assertSubscribed().assertValues(objArr).assertNoErrors().assertComplete();
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertValue(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, predicate)) == null) {
+            assertValueAt(0, predicate);
+            if (this.values.size() <= 1) {
+                return this;
+            }
+            throw fail("Value present but other values as well");
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertValuesOnly(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, objArr)) == null) {
+            return assertSubscribed().assertValues(objArr).assertNoErrors().assertNotComplete();
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer awaitCount(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
+            return awaitCount(i, TestWaitStrategy.SLEEP_10MS, 5000L);
+        }
+        return (BaseTestConsumer) invokeI.objValue;
+    }
+
+    public final BaseTestConsumer withTag(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, charSequence)) == null) {
+            this.tag = charSequence;
+            return this;
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertError(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, th)) == null) {
+            return assertError(Functions.equalsWith(th));
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertFailure(Predicate predicate, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, predicate, objArr)) == null) {
+            return assertSubscribed().assertValues(objArr).assertError(predicate).assertNotComplete();
+        }
+        return (BaseTestConsumer) invokeLL.objValue;
+    }
+
+    public final boolean await(long j, TimeUnit timeUnit) throws InterruptedException {
+        InterceptResult invokeJL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j, timeUnit)) == null) {
+            if (this.done.getCount() != 0 && !this.done.await(j, timeUnit)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.timeout = !z;
+            return z;
+        }
+        return invokeJL.booleanValue;
+    }
+
+    public final BaseTestConsumer awaitCount(int i, Runnable runnable) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048609, this, i, runnable)) == null) {
+            return awaitCount(i, runnable, 5000L);
+        }
+        return (BaseTestConsumer) invokeIL.objValue;
+    }
+
+    public final BaseTestConsumer awaitDone(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048611, this, j, timeUnit)) == null) {
+            try {
+                if (!this.done.await(j, timeUnit)) {
+                    this.timeout = true;
+                    dispose();
+                }
+                return this;
+            } catch (InterruptedException e) {
+                dispose();
+                throw ExceptionHelper.wrapOrThrow(e);
+            }
+        }
+        return (BaseTestConsumer) invokeJL.objValue;
+    }
+
+    public final boolean awaitTerminalEvent(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048613, this, j, timeUnit)) == null) {
+            try {
+                return await(j, timeUnit);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return false;
+            }
+        }
+        return invokeJL.booleanValue;
+    }
+
+    public final BaseTestConsumer assertFailure(Class cls, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, cls, objArr)) == null) {
+            return assertSubscribed().assertValues(objArr).assertError(cls).assertNotComplete();
+        }
+        return (BaseTestConsumer) invokeLL.objValue;
+    }
+
+    public final BaseTestConsumer assertFailureAndMessage(Class cls, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, str, objArr)) == null) {
+            return assertSubscribed().assertValues(objArr).assertError(cls).assertErrorMessage(str).assertNotComplete();
+        }
+        return (BaseTestConsumer) invokeLLL.objValue;
+    }
+
+    public final BaseTestConsumer assertNever(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+            int size = this.values.size();
+            for (int i = 0; i < size; i++) {
+                if (ObjectHelper.equals(this.values.get(i), obj)) {
+                    throw fail("Value at position " + i + " is equal to " + valueAndClass(obj) + "; Expected them to be different");
+                }
+            }
+            return this;
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertTerminated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.done.getCount() == 0) {
+                long j = this.completions;
+                if (j <= 1) {
+                    int size = this.errors.size();
+                    if (size <= 1) {
+                        if (j != 0 && size != 0) {
+                            throw fail("Terminated with multiple completions and errors: " + j);
+                        }
+                        return this;
+                    }
+                    throw fail("Terminated with multiple errors: " + size);
+                }
+                throw fail("Terminated with multiple completions: " + j);
+            }
+            throw fail("Subscriber still running!");
+        }
+        return (BaseTestConsumer) invokeV.objValue;
+    }
+
+    public final BaseTestConsumer assertValue(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, obj)) == null) {
+            if (this.values.size() == 1) {
+                Object obj2 = this.values.get(0);
+                if (ObjectHelper.equals(obj, obj2)) {
+                    return this;
+                }
+                throw fail("Expected: " + valueAndClass(obj) + ", Actual: " + valueAndClass(obj2));
+            }
+            throw fail("Expected: " + valueAndClass(obj) + ", Actual: " + this.values);
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertValues(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, objArr)) == null) {
+            int size = this.values.size();
+            if (size == objArr.length) {
+                for (int i = 0; i < size; i++) {
+                    Object obj = this.values.get(i);
+                    Object obj2 = objArr[i];
+                    if (!ObjectHelper.equals(obj2, obj)) {
+                        throw fail("Values at position " + i + " differ; Expected: " + valueAndClass(obj2) + ", Actual: " + valueAndClass(obj));
+                    }
+                }
+                return this;
+            }
+            throw fail("Value count differs; Expected: " + objArr.length + " " + Arrays.toString(objArr) + ", Actual: " + size + " " + this.values);
+        }
+        return (BaseTestConsumer) invokeL.objValue;
+    }
+
+    public final BaseTestConsumer assertValueAt(int i, Predicate predicate) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i, predicate)) == null) {
+            if (this.values.size() != 0) {
+                if (i < this.values.size()) {
+                    try {
+                        if (predicate.test(this.values.get(i))) {
+                            return this;
+                        }
+                        throw fail("Value not present");
+                    } catch (Exception e) {
+                        throw ExceptionHelper.wrapOrThrow(e);
+                    }
+                }
+                throw fail("Invalid index: " + i);
+            }
+            throw fail("No values");
+        }
+        return (BaseTestConsumer) invokeIL.objValue;
+    }
+
+    public final BaseTestConsumer assertValueAt(int i, Object obj) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, obj)) == null) {
+            int size = this.values.size();
+            if (size != 0) {
+                if (i < size) {
+                    Object obj2 = this.values.get(i);
+                    if (ObjectHelper.equals(obj, obj2)) {
+                        return this;
+                    }
+                    throw fail("Expected: " + valueAndClass(obj) + ", Actual: " + valueAndClass(obj2));
+                }
+                throw fail("Invalid index: " + i);
+            }
+            throw fail("No values");
+        }
+        return (BaseTestConsumer) invokeIL.objValue;
+    }
+
+    public final BaseTestConsumer assertValueSequence(Iterable iterable) {
+        InterceptResult invokeL;
+        boolean hasNext;
+        boolean hasNext2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, iterable)) == null) {
+            Iterator it = this.values.iterator();
+            Iterator it2 = iterable.iterator();
+            int i = 0;
+            while (true) {
+                hasNext = it2.hasNext();
+                hasNext2 = it.hasNext();
+                if (!hasNext2 || !hasNext) {
+                    break;
+                }
+                Object next = it2.next();
+                Object next2 = it.next();
+                if (ObjectHelper.equals(next, next2)) {
+                    i++;
+                } else {
+                    throw fail("Values at position " + i + " differ; Expected: " + valueAndClass(next) + ", Actual: " + valueAndClass(next2));
+                }
+            }
+            if (!hasNext2) {
+                if (!hasNext) {
+                    return this;
+                }
+                throw fail("Fewer values received than expected (" + i + SmallTailInfo.EMOTION_SUFFIX);
+            }
+            throw fail("More values received than expected (" + i + SmallTailInfo.EMOTION_SUFFIX);
+        }
+        return (BaseTestConsumer) invokeL.objValue;
     }
 
     public final AssertionError fail(String str) {
@@ -777,7 +1033,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             AssertionError assertionError = new AssertionError(sb.toString());
             if (!this.errors.isEmpty()) {
                 if (this.errors.size() == 1) {
-                    assertionError.initCause(this.errors.get(0));
+                    assertionError.initCause((Throwable) this.errors.get(0));
                 } else {
                     assertionError.initCause(new CompositeException(this.errors));
                 }
@@ -787,121 +1043,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (AssertionError) invokeL.objValue;
     }
 
-    public final List<List<Object>> getEvents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(values());
-            arrayList.add(errors());
-            ArrayList arrayList2 = new ArrayList();
-            for (long j = 0; j < this.completions; j++) {
-                arrayList2.add(Notification.createOnComplete());
-            }
-            arrayList.add(arrayList2);
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean isTerminated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.done.getCount() == 0 : invokeV.booleanValue;
-    }
-
-    public final boolean isTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.timeout : invokeV.booleanValue;
-    }
-
-    public final Thread lastThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.lastThread : (Thread) invokeV.objValue;
-    }
-
-    public final int valueCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.values.size() : invokeV.intValue;
-    }
-
-    public final List<T> values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.values : (List) invokeV.objValue;
-    }
-
-    public final U withTag(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, charSequence)) == null) {
-            this.tag = charSequence;
-            return this;
-        }
-        return (U) invokeL.objValue;
-    }
-
-    public final U assertError(Class<? extends Throwable> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) ? assertError(Functions.isInstanceOf(cls)) : (U) invokeL.objValue;
-    }
-
-    public final U awaitCount(int i, Runnable runnable) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048609, this, i, runnable)) == null) ? awaitCount(i, runnable, 5000L) : (U) invokeIL.objValue;
-    }
-
-    public final U assertError(Predicate<Throwable> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, predicate)) == null) {
-            int size = this.errors.size();
-            if (size != 0) {
-                boolean z = false;
-                Iterator<Throwable> it = this.errors.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    try {
-                        if (predicate.test(it.next())) {
-                            z = true;
-                            break;
-                        }
-                    } catch (Exception e) {
-                        throw ExceptionHelper.wrapOrThrow(e);
-                    }
-                }
-                if (z) {
-                    if (size == 1) {
-                        return this;
-                    }
-                    throw fail("Error present but other errors as well");
-                }
-                throw fail("Error not present");
-            }
-            throw fail("No errors");
-        }
-        return (U) invokeL.objValue;
-    }
-
-    public final boolean await(long j, TimeUnit timeUnit) throws InterruptedException {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j, timeUnit)) == null) {
-            boolean z = this.done.getCount() == 0 || this.done.await(j, timeUnit);
-            this.timeout = !z;
-            return z;
-        }
-        return invokeJL.booleanValue;
-    }
-
-    public final U awaitCount(int i, Runnable runnable, long j) {
+    public final BaseTestConsumer awaitCount(int i, Runnable runnable, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), runnable, Long.valueOf(j)})) == null) {
@@ -918,81 +1060,6 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             }
             return this;
         }
-        return (U) invokeCommon.objValue;
-    }
-
-    public final boolean awaitTerminalEvent(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048613, this, j, timeUnit)) == null) {
-            try {
-                return await(j, timeUnit);
-            } catch (InterruptedException unused) {
-                Thread.currentThread().interrupt();
-                return false;
-            }
-        }
-        return invokeJL.booleanValue;
-    }
-
-    public final U assertFailure(Predicate<Throwable> predicate, T... tArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, predicate, tArr)) == null) ? (U) assertSubscribed().assertValues(tArr).assertError(predicate).assertNotComplete() : (U) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: T, ? super T */
-    public final U assertNever(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, predicate)) == null) {
-            int size = this.values.size();
-            for (int i = 0; i < size; i++) {
-                try {
-                    if (predicate.test((T) this.values.get(i))) {
-                        throw fail("Value at position " + i + " matches predicate " + predicate.toString() + ", which was not expected.");
-                    }
-                } catch (Exception e) {
-                    throw ExceptionHelper.wrapOrThrow(e);
-                }
-            }
-            return this;
-        }
-        return (U) invokeL.objValue;
-    }
-
-    public final U assertValue(Predicate<T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, predicate)) == null) {
-            assertValueAt(0, (Predicate) predicate);
-            if (this.values.size() <= 1) {
-                return this;
-            }
-            throw fail("Value present but other values as well");
-        }
-        return (U) invokeL.objValue;
-    }
-
-    public final U assertValueAt(int i, Predicate<T> predicate) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i, predicate)) == null) {
-            if (this.values.size() != 0) {
-                if (i < this.values.size()) {
-                    try {
-                        if (predicate.test(this.values.get(i))) {
-                            return this;
-                        }
-                        throw fail("Value not present");
-                    } catch (Exception e) {
-                        throw ExceptionHelper.wrapOrThrow(e);
-                    }
-                }
-                throw fail("Invalid index: " + i);
-            }
-            throw fail("No values");
-        }
-        return (U) invokeIL.objValue;
+        return (BaseTestConsumer) invokeCommon.objValue;
     }
 }

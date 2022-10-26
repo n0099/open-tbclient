@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RtpReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,13 +17,25 @@ public class RtpReceiver {
     public long nativeObserver;
     public long nativeRtpReceiver;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Observer {
-        @CalledByNative("Observer")
         void onFirstPacketReceived(MediaStreamTrack.MediaType mediaType);
     }
 
-    @CalledByNative
+    public static native String nativeGetId(long j);
+
+    public static native RtpParameters nativeGetParameters(long j);
+
+    public static native long nativeGetTrack(long j);
+
+    public static native void nativeSetFrameDecryptor(long j, long j2);
+
+    public static native long nativeSetObserver(long j, Observer observer);
+
+    public static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
+
+    public static native void nativeUnsetObserver(long j, long j2);
+
     public RtpReceiver(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,38 +57,12 @@ public class RtpReceiver {
 
     private void checkRtpReceiverExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeRtpReceiver == 0) {
-            throw new IllegalStateException("RtpReceiver has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeRtpReceiver != 0) {
+            return;
         }
+        throw new IllegalStateException("RtpReceiver has been disposed.");
     }
 
-    public static native String nativeGetId(long j);
-
-    public static native RtpParameters nativeGetParameters(long j);
-
-    public static native long nativeGetTrack(long j);
-
-    public static native void nativeSetFrameDecryptor(long j, long j2);
-
-    public static native long nativeSetObserver(long j, Observer observer);
-
-    public static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
-
-    public static native void nativeUnsetObserver(long j, long j2);
-
-    public void SetObserver(Observer observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            checkRtpReceiverExists();
-            long j = this.nativeObserver;
-            if (j != 0) {
-                nativeUnsetObserver(this.nativeRtpReceiver, j);
-            }
-            this.nativeObserver = nativeSetObserver(this.nativeRtpReceiver, observer);
-        }
-    }
-
-    @CalledByNative
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -112,6 +98,28 @@ public class RtpReceiver {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
+    public MediaStreamTrack track() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.cachedTrack;
+        }
+        return (MediaStreamTrack) invokeV.objValue;
+    }
+
+    public void SetObserver(Observer observer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
+            checkRtpReceiverExists();
+            long j = this.nativeObserver;
+            if (j != 0) {
+                nativeUnsetObserver(this.nativeRtpReceiver, j);
+            }
+            this.nativeObserver = nativeSetObserver(this.nativeRtpReceiver, observer);
+        }
+    }
+
     public void setFrameDecryptor(FrameDecryptor frameDecryptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, frameDecryptor) == null) {
@@ -131,12 +139,5 @@ public class RtpReceiver {
             return nativeSetParameters(this.nativeRtpReceiver, rtpParameters);
         }
         return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public MediaStreamTrack track() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.cachedTrack : (MediaStreamTrack) invokeV.objValue;
     }
 }

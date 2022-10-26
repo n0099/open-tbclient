@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fa6 {
     public static /* synthetic */ Interceptable $ic;
+    public static fa6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public fa6() {
@@ -26,51 +28,37 @@ public class fa6 {
         }
     }
 
-    public static fa6 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static fa6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (fa6.class) {
+                    if (a == null) {
+                        a = new fa6();
+                    }
+                }
             }
-            fa6 fa6Var = new fa6();
-            fa6Var.b(jSONObject.optString("common_color"));
-            fa6Var.c(jSONObject.optString("dark_color"));
-            fa6Var.d(jSONObject.optString("font_color"));
-            fa6Var.e(jSONObject.optString("light_color"));
-            fa6Var.f(jSONObject.optString("pattern_image"));
-            return fa6Var;
+            return a;
         }
-        return (fa6) invokeL.objValue;
+        return (fa6) invokeV.objValue;
     }
 
-    public void b(String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a = null;
         }
     }
 
-    public void c(String str) {
+    public void c(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+            if (context != null) {
+                WindowManager windowManager = (WindowManager) context.getSystemService("window");
+                return;
+            }
+            throw new IllegalArgumentException("context cannot be null");
         }
     }
 }

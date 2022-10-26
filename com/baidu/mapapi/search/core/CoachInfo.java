@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class CoachInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<CoachInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
     public String b;

@@ -2,11 +2,17 @@ package com.airbnb.lottie.utils;
 /* loaded from: classes.dex */
 public class GammaEvaluator {
     public static float EOCF_sRGB(float f) {
-        return f <= 0.04045f ? f / 12.92f : (float) Math.pow((f + 0.055f) / 1.055f, 2.4000000953674316d);
+        if (f <= 0.04045f) {
+            return f / 12.92f;
+        }
+        return (float) Math.pow((f + 0.055f) / 1.055f, 2.4000000953674316d);
     }
 
     public static float OECF_sRGB(float f) {
-        return f <= 0.0031308f ? f * 12.92f : (float) ((Math.pow(f, 0.4166666567325592d) * 1.0549999475479126d) - 0.054999999701976776d);
+        if (f <= 0.0031308f) {
+            return f * 12.92f;
+        }
+        return (float) ((Math.pow(f, 0.4166666567325592d) * 1.0549999475479126d) - 0.054999999701976776d);
     }
 
     public static int evaluate(float f, int i, int i2) {

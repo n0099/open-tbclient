@@ -3,8 +3,6 @@ package com.baidu.live.business.view.recyclerview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +15,7 @@ public class InterceptTouchRecyclerView extends RecyclerView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterceptTouchRecyclerView(@NonNull Context context) {
+    public InterceptTouchRecyclerView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +64,7 @@ public class InterceptTouchRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterceptTouchRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public InterceptTouchRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,7 +85,7 @@ public class InterceptTouchRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterceptTouchRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public InterceptTouchRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

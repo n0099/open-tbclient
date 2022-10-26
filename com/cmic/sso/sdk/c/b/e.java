@@ -21,6 +21,16 @@ public class e extends g {
     public String e;
     public boolean f;
 
+    @Override // com.cmic.sso.sdk.c.b.g
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,19 +48,28 @@ public class e extends g {
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
-    public String a(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.a();
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void a(boolean z) {
+    public a c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 
@@ -68,10 +87,10 @@ public class e extends g {
         }
     }
 
-    public void a(byte[] bArr) {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            this.b = bArr;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f = z;
         }
     }
 
@@ -82,16 +101,10 @@ public class e extends g {
         }
     }
 
-    public a c() {
-        InterceptResult invokeV;
+    public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (a) invokeV.objValue;
-    }
-
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
+            this.b = bArr;
         }
     }
 
@@ -114,12 +127,5 @@ public class e extends g {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.cmic.sso.sdk.c.b.g
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (String) invokeV.objValue;
     }
 }

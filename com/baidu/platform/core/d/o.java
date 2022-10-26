@@ -40,7 +40,7 @@ public class o extends k {
         }
     }
 
-    private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
+    private RouteNode a(JSONArray jSONArray, List list) {
         InterceptResult invokeLL;
         int length;
         Interceptable interceptable = $ic;
@@ -52,10 +52,10 @@ public class o extends k {
                         return a;
                     }
                     if (list == null) {
-                        list = new ArrayList<>();
+                        list = new ArrayList();
                     }
                     if (list == null) {
-                        list = new ArrayList<>();
+                        list = new ArrayList();
                     }
                     list.add(a);
                 }
@@ -81,7 +81,7 @@ public class o extends k {
         return (RouteNode) invokeL.objValue;
     }
 
-    private List<WalkingRouteLine.WalkingStep> a(JSONArray jSONArray) {
+    private List a(JSONArray jSONArray) {
         InterceptResult invokeL;
         int length;
         Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class o extends k {
                         return false;
                     }
                     RouteNode a = a(optJSONObject3.optJSONObject("start"));
-                    RouteNode a2 = a(optJSONObject3.optJSONArray("end"), (List<RouteNode>) null);
+                    RouteNode a2 = a(optJSONObject3.optJSONArray("end"), (List) null);
                     ArrayList arrayList = new ArrayList();
                     for (int i = 0; i < optJSONArray2.length(); i++) {
                         JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i);

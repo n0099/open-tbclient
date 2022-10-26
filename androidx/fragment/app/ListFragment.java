@@ -14,8 +14,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,6 +39,12 @@ public class ListFragment extends Fragment {
     public View mProgressContainer;
     public final Runnable mRequestFocus;
     public TextView mStandardEmptyView;
+
+    public void onListItemClick(ListView listView, View view2, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        }
+    }
 
     public ListFragment() {
         Interceptable interceptable = $ic;
@@ -121,160 +125,6 @@ public class ListFragment extends Fragment {
         };
     }
 
-    private void ensureList() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.mList == null) {
-            View view2 = getView();
-            if (view2 != null) {
-                if (view2 instanceof ListView) {
-                    this.mList = (ListView) view2;
-                } else {
-                    TextView textView = (TextView) view2.findViewById(INTERNAL_EMPTY_ID);
-                    this.mStandardEmptyView = textView;
-                    if (textView == null) {
-                        this.mEmptyView = view2.findViewById(16908292);
-                    } else {
-                        textView.setVisibility(8);
-                    }
-                    this.mProgressContainer = view2.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
-                    this.mListContainer = view2.findViewById(INTERNAL_LIST_CONTAINER_ID);
-                    View findViewById = view2.findViewById(16908298);
-                    if (!(findViewById instanceof ListView)) {
-                        if (findViewById == null) {
-                            throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
-                        }
-                        throw new RuntimeException("Content has view with id attribute 'android.R.id.list' that is not a ListView class");
-                    }
-                    ListView listView = (ListView) findViewById;
-                    this.mList = listView;
-                    View view3 = this.mEmptyView;
-                    if (view3 != null) {
-                        listView.setEmptyView(view3);
-                    } else {
-                        CharSequence charSequence = this.mEmptyText;
-                        if (charSequence != null) {
-                            this.mStandardEmptyView.setText(charSequence);
-                            this.mList.setEmptyView(this.mStandardEmptyView);
-                        }
-                    }
-                }
-                this.mListShown = true;
-                this.mList.setOnItemClickListener(this.mOnClickListener);
-                ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null) {
-                    this.mAdapter = null;
-                    setListAdapter(listAdapter);
-                } else if (this.mProgressContainer != null) {
-                    setListShown(false, false);
-                }
-                this.mHandler.post(this.mRequestFocus);
-                return;
-            }
-            throw new IllegalStateException("Content view not yet created");
-        }
-    }
-
-    @Nullable
-    public ListAdapter getListAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdapter : (ListAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public ListView getListView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ensureList();
-            return this.mList;
-        }
-        return (ListView) invokeV.objValue;
-    }
-
-    public long getSelectedItemId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ensureList();
-            return this.mList.getSelectedItemId();
-        }
-        return invokeV.longValue;
-    }
-
-    public int getSelectedItemPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ensureList();
-            return this.mList.getSelectedItemPosition();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            Context requireContext = requireContext();
-            FrameLayout frameLayout = new FrameLayout(requireContext);
-            LinearLayout linearLayout = new LinearLayout(requireContext);
-            linearLayout.setId(INTERNAL_PROGRESS_CONTAINER_ID);
-            linearLayout.setOrientation(1);
-            linearLayout.setVisibility(8);
-            linearLayout.setGravity(17);
-            linearLayout.addView(new ProgressBar(requireContext, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
-            frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
-            FrameLayout frameLayout2 = new FrameLayout(requireContext);
-            frameLayout2.setId(INTERNAL_LIST_CONTAINER_ID);
-            TextView textView = new TextView(requireContext);
-            textView.setId(INTERNAL_EMPTY_ID);
-            textView.setGravity(17);
-            frameLayout2.addView(textView, new FrameLayout.LayoutParams(-1, -1));
-            ListView listView = new ListView(requireContext);
-            listView.setId(16908298);
-            listView.setDrawSelectorOnTop(false);
-            frameLayout2.addView(listView, new FrameLayout.LayoutParams(-1, -1));
-            frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
-            frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onDestroyView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mHandler.removeCallbacks(this.mRequestFocus);
-            this.mList = null;
-            this.mListShown = false;
-            this.mListContainer = null;
-            this.mProgressContainer = null;
-            this.mEmptyView = null;
-            this.mStandardEmptyView = null;
-            super.onDestroyView();
-        }
-    }
-
-    public void onListItemClick(@NonNull ListView listView, @NonNull View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, bundle) == null) {
-            super.onViewCreated(view2, bundle);
-            ensureList();
-        }
-    }
-
-    @NonNull
     public final ListAdapter requireListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -288,59 +138,58 @@ public class ListFragment extends Fragment {
         return (ListAdapter) invokeV.objValue;
     }
 
-    public void setEmptyText(@Nullable CharSequence charSequence) {
+    private void ensureList() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
-            ensureList();
-            TextView textView = this.mStandardEmptyView;
-            if (textView != null) {
-                textView.setText(charSequence);
-                if (this.mEmptyText == null) {
-                    this.mList.setEmptyView(this.mStandardEmptyView);
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.mList != null) {
+            return;
+        }
+        View view2 = getView();
+        if (view2 != null) {
+            if (view2 instanceof ListView) {
+                this.mList = (ListView) view2;
+            } else {
+                TextView textView = (TextView) view2.findViewById(INTERNAL_EMPTY_ID);
+                this.mStandardEmptyView = textView;
+                if (textView == null) {
+                    this.mEmptyView = view2.findViewById(16908292);
+                } else {
+                    textView.setVisibility(8);
                 }
-                this.mEmptyText = charSequence;
-                return;
-            }
-            throw new IllegalStateException("Can't be used with a custom content view");
-        }
-    }
-
-    public void setListAdapter(@Nullable ListAdapter listAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, listAdapter) == null) {
-            boolean z = this.mAdapter != null;
-            this.mAdapter = listAdapter;
-            ListView listView = this.mList;
-            if (listView != null) {
-                listView.setAdapter(listAdapter);
-                if (this.mListShown || z) {
-                    return;
+                this.mProgressContainer = view2.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
+                this.mListContainer = view2.findViewById(INTERNAL_LIST_CONTAINER_ID);
+                View findViewById = view2.findViewById(16908298);
+                if (!(findViewById instanceof ListView)) {
+                    if (findViewById == null) {
+                        throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
+                    }
+                    throw new RuntimeException("Content has view with id attribute 'android.R.id.list' that is not a ListView class");
                 }
-                setListShown(true, requireView().getWindowToken() != null);
+                ListView listView = (ListView) findViewById;
+                this.mList = listView;
+                View view3 = this.mEmptyView;
+                if (view3 != null) {
+                    listView.setEmptyView(view3);
+                } else {
+                    CharSequence charSequence = this.mEmptyText;
+                    if (charSequence != null) {
+                        this.mStandardEmptyView.setText(charSequence);
+                        this.mList.setEmptyView(this.mStandardEmptyView);
+                    }
+                }
             }
+            this.mListShown = true;
+            this.mList.setOnItemClickListener(this.mOnClickListener);
+            ListAdapter listAdapter = this.mAdapter;
+            if (listAdapter != null) {
+                this.mAdapter = null;
+                setListAdapter(listAdapter);
+            } else if (this.mProgressContainer != null) {
+                setListShown(false, false);
+            }
+            this.mHandler.post(this.mRequestFocus);
+            return;
         }
-    }
-
-    public void setListShown(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            setListShown(z, true);
-        }
-    }
-
-    public void setListShownNoAnimation(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            setListShown(z, false);
-        }
-    }
-
-    public void setSelection(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            ensureList();
-            this.mList.setSelection(i);
-        }
+        throw new IllegalStateException("Content view not yet created");
     }
 
     private void setListShown(boolean z, boolean z2) {
@@ -377,6 +226,163 @@ public class ListFragment extends Fragment {
                 return;
             }
             throw new IllegalStateException("Can't be used with a custom content view");
+        }
+    }
+
+    public ListAdapter getListAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAdapter;
+        }
+        return (ListAdapter) invokeV.objValue;
+    }
+
+    public ListView getListView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ensureList();
+            return this.mList;
+        }
+        return (ListView) invokeV.objValue;
+    }
+
+    public long getSelectedItemId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ensureList();
+            return this.mList.getSelectedItemId();
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSelectedItemPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ensureList();
+            return this.mList.getSelectedItemPosition();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onDestroyView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mHandler.removeCallbacks(this.mRequestFocus);
+            this.mList = null;
+            this.mListShown = false;
+            this.mListContainer = null;
+            this.mProgressContainer = null;
+            this.mEmptyView = null;
+            this.mStandardEmptyView = null;
+            super.onDestroyView();
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
+            Context requireContext = requireContext();
+            FrameLayout frameLayout = new FrameLayout(requireContext);
+            LinearLayout linearLayout = new LinearLayout(requireContext);
+            linearLayout.setId(INTERNAL_PROGRESS_CONTAINER_ID);
+            linearLayout.setOrientation(1);
+            linearLayout.setVisibility(8);
+            linearLayout.setGravity(17);
+            linearLayout.addView(new ProgressBar(requireContext, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
+            frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
+            FrameLayout frameLayout2 = new FrameLayout(requireContext);
+            frameLayout2.setId(INTERNAL_LIST_CONTAINER_ID);
+            TextView textView = new TextView(requireContext);
+            textView.setId(INTERNAL_EMPTY_ID);
+            textView.setGravity(17);
+            frameLayout2.addView(textView, new FrameLayout.LayoutParams(-1, -1));
+            ListView listView = new ListView(requireContext);
+            listView.setId(16908298);
+            listView.setDrawSelectorOnTop(false);
+            frameLayout2.addView(listView, new FrameLayout.LayoutParams(-1, -1));
+            frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
+            frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onViewCreated(View view2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, bundle) == null) {
+            super.onViewCreated(view2, bundle);
+            ensureList();
+        }
+    }
+
+    public void setEmptyText(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
+            ensureList();
+            TextView textView = this.mStandardEmptyView;
+            if (textView != null) {
+                textView.setText(charSequence);
+                if (this.mEmptyText == null) {
+                    this.mList.setEmptyView(this.mStandardEmptyView);
+                }
+                this.mEmptyText = charSequence;
+                return;
+            }
+            throw new IllegalStateException("Can't be used with a custom content view");
+        }
+    }
+
+    public void setListShown(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            setListShown(z, true);
+        }
+    }
+
+    public void setListShownNoAnimation(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            setListShown(z, false);
+        }
+    }
+
+    public void setSelection(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            ensureList();
+            this.mList.setSelection(i);
+        }
+    }
+
+    public void setListAdapter(ListAdapter listAdapter) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, listAdapter) == null) {
+            boolean z2 = false;
+            if (this.mAdapter != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.mAdapter = listAdapter;
+            ListView listView = this.mList;
+            if (listView != null) {
+                listView.setAdapter(listAdapter);
+                if (!this.mListShown && !z) {
+                    if (requireView().getWindowToken() != null) {
+                        z2 = true;
+                    }
+                    setListShown(true, z2);
+                }
+            }
         }
     }
 }

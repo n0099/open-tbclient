@@ -1,6 +1,5 @@
 package com.baidubce.auth;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,16 +23,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
-@SuppressLint({"NewApi", "DefaultLocale"})
 /* loaded from: classes7.dex */
 public class BceV1Signer implements Signer {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> defaultHeadersToSign;
+    public static final Set defaultHeadersToSign;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,7 +70,7 @@ public class BceV1Signer implements Signer {
         }
     }
 
-    private String getCanonicalHeaders(SortedMap<String, String> sortedMap) {
+    private String getCanonicalHeaders(SortedMap sortedMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, sortedMap)) == null) {
@@ -79,14 +78,14 @@ public class BceV1Signer implements Signer {
                 return "";
             }
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, String> entry : sortedMap.entrySet()) {
-                String key = entry.getKey();
-                if (key != null) {
-                    String value = entry.getValue();
-                    if (value == null) {
-                        value = "";
+            for (Map.Entry entry : sortedMap.entrySet()) {
+                String str = (String) entry.getKey();
+                if (str != null) {
+                    String str2 = (String) entry.getValue();
+                    if (str2 == null) {
+                        str2 = "";
                     }
-                    arrayList.add(HttpUtils.normalize(key.trim().toLowerCase()) + ':' + HttpUtils.normalize(value.trim()));
+                    arrayList.add(HttpUtils.normalize(str.trim().toLowerCase()) + ':' + HttpUtils.normalize(str2.trim()));
                 }
             }
             Collections.sort(arrayList);
@@ -110,22 +109,23 @@ public class BceV1Signer implements Signer {
         return (String) invokeL.objValue;
     }
 
-    private SortedMap<String, String> getHeadersToSign(Map<String, String> map, Set<String> set) {
+    private SortedMap getHeadersToSign(Map map, Set set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, set)) == null) {
             TreeMap treeMap = new TreeMap();
             if (set != null) {
                 HashSet hashSet = new HashSet();
-                for (String str : set) {
-                    hashSet.add(str.trim().toLowerCase());
+                Iterator it = set.iterator();
+                while (it.hasNext()) {
+                    hashSet.add(((String) it.next()).trim().toLowerCase());
                 }
                 set = hashSet;
             }
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                if (entry.getValue() != null && !entry.getValue().isEmpty() && ((set == null && isDefaultHeaderToSign(key)) || (set != null && set.contains(key.toLowerCase()) && !"Authorization".equalsIgnoreCase(key)))) {
-                    treeMap.put(key, entry.getValue());
+            for (Map.Entry entry : map.entrySet()) {
+                String str = (String) entry.getKey();
+                if (entry.getValue() != null && !((String) entry.getValue()).isEmpty() && ((set == null && isDefaultHeaderToSign(str)) || (set != null && set.contains(str.toLowerCase()) && !"Authorization".equalsIgnoreCase(str)))) {
+                    treeMap.put(str, entry.getValue());
                 }
             }
             return treeMap;
@@ -138,7 +138,10 @@ public class BceV1Signer implements Signer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             String lowerCase = str.trim().toLowerCase();
-            return lowerCase.startsWith(Headers.BCE_PREFIX) || defaultHeadersToSign.contains(lowerCase);
+            if (!lowerCase.startsWith(Headers.BCE_PREFIX) && !defaultHeadersToSign.contains(lowerCase)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -153,6 +156,8 @@ public class BceV1Signer implements Signer {
 
     @Override // com.baidubce.auth.Signer
     public void sign(InternalRequest internalRequest, BceCredentials bceCredentials, SignOptions signOptions) {
+        boolean z;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, internalRequest, bceCredentials, signOptions) == null) {
             CheckUtils.isNotNull(internalRequest, "request should not be null.");
@@ -170,7 +175,11 @@ public class BceV1Signer implements Signer {
             String secretKey = bceCredentials.getSecretKey();
             internalRequest.addHeader("Host", HttpUtils.generateHostHeader(internalRequest.getUri()));
             String name = internalRequest.getHttpMethod().name();
-            boolean z = HttpMethod.requiresRequestBody(name) || HttpMethod.permitsRequestBody(name);
+            if (!HttpMethod.requiresRequestBody(name) && !HttpMethod.permitsRequestBody(name)) {
+                z = false;
+            } else {
+                z = true;
+            }
             if (internalRequest.getHeaders().get("Content-Length") == null && internalRequest.getContent() == null && z) {
                 internalRequest.addHeader("Content-Length", "0");
             }
@@ -185,11 +194,15 @@ public class BceV1Signer implements Signer {
             String sha256Hex = HashUtils.sha256Hex(secretKey, on);
             String canonicalURIPath = getCanonicalURIPath(internalRequest.getUri().getPath());
             String canonicalQueryString = HttpUtils.getCanonicalQueryString(internalRequest.getParameters(), true);
-            SortedMap<String, String> headersToSign = getHeadersToSign(internalRequest.getHeaders(), signOptions.getHeadersToSign());
+            SortedMap headersToSign = getHeadersToSign(internalRequest.getHeaders(), signOptions.getHeadersToSign());
             String canonicalHeaders = getCanonicalHeaders(headersToSign);
-            String lowerCase = signOptions.getHeadersToSign() != null ? JoinerUtils.on(ParamableElem.DIVIDE_PARAM, headersToSign.keySet()).trim().toLowerCase() : "";
+            if (signOptions.getHeadersToSign() != null) {
+                str = JoinerUtils.on(ParamableElem.DIVIDE_PARAM, headersToSign.keySet()).trim().toLowerCase();
+            } else {
+                str = "";
+            }
             String on2 = JoinerUtils.on("\n", internalRequest.getHttpMethod(), canonicalURIPath, canonicalQueryString, canonicalHeaders);
-            String on3 = JoinerUtils.on("/", on, lowerCase, HashUtils.sha256Hex(sha256Hex, on2));
+            String on3 = JoinerUtils.on("/", on, str, HashUtils.sha256Hex(sha256Hex, on2));
             BLog.debug("CanonicalRequest:{}\tAuthorization:{}", on2.replace("\n", "[\\n]"), on3);
             internalRequest.addHeader("Authorization", on3);
         }

@@ -29,6 +29,23 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMQueryForwardUserList(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,13 +65,6 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
         this.mKey = str;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
@@ -69,7 +79,7 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
@@ -119,7 +129,7 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-                        if (removeListener instanceof BIMValueCallBack) {
+                        if (!(removeListener instanceof BIMValueCallBack)) {
                         }
                     }
                 }
@@ -127,20 +137,9 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
                 e = e2;
             }
             removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener instanceof BIMValueCallBack) {
-                return;
+            if (!(removeListener instanceof BIMValueCallBack)) {
+                ((BIMValueCallBack) removeListener).onResult(i2, str, new GroupSortUserList(arrayList, i3));
             }
-            ((BIMValueCallBack) removeListener).onResult(i2, str, new GroupSortUserList(arrayList, i3));
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

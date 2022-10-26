@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gv4;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.mv4;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class AdInfoButton extends RelativeLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class AdChannel {
+    public final class AdChannel {
         public static final /* synthetic */ AdChannel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AdChannel CSJ;
@@ -85,19 +85,25 @@ public class AdInfoButton extends RelativeLayout {
         public static AdChannel valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AdChannel) Enum.valueOf(AdChannel.class, str) : (AdChannel) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AdChannel) Enum.valueOf(AdChannel.class, str);
+            }
+            return (AdChannel) invokeL.objValue;
         }
 
         public static AdChannel[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AdChannel[]) $VALUES.clone() : (AdChannel[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AdChannel[]) $VALUES.clone();
+            }
+            return (AdChannel[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class AdType {
+    public final class AdType {
         public static final /* synthetic */ AdType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AdType DOWNLOAD;
@@ -145,13 +151,19 @@ public class AdInfoButton extends RelativeLayout {
         public static AdType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AdType) Enum.valueOf(AdType.class, str) : (AdType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AdType) Enum.valueOf(AdType.class, str);
+            }
+            return (AdType) invokeL.objValue;
         }
 
         public static AdType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AdType[]) $VALUES.clone() : (AdType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AdType[]) $VALUES.clone();
+            }
+            return (AdType[]) invokeV.objValue;
         }
     }
 
@@ -184,8 +196,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof gv4) {
-                    ((gv4) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof mv4) {
+                    ((mv4) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -210,93 +222,6 @@ public class AdInfoButton extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = new RelativeLayout(context);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, ej.f(context, R.dimen.tbds86));
-            layoutParams.bottomMargin = ej.f(context, R.dimen.M_H_X006);
-            this.a.setLayoutParams(layoutParams);
-            this.a.setGravity(17);
-            RelativeLayout relativeLayout = new RelativeLayout(context);
-            relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-            ImageView imageView = new ImageView(context);
-            this.b = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f0900a9);
-            int f = ej.f(context, R.dimen.tbds42);
-            this.b.setLayoutParams(new RelativeLayout.LayoutParams(f, f));
-            relativeLayout.addView(this.b);
-            this.c = new EMTextView(context);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a9);
-            layoutParams2.addRule(15);
-            layoutParams2.leftMargin = ej.f(context, R.dimen.M_W_X002);
-            this.c.setLayoutParams(layoutParams2);
-            relativeLayout.addView(this.c);
-            this.a.addView(relativeLayout);
-            addView(this.a);
-            c();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.e == AdChannel.CSJ) {
-                hv4 d = hv4.d(this.a);
-                d.n(R.string.J_X05);
-                d.m(0);
-                d.f(R.color.CAM_X0614);
-            } else {
-                hv4 d2 = hv4.d(this.a);
-                d2.n(R.string.J_X05);
-                d2.m(0);
-                d2.f(R.color.CAM_X0302);
-            }
-            AdType adType = this.d;
-            if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806f4, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0807a8, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            }
-            hv4 d3 = hv4.d(this.c);
-            d3.z(R.dimen.T_X08);
-            d3.v(R.color.CAM_X0101);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ValueAnimator ofInt = ObjectAnimator.ofInt(SkinManager.getColor(R.color.CAM_X0614), SkinManager.getColor(R.color.CAM_X0302));
-            ofInt.setDuration(400L);
-            ofInt.setEvaluator(new ArgbEvaluator());
-            ofInt.addUpdateListener(new a(this));
-            ofInt.start();
-        }
-    }
-
-    public void setChannel(AdChannel adChannel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, adChannel) == null) {
-            this.e = adChannel;
-        }
-    }
-
-    public void setText(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.c.setText(charSequence);
-        }
-    }
-
-    public void setType(AdType adType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, adType) == null) {
-            this.d = adType;
         }
     }
 
@@ -341,5 +266,92 @@ public class AdInfoButton extends RelativeLayout {
             }
         }
         b(context);
+    }
+
+    public void setChannel(AdChannel adChannel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, adChannel) == null) {
+            this.e = adChannel;
+        }
+    }
+
+    public void setText(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
+            this.c.setText(charSequence);
+        }
+    }
+
+    public void setType(AdType adType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, adType) == null) {
+            this.d = adType;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = new RelativeLayout(context);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, fj.f(context, R.dimen.tbds86));
+            layoutParams.bottomMargin = fj.f(context, R.dimen.M_H_X006);
+            this.a.setLayoutParams(layoutParams);
+            this.a.setGravity(17);
+            RelativeLayout relativeLayout = new RelativeLayout(context);
+            relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
+            ImageView imageView = new ImageView(context);
+            this.b = imageView;
+            imageView.setId(R.id.obfuscated_res_0x7f0900a9);
+            int f = fj.f(context, R.dimen.tbds42);
+            this.b.setLayoutParams(new RelativeLayout.LayoutParams(f, f));
+            relativeLayout.addView(this.b);
+            this.c = new EMTextView(context);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a9);
+            layoutParams2.addRule(15);
+            layoutParams2.leftMargin = fj.f(context, R.dimen.M_W_X002);
+            this.c.setLayoutParams(layoutParams2);
+            relativeLayout.addView(this.c);
+            this.a.addView(relativeLayout);
+            addView(this.a);
+            c();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.e == AdChannel.CSJ) {
+                nv4 d = nv4.d(this.a);
+                d.n(R.string.J_X05);
+                d.m(0);
+                d.f(R.color.CAM_X0614);
+            } else {
+                nv4 d2 = nv4.d(this.a);
+                d2.n(R.string.J_X05);
+                d2.m(0);
+                d2.f(R.color.CAM_X0302);
+            }
+            AdType adType = this.d;
+            if (adType == AdType.DOWNLOAD) {
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806f5, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            } else if (adType == AdType.INFO) {
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0807ab, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            }
+            nv4 d3 = nv4.d(this.c);
+            d3.z(R.dimen.T_X08);
+            d3.v(R.color.CAM_X0101);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ValueAnimator ofInt = ObjectAnimator.ofInt(SkinManager.getColor(R.color.CAM_X0614), SkinManager.getColor(R.color.CAM_X0302));
+            ofInt.setDuration(400L);
+            ofInt.setEvaluator(new ArgbEvaluator());
+            ofInt.addUpdateListener(new a(this));
+            ofInt.start();
+        }
     }
 }

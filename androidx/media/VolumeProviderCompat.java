@@ -2,7 +2,6 @@ package androidx.media;
 
 import android.media.VolumeProvider;
 import android.os.Build;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,10 +23,29 @@ public abstract class VolumeProviderCompat {
     public final int mMaxVolume;
     public VolumeProvider mVolumeProviderFwk;
 
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface ControlType {
+    }
+
+    public void onAdjustVolume(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    public void onSetVolumeTo(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
     /* loaded from: classes.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void onVolumeChanged(VolumeProviderCompat volumeProviderCompat);
 
         public Callback() {
             Interceptable interceptable = $ic;
@@ -42,14 +60,6 @@ public abstract class VolumeProviderCompat {
                 }
             }
         }
-
-        public abstract void onVolumeChanged(VolumeProviderCompat volumeProviderCompat);
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface ControlType {
     }
 
     public VolumeProviderCompat(int i, int i2, int i3) {
@@ -75,19 +85,28 @@ public abstract class VolumeProviderCompat {
     public final int getCurrentVolume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCurrentVolume : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCurrentVolume;
+        }
+        return invokeV.intValue;
     }
 
     public final int getMaxVolume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMaxVolume : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMaxVolume;
+        }
+        return invokeV.intValue;
     }
 
     public final int getVolumeControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mControlType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mControlType;
+        }
+        return invokeV.intValue;
     }
 
     public Object getVolumeProvider() {
@@ -142,18 +161,6 @@ public abstract class VolumeProviderCompat {
             return this.mVolumeProviderFwk;
         }
         return invokeV.objValue;
-    }
-
-    public void onAdjustVolume(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
-    public void onSetVolumeTo(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
     }
 
     public void setCallback(Callback callback) {

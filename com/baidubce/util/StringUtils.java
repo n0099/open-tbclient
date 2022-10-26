@@ -27,6 +27,12 @@ public class StringUtils {
     public static boolean isEmpty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str == null || str.isEmpty() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

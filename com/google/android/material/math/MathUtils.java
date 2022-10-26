@@ -12,6 +12,24 @@ public final class MathUtils {
     public static final float DEFAULT_EPSILON = 1.0E-4f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean geq(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + f3 >= f2 : invokeCommon.booleanValue;
+    }
+
+    public static float lerp(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ((1.0f - f3) * f) + (f3 * f2) : invokeCommon.floatValue;
+    }
+
+    public static float max(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (f <= f2 || f <= f3 || f <= f4) ? (f2 <= f3 || f2 <= f4) ? f3 > f4 ? f3 : f4 : f2 : f : invokeCommon.floatValue;
+    }
+
     public MathUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,13 +47,19 @@ public final class MathUtils {
     public static float dist(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (float) Math.hypot(f3 - f, f4 - f2) : invokeCommon.floatValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            return (float) Math.hypot(f3 - f, f4 - f2);
+        }
+        return invokeCommon.floatValue;
     }
 
     public static float distanceToFurthestCorner(float f, float f2, float f3, float f4, float f5, float f6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) ? max(dist(f, f2, f3, f4), dist(f, f2, f5, f4), dist(f, f2, f5, f6), dist(f, f2, f3, f6)) : invokeCommon.floatValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            return max(dist(f, f2, f3, f4), dist(f, f2, f5, f4), dist(f, f2, f5, f6), dist(f, f2, f3, f6));
+        }
+        return invokeCommon.floatValue;
     }
 
     public static float floorMod(float f, int i) {
@@ -50,24 +74,6 @@ public final class MathUtils {
             return f - (i2 * i);
         }
         return invokeCommon.floatValue;
-    }
-
-    public static boolean geq(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + f3 >= f2 : invokeCommon.booleanValue;
-    }
-
-    public static float lerp(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ((1.0f - f3) * f) + (f3 * f2) : invokeCommon.floatValue;
-    }
-
-    public static float max(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (f <= f2 || f <= f3 || f <= f4) ? (f2 <= f3 || f2 <= f4) ? f3 > f4 ? f3 : f4 : f2 : f : invokeCommon.floatValue;
     }
 
     public static int floorMod(int i, int i2) {

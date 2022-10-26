@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ih implements iu<ih, Object>, Serializable, Cloneable {
+public class ih implements iu, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -24,7 +24,7 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hs> f638a;
+    public List f638a;
 
     static {
         InterceptResult invokeClinit;
@@ -66,11 +66,11 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ihVar)) == null) {
             if (ih.class.equals(ihVar.getClass())) {
-                int compareTo = Boolean.valueOf(m479a()).compareTo(Boolean.valueOf(ihVar.m479a()));
+                int compareTo = Boolean.valueOf(m478a()).compareTo(Boolean.valueOf(ihVar.m478a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m479a() || (a2 = iv.a(this.f638a, ihVar.f638a)) == 0) {
+                if (!m478a() || (a2 = iv.a(this.f638a, ihVar.f638a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -80,14 +80,14 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
         return invokeL.intValue;
     }
 
-    public List<hs> a() {
+    public List a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f638a : (List) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m478a() {
+    public void m477a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f638a == null) {
             throw new jg("Required field 'normalConfigs' was not present! Struct: " + toString());
@@ -100,19 +100,19 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jfVar) != null) {
             return;
         }
-        jfVar.m550a();
+        jfVar.m549a();
         while (true) {
-            jc m546a = jfVar.m546a();
-            byte b = m546a.a;
+            jc m545a = jfVar.m545a();
+            byte b = m545a.a;
             if (b == 0) {
                 jfVar.f();
-                m478a();
+                m477a();
                 return;
             }
-            if (m546a.f810a == 1 && b == 15) {
-                jd m547a = jfVar.m547a();
-                this.f638a = new ArrayList(m547a.f811a);
-                for (int i = 0; i < m547a.f811a; i++) {
+            if (m545a.f810a == 1 && b == 15) {
+                jd m546a = jfVar.m546a();
+                this.f638a = new ArrayList(m546a.f811a);
+                for (int i = 0; i < m546a.f811a; i++) {
                     hs hsVar = new hs();
                     hsVar.a(jfVar);
                     this.f638a.add(hsVar);
@@ -126,24 +126,24 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m479a() {
+    public boolean m478a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f638a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m480a(ih ihVar) {
+    public boolean m479a(ih ihVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ihVar)) == null) {
             if (ihVar == null) {
                 return false;
             }
-            boolean m479a = m479a();
-            boolean m479a2 = ihVar.m479a();
-            if (m479a || m479a2) {
-                return m479a && m479a2 && this.f638a.equals(ihVar.f638a);
+            boolean m478a = m478a();
+            boolean m478a2 = ihVar.m478a();
+            if (m478a || m478a2) {
+                return m478a && m478a2 && this.f638a.equals(ihVar.f638a);
             }
             return true;
         }
@@ -154,7 +154,7 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
     public void b(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jfVar) == null) {
-            m478a();
+            m477a();
             jfVar.a(f637a);
             if (this.f638a != null) {
                 jfVar.a(a);
@@ -166,7 +166,7 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m554a();
+            jfVar.m553a();
         }
     }
 
@@ -175,7 +175,7 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
             if (obj != null && (obj instanceof ih)) {
-                return m480a((ih) obj);
+                return m479a((ih) obj);
             }
             return false;
         }
@@ -197,7 +197,7 @@ public class ih implements iu<ih, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionNormalConfig(");
             sb.append("normalConfigs:");
-            List<hs> list = this.f638a;
+            List list = this.f638a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

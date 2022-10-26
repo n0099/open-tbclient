@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.oc6;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.vc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,6 +26,23 @@ public class SearchEmotionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(String str, vc6 vc6Var);
+
+        void onFail(int i, String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -58,28 +75,22 @@ public class SearchEmotionModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage) && this.a.a != null) {
-                SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
-                if (searchEmotionResponseMessage.getData() != null) {
-                    if (httpResponsedMessage.getOrginalMessage() == null || !(httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
-                        return;
-                    }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003330 || !(httpResponsedMessage instanceof SearchEmotionResponseMessage) || this.a.a == null) {
+                return;
+            }
+            SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
+            if (searchEmotionResponseMessage.getData() != null) {
+                if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                     this.a.a.a((String) httpResponsedMessage.getOrginalMessage().getExtra(), searchEmotionResponseMessage.getData());
                     return;
                 }
-                if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                    ej.N(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
-                }
-                this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
+                return;
             }
+            if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
+                fj.N(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+            }
+            this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(String str, oc6 oc6Var);
-
-        void onFail(int i, String str);
     }
 
     public SearchEmotionModel() {
@@ -105,16 +116,15 @@ public class SearchEmotionModel extends BdBaseModel {
 
     public void A(String str, int i, int i2, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) || bVar == null || TextUtils.isEmpty(str)) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) && bVar != null && !TextUtils.isEmpty(str)) {
+            this.a = bVar;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
+            httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, str);
+            httpMessage.addParam("pn", i);
+            httpMessage.addParam("rn", i2);
+            httpMessage.setExtra(str);
+            sendMessage(httpMessage);
         }
-        this.a = bVar;
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
-        httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, str);
-        httpMessage.addParam("pn", i);
-        httpMessage.addParam("rn", i2);
-        httpMessage.setExtra(str);
-        sendMessage(httpMessage);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -125,16 +135,6 @@ public class SearchEmotionModel extends BdBaseModel {
             MessageManager.getInstance().unRegisterListener(getUniqueId());
             this.a = null;
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

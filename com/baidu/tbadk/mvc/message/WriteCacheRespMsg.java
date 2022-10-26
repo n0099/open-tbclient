@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class WriteCacheRespMsg<T> extends CustomResponsedMessage<T> {
+public class WriteCacheRespMsg extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isSuccess;
@@ -37,7 +37,10 @@ public class WriteCacheRespMsg<T> extends CustomResponsedMessage<T> {
     public boolean isSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isSuccess : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isSuccess;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setSuccess(boolean z) {

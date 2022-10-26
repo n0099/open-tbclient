@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b57;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.f57;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
+import com.baidu.tieba.j57;
+import com.baidu.tieba.n57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,88 +57,6 @@ public class TopicDetailHeadView extends RelativeLayout {
         }
         this.a = 3;
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0895, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922c7);
-            this.b = tbImageView;
-            tbImageView.setDrawingCacheEnabled(true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c9);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922cb);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922ca);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0922cc);
-            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f0922cd);
-            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f0922ce);
-            ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            layoutParams.height = ((ej.k(getContext()) - ej.f(getContext(), R.dimen.tbds88)) * 9) / 16;
-            this.e.setLayoutParams(layoutParams);
-            this.e.setRadius(ej.f(context, R.dimen.tbds10));
-            this.e.setConrers(15);
-            this.e.setPlaceHolder(3);
-            b();
-        }
-    }
-
-    public void b() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        this.b.setSkinType(skinType);
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-        this.e.setSkinType(this.a);
-        this.g.q();
-        this.h.b();
-    }
-
-    public TbImageView getmBgImg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TbImageView) invokeV.objValue;
-    }
-
-    public void setData(b57 b57Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b57Var) == null) {
-            if (b57Var == null) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            if (b57Var.e == null && StringUtils.isNull(b57Var.c)) {
-                ((LinearLayout.LayoutParams) this.c.getLayoutParams()).bottomMargin = ej.f(getContext(), R.dimen.tbds130);
-            }
-            this.c.setText(b57Var.b);
-            if (StringUtils.isNull(b57Var.c)) {
-                this.d.setVisibility(8);
-                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081224);
-            } else {
-                this.d.setVisibility(0);
-                this.e.K(b57Var.c, 10, false);
-                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081225);
-            }
-            if (b57Var.e == null) {
-                this.f.setVisibility(8);
-                this.g.setVisibility(8);
-            } else {
-                this.f.setVisibility(0);
-                this.g.setVisibility(0);
-                this.g.setData(b57Var.e);
-            }
-            f57 f57Var = b57Var.f;
-            if (f57Var != null && !ListUtils.isEmpty(f57Var.b)) {
-                this.h.setVisibility(0);
-                this.h.setData(b57Var.f);
-            } else {
-                this.h.setVisibility(8);
-            }
-            this.b.K(b57Var.d, 10, false);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -185,5 +103,90 @@ public class TopicDetailHeadView extends RelativeLayout {
         }
         this.a = 3;
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0896, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922b1);
+            this.b = tbImageView;
+            tbImageView.setDrawingCacheEnabled(true);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b3);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922b5);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922b4);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0922b6);
+            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f0922b7);
+            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f0922b8);
+            ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
+            layoutParams.height = ((fj.k(getContext()) - fj.f(getContext(), R.dimen.tbds88)) * 9) / 16;
+            this.e.setLayoutParams(layoutParams);
+            this.e.setRadius(fj.f(context, R.dimen.tbds10));
+            this.e.setConrers(15);
+            this.e.setPlaceHolder(3);
+            b();
+        }
+    }
+
+    public void setData(j57 j57Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, j57Var) == null) {
+            if (j57Var == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            if (j57Var.e == null && StringUtils.isNull(j57Var.c)) {
+                ((LinearLayout.LayoutParams) this.c.getLayoutParams()).bottomMargin = fj.f(getContext(), R.dimen.tbds130);
+            }
+            this.c.setText(j57Var.b);
+            if (StringUtils.isNull(j57Var.c)) {
+                this.d.setVisibility(8);
+                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081235);
+            } else {
+                this.d.setVisibility(0);
+                this.e.L(j57Var.c, 10, false);
+                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081236);
+            }
+            if (j57Var.e == null) {
+                this.f.setVisibility(8);
+                this.g.setVisibility(8);
+            } else {
+                this.f.setVisibility(0);
+                this.g.setVisibility(0);
+                this.g.setData(j57Var.e);
+            }
+            n57 n57Var = j57Var.f;
+            if (n57Var != null && !ListUtils.isEmpty(n57Var.b)) {
+                this.h.setVisibility(0);
+                this.h.setData(j57Var.f);
+            } else {
+                this.h.setVisibility(8);
+            }
+            this.b.L(j57Var.d, 10, false);
+        }
+    }
+
+    public void b() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        this.b.setSkinType(skinType);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+        this.e.setSkinType(this.a);
+        this.g.q();
+        this.h.b();
+    }
+
+    public TbImageView getmBgImg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (TbImageView) invokeV.objValue;
     }
 }

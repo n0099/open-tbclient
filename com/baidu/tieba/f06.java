@@ -1,129 +1,108 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.AlaConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d06;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpReqMessage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class f06 extends d06<f06> {
+public class f06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g06 t;
-    public float u;
-    public boolean v;
+    public b a;
+    public HttpMessageListener b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> f06(K k, e06<K> e06Var) {
-        super(k, e06Var);
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(String str);
+
+        void b(boolean z);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f06 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(f06 f06Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f06Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f06Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage)) {
+                AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
+                if (alaEnterEffectEditHttpResMessage.getError() == 0) {
+                    if ((alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) && this.a.a != null) {
+                        this.a.a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
+                    }
+                } else if (this.a.a != null) {
+                    this.a.a.a(alaEnterEffectEditHttpResMessage.getErrorString());
+                }
+            }
+        }
+    }
+
+    public f06(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k, e06Var};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (e06) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = null;
-        this.u = Float.MAX_VALUE;
-        this.v = false;
+        this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
+        this.a = bVar;
+        zm8.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
+        this.b.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    @Override // com.baidu.tieba.d06
-    public void h() {
+    public void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-            this.t.g(e());
-            super.h();
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            MessageManager.getInstance().sendMessage(new AlaEnterEffectEditHttpReqMessage(str, z));
         }
     }
 
-    @Override // com.baidu.tieba.d06
-    public boolean j(long j) {
-        InterceptResult invokeJ;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.v) {
-                float f = this.u;
-                if (f != Float.MAX_VALUE) {
-                    this.t.e(f);
-                    this.u = Float.MAX_VALUE;
-                }
-                this.b = this.t.a();
-                this.a = 0.0f;
-                this.v = false;
-                return true;
-            }
-            if (this.u != Float.MAX_VALUE) {
-                this.t.a();
-                long j2 = j / 2;
-                d06.i h = this.t.h(this.b, this.a, j2);
-                this.t.e(this.u);
-                this.u = Float.MAX_VALUE;
-                d06.i h2 = this.t.h(h.a, h.b, j2);
-                this.b = h2.a;
-                this.a = h2.b;
-            } else {
-                d06.i h3 = this.t.h(this.b, this.a, j);
-                this.b = h3.a;
-                this.a = h3.b;
-            }
-            float max = Math.max(this.b, this.h);
-            this.b = max;
-            float min = Math.min(max, this.g);
-            this.b = min;
-            if (k(min, this.a)) {
-                this.b = this.t.a();
-                this.a = 0.0f;
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
-        return invokeJ.booleanValue;
-    }
-
-    public boolean k(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.t.c(f, f2) : invokeCommon.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            g06 g06Var = this.t;
-            if (g06Var != null) {
-                double a = g06Var.a();
-                if (a <= this.g) {
-                    if (a < this.h) {
-                        throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
-                    }
-                    return;
-                }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
-            }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
-        }
-    }
-
-    public f06 m(g06 g06Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, g06Var)) == null) {
-            this.t = g06Var;
-            return this;
-        }
-        return (f06) invokeL.objValue;
     }
 }

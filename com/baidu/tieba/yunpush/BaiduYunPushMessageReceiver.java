@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.i25;
-import com.baidu.tieba.na5;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.o25;
 import com.baidu.tieba.push.PushGeneralData;
+import com.baidu.tieba.ra5;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,6 +33,41 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
     public static final String TAG = "BaiduYunPush";
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onDelTags(Context context, int i, List list, List list2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onListTags(Context context, int i, List list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, context, i, list, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onNotificationArrived(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, str2, str3) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onSetTags(Context context, int i, List list, List list2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onUnbind(Context context, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, context, i, str) == null) {
+        }
+    }
 
     public BaiduYunPushMessageReceiver() {
         Interceptable interceptable = $ic;
@@ -55,114 +90,88 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                ox4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                ux4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
-        }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onListTags(Context context, int i, List<String> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, context, i, list, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onMessage(Context context, String str, String str2, int i) {
+        String str3;
+        String str4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            String str3 = null;
-            String string = !jSONObject.isNull("title") ? jSONObject.getString("title") : null;
-            String string2 = !jSONObject.isNull("description") ? jSONObject.getString("description") : null;
-            if (!jSONObject.isNull("custom_content")) {
-                JSONObject jSONObject2 = new JSONObject(jSONObject.getString("custom_content"));
-                if (!jSONObject2.isNull("scheme")) {
-                    str3 = jSONObject2.getString("scheme");
+        if ((interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i) == null) && !TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String str5 = null;
+                if (!jSONObject.isNull("title")) {
+                    str3 = jSONObject.getString("title");
+                } else {
+                    str3 = null;
                 }
-            }
-            String str4 = "";
-            if (!TextUtils.isEmpty(str3) && str3.contains("tbyunpushnotifybody=")) {
-                JSONObject jSONObject3 = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + 20));
-                if (!jSONObject3.isNull("task_id")) {
-                    str4 = jSONObject3.getString("task_id");
+                if (!jSONObject.isNull("description")) {
+                    str4 = jSONObject.getString("description");
+                } else {
+                    str4 = null;
                 }
-            }
-            if (!jSONObject.isNull("st_ext")) {
-                PushGeneralData pushGeneralData = new PushGeneralData();
-                pushGeneralData.parseData(jSONObject.optString("st_ext"));
-                PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
-                pushRecevierEvent.generalData = pushGeneralData;
-                na5.i(pushRecevierEvent);
-            } else if (i25.L()) {
-            } else {
-                int e = dh.e(str4, 2500);
-                if (e < 2500) {
-                    e += 2500;
+                if (!jSONObject.isNull("custom_content")) {
+                    JSONObject jSONObject2 = new JSONObject(jSONObject.getString("custom_content"));
+                    if (!jSONObject2.isNull("scheme")) {
+                        str5 = jSONObject2.getString("scheme");
+                    }
                 }
-                int i2 = e;
-                Intent parseUri = Intent.parseUri(str3, 1);
-                parseUri.setFlags(276824064);
-                NotificationHelper.showNotification(context, i2, string, string2, string2, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
+                String str6 = "";
+                if (!TextUtils.isEmpty(str5) && str5.contains("tbyunpushnotifybody=")) {
+                    JSONObject jSONObject3 = new JSONObject(str5.substring(str5.indexOf("tbyunpushnotifybody=") + 20));
+                    if (!jSONObject3.isNull("task_id")) {
+                        str6 = jSONObject3.getString("task_id");
+                    }
+                }
+                if (!jSONObject.isNull("st_ext")) {
+                    PushGeneralData pushGeneralData = new PushGeneralData();
+                    pushGeneralData.parseData(jSONObject.optString("st_ext"));
+                    PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
+                    pushRecevierEvent.generalData = pushGeneralData;
+                    ra5.i(pushRecevierEvent);
+                } else if (!o25.L()) {
+                    int e = eh.e(str6, 2500);
+                    if (e < 2500) {
+                        e += 2500;
+                    }
+                    int i2 = e;
+                    Intent parseUri = Intent.parseUri(str5, 1);
+                    parseUri.setFlags(276824064);
+                    NotificationHelper.showNotification(context, i2, str3, str4, str4, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception unused) {
-        }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onNotificationArrived(Context context, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, str2, str3) == null) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onNotificationClicked(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048581, this, context, str, str2, str3) == null) || TextUtils.isEmpty(str3)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str3);
-            String string = jSONObject.isNull("scheme") ? null : jSONObject.getString("scheme");
-            if (TextUtils.isEmpty(string)) {
-                return;
+        if ((interceptable == null || interceptable.invokeLLLL(1048581, this, context, str, str2, str3) == null) && !TextUtils.isEmpty(str3)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str3);
+                String str4 = null;
+                if (!jSONObject.isNull("scheme")) {
+                    str4 = jSONObject.getString("scheme");
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    Intent parseUri = Intent.parseUri(str4, 1);
+                    parseUri.setFlags(276824064);
+                    context.startActivity(parseUri);
+                    if (str4.contains("unidispatch/hotuserrank")) {
+                        TiebaStatic.log(new StatisticItem("c13662").param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                    }
+                }
+            } catch (URISyntaxException e) {
+                BdLog.detailException(e);
+            } catch (JSONException e2) {
+                BdLog.detailException(e2);
             }
-            Intent parseUri = Intent.parseUri(string, 1);
-            parseUri.setFlags(276824064);
-            context.startActivity(parseUri);
-            if (string.contains("unidispatch/hotuserrank")) {
-                TiebaStatic.log(new StatisticItem("c13662").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-            }
-        } catch (URISyntaxException e) {
-            BdLog.detailException(e);
-        } catch (JSONException e2) {
-            BdLog.detailException(e2);
-        }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
-        }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onUnbind(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048583, this, context, i, str) == null) {
         }
     }
 }

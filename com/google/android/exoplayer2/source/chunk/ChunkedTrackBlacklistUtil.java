@@ -32,20 +32,10 @@ public final class ChunkedTrackBlacklistUtil {
     public static boolean maybeBlacklistTrack(TrackSelection trackSelection, int i, Exception exc) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, trackSelection, i, exc)) == null) ? maybeBlacklistTrack(trackSelection, i, exc, 60000L) : invokeLIL.booleanValue;
-    }
-
-    public static boolean shouldBlacklist(Exception exc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
-            if (exc instanceof HttpDataSource.InvalidResponseCodeException) {
-                int i = ((HttpDataSource.InvalidResponseCodeException) exc).responseCode;
-                return i == 404 || i == 410;
-            }
-            return false;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, trackSelection, i, exc)) == null) {
+            return maybeBlacklistTrack(trackSelection, i, exc, 60000L);
         }
-        return invokeL.booleanValue;
+        return invokeLIL.booleanValue;
     }
 
     public static boolean maybeBlacklistTrack(TrackSelection trackSelection, int i, Exception exc, long j) {
@@ -65,5 +55,21 @@ public final class ChunkedTrackBlacklistUtil {
             return false;
         }
         return invokeCommon.booleanValue;
+    }
+
+    public static boolean shouldBlacklist(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
+            if (!(exc instanceof HttpDataSource.InvalidResponseCodeException)) {
+                return false;
+            }
+            int i = ((HttpDataSource.InvalidResponseCodeException) exc).responseCode;
+            if (i != 404 && i != 410) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

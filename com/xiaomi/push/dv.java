@@ -50,14 +50,14 @@ public class dv extends al.a {
         this.f235a = com.xiaomi.push.service.ba.a(context);
     }
 
-    private List<hr> a(File file) {
+    private List a(File file) {
         InterceptResult invokeL;
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
-            dm m270a = dn.a().m270a();
-            String a = m270a == null ? "" : m270a.a();
+            dm m269a = dn.a().m269a();
+            String a = m269a == null ? "" : m269a.a();
             FileLock fileLock = null;
             if (TextUtils.isEmpty(a)) {
                 return null;
@@ -67,7 +67,7 @@ public class dv extends al.a {
             synchronized (dq.a) {
                 try {
                     File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                    ab.m162a(file2);
+                    ab.m161a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -166,7 +166,7 @@ public class dv extends al.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m274a() {
+    private boolean m273a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
@@ -207,7 +207,7 @@ public class dv extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo208a() {
+    public String mo207a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1" : (String) invokeV.objValue;
@@ -222,8 +222,8 @@ public class dv extends al.a {
                 if (file.length() > 1863680) {
                     file.delete();
                 }
-            } else if (!m274a() && file.exists()) {
-                List<hr> a = a(file);
+            } else if (!m273a() && file.exists()) {
+                List a = a(file);
                 if (!ag.a(a)) {
                     int size = a.size();
                     if (size > 4000) {
@@ -235,9 +235,9 @@ public class dv extends al.a {
                     ii iiVar = new ii("-1", false);
                     iiVar.c(ht.q.f506a);
                     iiVar.a(a2);
-                    dm m270a = dn.a().m270a();
-                    if (m270a != null) {
-                        m270a.a(iiVar, hj.i, null);
+                    dm m269a = dn.a().m269a();
+                    if (m269a != null) {
+                        m269a.a(iiVar, hj.i, null);
                     }
                     a();
                 }

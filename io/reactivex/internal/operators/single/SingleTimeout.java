@@ -17,33 +17,33 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleTimeout<T> extends Single<T> {
+public final class SingleTimeout extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<? extends T> other;
+    public final SingleSource other;
     public final Scheduler scheduler;
-    public final SingleSource<T> source;
+    public final SingleSource source;
     public final long timeout;
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class TimeoutMainObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Runnable, Disposable {
+    public final class TimeoutMainObserver extends AtomicReference implements SingleObserver, Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 37497744973048446L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
-        public final TimeoutFallbackObserver<T> fallback;
-        public SingleSource<? extends T> other;
-        public final AtomicReference<Disposable> task;
+        public final SingleObserver actual;
+        public final TimeoutFallbackObserver fallback;
+        public SingleSource other;
+        public final AtomicReference task;
 
         /* loaded from: classes8.dex */
-        public static final class TimeoutFallbackObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T> {
+        public final class TimeoutFallbackObserver extends AtomicReference implements SingleObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2071387740092105509L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final SingleObserver<? super T> actual;
+            public final SingleObserver actual;
 
-            public TimeoutFallbackObserver(SingleObserver<? super T> singleObserver) {
+            public TimeoutFallbackObserver(SingleObserver singleObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,15 +78,15 @@ public final class SingleTimeout<T> extends Single<T> {
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(T t) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                    this.actual.onSuccess(t);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    this.actual.onSuccess(obj);
                 }
             }
         }
 
-        public TimeoutMainObserver(SingleObserver<? super T> singleObserver, SingleSource<? extends T> singleSource) {
+        public TimeoutMainObserver(SingleObserver singleObserver, SingleSource singleSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,9 +103,9 @@ public final class SingleTimeout<T> extends Single<T> {
             }
             this.actual = singleObserver;
             this.other = singleSource;
-            this.task = new AtomicReference<>();
+            this.task = new AtomicReference();
             if (singleSource != null) {
-                this.fallback = new TimeoutFallbackObserver<>(singleObserver);
+                this.fallback = new TimeoutFallbackObserver(singleObserver);
             } else {
                 this.fallback = null;
             }
@@ -117,7 +117,7 @@ public final class SingleTimeout<T> extends Single<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DisposableHelper.dispose(this);
                 DisposableHelper.dispose(this.task);
-                TimeoutFallbackObserver<T> timeoutFallbackObserver = this.fallback;
+                TimeoutFallbackObserver timeoutFallbackObserver = this.fallback;
                 if (timeoutFallbackObserver != null) {
                     DisposableHelper.dispose(timeoutFallbackObserver);
                 }
@@ -128,14 +128,17 @@ public final class SingleTimeout<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                Disposable disposable = get();
+                Disposable disposable = (Disposable) get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
                 if (disposable != disposableHelper && compareAndSet(disposable, disposableHelper)) {
                     DisposableHelper.dispose(this.task);
@@ -155,13 +158,13 @@ public final class SingleTimeout<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Disposable disposable;
             DisposableHelper disposableHelper;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && (disposable = get()) != (disposableHelper = DisposableHelper.DISPOSED) && compareAndSet(disposable, disposableHelper)) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (disposable = (Disposable) get()) != (disposableHelper = DisposableHelper.DISPOSED) && compareAndSet(disposable, disposableHelper)) {
                 DisposableHelper.dispose(this.task);
-                this.actual.onSuccess(t);
+                this.actual.onSuccess(obj);
             }
         }
 
@@ -170,11 +173,11 @@ public final class SingleTimeout<T> extends Single<T> {
             Disposable disposable;
             DisposableHelper disposableHelper;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (disposable = get()) != (disposableHelper = DisposableHelper.DISPOSED) && compareAndSet(disposable, disposableHelper)) {
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (disposable = (Disposable) get()) != (disposableHelper = DisposableHelper.DISPOSED) && compareAndSet(disposable, disposableHelper)) {
                 if (disposable != null) {
                     disposable.dispose();
                 }
-                SingleSource<? extends T> singleSource = this.other;
+                SingleSource singleSource = this.other;
                 if (singleSource == null) {
                     this.actual.onError(new TimeoutException());
                     return;
@@ -185,7 +188,7 @@ public final class SingleTimeout<T> extends Single<T> {
         }
     }
 
-    public SingleTimeout(SingleSource<T> singleSource, long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource2) {
+    public SingleTimeout(SingleSource singleSource, long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource singleSource2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +211,7 @@ public final class SingleTimeout<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             TimeoutMainObserver timeoutMainObserver = new TimeoutMainObserver(singleObserver, this.other);

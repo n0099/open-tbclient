@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kp4;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.lp4;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,11 +31,31 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public kp4 c;
-    public pb d;
+    public lp4 c;
+    public qb d;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a extends pb {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RelateRecThreadListModel a;
@@ -62,35 +82,37 @@ public class RelateRecThreadListModel extends BdBaseModel {
             this.a = relateRecThreadListModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             RelateRecThreadRequestMessage relateRecThreadRequestMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 Log.e("RecThreadList", "------onMessage----");
                 this.a.a = false;
-                if (responsedMessage == null || responsedMessage.getmOrginalMessage() == null || (relateRecThreadRequestMessage = (RelateRecThreadRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || this.a.b == null || this.a.b.threadId != relateRecThreadRequestMessage.threadId) {
-                    return;
-                }
-                int error = responsedMessage.getError();
-                String errorString = responsedMessage.getErrorString();
-                if (error == 0 && !responsedMessage.hasError()) {
-                    DataRes data = responsedMessage instanceof RelateRecThreadSocketResponseMessage ? ((RelateRecThreadSocketResponseMessage) responsedMessage).getData() : null;
-                    if (responsedMessage instanceof RelateRecThreadHttpResponseMessage) {
-                        data = ((RelateRecThreadHttpResponseMessage) responsedMessage).getData();
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.onSuccess(data);
+                if (responsedMessage != null && responsedMessage.getmOrginalMessage() != null && (relateRecThreadRequestMessage = (RelateRecThreadRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) != null && this.a.b != null && this.a.b.threadId == relateRecThreadRequestMessage.threadId) {
+                    int error = responsedMessage.getError();
+                    String errorString = responsedMessage.getErrorString();
+                    if (error == 0 && !responsedMessage.hasError()) {
+                        DataRes dataRes = null;
+                        if (responsedMessage instanceof RelateRecThreadSocketResponseMessage) {
+                            dataRes = ((RelateRecThreadSocketResponseMessage) responsedMessage).getData();
+                        }
+                        if (responsedMessage instanceof RelateRecThreadHttpResponseMessage) {
+                            dataRes = ((RelateRecThreadHttpResponseMessage) responsedMessage).getData();
+                        }
+                        if (this.a.c != null) {
+                            this.a.c.onSuccess(dataRes);
+                            return;
+                        }
                         return;
                     }
-                    return;
-                }
-                Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
-                if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.D(R.string.error_unkown_try_again);
-                }
-                if (this.a.c != null) {
-                    this.a.c.onError(error, errorString);
+                    Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
+                    if (StringUtils.isNull(errorString)) {
+                        errorString = this.a.D(R.string.error_unkown_try_again);
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.onError(error, errorString);
+                    }
                 }
             }
         }
@@ -123,14 +145,24 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public final String D(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return TbadkCoreApplication.getInst().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void G(lp4 lp4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lp4Var) == null) {
+            this.c = lp4Var;
+        }
     }
 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sm8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            sm8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            zm8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            zm8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
@@ -157,33 +189,6 @@ public class RelateRecThreadListModel extends BdBaseModel {
             return true;
         }
         return invokeCommon.booleanValue;
-    }
-
-    public void G(kp4 kp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kp4Var) == null) {
-            this.c = kp4Var;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void onDestroy() {

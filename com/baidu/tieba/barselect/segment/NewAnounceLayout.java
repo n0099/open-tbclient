@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.l06;
-import com.baidu.tieba.n06;
+import com.baidu.tieba.b16;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.s06;
 import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -68,13 +68,12 @@ public class NewAnounceLayout extends CardBasicLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_ANNOUNCE_AREA).eventStat();
-                l06 l06Var = this.a.c;
-                if (l06Var == null || l06Var.k() == 0 || TextUtils.isEmpty(this.a.c.b()) || this.a.c.f() == 2) {
-                    return;
+                s06 s06Var = this.a.c;
+                if (s06Var != null && s06Var.k() != 0 && !TextUtils.isEmpty(this.a.c.b()) && this.a.c.f() != 2) {
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.e);
+                    pbActivityConfig.createNormalCfg(this.a.c.k() + "", (String) null, (String) null, true);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                 }
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.e);
-                pbActivityConfig.createNormalCfg(this.a.c.k() + "", (String) null, (String) null, true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
             }
         }
     }
@@ -100,15 +99,38 @@ public class NewAnounceLayout extends CardBasicLayout {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public NewAnounceLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.k = new a(this);
+        c();
+    }
+
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090285);
             this.f = findViewById;
             findViewById.setOnClickListener(this.k);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909cd);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091e1f);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e2a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909d7);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091e1b);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e26);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090287);
         }
     }
@@ -121,7 +143,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            setMinimumHeight(ej.f(getContext(), R.dimen.tbds90));
+            setMinimumHeight(fj.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0639, (ViewGroup) this, true);
             b();
@@ -130,10 +152,10 @@ public class NewAnounceLayout extends CardBasicLayout {
 
     public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.c == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || this.c == null) {
             return;
         }
-        if (this.a != u06.c) {
+        if (this.a != b16.c) {
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0205, i);
         } else {
             View view2 = this.f;
@@ -174,25 +196,25 @@ public class NewAnounceLayout extends CardBasicLayout {
                 return;
             }
             this.h.setVisibility(8);
-            this.g.setText(getResources().getString(R.string.obfuscated_res_0x7f0f057e));
+            this.g.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0586));
         }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, n06 n06Var) {
+    public void setData(int i, u06 u06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, n06Var) == null) {
-            super.setData(i, n06Var);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, u06Var) == null) {
+            super.setData(i, u06Var);
             if (this.b != null && this.c != null && this.a >= 0) {
-                this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds70) * 2);
-                if (this.a == u06.b) {
-                    this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds116) * 2);
+                this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds70) * 2);
+                if (this.a == b16.b) {
+                    this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds116) * 2);
                 }
-                if (this.a == u06.d) {
-                    this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds96) * 2);
+                if (this.a == b16.d) {
+                    this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds96) * 2);
                 }
-                if (this.a == u06.c) {
-                    this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds86) * 2);
+                if (this.a == b16.c) {
+                    this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds86) * 2);
                     this.f.setPadding(0, 0, 0, 0);
                     this.g.setPadding(0, 0, 0, 0);
                     this.i.setPadding(0, 0, 0, 0);
@@ -203,28 +225,5 @@ public class NewAnounceLayout extends CardBasicLayout {
             }
             setVisibility(8);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewAnounceLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.k = new a(this);
-        c();
     }
 }

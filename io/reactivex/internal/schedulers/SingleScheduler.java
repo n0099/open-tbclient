@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -30,11 +29,11 @@ public final class SingleScheduler extends Scheduler {
     public static final RxThreadFactory SINGLE_THREAD_FACTORY;
     public static final String THREAD_NAME_PREFIX = "RxSingleScheduler";
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<ScheduledExecutorService> executor;
+    public final AtomicReference executor;
     public final ThreadFactory threadFactory;
 
     /* loaded from: classes8.dex */
-    public static final class ScheduledWorker extends Scheduler.Worker {
+    public final class ScheduledWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean disposed;
@@ -63,25 +62,26 @@ public final class SingleScheduler extends Scheduler {
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.disposed) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.disposed) {
+                this.disposed = true;
+                this.tasks.dispose();
             }
-            this.disposed = true;
-            this.tasks.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.disposed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
-            Future<?> schedule;
+            Future schedule;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
                 if (this.disposed) {
@@ -144,112 +144,26 @@ public final class SingleScheduler extends Scheduler {
         }
     }
 
-    public static ScheduledExecutorService createExecutor(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) ? SchedulerPoolFactory.create(threadFactory) : (ScheduledExecutorService) invokeL.objValue;
-    }
-
     @Override // io.reactivex.Scheduler
-    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ScheduledWorker(this.executor.get()) : (Scheduler.Worker) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(RxJavaPlugins.onSchedule(runnable));
-            try {
-                if (j <= 0) {
-                    schedule = this.executor.get().submit(scheduledDirectTask);
-                } else {
-                    schedule = this.executor.get().schedule(scheduledDirectTask, j, timeUnit);
-                }
-                scheduledDirectTask.setFuture(schedule);
-                return scheduledDirectTask;
-            } catch (RejectedExecutionException e) {
-                RxJavaPlugins.onError(e);
-                return EmptyDisposable.INSTANCE;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ScheduledWorker((ScheduledExecutorService) this.executor.get());
         }
-        return (Disposable) invokeCommon.objValue;
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
-            Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
-            if (j2 <= 0) {
-                ScheduledExecutorService scheduledExecutorService = this.executor.get();
-                InstantPeriodicTask instantPeriodicTask = new InstantPeriodicTask(onSchedule, scheduledExecutorService);
-                try {
-                    if (j <= 0) {
-                        schedule = scheduledExecutorService.submit(instantPeriodicTask);
-                    } else {
-                        schedule = scheduledExecutorService.schedule(instantPeriodicTask, j, timeUnit);
-                    }
-                    instantPeriodicTask.setFirst(schedule);
-                    return instantPeriodicTask;
-                } catch (RejectedExecutionException e) {
-                    RxJavaPlugins.onError(e);
-                    return EmptyDisposable.INSTANCE;
-                }
-            }
-            ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(onSchedule);
-            try {
-                scheduledDirectPeriodicTask.setFuture(this.executor.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
-                return scheduledDirectPeriodicTask;
-            } catch (RejectedExecutionException e2) {
-                RxJavaPlugins.onError(e2);
-                return EmptyDisposable.INSTANCE;
-            }
-        }
-        return (Disposable) invokeCommon.objValue;
+        return (Scheduler.Worker) invokeV.objValue;
     }
 
     @Override // io.reactivex.Scheduler
     public void shutdown() {
-        ScheduledExecutorService andSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ScheduledExecutorService scheduledExecutorService = this.executor.get();
-            ScheduledExecutorService scheduledExecutorService2 = SHUTDOWN;
-            if (scheduledExecutorService == scheduledExecutorService2 || (andSet = this.executor.getAndSet(scheduledExecutorService2)) == SHUTDOWN) {
-                return;
-            }
-            andSet.shutdownNow();
-        }
-    }
-
-    @Override // io.reactivex.Scheduler
-    public void start() {
         ScheduledExecutorService scheduledExecutorService;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ScheduledExecutorService scheduledExecutorService2 = null;
-            do {
-                scheduledExecutorService = this.executor.get();
-                if (scheduledExecutorService != SHUTDOWN) {
-                    if (scheduledExecutorService2 != null) {
-                        scheduledExecutorService2.shutdown();
-                        return;
-                    }
-                    return;
-                } else if (scheduledExecutorService2 == null) {
-                    scheduledExecutorService2 = createExecutor(this.threadFactory);
-                }
-            } while (!this.executor.compareAndSet(scheduledExecutorService, scheduledExecutorService2));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ScheduledExecutorService scheduledExecutorService2 = (ScheduledExecutorService) this.executor.get();
+            ScheduledExecutorService scheduledExecutorService3 = SHUTDOWN;
+            if (scheduledExecutorService2 != scheduledExecutorService3 && (scheduledExecutorService = (ScheduledExecutorService) this.executor.getAndSet(scheduledExecutorService3)) != SHUTDOWN) {
+                scheduledExecutorService.shutdownNow();
+            }
         }
     }
 
@@ -268,9 +182,97 @@ public final class SingleScheduler extends Scheduler {
                 return;
             }
         }
-        AtomicReference<ScheduledExecutorService> atomicReference = new AtomicReference<>();
+        AtomicReference atomicReference = new AtomicReference();
         this.executor = atomicReference;
         this.threadFactory = threadFactory;
         atomicReference.lazySet(createExecutor(threadFactory));
+    }
+
+    public static ScheduledExecutorService createExecutor(ThreadFactory threadFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
+            return SchedulerPoolFactory.create(threadFactory);
+        }
+        return (ScheduledExecutorService) invokeL.objValue;
+    }
+
+    @Override // io.reactivex.Scheduler
+    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Future schedule;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+            ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(RxJavaPlugins.onSchedule(runnable));
+            try {
+                if (j <= 0) {
+                    schedule = ((ScheduledExecutorService) this.executor.get()).submit(scheduledDirectTask);
+                } else {
+                    schedule = ((ScheduledExecutorService) this.executor.get()).schedule(scheduledDirectTask, j, timeUnit);
+                }
+                scheduledDirectTask.setFuture(schedule);
+                return scheduledDirectTask;
+            } catch (RejectedExecutionException e) {
+                RxJavaPlugins.onError(e);
+                return EmptyDisposable.INSTANCE;
+            }
+        }
+        return (Disposable) invokeCommon.objValue;
+    }
+
+    @Override // io.reactivex.Scheduler
+    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Future schedule;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
+            if (j2 <= 0) {
+                ScheduledExecutorService scheduledExecutorService = (ScheduledExecutorService) this.executor.get();
+                InstantPeriodicTask instantPeriodicTask = new InstantPeriodicTask(onSchedule, scheduledExecutorService);
+                try {
+                    if (j <= 0) {
+                        schedule = scheduledExecutorService.submit(instantPeriodicTask);
+                    } else {
+                        schedule = scheduledExecutorService.schedule(instantPeriodicTask, j, timeUnit);
+                    }
+                    instantPeriodicTask.setFirst(schedule);
+                    return instantPeriodicTask;
+                } catch (RejectedExecutionException e) {
+                    RxJavaPlugins.onError(e);
+                    return EmptyDisposable.INSTANCE;
+                }
+            }
+            ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(onSchedule);
+            try {
+                scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor.get()).scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
+                return scheduledDirectPeriodicTask;
+            } catch (RejectedExecutionException e2) {
+                RxJavaPlugins.onError(e2);
+                return EmptyDisposable.INSTANCE;
+            }
+        }
+        return (Disposable) invokeCommon.objValue;
+    }
+
+    @Override // io.reactivex.Scheduler
+    public void start() {
+        ScheduledExecutorService scheduledExecutorService;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ScheduledExecutorService scheduledExecutorService2 = null;
+            do {
+                scheduledExecutorService = (ScheduledExecutorService) this.executor.get();
+                if (scheduledExecutorService != SHUTDOWN) {
+                    if (scheduledExecutorService2 != null) {
+                        scheduledExecutorService2.shutdown();
+                        return;
+                    }
+                    return;
+                } else if (scheduledExecutorService2 == null) {
+                    scheduledExecutorService2 = createExecutor(this.threadFactory);
+                }
+            } while (!this.executor.compareAndSet(scheduledExecutorService, scheduledExecutorService2));
+        }
     }
 }

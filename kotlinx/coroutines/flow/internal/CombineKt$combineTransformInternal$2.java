@@ -20,7 +20,7 @@ import kotlinx.coroutines.selects.SelectBuilderImpl;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\u00020\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$combineTransformInternal$2", f = "Combine.kt", i = {0, 0, 0, 0, 0, 0, 0}, l = {Cea708Decoder.COMMAND_RST}, m = "invokeSuspend", n = {"$this$coroutineScope", "firstChannel", "secondChannel", "firstValue", "secondValue", "firstIsClosed", "secondIsClosed"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4", "L$5", "L$6"})
 /* loaded from: classes8.dex */
-public final class CombineKt$combineTransformInternal$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+public final class CombineKt$combineTransformInternal$2 extends SuspendLambda implements Function2 {
     public final /* synthetic */ Flow $first;
     public final /* synthetic */ Flow $second;
     public final /* synthetic */ FlowCollector $this_combineTransformInternal;
@@ -46,16 +46,15 @@ public final class CombineKt$combineTransformInternal$2 extends SuspendLambda im
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+    public final Continuation create(Object obj, Continuation continuation) {
         CombineKt$combineTransformInternal$2 combineKt$combineTransformInternal$2 = new CombineKt$combineTransformInternal$2(this.$this_combineTransformInternal, this.$first, this.$second, this.$transform, continuation);
         combineKt$combineTransformInternal$2.p$ = (CoroutineScope) obj;
         return combineKt$combineTransformInternal$2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-        return ((CombineKt$combineTransformInternal$2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2) {
+        return ((CombineKt$combineTransformInternal$2) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(12:13|(1:14)|15|16|17|18|(1:20)(3:35|36|37)|21|(1:23)(2:30|31)|24|(1:26)|(1:28)(16:29|5|6|(1:8)|13|14|15|16|17|18|(0)(0)|21|(0)(0)|24|(0)|(0)(0))) */
@@ -103,7 +102,121 @@ public final class CombineKt$combineTransformInternal$2 extends SuspendLambda im
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         int i2 = 1;
-        if (i == 0) {
+        if (i != 0) {
+            if (i == 1) {
+                CombineKt$combineTransformInternal$2 combineKt$combineTransformInternal$23 = (CombineKt$combineTransformInternal$2) this.L$7;
+                coroutineScope = (CoroutineScope) this.L$0;
+                ResultKt.throwOnFailure(obj);
+                booleanRef2 = (Ref.BooleanRef) this.L$6;
+                booleanRef = (Ref.BooleanRef) this.L$5;
+                objectRef2 = (Ref.ObjectRef) this.L$4;
+                objectRef = (Ref.ObjectRef) this.L$3;
+                receiveChannel = (ReceiveChannel) this.L$2;
+                receiveChannel2 = (ReceiveChannel) this.L$1;
+                obj2 = coroutine_suspended;
+                combineKt$combineTransformInternal$2 = this;
+                i2 = 1;
+                if (!booleanRef.element && booleanRef2.element) {
+                    return Unit.INSTANCE;
+                }
+                combineKt$combineTransformInternal$2.L$0 = coroutineScope;
+                combineKt$combineTransformInternal$2.L$1 = receiveChannel2;
+                combineKt$combineTransformInternal$2.L$2 = receiveChannel;
+                combineKt$combineTransformInternal$2.L$3 = objectRef;
+                combineKt$combineTransformInternal$2.L$4 = objectRef2;
+                combineKt$combineTransformInternal$2.L$5 = booleanRef;
+                combineKt$combineTransformInternal$2.L$6 = booleanRef2;
+                combineKt$combineTransformInternal$2.L$7 = combineKt$combineTransformInternal$2;
+                combineKt$combineTransformInternal$2.label = i2;
+                SelectBuilderImpl selectBuilderImpl2 = new SelectBuilderImpl(combineKt$combineTransformInternal$2);
+                try {
+                } catch (Throwable th) {
+                    th = th;
+                    selectBuilderImpl = selectBuilderImpl2;
+                    combineKt$combineTransformInternal$22 = combineKt$combineTransformInternal$2;
+                    coroutineScope2 = coroutineScope;
+                    receiveChannel3 = receiveChannel2;
+                    receiveChannel4 = receiveChannel;
+                    objectRef3 = objectRef;
+                }
+                z = booleanRef.element;
+                selectBuilderImpl = selectBuilderImpl2;
+                combineKt$combineTransformInternal$22 = combineKt$combineTransformInternal$2;
+                coroutineScope2 = coroutineScope;
+                receiveChannel3 = receiveChannel2;
+                receiveChannel4 = receiveChannel;
+                objectRef3 = objectRef;
+                CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1(null, combineKt$combineTransformInternal$2, booleanRef, receiveChannel2, objectRef, objectRef2, booleanRef2, receiveChannel4);
+                if (z) {
+                    objectRef4 = objectRef2;
+                } else {
+                    objectRef4 = objectRef2;
+                    selectBuilderImpl.invoke(receiveChannel3.getOnReceiveOrNull(), new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$2(combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1, null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef2, booleanRef2, receiveChannel4));
+                }
+                z2 = booleanRef2.element;
+                CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3(null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef4, booleanRef2, receiveChannel4);
+                if (!z2) {
+                    try {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        selectBuilderImpl.handleBuilderException(th);
+                        result = selectBuilderImpl.getResult();
+                        if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                        }
+                        if (result == obj2) {
+                        }
+                    }
+                    selectBuilderImpl.invoke(receiveChannel4.getOnReceiveOrNull(), new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$4(combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3, null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef4, booleanRef2, receiveChannel4));
+                }
+                result = selectBuilderImpl.getResult();
+                if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                    DebugProbesKt.probeCoroutineSuspended(combineKt$combineTransformInternal$22);
+                }
+                if (result == obj2) {
+                    return obj2;
+                }
+                objectRef2 = objectRef4;
+                combineKt$combineTransformInternal$2 = combineKt$combineTransformInternal$22;
+                coroutineScope = coroutineScope2;
+                receiveChannel2 = receiveChannel3;
+                receiveChannel = receiveChannel4;
+                objectRef = objectRef3;
+                i2 = 1;
+                if (!booleanRef.element) {
+                }
+                combineKt$combineTransformInternal$2.L$0 = coroutineScope;
+                combineKt$combineTransformInternal$2.L$1 = receiveChannel2;
+                combineKt$combineTransformInternal$2.L$2 = receiveChannel;
+                combineKt$combineTransformInternal$2.L$3 = objectRef;
+                combineKt$combineTransformInternal$2.L$4 = objectRef2;
+                combineKt$combineTransformInternal$2.L$5 = booleanRef;
+                combineKt$combineTransformInternal$2.L$6 = booleanRef2;
+                combineKt$combineTransformInternal$2.L$7 = combineKt$combineTransformInternal$2;
+                combineKt$combineTransformInternal$2.label = i2;
+                SelectBuilderImpl selectBuilderImpl22 = new SelectBuilderImpl(combineKt$combineTransformInternal$2);
+                z = booleanRef.element;
+                selectBuilderImpl = selectBuilderImpl22;
+                combineKt$combineTransformInternal$22 = combineKt$combineTransformInternal$2;
+                coroutineScope2 = coroutineScope;
+                receiveChannel3 = receiveChannel2;
+                receiveChannel4 = receiveChannel;
+                objectRef3 = objectRef;
+                CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$12 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1(null, combineKt$combineTransformInternal$2, booleanRef, receiveChannel2, objectRef, objectRef2, booleanRef2, receiveChannel4);
+                if (z) {
+                }
+                z2 = booleanRef2.element;
+                CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$32 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3(null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef4, booleanRef2, receiveChannel4);
+                if (!z2) {
+                }
+                result = selectBuilderImpl.getResult();
+                if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                }
+                if (result == obj2) {
+                }
+            } else {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+            }
+        } else {
             ResultKt.throwOnFailure(obj);
             CoroutineScope coroutineScope3 = this.p$;
             asFairChannel = CombineKt.asFairChannel(coroutineScope3, this.$first);
@@ -125,118 +238,6 @@ public final class CombineKt$combineTransformInternal$2 extends SuspendLambda im
             obj2 = coroutine_suspended;
             combineKt$combineTransformInternal$2 = this;
             receiveChannel2 = asFairChannel;
-            if (!booleanRef.element) {
-            }
-            combineKt$combineTransformInternal$2.L$0 = coroutineScope;
-            combineKt$combineTransformInternal$2.L$1 = receiveChannel2;
-            combineKt$combineTransformInternal$2.L$2 = receiveChannel;
-            combineKt$combineTransformInternal$2.L$3 = objectRef;
-            combineKt$combineTransformInternal$2.L$4 = objectRef2;
-            combineKt$combineTransformInternal$2.L$5 = booleanRef;
-            combineKt$combineTransformInternal$2.L$6 = booleanRef2;
-            combineKt$combineTransformInternal$2.L$7 = combineKt$combineTransformInternal$2;
-            combineKt$combineTransformInternal$2.label = i2;
-            SelectBuilderImpl selectBuilderImpl2 = new SelectBuilderImpl(combineKt$combineTransformInternal$2);
-            z = booleanRef.element;
-            selectBuilderImpl = selectBuilderImpl2;
-            combineKt$combineTransformInternal$22 = combineKt$combineTransformInternal$2;
-            coroutineScope2 = coroutineScope;
-            receiveChannel3 = receiveChannel2;
-            receiveChannel4 = receiveChannel;
-            objectRef3 = objectRef;
-            CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1(null, combineKt$combineTransformInternal$2, booleanRef, receiveChannel2, objectRef, objectRef2, booleanRef2, receiveChannel4);
-            if (z) {
-            }
-            z2 = booleanRef2.element;
-            CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3(null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef4, booleanRef2, receiveChannel4);
-            if (!z2) {
-            }
-            result = selectBuilderImpl.getResult();
-            if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-            }
-            if (result == obj2) {
-            }
-        } else if (i != 1) {
-            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-        } else {
-            CombineKt$combineTransformInternal$2 combineKt$combineTransformInternal$23 = (CombineKt$combineTransformInternal$2) this.L$7;
-            coroutineScope = (CoroutineScope) this.L$0;
-            ResultKt.throwOnFailure(obj);
-            booleanRef2 = (Ref.BooleanRef) this.L$6;
-            booleanRef = (Ref.BooleanRef) this.L$5;
-            objectRef2 = (Ref.ObjectRef) this.L$4;
-            objectRef = (Ref.ObjectRef) this.L$3;
-            receiveChannel = (ReceiveChannel) this.L$2;
-            receiveChannel2 = (ReceiveChannel) this.L$1;
-            obj2 = coroutine_suspended;
-            combineKt$combineTransformInternal$2 = this;
-            i2 = 1;
-            if (!booleanRef.element && booleanRef2.element) {
-                return Unit.INSTANCE;
-            }
-            combineKt$combineTransformInternal$2.L$0 = coroutineScope;
-            combineKt$combineTransformInternal$2.L$1 = receiveChannel2;
-            combineKt$combineTransformInternal$2.L$2 = receiveChannel;
-            combineKt$combineTransformInternal$2.L$3 = objectRef;
-            combineKt$combineTransformInternal$2.L$4 = objectRef2;
-            combineKt$combineTransformInternal$2.L$5 = booleanRef;
-            combineKt$combineTransformInternal$2.L$6 = booleanRef2;
-            combineKt$combineTransformInternal$2.L$7 = combineKt$combineTransformInternal$2;
-            combineKt$combineTransformInternal$2.label = i2;
-            SelectBuilderImpl selectBuilderImpl22 = new SelectBuilderImpl(combineKt$combineTransformInternal$2);
-            try {
-            } catch (Throwable th) {
-                th = th;
-                selectBuilderImpl = selectBuilderImpl22;
-                combineKt$combineTransformInternal$22 = combineKt$combineTransformInternal$2;
-                coroutineScope2 = coroutineScope;
-                receiveChannel3 = receiveChannel2;
-                receiveChannel4 = receiveChannel;
-                objectRef3 = objectRef;
-            }
-            z = booleanRef.element;
-            selectBuilderImpl = selectBuilderImpl22;
-            combineKt$combineTransformInternal$22 = combineKt$combineTransformInternal$2;
-            coroutineScope2 = coroutineScope;
-            receiveChannel3 = receiveChannel2;
-            receiveChannel4 = receiveChannel;
-            objectRef3 = objectRef;
-            CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$12 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1(null, combineKt$combineTransformInternal$2, booleanRef, receiveChannel2, objectRef, objectRef2, booleanRef2, receiveChannel4);
-            if (z) {
-                objectRef4 = objectRef2;
-            } else {
-                objectRef4 = objectRef2;
-                selectBuilderImpl.invoke(receiveChannel3.getOnReceiveOrNull(), new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$2(combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$12, null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef2, booleanRef2, receiveChannel4));
-            }
-            z2 = booleanRef2.element;
-            CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$32 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3(null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef4, booleanRef2, receiveChannel4);
-            if (!z2) {
-                try {
-                } catch (Throwable th2) {
-                    th = th2;
-                    selectBuilderImpl.handleBuilderException(th);
-                    result = selectBuilderImpl.getResult();
-                    if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                    }
-                    if (result == obj2) {
-                    }
-                }
-                selectBuilderImpl.invoke(receiveChannel4.getOnReceiveOrNull(), new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$4(combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$32, null, combineKt$combineTransformInternal$22, booleanRef, receiveChannel3, objectRef3, objectRef4, booleanRef2, receiveChannel4));
-            }
-            result = selectBuilderImpl.getResult();
-            if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                DebugProbesKt.probeCoroutineSuspended(combineKt$combineTransformInternal$22);
-            }
-            if (result == obj2) {
-                return obj2;
-            }
-            objectRef2 = objectRef4;
-            combineKt$combineTransformInternal$2 = combineKt$combineTransformInternal$22;
-            coroutineScope = coroutineScope2;
-            receiveChannel2 = receiveChannel3;
-            receiveChannel = receiveChannel4;
-            objectRef = objectRef3;
-            i2 = 1;
             if (!booleanRef.element) {
             }
             combineKt$combineTransformInternal$2.L$0 = coroutineScope;

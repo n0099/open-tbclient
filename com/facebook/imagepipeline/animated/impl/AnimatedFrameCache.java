@@ -9,31 +9,47 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Objects;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
-import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class AnimatedFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CountingMemoryCache<CacheKey, CloseableImage> mBackingCache;
-    public final CountingMemoryCache.EntryStateObserver<CacheKey> mEntryStateObserver;
-    @GuardedBy("this")
-    public final LinkedHashSet<CacheKey> mFreeItemsPool;
+    public final CountingMemoryCache mBackingCache;
+    public final CountingMemoryCache.EntryStateObserver mEntryStateObserver;
+    public final LinkedHashSet mFreeItemsPool;
     public final CacheKey mImageCacheKey;
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static class FrameKey implements CacheKey {
+    public class FrameKey implements CacheKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int mFrameIndex;
         public final CacheKey mImageCacheKey;
+
+        @Override // com.facebook.cache.common.CacheKey
+        @Nullable
+        public String getUriString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.facebook.cache.common.CacheKey
+        public boolean isResourceIdForDebugging() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
         public FrameKey(CacheKey cacheKey, int i) {
             Interceptable interceptable = $ic;
@@ -58,7 +74,10 @@ public class AnimatedFrameCache {
         public boolean containsUri(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) ? this.mImageCacheKey.containsUri(uri) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+                return this.mImageCacheKey.containsUri(uri);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // com.facebook.cache.common.CacheKey
@@ -69,9 +88,12 @@ public class AnimatedFrameCache {
                 if (obj == this) {
                     return true;
                 }
-                if (obj instanceof FrameKey) {
-                    FrameKey frameKey = (FrameKey) obj;
-                    return this.mFrameIndex == frameKey.mFrameIndex && this.mImageCacheKey.equals(frameKey.mImageCacheKey);
+                if (!(obj instanceof FrameKey)) {
+                    return false;
+                }
+                FrameKey frameKey = (FrameKey) obj;
+                if (this.mFrameIndex == frameKey.mFrameIndex && this.mImageCacheKey.equals(frameKey.mImageCacheKey)) {
+                    return true;
                 }
                 return false;
             }
@@ -79,42 +101,27 @@ public class AnimatedFrameCache {
         }
 
         @Override // com.facebook.cache.common.CacheKey
-        @Nullable
-        public String getUriString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.facebook.cache.common.CacheKey
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.mImageCacheKey.hashCode() * 1013) + this.mFrameIndex : invokeV.intValue;
-        }
-
-        @Override // com.facebook.cache.common.CacheKey
-        public boolean isResourceIdForDebugging() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return false;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return (this.mImageCacheKey.hashCode() * 1013) + this.mFrameIndex;
             }
-            return invokeV.booleanValue;
+            return invokeV.intValue;
         }
 
         @Override // com.facebook.cache.common.CacheKey
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Objects.toStringHelper(this).add("imageCacheKey", this.mImageCacheKey).add("frameIndex", this.mFrameIndex).toString() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return Objects.toStringHelper(this).add("imageCacheKey", this.mImageCacheKey).add("frameIndex", this.mFrameIndex).toString();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public AnimatedFrameCache(CacheKey cacheKey, CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache) {
+    public AnimatedFrameCache(CacheKey cacheKey, CountingMemoryCache countingMemoryCache) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,8 +138,8 @@ public class AnimatedFrameCache {
         }
         this.mImageCacheKey = cacheKey;
         this.mBackingCache = countingMemoryCache;
-        this.mFreeItemsPool = new LinkedHashSet<>();
-        this.mEntryStateObserver = new CountingMemoryCache.EntryStateObserver<CacheKey>(this) { // from class: com.facebook.imagepipeline.animated.impl.AnimatedFrameCache.1
+        this.mFreeItemsPool = new LinkedHashSet();
+        this.mEntryStateObserver = new CountingMemoryCache.EntryStateObserver(this) { // from class: com.facebook.imagepipeline.animated.impl.AnimatedFrameCache.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AnimatedFrameCache this$0;
@@ -169,7 +176,29 @@ public class AnimatedFrameCache {
     private FrameKey keyFor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? new FrameKey(this.mImageCacheKey, i) : (FrameKey) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            return new FrameKey(this.mImageCacheKey, i);
+        }
+        return (FrameKey) invokeI.objValue;
+    }
+
+    public boolean contains(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.mBackingCache.contains(keyFor(i));
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Nullable
+    public CloseableReference get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.mBackingCache.get(keyFor(i));
+        }
+        return (CloseableReference) invokeI.objValue;
     }
 
     @Nullable
@@ -180,9 +209,9 @@ public class AnimatedFrameCache {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this) {
                 cacheKey = null;
-                Iterator<CacheKey> it = this.mFreeItemsPool.iterator();
+                Iterator it = this.mFreeItemsPool.iterator();
                 if (it.hasNext()) {
-                    cacheKey = it.next();
+                    cacheKey = (CacheKey) it.next();
                     it.remove();
                 }
             }
@@ -192,28 +221,8 @@ public class AnimatedFrameCache {
     }
 
     @Nullable
-    public CloseableReference<CloseableImage> cache(int i, CloseableReference<CloseableImage> closeableReference) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, closeableReference)) == null) ? this.mBackingCache.cache(keyFor(i), closeableReference, this.mEntryStateObserver) : (CloseableReference) invokeIL.objValue;
-    }
-
-    public boolean contains(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mBackingCache.contains((CountingMemoryCache<CacheKey, CloseableImage>) keyFor(i)) : invokeI.booleanValue;
-    }
-
-    @Nullable
-    public CloseableReference<CloseableImage> get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mBackingCache.get(keyFor(i)) : (CloseableReference) invokeI.objValue;
-    }
-
-    @Nullable
-    public CloseableReference<CloseableImage> getForReuse() {
-        CloseableReference<CloseableImage> reuse;
+    public CloseableReference getForReuse() {
+        CloseableReference reuse;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -227,6 +236,16 @@ public class AnimatedFrameCache {
             return reuse;
         }
         return (CloseableReference) invokeV.objValue;
+    }
+
+    @Nullable
+    public CloseableReference cache(int i, CloseableReference closeableReference) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, closeableReference)) == null) {
+            return this.mBackingCache.cache(keyFor(i), closeableReference, this.mEntryStateObserver);
+        }
+        return (CloseableReference) invokeIL.objValue;
     }
 
     public synchronized void onReusabilityChange(CacheKey cacheKey, boolean z) {

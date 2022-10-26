@@ -39,7 +39,7 @@ public final class SubripSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j) {
+    public List getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
@@ -58,20 +58,23 @@ public final class SubripSubtitle implements Subtitle {
     @Override // com.google.android.exoplayer2.text.Subtitle
     public long getEventTime(int i) {
         InterceptResult invokeI;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Assertions.checkArgument(i >= 0);
-            Assertions.checkArgument(i < this.cueTimesUs.length);
+            boolean z2 = true;
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
+            if (i >= this.cueTimesUs.length) {
+                z2 = false;
+            }
+            Assertions.checkArgument(z2);
             return this.cueTimesUs[i];
         }
         return invokeI.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getEventTimeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cueTimesUs.length : invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
@@ -80,11 +83,21 @@ public final class SubripSubtitle implements Subtitle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             int binarySearchCeil = Util.binarySearchCeil(this.cueTimesUs, j, false, false);
-            if (binarySearchCeil < this.cueTimesUs.length) {
-                return binarySearchCeil;
+            if (binarySearchCeil >= this.cueTimesUs.length) {
+                return -1;
             }
-            return -1;
+            return binarySearchCeil;
         }
         return invokeJ.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.text.Subtitle
+    public int getEventTimeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.cueTimesUs.length;
+        }
+        return invokeV.intValue;
     }
 }

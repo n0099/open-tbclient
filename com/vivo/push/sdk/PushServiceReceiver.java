@@ -30,7 +30,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -57,10 +57,16 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         @Override // java.lang.Runnable
         public final void run() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 NetworkInfo a = r.a(this.a);
-                if (!(a != null ? a.isConnectedOrConnecting() : false)) {
+                if (a != null) {
+                    z = a.isConnectedOrConnecting();
+                } else {
+                    z = false;
+                }
+                if (!z) {
                     p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.b);
                     Context context = this.a;
                     p.a(context, "触发静态广播:无网络(" + this.b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
@@ -70,15 +76,14 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 Context context2 = this.a;
                 p.a(context2, "触发静态广播(" + this.b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                 e.a().a(this.a);
-                if (ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
-                    return;
-                }
-                try {
-                    PushClient.getInstance(this.a).initialize();
-                } catch (VivoPushException e) {
-                    e.printStackTrace();
-                    Context context3 = this.a;
-                    p.a(context3, " 初始化异常 error= " + e.getMessage());
+                if (!ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
+                    try {
+                        PushClient.getInstance(this.a).initialize();
+                    } catch (VivoPushException e) {
+                        e.printStackTrace();
+                        Context context3 = this.a;
+                        p.a(context3, " 初始化异常 error= " + e.getMessage());
+                    }
                 }
             }
         }

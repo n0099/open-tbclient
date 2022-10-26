@@ -42,6 +42,51 @@ public class CloudControlUBCData {
         this.controlJsonObject = new JSONObject();
     }
 
+    public JSONObject getControlJsonObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.controlJsonObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String getLogId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.logId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRunType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.runType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject getServiceJsonObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.serviceJsonObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String getTraceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mTraceId;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void collectDegradegInfo(int i, int i2, int i3, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), jSONArray}) == null) {
@@ -61,36 +106,6 @@ public class CloudControlUBCData {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             this.serviceJsonObject = jSONObject;
         }
-    }
-
-    public JSONObject getControlJsonObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.controlJsonObject : (JSONObject) invokeV.objValue;
-    }
-
-    public String getLogId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.logId : (String) invokeV.objValue;
-    }
-
-    public String getRunType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.runType : (String) invokeV.objValue;
-    }
-
-    public JSONObject getServiceJsonObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.serviceJsonObject : (JSONObject) invokeV.objValue;
-    }
-
-    public String getTraceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTraceId : (String) invokeV.objValue;
     }
 
     public void setLogId(String str) {

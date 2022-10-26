@@ -24,25 +24,25 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstream<T, R> {
+public final class ObservableSwitchMap extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final boolean delayErrors;
-    public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
+    public final Function mapper;
 
     /* loaded from: classes8.dex */
-    public static final class SwitchMapInnerObserver<T, R> extends AtomicReference<Disposable> implements Observer<R> {
+    public final class SwitchMapInnerObserver extends AtomicReference implements Observer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3837284832786408377L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
         public volatile boolean done;
         public final long index;
-        public final SwitchMapObserver<T, R> parent;
-        public volatile SimpleQueue<R> queue;
+        public final SwitchMapObserver parent;
+        public volatile SimpleQueue queue;
 
-        public SwitchMapInnerObserver(SwitchMapObserver<T, R> switchMapObserver, long j, int i) {
+        public SwitchMapInnerObserver(SwitchMapObserver switchMapObserver, long j, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,11 +87,11 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(R r) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, r) == null) && this.index == this.parent.unique) {
-                if (r != null) {
-                    this.queue.offer(r);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && this.index == this.parent.unique) {
+                if (obj != null) {
+                    this.queue.offer(obj);
                 }
                 this.parent.drain();
             }
@@ -120,19 +120,19 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
     }
 
     /* loaded from: classes8.dex */
-    public static final class SwitchMapObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
+    public final class SwitchMapObserver extends AtomicInteger implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final SwitchMapInnerObserver<Object, Object> CANCELLED;
+        public static final SwitchMapInnerObserver CANCELLED;
         public static final long serialVersionUID = -3491074160481096299L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference<SwitchMapInnerObserver<T, R>> active;
-        public final Observer<? super R> actual;
+        public final AtomicReference active;
+        public final Observer actual;
         public final int bufferSize;
         public volatile boolean cancelled;
         public final boolean delayErrors;
         public volatile boolean done;
         public final AtomicThrowable errors;
-        public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
+        public final Function mapper;
         public Disposable s;
         public volatile long unique;
 
@@ -149,12 +149,53 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
                     return;
                 }
             }
-            SwitchMapInnerObserver<Object, Object> switchMapInnerObserver = new SwitchMapInnerObserver<>(null, -1L, 1);
+            SwitchMapInnerObserver switchMapInnerObserver = new SwitchMapInnerObserver(null, -1L, 1);
             CANCELLED = switchMapInnerObserver;
             switchMapInnerObserver.cancel();
         }
 
-        public SwitchMapObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i, boolean z) {
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.dispose();
+                disposeInner();
+            }
+        }
+
+        public void disposeInner() {
+            SwitchMapInnerObserver switchMapInnerObserver;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                SwitchMapInnerObserver switchMapInnerObserver2 = (SwitchMapInnerObserver) this.active.get();
+                SwitchMapInnerObserver switchMapInnerObserver3 = CANCELLED;
+                if (switchMapInnerObserver2 != switchMapInnerObserver3 && (switchMapInnerObserver = (SwitchMapInnerObserver) this.active.getAndSet(switchMapInnerObserver3)) != CANCELLED && switchMapInnerObserver != null) {
+                    switchMapInnerObserver.cancel();
+                }
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.done) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        public SwitchMapObserver(Observer observer, Function function, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,38 +210,12 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
                     return;
                 }
             }
-            this.active = new AtomicReference<>();
+            this.active = new AtomicReference();
             this.actual = observer;
             this.mapper = function;
             this.bufferSize = i;
             this.delayErrors = z;
             this.errors = new AtomicThrowable();
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            this.s.dispose();
-            disposeInner();
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.observable.ObservableSwitchMap$SwitchMapInnerObserver<T, R>> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public void disposeInner() {
-            SwitchMapInnerObserver<Object, Object> switchMapInnerObserver;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                SwitchMapInnerObserver<T, R> switchMapInnerObserver2 = this.active.get();
-                SwitchMapInnerObserver<Object, Object> switchMapInnerObserver3 = CANCELLED;
-                if (switchMapInnerObserver2 == switchMapInnerObserver3 || (switchMapInnerObserver = (SwitchMapInnerObserver) this.active.getAndSet(switchMapInnerObserver3)) == CANCELLED || switchMapInnerObserver == null) {
-                    return;
-                }
-                switchMapInnerObserver.cancel();
-            }
         }
 
         /* JADX WARN: Removed duplicated region for block: B:106:0x0013 A[SYNTHETIC] */
@@ -209,99 +224,112 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drain() {
-            SimpleQueue<R> simpleQueue;
-            R r;
+            SimpleQueue simpleQueue;
+            Object obj;
+            boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                Observer<? super R> observer = this.actual;
-                AtomicReference<SwitchMapInnerObserver<T, R>> atomicReference = this.active;
-                boolean z = this.delayErrors;
-                int i = 1;
-                while (!this.cancelled) {
-                    if (this.done) {
-                        boolean z2 = atomicReference.get() == null;
-                        if (z) {
-                            if (z2) {
-                                Throwable th = this.errors.get();
-                                if (th != null) {
-                                    observer.onError(th);
-                                    return;
-                                } else {
-                                    observer.onComplete();
-                                    return;
-                                }
-                            }
-                        } else if (this.errors.get() != null) {
-                            observer.onError(this.errors.terminate());
-                            return;
-                        } else if (z2) {
-                            observer.onComplete();
-                            return;
-                        }
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Observer observer = this.actual;
+            AtomicReference atomicReference = this.active;
+            boolean z3 = this.delayErrors;
+            int i = 1;
+            while (!this.cancelled) {
+                if (this.done) {
+                    if (atomicReference.get() == null) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
                     }
-                    SwitchMapInnerObserver<T, R> switchMapInnerObserver = atomicReference.get();
-                    if (switchMapInnerObserver != null && (simpleQueue = switchMapInnerObserver.queue) != null) {
-                        if (switchMapInnerObserver.done) {
-                            boolean isEmpty = simpleQueue.isEmpty();
-                            if (z) {
-                                if (isEmpty) {
-                                    atomicReference.compareAndSet(switchMapInnerObserver, null);
-                                }
-                            } else if (this.errors.get() != null) {
-                                observer.onError(this.errors.terminate());
+                    if (z3) {
+                        if (z2) {
+                            Throwable th = (Throwable) this.errors.get();
+                            if (th != null) {
+                                observer.onError(th);
                                 return;
-                            } else if (isEmpty) {
+                            } else {
+                                observer.onComplete();
+                                return;
+                            }
+                        }
+                    } else if (((Throwable) this.errors.get()) != null) {
+                        observer.onError(this.errors.terminate());
+                        return;
+                    } else if (z2) {
+                        observer.onComplete();
+                        return;
+                    }
+                }
+                SwitchMapInnerObserver switchMapInnerObserver = (SwitchMapInnerObserver) atomicReference.get();
+                if (switchMapInnerObserver != null && (simpleQueue = switchMapInnerObserver.queue) != null) {
+                    if (switchMapInnerObserver.done) {
+                        boolean isEmpty = simpleQueue.isEmpty();
+                        if (z3) {
+                            if (isEmpty) {
                                 atomicReference.compareAndSet(switchMapInnerObserver, null);
                             }
+                        } else if (((Throwable) this.errors.get()) != null) {
+                            observer.onError(this.errors.terminate());
+                            return;
+                        } else if (isEmpty) {
+                            atomicReference.compareAndSet(switchMapInnerObserver, null);
                         }
-                        boolean z3 = false;
-                        while (!this.cancelled) {
-                            if (switchMapInnerObserver == atomicReference.get()) {
-                                if (!z && this.errors.get() != null) {
-                                    observer.onError(this.errors.terminate());
-                                    return;
+                    }
+                    boolean z4 = false;
+                    while (!this.cancelled) {
+                        if (switchMapInnerObserver == atomicReference.get()) {
+                            if (!z3 && ((Throwable) this.errors.get()) != null) {
+                                observer.onError(this.errors.terminate());
+                                return;
+                            }
+                            boolean z5 = switchMapInnerObserver.done;
+                            try {
+                                obj = simpleQueue.poll();
+                            } catch (Throwable th2) {
+                                Exceptions.throwIfFatal(th2);
+                                this.errors.addThrowable(th2);
+                                atomicReference.compareAndSet(switchMapInnerObserver, null);
+                                if (!z3) {
+                                    disposeInner();
+                                    this.s.dispose();
+                                    this.done = true;
+                                } else {
+                                    switchMapInnerObserver.cancel();
                                 }
-                                boolean z4 = switchMapInnerObserver.done;
-                                try {
-                                    r = simpleQueue.poll();
-                                } catch (Throwable th2) {
-                                    Exceptions.throwIfFatal(th2);
-                                    this.errors.addThrowable(th2);
-                                    atomicReference.compareAndSet(switchMapInnerObserver, null);
-                                    if (!z) {
-                                        disposeInner();
-                                        this.s.dispose();
-                                        this.done = true;
-                                    } else {
-                                        switchMapInnerObserver.cancel();
-                                    }
-                                    r = (Object) null;
-                                    z3 = true;
-                                }
-                                boolean z5 = r == null;
-                                if (z4 && z5) {
-                                    atomicReference.compareAndSet(switchMapInnerObserver, null);
-                                } else if (!z5) {
-                                    observer.onNext(r);
-                                } else if (!z3) {
+                                obj = null;
+                                z4 = true;
+                            }
+                            if (obj == null) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (z5 && z) {
+                                atomicReference.compareAndSet(switchMapInnerObserver, null);
+                            } else if (z) {
+                                if (!z4) {
                                     continue;
                                 }
-                            }
-                            z3 = true;
-                            if (!z3) {
+                            } else {
+                                observer.onNext(obj);
                             }
                         }
-                        return;
+                        z4 = true;
+                        if (!z4) {
+                        }
                     }
-                    i = addAndGet(-i);
-                    if (i == 0) {
-                        return;
-                    }
+                    return;
+                }
+                i = addAndGet(-i);
+                if (i == 0) {
+                    return;
                 }
             }
         }
 
-        public void innerError(SwitchMapInnerObserver<T, R> switchMapInnerObserver, Throwable th) {
+        public void innerError(SwitchMapInnerObserver switchMapInnerObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, switchMapInnerObserver, th) == null) {
                 if (switchMapInnerObserver.index == this.unique && this.errors.addThrowable(th)) {
@@ -314,23 +342,6 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
                 }
                 RxJavaPlugins.onError(th);
             }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            drain();
         }
 
         @Override // io.reactivex.Observer
@@ -350,21 +361,30 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            SwitchMapInnerObserver<T, R> switchMapInnerObserver;
+        public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
+                this.s = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            SwitchMapInnerObserver switchMapInnerObserver;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
                 long j = this.unique + 1;
                 this.unique = j;
-                SwitchMapInnerObserver<T, R> switchMapInnerObserver2 = this.active.get();
+                SwitchMapInnerObserver switchMapInnerObserver2 = (SwitchMapInnerObserver) this.active.get();
                 if (switchMapInnerObserver2 != null) {
                     switchMapInnerObserver2.cancel();
                 }
                 try {
-                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The ObservableSource returned is null");
-                    SwitchMapInnerObserver<T, R> switchMapInnerObserver3 = new SwitchMapInnerObserver<>(this, j, this.bufferSize);
+                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The ObservableSource returned is null");
+                    SwitchMapInnerObserver switchMapInnerObserver3 = new SwitchMapInnerObserver(this, j, this.bufferSize);
                     do {
-                        switchMapInnerObserver = this.active.get();
+                        switchMapInnerObserver = (SwitchMapInnerObserver) this.active.get();
                         if (switchMapInnerObserver == CANCELLED) {
                             return;
                         }
@@ -377,19 +397,10 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
                 }
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
-                this.s = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSwitchMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends R>> function, int i, boolean z) {
+    public ObservableSwitchMap(ObservableSource observableSource, Function function, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -412,9 +423,9 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, observer) == null) || ObservableScalarXMap.tryScalarXMapSubscribe(this.source, observer, this.mapper)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, observer) != null) || ObservableScalarXMap.tryScalarXMapSubscribe(this.source, observer, this.mapper)) {
             return;
         }
         this.source.subscribe(new SwitchMapObserver(observer, this.mapper, this.bufferSize, this.delayErrors));

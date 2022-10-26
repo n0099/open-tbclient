@@ -7,11 +7,11 @@ import com.kwad.sdk.utils.ab;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class b extends com.ksad.download.c {
-    public static final Map<String, String> WN = new LruHashMap(10);
+    public static final Map WN = new LruHashMap(10);
 
     public static String l(DownloadTask downloadTask) {
         String url = downloadTask.getUrl();
-        String str = WN.get(url);
+        String str = (String) WN.get(url);
         if (TextUtils.isEmpty(str)) {
             String dI = ab.dI(downloadTask.getUrl());
             WN.put(url, dI);

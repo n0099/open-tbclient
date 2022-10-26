@@ -42,17 +42,53 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public void addNew(List<? extends LiveRoomEntity> list) {
-        LiveRecommendMoreAdapter liveRecommendMoreAdapter;
+    public int getFooterStatus() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (liveRecommendMoreAdapter = this.adapter) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LiveRecommendMoreAdapter liveRecommendMoreAdapter = this.adapter;
+            if (liveRecommendMoreAdapter != null) {
+                return liveRecommendMoreAdapter.getFooterStatus();
+            }
+            return 0;
         }
-        liveRecommendMoreAdapter.addNew(list);
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context) {
+    public boolean isEmptyList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LiveRecommendMoreAdapter liveRecommendMoreAdapter = this.adapter;
+            if (liveRecommendMoreAdapter != null) {
+                return liveRecommendMoreAdapter.isEmptyList();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
+    public void resetData() {
+        LiveRecommendMoreAdapter liveRecommendMoreAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
+            liveRecommendMoreAdapter.resetData();
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
+    public void addNew(List list) {
+        LiveRecommendMoreAdapter liveRecommendMoreAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
+            liveRecommendMoreAdapter.addNew(list);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
+    public RecyclerView.Adapter createAdapter(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -61,6 +97,20 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveRecMoreAdapter this$0;
+
+                @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
+                public void onItemShow(LiveRoomEntity liveRoomEntity, int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, liveRoomEntity, i) == null) {
+                    }
+                }
+
+                @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
+                public void onUbcResultClick(boolean z, List list, List list2, int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), list, list2, Integer.valueOf(i)}) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -90,10 +140,9 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 public void jumpAuthorView(String str) {
                     ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || onItemClickListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && onItemClickListener != null) {
+                        onItemClickListener.jumpAuthorView(str);
                     }
-                    onItemClickListener.jumpAuthorView(str);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -106,16 +155,8 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 public void onFollowClick(LiveSearchResultInfo liveSearchResultInfo, int i) {
                     ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveSearchResultInfo, i) == null) || onItemClickListener == null) {
-                        return;
-                    }
-                    onItemClickListener.onFollowClick(liveSearchResultInfo, i);
-                }
-
-                @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
-                public void onItemShow(LiveRoomEntity liveRoomEntity, int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, liveRoomEntity, i) == null) {
+                    if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveSearchResultInfo, i) == null) && onItemClickListener != null) {
+                        onItemClickListener.onFollowClick(liveSearchResultInfo, i);
                     }
                 }
 
@@ -129,26 +170,9 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 public void onRecItemClick(LiveRoomEntity liveRoomEntity, int i) {
                     ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048579, this, liveRoomEntity, i) == null) || onItemClickListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048579, this, liveRoomEntity, i) == null) && onItemClickListener != null) {
+                        onItemClickListener.onRecItemClick(liveRoomEntity, i);
                     }
-                    onItemClickListener.onRecItemClick(liveRoomEntity, i);
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-                    r0 = r4.this$0.mListener;
-                 */
-                @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public void onRetryLoadMore() {
-                    ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || onItemClickListener == null) {
-                        return;
-                    }
-                    onItemClickListener.onRetryLoadMore();
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -161,10 +185,24 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 public void onSearchResultItemClick(LiveSearchResultInfo liveSearchResultInfo, int i) {
                     ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048581, this, liveSearchResultInfo, i) == null) || onItemClickListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048581, this, liveSearchResultInfo, i) == null) && onItemClickListener != null) {
+                        onItemClickListener.onSearchResultItemClick(liveSearchResultInfo, i);
                     }
-                    onItemClickListener.onSearchResultItemClick(liveSearchResultInfo, i);
+                }
+
+                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
+                    r0 = r4.this$0.mListener;
+                 */
+                @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public void onRetryLoadMore() {
+                    ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048580, this) == null) && onItemClickListener != null) {
+                        onItemClickListener.onRetryLoadMore();
+                    }
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -177,10 +215,9 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 public void onShowMoreClick() {
                     ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048582, this) == null) || onItemClickListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048582, this) == null) && onItemClickListener != null) {
+                        onItemClickListener.onShowMoreClick();
                     }
-                    onItemClickListener.onShowMoreClick();
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -190,19 +227,11 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onUbcResult(boolean z, List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, int i, String str) {
+                public void onUbcResult(boolean z, List list, List list2, int i, String str) {
                     ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), list, list2, Integer.valueOf(i), str}) == null) || onItemClickListener == null) {
-                        return;
-                    }
-                    onItemClickListener.onUbcResult(z, list, list2, i, str);
-                }
-
-                @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
-                public void onUbcResultClick(boolean z, List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), list, list2, Integer.valueOf(i)}) == null) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), list, list2, Integer.valueOf(i), str}) == null) && onItemClickListener != null) {
+                        onItemClickListener.onUbcResult(z, list, list2, i, str);
                     }
                 }
             });
@@ -210,20 +239,6 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
             return liveRecommendMoreAdapter;
         }
         return (RecyclerView.Adapter) invokeL.objValue;
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public int getFooterStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LiveRecommendMoreAdapter liveRecommendMoreAdapter = this.adapter;
-            if (liveRecommendMoreAdapter != null) {
-                return liveRecommendMoreAdapter.getFooterStatus();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
@@ -241,53 +256,12 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public boolean isEmptyList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LiveRecommendMoreAdapter liveRecommendMoreAdapter = this.adapter;
-            if (liveRecommendMoreAdapter != null) {
-                return liveRecommendMoreAdapter.isEmptyList();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public void resetData() {
-        LiveRecommendMoreAdapter liveRecommendMoreAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (liveRecommendMoreAdapter = this.adapter) == null) {
-            return;
-        }
-        liveRecommendMoreAdapter.resetData();
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public void setData(List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, boolean z) {
-        LiveRecommendMoreAdapter liveRecommendMoreAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048582, this, list, list2, z) == null) || (liveRecommendMoreAdapter = this.adapter) == null) {
-            return;
-        }
-        if (list == null) {
-            list = new ArrayList<>();
-        }
-        if (list2 == null) {
-            list2 = new ArrayList<>();
-        }
-        liveRecommendMoreAdapter.setData(list, list2, z);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
     public void setFollowStatus(int i) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (liveRecommendMoreAdapter = this.adapter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
+            liveRecommendMoreAdapter.setFollowStatus(i);
         }
-        liveRecommendMoreAdapter.setFollowStatus(i);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x000e, code lost:
@@ -302,26 +276,27 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     public void setFooterStatus(int i) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) {
-            return;
-        }
-        int i2 = 4;
-        if (i != 1) {
-            if (i == 2) {
-                i2 = 2;
-            } else if (i == 3) {
-                i2 = 3;
-            }
-            liveRecommendMoreAdapter = this.adapter;
-            if (liveRecommendMoreAdapter == null) {
-                liveRecommendMoreAdapter.setFooterStatus(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            int i2 = 4;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        i2 = 3;
+                    }
+                } else {
+                    i2 = 2;
+                }
+                liveRecommendMoreAdapter = this.adapter;
+                if (liveRecommendMoreAdapter == null) {
+                    liveRecommendMoreAdapter.setFooterStatus(i2);
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        i2 = 1;
-        liveRecommendMoreAdapter = this.adapter;
-        if (liveRecommendMoreAdapter == null) {
+            i2 = 1;
+            liveRecommendMoreAdapter = this.adapter;
+            if (liveRecommendMoreAdapter == null) {
+            }
         }
     }
 
@@ -329,10 +304,9 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     public void setIsShowMore(boolean z) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (liveRecommendMoreAdapter = this.adapter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
+            liveRecommendMoreAdapter.setShowMore(z);
         }
-        liveRecommendMoreAdapter.setShowMore(z);
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
@@ -347,19 +321,32 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     public void showNoResult(String str) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (liveRecommendMoreAdapter = this.adapter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
+            liveRecommendMoreAdapter.showNoResult(str);
         }
-        liveRecommendMoreAdapter.showNoResult(str);
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public void showRecommend(List<? extends LiveRoomEntity> list, String str, boolean z) {
+    public void setData(List list, List list2, boolean z) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048588, this, list, str, z) == null) || (liveRecommendMoreAdapter = this.adapter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLZ(1048582, this, list, list2, z) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
+            if (list == null) {
+                list = new ArrayList();
+            }
+            if (list2 == null) {
+                list2 = new ArrayList();
+            }
+            liveRecommendMoreAdapter.setData(list, list2, z);
         }
-        liveRecommendMoreAdapter.showRecommend(list, str, z);
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
+    public void showRecommend(List list, String str, boolean z) {
+        LiveRecommendMoreAdapter liveRecommendMoreAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048588, this, list, str, z) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
+            liveRecommendMoreAdapter.showRecommend(list, str, z);
+        }
     }
 }

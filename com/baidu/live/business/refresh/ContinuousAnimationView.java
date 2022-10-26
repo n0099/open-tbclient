@@ -20,130 +20,10 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     public boolean a;
     public boolean b;
 
-    /* loaded from: classes2.dex */
-    public class a implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ContinuousAnimationView a;
-
-        public a(ContinuousAnimationView continuousAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {continuousAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = continuousAnimationView;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.q();
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.r();
-                if (this.a.b) {
-                    this.a.b = false;
-                }
-                this.a.a = false;
-                this.a.setFrame(0);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.a.s();
-                if (this.a.b) {
-                    this.a.cancelAnimation();
-                    this.a.b = false;
-                }
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.t();
-                this.a.a = true;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ContinuousAnimationView(Context context) {
-        this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isAnimating()) {
-            cancelAnimation();
-        }
-    }
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            playAnimation();
-        }
-    }
-
     @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
     public void c(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-        }
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView
-    public void cancelAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.cancelAnimation();
-        }
-    }
-
-    @Override // android.view.View
-    public void clearAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.clearAnimation();
         }
     }
 
@@ -181,39 +61,10 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         return (View) invokeV.objValue;
     }
 
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            addAnimatorListener(new a(this));
-            loop(true);
-            setFrame(0);
-        }
-    }
-
     @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
     public void onFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView
-    public void pauseAnimation() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.a) {
-            this.b = true;
-        }
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView
-    public void playAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (isAnimating()) {
-                cancelAnimation();
-            }
-            setAlpha(1.0f);
-            super.playAnimation();
         }
     }
 
@@ -238,6 +89,98 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class a implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ContinuousAnimationView a;
+
+        public a(ContinuousAnimationView continuousAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {continuousAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = continuousAnimationView;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+                return;
+            }
+            this.a.q();
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
+                return;
+            }
+            this.a.r();
+            if (this.a.b) {
+                this.a.b = false;
+            }
+            this.a.a = false;
+            this.a.setFrame(0);
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) != null) {
+                return;
+            }
+            this.a.s();
+            if (this.a.b) {
+                this.a.cancelAnimation();
+                this.a.b = false;
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048579, this, animator) != null) {
+                return;
+            }
+            this.a.t();
+            this.a.a = true;
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ContinuousAnimationView(Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
@@ -284,5 +227,66 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         this.a = false;
         this.b = false;
         init();
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isAnimating()) {
+            cancelAnimation();
+        }
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            playAnimation();
+        }
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView
+    public void cancelAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.cancelAnimation();
+        }
+    }
+
+    @Override // android.view.View
+    public void clearAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.clearAnimation();
+        }
+    }
+
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            addAnimatorListener(new a(this));
+            loop(true);
+            setFrame(0);
+        }
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView
+    public void pauseAnimation() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.a) {
+            this.b = true;
+        }
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView
+    public void playAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (isAnimating()) {
+                cancelAnimation();
+            }
+            setAlpha(1.0f);
+            super.playAnimation();
+        }
     }
 }

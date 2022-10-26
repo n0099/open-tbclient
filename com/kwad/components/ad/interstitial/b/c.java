@@ -6,8 +6,6 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.core.view.InputDeviceCompat;
@@ -42,24 +40,22 @@ import org.json.JSONObject;
 public final class c extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public KsAdVideoPlayConfig cN;
     public com.kwad.sdk.core.video.videoview.a dp;
     public KsInterstitialAd.AdInteractionListener fo;
     public Dialog gi;
     public com.kwad.components.ad.interstitial.widget.f gj;
-    public List<e> gk;
+    public List gk;
     public boolean gl;
     public boolean gm;
     public boolean gn;
     public a go;
     public com.kwad.components.core.webview.b.d.b gp;
-    @NonNull
     public KSFrameLayout gq;
     public d gr;
-    public List<InterfaceC0534c> gs;
+    public List gs;
     public com.kwad.components.ad.interstitial.c.b gt;
-    public List<a.b> gu;
+    public List gu;
     public volatile boolean gv;
     public boolean gw;
     public int gx;
@@ -69,7 +65,7 @@ public final class c extends com.kwad.sdk.mvp.a {
 
     /* renamed from: com.kwad.components.ad.interstitial.b.c$4  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public class AnonymousClass4 implements ImageLoadingListener {
+    public final class AnonymousClass4 implements ImageLoadingListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View dH;
@@ -213,7 +209,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
@@ -347,7 +343,7 @@ public final class c extends com.kwad.sdk.mvp.a {
 
     /* renamed from: com.kwad.components.ad.interstitial.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0534c {
+    public interface InterfaceC0530c {
         void cH();
     }
 
@@ -382,7 +378,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         this.gs = new ArrayList();
     }
 
-    public static int a(long j, @NonNull AdTemplate adTemplate) {
+    public static int a(long j, AdTemplate adTemplate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, adTemplate)) == null) {
@@ -421,7 +417,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, adInfo)) == null) ? com.kwad.sdk.core.response.a.a.av(adInfo) && !ag.cB(context) : invokeLL.booleanValue;
     }
 
-    public static long b(@Nullable com.kwad.sdk.core.video.videoview.a aVar) {
+    public static long b(com.kwad.sdk.core.video.videoview.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, aVar)) == null) {
@@ -433,7 +429,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         return invokeL.longValue;
     }
 
-    public static int c(@Nullable com.kwad.sdk.core.video.videoview.a aVar) {
+    public static int c(com.kwad.sdk.core.video.videoview.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, aVar)) == null) {
@@ -467,7 +463,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     public final void a(Context context, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2, i3) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0570a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this, 9, i, context) { // from class: com.kwad.components.ad.interstitial.b.c.3
+            com.kwad.components.core.c.a.a.a(new a.C0566a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this, 9, i, context) { // from class: com.kwad.components.ad.interstitial.b.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int gA;
@@ -507,7 +503,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         }
     }
 
-    public final void a(Context context, AdInfo adInfo, AdTemplate adTemplate, @Nullable View view2) {
+    public final void a(Context context, AdInfo adInfo, AdTemplate adTemplate, View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, adInfo, adTemplate, view2) == null) || view2 == null) {
             return;
@@ -523,7 +519,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             boolean z = bVar.cC() == 1;
-            if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0570a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b(this, bVar) { // from class: com.kwad.components.ad.interstitial.b.c.1
+            if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0566a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b(this, bVar) { // from class: com.kwad.components.ad.interstitial.b.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b gy;
@@ -606,7 +602,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         this.gu.add(bVar);
     }
 
-    public final void a(boolean z, int i, @Nullable com.kwad.sdk.core.video.videoview.a aVar) {
+    public final void a(boolean z, int i, com.kwad.sdk.core.video.videoview.a aVar) {
         long j;
         int a2;
         Interceptable interceptable = $ic;
@@ -669,8 +665,8 @@ public final class c extends com.kwad.sdk.mvp.a {
     public final void cA() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            for (InterfaceC0534c interfaceC0534c : this.gs) {
-                interfaceC0534c.cH();
+            for (InterfaceC0530c interfaceC0530c : this.gs) {
+                interfaceC0530c.cH();
             }
         }
     }
@@ -688,7 +684,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     }
 
     public final void cx() {
-        List<e> list;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (list = this.gk) == null || list.size() <= 0) {
             return;

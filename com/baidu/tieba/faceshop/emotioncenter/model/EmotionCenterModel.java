@@ -8,12 +8,11 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ce6;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.vd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,6 +24,16 @@ public class EmotionCenterModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public final HttpMessageListener b;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -60,24 +69,23 @@ public class EmotionCenterModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003354 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                vd6 vd6Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof vd6)) {
-                    vd6Var = (vd6) extra;
+                ce6 ce6Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof ce6)) {
+                    ce6Var = (ce6) extra;
                 }
-                if (vd6Var == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
-                    return;
-                }
-                if (this.a.a == 1) {
-                    vd6Var.S0(emotionCenterResponseMessage.data);
-                } else {
-                    vd6Var.v0(emotionCenterResponseMessage.data);
+                if (ce6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
+                    if (this.a.a == 1) {
+                        ce6Var.S0(emotionCenterResponseMessage.data);
+                    } else {
+                        ce6Var.v0(emotionCenterResponseMessage.data);
+                    }
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionCenterModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public EmotionCenterModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -102,27 +110,27 @@ public class EmotionCenterModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(vd6 vd6Var) {
+    public void A(ce6 ce6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vd6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ce6Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             int i = this.a + 1;
             this.a = i;
             httpMessage.addParam("pn", i);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(vd6Var);
+            httpMessage.setExtra(ce6Var);
             sendMessage(httpMessage);
         }
     }
 
-    public void B(vd6 vd6Var) {
+    public void B(ce6 ce6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vd6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ce6Var) == null) {
             this.a = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             httpMessage.addParam("pn", 1);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(vd6Var);
+            httpMessage.setExtra(ce6Var);
             sendMessage(httpMessage);
         }
     }
@@ -134,16 +142,6 @@ public class EmotionCenterModel extends BdBaseModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

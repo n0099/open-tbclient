@@ -1,187 +1,236 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.util.Log;
-import android.view.Surface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.afx.recode.OutputSurface;
-import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.video.editvideo.data.PendantData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.FaceUnityUtils;
-import com.faceunity.gles.FullFrameRect;
-import com.faceunity.gles.Texture2dProgram;
-import com.faceunity.wrapper.faceunity;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class uv8 implements SurfaceTexture.OnFrameAvailableListener {
+public class uv8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static int m;
-    public static int n;
-    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceTexture a;
-    public Surface b;
-    public Object c;
-    public boolean d;
-    public Context e;
-    public String f;
-    public int g;
-    public int h;
-    public FullFrameRect i;
-    public FullFrameRect j;
-    public int k;
-    public final float[] l;
+    public List a;
+    public r9 b;
+    public b c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224562, "Lcom/baidu/tieba/uv8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948224562, "Lcom/baidu/tieba/uv8;");
-                return;
-            }
-        }
-        o = new int[]{0, 0, 0};
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(View view2, int i, PendantData pendantData);
     }
 
-    public uv8(Context context, String str, int i, int i2) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uv8 a;
+
+        public a(uv8 uv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uv8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
+                c cVar = (c) view2.getTag();
+                if (!(cVar.b.getTag() instanceof Integer)) {
+                    return;
+                }
+                Integer num = (Integer) cVar.b.getTag();
+                if (this.a.a.size() <= num.intValue()) {
+                    return;
+                }
+                this.a.c.a(view2, num.intValue(), (PendantData) this.a.a.get(num.intValue()));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TbImageView b;
+        public ProgressBar c;
+
+        public c(uv8 uv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public uv8(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {r9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.f = "normal";
-        this.l = new float[16];
-        this.e = context;
-        this.f = str;
-        this.g = i;
-        this.h = i2;
-        f();
+        this.b = r9Var;
     }
 
-    public void a() {
+    public void c(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                while (!this.d) {
-                    try {
-                        this.c.wait(500L);
-                        if (!this.d) {
-                            throw new RuntimeException("Surface frame wait timed out");
-                        }
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                this.d = false;
-            }
-            b("before updateTexImage");
-            this.a.updateTexImage();
-        }
-    }
-
-    public void b(String str) {
-        int glGetError;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
             return;
         }
-        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
-        throw new RuntimeException(str + ": glError " + glGetError);
+        this.a = list;
+        notifyDataSetChanged();
     }
 
-    public void c() {
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.updateTexImage();
-            this.a.getTransformMatrix(this.l);
-            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
-            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
-            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
-            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public Surface d() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Surface) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.release();
-            this.b = null;
-            this.a = null;
-            FullFrameRect fullFrameRect = this.i;
-            if (fullFrameRect != null) {
-                fullFrameRect.release(false);
-                this.i = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List list = this.a;
+            if (list == null) {
+                return 0;
             }
-            faceunity.fuDestroyItem(n);
-            int[] iArr = o;
-            n = 0;
-            iArr[1] = 0;
-            faceunity.fuDestroyItem(m);
-            int[] iArr2 = o;
-            m = 0;
-            iArr2[0] = 0;
-            faceunity.fuOnDeviceLost();
+            return list.size();
         }
+        return invokeV.intValue;
     }
 
-    public final void f() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
-            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.j = fullFrameRect;
-            this.k = fullFrameRect.createTextureObject();
-            this.a = new SurfaceTexture(this.k);
-            this.b = new Surface(this.a);
-            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
-            m = upFaceUnity;
-            o[0] = upFaceUnity;
-            this.a.setOnFrameAvailableListener(this);
-        }
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-            Log.d(OutputSurface.TAG, "new frame available");
-            synchronized (this.c) {
-                if (!this.d) {
-                    this.d = true;
-                    this.c.notifyAll();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04bd, (ViewGroup) null);
+                cVar = new c(this);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09072c);
+                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918b3);
+                cVar.c = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0918b7);
+                cVar.b.setDefaultBgResource(R.color.transparent);
+                cVar.b.setDefaultResource(R.color.CAM_X0101);
+                view2.setOnClickListener(new a(this));
+                view2.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            PendantData pendantData = (PendantData) this.a.get(i);
+            if (pendantData != null) {
+                cVar.b.setTag(Integer.valueOf(i));
+                int i2 = pendantData.pendantType;
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            if (i2 != 3) {
+                                cVar.a.setVisibility(8);
+                                cVar.b.setVisibility(0);
+                                cVar.c.setVisibility(8);
+                                cVar.b.L(pendantData.img, 10, false);
+                            } else {
+                                cVar.a.setVisibility(0);
+                                cVar.b.setVisibility(8);
+                                cVar.c.setVisibility(8);
+                                cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+                                cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                                cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
+                            }
+                        } else {
+                            cVar.a.setVisibility(0);
+                            cVar.b.setVisibility(8);
+                            cVar.c.setVisibility(8);
+                            cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
+                            cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                            cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
+                        }
+                    } else {
+                        cVar.a.setVisibility(0);
+                        cVar.b.setVisibility(8);
+                        cVar.c.setVisibility(8);
+                        cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
+                        cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                        cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
+                    }
                 } else {
-                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+                    cVar.a.setVisibility(0);
+                    cVar.b.setVisibility(8);
+                    cVar.c.setVisibility(8);
+                    cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                    cVar.a.setText("No");
+                    cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
                 }
             }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

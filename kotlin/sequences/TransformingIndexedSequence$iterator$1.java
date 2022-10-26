@@ -13,12 +13,21 @@ public final class TransformingIndexedSequence$iterator$1 implements Iterator<R>
     public final Iterator<T> iterator;
     public final /* synthetic */ TransformingIndexedSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public TransformingIndexedSequence$iterator$1(TransformingIndexedSequence transformingIndexedSequence) {
         Sequence sequence;
         this.this$0 = transformingIndexedSequence;
         sequence = transformingIndexedSequence.sequence;
         this.iterator = sequence.iterator();
+    }
+
+    public final void setIndex(int i) {
+        this.index = i;
     }
 
     public final int getIndex() {
@@ -45,14 +54,5 @@ public final class TransformingIndexedSequence$iterator$1 implements Iterator<R>
             CollectionsKt__CollectionsKt.throwIndexOverflow();
         }
         return function2.invoke(Integer.valueOf(i), this.iterator.next());
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setIndex(int i) {
-        this.index = i;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.qb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,19 +14,48 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetOfficialSwitch.OfficialList;
 /* loaded from: classes5.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static int NET_SUCCESS;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public pb b;
-    public ArrayList<OfficialAccountPushInfo> list;
-    public List<OfficialList> official_list;
+    public qb b;
+    public ArrayList list;
+    public List official_list;
 
     /* loaded from: classes5.dex */
-    public class a extends pb {
+    public interface b {
+        void a(ArrayList arrayList, int i, String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1195144270, "Lcom/baidu/tieba/setting/officialAccountPush/OfficialAccountPushModel;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1195144270, "Lcom/baidu/tieba/setting/officialAccountPush/OfficialAccountPushModel;");
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialAccountPushModel a;
@@ -53,43 +82,24 @@ public class OfficialAccountPushModel extends BdBaseModel {
             this.a = officialAccountPushModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             OfficialAccountPushHttpResponseMessage officialAccountPushHttpResponseMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage instanceof OfficialAccountPushSocketResponseMessage) {
                     OfficialAccountPushSocketResponseMessage officialAccountPushSocketResponseMessage = (OfficialAccountPushSocketResponseMessage) responsedMessage;
-                    if (officialAccountPushSocketResponseMessage == null || officialAccountPushSocketResponseMessage.getList() == null) {
+                    if (officialAccountPushSocketResponseMessage != null && officialAccountPushSocketResponseMessage.getList() != null) {
+                        this.a.a.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
+                    } else {
                         return;
                     }
-                    this.a.a.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
                 }
                 if (!(responsedMessage instanceof OfficialAccountPushHttpResponseMessage) || (officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage) == null) {
                     return;
                 }
                 this.a.a.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1195144270, "Lcom/baidu/tieba/setting/officialAccountPush/OfficialAccountPushModel;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1195144270, "Lcom/baidu/tieba/setting/officialAccountPush/OfficialAccountPushModel;");
         }
     }
 
@@ -108,7 +118,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
                 return;
             }
         }
-        this.list = new ArrayList<>();
+        this.list = new ArrayList();
         a aVar = new a(this, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620);
         this.b = aVar;
         this.a = bVar;
@@ -128,16 +138,6 @@ public class OfficialAccountPushModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             super.cancelMessage();
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;

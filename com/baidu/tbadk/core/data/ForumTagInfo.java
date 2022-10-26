@@ -33,6 +33,12 @@ public class ForumTagInfo extends OrmObject implements Serializable {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.id) || TextUtils.isEmpty(this.name)) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.id) && !TextUtils.isEmpty(this.name)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

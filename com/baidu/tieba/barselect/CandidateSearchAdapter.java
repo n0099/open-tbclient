@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i06;
+import com.baidu.tieba.p06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
+public class CandidateSearchAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<i06> a;
+    public List a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -36,15 +36,24 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
         this.a = new ArrayList();
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, candidateSearchItemHolder, i) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.a)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, candidateSearchItemHolder, i) == null) && candidateSearchItemHolder != null && !ListUtils.isEmpty(this.a)) {
+            candidateSearchItemHolder.g((p06) this.a.get(i));
         }
-        candidateSearchItemHolder.g(this.a.get(i));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,17 +62,13 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     public CandidateSearchItemHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e4, (ViewGroup) null)) : (CandidateSearchItemHolder) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+            return new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e5, (ViewGroup) null));
+        }
+        return (CandidateSearchItemHolder) invokeLI.objValue;
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.size() : invokeV.intValue;
-    }
-
-    public void setData(List<i06> list) {
+    public void setData(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.clear();

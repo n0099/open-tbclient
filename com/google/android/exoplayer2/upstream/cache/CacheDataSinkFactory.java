@@ -35,13 +35,6 @@ public final class CacheDataSinkFactory implements DataSink.Factory {
         }
     }
 
-    @Override // com.google.android.exoplayer2.upstream.DataSink.Factory
-    public DataSink createDataSink() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new CacheDataSink(this.cache, this.maxCacheFileSize, this.bufferSize) : (DataSink) invokeV.objValue;
-    }
-
     public CacheDataSinkFactory(Cache cache, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,5 +53,15 @@ public final class CacheDataSinkFactory implements DataSink.Factory {
         this.cache = cache;
         this.maxCacheFileSize = j;
         this.bufferSize = i;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSink.Factory
+    public DataSink createDataSink() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new CacheDataSink(this.cache, this.maxCacheFileSize, this.bufferSize);
+        }
+        return (DataSink) invokeV.objValue;
     }
 }

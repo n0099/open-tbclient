@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class AppaInfo extends Info<AppaElemInfo> {
+public class AppaInfo extends Info {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 743502127744352988L;
     public transient /* synthetic */ FieldHolder $fh;

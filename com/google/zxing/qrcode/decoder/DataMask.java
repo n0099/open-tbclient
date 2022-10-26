@@ -25,6 +25,8 @@ public abstract class DataMask {
     public static final DataMask DATA_MASK_111;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract boolean isMasked(int i, int i2);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -42,37 +44,12 @@ public abstract class DataMask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
             @Override // com.google.zxing.qrcode.decoder.DataMask
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? ((i + i2) & 1) == 0 : invokeII.booleanValue;
             }
-        };
-        DATA_MASK_001 = new DataMask("DATA_MASK_001", 1) { // from class: com.google.zxing.qrcode.decoder.DataMask.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -94,12 +71,37 @@ public abstract class DataMask {
                     }
                 }
             }
+        };
+        DATA_MASK_001 = new DataMask("DATA_MASK_001", 1) { // from class: com.google.zxing.qrcode.decoder.DataMask.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.google.zxing.qrcode.decoder.DataMask
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? (i & 1) == 0 : invokeII.booleanValue;
+            }
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
             }
         };
         DATA_MASK_010 = new DataMask("DATA_MASK_010", 2) { // from class: com.google.zxing.qrcode.decoder.DataMask.3
@@ -131,7 +133,13 @@ public abstract class DataMask {
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? i2 % 3 == 0 : invokeII.booleanValue;
+                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
+                    if (i2 % 3 == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeII.booleanValue;
             }
         };
         DATA_MASK_011 = new DataMask("DATA_MASK_011", 3) { // from class: com.google.zxing.qrcode.decoder.DataMask.4
@@ -163,7 +171,13 @@ public abstract class DataMask {
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? (i + i2) % 3 == 0 : invokeII.booleanValue;
+                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
+                    if ((i + i2) % 3 == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeII.booleanValue;
             }
         };
         DATA_MASK_100 = new DataMask("DATA_MASK_100", 4) { // from class: com.google.zxing.qrcode.decoder.DataMask.5
@@ -195,7 +209,13 @@ public abstract class DataMask {
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? (((i / 2) + (i2 / 3)) & 1) == 0 : invokeII.booleanValue;
+                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
+                    if ((((i / 2) + (i2 / 3)) & 1) == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeII.booleanValue;
             }
         };
         DATA_MASK_101 = new DataMask("DATA_MASK_101", 5) { // from class: com.google.zxing.qrcode.decoder.DataMask.6
@@ -227,7 +247,13 @@ public abstract class DataMask {
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? (i * i2) % 6 == 0 : invokeII.booleanValue;
+                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
+                    if ((i * i2) % 6 == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeII.booleanValue;
             }
         };
         DATA_MASK_110 = new DataMask("DATA_MASK_110", 6) { // from class: com.google.zxing.qrcode.decoder.DataMask.7
@@ -259,7 +285,13 @@ public abstract class DataMask {
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? (i * i2) % 6 < 3 : invokeII.booleanValue;
+                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
+                    if ((i * i2) % 6 < 3) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeII.booleanValue;
             }
         };
         DataMask dataMask = new DataMask("DATA_MASK_111", 7) { // from class: com.google.zxing.qrcode.decoder.DataMask.8
@@ -291,7 +323,13 @@ public abstract class DataMask {
             public boolean isMasked(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? (((i + i2) + ((i * i2) % 3)) & 1) == 0 : invokeII.booleanValue;
+                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
+                    if (((i + i2 + ((i * i2) % 3)) & 1) == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeII.booleanValue;
             }
         };
         DATA_MASK_111 = dataMask;
@@ -320,16 +358,20 @@ public abstract class DataMask {
     public static DataMask valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (DataMask) Enum.valueOf(DataMask.class, str) : (DataMask) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (DataMask) Enum.valueOf(DataMask.class, str);
+        }
+        return (DataMask) invokeL.objValue;
     }
 
     public static DataMask[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (DataMask[]) $VALUES.clone() : (DataMask[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (DataMask[]) $VALUES.clone();
+        }
+        return (DataMask[]) invokeV.objValue;
     }
-
-    public abstract boolean isMasked(int i, int i2);
 
     public final void unmaskBitMatrix(BitMatrix bitMatrix, int i) {
         Interceptable interceptable = $ic;

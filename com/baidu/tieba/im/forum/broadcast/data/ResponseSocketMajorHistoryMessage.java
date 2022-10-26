@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.da7;
+import com.baidu.tieba.la7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
 public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public da7 majorHistoryData;
+    public la7 majorHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketMajorHistoryMessage() {
@@ -34,11 +33,10 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.majorHistoryData = new da7();
+        this.majorHistoryData = new la7();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -63,9 +61,12 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public da7 getData() {
+    public la7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.majorHistoryData : (da7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.majorHistoryData;
+        }
+        return (la7) invokeV.objValue;
     }
 }

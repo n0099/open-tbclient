@@ -37,6 +37,30 @@ public final class CriusGradientDrawable extends Drawable {
     public float startX;
     public float startY;
 
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return -2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, colorFilter) == null) {
+        }
+    }
+
     public CriusGradientDrawable() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,19 +97,11 @@ public final class CriusGradientDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
+    public void setBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return -2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+            super.setBounds(i, i2, i3, i4);
+            this.rect = new RectF(i, i2, i3, i4);
         }
     }
 
@@ -99,13 +115,6 @@ public final class CriusGradientDrawable extends Drawable {
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, colorFilter) == null) {
-        }
-    }
-
     public final void setColors(int[] colors) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, colors) == null) {
@@ -116,26 +125,13 @@ public final class CriusGradientDrawable extends Drawable {
         }
     }
 
-    public final void setEnd(Float f, Float f2) {
+    public final void setRadii(float[] radii) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f, f2) == null) {
-            this.endX = f != null ? f.floatValue() : 0.0f;
-            this.endY = f2 != null ? f2.floatValue() : 0.0f;
-        }
-    }
-
-    public final void setRadii(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.radii = new float[]{f, f, f2, f2, f4, f4, f3, f3};
-        }
-    }
-
-    public final void setStart(Float f, Float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, f, f2) == null) {
-            this.startX = f != null ? f.floatValue() : 0.0f;
-            this.startY = f2 != null ? f2.floatValue() : 0.0f;
+        if (interceptable == null || interceptable.invokeL(1048586, this, radii) == null) {
+            Intrinsics.checkNotNullParameter(radii, "radii");
+            float[] copyOf = Arrays.copyOf(radii, radii.length);
+            Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, size)");
+            this.radii = copyOf;
         }
     }
 
@@ -157,22 +153,46 @@ public final class CriusGradientDrawable extends Drawable {
         }
     }
 
-    public final void setRadii(float[] radii) {
+    public final void setEnd(Float f, Float f2) {
+        float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, radii) == null) {
-            Intrinsics.checkNotNullParameter(radii, "radii");
-            float[] copyOf = Arrays.copyOf(radii, radii.length);
-            Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, size)");
-            this.radii = copyOf;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f, f2) == null) {
+            float f4 = 0.0f;
+            if (f != null) {
+                f3 = f.floatValue();
+            } else {
+                f3 = 0.0f;
+            }
+            this.endX = f3;
+            if (f2 != null) {
+                f4 = f2.floatValue();
+            }
+            this.endY = f4;
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
+    public final void setStart(Float f, Float f2) {
+        float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
-            super.setBounds(i, i2, i3, i4);
-            this.rect = new RectF(i, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeLL(1048587, this, f, f2) == null) {
+            float f4 = 0.0f;
+            if (f != null) {
+                f3 = f.floatValue();
+            } else {
+                f3 = 0.0f;
+            }
+            this.startX = f3;
+            if (f2 != null) {
+                f4 = f2.floatValue();
+            }
+            this.startY = f4;
+        }
+    }
+
+    public final void setRadii(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.radii = new float[]{f, f, f2, f2, f4, f4, f3, f3};
         }
     }
 }

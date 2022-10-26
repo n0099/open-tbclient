@@ -32,13 +32,19 @@ public class SoftInputSharedPreferences {
     public static int get(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? with(context).getInt(KEY_SOFITNPUT_HEIGHT, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return with(context).getInt(KEY_SOFITNPUT_HEIGHT, i);
+        }
+        return invokeLI.intValue;
     }
 
     public static boolean save(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) ? with(context).edit().putInt(KEY_SOFITNPUT_HEIGHT, i).commit() : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            return with(context).edit().putInt(KEY_SOFITNPUT_HEIGHT, i).commit();
+        }
+        return invokeLI.booleanValue;
     }
 
     public static SharedPreferences with(Context context) {

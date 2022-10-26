@@ -33,14 +33,13 @@ public class LiveErrorInfo {
 
     public void loadFromJSON(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
+            this.errno = jSONObject.optInt("errno");
+            this.errMsg = jSONObject.optString("errmsg");
+            this.userMsg = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.serverTime = jSONObject.optLong("server_time");
+            this.time = jSONObject.optLong("time");
+            this.logId = jSONObject.optString("logId");
         }
-        this.errno = jSONObject.optInt("errno");
-        this.errMsg = jSONObject.optString("errmsg");
-        this.userMsg = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-        this.serverTime = jSONObject.optLong("server_time");
-        this.time = jSONObject.optLong("time");
-        this.logId = jSONObject.optString("logId");
     }
 }

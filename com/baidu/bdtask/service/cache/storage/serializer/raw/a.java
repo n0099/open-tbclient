@@ -2,7 +2,7 @@ package com.baidu.bdtask.service.cache.storage.serializer.raw;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.uu;
+import com.baidu.tieba.vu;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,12 +50,21 @@ public final class a {
         }
     }
 
-    public Map<String, Object> a(byte[] bArr) {
+    public Map a(byte[] bArr) {
+        boolean z;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             try {
-                return bArr.length == 0 ? MapsKt__MapsKt.emptyMap() : uu.a(bArr);
+                if (bArr.length == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return MapsKt__MapsKt.emptyMap();
+                }
+                return vu.a(bArr);
             } catch (Throwable th) {
                 DebugTrace.a.c(new RawStorageSerializer$deserialize$1(th));
                 return MapsKt__MapsKt.emptyMap();
@@ -64,12 +73,12 @@ public final class a {
         return (Map) invokeL.objValue;
     }
 
-    public byte[] b(Map<String, ? extends Object> map) {
+    public byte[] b(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             try {
-                return uu.b(map);
+                return vu.b(map);
             } catch (Throwable th) {
                 DebugTrace.a.c(new RawStorageSerializer$serialize$1(th));
                 return new byte[0];

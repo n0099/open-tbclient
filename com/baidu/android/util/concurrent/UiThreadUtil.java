@@ -31,13 +31,19 @@ public class UiThreadUtil {
     public static Handler getMainHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? UiThreadUtils.getMainHandler() : (Handler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return UiThreadUtils.getMainHandler();
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public static boolean isOnUiThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UiThreadUtils.isOnUiThread() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return UiThreadUtils.isOnUiThread();
+        }
+        return invokeV.booleanValue;
     }
 
     public static void runOnUiThread(Runnable runnable) {

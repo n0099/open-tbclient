@@ -13,12 +13,22 @@ public class b {
     public String e;
     public boolean f;
     public Drawable g;
-    public InterfaceC0652b h;
+    public InterfaceC0648b h;
     public View i;
     public int j;
 
+    /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class a {
+    public interface InterfaceC0648b {
+        void a(DialogInterface dialogInterface);
+
+        void b(DialogInterface dialogInterface);
+
+        void c(DialogInterface dialogInterface);
+    }
+
+    /* loaded from: classes8.dex */
+    public final class a {
         public View a;
         public int b;
         public Context c;
@@ -28,14 +38,14 @@ public class b {
         public String g;
         public boolean h;
         public Drawable i;
-        public InterfaceC0652b j;
+        public InterfaceC0648b j;
 
         public a(Context context) {
             this.c = context;
         }
 
-        public a a(String str) {
-            this.d = str;
+        public a a(int i) {
+            this.b = i;
             return this;
         }
 
@@ -54,39 +64,29 @@ public class b {
             return this;
         }
 
-        public a a(boolean z) {
-            this.h = z;
-            return this;
-        }
-
         public a a(Drawable drawable) {
             this.i = drawable;
             return this;
         }
 
-        public a a(InterfaceC0652b interfaceC0652b) {
-            this.j = interfaceC0652b;
+        public a a(InterfaceC0648b interfaceC0648b) {
+            this.j = interfaceC0648b;
             return this;
         }
 
-        public a a(int i) {
-            this.b = i;
+        public a a(String str) {
+            this.d = str;
+            return this;
+        }
+
+        public a a(boolean z) {
+            this.h = z;
             return this;
         }
 
         public b a() {
             return new b(this);
         }
-    }
-
-    /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0652b {
-        void a(DialogInterface dialogInterface);
-
-        void b(DialogInterface dialogInterface);
-
-        void c(DialogInterface dialogInterface);
     }
 
     public b(a aVar) {

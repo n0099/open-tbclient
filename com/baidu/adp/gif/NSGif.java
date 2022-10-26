@@ -5,10 +5,10 @@ import android.graphics.Canvas;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bj;
 import com.baidu.tieba.cj;
-import com.baidu.tieba.dc;
-import com.baidu.tieba.jh;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ec;
+import com.baidu.tieba.kh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class NSGif implements dc {
+public class NSGif implements ec {
     public static /* synthetic */ Interceptable $ic;
     public static final String e;
     public static boolean f;
@@ -26,6 +26,26 @@ public class NSGif implements dc {
     public final int b;
     public final int c;
     public final int d;
+
+    public static native long nativeCreate(String str, String str2);
+
+    public static native long nativeCreate(String str, byte[] bArr, int i, int i2);
+
+    public static native boolean nativeDecodeFrame(long j, int i);
+
+    public static native int nativeDestroy(long j);
+
+    public static native int nativeGetCurrentFrame(long j);
+
+    public static native int nativeGetFrameCount(long j);
+
+    public static native int nativeGetFrameDelay(long j, int i);
+
+    public static native int nativeGetHeight(long j);
+
+    public static native int nativeGetWidth(long j);
+
+    public static native boolean nativeWriteTo(long j, Bitmap bitmap);
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -56,14 +76,15 @@ public class NSGif implements dc {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NSGif.nativeDestroy(this.a);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            NSGif.nativeDestroy(this.a);
         }
     }
 
     /* loaded from: classes.dex */
-    public static class b extends cj {
+    public final class b extends dj {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +102,7 @@ public class NSGif implements dc {
             }
         }
 
-        @Override // com.baidu.tieba.cj
+        @Override // com.baidu.tieba.dj
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -104,7 +125,7 @@ public class NSGif implements dc {
             }
         }
         e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f = bj.d().i("nsgif_jni", 2, new b());
+        f = cj.d().i("nsgif_jni", 2, new b());
     }
 
     public NSGif(long j) {
@@ -141,53 +162,7 @@ public class NSGif implements dc {
         return (NSGif) invokeL.objValue;
     }
 
-    public static NSGif f(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
-            long nativeCreate = nativeCreate(e, bArr, i, i2);
-            if (nativeCreate != 0) {
-                return new NSGif(nativeCreate);
-            }
-            return null;
-        }
-        return (NSGif) invokeLII.objValue;
-    }
-
-    public static native long nativeCreate(String str, String str2);
-
-    public static native long nativeCreate(String str, byte[] bArr, int i, int i2);
-
-    public static native boolean nativeDecodeFrame(long j, int i);
-
-    public static native int nativeDestroy(long j);
-
-    public static native int nativeGetCurrentFrame(long j);
-
-    public static native int nativeGetFrameCount(long j);
-
-    public static native int nativeGetFrameDelay(long j, int i);
-
-    public static native int nativeGetHeight(long j);
-
-    public static native int nativeGetWidth(long j);
-
-    public static native boolean nativeWriteTo(long j, Bitmap bitmap);
-
-    @Override // com.baidu.tieba.dc
-    public boolean a(Bitmap bitmap, Canvas canvas) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, canvas)) == null) {
-            if (bitmap == null) {
-                return false;
-            }
-            return nativeWriteTo(this.a, bitmap);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dc
+    @Override // com.baidu.tieba.ec
     public int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -201,14 +176,43 @@ public class NSGif implements dc {
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.dc
+    @Override // com.baidu.tieba.ec
     public boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? nativeDecodeFrame(this.a, i) : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return nativeDecodeFrame(this.a, i);
+        }
+        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dc
+    public static NSGif f(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
+            long nativeCreate = nativeCreate(e, bArr, i, i2);
+            if (nativeCreate != 0) {
+                return new NSGif(nativeCreate);
+            }
+            return null;
+        }
+        return (NSGif) invokeLII.objValue;
+    }
+
+    @Override // com.baidu.tieba.ec
+    public boolean a(Bitmap bitmap, Canvas canvas) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, canvas)) == null) {
+            if (bitmap == null) {
+                return false;
+            }
+            return nativeWriteTo(this.a, bitmap);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ec
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -217,7 +221,7 @@ public class NSGif implements dc {
                 return;
             }
             this.a = 0L;
-            jh.a().c(new a(this, j));
+            kh.a().c(new a(this, j));
         }
     }
 
@@ -232,24 +236,33 @@ public class NSGif implements dc {
         }
     }
 
-    @Override // com.baidu.tieba.dc
+    @Override // com.baidu.tieba.ec
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.dc
+    @Override // com.baidu.tieba.ec
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.dc
+    @Override // com.baidu.tieba.ec
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

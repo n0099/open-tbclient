@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.presenter;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,6 @@ public final class i extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.components.ad.reward.j.a eF;
-    @NonNull
     public com.kwad.components.ad.reward.d.a mAdOpenInteractionListener;
     public final com.kwad.components.core.video.g mVideoPlayStateListener;
     public long pQ;

@@ -31,6 +31,52 @@ public class e {
         }
     }
 
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            ClassLoader classLoader = context.getClassLoader();
+            if (classLoader != null) {
+                try {
+                    Object invoke = classLoader.getClass().getMethod("findLibrary", String.class).invoke(classLoader, str);
+                    if (invoke instanceof String) {
+                        return (String) invoke;
+                    }
+                } catch (Exception e) {
+                    Log.e("findLibrary1", e.toString());
+                    return "catch Exception";
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            ClassLoader classLoader = context.getClassLoader();
+            if (classLoader != null) {
+                try {
+                    Method declaredMethod = classLoader.getClass().getDeclaredMethod("findLibrary", String.class);
+                    if (!declaredMethod.isAccessible()) {
+                        declaredMethod.setAccessible(true);
+                    }
+                    Object invoke = declaredMethod.invoke(classLoader, str);
+                    if (invoke instanceof String) {
+                        return (String) invoke;
+                    }
+                } catch (Exception e) {
+                    Log.e("findLibrary2", e.toString());
+                    return "catch Exception";
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -81,51 +127,5 @@ public class e {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            ClassLoader classLoader = context.getClassLoader();
-            if (classLoader != null) {
-                try {
-                    Object invoke = classLoader.getClass().getMethod("findLibrary", String.class).invoke(classLoader, str);
-                    if (invoke instanceof String) {
-                        return (String) invoke;
-                    }
-                } catch (Exception e) {
-                    Log.e("findLibrary1", e.toString());
-                    return "catch Exception";
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            ClassLoader classLoader = context.getClassLoader();
-            if (classLoader != null) {
-                try {
-                    Method declaredMethod = classLoader.getClass().getDeclaredMethod("findLibrary", String.class);
-                    if (!declaredMethod.isAccessible()) {
-                        declaredMethod.setAccessible(true);
-                    }
-                    Object invoke = declaredMethod.invoke(classLoader, str);
-                    if (invoke instanceof String) {
-                        return (String) invoke;
-                    }
-                } catch (Exception e) {
-                    Log.e("findLibrary2", e.toString());
-                    return "catch Exception";
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
     }
 }

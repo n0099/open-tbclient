@@ -2,7 +2,6 @@ package com.kwad.components.ad.reward.presenter.platdetail.kwai;
 
 import android.view.View;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -21,7 +20,6 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
     public transient /* synthetic */ FieldHolder $fh;
     public h.a dv;
     public ImageView eE;
-    @NonNull
     public com.kwad.components.ad.reward.j.a eF;
     public AdTemplate mAdTemplate;
     public g mVideoPlayStateListener;
@@ -216,8 +214,8 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.eE = (ImageView) findViewById(R.id.obfuscated_res_0x7f09122f);
-            this.si = (ImageView) findViewById(R.id.obfuscated_res_0x7f091169);
+            this.eE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091223);
+            this.si = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115d);
         }
     }
 

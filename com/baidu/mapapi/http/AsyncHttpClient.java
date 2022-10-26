@@ -22,7 +22,7 @@ public class AsyncHttpClient {
     public ExecutorService c;
 
     /* loaded from: classes2.dex */
-    public static abstract class a implements Runnable {
+    public abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

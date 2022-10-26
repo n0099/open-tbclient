@@ -26,13 +26,13 @@ public class Dispatcher {
     public static final int NORMAL = -1;
     public static final int NORMAL_CATEGORY = -1;
     public static final String TAG = "Dispatcher";
-    public static List<MsgListener> allMsgListeners;
-    public static Map<Pair<Integer, Long>, ArrayList<MsgListener>> listenerMap;
-    public static List<MsgListener> normalALL;
+    public static List allMsgListeners;
+    public static Map listenerMap;
+    public static List normalALL;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class Event {
+    public class Event {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int category;
@@ -56,19 +56,28 @@ public class Dispatcher {
         public int getCategory() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.category : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.category;
+            }
+            return invokeV.intValue;
         }
 
         public long getContacter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.contacter : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.contacter;
+            }
+            return invokeV.longValue;
         }
 
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.type;
+            }
+            return invokeV.intValue;
         }
 
         public void setCategory(int i) {
@@ -94,10 +103,14 @@ public class Dispatcher {
     }
 
     /* loaded from: classes.dex */
-    public static abstract class MsgListener {
+    public abstract class MsgListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int type;
+
+        public abstract void dealMessage(int i, ChatMsg chatMsg);
+
+        public abstract void dealMessage(int i, ArrayList arrayList);
 
         public MsgListener() {
             Interceptable interceptable = $ic;
@@ -115,14 +128,13 @@ public class Dispatcher {
             this.type = 0;
         }
 
-        public abstract void dealMessage(int i, ChatMsg chatMsg);
-
-        public abstract void dealMessage(int i, ArrayList<ChatMsg> arrayList);
-
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.type;
+            }
+            return invokeV.intValue;
         }
 
         public void setType(int i) {
@@ -165,37 +177,42 @@ public class Dispatcher {
         }
     }
 
-    public static void dispatchMesageToCentain(int i, ArrayList<ChatMsg> arrayList) {
+    public static void dispatchMesageToCentain(int i, ArrayList arrayList) {
+        Object valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, arrayList) == null) {
             String str = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("start dispatchMesageToCentain");
-            sb.append(arrayList == null ? StringUtil.NULL_STRING : Integer.valueOf(arrayList.size()));
+            if (arrayList == null) {
+                valueOf = StringUtil.NULL_STRING;
+            } else {
+                valueOf = Integer.valueOf(arrayList.size());
+            }
+            sb.append(valueOf);
             LogUtils.d(str, sb.toString());
-            if (arrayList == null || arrayList.size() == 0) {
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            Iterator<ChatMsg> it = arrayList.iterator();
-            while (it.hasNext()) {
-                ChatMsg next = it.next();
-                ArrayList arrayList2 = (ArrayList) hashMap.get(new Pair(Integer.valueOf(next.getCategory()), Long.valueOf(next.getContacter())));
-                if (arrayList2 != null) {
-                    arrayList2.add(next);
-                } else {
-                    ArrayList arrayList3 = new ArrayList();
-                    arrayList3.add(next);
-                    hashMap.put(new Pair(Integer.valueOf(next.getCategory()), Long.valueOf(next.getContacter())), arrayList3);
+            if (arrayList != null && arrayList.size() != 0) {
+                HashMap hashMap = new HashMap();
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ChatMsg chatMsg = (ChatMsg) it.next();
+                    ArrayList arrayList2 = (ArrayList) hashMap.get(new Pair(Integer.valueOf(chatMsg.getCategory()), Long.valueOf(chatMsg.getContacter())));
+                    if (arrayList2 != null) {
+                        arrayList2.add(chatMsg);
+                    } else {
+                        ArrayList arrayList3 = new ArrayList();
+                        arrayList3.add(chatMsg);
+                        hashMap.put(new Pair(Integer.valueOf(chatMsg.getCategory()), Long.valueOf(chatMsg.getContacter())), arrayList3);
+                    }
                 }
-            }
-            for (Map.Entry entry : hashMap.entrySet()) {
-                dispatchMesageToCentainType(i, listenerMap.get(entry.getKey()), (ArrayList) hashMap.get(entry.getKey()));
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    dispatchMesageToCentainType(i, (ArrayList) listenerMap.get(entry.getKey()), (ArrayList) hashMap.get(entry.getKey()));
+                }
             }
         }
     }
 
-    public static void dispatchMesageToCentainType(int i, ArrayList<MsgListener> arrayList, ArrayList<ChatMsg> arrayList2) {
+    public static void dispatchMesageToCentainType(int i, ArrayList arrayList, ArrayList arrayList2) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65539, null, i, arrayList, arrayList2) == null) {
@@ -209,70 +226,74 @@ public class Dispatcher {
             }
             sb.append(str);
             LogUtils.d(str2, sb.toString());
-            if (arrayList2 == null || arrayList2.size() == 0) {
-                return;
-            }
-            if (arrayList == null) {
-                LogUtils.d(TAG, ": dispatchMesageToCentain listeners = null");
-                return;
-            }
-            Iterator<MsgListener> it = arrayList.iterator();
-            while (it.hasNext()) {
-                MsgListener next = it.next();
-                Iterator<ChatMsg> it2 = arrayList2.iterator();
-                while (it2.hasNext()) {
-                    ChatMsg next2 = it2.next();
-                    if (next2.getCategory() != 0 && next2.getCategory() != 1 && next2.getNotifyCmd() == next.getType()) {
-                        next.dealMessage(i, next2);
-                    }
+            if (arrayList2 != null && arrayList2.size() != 0) {
+                if (arrayList == null) {
+                    LogUtils.d(TAG, ": dispatchMesageToCentain listeners = null");
+                    return;
                 }
-                if (arrayList2.get(0).getCategory() == 0 || arrayList2.get(0).getCategory() == 1) {
-                    next.dealMessage(i, arrayList2);
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    MsgListener msgListener = (MsgListener) it.next();
+                    Iterator it2 = arrayList2.iterator();
+                    while (it2.hasNext()) {
+                        ChatMsg chatMsg = (ChatMsg) it2.next();
+                        if (chatMsg.getCategory() != 0 && chatMsg.getCategory() != 1 && chatMsg.getNotifyCmd() == msgListener.getType()) {
+                            msgListener.dealMessage(i, chatMsg);
+                        }
+                    }
+                    if (((ChatMsg) arrayList2.get(0)).getCategory() == 0 || ((ChatMsg) arrayList2.get(0)).getCategory() == 1) {
+                        msgListener.dealMessage(i, arrayList2);
+                    }
                 }
             }
         }
     }
 
-    public static void dispatchMessage(Context context, int i, ArrayList<ChatMsg> arrayList) {
-        List<MsgListener> list;
+    public static void dispatchMessage(Context context, int i, ArrayList arrayList) {
+        Object valueOf;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, arrayList) == null) {
             String str = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("start dispatchMessage ");
-            sb.append(arrayList == null ? StringUtil.NULL_STRING : Integer.valueOf(arrayList.size()));
+            if (arrayList == null) {
+                valueOf = StringUtil.NULL_STRING;
+            } else {
+                valueOf = Integer.valueOf(arrayList.size());
+            }
+            sb.append(valueOf);
             LogUtils.d(str, sb.toString());
-            if (arrayList == null || arrayList.size() == 0) {
-                return;
-            }
-            List<MsgListener> list2 = allMsgListeners;
-            if (list2 != null && list2.size() > 0) {
-                for (MsgListener msgListener : allMsgListeners) {
-                    LogUtils.d(TAG, "deal allMsgListeners message");
-                    msgListener.dealMessage(i, arrayList);
-                }
-            }
-            ArrayList<ChatMsg> arrayList2 = new ArrayList<>();
-            long j = 0;
-            Iterator<ChatMsg> it = arrayList.iterator();
-            while (it.hasNext()) {
-                ChatMsg next = it.next();
-                if (next.getCategory() != 0 && next.getCategory() != 1) {
-                    if (next.getCategory() == 2 && j < next.getMsgId()) {
-                        j = next.getMsgId();
+            if (arrayList != null && arrayList.size() != 0) {
+                List list2 = allMsgListeners;
+                if (list2 != null && list2.size() > 0) {
+                    for (MsgListener msgListener : allMsgListeners) {
+                        LogUtils.d(TAG, "deal allMsgListeners message");
+                        msgListener.dealMessage(i, arrayList);
                     }
-                } else {
-                    arrayList2.add(next);
                 }
-            }
-            String str2 = TAG;
-            LogUtils.d(str2, "normalAll dispatcher : msgs2.size() : " + arrayList2.size());
-            if (arrayList2.size() > 0 && (list = normalALL) != null && list.size() > 0) {
-                for (MsgListener msgListener2 : normalALL) {
-                    msgListener2.dealMessage(i, arrayList2);
+                ArrayList arrayList2 = new ArrayList();
+                long j = 0;
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ChatMsg chatMsg = (ChatMsg) it.next();
+                    if (chatMsg.getCategory() != 0 && chatMsg.getCategory() != 1) {
+                        if (chatMsg.getCategory() == 2 && j < chatMsg.getMsgId()) {
+                            j = chatMsg.getMsgId();
+                        }
+                    } else {
+                        arrayList2.add(chatMsg);
+                    }
                 }
+                String str2 = TAG;
+                LogUtils.d(str2, "normalAll dispatcher : msgs2.size() : " + arrayList2.size());
+                if (arrayList2.size() > 0 && (list = normalALL) != null && list.size() > 0) {
+                    for (MsgListener msgListener2 : normalALL) {
+                        msgListener2.dealMessage(i, arrayList2);
+                    }
+                }
+                dispatchMesageToCentain(i, arrayList);
             }
-            dispatchMesageToCentain(i, arrayList);
         }
     }
 
@@ -285,14 +306,14 @@ public class Dispatcher {
                 normalALL.add(msgListener);
             } else {
                 msgListener.setType(event.getType());
-                ArrayList<MsgListener> arrayList = listenerMap.get(new Pair(Integer.valueOf(event.getCategory()), Long.valueOf(event.getContacter())));
+                ArrayList arrayList = (ArrayList) listenerMap.get(new Pair(Integer.valueOf(event.getCategory()), Long.valueOf(event.getContacter())));
                 if (arrayList == null) {
-                    arrayList = new ArrayList<>();
+                    arrayList = new ArrayList();
                     arrayList.add(msgListener);
                 } else {
                     arrayList.add(msgListener);
                 }
-                listenerMap.put(new Pair<>(Integer.valueOf(event.getCategory()), Long.valueOf(event.getContacter())), arrayList);
+                listenerMap.put(new Pair(Integer.valueOf(event.getCategory()), Long.valueOf(event.getContacter())), arrayList);
             }
         }
     }

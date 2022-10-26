@@ -3,13 +3,10 @@ package com.baidu.nadcore.business.uitemplate;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lk0;
+import com.baidu.tieba.mk0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,8 +19,15 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
+    public int getLayoutId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05fd : invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +75,7 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadEnhanceButtonDownloadView(@NonNull Context context) {
+    public NadEnhanceButtonDownloadView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -90,48 +94,8 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
         }
     }
 
-    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
-    @DrawableRes
-    public int f(@NonNull lk0 lk0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lk0Var)) == null) {
-            int i = a.a[lk0Var.c.ordinal()];
-            if (i == 1 || i == 5 || i == 6) {
-                return R.drawable.obfuscated_res_0x7f080dc8;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
-    public int getLayoutId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05fd : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
-    public void setImageViewLayout(FrameLayout.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams) == null) {
-            super.setImageViewLayout(layoutParams);
-            setRoundProgressBarVisible(false);
-        }
-    }
-
-    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
-    public void setProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.setProgress(i);
-            setRoundProgressBarVisible(false);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadEnhanceButtonDownloadView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public NadEnhanceButtonDownloadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -152,7 +116,7 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadEnhanceButtonDownloadView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public NadEnhanceButtonDownloadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -169,6 +133,38 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
+    public int f(mk0 mk0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mk0Var)) == null) {
+            int i = a.a[mk0Var.c.ordinal()];
+            if (i == 1 || i == 5 || i == 6) {
+                return R.drawable.obfuscated_res_0x7f080dd9;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
+    public void setImageViewLayout(FrameLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams) == null) {
+            super.setImageViewLayout(layoutParams);
+            setRoundProgressBarVisible(false);
+        }
+    }
+
+    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
+    public void setProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.setProgress(i);
+            setRoundProgressBarVisible(false);
         }
     }
 }

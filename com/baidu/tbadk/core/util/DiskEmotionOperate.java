@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     public BitmapFactory.Options mOptions;
 
     /* loaded from: classes3.dex */
-    public static class DiskPicHeader {
+    public class DiskPicHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static byte GIF_FLAG = Byte.MIN_VALUE;
         public static final int MAGIC_DIGIT = 1786600510;
@@ -47,6 +47,15 @@ public class DiskEmotionOperate extends DiskFileOperate {
             }
         }
 
+        public static int getHeaderSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return 13;
+            }
+            return invokeV.intValue;
+        }
+
         public DiskPicHeader() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -62,15 +71,6 @@ public class DiskEmotionOperate extends DiskFileOperate {
             }
             this.mIsGif = false;
             this.mValidTime = 0L;
-        }
-
-        public static int getHeaderSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return 13;
-            }
-            return invokeV.intValue;
         }
 
         public boolean paserFromByte(byte[] bArr) {
@@ -99,7 +99,11 @@ public class DiskEmotionOperate extends DiskFileOperate {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
                 allocate.putInt(MAGIC_DIGIT);
-                allocate.put(this.mIsGif ? (byte) (GIF_FLAG | 0) : (byte) 0);
+                byte b = 0;
+                if (this.mIsGif) {
+                    b = (byte) (GIF_FLAG | 0);
+                }
+                allocate.put(b);
                 allocate.putLong(this.mValidTime);
                 allocate.flip();
                 return allocate.array();
@@ -146,6 +150,42 @@ public class DiskEmotionOperate extends DiskFileOperate {
         return (byte[]) invokeV.objValue;
     }
 
+    public Bitmap getBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBitmap;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public BitmapFactory.Options getOptions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mOptions;
+        }
+        return (BitmapFactory.Options) invokeV.objValue;
+    }
+
+    public long getValidTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDiskPicHeader.mValidTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean isGif() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDiskPicHeader.mIsGif;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean formatData(byte[] bArr) {
         InterceptResult invokeL;
@@ -161,45 +201,24 @@ public class DiskEmotionOperate extends DiskFileOperate {
             }
             boolean paserFromByte = this.mDiskPicHeader.paserFromByte(bArr);
             long j = this.mDiskPicHeader.mValidTime;
-            if (j == 0 || j >= System.currentTimeMillis()) {
-                int headerSize = DiskPicHeader.getHeaderSize();
-                if (!paserFromByte) {
-                    headerSize = 0;
-                }
-                try {
-                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.mOptions);
-                } catch (Error e) {
-                    BdLog.e(e.getMessage());
-                }
-                return this.mBitmap != null;
+            if (j != 0 && j < System.currentTimeMillis()) {
+                return false;
             }
-            return false;
+            int headerSize = DiskPicHeader.getHeaderSize();
+            if (!paserFromByte) {
+                headerSize = 0;
+            }
+            try {
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.mOptions);
+            } catch (Error e) {
+                BdLog.e(e.getMessage());
+            }
+            if (this.mBitmap == null) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public Bitmap getBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBitmap : (Bitmap) invokeV.objValue;
-    }
-
-    public BitmapFactory.Options getOptions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mOptions : (BitmapFactory.Options) invokeV.objValue;
-    }
-
-    public long getValidTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDiskPicHeader.mValidTime : invokeV.longValue;
-    }
-
-    public boolean isGif() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDiskPicHeader.mIsGif : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -207,10 +226,9 @@ public class DiskEmotionOperate extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
             super.setData(bArr);
-            if (isGif() || !ej.B(bArr)) {
-                return;
+            if (!isGif() && fj.B(bArr)) {
+                setGif(true);
             }
-            setGif(true);
         }
     }
 

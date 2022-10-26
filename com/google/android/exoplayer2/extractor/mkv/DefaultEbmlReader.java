@@ -27,28 +27,24 @@ public final class DefaultEbmlReader implements EbmlReader {
     public long elementContentSize;
     public int elementId;
     public int elementState;
-    public final Stack<MasterElement> masterElementsStack;
+    public final Stack masterElementsStack;
     public EbmlReaderOutput output;
     public final byte[] scratch;
     public final VarintReader varintReader;
 
     /* renamed from: com.google.android.exoplayer2.extractor.mkv.DefaultEbmlReader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class MasterElement {
+    public final class MasterElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long elementEndPosition;
         public final int elementId;
-
-        public /* synthetic */ MasterElement(int i, long j, AnonymousClass1 anonymousClass1) {
-            this(i, j);
-        }
 
         public MasterElement(int i, long j) {
             Interceptable interceptable = $ic;
@@ -68,6 +64,10 @@ public final class DefaultEbmlReader implements EbmlReader {
             this.elementId = i;
             this.elementEndPosition = j;
         }
+
+        public /* synthetic */ MasterElement(int i, long j, AnonymousClass1 anonymousClass1) {
+            this(i, j);
+        }
     }
 
     public DefaultEbmlReader() {
@@ -84,28 +84,29 @@ public final class DefaultEbmlReader implements EbmlReader {
             }
         }
         this.scratch = new byte[8];
-        this.masterElementsStack = new Stack<>();
+        this.masterElementsStack = new Stack();
         this.varintReader = new VarintReader();
     }
 
     private long maybeResyncToNextLevel1Element(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, this, extractorInput)) != null) {
-            return invokeL.longValue;
-        }
-        extractorInput.resetPeekPosition();
-        while (true) {
-            extractorInput.peekFully(this.scratch, 0, 4);
-            int parseUnsignedVarintLength = VarintReader.parseUnsignedVarintLength(this.scratch[0]);
-            if (parseUnsignedVarintLength != -1 && parseUnsignedVarintLength <= 4) {
-                int assembleVarint = (int) VarintReader.assembleVarint(this.scratch, parseUnsignedVarintLength, false);
-                if (this.output.isLevel1Element(assembleVarint)) {
-                    extractorInput.skipFully(parseUnsignedVarintLength);
-                    return assembleVarint;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, extractorInput)) == null) {
+            extractorInput.resetPeekPosition();
+            while (true) {
+                extractorInput.peekFully(this.scratch, 0, 4);
+                int parseUnsignedVarintLength = VarintReader.parseUnsignedVarintLength(this.scratch[0]);
+                if (parseUnsignedVarintLength != -1 && parseUnsignedVarintLength <= 4) {
+                    int assembleVarint = (int) VarintReader.assembleVarint(this.scratch, parseUnsignedVarintLength, false);
+                    if (this.output.isLevel1Element(assembleVarint)) {
+                        extractorInput.skipFully(parseUnsignedVarintLength);
+                        return assembleVarint;
+                    }
                 }
+                extractorInput.skipFully(1);
             }
-            extractorInput.skipFully(1);
+        } else {
+            return invokeL.longValue;
         }
     }
 
@@ -161,73 +162,83 @@ public final class DefaultEbmlReader implements EbmlReader {
     @Override // com.google.android.exoplayer2.extractor.mkv.EbmlReader
     public boolean read(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput)) != null) {
-            return invokeL.booleanValue;
-        }
-        Assertions.checkState(this.output != null);
-        while (true) {
-            if (!this.masterElementsStack.isEmpty() && extractorInput.getPosition() >= this.masterElementsStack.peek().elementEndPosition) {
-                this.output.endMasterElement(this.masterElementsStack.pop().elementId);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput)) == null) {
+            if (this.output != null) {
+                z = true;
+            } else {
+                z = false;
             }
-            if (this.elementState == 0) {
-                long readUnsignedVarint = this.varintReader.readUnsignedVarint(extractorInput, true, false, 4);
-                if (readUnsignedVarint == -2) {
-                    readUnsignedVarint = maybeResyncToNextLevel1Element(extractorInput);
+            Assertions.checkState(z);
+            while (true) {
+                if (!this.masterElementsStack.isEmpty() && extractorInput.getPosition() >= ((MasterElement) this.masterElementsStack.peek()).elementEndPosition) {
+                    this.output.endMasterElement(((MasterElement) this.masterElementsStack.pop()).elementId);
+                    return true;
                 }
-                if (readUnsignedVarint == -1) {
-                    return false;
+                if (this.elementState == 0) {
+                    long readUnsignedVarint = this.varintReader.readUnsignedVarint(extractorInput, true, false, 4);
+                    if (readUnsignedVarint == -2) {
+                        readUnsignedVarint = maybeResyncToNextLevel1Element(extractorInput);
+                    }
+                    if (readUnsignedVarint == -1) {
+                        return false;
+                    }
+                    this.elementId = (int) readUnsignedVarint;
+                    this.elementState = 1;
                 }
-                this.elementId = (int) readUnsignedVarint;
-                this.elementState = 1;
-            }
-            if (this.elementState == 1) {
-                this.elementContentSize = this.varintReader.readUnsignedVarint(extractorInput, false, true, 8);
-                this.elementState = 2;
-            }
-            int elementType = this.output.getElementType(this.elementId);
-            if (elementType != 0) {
-                if (elementType == 1) {
+                if (this.elementState == 1) {
+                    this.elementContentSize = this.varintReader.readUnsignedVarint(extractorInput, false, true, 8);
+                    this.elementState = 2;
+                }
+                int elementType = this.output.getElementType(this.elementId);
+                if (elementType != 0) {
+                    if (elementType != 1) {
+                        if (elementType != 2) {
+                            if (elementType != 3) {
+                                if (elementType != 4) {
+                                    if (elementType == 5) {
+                                        long j = this.elementContentSize;
+                                        if (j != 4 && j != 8) {
+                                            throw new ParserException("Invalid float size: " + this.elementContentSize);
+                                        }
+                                        this.output.floatElement(this.elementId, readFloat(extractorInput, (int) this.elementContentSize));
+                                        this.elementState = 0;
+                                        return true;
+                                    }
+                                    throw new ParserException("Invalid element type " + elementType);
+                                }
+                                this.output.binaryElement(this.elementId, (int) this.elementContentSize, extractorInput);
+                                this.elementState = 0;
+                                return true;
+                            }
+                            long j2 = this.elementContentSize;
+                            if (j2 <= 2147483647L) {
+                                this.output.stringElement(this.elementId, readString(extractorInput, (int) j2));
+                                this.elementState = 0;
+                                return true;
+                            }
+                            throw new ParserException("String element size: " + this.elementContentSize);
+                        }
+                        long j3 = this.elementContentSize;
+                        if (j3 <= 8) {
+                            this.output.integerElement(this.elementId, readInteger(extractorInput, (int) j3));
+                            this.elementState = 0;
+                            return true;
+                        }
+                        throw new ParserException("Invalid integer size: " + this.elementContentSize);
+                    }
                     long position = extractorInput.getPosition();
                     this.masterElementsStack.add(new MasterElement(this.elementId, this.elementContentSize + position, null));
                     this.output.startMasterElement(this.elementId, position, this.elementContentSize);
                     this.elementState = 0;
                     return true;
-                } else if (elementType == 2) {
-                    long j = this.elementContentSize;
-                    if (j <= 8) {
-                        this.output.integerElement(this.elementId, readInteger(extractorInput, (int) j));
-                        this.elementState = 0;
-                        return true;
-                    }
-                    throw new ParserException("Invalid integer size: " + this.elementContentSize);
-                } else if (elementType == 3) {
-                    long j2 = this.elementContentSize;
-                    if (j2 <= 2147483647L) {
-                        this.output.stringElement(this.elementId, readString(extractorInput, (int) j2));
-                        this.elementState = 0;
-                        return true;
-                    }
-                    throw new ParserException("String element size: " + this.elementContentSize);
-                } else if (elementType == 4) {
-                    this.output.binaryElement(this.elementId, (int) this.elementContentSize, extractorInput);
-                    this.elementState = 0;
-                    return true;
-                } else if (elementType == 5) {
-                    long j3 = this.elementContentSize;
-                    if (j3 != 4 && j3 != 8) {
-                        throw new ParserException("Invalid float size: " + this.elementContentSize);
-                    }
-                    this.output.floatElement(this.elementId, readFloat(extractorInput, (int) this.elementContentSize));
-                    this.elementState = 0;
-                    return true;
-                } else {
-                    throw new ParserException("Invalid element type " + elementType);
                 }
+                extractorInput.skipFully((int) this.elementContentSize);
+                this.elementState = 0;
             }
-            extractorInput.skipFully((int) this.elementContentSize);
-            this.elementState = 0;
+        } else {
+            return invokeL.booleanValue;
         }
     }
 

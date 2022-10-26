@@ -18,7 +18,7 @@ public class bh {
     public String f139a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f140a;
+    public Map f140a;
 
     public bh() {
         Interceptable interceptable = $ic;

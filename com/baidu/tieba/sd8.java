@@ -1,9 +1,33 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public interface sd8 {
-    void onDestroy();
+public class sd8 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onPause();
-
-    void onResume();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948147682, "Lcom/baidu/tieba/sd8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948147682, "Lcom/baidu/tieba/sd8;");
+                return;
+            }
+        }
+        TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        TimeUnit.MINUTES.toMillis(1L);
+        a = TimeUnit.SECONDS.toMillis(1L);
+    }
 }

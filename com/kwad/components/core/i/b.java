@@ -3,7 +3,6 @@ package com.kwad.components.core.i;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,7 +84,7 @@ public abstract class b extends IFragmentActivityProxy {
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);

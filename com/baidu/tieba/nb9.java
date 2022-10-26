@@ -1,63 +1,77 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.util.Base64InputStream;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public final class nb9 {
+public class nb9 extends Base64InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
+    public boolean a;
+    public boolean b;
 
-    public nb9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nb9(InputStream inputStream, int i) {
+        super(inputStream, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mb9.a().c();
+        this.a = false;
+        this.b = false;
     }
 
-    public final List<com.baidu.ubs.analytics.a.i> a() {
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
-                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
-                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
-                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
-                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
-                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
-                arrayList.add(iVar);
+            int read = super.read();
+            if (!this.a && read == 117) {
+                this.a = true;
+                return 31;
+            } else if (!this.b && read == 123) {
+                this.b = true;
+                return Cea708Decoder.COMMAND_TGW;
+            } else {
+                return read;
             }
-            rawQuery.close();
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void b(int i) {
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            if (!this.a && read >= 2) {
+                bArr[i] = 31;
+                bArr[i + 1] = -117;
+                this.a = true;
+            }
+            return read;
         }
+        return invokeLII.intValue;
     }
 }

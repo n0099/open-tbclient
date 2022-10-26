@@ -1,76 +1,47 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes4.dex */
-public class gn9 implements TTAdDislike.DislikeInteractionCallback {
+public class gn9 extends cn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ xm9 b;
-    public final /* synthetic */ FunAdInteractionListener c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ dn9 e;
 
-    public gn9(dn9 dn9Var, View view2, xm9 xm9Var, FunAdInteractionListener funAdInteractionListener, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gn9(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dn9Var, view2, xm9Var, funAdInteractionListener, str};
+            Object[] objArr = {tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = dn9Var;
-        this.a = view2;
-        this.b = xm9Var;
-        this.c = funAdInteractionListener;
-        this.d = str;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onCancel() {
+    @Override // com.baidu.tieba.cn9
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onSelected(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-            View view2 = this.a;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
-            this.e.onAdClose(this.b);
-            FunAdInteractionListener funAdInteractionListener = this.c;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.d);
-            }
+            return this.b;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (String) invokeV.objValue;
     }
 }

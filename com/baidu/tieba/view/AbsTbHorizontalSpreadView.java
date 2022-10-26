@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.view.AbsTbHorizontalSpreadView;
@@ -23,11 +22,38 @@ public abstract class AbsTbHorizontalSpreadView extends LinearLayout {
     public boolean b;
     public boolean c;
 
+    public abstract int getAnimateDuration();
+
+    public abstract View getChildView();
+
+    public abstract int getChildWidth();
+
     /* loaded from: classes6.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsTbHorizontalSpreadView a;
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
 
         public a(AbsTbHorizontalSpreadView absTbHorizontalSpreadView) {
             Interceptable interceptable = $ic;
@@ -48,32 +74,12 @@ public abstract class AbsTbHorizontalSpreadView extends LinearLayout {
         }
 
         @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.c = false;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
+                return;
             }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
+            this.a.c = false;
         }
     }
 
@@ -98,83 +104,8 @@ public abstract class AbsTbHorizontalSpreadView extends LinearLayout {
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            addView(getChildView());
-            c();
-            setVisibility(8);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.a = ofFloat;
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xy8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        AbsTbHorizontalSpreadView.this.e(valueAnimator);
-                    }
-                }
-            });
-            this.a.addListener(new a(this));
-            this.a.setDuration(getAnimateDuration());
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                layoutParams.width = -2;
-                layoutParams.height = -2;
-                setLayoutParams(layoutParams);
-                return;
-            }
-            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-        }
-    }
-
-    public /* synthetic */ void e(ValueAnimator valueAnimator) {
-        float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-        getLayoutParams().width = (int) (getChildWidth() * floatValue);
-        requestLayout();
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b && !this.c) {
-            this.c = true;
-            setVisibility(0);
-            this.a.start();
-        }
-    }
-
-    public abstract int getAnimateDuration();
-
-    public abstract View getChildView();
-
-    public abstract int getChildWidth();
-
-    public void setNotNeedAnimate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = false;
-            setVisibility(0);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AbsTbHorizontalSpreadView(Context context, @Nullable AttributeSet attributeSet) {
+    public AbsTbHorizontalSpreadView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -195,7 +126,7 @@ public abstract class AbsTbHorizontalSpreadView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AbsTbHorizontalSpreadView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AbsTbHorizontalSpreadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -215,5 +146,74 @@ public abstract class AbsTbHorizontalSpreadView extends LinearLayout {
         }
         this.b = true;
         b();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
+            addView(getChildView());
+            c();
+            setVisibility(8);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                layoutParams.width = -2;
+                layoutParams.height = -2;
+                setLayoutParams(layoutParams);
+                return;
+            }
+            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b && !this.c) {
+            this.c = true;
+            setVisibility(0);
+            this.a.start();
+        }
+    }
+
+    public void setNotNeedAnimate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = false;
+            setVisibility(0);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.a = ofFloat;
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.hz8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
+                        AbsTbHorizontalSpreadView.this.e(valueAnimator);
+                    }
+                }
+            });
+            this.a.addListener(new a(this));
+            this.a.setDuration(getAnimateDuration());
+        }
+    }
+
+    public /* synthetic */ void e(ValueAnimator valueAnimator) {
+        float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+        getLayoutParams().width = (int) (getChildWidth() * floatValue);
+        requestLayout();
     }
 }

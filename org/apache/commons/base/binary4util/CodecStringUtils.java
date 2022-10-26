@@ -42,7 +42,10 @@ public class CodecStringUtils {
             if ((charSequence instanceof String) && (charSequence2 instanceof String)) {
                 return charSequence.equals(charSequence2);
             }
-            return charSequence.length() == charSequence2.length() && CharSequenceUtils.regionMatches(charSequence, false, 0, charSequence2, 0, charSequence.length());
+            if (charSequence.length() == charSequence2.length() && CharSequenceUtils.regionMatches(charSequence, false, 0, charSequence2, 0, charSequence.length())) {
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
     }
@@ -59,12 +62,6 @@ public class CodecStringUtils {
         return (ByteBuffer) invokeLL.objValue;
     }
 
-    public static ByteBuffer getByteBufferUtf8(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? getByteBuffer(str, Charsets.UTF_8) : (ByteBuffer) invokeL.objValue;
-    }
-
     public static byte[] getBytes(String str, Charset charset) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -75,12 +72,6 @@ public class CodecStringUtils {
             return str.getBytes(charset);
         }
         return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] getBytesIso8859_1(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? getBytes(str, Charsets.ISO_8859_1) : (byte[]) invokeL.objValue;
     }
 
     public static byte[] getBytesUnchecked(String str, String str2) {
@@ -99,36 +90,6 @@ public class CodecStringUtils {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] getBytesUsAscii(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? getBytes(str, Charsets.US_ASCII) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] getBytesUtf16(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? getBytes(str, Charsets.UTF_16) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] getBytesUtf16Be(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? getBytes(str, Charsets.UTF_16BE) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] getBytesUtf16Le(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? getBytes(str, Charsets.UTF_16LE) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] getBytesUtf8(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? getBytes(str, Charsets.UTF_8) : (byte[]) invokeL.objValue;
-    }
-
     public static IllegalStateException newIllegalStateException(String str, UnsupportedEncodingException unsupportedEncodingException) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -136,54 +97,6 @@ public class CodecStringUtils {
             return new IllegalStateException(str + ": " + unsupportedEncodingException);
         }
         return (IllegalStateException) invokeLL.objValue;
-    }
-
-    public static String newString(byte[] bArr, Charset charset) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, bArr, charset)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            return new String(bArr, charset);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String newStringIso8859_1(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, bArr)) == null) ? newString(bArr, Charsets.ISO_8859_1) : (String) invokeL.objValue;
-    }
-
-    public static String newStringUsAscii(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, bArr)) == null) ? newString(bArr, Charsets.US_ASCII) : (String) invokeL.objValue;
-    }
-
-    public static String newStringUtf16(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, bArr)) == null) ? newString(bArr, Charsets.UTF_16) : (String) invokeL.objValue;
-    }
-
-    public static String newStringUtf16Be(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, bArr)) == null) ? newString(bArr, Charsets.UTF_16BE) : (String) invokeL.objValue;
-    }
-
-    public static String newStringUtf16Le(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, bArr)) == null) ? newString(bArr, Charsets.UTF_16LE) : (String) invokeL.objValue;
-    }
-
-    public static String newStringUtf8(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, bArr)) == null) ? newString(bArr, Charsets.UTF_8) : (String) invokeL.objValue;
     }
 
     public static String newString(byte[] bArr, String str) {
@@ -198,6 +111,135 @@ public class CodecStringUtils {
             } catch (UnsupportedEncodingException e) {
                 throw newIllegalStateException(str, e);
             }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static ByteBuffer getByteBufferUtf8(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return getByteBuffer(str, Charsets.UTF_8);
+        }
+        return (ByteBuffer) invokeL.objValue;
+    }
+
+    public static byte[] getBytesIso8859_1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return getBytes(str, Charsets.ISO_8859_1);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] getBytesUsAscii(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return getBytes(str, Charsets.US_ASCII);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] getBytesUtf16(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return getBytes(str, Charsets.UTF_16);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] getBytesUtf16Be(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return getBytes(str, Charsets.UTF_16BE);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] getBytesUtf16Le(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            return getBytes(str, Charsets.UTF_16LE);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] getBytesUtf8(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            return getBytes(str, Charsets.UTF_8);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String newStringIso8859_1(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, bArr)) == null) {
+            return newString(bArr, Charsets.ISO_8859_1);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String newStringUsAscii(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, bArr)) == null) {
+            return newString(bArr, Charsets.US_ASCII);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String newStringUtf16(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, bArr)) == null) {
+            return newString(bArr, Charsets.UTF_16);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String newStringUtf16Be(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, bArr)) == null) {
+            return newString(bArr, Charsets.UTF_16BE);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String newStringUtf16Le(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, bArr)) == null) {
+            return newString(bArr, Charsets.UTF_16LE);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String newStringUtf8(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, bArr)) == null) {
+            return newString(bArr, Charsets.UTF_8);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String newString(byte[] bArr, Charset charset) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, bArr, charset)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            return new String(bArr, charset);
         }
         return (String) invokeLL.objValue;
     }

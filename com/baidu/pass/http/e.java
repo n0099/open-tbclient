@@ -49,23 +49,26 @@ public class e {
         }
     }
 
-    public static void a(String str, String str2) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && c) {
-            Log.e(str, str2);
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a(a, str);
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? b.matcher(str).matches() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return b.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
     }
 
-    public static void a(String str) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a(a, str);
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && c) {
+            Log.e(str, str2);
         }
     }
 }

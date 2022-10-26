@@ -27,25 +27,6 @@ public class ClipImageView extends ImageView {
         this.c = new RectF();
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        if (this.a) {
-            this.b.reset();
-            this.c.set(0.0f, 0.0f, getWidth(), getHeight());
-            float[] fArr = this.e;
-            if (fArr != null) {
-                this.b.addRoundRect(this.c, fArr, Path.Direction.CW);
-            }
-            canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-            canvas.clipPath(this.b);
-            Paint paint = this.d;
-            if (paint != null) {
-                canvas.drawPath(this.b, paint);
-            }
-        }
-        super.onDraw(canvas);
-    }
-
     @Override // android.view.View
     public void setBackgroundColor(int i) {
         Paint paint = new Paint(1);
@@ -59,10 +40,9 @@ public class ClipImageView extends ImageView {
     }
 
     public void setRadius(float[] fArr) {
-        if (fArr == null || fArr.length != 8) {
-            return;
+        if (fArr != null && fArr.length == 8) {
+            this.e = fArr;
         }
-        this.e = fArr;
     }
 
     public void setRoundRadius(int i) {
@@ -82,5 +62,24 @@ public class ClipImageView extends ImageView {
         super(context, attributeSet, i);
         this.a = true;
         a(context);
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        if (this.a) {
+            this.b.reset();
+            this.c.set(0.0f, 0.0f, getWidth(), getHeight());
+            float[] fArr = this.e;
+            if (fArr != null) {
+                this.b.addRoundRect(this.c, fArr, Path.Direction.CW);
+            }
+            canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
+            canvas.clipPath(this.b);
+            Paint paint = this.d;
+            if (paint != null) {
+                canvas.drawPath(this.b, paint);
+            }
+        }
+        super.onDraw(canvas);
     }
 }

@@ -2,49 +2,41 @@ package com.baidu.tieba;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
+import com.baidu.tieba.frs.entelechy.adapter.FrsVideoActivityViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.FrsTabInfo;
+import java.util.Calendar;
 /* loaded from: classes6.dex */
-public class xl6 {
+public class xl6 extends kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public FrsFragment b;
-    public TextView c;
-    public FrsTabSortSwitchButton d;
-    public String e;
-    public int f;
-    public FrsTabSortSwitchButton.e g;
+    public String l;
 
     /* loaded from: classes6.dex */
-    public class a implements FrsTabSortSwitchButton.e {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xl6 a;
+        public final /* synthetic */ lm8 a;
+        public final /* synthetic */ xl6 b;
 
-        public a(xl6 xl6Var) {
+        public a(xl6 xl6Var, lm8 lm8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xl6Var};
+                Object[] objArr = {xl6Var, lm8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,130 +46,124 @@ public class xl6 {
                     return;
                 }
             }
-            this.a = xl6Var;
+            this.b = xl6Var;
+            this.a = lm8Var;
         }
 
-        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
-        public boolean a(int i) {
-            InterceptResult invokeI;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                boolean z = false;
-                if (!ug6.f().i() && !tg6.h().j()) {
-                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c59);
-                        return false;
-                    } else if (this.a.b.J0() != null && this.a.b.j1() != null) {
-                        z = true;
-                        if (this.a.f == i) {
-                            return true;
-                        }
-                        this.a.b.J0().R0(this.a.d.w(this.a.f));
-                        this.a.f = i;
-                        if (this.a.f != 7) {
-                            ai5.c();
-                            mo8.a();
-                        } else {
-                            mo8.b();
-                        }
-                        this.a.b.J0().N0(this.a.d.w(this.a.f));
-                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
-                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.f));
-                        }
-                        this.a.b.J0().Q0(true);
-                        this.a.b.j1().V1();
-                        this.a.b.J0().P0(true);
-                        this.a.f();
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.l));
+                ux4 k = ux4.k();
+                k.x("frs_video_activity_tip" + this.b.l, System.currentTimeMillis());
+                lm8 lm8Var = this.a;
+                if (lm8Var != null && !StringUtils.isNull(lm8Var.b)) {
+                    zo4.n(this.b.mContext, this.a.b);
                 }
-                return z;
             }
-            return invokeI.booleanValue;
         }
     }
 
-    public xl6(FrsFragment frsFragment, RelativeLayout relativeLayout) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xl6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, relativeLayout};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = -1;
-        this.g = new a(this);
-        if (frsFragment == null || relativeLayout == null) {
-            return;
-        }
-        this.b = frsFragment;
-        View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d034d, relativeLayout);
-        this.a = inflate;
-        inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f1a);
-        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091f1b);
-        this.d = frsTabSortSwitchButton;
-        frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
-        this.f = this.d.getState();
-        i();
     }
 
-    public final void f() {
+    public void K(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c11437");
-            statisticItem.param("obj_type", this.d.w(this.f));
-            statisticItem.param("fid", this.e);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.l = str;
         }
     }
 
-    public void g(int i) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton;
+    public final boolean G(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (frsTabSortSwitchButton = this.d) == null) {
-            return;
-        }
-        frsTabSortSwitchButton.t(i);
-        this.f = this.d.getState();
-    }
-
-    public FrsTabSortSwitchButton h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (FrsTabSortSwitchButton) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
-            if (frsTabSortSwitchButton != null) {
-                frsTabSortSwitchButton.D();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j == 0) {
+                return true;
             }
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - j > 86400000) {
+                return true;
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(currentTimeMillis);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j);
+            if (calendar.get(7) > calendar2.get(7)) {
+                return true;
+            }
+            return false;
         }
+        return invokeJ.booleanValue;
     }
 
-    public void j(List<FrsTabInfo> list) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: H */
+    public FrsVideoActivityViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || (frsTabSortSwitchButton = this.d) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0356, (ViewGroup) null);
+            FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
+            SkinManager.setViewTextColor(frsVideoActivityViewHolder.a, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(frsVideoActivityViewHolder.c, (int) R.color.CAM_X0301);
+            SkinManager.setImageResource(frsVideoActivityViewHolder.b, R.drawable.icon_news_list_prompt);
+            SkinManager.setImageResource(frsVideoActivityViewHolder.d, R.drawable.icon_index_category_arrow_r);
+            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
+            return frsVideoActivityViewHolder;
         }
-        frsTabSortSwitchButton.setData(list);
+        return (FrsVideoActivityViewHolder) invokeL.objValue;
     }
 
-    public void k(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kh6, com.baidu.tieba.rn
+    /* renamed from: I */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lm8 lm8Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
+        InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lm8Var, frsVideoActivityViewHolder})) == null) {
+            if (view2 != null && frsVideoActivityViewHolder != null) {
+                view2.setOnClickListener(new a(this, lm8Var));
+                TextView textView = frsVideoActivityViewHolder.a;
+                if (lm8Var != null) {
+                    str = lm8Var.a;
+                } else {
+                    str = "";
+                }
+                textView.setText(str);
+                ux4 k = ux4.k();
+                if (G(k.m("frs_video_activity_tip" + this.l, 0L))) {
+                    frsVideoActivityViewHolder.b.setVisibility(0);
+                } else {
+                    frsVideoActivityViewHolder.b.setVisibility(8);
+                }
+                return frsVideoActivityViewHolder.getView();
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,50 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.android.common.security.AESUtil;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ForumList;
+import tbclient.GetDislikeList.DataRes;
 /* loaded from: classes3.dex */
 public class ah8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List a;
+    public boolean b;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public ah8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            dn dnVar = new dn();
-            String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !dj.isEmpty(TbConfig.getSubVersion())) {
-                version = version + "." + TbConfig.getSubVersion();
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
-                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
-                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-                jSONObject.put("_client_version", version);
-                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
-                jSONObject.put("_os_version", gj.k());
-                jSONObject.put(Config.DEVICE_PART, gj.g() + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
-                jSONObject.put(SchemeDescPatchListener.PATCH, dnVar.a(context));
-                return wi.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.a = new ArrayList();
+        this.b = true;
+    }
+
+    public void a(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        for (ForumList forumList : dataRes.forum_list) {
+            yg8 yg8Var = new yg8();
+            yg8Var.a = forumList.avatar;
+            yg8Var.b = forumList.forum_name;
+            yg8Var.c = String.valueOf(forumList.forum_id);
+            this.a.add(yg8Var);
+        }
+        boolean z = true;
+        if (dataRes.has_more.intValue() != 1) {
+            z = false;
+        }
+        this.b = z;
     }
 }

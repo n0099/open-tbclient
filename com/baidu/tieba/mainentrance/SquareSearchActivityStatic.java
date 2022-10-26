@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.cj7;
-import com.baidu.tieba.dj7;
-import com.baidu.tieba.io8;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListSocketResMessage;
-import com.baidu.tieba.me5;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.nj7;
+import com.baidu.tieba.oj7;
+import com.baidu.tieba.po8;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
@@ -38,7 +37,7 @@ public class SquareSearchActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<IntentConfig> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,12 +56,12 @@ public class SquareSearchActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(NewSquareSearchActivity.class);
+                    ((IntentConfig) customMessage.getData()).startActivity(NewSquareSearchActivity.class);
                 }
                 return null;
             }
@@ -71,7 +70,7 @@ public class SquareSearchActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable {
+    public final class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,21 +89,21 @@ public class SquareSearchActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ArrayList<String>> run(CustomMessage customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009002, io8.k());
+                return new CustomResponsedMessage(2009002, po8.k());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements CustomMessageTask.CustomRunnable {
+    public final class c implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,21 +122,21 @@ public class SquareSearchActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ArrayList<String>> run(CustomMessage customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009001, io8.m());
+                return new CustomResponsedMessage(2009001, po8.m());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements UrlManager.UrlDealListener {
+    public final class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,7 +155,7 @@ public class SquareSearchActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+        public int deal(TbPageContext tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -174,7 +173,7 @@ public class SquareSearchActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements UrlManager.UrlDealListener {
+    public final class e implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,7 +192,7 @@ public class SquareSearchActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+        public int deal(TbPageContext tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -225,13 +224,28 @@ public class SquareSearchActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015003, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        sm8.b(2001190, dj7.class);
-        sm8.b(2001191, cj7.class);
+        zm8.b(2001190, oj7.class);
+        zm8.b(2001191, nj7.class);
         e();
-        sm8.f(303116, HotForumSocketResponseMessage.class, false);
+        zm8.f(303116, HotForumSocketResponseMessage.class, false);
         f();
         b();
         a();
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            se5 se5Var = new se5(309438);
+            se5Var.setResponsedClass(SearchListSocketResMessage.class);
+            se5Var.g(true);
+            se5Var.h(false);
+            se5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(se5Var);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, zm8.a("c/s/searchSug", 309438));
+            tbHttpMessageTask.setResponsedClass(SearchListHttpResMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public SquareSearchActivityStatic() {
@@ -283,23 +297,8 @@ public class SquareSearchActivityStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, sm8.a(TbConfig.GET_HOT_FORUM_URL, 303116));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, zm8.a(TbConfig.GET_HOT_FORUM_URL, 303116));
             tbHttpMessageTask.setResponsedClass(HotForumHttpResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            me5 me5Var = new me5(309438);
-            me5Var.setResponsedClass(SearchListSocketResMessage.class);
-            me5Var.g(true);
-            me5Var.h(false);
-            me5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            MessageManager.getInstance().registerTask(me5Var);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, sm8.a("c/s/searchSug", 309438));
-            tbHttpMessageTask.setResponsedClass(SearchListHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }

@@ -12,6 +12,7 @@ import com.xiaomi.push.hj;
 import com.xiaomi.push.ht;
 import com.xiaomi.push.hw;
 import com.xiaomi.push.ii;
+import com.xiaomi.push.iu;
 import com.xiaomi.push.service.bd;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,30 +48,30 @@ public final class aw implements Runnable {
     public void run() {
         String d;
         String d2;
-        Map<String, String> map;
+        Map map;
         String d3;
         String str;
         String c;
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m90a("do sync info");
+            com.xiaomi.channel.commonutils.logger.b.m89a("do sync info");
             ii iiVar = new ii(bd.a(), false);
-            b m132a = b.m132a(this.a);
+            b m131a = b.m131a(this.a);
             iiVar.c(ht.v.f506a);
-            iiVar.b(m132a.m133a());
+            iiVar.b(m131a.m132a());
             iiVar.d(this.a.getPackageName());
             HashMap hashMap = new HashMap();
             iiVar.f645a = hashMap;
             Context context = this.a;
-            com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.h.m385a(context, context.getPackageName()));
-            Map<String, String> map2 = iiVar.f645a;
+            com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.h.m384a(context, context.getPackageName()));
+            Map map2 = iiVar.f645a;
             Context context2 = this.a;
             com.xiaomi.push.n.a(map2, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.h.a(context2, context2.getPackageName())));
             com.xiaomi.push.n.a(iiVar.f645a, "push_sdk_vn", "4_9_0");
             com.xiaomi.push.n.a(iiVar.f645a, "push_sdk_vc", Integer.toString(40090));
-            com.xiaomi.push.n.a(iiVar.f645a, "token", m132a.b());
-            if (!com.xiaomi.push.m.m567d()) {
+            com.xiaomi.push.n.a(iiVar.f645a, "token", m131a.b());
+            if (!com.xiaomi.push.m.m566d()) {
                 String a = bp.a(com.xiaomi.push.j.d(this.a));
                 String f = com.xiaomi.push.j.f(this.a);
                 if (!TextUtils.isEmpty(f)) {
@@ -81,24 +82,24 @@ public final class aw implements Runnable {
                 }
             }
             ba.a(this.a).a(iiVar.f645a);
-            com.xiaomi.push.n.a(iiVar.f645a, Constants.EXTRA_KEY_REG_ID, m132a.m140c());
-            com.xiaomi.push.n.a(iiVar.f645a, Constants.EXTRA_KEY_REG_SECRET, m132a.d());
+            com.xiaomi.push.n.a(iiVar.f645a, Constants.EXTRA_KEY_REG_ID, m131a.m139c());
+            com.xiaomi.push.n.a(iiVar.f645a, Constants.EXTRA_KEY_REG_SECRET, m131a.d());
             com.xiaomi.push.n.a(iiVar.f645a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
             if (this.f68a) {
-                Map<String, String> map3 = iiVar.f645a;
+                Map map3 = iiVar.f645a;
                 c = av.c(MiPushClient.getAllAlias(this.a));
                 com.xiaomi.push.n.a(map3, Constants.EXTRA_KEY_ALIASES_MD5, c);
-                Map<String, String> map4 = iiVar.f645a;
+                Map map4 = iiVar.f645a;
                 c2 = av.c(MiPushClient.getAllTopic(this.a));
                 com.xiaomi.push.n.a(map4, Constants.EXTRA_KEY_TOPICS_MD5, c2);
                 map = iiVar.f645a;
                 d3 = av.c(MiPushClient.getAllUserAccount(this.a));
                 str = Constants.EXTRA_KEY_ACCOUNTS_MD5;
             } else {
-                Map<String, String> map5 = iiVar.f645a;
+                Map map5 = iiVar.f645a;
                 d = av.d(MiPushClient.getAllAlias(this.a));
                 com.xiaomi.push.n.a(map5, Constants.EXTRA_KEY_ALIASES, d);
-                Map<String, String> map6 = iiVar.f645a;
+                Map map6 = iiVar.f645a;
                 d2 = av.d(MiPushClient.getAllTopic(this.a));
                 com.xiaomi.push.n.a(map6, Constants.EXTRA_KEY_TOPICS, d2);
                 map = iiVar.f645a;
@@ -106,7 +107,7 @@ public final class aw implements Runnable {
                 str = Constants.EXTRA_KEY_ACCOUNTS;
             }
             com.xiaomi.push.n.a(map, str, d3);
-            ao.a(this.a).a((ao) iiVar, hj.i, false, (hw) null);
+            ao.a(this.a).a((iu) iiVar, hj.i, false, (hw) null);
         }
     }
 }

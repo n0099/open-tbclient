@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -58,6 +57,37 @@ public class ChangeClipBounds extends Transition {
         }
     }
 
+    @Override // androidx.transition.Transition
+    public String[] getTransitionProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return sTransitionProperties;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ChangeClipBounds(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
@@ -74,7 +104,7 @@ public class ChangeClipBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
+    public void captureEndValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -82,7 +112,7 @@ public class ChangeClipBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
+    public void captureStartValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -90,15 +120,20 @@ public class ChangeClipBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
             ObjectAnimator objectAnimator = null;
             if (transitionValues != null && transitionValues2 != null && transitionValues.values.containsKey(PROPNAME_CLIP) && transitionValues2.values.containsKey(PROPNAME_CLIP)) {
                 Rect rect = (Rect) transitionValues.values.get(PROPNAME_CLIP);
                 Rect rect2 = (Rect) transitionValues2.values.get(PROPNAME_CLIP);
-                boolean z = rect2 == null;
+                if (rect2 == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 if (rect == null && rect2 == null) {
                     return null;
                 }
@@ -151,33 +186,5 @@ public class ChangeClipBounds extends Transition {
             return objectAnimator;
         }
         return (Animator) invokeLLL.objValue;
-    }
-
-    @Override // androidx.transition.Transition
-    public String[] getTransitionProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? sTransitionProperties : (String[]) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChangeClipBounds(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 }

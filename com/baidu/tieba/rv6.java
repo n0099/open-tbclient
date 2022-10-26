@@ -1,175 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class rv6 extends BaseAdapter {
+public class rv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<sv6> a;
-    public Context b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static boolean a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
+            if ("personalize".equals(str) && ip5.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
+                return true;
+            }
+            if ("frs_new_tab".equals(str2) && ip5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
+                return true;
+            }
+            if ("frs_hot_tab".equals(str2) && ip5.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
+                return true;
+            }
+            if ("pb".equals(str) && ip5.k().r(i, AbsDataRecorder.Scene.PB)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLLI.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
-
-        public b(rv6 rv6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rv6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void b(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
+        ViewGroup c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i)}) == null) {
+            if (!"personalize".equals(str) && !"frs_new_tab".equals(str2) && !"frs_hot_tab".equals(str2)) {
+                if ("pb".equals(str)) {
+                    if (ip5.k().m() && i == 1) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(false);
+                        if (funAdNativeViewHolder != null && funAdNativeViewHolder.d() != null && (c = funAdNativeViewHolder.d().c(null)) != null) {
+                            c.setPadding(c.getPaddingLeft(), c.getPaddingTop(), c.getPaddingRight(), 0);
+                        }
+                    } else if (vipAdFreeGuideLayout != null) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(true);
+                    }
                 }
+            } else if (vipAdFreeGuideLayout != null) {
+                vipAdFreeGuideLayout.setBottomCornerRound(true);
             }
         }
-
-        public /* synthetic */ b(rv6 rv6Var, a aVar) {
-            this(rv6Var);
-        }
     }
 
-    public rv6(Context context) {
+    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, vipAdFreeGuideLayout, str, str2, str3) == null) {
+            if ("personalize".equals(str2)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
+            } else if ("frs_new_tab".equals(str3)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
+            } else if ("frs_hot_tab".equals(str3)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
+            } else if ("pb".equals(str2)) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
             }
         }
-        this.b = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public sv6 getItem(int i) {
-        InterceptResult invokeI;
+    public static void d(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.a == null || i < 0 || i >= getCount() - 1) {
-                return null;
-            }
-            return this.a.get(i);
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, Integer.valueOf(i)}) != null) || vipAdFreeGuideLayout == null) {
+            return;
         }
-        return (sv6) invokeI.objValue;
+        vipAdFreeGuideLayout.setVisibility(0);
+        b(funAdNativeViewHolder, vipAdFreeGuideLayout, str2, str3, i);
+        vipAdFreeGuideLayout.f();
+        c(vipAdFreeGuideLayout, str, str2, str3);
     }
 
-    public void b(List<sv6> list) {
+    public static void e(pn8 pn8Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
+        int f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<sv6> list = this.a;
-            if (list == null) {
-                return 1;
-            }
-            return list.size() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i == getCount() - 1 ? 1 : 0 : invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0380, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092100);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0907f9);
-                view2.setTag(bVar);
-            }
-            SkinManager.setBackgroundResource(view2, R.drawable.list_item_selector);
-            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
-            sv6 item = getItem(i);
-            if (getItemViewType(i) == 1) {
-                bVar.a.setText(R.string.obfuscated_res_0x7f0f0486);
-                bVar.b.setVisibility(4);
-            } else {
-                if (item != null) {
-                    int b2 = item.b() > 0 ? item.b() : 1;
-                    String a2 = item.a() != null ? item.a() : "";
-                    TextView textView = bVar.a;
-                    textView.setText(b2 + a2);
-                    bVar.b.setVisibility(0);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pn8Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
+            VipAdFreeGuideLayout vipAdFreeGuideLayout = funAdNativeViewHolder.d().getVipAdFreeGuideLayout();
+            if (pn8Var != null && vipAdFreeGuideLayout != null) {
+                if ("personalize".equals(str2)) {
+                    f = ip5.k().j(pn8Var.g());
                 } else {
-                    bVar.a.setText("");
-                    bVar.b.setVisibility(0);
+                    f = pn8Var.f();
+                }
+                if (f == 1) {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                } else if (f == 2) {
+                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
+                } else if (a(str2, str3, i)) {
+                    d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
+                    ip5.k().c();
+                    if ("personalize".equals(str2)) {
+                        ip5.k().p(pn8Var.g(), 2);
+                    } else {
+                        pn8Var.q(2);
+                    }
+                } else {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                    if ("personalize".equals(str2)) {
+                        ip5.k().p(pn8Var.g(), 1);
+                    } else {
+                        pn8Var.q(1);
+                    }
                 }
             }
-            return view2;
         }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
     }
 }

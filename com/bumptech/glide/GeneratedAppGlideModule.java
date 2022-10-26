@@ -1,7 +1,5 @@
 package com.bumptech.glide;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,6 +14,17 @@ public abstract class GeneratedAppGlideModule extends AppGlideModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract Set getExcludedModuleClasses();
+
+    public RequestManagerRetriever.RequestManagerFactory getRequestManagerFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (RequestManagerRetriever.RequestManagerFactory) invokeV.objValue;
+    }
+
     public GeneratedAppGlideModule() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -28,18 +37,5 @@ public abstract class GeneratedAppGlideModule extends AppGlideModule {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @NonNull
-    public abstract Set<Class<?>> getExcludedModuleClasses();
-
-    @Nullable
-    public RequestManagerRetriever.RequestManagerFactory getRequestManagerFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (RequestManagerRetriever.RequestManagerFactory) invokeV.objValue;
     }
 }

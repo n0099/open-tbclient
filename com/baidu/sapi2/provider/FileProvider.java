@@ -44,7 +44,7 @@ public class FileProvider extends ContentProvider {
     public static final String h = "name";
     public static final String i = "path";
     public static final File j;
-    public static HashMap<String, a> k;
+    public static HashMap k;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
@@ -53,6 +53,117 @@ public class FileProvider extends ContentProvider {
         Uri a(File file);
 
         File a(Uri uri);
+    }
+
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final HashMap b;
+
+        public b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = new HashMap();
+            this.a = str;
+        }
+
+        @Override // com.baidu.sapi2.provider.FileProvider.a
+        public Uri a(File file) {
+            String substring;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                try {
+                    String canonicalPath = file.getCanonicalPath();
+                    Map.Entry entry = null;
+                    for (Map.Entry entry2 : this.b.entrySet()) {
+                        String path = ((File) entry2.getValue()).getPath();
+                        if (canonicalPath.startsWith(path) && (entry == null || path.length() > ((File) entry.getValue()).getPath().length())) {
+                            entry = entry2;
+                        }
+                    }
+                    if (entry != null) {
+                        String path2 = ((File) entry.getValue()).getPath();
+                        if (path2.endsWith("/")) {
+                            substring = canonicalPath.substring(path2.length());
+                        } else {
+                            substring = canonicalPath.substring(path2.length() + 1);
+                        }
+                        return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode((String) entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
+                    }
+                    throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
+                } catch (IOException unused) {
+                    throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
+                }
+            }
+            return (Uri) invokeL.objValue;
+        }
+
+        @Override // com.baidu.sapi2.provider.FileProvider.a
+        public File a(Uri uri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+                String encodedPath = uri.getEncodedPath();
+                int indexOf = encodedPath.indexOf(47, 1);
+                String decode = Uri.decode(encodedPath.substring(1, indexOf));
+                String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
+                File file = (File) this.b.get(decode);
+                if (file != null) {
+                    File file2 = new File(file, decode2);
+                    try {
+                        File canonicalFile = file2.getCanonicalFile();
+                        if (canonicalFile.getPath().startsWith(file.getPath())) {
+                            return canonicalFile;
+                        }
+                        throw new SecurityException("Resolved path jumped beyond configured root");
+                    } catch (IOException unused) {
+                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file2);
+                    }
+                }
+                throw new IllegalArgumentException("Unable to find configured root for " + uri);
+            }
+            return (File) invokeL.objValue;
+        }
+
+        public void a(String str, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        this.b.put(str, file.getCanonicalFile());
+                        return;
+                    } catch (IOException e) {
+                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
+                    }
+                }
+                throw new IllegalArgumentException("Name must not be empty");
+            }
+        }
     }
 
     static {
@@ -70,7 +181,7 @@ public class FileProvider extends ContentProvider {
         }
         b = new String[]{"_display_name", "_size"};
         j = new File("/");
-        k = new HashMap<>();
+        k = new HashMap();
     }
 
     public FileProvider() {
@@ -87,13 +198,37 @@ public class FileProvider extends ContentProvider {
         }
     }
 
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if ("r".equals(str)) {
+                return LaunchTaskConstants.OTHER_PROCESS;
+            }
+            if (!"w".equals(str) && !"wt".equals(str)) {
+                if ("wa".equals(str)) {
+                    return 704643072;
+                }
+                if ("rw".equals(str)) {
+                    return 939524096;
+                }
+                if ("rwt".equals(str)) {
+                    return 1006632960;
+                }
+                throw new IllegalArgumentException("Invalid mode: " + str);
+            }
+            return 738197504;
+        }
+        return invokeL.intValue;
+    }
+
     public static a a(Context context, String str) {
         InterceptResult invokeLL;
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             synchronized (k) {
-                aVar = k.get(str);
+                aVar = (a) k.get(str);
                 if (aVar == null) {
                     try {
                         aVar = b(context, str);
@@ -118,6 +253,78 @@ public class FileProvider extends ContentProvider {
             return aVar;
         }
         return (a) invokeLL.objValue;
+    }
+
+    public static File a(File file, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, strArr)) == null) {
+            for (String str : strArr) {
+                if (str != null) {
+                    file = new File(file, str);
+                }
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public void attachInfo(Context context, ProviderInfo providerInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, providerInfo) == null) {
+            super.attachInfo(context, providerInfo);
+            if (!providerInfo.exported) {
+                if (providerInfo.grantUriPermissions) {
+                    this.a = a(context, providerInfo.authority);
+                    return;
+                }
+                throw new SecurityException("Provider must grant uri permissions");
+            }
+            throw new SecurityException("Provider must not be exported");
+        }
+    }
+
+    @Override // android.content.ContentProvider
+    public Uri insert(Uri uri, ContentValues contentValues) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
+            throw new UnsupportedOperationException("No external inserts");
+        }
+        return (Uri) invokeLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) {
+            return ParcelFileDescriptor.open(this.a.a(uri), a(str));
+        }
+        return (ParcelFileDescriptor) invokeLL.objValue;
+    }
+
+    public static Object[] a(Object[] objArr, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, objArr, i2)) == null) {
+            Object[] objArr2 = new Object[i2];
+            System.arraycopy(objArr, 0, objArr2, 0, i2);
+            return objArr2;
+        }
+        return (Object[]) invokeLI.objValue;
+    }
+
+    public static String[] a(String[] strArr, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, strArr, i2)) == null) {
+            String[] strArr2 = new String[i2];
+            System.arraycopy(strArr, 0, strArr2, 0, i2);
+            return strArr2;
+        }
+        return (String[]) invokeLI.objValue;
     }
 
     public static a b(Context context, String str) throws IOException, XmlPullParserException {
@@ -170,30 +377,20 @@ public class FileProvider extends ContentProvider {
     public static Uri getUriForFile(Context context, String str, File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, file)) == null) ? a(context, str).a(file) : (Uri) invokeLLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public void attachInfo(Context context, ProviderInfo providerInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, providerInfo) == null) {
-            super.attachInfo(context, providerInfo);
-            if (!providerInfo.exported) {
-                if (providerInfo.grantUriPermissions) {
-                    this.a = a(context, providerInfo.authority);
-                    return;
-                }
-                throw new SecurityException("Provider must grant uri permissions");
-            }
-            throw new SecurityException("Provider must not be exported");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, file)) == null) {
+            return a(context, str).a(file);
         }
+        return (Uri) invokeLLL.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? this.a.a(uri).delete() ? 1 : 0 : invokeLLL.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
+            return this.a.a(uri).delete() ? 1 : 0;
+        }
+        return invokeLLL.intValue;
     }
 
     @Override // android.content.ContentProvider
@@ -205,38 +402,14 @@ public class FileProvider extends ContentProvider {
             int lastIndexOf = a2.getName().lastIndexOf(46);
             if (lastIndexOf >= 0) {
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(a2.getName().substring(lastIndexOf + 1));
-                return mimeTypeFromExtension != null ? mimeTypeFromExtension : "application/octet-stream";
+                if (mimeTypeFromExtension != null) {
+                    return mimeTypeFromExtension;
+                }
+                return "application/octet-stream";
             }
             return "application/octet-stream";
         }
         return (String) invokeL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            throw new UnsupportedOperationException("No external inserts");
-        }
-        return (Uri) invokeLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) ? ParcelFileDescriptor.open(this.a.a(uri), a(str)) : (ParcelFileDescriptor) invokeLL.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -281,166 +454,5 @@ public class FileProvider extends ContentProvider {
             throw new UnsupportedOperationException("No external updates");
         }
         return invokeLLLL.intValue;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class b implements a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final HashMap<String, File> b;
-
-        public b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new HashMap<>();
-            this.a = str;
-        }
-
-        public void a(String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        this.b.put(str, file.getCanonicalFile());
-                        return;
-                    } catch (IOException e) {
-                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
-                    }
-                }
-                throw new IllegalArgumentException("Name must not be empty");
-            }
-        }
-
-        @Override // com.baidu.sapi2.provider.FileProvider.a
-        public Uri a(File file) {
-            String substring;
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                try {
-                    String canonicalPath = file.getCanonicalPath();
-                    Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.b.entrySet()) {
-                        String path = entry2.getValue().getPath();
-                        if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
-                            entry = entry2;
-                        }
-                    }
-                    if (entry != null) {
-                        String path2 = entry.getValue().getPath();
-                        if (path2.endsWith("/")) {
-                            substring = canonicalPath.substring(path2.length());
-                        } else {
-                            substring = canonicalPath.substring(path2.length() + 1);
-                        }
-                        return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
-                    }
-                    throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
-                } catch (IOException unused) {
-                    throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
-                }
-            }
-            return (Uri) invokeL.objValue;
-        }
-
-        @Override // com.baidu.sapi2.provider.FileProvider.a
-        public File a(Uri uri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-                String encodedPath = uri.getEncodedPath();
-                int indexOf = encodedPath.indexOf(47, 1);
-                String decode = Uri.decode(encodedPath.substring(1, indexOf));
-                String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.b.get(decode);
-                if (file != null) {
-                    File file2 = new File(file, decode2);
-                    try {
-                        File canonicalFile = file2.getCanonicalFile();
-                        if (canonicalFile.getPath().startsWith(file.getPath())) {
-                            return canonicalFile;
-                        }
-                        throw new SecurityException("Resolved path jumped beyond configured root");
-                    } catch (IOException unused) {
-                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file2);
-                    }
-                }
-                throw new IllegalArgumentException("Unable to find configured root for " + uri);
-            }
-            return (File) invokeL.objValue;
-        }
-    }
-
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if ("r".equals(str)) {
-                return LaunchTaskConstants.OTHER_PROCESS;
-            }
-            if ("w".equals(str) || "wt".equals(str)) {
-                return 738197504;
-            }
-            if ("wa".equals(str)) {
-                return 704643072;
-            }
-            if ("rw".equals(str)) {
-                return 939524096;
-            }
-            if ("rwt".equals(str)) {
-                return 1006632960;
-            }
-            throw new IllegalArgumentException("Invalid mode: " + str);
-        }
-        return invokeL.intValue;
-    }
-
-    public static File a(File file, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, strArr)) == null) {
-            for (String str : strArr) {
-                if (str != null) {
-                    file = new File(file, str);
-                }
-            }
-            return file;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static String[] a(String[] strArr, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, strArr, i2)) == null) {
-            String[] strArr2 = new String[i2];
-            System.arraycopy(strArr, 0, strArr2, 0, i2);
-            return strArr2;
-        }
-        return (String[]) invokeLI.objValue;
-    }
-
-    public static Object[] a(Object[] objArr, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, objArr, i2)) == null) {
-            Object[] objArr2 = new Object[i2];
-            System.arraycopy(objArr, 0, objArr2, 0, i2);
-            return objArr2;
-        }
-        return (Object[]) invokeLI.objValue;
     }
 }

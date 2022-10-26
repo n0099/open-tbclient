@@ -3,8 +3,6 @@ package com.bytedance.pangle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import androidx.annotation.Keep;
-import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-@Keep
 /* loaded from: classes7.dex */
 public abstract class ZeusPluginStateListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,6 +28,8 @@ public abstract class ZeusPluginStateListener {
     public static final int EVENT_REQUEST_FINISH = 0;
     public static final Handler mHandler;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void onPluginStateChange(String str, int i, Object... objArr);
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +61,7 @@ public abstract class ZeusPluginStateListener {
         }
     }
 
-    public static void postStateChange(@Nullable String str, int i, Object... objArr) {
+    public static void postStateChange(String str, int i, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, objArr) == null) {
             mHandler.post(new Runnable(str, i, objArr) { // from class: com.bytedance.pangle.ZeusPluginStateListener.1
@@ -95,17 +94,20 @@ public abstract class ZeusPluginStateListener {
                 @Override // java.lang.Runnable
                 public final void run() {
                     List<ZeusPluginStateListener> list;
+                    String str2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list = g.a().b) == null || list.size() <= 0) {
-                        return;
-                    }
-                    for (ZeusPluginStateListener zeusPluginStateListener : list) {
-                        zeusPluginStateListener.onPluginStateChange(TextUtils.isEmpty(this.a) ? RomUtils.UNKNOWN : this.a, this.b, this.c);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (list = g.a().b) != null && list.size() > 0) {
+                        for (ZeusPluginStateListener zeusPluginStateListener : list) {
+                            if (TextUtils.isEmpty(this.a)) {
+                                str2 = RomUtils.UNKNOWN;
+                            } else {
+                                str2 = this.a;
+                            }
+                            zeusPluginStateListener.onPluginStateChange(str2, this.b, this.c);
+                        }
                     }
                 }
             });
         }
     }
-
-    public abstract void onPluginStateChange(String str, int i, Object... objArr);
 }

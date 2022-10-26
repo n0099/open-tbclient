@@ -74,48 +74,6 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void cancelAllRequest(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            RLog.info(TAG, "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            RevenueConfig config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel);
-            if (config == null || config.getDataSender() == null) {
-                return;
-            }
-            config.getDataSender().cancelAllRequest(i, i2);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IAppPayService getAppPayService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.iAppPayService : (IAppPayService) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayEventStatistics getPayEventStatistic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPayEventStatistics : (IPayEventStatistics) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayServiceStatistics getPayServiceStatistics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            IAppPayService iAppPayService = this.iAppPayService;
-            if (iAppPayService == null) {
-                RLog.error(TAG, "getPayServiceStatistics error iAppPayService null", new Object[0]);
-                return null;
-            }
-            return iAppPayService.getPayServiceStatistics();
-        }
-        return (IPayServiceStatistics) invokeV.objValue;
-    }
-
     public void initConfig(RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, revenueConfig) == null) {
@@ -135,6 +93,53 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
             RLog.error(TAG, "initConfig versionName:4.3.30-bdpay-fix.2-SNAPSHOT config null", new Object[0]);
             throw new IllegalArgumentException("init Revenue config == null!");
         }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
+    public void cancelAllRequest(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            RLog.info(TAG, "cancelAllRequest appId:" + i + " useChannel:" + i2);
+            RevenueConfig config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel);
+            if (config != null && config.getDataSender() != null) {
+                config.getDataSender().cancelAllRequest(i, i2);
+            }
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IAppPayService getAppPayService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.iAppPayService;
+        }
+        return (IAppPayService) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayEventStatistics getPayEventStatistic() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPayEventStatistics;
+        }
+        return (IPayEventStatistics) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayServiceStatistics getPayServiceStatistics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            IAppPayService iAppPayService = this.iAppPayService;
+            if (iAppPayService == null) {
+                RLog.error(TAG, "getPayServiceStatistics error iAppPayService null", new Object[0]);
+                return null;
+            }
+            return iAppPayService.getPayServiceStatistics();
+        }
+        return (IPayServiceStatistics) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
@@ -172,13 +177,12 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void sendData(int i, int i2, String str, ArrayList<Integer> arrayList, byte[] bArr) {
+    public void sendData(int i, int i2, String str, ArrayList arrayList, byte[] bArr) {
         RevenueConfig config;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, arrayList, bArr}) == null) || (config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel)) == null || config.getDataSender() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, arrayList, bArr}) == null) && (config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel)) != null && config.getDataSender() != null) {
+            config.getDataSender().sendData(this.mAppId, i2, str, arrayList, bArr);
         }
-        config.getDataSender().sendData(this.mAppId, i2, str, arrayList, bArr);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
@@ -187,10 +191,10 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, revenueConfig) == null) {
             if (revenueConfig != null) {
                 RevenueConfigCenter.addConfig(this.mAppId, this.mUsedChannel, revenueConfig);
-                if (revenueConfig.getDataSender() == null) {
-                    throw new IllegalArgumentException("Data Sender == null,Revenue update fail!");
+                if (revenueConfig.getDataSender() != null) {
+                    return;
                 }
-                return;
+                throw new IllegalArgumentException("Data Sender == null,Revenue update fail!");
             }
             throw new IllegalArgumentException("update Revenue config == null!");
         }

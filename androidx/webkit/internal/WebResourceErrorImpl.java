@@ -1,9 +1,6 @@
 package androidx.webkit.internal;
 
-import android.annotation.SuppressLint;
 import android.webkit.WebResourceError;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.webkit.WebResourceErrorCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +19,25 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
     public WebResourceErrorBoundaryInterface mBoundaryInterface;
     public WebResourceError mFrameworksImpl;
 
-    public WebResourceErrorImpl(@NonNull InvocationHandler invocationHandler) {
+    public WebResourceErrorImpl(WebResourceError webResourceError) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webResourceError};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mFrameworksImpl = webResourceError;
+    }
+
+    public WebResourceErrorImpl(InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +67,6 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
         return (WebResourceErrorBoundaryInterface) invokeV.objValue;
     }
 
-    @RequiresApi(23)
     private WebResourceError getFrameworksImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,8 +80,6 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
     }
 
     @Override // androidx.webkit.WebResourceErrorCompat
-    @NonNull
-    @SuppressLint({"NewApi"})
     public CharSequence getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +97,6 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
     }
 
     @Override // androidx.webkit.WebResourceErrorCompat
-    @SuppressLint({"NewApi"})
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,23 +111,5 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
         return invokeV.intValue;
-    }
-
-    public WebResourceErrorImpl(@NonNull WebResourceError webResourceError) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webResourceError};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mFrameworksImpl = webResourceError;
     }
 }

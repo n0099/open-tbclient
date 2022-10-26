@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 public abstract class a implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<View> Ci;
+    public WeakReference Ci;
 
     public a(View view2) {
         Interceptable interceptable = $ic;
@@ -30,19 +30,19 @@ public abstract class a implements ValueAnimator.AnimatorUpdateListener {
                 return;
             }
         }
-        this.Ci = new WeakReference<>(view2);
+        this.Ci = new WeakReference(view2);
     }
 
     public abstract void a(ViewGroup.LayoutParams layoutParams, Object obj);
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(ValueAnimator valueAnimator) {
-        WeakReference<View> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, valueAnimator) == null) || (weakReference = this.Ci) == null || weakReference.get() == null) {
             return;
         }
-        View view2 = this.Ci.get();
+        View view2 = (View) this.Ci.get();
         ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
         a(layoutParams, valueAnimator.getAnimatedValue());
         view2.setLayoutParams(layoutParams);

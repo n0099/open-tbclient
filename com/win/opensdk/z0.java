@@ -35,15 +35,6 @@ public class z0 implements M0 {
     }
 
     @Override // com.win.opensdk.M0
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        new Handler(Looper.getMainLooper()).postDelayed(new y0(this), this.b.c.getSpet());
-    }
-
-    @Override // com.win.opensdk.M0
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -54,6 +45,14 @@ public class z0 implements M0 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.win.opensdk.M0
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
+            new Handler(Looper.getMainLooper()).postDelayed(new y0(this), this.b.c.getSpet());
         }
     }
 }

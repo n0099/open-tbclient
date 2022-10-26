@@ -26,7 +26,7 @@ public final class WebvttDecoder extends SimpleSubtitleDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final CssParser cssParser;
     public final WebvttCueParser cueParser;
-    public final List<WebvttCssStyle> definedStyles;
+    public final List definedStyles;
     public final ParsableByteArray parsableWebvttData;
     public final WebvttCue.Builder webvttCueBuilder;
 
@@ -66,8 +66,10 @@ public final class WebvttDecoder extends SimpleSubtitleDecoder {
                     i = 0;
                 } else if (STYLE_START.equals(readLine)) {
                     i = 2;
+                } else if (COMMENT_START.startsWith(readLine)) {
+                    i = 1;
                 } else {
-                    i = COMMENT_START.startsWith(readLine) ? 1 : 3;
+                    i = 3;
                 }
             }
             parsableByteArray.setPosition(i2);
@@ -89,37 +91,39 @@ public final class WebvttDecoder extends SimpleSubtitleDecoder {
     public WebvttSubtitle decode(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) != null) {
-            return (WebvttSubtitle) invokeCommon.objValue;
-        }
-        this.parsableWebvttData.reset(bArr, i);
-        this.webvttCueBuilder.reset();
-        this.definedStyles.clear();
-        WebvttParserUtil.validateWebvttHeaderLine(this.parsableWebvttData);
-        do {
-        } while (!TextUtils.isEmpty(this.parsableWebvttData.readLine()));
-        ArrayList arrayList = new ArrayList();
-        while (true) {
-            int nextEvent = getNextEvent(this.parsableWebvttData);
-            if (nextEvent == 0) {
-                return new WebvttSubtitle(arrayList);
-            }
-            if (nextEvent == 1) {
-                skipComment(this.parsableWebvttData);
-            } else if (nextEvent == 2) {
-                if (arrayList.isEmpty()) {
-                    this.parsableWebvttData.readLine();
-                    WebvttCssStyle parseBlock = this.cssParser.parseBlock(this.parsableWebvttData);
-                    if (parseBlock != null) {
-                        this.definedStyles.add(parseBlock);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            this.parsableWebvttData.reset(bArr, i);
+            this.webvttCueBuilder.reset();
+            this.definedStyles.clear();
+            WebvttParserUtil.validateWebvttHeaderLine(this.parsableWebvttData);
+            do {
+            } while (!TextUtils.isEmpty(this.parsableWebvttData.readLine()));
+            ArrayList arrayList = new ArrayList();
+            while (true) {
+                int nextEvent = getNextEvent(this.parsableWebvttData);
+                if (nextEvent != 0) {
+                    if (nextEvent == 1) {
+                        skipComment(this.parsableWebvttData);
+                    } else if (nextEvent == 2) {
+                        if (arrayList.isEmpty()) {
+                            this.parsableWebvttData.readLine();
+                            WebvttCssStyle parseBlock = this.cssParser.parseBlock(this.parsableWebvttData);
+                            if (parseBlock != null) {
+                                this.definedStyles.add(parseBlock);
+                            }
+                        } else {
+                            throw new SubtitleDecoderException("A style block was found after the first cue.");
+                        }
+                    } else if (nextEvent == 3 && this.cueParser.parseCue(this.parsableWebvttData, this.webvttCueBuilder, this.definedStyles)) {
+                        arrayList.add(this.webvttCueBuilder.build());
+                        this.webvttCueBuilder.reset();
                     }
                 } else {
-                    throw new SubtitleDecoderException("A style block was found after the first cue.");
+                    return new WebvttSubtitle(arrayList);
                 }
-            } else if (nextEvent == 3 && this.cueParser.parseCue(this.parsableWebvttData, this.webvttCueBuilder, this.definedStyles)) {
-                arrayList.add(this.webvttCueBuilder.build());
-                this.webvttCueBuilder.reset();
             }
+        } else {
+            return (WebvttSubtitle) invokeCommon.objValue;
         }
     }
 }

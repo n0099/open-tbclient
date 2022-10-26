@@ -15,21 +15,21 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableConcatWithCompletable<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableConcatWithCompletable extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource other;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatWithObserver<T> extends AtomicReference<Disposable> implements Observer<T>, CompletableObserver, Disposable {
+    public final class ConcatWithObserver extends AtomicReference implements Observer, CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1953724749712440952L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public boolean inCompletable;
         public CompletableSource other;
 
-        public ConcatWithObserver(Observer<? super T> observer, CompletableSource completableSource) {
+        public ConcatWithObserver(Observer observer, CompletableSource completableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,10 @@ public final class ObservableConcatWithCompletable<T> extends AbstractObservable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -88,10 +91,10 @@ public final class ObservableConcatWithCompletable<T> extends AbstractObservable
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -105,7 +108,7 @@ public final class ObservableConcatWithCompletable<T> extends AbstractObservable
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableConcatWithCompletable(Observable<T> observable, CompletableSource completableSource) {
+    public ObservableConcatWithCompletable(Observable observable, CompletableSource completableSource) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,7 +129,7 @@ public final class ObservableConcatWithCompletable<T> extends AbstractObservable
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new ConcatWithObserver(observer, this.other));

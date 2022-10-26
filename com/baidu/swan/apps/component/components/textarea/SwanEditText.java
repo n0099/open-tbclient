@@ -40,25 +40,6 @@ public class SwanEditText extends AppCompatEditText {
         setTextIsSelectable(true);
     }
 
-    @Override // android.widget.TextView
-    public void onSelectionChanged(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onSelectionChanged(i, i2);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(i, i2);
-            }
-        }
-    }
-
-    public void setSelectListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwanEditText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -101,5 +82,24 @@ public class SwanEditText extends AppCompatEditText {
             }
         }
         setTextIsSelectable(true);
+    }
+
+    @Override // android.widget.TextView
+    public void onSelectionChanged(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onSelectionChanged(i, i2);
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.a(i, i2);
+            }
+        }
+    }
+
+    public void setSelectListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
     }
 }

@@ -1,98 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Arrays;
 /* loaded from: classes3.dex */
-public class d35 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = -1;
+public final class d35 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947653635, "Lcom/baidu/tieba/d35;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947653635, "Lcom/baidu/tieba/d35;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                return 3;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653635, "Lcom/baidu/tieba/d35;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return ox4.k().l("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().c()) {
-                return -1;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947653635, "Lcom/baidu/tieba/d35;");
+                return;
             }
-            int a2 = a();
-            return a2 != 2 ? a2 != 3 ? a2 != 4 ? a2 != 6 ? a2 != 8 ? R.drawable.obfuscated_res_0x7f080835 : R.drawable.obfuscated_res_0x7f080832 : R.drawable.obfuscated_res_0x7f080836 : R.drawable.obfuscated_res_0x7f080833 : R.drawable.obfuscated_res_0x7f080835 : R.drawable.obfuscated_res_0x7f080831;
         }
-        return invokeV.intValue;
+        a = new String[]{ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "B", "C", "D", ExifInterface.LONGITUDE_EAST, "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "U", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, "X", "Y", "Z", "#"};
     }
 
-    public static long c() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            long j = a;
-            if (j >= 0) {
-                return j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            if (!dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                a = ox4.k().m("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            }
-            return a;
+            return Arrays.asList(a).contains(str);
         }
-        return invokeV.longValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) || i <= 0 || dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            return;
-        }
-        ox4.k().w("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
-        ox4.k().D("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
-        a = 0L;
-    }
-
-    public static void e(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65541, null, j) == null) || dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            return;
-        }
-        ox4.k().x("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
-        a = j;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            a = -1L;
-        }
+        return invokeL.booleanValue;
     }
 }

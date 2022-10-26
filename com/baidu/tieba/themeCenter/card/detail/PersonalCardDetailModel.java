@@ -6,24 +6,49 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ns8;
-import com.baidu.tieba.pb;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.xs8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
+public class PersonalCardDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ns8 a;
+    public xs8 a;
     public b b;
-    public pb c;
+    public qb c;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public interface b {
+        void a(int i, String str, xs8 xs8Var);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardDetailModel a;
@@ -50,29 +75,25 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             this.a = personalCardDetailModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof PersonalCardDetailHttpReponse;
-            if (z || (responsedMessage instanceof PersonalCardDetailSocketReponse)) {
-                if (z) {
-                    this.a.a = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
-                } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
-                    this.a.a = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
-                }
-                if (this.a.b != null) {
-                    this.a.b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
-                }
+            if (!z && !(responsedMessage instanceof PersonalCardDetailSocketReponse)) {
+                return;
+            }
+            if (z) {
+                this.a.a = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
+            } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
+                this.a.a = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
+            }
+            if (this.a.b != null) {
+                this.a.b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, String str, ns8 ns8Var);
     }
 
     public PersonalCardDetailModel() {
@@ -89,8 +110,8 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        sm8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        sm8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        zm8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        zm8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
         registerListener(this.c);
     }
 
@@ -108,26 +129,6 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void onDestroy() {

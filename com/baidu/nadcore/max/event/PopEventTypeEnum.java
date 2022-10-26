@@ -35,6 +35,18 @@ public final class PopEventTypeEnum {
         $VALUES = new PopEventTypeEnum[]{popEventTypeEnum};
     }
 
+    public static PopEventTypeEnum valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PopEventTypeEnum) Enum.valueOf(PopEventTypeEnum.class, str) : (PopEventTypeEnum) invokeL.objValue;
+    }
+
+    public static PopEventTypeEnum[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PopEventTypeEnum[]) $VALUES.clone() : (PopEventTypeEnum[]) invokeV.objValue;
+    }
+
     public PopEventTypeEnum(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,17 +64,5 @@ public final class PopEventTypeEnum {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static PopEventTypeEnum valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PopEventTypeEnum) Enum.valueOf(PopEventTypeEnum.class, str) : (PopEventTypeEnum) invokeL.objValue;
-    }
-
-    public static PopEventTypeEnum[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PopEventTypeEnum[]) $VALUES.clone() : (PopEventTypeEnum[]) invokeV.objValue;
     }
 }

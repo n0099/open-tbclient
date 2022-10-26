@@ -21,62 +21,18 @@ public class LazyField {
 
     /* renamed from: com.google.protobuf.LazyField$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class LazyEntry<K> implements Map.Entry<K, Object> {
+    public class LazyEntry implements Map.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map.Entry<K, LazyField> entry;
+        public Map.Entry entry;
 
-        public /* synthetic */ LazyEntry(Map.Entry entry, AnonymousClass1 anonymousClass1) {
-            this(entry);
-        }
-
-        public LazyField getField() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.entry.getValue() : (LazyField) invokeV.objValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public K getKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.entry.getKey() : (K) invokeV.objValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public Object getValue() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                LazyField value = this.entry.getValue();
-                if (value == null) {
-                    return null;
-                }
-                return value.getValue();
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public Object setValue(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if (obj instanceof MessageLite) {
-                    return this.entry.getValue().setValue((MessageLite) obj);
-                }
-                throw new IllegalArgumentException("LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite");
-            }
-            return invokeL.objValue;
-        }
-
-        public LazyEntry(Map.Entry<K, LazyField> entry) {
+        public LazyEntry(Map.Entry entry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,15 +49,65 @@ public class LazyField {
             }
             this.entry = entry;
         }
+
+        @Override // java.util.Map.Entry
+        public Object setValue(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (obj instanceof MessageLite) {
+                    return ((LazyField) this.entry.getValue()).setValue((MessageLite) obj);
+                }
+                throw new IllegalArgumentException("LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite");
+            }
+            return invokeL.objValue;
+        }
+
+        public /* synthetic */ LazyEntry(Map.Entry entry, AnonymousClass1 anonymousClass1) {
+            this(entry);
+        }
+
+        public LazyField getField() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return (LazyField) this.entry.getValue();
+            }
+            return (LazyField) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public Object getKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.entry.getKey();
+            }
+            return invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public Object getValue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                LazyField lazyField = (LazyField) this.entry.getValue();
+                if (lazyField == null) {
+                    return null;
+                }
+                return lazyField.getValue();
+            }
+            return invokeV.objValue;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static class LazyIterator<K> implements Iterator<Map.Entry<K, Object>> {
+    public class LazyIterator implements Iterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Iterator<Map.Entry<K, Object>> iterator;
+        public Iterator iterator;
 
-        public LazyIterator(Iterator<Map.Entry<K, Object>> it) {
+        public LazyIterator(Iterator it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +129,10 @@ public class LazyField {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.iterator.hasNext() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.iterator.hasNext();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -136,12 +145,15 @@ public class LazyField {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        public Map.Entry<K, Object> next() {
+        public Map.Entry next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                Map.Entry<K, Object> next = this.iterator.next();
-                return next.getValue() instanceof LazyField ? new LazyEntry(next, null) : next;
+                Map.Entry entry = (Map.Entry) this.iterator.next();
+                if (entry.getValue() instanceof LazyField) {
+                    return new LazyEntry(entry, null);
+                }
+                return entry;
             }
             return (Map.Entry) invokeV.objValue;
         }
@@ -170,19 +182,39 @@ public class LazyField {
 
     private void ensureInitialized() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.value == null) {
-            synchronized (this) {
-                if (this.value != null) {
-                    return;
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.value != null) {
+            return;
+        }
+        synchronized (this) {
+            if (this.value != null) {
+                return;
+            }
+            try {
+                if (this.bytes != null) {
+                    this.value = (MessageLite) this.defaultInstance.getParserForType().parseFrom(this.bytes, this.extensionRegistry);
                 }
-                try {
-                    if (this.bytes != null) {
-                        this.value = this.defaultInstance.getParserForType().parseFrom(this.bytes, this.extensionRegistry);
-                    }
-                } catch (IOException unused) {
-                }
+            } catch (IOException unused) {
             }
         }
+    }
+
+    public ByteString toByteString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.isDirty) {
+                return this.bytes;
+            }
+            synchronized (this) {
+                if (!this.isDirty) {
+                    return this.bytes;
+                }
+                this.bytes = this.value.toByteString();
+                this.isDirty = false;
+                return this.bytes;
+            }
+        }
+        return (ByteString) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -193,6 +225,19 @@ public class LazyField {
             return this.value.equals(obj);
         }
         return invokeL.booleanValue;
+    }
+
+    public MessageLite setValue(MessageLite messageLite) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, messageLite)) == null) {
+            MessageLite messageLite2 = this.value;
+            this.value = messageLite;
+            this.bytes = null;
+            this.isDirty = true;
+            return messageLite2;
+        }
+        return (MessageLite) invokeL.objValue;
     }
 
     public int getSerializedSize() {
@@ -225,38 +270,6 @@ public class LazyField {
             return this.value.hashCode();
         }
         return invokeV.intValue;
-    }
-
-    public MessageLite setValue(MessageLite messageLite) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, messageLite)) == null) {
-            MessageLite messageLite2 = this.value;
-            this.value = messageLite;
-            this.bytes = null;
-            this.isDirty = true;
-            return messageLite2;
-        }
-        return (MessageLite) invokeL.objValue;
-    }
-
-    public ByteString toByteString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.isDirty) {
-                return this.bytes;
-            }
-            synchronized (this) {
-                if (!this.isDirty) {
-                    return this.bytes;
-                }
-                this.bytes = this.value.toByteString();
-                this.isDirty = false;
-                return this.bytes;
-            }
-        }
-        return (ByteString) invokeV.objValue;
     }
 
     public String toString() {

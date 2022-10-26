@@ -24,8 +24,18 @@ public class h1 extends BaseAdapter {
     public JSONArray b;
     public int c;
 
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -69,7 +79,10 @@ public class h1 extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.length() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.length();
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -85,16 +98,6 @@ public class h1 extends BaseAdapter {
             }
         }
         return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
     }
 
     @Override // android.widget.Adapter

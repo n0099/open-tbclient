@@ -13,6 +13,13 @@ public class GenerateMediaIdRequest extends VodBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidubce.services.vod.model.VodBceRequest
+    public String toJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
     public GenerateMediaIdRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,13 +32,6 @@ public class GenerateMediaIdRequest extends VodBceRequest {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidubce.services.vod.model.VodBceRequest
-    public String toJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     @Override // com.baidubce.model.AbstractBceRequest

@@ -30,7 +30,10 @@ public final class SystemClock implements Clock {
     public long elapsedRealtime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? android.os.SystemClock.elapsedRealtime() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return android.os.SystemClock.elapsedRealtime();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.util.Clock

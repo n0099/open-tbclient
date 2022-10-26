@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +30,12 @@ public class FrsH5ItemView extends FrameLayout {
     public final LinearLayout g;
     public final View h;
     public boolean i;
+
+    public void setWebViewLoading(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
     public class a implements BaseWebView.f {
@@ -56,13 +62,13 @@ public class FrsH5ItemView extends FrameLayout {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
-        public void D0(WebView webView, String str) {
+        public void m(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 if (!this.a.a) {
                     this.a.j();
                     ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                    layoutParams.height = (ej.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
+                    layoutParams.height = (fj.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
                     this.a.setLayoutParams(layoutParams);
                 }
                 this.a.i = false;
@@ -97,16 +103,17 @@ public class FrsH5ItemView extends FrameLayout {
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.a.b = false;
-                if (!this.a.i) {
-                    this.a.i();
-                    ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                    layoutParams.height = -2;
-                    this.a.setLayoutParams(layoutParams);
-                }
-                this.a.a = true;
+            if (interceptable != null && interceptable.invokeLL(1048576, this, webView, str) != null) {
+                return;
             }
+            this.a.b = false;
+            if (!this.a.i) {
+                this.a.i();
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                layoutParams.height = -2;
+                this.a.setLayoutParams(layoutParams);
+            }
+            this.a.a = true;
         }
     }
 
@@ -167,18 +174,18 @@ public class FrsH5ItemView extends FrameLayout {
         this.d = new b(this);
         this.e = new c(this);
         this.i = false;
-        setLayoutParams(new ViewGroup.LayoutParams(-1, (ej.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308)));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, (fj.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308)));
         BaseWebView baseWebView = new BaseWebView(TbadkCoreApplication.getInst());
         this.f = baseWebView;
         baseWebView.setOnPageStartedListener(this.c);
         this.f.setOnPageFinishedListener(this.d);
         this.f.setOnReceivedErrorListener(this.e);
         addView(this.f);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033e, (ViewGroup) this, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033d, (ViewGroup) this, false);
         this.h = inflate;
         inflate.setVisibility(8);
         addView(this.h);
-        this.g = (LinearLayout) FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0209, null);
+        this.g = (LinearLayout) FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0208, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a), -2);
         layoutParams.gravity = 1;
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070247);
@@ -188,7 +195,10 @@ public class FrsH5ItemView extends FrameLayout {
     public BaseWebView getWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (BaseWebView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (BaseWebView) invokeV.objValue;
     }
 
     public final void i() {
@@ -212,17 +222,11 @@ public class FrsH5ItemView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (ej.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
+            layoutParams.height = (fj.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
             setLayoutParams(layoutParams);
             this.f.setVisibility(8);
             this.g.setVisibility(8);
             this.h.setVisibility(0);
-        }
-    }
-
-    public void setWebViewLoading(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
     }
 }

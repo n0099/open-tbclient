@@ -9,9 +9,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +29,6 @@ public class KsRotateView extends b {
     public static int Ap = 25;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView Ak;
-    @DrawableRes
     public int Aq;
     public ImageView nC;
 
@@ -52,7 +48,7 @@ public class KsRotateView extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRotateView(@NonNull Context context) {
+    public KsRotateView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,7 +68,7 @@ public class KsRotateView extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRotateView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public KsRotateView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,7 +89,7 @@ public class KsRotateView extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRotateView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KsRotateView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,15 +110,15 @@ public class KsRotateView extends b {
     }
 
     @Override // com.kwad.components.ad.splashscreen.widget.b
-    public final void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public final void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
-            this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c1d);
+            this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c2d);
             obtainStyledAttributes.recycle();
             ImageView imageView = new ImageView(getContext());
             this.Ak = imageView;
-            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c1c);
+            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c2c);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 49;
             addView(this.Ak, layoutParams);

@@ -30,7 +30,7 @@ public class Utils {
         }
     }
 
-    public static Map<String, String> buildCommonParams() {
+    public static Map buildCommonParams() {
         InterceptResult invokeV;
         SapiConfiguration confignation;
         Interceptable interceptable = $ic;

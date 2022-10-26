@@ -67,18 +67,30 @@ public final class PreloadState {
     public static PreloadState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PreloadState) Enum.valueOf(PreloadState.class, str) : (PreloadState) invokeL.objValue;
-    }
-
-    public static PreloadState[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PreloadState[]) $VALUES.clone() : (PreloadState[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PreloadState) Enum.valueOf(PreloadState.class, str);
+        }
+        return (PreloadState) invokeL.objValue;
     }
 
     public int statsCode(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? z ? this.mStatsCodeForReload : this.mStatsCodeForNormal : invokeZ.intValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            if (z) {
+                return this.mStatsCodeForReload;
+            }
+            return this.mStatsCodeForNormal;
+        }
+        return invokeZ.intValue;
+    }
+
+    public static PreloadState[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PreloadState[]) $VALUES.clone();
+        }
+        return (PreloadState[]) invokeV.objValue;
     }
 }

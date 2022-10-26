@@ -5,15 +5,15 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.cv6;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.nf8;
-import com.baidu.tieba.pb5;
-import com.baidu.tieba.rg5;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.sh5;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.ch5;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.jv6;
+import com.baidu.tieba.ub5;
+import com.baidu.tieba.uf8;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.xf8;
+import com.baidu.tieba.xg5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes5.dex */
-public class FrsRequestData extends OrmObject implements sb5, pb5 {
+public class FrsRequestData extends OrmObject implements xb5, ub5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -79,6 +79,56 @@ public class FrsRequestData extends OrmObject implements sb5, pb5 {
     public int y;
     public int z;
 
+    @Override // com.baidu.tieba.tb5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ub5
+    public boolean isNeedUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ub5
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wb5
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ub5
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public FrsRequestData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,37 +160,92 @@ public class FrsRequestData extends OrmObject implements sb5, pb5 {
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.p : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.p;
+        }
+        return invokeV.intValue;
     }
 
     public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
     }
 
     public int C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
     }
 
     public String D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.y : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.y;
+        }
+        return invokeV.intValue;
     }
 
     public int F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.x : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.x;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getUpdateType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isNeedCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wb5
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            return this.F;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public void G(String str) {
@@ -325,7 +430,63 @@ public class FrsRequestData extends OrmObject implements sb5, pb5 {
         }
     }
 
-    @Override // com.baidu.tieba.ub5
+    public void g0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public void setCallFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.E = i;
+        }
+    }
+
+    public void setNeedCache(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void setPn(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void setPushTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+            this.L = eh.g(str, 0L);
+        }
+    }
+
+    public void setSortType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.x = i;
+        }
+    }
+
+    public void setStType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    public void setUpdateType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.zb5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -353,169 +514,42 @@ public class FrsRequestData extends OrmObject implements sb5, pb5 {
             builder.yuelaou_locate = this.r;
             builder.sort_type = Integer.valueOf(this.x);
             builder.last_click_tid = Long.valueOf(this.w);
-            builder.app_pos = kf8.e().a();
+            builder.app_pos = uf8.e().a();
             builder.load_type = Integer.valueOf(this.y);
             builder.obj_locate = this.B;
             builder.obj_source = this.C;
             builder.is_selection = Integer.valueOf(this.D);
             builder.call_from = Integer.valueOf(this.E);
             builder.hot_thread_id = Long.valueOf(this.G);
-            String d = cv6.e().d("frs_feed");
+            String d = jv6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = rg5.g(d, rg5.f());
-            builder.ad_bear_sid_price = Double.valueOf(rg5.i());
-            builder.has_ad_bear = Integer.valueOf(rg5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = xg5.g(d, xg5.f());
+            builder.ad_bear_sid_price = Double.valueOf(xg5.i());
+            builder.has_ad_bear = Integer.valueOf(xg5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.A);
             builder2.load_count = Integer.valueOf(this.z);
+            String str = "";
             builder2.yoga_lib_version = "";
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.H);
-            builder.ad_context_list = this.y != 1 ? nf8.f().d("FRS") : "";
+            if (this.y != 1) {
+                str = xf8.f().d("FRS");
+            }
+            builder.ad_context_list = str;
             builder.up_schema = this.I;
             builder.default_sort_type = Integer.valueOf(this.J);
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.K);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = wg5.b();
+            builder.app_transmit_data = ch5.b();
             builder.push_tid = Long.valueOf(this.L);
-            sh5.c(builder, true, false, true);
+            yh5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);
         }
         return invokeZ.objValue;
-    }
-
-    public void g0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            this.m = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.ob5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getPn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public int getUpdateType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean isNeedCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pb5
-    public boolean isNeedUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pb5
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setCallFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
-            this.E = i;
-        }
-    }
-
-    public void setNeedCache(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void setPn(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void setPushTid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.L = dh.g(str, 0L);
-        }
-    }
-
-    public void setSortType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
-            this.x = i;
-        }
-    }
-
-    public void setStType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public void setUpdateType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.rb5
-    public HashMap<String, Object> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rb5
-    public HashMap<String, String> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.F : (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pb5
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 
     public void z(String str, String str2) {
@@ -524,10 +558,9 @@ public class FrsRequestData extends OrmObject implements sb5, pb5 {
             if (this.F == null) {
                 this.F = new HashMap<>();
             }
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.F.put(str, str2);
             }
-            this.F.put(str, str2);
         }
     }
 }

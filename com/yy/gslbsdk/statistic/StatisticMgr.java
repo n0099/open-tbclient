@@ -21,12 +21,12 @@ public class StatisticMgr {
     public static StatisticMgr sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public ScheduledThreadPoolExecutor mExecutor;
-    public Map<String, StatisticInfo> mMapStatistic;
+    public Map mMapStatistic;
     public IGslbStatistic mStatistic;
 
     /* loaded from: classes8.dex */
     public interface IGslbStatistic {
-        void onStatistic(Map<String, String> map);
+        void onStatistic(Map map);
     }
 
     static {
@@ -74,14 +74,7 @@ public class StatisticMgr {
         return (StatisticMgr) invokeV.objValue;
     }
 
-    public void addTask(ThreadInfo threadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadInfo) == null) {
-            this.mExecutor.execute(threadInfo);
-        }
-    }
-
-    public Map<String, StatisticInfo> getMapStatistic() {
+    public Map getMapStatistic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -96,7 +89,17 @@ public class StatisticMgr {
     public IGslbStatistic getStatistic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mStatistic : (IGslbStatistic) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mStatistic;
+        }
+        return (IGslbStatistic) invokeV.objValue;
+    }
+
+    public void addTask(ThreadInfo threadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadInfo) == null) {
+            this.mExecutor.execute(threadInfo);
+        }
     }
 
     public StatisticInfo getStatisticInfo(String str) {
@@ -106,16 +109,19 @@ public class StatisticMgr {
             if (TextUtils.isEmpty(str)) {
                 return new StatisticInfo();
             }
-            StatisticInfo statisticInfo = getMapStatistic().get(str);
-            return statisticInfo == null ? new StatisticInfo() : statisticInfo;
+            StatisticInfo statisticInfo = (StatisticInfo) getMapStatistic().get(str);
+            if (statisticInfo == null) {
+                return new StatisticInfo();
+            }
+            return statisticInfo;
         }
         return (StatisticInfo) invokeL.objValue;
     }
 
-    public void onStatistic(Map<String, String> map) {
+    public void onStatistic(Map map) {
         IGslbStatistic iGslbStatistic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, map) == null) || (iGslbStatistic = this.mStatistic) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, map) != null) || (iGslbStatistic = this.mStatistic) == null) {
             return;
         }
         iGslbStatistic.onStatistic(map);
@@ -135,6 +141,13 @@ public class StatisticMgr {
         }
     }
 
+    public void addTask(ThreadInfo threadInfo, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo, j) == null) {
+            this.mExecutor.schedule(threadInfo, j, TimeUnit.MILLISECONDS);
+        }
+    }
+
     public boolean setStatisticInfo(String str, StatisticInfo statisticInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -146,12 +159,5 @@ public class StatisticMgr {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public void addTask(ThreadInfo threadInfo, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo, j) == null) {
-            this.mExecutor.schedule(threadInfo, j, TimeUnit.MILLISECONDS);
-        }
     }
 }

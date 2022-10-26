@@ -1,25 +1,18 @@
 package com.bun.miitmdid.pojo;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IdSupplier;
-@Keep
 /* loaded from: classes7.dex */
 public class IdSupplierImpl implements IdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public final String AAID;
-    @Keep
     public final String OAID;
-    @Keep
     public final String VAID;
-    @Keep
     public final boolean isLimited;
-    @Keep
     public final boolean isSupported;
 
     public IdSupplierImpl() {
@@ -65,22 +58,17 @@ public class IdSupplierImpl implements IdSupplier {
     }
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native String getAAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native String getOAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native String getVAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native boolean isLimited();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native boolean isSupported();
 }

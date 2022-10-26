@@ -14,11 +14,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> b;
+    public ArrayList b;
 
     /* renamed from: com.vivo.push.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0707a {
+    public final class C0703a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,32 +56,6 @@ public final class a {
         a = new String[]{"com.vivo.pushservice", "com.vivo.pushdemo.test", "com.vivo.sdk.test", "com.vivo.hybrid"};
     }
 
-    public /* synthetic */ a(byte b) {
-        this();
-    }
-
-    public static a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0707a.a : (a) invokeV.objValue;
-    }
-
-    public final ArrayList<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList<>(this.b) : (ArrayList) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.b;
-            return (arrayList == null || arrayList.size() == 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -96,6 +70,41 @@ public final class a {
             }
         }
         this.b = null;
-        this.b = new ArrayList<>();
+        this.b = new ArrayList();
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return C0703a.a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final ArrayList b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ArrayList(this.b);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = this.b;
+            if (arrayList != null && arrayList.size() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ a(byte b) {
+        this();
     }
 }

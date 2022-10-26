@@ -92,6 +92,73 @@ public final class PathUtils {
         return invokeL.booleanValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0022  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static File getDownloadDirectory(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            File externalFilesDir = context.getExternalFilesDir("downloads");
+            if (externalFilesDir != null) {
+                boolean z = false;
+                if (externalFilesDir.exists()) {
+                    if (!externalFilesDir.isDirectory()) {
+                        deleteFile(externalFilesDir);
+                    }
+                    if (z) {
+                        externalFilesDir.mkdirs();
+                    }
+                }
+                z = true;
+                if (z) {
+                }
+            }
+            return externalFilesDir;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String getExternalStorageDir(Context context) {
+        InterceptResult invokeL;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (isExternalStorageWritable()) {
+                file = Environment.getExternalStorageDirectory();
+            } else {
+                file = null;
+            }
+            if (file == null) {
+                return "";
+            }
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file.getAbsolutePath();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getImageCacheDirForOthers(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            String cacheDirectory = getCacheDirectory(context);
+            if (!TextUtils.isEmpty(cacheDirectory)) {
+                File file = new File(cacheDirectory, DIRCTORY_IMAGE_CACHE_FOR_OTHER);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file.getAbsolutePath();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
     @Deprecated
     public static boolean deleteFile(File file) {
         InterceptResult invokeL;
@@ -117,22 +184,21 @@ public final class PathUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && TextUtils.equals("mounted", Environment.getExternalStorageState())) {
             SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-            if (defaultSharedPreferences.getBoolean("key_path_utils_delete_old_file", false)) {
-                return;
-            }
-            File file = new File(Environment.getExternalStorageDirectory(), ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
-            if (file.exists()) {
-                if (file.delete()) {
-                    SharedPreferences.Editor edit = defaultSharedPreferences.edit();
-                    edit.putBoolean("key_path_utils_delete_old_file", true);
-                    edit.apply();
+            if (!defaultSharedPreferences.getBoolean("key_path_utils_delete_old_file", false)) {
+                File file = new File(Environment.getExternalStorageDirectory(), ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
+                if (file.exists()) {
+                    if (file.delete()) {
+                        SharedPreferences.Editor edit = defaultSharedPreferences.edit();
+                        edit.putBoolean("key_path_utils_delete_old_file", true);
+                        edit.apply();
+                        return;
+                    }
                     return;
                 }
-                return;
+                SharedPreferences.Editor edit2 = defaultSharedPreferences.edit();
+                edit2.putBoolean("key_path_utils_delete_old_file", true);
+                edit2.apply();
             }
-            SharedPreferences.Editor edit2 = defaultSharedPreferences.edit();
-            edit2.putBoolean("key_path_utils_delete_old_file", true);
-            edit2.apply();
         }
     }
 
@@ -165,56 +231,17 @@ public final class PathUtils {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0022  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static File getDownloadDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            File externalFilesDir = context.getExternalFilesDir("downloads");
-            if (externalFilesDir != null) {
-                boolean z = false;
-                if (externalFilesDir.exists()) {
-                    if (!externalFilesDir.isDirectory()) {
-                        deleteFile(externalFilesDir);
-                    }
-                    if (z) {
-                        externalFilesDir.mkdirs();
-                    }
-                }
-                z = true;
-                if (z) {
-                }
-            }
-            return externalFilesDir;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String getExternalStorageDir(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            File externalStorageDirectory = isExternalStorageWritable() ? Environment.getExternalStorageDirectory() : null;
-            if (externalStorageDirectory == null) {
-                return "";
-            }
-            if (!externalStorageDirectory.exists()) {
-                externalStorageDirectory.mkdirs();
-            }
-            return externalStorageDirectory.getAbsolutePath();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getFileExtFromUrl(String str) {
         InterceptResult invokeL;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(46)) > 0) ? str.substring(lastIndexOf + 1) : "" : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= 0) {
+                return "";
+            }
+            return str.substring(lastIndexOf + 1);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getImageCacheDirForImageLoader(Context context) {
@@ -222,24 +249,10 @@ public final class PathUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             String cacheDirectory = getCacheDirectory(context);
-            return !TextUtils.isEmpty(cacheDirectory) ? new File(cacheDirectory, DIRCTORY_IMAGE_CACHE_FOR_IMAGELOADER).getAbsolutePath() : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getImageCacheDirForOthers(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            String cacheDirectory = getCacheDirectory(context);
-            if (TextUtils.isEmpty(cacheDirectory)) {
-                return "";
+            if (!TextUtils.isEmpty(cacheDirectory)) {
+                return new File(cacheDirectory, DIRCTORY_IMAGE_CACHE_FOR_IMAGELOADER).getAbsolutePath();
             }
-            File file = new File(cacheDirectory, DIRCTORY_IMAGE_CACHE_FOR_OTHER);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file.getAbsolutePath();
+            return "";
         }
         return (String) invokeL.objValue;
     }

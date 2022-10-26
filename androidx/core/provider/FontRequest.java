@@ -1,10 +1,6 @@
 package androidx.core.provider;
 
 import android.util.Base64;
-import androidx.annotation.ArrayRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +20,37 @@ public final class FontRequest {
     public final String mProviderPackage;
     public final String mQuery;
 
-    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull List<List<byte[]>> list) {
+    public FontRequest(String str, String str2, String str3, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mProviderAuthority = (String) Preconditions.checkNotNull(str);
+        this.mProviderPackage = (String) Preconditions.checkNotNull(str2);
+        this.mQuery = (String) Preconditions.checkNotNull(str3);
+        this.mCertificates = null;
+        if (i != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z);
+        this.mCertificatesArray = i;
+        this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
+    }
+
+    public FontRequest(String str, String str2, String str3, List<List<byte[]>> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,46 +73,58 @@ public final class FontRequest {
         this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
     }
 
-    @Nullable
     public List<List<byte[]>> getCertificates() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCertificates : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCertificates;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @ArrayRes
     public int getCertificatesArrayResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCertificatesArray : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCertificatesArray;
+        }
+        return invokeV.intValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public String getIdentifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIdentifier : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIdentifier;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
     public String getProviderAuthority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mProviderAuthority : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mProviderAuthority;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
     public String getProviderPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mProviderPackage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mProviderPackage;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
     public String getQuery() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mQuery : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mQuery;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -110,29 +148,5 @@ public final class FontRequest {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @ArrayRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mProviderAuthority = (String) Preconditions.checkNotNull(str);
-        this.mProviderPackage = (String) Preconditions.checkNotNull(str2);
-        this.mQuery = (String) Preconditions.checkNotNull(str3);
-        this.mCertificates = null;
-        Preconditions.checkArgument(i != 0);
-        this.mCertificatesArray = i;
-        this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
     }
 }

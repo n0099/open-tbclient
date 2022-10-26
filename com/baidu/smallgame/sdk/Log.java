@@ -1,7 +1,6 @@
 package com.baidu.smallgame.sdk;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
@@ -47,46 +45,287 @@ public final class Log {
         }
     }
 
+    public static boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return sDebugApk;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static int d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? printLog(3, LOG_TAG, str, null) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return printLog(3, LOG_TAG, str, null);
+        }
+        return invokeL.intValue;
     }
 
     public static int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? printLog(6, LOG_TAG, str, null) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return printLog(6, LOG_TAG, str, null);
+        }
+        return invokeL.intValue;
     }
 
     public static String getStackTraceString(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, th)) == null) ? android.util.Log.getStackTraceString(th) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, th)) == null) {
+            return android.util.Log.getStackTraceString(th);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static int i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? printLog(4, LOG_TAG, str, null) : invokeL.intValue;
-    }
-
-    public static boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? sDebugApk : invokeV.booleanValue;
-    }
-
-    public static boolean isLoggable(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, str, i)) == null) ? i >= sMinLogLevel && android.util.Log.isLoggable(str, i) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            return printLog(4, LOG_TAG, str, null);
+        }
+        return invokeL.intValue;
     }
 
     public static int p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) ? printLog(6, LOG_TAG, str, null) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            return printLog(6, LOG_TAG, str, null);
+        }
+        return invokeL.intValue;
+    }
+
+    public static void printStackTrace(Throwable th) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, null, th) == null) {
+            boolean z2 = true;
+            if (sMinLogLevel >= 6) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (th == null) {
+                z2 = false;
+            }
+            if (z & z2) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public static int v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
+            return printLog(2, LOG_TAG, str, null);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+            return printLog(5, LOG_TAG, str, null);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return printLog(3, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            return printLog(6, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            return printLog(4, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean isLoggable(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, str, i)) == null) {
+            if (i >= sMinLogLevel && android.util.Log.isLoggable(str, i)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static int p(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
+            return printLog(6, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int v(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
+            return printLog(2, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int w(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, str, str2)) == null) {
+            return printLog(5, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int wtf(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, str, str2)) == null) {
+            return printLog(6, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int wtfStack(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, str, str2)) == null) {
+            return printLog(6, str, str2, null);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int d(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th)) == null) {
+            return printLog(3, str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int e(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, str, str2, th)) == null) {
+            return printLog(6, str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int i(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, str, str2, th)) == null) {
+            return printLog(4, str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int p(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, str, str2, th)) == null) {
+            return printLog(6, str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int v(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65562, null, str, str2, th)) == null) {
+            return printLog(2, str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int w(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65566, null, str, str2, th)) == null) {
+            return printLog(5, str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int wtf(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65570, null, str, str2, th)) == null) {
+            return printLog(6, str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int d(String str, String str2, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, objArr)) == null) {
+            return printLogVargs(3, str, str2, objArr);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int e(String str, String str2, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, objArr)) == null) {
+            return printLogVargs(6, str, str2, objArr);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int i(String str, String str2, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, str, str2, objArr)) == null) {
+            return printLogVargs(4, str, str2, objArr);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int v(String str, String str2, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65563, null, str, str2, objArr)) == null) {
+            return printLogVargs(2, str, str2, objArr);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int w(String str, String str2, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, str, str2, objArr)) == null) {
+            return printLogVargs(5, str, str2, objArr);
+        }
+        return invokeLLL.intValue;
     }
 
     public static int printLog(int i, String str, String str2, Throwable th) {
@@ -136,169 +375,33 @@ public final class Log {
         return invokeCommon.intValue;
     }
 
-    public static void printStackTrace(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, th) == null) {
-            if ((sMinLogLevel >= 6) && (th != null)) {
-                th.printStackTrace();
-            }
-        }
-    }
-
     public static void setMinLogLevel(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             String str = LOG_TAG;
             android.util.Log.e(str, "ZeusSDK.ZeusMinLogLevel=" + i + ", sDebugApk=" + z);
-            if (i < 2 || i > 7) {
-                return;
+            if (i >= 2 && i <= 7) {
+                sMinLogLevel = i;
+                sDebugApk = z;
             }
-            sMinLogLevel = i;
-            sDebugApk = z;
         }
-    }
-
-    public static int v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) ? printLog(2, LOG_TAG, str, null) : invokeL.intValue;
-    }
-
-    public static int w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) ? printLog(5, LOG_TAG, str, null) : invokeL.intValue;
-    }
-
-    public static int wtf(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, str, str2)) == null) ? printLog(6, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int wtfStack(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, str, str2)) == null) ? printLog(6, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) ? printLog(3, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) ? printLog(6, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) ? printLog(4, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int p(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) ? printLog(6, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) ? printLog(2, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int w(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, str, str2)) == null) ? printLog(5, str, str2, null) : invokeLL.intValue;
-    }
-
-    public static int wtf(String str, Throwable th) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, str, th)) == null) ? printLog(6, str, "", th) : invokeLL.intValue;
-    }
-
-    public static int d(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th)) == null) ? printLog(3, str, str2, th) : invokeLLL.intValue;
-    }
-
-    public static int e(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, str, str2, th)) == null) ? printLog(6, str, str2, th) : invokeLLL.intValue;
-    }
-
-    public static int i(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, str, str2, th)) == null) ? printLog(4, str, str2, th) : invokeLLL.intValue;
-    }
-
-    public static int p(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, str, str2, th)) == null) ? printLog(6, str, str2, th) : invokeLLL.intValue;
-    }
-
-    public static int v(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65562, null, str, str2, th)) == null) ? printLog(2, str, str2, th) : invokeLLL.intValue;
-    }
-
-    public static int w(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65566, null, str, str2, th)) == null) ? printLog(5, str, str2, th) : invokeLLL.intValue;
-    }
-
-    public static int wtf(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65570, null, str, str2, th)) == null) ? printLog(6, str, str2, th) : invokeLLL.intValue;
-    }
-
-    public static int d(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, objArr)) == null) ? printLogVargs(3, str, str2, objArr) : invokeLLL.intValue;
-    }
-
-    public static int e(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, objArr)) == null) ? printLogVargs(6, str, str2, objArr) : invokeLLL.intValue;
-    }
-
-    public static int i(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, str, str2, objArr)) == null) ? printLogVargs(4, str, str2, objArr) : invokeLLL.intValue;
-    }
-
-    public static int v(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65563, null, str, str2, objArr)) == null) ? printLogVargs(2, str, str2, objArr) : invokeLLL.intValue;
     }
 
     public static int w(String str, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, str, th)) == null) ? printLog(5, str, "", th) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, str, th)) == null) {
+            return printLog(5, str, "", th);
+        }
+        return invokeLL.intValue;
     }
 
-    public static int w(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
+    public static int wtf(String str, Throwable th) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, str, str2, objArr)) == null) ? printLogVargs(5, str, str2, objArr) : invokeLLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, str, th)) == null) {
+            return printLog(6, str, "", th);
+        }
+        return invokeLL.intValue;
     }
 }

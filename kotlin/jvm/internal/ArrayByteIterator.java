@@ -16,7 +16,10 @@ public final class ArrayByteIterator extends ByteIterator {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.array.length;
+        if (this.index < this.array.length) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlin.collections.ByteIterator

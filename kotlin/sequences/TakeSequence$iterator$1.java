@@ -12,6 +12,11 @@ public final class TakeSequence$iterator$1 implements Iterator<T>, KMappedMarker
     public int left;
     public final /* synthetic */ TakeSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public TakeSequence$iterator$1(TakeSequence takeSequence) {
         int i;
@@ -21,6 +26,10 @@ public final class TakeSequence$iterator$1 implements Iterator<T>, KMappedMarker
         this.left = i;
         sequence = takeSequence.sequence;
         this.iterator = sequence.iterator();
+    }
+
+    public final void setLeft(int i) {
+        this.left = i;
     }
 
     public final Iterator<T> getIterator() {
@@ -33,7 +42,10 @@ public final class TakeSequence$iterator$1 implements Iterator<T>, KMappedMarker
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.left > 0 && this.iterator.hasNext();
+        if (this.left > 0 && this.iterator.hasNext()) {
+            return true;
+        }
+        return false;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
@@ -45,14 +57,5 @@ public final class TakeSequence$iterator$1 implements Iterator<T>, KMappedMarker
             return this.iterator.next();
         }
         throw new NoSuchElementException();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setLeft(int i) {
-        this.left = i;
     }
 }

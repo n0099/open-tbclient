@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,6 @@ public class ServiceWorkerClient {
         }
     }
 
-    @Nullable
     public WebResourceResponse shouldInterceptRequest(WebResourceRequest webResourceRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -14,14 +14,24 @@ import tbclient.GetOfficialSwitch.OfficialList;
 /* loaded from: classes5.dex */
 public class OfficialAccountPushInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<OfficialAccountPushInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int is_on;
     public String name;
     public long uid;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes5.dex */
-    public static class a implements Parcelable.Creator<OfficialAccountPushInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +55,10 @@ public class OfficialAccountPushInfo implements Parcelable {
         public OfficialAccountPushInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new OfficialAccountPushInfo(parcel) : (OfficialAccountPushInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new OfficialAccountPushInfo(parcel);
+            }
+            return (OfficialAccountPushInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +67,10 @@ public class OfficialAccountPushInfo implements Parcelable {
         public OfficialAccountPushInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new OfficialAccountPushInfo[i] : (OfficialAccountPushInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new OfficialAccountPushInfo[i];
+            }
+            return (OfficialAccountPushInfo[]) invokeI.objValue;
         }
     }
 
@@ -72,6 +88,20 @@ public class OfficialAccountPushInfo implements Parcelable {
             }
         }
         CREATOR = new a();
+    }
+
+    public OfficialAccountPushInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     public OfficialAccountPushInfo(Parcel parcel) {
@@ -94,19 +124,9 @@ public class OfficialAccountPushInfo implements Parcelable {
         this.is_on = parcel.readInt();
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public void parser(OfficialList officialList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, officialList) == null) || officialList == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, officialList) != null) || officialList == null) {
             return;
         }
         this.uid = officialList.uid.longValue();
@@ -121,20 +141,6 @@ public class OfficialAccountPushInfo implements Parcelable {
             parcel.writeLong(this.uid);
             parcel.writeString(this.name);
             parcel.writeInt(this.is_on);
-        }
-    }
-
-    public OfficialAccountPushInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
         }
     }
 }

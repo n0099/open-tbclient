@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util.videoPreload;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.ho;
+import com.baidu.tieba.fo;
+import com.baidu.tieba.io;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,12 +30,13 @@ public class PreLoadVideoHelper {
         }
     }
 
-    public static void load(ho hoVar, BdUniqueId bdUniqueId, IVideoNeedPreload iVideoNeedPreload) {
-        eo adapter;
+    public static void load(io ioVar, BdUniqueId bdUniqueId, IVideoNeedPreload iVideoNeedPreload) {
+        fo adapter;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, hoVar, bdUniqueId, iVideoNeedPreload) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, ioVar, bdUniqueId, iVideoNeedPreload) == null) {
             VideoPreLoadLog.log("video preload start ");
-            if (hoVar == null) {
+            if (ioVar == null) {
                 return;
             }
             if (iVideoNeedPreload != null && !iVideoNeedPreload.videoNeedPreload()) {
@@ -43,15 +44,23 @@ public class PreLoadVideoHelper {
                 return;
             }
             VideoPreLoadLog.log("video preload switch  " + PreLoadVideoSwitchManager.getInstance().isOpen() + " num " + PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum() + " size " + PreLoadVideoSwitchManager.getInstance().getSize());
-            if (PreLoadVideoSwitchManager.getInstance().isOpen() && (adapter = hoVar.getAdapter()) != null) {
-                boolean z = hoVar.getFirstVisiblePosition() == 0;
-                int lastVisiblePosition = hoVar.getLastVisiblePosition();
-                ArrayList arrayList = new ArrayList();
-                VideoPreLoadLog.log("video preload  end=  " + lastVisiblePosition + GlideException.IndentedAppendable.INDENT + adapter.getCount());
-                if (lastVisiblePosition < 0 || adapter.getCount() <= 0) {
-                    return;
+            if (!PreLoadVideoSwitchManager.getInstance().isOpen() || (adapter = ioVar.getAdapter()) == null) {
+                return;
+            }
+            int i = 0;
+            if (ioVar.getFirstVisiblePosition() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int lastVisiblePosition = ioVar.getLastVisiblePosition();
+            ArrayList arrayList = new ArrayList();
+            VideoPreLoadLog.log("video preload  end=  " + lastVisiblePosition + GlideException.IndentedAppendable.INDENT + adapter.getCount());
+            if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
+                if (!z) {
+                    i = lastVisiblePosition;
                 }
-                for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum(); i++) {
+                while (i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum()) {
                     VideoPreLoadLog.log("video preload  i=  " + i);
                     Object item = adapter.getItem(i);
                     if (item instanceof IVideoData) {
@@ -61,6 +70,7 @@ public class PreLoadVideoHelper {
                             CyberPlayerManager.prefetch(iVideoData.getVideoUrl(), null, null, PreLoadVideoSwitchManager.getInstance().getSize(), null);
                         }
                     }
+                    i++;
                 }
             }
         }

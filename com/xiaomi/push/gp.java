@@ -25,7 +25,7 @@ public class gp extends gn {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
@@ -93,7 +93,7 @@ public class gp extends gn {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
 
@@ -305,9 +305,9 @@ public class gp extends gn {
                 sb.append("</show>");
             }
             sb.append(o());
-            gr m370a = m370a();
-            if (m370a != null) {
-                sb.append(m370a.m374a());
+            gr m369a = m369a();
+            if (m369a != null) {
+                sb.append(m369a.m373a());
             }
             sb.append("</presence>");
             return sb.toString();

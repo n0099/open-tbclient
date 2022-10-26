@@ -12,7 +12,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,56 +49,6 @@ public class ItemHeaderView extends RelativeLayout {
             }
         }
         a(context);
-    }
-
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a9, (ViewGroup) this, true);
-            setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d1b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d1a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a4a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d19);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d1c);
-            this.b.setPlaceHolder(1);
-        }
-    }
-
-    public void b(ForumDetailActivity forumDetailActivity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            forumDetailActivity.getLayoutMode().l(i == 1);
-            forumDetailActivity.getLayoutMode().k(this);
-        }
-    }
-
-    public void setData(RecommendForumInfo recommendForumInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendForumInfo) == null) || recommendForumInfo == null) {
-            return;
-        }
-        boolean z = recommendForumInfo.forum_type.intValue() == 1;
-        this.c.setText(recommendForumInfo.forum_name);
-        if (z) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_v);
-            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            this.c.setCompoundDrawables(null, null, bitmapDrawable, null);
-            TextView textView = this.c;
-            Context context = this.a;
-            textView.setCompoundDrawablePadding(ej.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
-            this.d.setText(recommendForumInfo.authen);
-            this.d.setVisibility(0);
-        } else {
-            this.c.setCompoundDrawables(null, null, null, null);
-            this.d.setVisibility(8);
-        }
-        this.e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
-        this.f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int d = ej.d(this.a, 80.0f);
-        this.b.G(recommendForumInfo.avatar, 10, d, d, false);
-        setVisibility(0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -142,5 +93,63 @@ public class ItemHeaderView extends RelativeLayout {
             }
         }
         a(context);
+    }
+
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a8, (ViewGroup) this, true);
+            setVisibility(8);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d28);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d27);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a54);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d26);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d29);
+            this.b.setPlaceHolder(1);
+        }
+    }
+
+    public void b(ForumDetailActivity forumDetailActivity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
+            zp4 layoutMode = forumDetailActivity.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            forumDetailActivity.getLayoutMode().k(this);
+        }
+    }
+
+    public void setData(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendForumInfo) != null) || recommendForumInfo == null) {
+            return;
+        }
+        boolean z = true;
+        if (recommendForumInfo.forum_type.intValue() != 1) {
+            z = false;
+        }
+        this.c.setText(recommendForumInfo.forum_name);
+        if (z) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_v);
+            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+            this.c.setCompoundDrawables(null, null, bitmapDrawable, null);
+            TextView textView = this.c;
+            Context context = this.a;
+            textView.setCompoundDrawablePadding(fj.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
+            this.d.setText(recommendForumInfo.authen);
+            this.d.setVisibility(0);
+        } else {
+            this.c.setCompoundDrawables(null, null, null, null);
+            this.d.setVisibility(8);
+        }
+        this.e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
+        this.f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
+        int d = fj.d(this.a, 80.0f);
+        this.b.H(recommendForumInfo.avatar, 10, d, d, false);
+        setVisibility(0);
     }
 }

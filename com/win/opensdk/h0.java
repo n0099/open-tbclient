@@ -72,10 +72,62 @@ public class h0 implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
             int action = motionEvent.getAction();
-            if (action == 0) {
+            if (action != 0) {
+                if (action == 1) {
+                    this.o = (int) motionEvent.getRawX();
+                    this.p = (int) motionEvent.getRawY();
+                    this.j = (int) motionEvent.getX();
+                    this.k = (int) motionEvent.getY();
+                    this.q = System.currentTimeMillis();
+                    if (Math.abs(motionEvent.getX() - this.d) < 51.0f) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (Math.abs(motionEvent.getY() - this.e) < 51.0f) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (System.currentTimeMillis() - this.c < 2000) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (z && z2 && z3 && this.b) {
+                        String str = null;
+                        try {
+                            str = a().toString();
+                            E2 e2 = this.a.a.b;
+                            if (e2 != null) {
+                                e2.a(str);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        e0 e0Var = this.a;
+                        e0Var.a.d = true;
+                        e0Var.a.e = str;
+                        return false;
+                    } else if (this.a != null) {
+                        try {
+                            String hashMap = a().toString();
+                            E2 e22 = this.a.a.b;
+                            if (e22 != null) {
+                                e22.a(hashMap);
+                            }
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                }
+            } else {
                 this.b = true;
                 this.c = System.currentTimeMillis();
                 this.d = motionEvent.getX();
@@ -89,41 +141,6 @@ public class h0 implements View.OnTouchListener {
                     this.l = view2.getWidth();
                 }
                 this.n = System.currentTimeMillis();
-            } else if (action == 1) {
-                this.o = (int) motionEvent.getRawX();
-                this.p = (int) motionEvent.getRawY();
-                this.j = (int) motionEvent.getX();
-                this.k = (int) motionEvent.getY();
-                this.q = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.d) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.e) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.c < 2000;
-                if (z && z2 && z3 && this.b) {
-                    String str = null;
-                    try {
-                        str = a().toString();
-                        E2 e2 = this.a.a.b;
-                        if (e2 != null) {
-                            e2.a(str);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    e0 e0Var = this.a;
-                    e0Var.a.d = true;
-                    e0Var.a.e = str;
-                    return false;
-                } else if (this.a != null) {
-                    try {
-                        String hashMap = a().toString();
-                        E2 e22 = this.a.a.b;
-                        if (e22 != null) {
-                            e22.a(hashMap);
-                        }
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
-                    }
-                }
             }
             return false;
         }

@@ -1,6 +1,5 @@
 package com.baidu.android.util.sp;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -48,40 +47,13 @@ public final class PreferenceUtils {
         }
     }
 
-    public static boolean containsKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? getPreference().contains(str) : invokeL.booleanValue;
-    }
-
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
-    }
-
-    public static boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z)) == null) ? getPreference().getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    public static float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, str, f)) == null) ? getPreference().getFloat(str, f) : invokeLF.floatValue;
-    }
-
-    public static int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) ? getPreference().getInt(str, i) : invokeLI.intValue;
-    }
-
-    public static long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) ? getPreference().getLong(str, j) : invokeLJ.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static SharedPreferences getPreference() {
@@ -96,10 +68,13 @@ public final class PreferenceUtils {
         return (SharedPreferences) invokeV.objValue;
     }
 
-    public static String getString(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean containsKey(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) ? getPreference().getString(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return getPreference().contains(str);
+        }
+        return invokeL.booleanValue;
     }
 
     public static void registerOnChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
@@ -116,6 +91,58 @@ public final class PreferenceUtils {
             edit.remove(str);
             edit.apply();
         }
+    }
+
+    public static void unregisterOnChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, null, onSharedPreferenceChangeListener) == null) {
+            getPreference().unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    public static boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z)) == null) {
+            return getPreference().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, str, f)) == null) {
+            return getPreference().getFloat(str, f);
+        }
+        return invokeLF.floatValue;
+    }
+
+    public static int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            return getPreference().getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) {
+            return getPreference().getLong(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            return getPreference().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static void setBoolean(String str, boolean z) {
@@ -163,20 +190,12 @@ public final class PreferenceUtils {
         }
     }
 
-    @SuppressLint({"ApplySharedPref"})
     public static void setStringCommit(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
             SharedPreferences.Editor edit = getPreference().edit();
             edit.putString(str, str2);
             edit.commit();
-        }
-    }
-
-    public static void unregisterOnChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, onSharedPreferenceChangeListener) == null) {
-            getPreference().unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 }

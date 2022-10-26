@@ -1,137 +1,148 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
-import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
+import tbclient.ManageInfo;
 /* loaded from: classes5.dex */
-public class r76 extends m76 implements NetModel.k {
+public class r76 implements eo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadManagerNetModel b;
-    public s76 c;
-    public t76 d;
-    public p76 e;
+    public ItemData a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r76(BaseFragment baseFragment, int i) {
-        super(baseFragment, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948074584, "Lcom/baidu/tieba/r76;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948074584, "Lcom/baidu/tieba/r76;");
                 return;
             }
         }
-        this.c = new s76(1, i);
-        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
-        this.b = downloadManagerNetModel;
-        downloadManagerNetModel.b0(this);
-        this.b.setUniqueId(baseFragment.getUniqueId());
+        e = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.m76
-    public void a() {
+    public r76() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.c();
-            this.b.loadData();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = true;
     }
 
-    @Override // com.baidu.tieba.m76
-    public void c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public r76 clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.b();
-            this.b.loadData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            r76 r76Var = new r76();
+            r76Var.a = this.a;
+            r76Var.b = this.b;
+            r76Var.c = this.c;
+            r76Var.d = this.d;
+            return r76Var;
         }
+        return (r76) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m76
-    public void d(p76 p76Var) {
+    @Override // com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p76Var) == null) {
-            this.e = p76Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return e;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || i == 0) {
-            return;
-        }
-        this.e.b(i, str);
-    }
-
-    public final boolean f(t76 t76Var) {
+    public static r76 b(k45 k45Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t76Var)) == null) {
-            if (t76Var == null) {
-                return false;
-            }
-            if (this.c.a() != 1) {
-                this.d.a(t76Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, k45Var)) == null) {
+            r76 r76Var = new r76();
+            r76Var.a = k45Var.b;
+            r76Var.b = k45Var.d;
+            r76Var.c = k45Var.e;
+            return r76Var;
+        }
+        return (r76) invokeL.objValue;
+    }
+
+    public static r76 c(ManageInfo manageInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
+            r76 r76Var = new r76();
+            ItemData itemData = new ItemData();
+            r76Var.a = itemData;
+            itemData.parseProto(manageInfo.item);
+            r76Var.b = manageInfo.item_source.intValue();
+            return r76Var;
+        }
+        return (r76) invokeL.objValue;
+    }
+
+    public boolean f(r76 r76Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        ItemData itemData;
+        ApkDetail apkDetail;
+        ApkDetail apkDetail2;
+        ItemData itemData2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r76Var)) == null) {
+            if (this.b == r76Var.b && this.c == r76Var.c) {
+                z = true;
             } else {
-                this.d = t76Var;
+                z = false;
             }
-            p76 p76Var = this.e;
-            t76 t76Var2 = this.d;
-            p76Var.a(t76Var2.a, t76Var2.b, t76Var2.c.intValue());
-            return true;
+            ItemData itemData3 = this.a;
+            if (itemData3 != null && (itemData2 = r76Var.a) != null) {
+                z2 = itemData3.pkgName.equals(itemData2.pkgName);
+            } else {
+                z2 = false;
+            }
+            ItemData itemData4 = this.a;
+            if (itemData4 != null && (itemData = r76Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
+                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
+            } else {
+                z3 = false;
+            }
+            if (z && z2 && z3) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
-            return;
-        }
-        t76 t76Var = null;
-        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
-            t76Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
-        }
-        if (t76Var == null || !f(t76Var)) {
-            e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
-            return;
-        }
-        t76 t76Var = null;
-        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
-            t76Var = (t76) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
-        }
-        if (t76Var == null || !f(t76Var)) {
-            e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
-        }
     }
 }

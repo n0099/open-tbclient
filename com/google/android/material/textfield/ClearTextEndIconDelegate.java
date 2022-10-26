@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -35,7 +34,7 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
     public final View.OnFocusChangeListener onFocusChangeListener;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClearTextEndIconDelegate(@NonNull TextInputLayout textInputLayout) {
+    public ClearTextEndIconDelegate(TextInputLayout textInputLayout) {
         super(textInputLayout);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,6 +56,20 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ClearTextEndIconDelegate this$0;
 
+            @Override // android.text.TextWatcher
+            public void beforeTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i3, i4, i5) == null) {
+                }
+            }
+
+            @Override // android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i3, i4, i5) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -76,25 +89,12 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // android.text.TextWatcher
-            public void afterTextChanged(@NonNull Editable editable) {
+            public void afterTextChanged(Editable editable) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.this$0.textInputLayout.getSuffixText() == null) {
-                    this.this$0.animateIcon(ClearTextEndIconDelegate.hasText(editable));
+                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, editable) != null) || this.this$0.textInputLayout.getSuffixText() != null) {
+                    return;
                 }
-            }
-
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i3, i4, i5) == null) {
-                }
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i3, i4, i5) == null) {
-                }
+                this.this$0.animateIcon(ClearTextEndIconDelegate.hasText(editable));
             }
         };
         this.onFocusChangeListener = new View.OnFocusChangeListener(this) { // from class: com.google.android.material.textfield.ClearTextEndIconDelegate.2
@@ -153,11 +153,17 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEditTextAttachedListener
-            public void onEditTextAttached(@NonNull TextInputLayout textInputLayout2) {
+            public void onEditTextAttached(TextInputLayout textInputLayout2) {
+                boolean z;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, textInputLayout2) == null) {
                     EditText editText = textInputLayout2.getEditText();
-                    textInputLayout2.setEndIconVisible(editText.hasFocus() && ClearTextEndIconDelegate.hasText(editText.getText()));
+                    if (editText.hasFocus() && ClearTextEndIconDelegate.hasText(editText.getText())) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    textInputLayout2.setEndIconVisible(z);
                     textInputLayout2.setEndIconCheckable(false);
                     editText.setOnFocusChangeListener(this.this$0.onFocusChangeListener);
                     editText.removeTextChangedListener(this.this$0.clearTextEndIconTextWatcher);
@@ -189,7 +195,7 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEndIconChangedListener
-            public void onEndIconChanged(@NonNull TextInputLayout textInputLayout2, int i3) {
+            public void onEndIconChanged(TextInputLayout textInputLayout2, int i3) {
                 EditText editText;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, textInputLayout2, i3) == null) && (editText = textInputLayout2.getEditText()) != null && i3 == 2) {
@@ -200,28 +206,6 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
                 }
             }
         };
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void animateIcon(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            boolean z2 = this.textInputLayout.isEndIconVisible() == z;
-            if (z) {
-                this.iconOutAnim.cancel();
-                this.iconInAnim.start();
-                if (z2) {
-                    this.iconInAnim.end();
-                    return;
-                }
-                return;
-            }
-            this.iconInAnim.cancel();
-            this.iconOutAnim.start();
-            if (z2) {
-                this.iconOutAnim.end();
-            }
-        }
     }
 
     private ValueAnimator getAlphaAnimator(float... fArr) {
@@ -255,7 +239,7 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         this.this$0.endIconView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
@@ -265,6 +249,54 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
             return ofFloat;
         }
         return (ValueAnimator) invokeL.objValue;
+    }
+
+    public static boolean hasText(Editable editable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, editable)) == null) {
+            if (editable.length() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.android.material.textfield.EndIconDelegate
+    public void onSuffixVisibilityChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.textInputLayout.getSuffixText() == null) {
+            return;
+        }
+        animateIcon(z);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void animateIcon(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
+            if (this.textInputLayout.isEndIconVisible() == z) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z) {
+                this.iconOutAnim.cancel();
+                this.iconInAnim.start();
+                if (z2) {
+                    this.iconInAnim.end();
+                    return;
+                }
+                return;
+            }
+            this.iconInAnim.cancel();
+            this.iconOutAnim.start();
+            if (z2) {
+                this.iconOutAnim.end();
+            }
+        }
     }
 
     private ValueAnimator getScaleAnimator() {
@@ -298,7 +330,7 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
@@ -310,12 +342,6 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
             return ofFloat;
         }
         return (ValueAnimator) invokeV.objValue;
-    }
-
-    public static boolean hasText(@NonNull Editable editable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, editable)) == null) ? editable.length() > 0 : invokeL.booleanValue;
     }
 
     private void initAnimators() {
@@ -397,9 +423,9 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080d85));
+            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080d96));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f03e6));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f03ed));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.ClearTextEndIconDelegate.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -427,24 +453,14 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
                 public void onClick(View view2) {
                     Editable text;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || (text = this.this$0.textInputLayout.getEditText().getText()) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && (text = this.this$0.textInputLayout.getEditText().getText()) != null) {
+                        text.clear();
                     }
-                    text.clear();
                 }
             });
             this.textInputLayout.addOnEditTextAttachedListener(this.clearTextOnEditTextAttachedListener);
             this.textInputLayout.addOnEndIconChangedListener(this.endIconChangedListener);
             initAnimators();
         }
-    }
-
-    @Override // com.google.android.material.textfield.EndIconDelegate
-    public void onSuffixVisibilityChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.textInputLayout.getSuffixText() == null) {
-            return;
-        }
-        animateIcon(z);
     }
 }

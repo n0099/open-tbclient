@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.ih9;
+import com.baidu.tieba.nh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ public class BaseGlRenderer implements IGlRenderer {
     public FullFrameRect mFullScreenEXT;
     public int mOutHeight;
     public int mOutWidth;
-    public LinkedList<Runnable> runOnProcess;
+    public LinkedList runOnProcess;
 
     public BaseGlRenderer() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class BaseGlRenderer implements IGlRenderer {
                 return;
             }
         }
-        this.runOnProcess = new LinkedList<>();
+        this.runOnProcess = new LinkedList();
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.glrender.IGlRenderer
@@ -79,11 +79,11 @@ public class BaseGlRenderer implements IGlRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                if (vg9.b(this.runOnProcess) > 0) {
-                    qg9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
+                if (nh9.b(this.runOnProcess) > 0) {
+                    ih9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
                 }
                 while (!this.runOnProcess.isEmpty()) {
-                    this.runOnProcess.removeFirst().run();
+                    ((Runnable) this.runOnProcess.removeFirst()).run();
                 }
             } catch (Exception e) {
                 this.runOnProcess.clear();

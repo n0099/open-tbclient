@@ -28,7 +28,10 @@ public class ABTestConfig {
     public static boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? mDebug : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return mDebug;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setDebug(boolean z) {

@@ -36,11 +36,14 @@ public class DataCharacter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof DataCharacter) {
-                DataCharacter dataCharacter = (DataCharacter) obj;
-                return this.value == dataCharacter.value && this.checksumPortion == dataCharacter.checksumPortion;
+            if (!(obj instanceof DataCharacter)) {
+                return false;
             }
-            return false;
+            DataCharacter dataCharacter = (DataCharacter) obj;
+            if (this.value != dataCharacter.value || this.checksumPortion != dataCharacter.checksumPortion) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -48,19 +51,28 @@ public class DataCharacter {
     public final int getChecksumPortion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.checksumPortion : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.checksumPortion;
+        }
+        return invokeV.intValue;
     }
 
     public final int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.value : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.value ^ this.checksumPortion : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.value ^ this.checksumPortion;
+        }
+        return invokeV.intValue;
     }
 
     public final String toString() {

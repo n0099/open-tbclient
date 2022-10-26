@@ -93,12 +93,18 @@ public final class LogicField {
     public static LogicField valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LogicField) Enum.valueOf(LogicField.class, str) : (LogicField) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LogicField) Enum.valueOf(LogicField.class, str);
+        }
+        return (LogicField) invokeL.objValue;
     }
 
     public static LogicField[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogicField[]) $VALUES.clone() : (LogicField[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LogicField[]) $VALUES.clone();
+        }
+        return (LogicField[]) invokeV.objValue;
     }
 }

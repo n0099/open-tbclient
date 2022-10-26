@@ -1,8 +1,6 @@
 package com.kwad.components.ad.reward;
 
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,6 +16,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class e {
@@ -30,7 +29,7 @@ public final class e {
     public interface a {
         void C(String str);
 
-        void e(@Nullable List<com.kwad.components.ad.reward.c.b> list);
+        void e(List list);
 
         void onRequestResult(int i);
     }
@@ -50,27 +49,28 @@ public final class e {
         }
     }
 
-    public static List<com.kwad.components.ad.reward.c.b> a(List<AdTemplate> list, int i) {
+    public static List a(List list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (AdTemplate adTemplate : list) {
-                arrayList.add(new com.kwad.components.ad.reward.c.b(adTemplate, i));
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                arrayList.add(new com.kwad.components.ad.reward.c.b((AdTemplate) it.next(), i));
             }
             return arrayList;
         }
         return (List) invokeLI.objValue;
     }
 
-    public static void a(int i, int i2, @NonNull SceneImpl sceneImpl, int i3, a aVar) {
+    public static void a(int i, int i2, SceneImpl sceneImpl, int i3, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sceneImpl, Integer.valueOf(i3), aVar}) == null) {
-            SceneImpl m85clone = sceneImpl.m85clone();
+            SceneImpl m84clone = sceneImpl.m84clone();
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            m85clone.setAdStyle(i);
-            m85clone.setAdNum(i2);
-            a(new com.kwad.components.core.k.kwai.b(m85clone), null, false, true, new com.kwad.components.core.k.f(aVar, i3, elapsedRealtime) { // from class: com.kwad.components.ad.reward.e.1
+            m84clone.setAdStyle(i);
+            m84clone.setAdNum(i2);
+            a(new com.kwad.components.core.k.kwai.b(m84clone), null, false, true, new com.kwad.components.core.k.f(aVar, i3, elapsedRealtime) { // from class: com.kwad.components.ad.reward.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long fu;
@@ -98,7 +98,7 @@ public final class e {
                 }
 
                 @Override // com.kwad.components.core.k.g
-                public final void a(@NonNull AdResultData adResultData) {
+                public final void a(AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, adResultData) == null) {
                         bd.runOnUiThread(new Runnable(this, adResultData) { // from class: com.kwad.components.ad.reward.e.1.2
@@ -221,7 +221,7 @@ public final class e {
         }
     }
 
-    public static void a(com.kwad.components.core.k.kwai.b bVar, List<String> list, boolean z, boolean z2, @NonNull com.kwad.components.core.k.f fVar, boolean z3) {
+    public static void a(com.kwad.components.core.k.kwai.b bVar, List list, boolean z, boolean z2, com.kwad.components.core.k.f fVar, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bVar, list, Boolean.valueOf(z), Boolean.valueOf(z2), fVar, Boolean.valueOf(z3)}) == null) {
             new com.kwad.components.core.h.a(bVar, bVar, null, false, true) { // from class: com.kwad.components.ad.reward.e.2
@@ -258,7 +258,6 @@ public final class e {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.components.core.h.a, com.kwad.sdk.core.network.a
-                @NonNull
                 /* renamed from: fe */
                 public final com.kwad.components.core.k.a createRequest() {
                     InterceptResult invokeV;
@@ -270,7 +269,7 @@ public final class e {
                     }
                     return (com.kwad.components.core.k.a) invokeV.objValue;
                 }
-            }.request(new com.kwad.sdk.core.network.n<com.kwad.components.core.k.a, AdResultData>(false, fVar) { // from class: com.kwad.components.ad.reward.e.3
+            }.request(new com.kwad.sdk.core.network.n(false, fVar) { // from class: com.kwad.components.ad.reward.e.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.core.k.f fz;
@@ -295,7 +294,7 @@ public final class e {
                     this.fz = fVar;
                 }
 
-                private void b(@NonNull AdResultData adResultData) {
+                private void b(AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65537, this, adResultData) == null) {
                         if (!adResultData.isAdResultDataEmpty() || this.lO) {
@@ -316,12 +315,12 @@ public final class e {
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onError(@NonNull com.kwad.sdk.core.network.g gVar, int i, String str) {
+                public final /* synthetic */ void onError(com.kwad.sdk.core.network.g gVar, int i, String str) {
                     c(i, str);
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onSuccess(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull BaseResultData baseResultData) {
+                public final /* synthetic */ void onSuccess(com.kwad.sdk.core.network.g gVar, BaseResultData baseResultData) {
                     b((AdResultData) baseResultData);
                 }
             });
@@ -333,21 +332,21 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, adResultData, j) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (adResultData.getAdTemplateList().size() <= 0 || (adTemplate = adResultData.getAdTemplateList().get(0)) == null) {
+            if (adResultData.getAdTemplateList().size() <= 0 || (adTemplate = (AdTemplate) adResultData.getAdTemplateList().get(0)) == null) {
                 return;
             }
             com.kwad.components.core.j.a.og().c(adTemplate, elapsedRealtime - j);
         }
     }
 
-    public static void a(@NonNull SceneImpl sceneImpl, a aVar) {
+    public static void a(SceneImpl sceneImpl, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, sceneImpl, aVar) == null) {
             a(11, lF, sceneImpl, com.kwad.components.ad.reward.c.d.REFLOW, aVar);
         }
     }
 
-    public static void b(@NonNull SceneImpl sceneImpl, a aVar) {
+    public static void b(SceneImpl sceneImpl, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, sceneImpl, aVar) == null) {
             a(15, lG, sceneImpl, com.kwad.components.ad.reward.c.d.AGGREGATION, aVar);

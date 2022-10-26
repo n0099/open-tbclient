@@ -9,18 +9,29 @@ import java.util.Map;
 import javax.annotation.Nullable;
 @Deprecated
 /* loaded from: classes7.dex */
-public interface ControllerListener2<INFO> {
+public interface ControllerListener2 {
+    void onFailure(String str, Throwable th, @Nullable Extras extras);
+
+    void onFinalImageSet(String str, @Nullable Object obj, Extras extras);
+
+    void onIntermediateImageFailed(String str);
+
+    void onIntermediateImageSet(String str, @Nullable Object obj);
+
+    void onRelease(String str, @Nullable Extras extras);
+
+    void onSubmit(String str, Object obj, @Nullable Extras extras);
 
     /* loaded from: classes7.dex */
-    public static class Extras {
+    public class Extras {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
-        public Map<String, Object> pipe;
+        public Map pipe;
         @Nullable
 
         /* renamed from: view  reason: collision with root package name */
-        public Map<String, Object> f1068view;
+        public Map f1068view;
 
         public Extras() {
             Interceptable interceptable = $ic;
@@ -36,7 +47,16 @@ public interface ControllerListener2<INFO> {
             }
         }
 
-        public static Extras of(@Nullable Map<String, Object> map, @Nullable Map<String, Object> map2) {
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "pipe: " + this.pipe + ", view: " + this.f1068view;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public static Extras of(@Nullable Map map, @Nullable Map map2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, map2)) == null) {
@@ -47,26 +67,5 @@ public interface ControllerListener2<INFO> {
             }
             return (Extras) invokeLL.objValue;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "pipe: " + this.pipe + ", view: " + this.f1068view;
-            }
-            return (String) invokeV.objValue;
-        }
     }
-
-    void onFailure(String str, Throwable th, @Nullable Extras extras);
-
-    void onFinalImageSet(String str, @Nullable INFO info, Extras extras);
-
-    void onIntermediateImageFailed(String str);
-
-    void onIntermediateImageSet(String str, @Nullable INFO info);
-
-    void onRelease(String str, @Nullable Extras extras);
-
-    void onSubmit(String str, Object obj, @Nullable Extras extras);
 }

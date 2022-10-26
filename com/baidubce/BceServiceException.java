@@ -23,7 +23,7 @@ public class BceServiceException extends BceClientException {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class ErrorType {
+    public final class ErrorType {
         public static final /* synthetic */ ErrorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ErrorType Client;
@@ -73,13 +73,19 @@ public class BceServiceException extends BceClientException {
         public static ErrorType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ErrorType) Enum.valueOf(ErrorType.class, str) : (ErrorType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ErrorType) Enum.valueOf(ErrorType.class, str);
+            }
+            return (ErrorType) invokeL.objValue;
         }
 
         public static ErrorType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ErrorType[]) $VALUES.clone() : (ErrorType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ErrorType[]) $VALUES.clone();
+            }
+            return (ErrorType[]) invokeV.objValue;
         }
     }
 
@@ -105,22 +111,72 @@ public class BceServiceException extends BceClientException {
         this.errorMessage = str;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BceServiceException(String str, Exception exc) {
+        super(null, exc);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, exc};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Throwable) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.errorType = ErrorType.Unknown;
+        this.errorMessage = str;
+    }
+
     public String getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errorCode : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.errorCode;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getErrorMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorMessage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errorMessage;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ErrorType getErrorType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.errorType : (ErrorType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.errorType;
+        }
+        return (ErrorType) invokeV.objValue;
+    }
+
+    public String getRequestId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.requestId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.statusCode;
+        }
+        return invokeV.intValue;
     }
 
     @Override // java.lang.Throwable
@@ -131,18 +187,6 @@ public class BceServiceException extends BceClientException {
             return getErrorMessage() + " (Status Code: " + getStatusCode() + "; Error Code: " + getErrorCode() + "; Request ID: " + getRequestId() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
-    }
-
-    public String getRequestId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.requestId : (String) invokeV.objValue;
-    }
-
-    public int getStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.statusCode : invokeV.intValue;
     }
 
     public void setErrorCode(String str) {
@@ -178,28 +222,5 @@ public class BceServiceException extends BceClientException {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.statusCode = i;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BceServiceException(String str, Exception exc) {
-        super(null, exc);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, exc};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Throwable) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.errorType = ErrorType.Unknown;
-        this.errorMessage = str;
     }
 }

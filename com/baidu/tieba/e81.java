@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.view.ViewGroup;
 /* loaded from: classes3.dex */
-public interface e81<View> {
+public interface e81 {
     void a();
 
-    View getRealView();
+    void b(String str, boolean z);
 
-    void setBtnIconNightModeEnable(boolean z);
+    void c(boolean z);
 
-    void setBtnPlaceholder(View view2);
+    Object getRealView();
 
-    void setData(@NonNull yo0 yo0Var);
+    void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
-    void setEnhanceBtnListener(@NonNull c81 c81Var);
+    void setCriusPopListener(c81 c81Var);
 
-    void setVisible(int i);
-
-    void update(int i);
+    void setData(bp0 bp0Var);
 }

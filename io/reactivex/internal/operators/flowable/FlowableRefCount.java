@@ -22,26 +22,26 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableRefCount extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile CompositeDisposable baseDisposable;
     public final ReentrantLock lock;
-    public final ConnectableFlowable<T> source;
+    public final ConnectableFlowable source;
     public final AtomicInteger subscriptionCount;
 
     /* loaded from: classes8.dex */
-    public final class ConnectionSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
+    public final class ConnectionSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 152064694420235350L;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompositeDisposable currentBase;
         public final AtomicLong requested;
         public final Disposable resource;
-        public final Subscriber<? super T> subscriber;
+        public final Subscriber subscriber;
         public final /* synthetic */ FlowableRefCount this$0;
 
-        public ConnectionSubscriber(FlowableRefCount flowableRefCount, Subscriber<? super T> subscriber, CompositeDisposable compositeDisposable, Disposable disposable) {
+        public ConnectionSubscriber(FlowableRefCount flowableRefCount, Subscriber subscriber, CompositeDisposable compositeDisposable, Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,6 +72,15 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
             }
         }
 
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                cleanup();
+                this.subscriber.onComplete();
+            }
+        }
+
         public void cleanup() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -92,15 +101,6 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                cleanup();
-                this.subscriber.onComplete();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
@@ -110,10 +110,10 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.subscriber.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.subscriber.onNext(obj);
             }
         }
 
@@ -135,14 +135,14 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
     }
 
     /* loaded from: classes8.dex */
-    public final class DisposeConsumer implements Consumer<Disposable> {
+    public final class DisposeConsumer implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> subscriber;
+        public final Subscriber subscriber;
         public final /* synthetic */ FlowableRefCount this$0;
         public final AtomicBoolean writeLocked;
 
-        public DisposeConsumer(FlowableRefCount flowableRefCount, Subscriber<? super T> subscriber, AtomicBoolean atomicBoolean) {
+        public DisposeConsumer(FlowableRefCount flowableRefCount, Subscriber subscriber, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,7 +225,7 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableRefCount(ConnectableFlowable<T> connectableFlowable) {
+    public FlowableRefCount(ConnectableFlowable connectableFlowable) {
         super(connectableFlowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -248,29 +248,8 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
         this.source = connectableFlowable;
     }
 
-    private Disposable disconnect(CompositeDisposable compositeDisposable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, compositeDisposable)) == null) ? Disposables.fromRunnable(new DisposeTask(this, compositeDisposable)) : (Disposable) invokeL.objValue;
-    }
-
-    private Consumer<Disposable> onSubscribe(Subscriber<? super T> subscriber, AtomicBoolean atomicBoolean) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, subscriber, atomicBoolean)) == null) ? new DisposeConsumer(this, subscriber, atomicBoolean) : (Consumer) invokeLL.objValue;
-    }
-
-    public void doSubscribe(Subscriber<? super T> subscriber, CompositeDisposable compositeDisposable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, subscriber, compositeDisposable) == null) {
-            ConnectionSubscriber connectionSubscriber = new ConnectionSubscriber(this, subscriber, compositeDisposable, disconnect(compositeDisposable));
-            subscriber.onSubscribe(connectionSubscriber);
-            this.source.subscribe((FlowableSubscriber) connectionSubscriber);
-        }
-    }
-
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
@@ -293,6 +272,33 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
             } finally {
                 this.lock.unlock();
             }
+        }
+    }
+
+    private Disposable disconnect(CompositeDisposable compositeDisposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, compositeDisposable)) == null) {
+            return Disposables.fromRunnable(new DisposeTask(this, compositeDisposable));
+        }
+        return (Disposable) invokeL.objValue;
+    }
+
+    private Consumer onSubscribe(Subscriber subscriber, AtomicBoolean atomicBoolean) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, subscriber, atomicBoolean)) == null) {
+            return new DisposeConsumer(this, subscriber, atomicBoolean);
+        }
+        return (Consumer) invokeLL.objValue;
+    }
+
+    public void doSubscribe(Subscriber subscriber, CompositeDisposable compositeDisposable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, subscriber, compositeDisposable) == null) {
+            ConnectionSubscriber connectionSubscriber = new ConnectionSubscriber(this, subscriber, compositeDisposable, disconnect(compositeDisposable));
+            subscriber.onSubscribe(connectionSubscriber);
+            this.source.subscribe((FlowableSubscriber) connectionSubscriber);
         }
     }
 }

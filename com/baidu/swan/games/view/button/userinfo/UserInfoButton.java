@@ -5,8 +5,8 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.view.button.base.ApiButton;
-import com.baidu.tieba.k64;
-import com.baidu.tieba.m64;
+import com.baidu.tieba.l64;
+import com.baidu.tieba.n64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ public class UserInfoButton extends ApiButton {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements m64.b {
+    public class a implements n64.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserInfoButton a;
@@ -41,7 +41,7 @@ public class UserInfoButton extends ApiButton {
             this.a = userInfoButton;
         }
 
-        @Override // com.baidu.tieba.m64.b
+        @Override // com.baidu.tieba.n64.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -70,23 +70,6 @@ public class UserInfoButton extends ApiButton {
         }
     }
 
-    @Override // com.baidu.swan.games.view.button.base.ApiButton, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            new m64().a(new a(this));
-        }
-    }
-
-    public void u(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            k64 k64Var = new k64();
-            k64Var.data = jSONObject;
-            k(k64Var);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserInfoButton(Context context, EventTargetImpl eventTargetImpl) {
         super(context, eventTargetImpl);
@@ -105,6 +88,23 @@ public class UserInfoButton extends ApiButton {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.swan.games.view.button.base.ApiButton, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            new n64().a(new a(this));
+        }
+    }
+
+    public void u(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            l64 l64Var = new l64();
+            l64Var.data = jSONObject;
+            k(l64Var);
         }
     }
 }

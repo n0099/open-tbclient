@@ -34,18 +34,6 @@ public class DetectionResultColumn {
         this.codewords = new Codeword[(boundingBox.getMaxY() - boundingBox.getMinY()) + 1];
     }
 
-    public final BoundingBox getBoundingBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.boundingBox : (BoundingBox) invokeV.objValue;
-    }
-
-    public final Codeword getCodeword(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.codewords[imageRowToCodewordIndex(i)] : (Codeword) invokeI.objValue;
-    }
-
     public final Codeword getCodewordNearby(int i) {
         InterceptResult invokeI;
         Codeword codeword;
@@ -72,16 +60,40 @@ public class DetectionResultColumn {
         return (Codeword) invokeI.objValue;
     }
 
+    public final BoundingBox getBoundingBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.boundingBox;
+        }
+        return (BoundingBox) invokeV.objValue;
+    }
+
     public final Codeword[] getCodewords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.codewords : (Codeword[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.codewords;
+        }
+        return (Codeword[]) invokeV.objValue;
+    }
+
+    public final Codeword getCodeword(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.codewords[imageRowToCodewordIndex(i)];
+        }
+        return (Codeword) invokeI.objValue;
     }
 
     public final int imageRowToCodewordIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i - this.boundingBox.getMinY() : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return i - this.boundingBox.getMinY();
+        }
+        return invokeI.intValue;
     }
 
     public final void setCodeword(int i, Codeword codeword) {

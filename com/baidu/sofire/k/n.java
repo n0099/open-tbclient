@@ -20,7 +20,10 @@ public class n {
             }
             int k = a.k(context);
             if (k == 1 && (i = a) != -1) {
-                return i == 1;
+                if (i != 1) {
+                    return false;
+                }
+                return true;
             }
             boolean z = com.baidu.sofire.j.a.a(context).c.getBoolean("s_a_pl", false);
             boolean z2 = !a.a(context, ".ffnpp");

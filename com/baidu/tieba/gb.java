@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes4.dex */
-public abstract class gb extends kb<HttpResponsedMessage> {
+public abstract class gb extends kb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +29,7 @@ public abstract class gb extends kb<HttpResponsedMessage> {
                 return;
             }
         }
-        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.HTTP) {
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.CUSTOM) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

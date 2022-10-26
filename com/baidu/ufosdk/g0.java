@@ -48,7 +48,7 @@ public class g0 implements View.OnClickListener {
                 this.b.d.remove(customCheckBox2.getText());
             }
             for (int i = 0; i < this.b.d.size(); i++) {
-                String str = "选中的原因：" + this.b.d.get(i);
+                String str = "选中的原因：" + ((String) this.b.d.get(i));
             }
             if (!this.b.d.contains("抄袭") && !this.b.d.contains("疑似抄袭") && !this.b.d.contains("恶意抄袭")) {
                 if (this.b.d.contains("虚假欺诈")) {

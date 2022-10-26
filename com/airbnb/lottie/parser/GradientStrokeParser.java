@@ -22,9 +22,10 @@ public class GradientStrokeParser {
 
     public static GradientStroke parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         AnimatableGradientColorValue animatableGradientColorValue;
+        GradientType gradientType;
         ArrayList arrayList = new ArrayList();
         String str = null;
-        GradientType gradientType = null;
+        GradientType gradientType2 = null;
         AnimatableGradientColorValue animatableGradientColorValue2 = null;
         AnimatablePointValue animatablePointValue = null;
         AnimatablePointValue animatablePointValue2 = null;
@@ -65,7 +66,12 @@ public class GradientStrokeParser {
                     animatableIntegerValue = AnimatableValueParser.parseInteger(jsonReader, lottieComposition);
                     break;
                 case 3:
-                    gradientType = jsonReader.nextInt() == 1 ? GradientType.LINEAR : GradientType.RADIAL;
+                    if (jsonReader.nextInt() == 1) {
+                        gradientType = GradientType.LINEAR;
+                    } else {
+                        gradientType = GradientType.RADIAL;
+                    }
+                    gradientType2 = gradientType;
                     break;
                 case 4:
                     animatablePointValue = AnimatableValueParser.parsePoint(jsonReader, lottieComposition);
@@ -137,6 +143,6 @@ public class GradientStrokeParser {
         if (animatableIntegerValue == null) {
             animatableIntegerValue = new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100)));
         }
-        return new GradientStroke(str, gradientType, animatableGradientColorValue2, animatableIntegerValue, animatablePointValue, animatablePointValue2, animatableFloatValue, lineCapType, lineJoinType, f, arrayList, animatableFloatValue2, z);
+        return new GradientStroke(str, gradientType2, animatableGradientColorValue2, animatableIntegerValue, animatablePointValue, animatablePointValue2, animatableFloatValue, lineCapType, lineJoinType, f, arrayList, animatableFloatValue2, z);
     }
 }

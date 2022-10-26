@@ -41,6 +41,78 @@ public class FetchTaskObj {
         DEBUG = AppConfig.isDebug();
     }
 
+    public String getFileID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFileID;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFileMeta() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFileMeta;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getJobID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mJobID;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOrigin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mOrigin;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mStatus;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mValue;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mVersion;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public FetchTaskObj(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,54 +135,6 @@ public class FetchTaskObj {
         this.mStatus = str5;
         this.mOrigin = str6;
         this.mFileMeta = str7;
-    }
-
-    public String getFileID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFileID : (String) invokeV.objValue;
-    }
-
-    public String getFileMeta() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFileMeta : (String) invokeV.objValue;
-    }
-
-    public String getJobID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mJobID : (String) invokeV.objValue;
-    }
-
-    public String getOrigin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mOrigin : (String) invokeV.objValue;
-    }
-
-    public String getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStatus : (String) invokeV.objValue;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mType : (String) invokeV.objValue;
-    }
-
-    public String getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mValue : (String) invokeV.objValue;
-    }
-
-    public String getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mVersion : (String) invokeV.objValue;
     }
 
     public void setFileID(String str) {

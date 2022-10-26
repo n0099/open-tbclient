@@ -21,14 +21,14 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes8.dex */
-public final class BlockingObservableIterable<T> implements Iterable<T> {
+public final class BlockingObservableIterable implements Iterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
-    public final ObservableSource<? extends T> source;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class BlockingObservableIterator<T> extends AtomicReference<Disposable> implements Observer<T>, Iterator<T>, Disposable {
+    public final class BlockingObservableIterator extends AtomicReference implements Observer, Iterator, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6695226475494099826L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
         public volatile boolean done;
         public Throwable error;
         public final Lock lock;
-        public final SpscLinkedArrayQueue<T> queue;
+        public final SpscLinkedArrayQueue queue;
 
         public BlockingObservableIterator(int i) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                     return;
                 }
             }
-            this.queue = new SpscLinkedArrayQueue<>(i);
+            this.queue = new SpscLinkedArrayQueue(i);
             ReentrantLock reentrantLock = new ReentrantLock();
             this.lock = reentrantLock;
             this.condition = reentrantLock.newCondition();
@@ -67,52 +67,18 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
             }
         }
 
-        @Override // java.util.Iterator
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return invokeV.booleanValue;
-            }
-            while (true) {
-                boolean z = this.done;
-                boolean isEmpty = this.queue.isEmpty();
-                if (z) {
-                    Throwable th = this.error;
-                    if (th != null) {
-                        throw ExceptionHelper.wrapOrThrow(th);
-                    }
-                    if (isEmpty) {
-                        return false;
-                    }
-                }
-                if (!isEmpty) {
-                    return true;
-                }
-                try {
-                    BlockingHelper.verifyNonBlocking();
-                    this.lock.lock();
-                    while (!this.done && this.queue.isEmpty()) {
-                        this.condition.await();
-                    }
-                    this.lock.unlock();
-                } catch (InterruptedException e) {
-                    DisposableHelper.dispose(this);
-                    signalConsumer();
-                    throw ExceptionHelper.wrapOrThrow(e);
-                }
-            }
-        }
-
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
-        public T next() {
+        public Object next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -121,7 +87,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                 }
                 throw new NoSuchElementException();
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.Observer
@@ -130,33 +96,6 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.done = true;
                 signalConsumer();
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                this.error = th;
-                this.done = true;
-                signalConsumer();
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-                this.queue.offer(t);
-                signalConsumer();
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) {
-                DisposableHelper.setOnce(this, disposable);
             }
         }
 
@@ -179,9 +118,75 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                 }
             }
         }
+
+        @Override // java.util.Iterator
+        public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+                return invokeV.booleanValue;
+            }
+            while (true) {
+                boolean z = this.done;
+                boolean isEmpty = this.queue.isEmpty();
+                if (z) {
+                    Throwable th = this.error;
+                    if (th == null) {
+                        if (isEmpty) {
+                            return false;
+                        }
+                    } else {
+                        throw ExceptionHelper.wrapOrThrow(th);
+                    }
+                }
+                if (isEmpty) {
+                    try {
+                        BlockingHelper.verifyNonBlocking();
+                        this.lock.lock();
+                        while (!this.done && this.queue.isEmpty()) {
+                            this.condition.await();
+                        }
+                        this.lock.unlock();
+                    } catch (InterruptedException e) {
+                        DisposableHelper.dispose(this);
+                        signalConsumer();
+                        throw ExceptionHelper.wrapOrThrow(e);
+                    }
+                } else {
+                    return true;
+                }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                this.error = th;
+                this.done = true;
+                signalConsumer();
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+                this.queue.offer(obj);
+                signalConsumer();
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) {
+                DisposableHelper.setOnce(this, disposable);
+            }
+        }
     }
 
-    public BlockingObservableIterable(ObservableSource<? extends T> observableSource, int i) {
+    public BlockingObservableIterable(ObservableSource observableSource, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,7 +206,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
     }
 
     @Override // java.lang.Iterable
-    public Iterator<T> iterator() {
+    public Iterator iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

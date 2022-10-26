@@ -20,17 +20,17 @@ public class y5 implements i7 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String s = "";
     public static String t = "";
-    public static final x7<Application, b7<y5>> u;
+    public static final x7 u;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public boolean b;
-    public final w7<String> c;
-    public final w7<String> d;
-    public final w7<String> e;
+    public final w7 c;
+    public final w7 d;
+    public final w7 e;
     public String[] f;
-    public final w7<String> g;
-    public final w7<String> h;
-    public final w7<String> i;
+    public final w7 g;
+    public final w7 h;
+    public final w7 i;
     public String[] j;
     public int k;
     public int l;
@@ -54,8 +54,52 @@ public class y5 implements i7 {
                 return;
             }
         }
-        u = new x7<>();
+        u = new x7();
         BufferUtils.d(1);
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.p) {
+            h(this.n, this.o);
+            this.p = false;
+        }
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int M = f1.f.M();
+            if (M == 0) {
+                return -1;
+            }
+            return M;
+        }
+        return invokeV.intValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.b) {
+                String J = f1.f.J(this.k);
+                this.a = J;
+                return J;
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 
     public y5(String str, String str2) {
@@ -74,39 +118,39 @@ public class y5 implements i7 {
             }
         }
         this.a = "";
-        this.c = new w7<>();
-        this.d = new w7<>();
-        this.e = new w7<>();
-        this.g = new w7<>();
-        this.h = new w7<>();
-        this.i = new w7<>();
+        this.c = new w7();
+        this.d = new w7();
+        this.e = new w7();
+        this.g = new w7();
+        this.h = new w7();
+        this.i = new w7();
         this.q = BufferUtils.d(1);
         this.r = BufferUtils.d(1);
-        if (str == null) {
-            throw new IllegalArgumentException("vertex shader must not be null");
-        }
-        if (str2 != null) {
-            String str3 = s;
-            if (str3 != null && str3.length() > 0) {
-                str = s + str;
-            }
-            String str4 = t;
-            if (str4 != null && str4.length() > 0) {
-                str2 = t + str2;
-            }
-            this.n = str;
-            this.o = str2;
-            BufferUtils.c(16);
-            h(str, str2);
-            if (o()) {
-                j();
-                k();
-                a(f1.a, this);
+        if (str != null) {
+            if (str2 != null) {
+                String str3 = s;
+                if (str3 != null && str3.length() > 0) {
+                    str = s + str;
+                }
+                String str4 = t;
+                if (str4 != null && str4.length() > 0) {
+                    str2 = t + str2;
+                }
+                this.n = str;
+                this.o = str2;
+                BufferUtils.c(16);
+                h(str, str2);
+                if (o()) {
+                    j();
+                    k();
+                    a(f1.a, this);
+                    return;
+                }
                 return;
             }
-            return;
+            throw new IllegalArgumentException("fragment shader must not be null");
         }
-        throw new IllegalArgumentException("fragment shader must not be null");
+        throw new IllegalArgumentException("vertex shader must not be null");
     }
 
     public static void g(Application application) {
@@ -122,10 +166,10 @@ public class y5 implements i7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed shaders/app: { ");
-            x7.c<Application> f = u.f();
+            x7.c f = u.f();
             f.c();
             while (f.hasNext()) {
-                sb.append(u.c(f.next()).b);
+                sb.append(((b7) u.c((Application) f.next())).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -135,26 +179,26 @@ public class y5 implements i7 {
     }
 
     public static void n(Application application) {
-        b7<y5> c;
+        b7 b7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, application) == null) || f1.f == null || (c = u.c(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, application) != null) || f1.f == null || (b7Var = (b7) u.c(application)) == null) {
             return;
         }
-        for (int i = 0; i < c.b; i++) {
-            c.get(i).p = true;
-            c.get(i).f();
+        for (int i = 0; i < b7Var.b; i++) {
+            ((y5) b7Var.get(i)).p = true;
+            ((y5) b7Var.get(i)).f();
         }
     }
 
     public final void a(Application application, y5 y5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, application, y5Var) == null) {
-            b7<y5> c = u.c(application);
-            if (c == null) {
-                c = new b7<>();
+            b7 b7Var = (b7) u.c(application);
+            if (b7Var == null) {
+                b7Var = new b7();
             }
-            c.a(y5Var);
-            u.i(application, c);
+            b7Var.a(y5Var);
+            u.i(application, b7Var);
         }
     }
 
@@ -168,16 +212,8 @@ public class y5 implements i7 {
             n3Var.K(this.m);
             n3Var.H(this.k);
             if (u.c(f1.a) != null) {
-                u.c(f1.a).j(this, true);
+                ((b7) u.c(f1.a)).j(this, true);
             }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.p) {
-            h(this.n, this.o);
-            this.p = false;
         }
     }
 
@@ -200,19 +236,6 @@ public class y5 implements i7 {
             }
             this.b = false;
         }
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int M = f1.f.M();
-            if (M != 0) {
-                return M;
-            }
-            return -1;
-        }
-        return invokeV.intValue;
     }
 
     public final void j() {
@@ -255,26 +278,6 @@ public class y5 implements i7 {
         }
     }
 
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.b) {
-                String J = f1.f.J(this.k);
-                this.a = J;
-                return J;
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
     public final int p(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -301,6 +304,7 @@ public class y5 implements i7 {
 
     public final int q(int i, String str) {
         InterceptResult invokeIL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, str)) == null) {
             n3 n3Var = f1.f;
@@ -316,7 +320,12 @@ public class y5 implements i7 {
                 String x = n3Var.x(T);
                 StringBuilder sb = new StringBuilder();
                 sb.append(this.a);
-                sb.append(i == 35633 ? "Vertex shader\n" : "Fragment shader:\n");
+                if (i == 35633) {
+                    str2 = "Vertex shader\n";
+                } else {
+                    str2 = "Fragment shader:\n";
+                }
+                sb.append(str2);
                 this.a = sb.toString();
                 this.a += x;
                 return -1;

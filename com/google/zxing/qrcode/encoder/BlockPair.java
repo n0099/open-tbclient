@@ -35,12 +35,18 @@ public final class BlockPair {
     public byte[] getDataBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dataBytes : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dataBytes;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public byte[] getErrorCorrectionBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorCorrectionBytes : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errorCorrectionBytes;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

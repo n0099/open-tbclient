@@ -70,22 +70,23 @@ public class SimpleFormatter extends Formatter {
                 int i2 = 0;
                 boolean z = false;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i2 < length) {
+                        StackTraceElement stackTraceElement = stackTrace[i2];
+                        if (stackTraceElement.getClassName().startsWith(Log.class.getName())) {
+                            z = true;
+                        } else if (z) {
+                            str = stackTraceElement.getClassName();
+                            str2 = stackTraceElement.getMethodName();
+                            i = stackTraceElement.getLineNumber();
+                            break;
+                        }
+                        i2++;
+                    } else {
                         str = null;
                         str2 = null;
                         i = 0;
                         break;
                     }
-                    StackTraceElement stackTraceElement = stackTrace[i2];
-                    if (stackTraceElement.getClassName().startsWith(Log.class.getName())) {
-                        z = true;
-                    } else if (z) {
-                        str = stackTraceElement.getClassName();
-                        str2 = stackTraceElement.getMethodName();
-                        i = stackTraceElement.getLineNumber();
-                        break;
-                    }
-                    i2++;
                 }
                 logRecord.setSourceClassName(str);
                 logRecord.setSourceMethodName(str2);

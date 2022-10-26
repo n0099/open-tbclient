@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.widget.EdgeEffect;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,26 +35,25 @@ public final class EdgeEffectCompat {
         this.mEdgeEffect = new EdgeEffect(context);
     }
 
-    @Deprecated
-    public boolean draw(Canvas canvas) {
-        InterceptResult invokeL;
+    public static void onPull(EdgeEffect edgeEffect, float f, float f2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, canvas)) == null) ? this.mEdgeEffect.draw(canvas) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mEdgeEffect.finish();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{edgeEffect, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                edgeEffect.onPull(f, f2);
+            } else {
+                edgeEffect.onPull(f);
+            }
         }
     }
 
     @Deprecated
-    public boolean isFinished() {
-        InterceptResult invokeV;
+    public boolean draw(Canvas canvas) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mEdgeEffect.isFinished() : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, canvas)) == null) {
+            return this.mEdgeEffect.draw(canvas);
+        }
+        return invokeL.booleanValue;
     }
 
     @Deprecated
@@ -81,6 +79,24 @@ public final class EdgeEffectCompat {
     }
 
     @Deprecated
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mEdgeEffect.finish();
+        }
+    }
+
+    @Deprecated
+    public boolean isFinished() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mEdgeEffect.isFinished();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Deprecated
     public boolean onRelease() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,14 +105,6 @@ public final class EdgeEffectCompat {
             return this.mEdgeEffect.isFinished();
         }
         return invokeV.booleanValue;
-    }
-
-    @Deprecated
-    public void setSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            this.mEdgeEffect.setSize(i, i2);
-        }
     }
 
     @Deprecated
@@ -110,14 +118,11 @@ public final class EdgeEffectCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static void onPull(@NonNull EdgeEffect edgeEffect, float f, float f2) {
+    @Deprecated
+    public void setSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{edgeEffect, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                edgeEffect.onPull(f, f2);
-            } else {
-                edgeEffect.onPull(f);
-            }
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            this.mEdgeEffect.setSize(i, i2);
         }
     }
 }

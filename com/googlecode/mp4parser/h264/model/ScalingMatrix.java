@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class ScalingMatrix {
     public static /* synthetic */ Interceptable $ic;
@@ -29,15 +30,25 @@ public class ScalingMatrix {
 
     public String toString() {
         InterceptResult invokeV;
+        List asList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder("ScalingMatrix{ScalingList4x4=");
             ScalingList[] scalingListArr = this.ScalingList4x4;
-            sb.append(scalingListArr == null ? null : Arrays.asList(scalingListArr));
+            List list = null;
+            if (scalingListArr == null) {
+                asList = null;
+            } else {
+                asList = Arrays.asList(scalingListArr);
+            }
+            sb.append(asList);
             sb.append("\n");
             sb.append(", ScalingList8x8=");
             ScalingList[] scalingListArr2 = this.ScalingList8x8;
-            sb.append(scalingListArr2 != null ? Arrays.asList(scalingListArr2) : null);
+            if (scalingListArr2 != null) {
+                list = Arrays.asList(scalingListArr2);
+            }
+            sb.append(list);
             sb.append("\n");
             sb.append('}');
             return sb.toString();

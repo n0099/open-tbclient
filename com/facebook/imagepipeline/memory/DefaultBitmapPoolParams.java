@@ -48,7 +48,10 @@ public class DefaultBitmapPoolParams {
     public static PoolParams get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new PoolParams(0, getMaxSizeHardCap(), DEFAULT_BUCKETS) : (PoolParams) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new PoolParams(0, getMaxSizeHardCap(), DEFAULT_BUCKETS);
+        }
+        return (PoolParams) invokeV.objValue;
     }
 
     public static int getMaxSizeHardCap() {

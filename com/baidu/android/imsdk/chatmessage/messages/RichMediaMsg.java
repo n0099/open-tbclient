@@ -37,22 +37,50 @@ public abstract class RichMediaMsg extends NormalMsg implements Parcelable, NoPr
     private void notifySendProcess() {
         ISendMessageStatusListener iSendMessageStatusListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().getListener(this.mListenerKey)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().getListener(this.mListenerKey)) != null) {
+            iSendMessageStatusListener.onSendProgress(this.mProgress, this);
         }
-        iSendMessageStatusListener.onSendProgress(this.mProgress, this);
     }
 
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mProgress : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mProgress;
+        }
+        return invokeV.intValue;
     }
 
     public String getRemoteUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRemoteUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRemoteUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RichMediaMsg(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mRemoteUrl = null;
+        this.mRemoteUrl = parcel.readString();
+        this.mProgress = parcel.readInt();
     }
 
     public void setProgress(int i) {
@@ -78,28 +106,5 @@ public abstract class RichMediaMsg extends NormalMsg implements Parcelable, NoPr
             parcel.writeString(this.mRemoteUrl);
             parcel.writeInt(this.mProgress);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RichMediaMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mRemoteUrl = null;
-        this.mRemoteUrl = parcel.readString();
-        this.mProgress = parcel.readInt();
     }
 }

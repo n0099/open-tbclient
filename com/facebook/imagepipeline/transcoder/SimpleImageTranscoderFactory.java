@@ -34,6 +34,9 @@ public class SimpleImageTranscoderFactory implements ImageTranscoderFactory {
     public ImageTranscoder createImageTranscoder(ImageFormat imageFormat, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, imageFormat, z)) == null) ? new SimpleImageTranscoder(z, this.mMaxBitmapSize) : (ImageTranscoder) invokeLZ.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, imageFormat, z)) == null) {
+            return new SimpleImageTranscoder(z, this.mMaxBitmapSize);
+        }
+        return (ImageTranscoder) invokeLZ.objValue;
     }
 }

@@ -3,8 +3,6 @@ package com.google.android.material.internal;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseBooleanArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,12 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ParcelableSparseBooleanArray extends SparseBooleanArray implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ParcelableSparseBooleanArray> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +40,7 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ParcelableSparseBooleanArray>() { // from class: com.google.android.material.internal.ParcelableSparseBooleanArray.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.internal.ParcelableSparseBooleanArray.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,10 +59,8 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            @NonNull
-            public ParcelableSparseBooleanArray createFromParcel(@NonNull Parcel parcel) {
+            public ParcelableSparseBooleanArray createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -74,13 +79,14 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            @NonNull
             public ParcelableSparseBooleanArray[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ParcelableSparseBooleanArray[i] : (ParcelableSparseBooleanArray[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ParcelableSparseBooleanArray[i];
+                }
+                return (ParcelableSparseBooleanArray[]) invokeI.objValue;
             }
         };
     }
@@ -96,32 +102,6 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            int[] iArr = new int[size()];
-            boolean[] zArr = new boolean[size()];
-            for (int i2 = 0; i2 < size(); i2++) {
-                iArr[i2] = keyAt(i2);
-                zArr[i2] = valueAt(i2);
-            }
-            parcel.writeInt(size());
-            parcel.writeIntArray(iArr);
-            parcel.writeBooleanArray(zArr);
         }
     }
 
@@ -146,7 +126,7 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ParcelableSparseBooleanArray(@NonNull SparseBooleanArray sparseBooleanArray) {
+    public ParcelableSparseBooleanArray(SparseBooleanArray sparseBooleanArray) {
         super(sparseBooleanArray.size());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -165,6 +145,22 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
         }
         for (int i3 = 0; i3 < sparseBooleanArray.size(); i3++) {
             put(sparseBooleanArray.keyAt(i3), sparseBooleanArray.valueAt(i3));
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            int[] iArr = new int[size()];
+            boolean[] zArr = new boolean[size()];
+            for (int i2 = 0; i2 < size(); i2++) {
+                iArr[i2] = keyAt(i2);
+                zArr[i2] = valueAt(i2);
+            }
+            parcel.writeInt(size());
+            parcel.writeIntArray(iArr);
+            parcel.writeBooleanArray(zArr);
         }
     }
 }

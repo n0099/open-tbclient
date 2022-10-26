@@ -78,6 +78,8 @@ public class TransitionUtils {
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
+        boolean z2;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-936915425, "Landroidx/transition/TransitionUtils;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -89,9 +91,23 @@ public class TransitionUtils {
                 return;
             }
         }
-        HAS_IS_ATTACHED_TO_WINDOW = Build.VERSION.SDK_INT >= 19;
-        HAS_OVERLAY = Build.VERSION.SDK_INT >= 18;
-        HAS_PICTURE_BITMAP = Build.VERSION.SDK_INT >= 28;
+        boolean z3 = true;
+        if (Build.VERSION.SDK_INT >= 19) {
+            z = true;
+        } else {
+            z = false;
+        }
+        HAS_IS_ATTACHED_TO_WINDOW = z;
+        if (Build.VERSION.SDK_INT >= 18) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        HAS_OVERLAY = z2;
+        if (Build.VERSION.SDK_INT < 28) {
+            z3 = false;
+        }
+        HAS_PICTURE_BITMAP = z3;
     }
 
     public TransitionUtils() {
@@ -155,15 +171,16 @@ public class TransitionUtils {
                 if (viewGroup != null) {
                     z2 = viewGroup.isAttachedToWindow();
                     Bitmap bitmap = null;
-                    if (HAS_OVERLAY || !z) {
-                        viewGroup2 = null;
-                        i = 0;
-                    } else if (!z2) {
-                        return null;
-                    } else {
+                    if (!HAS_OVERLAY && z) {
+                        if (!z2) {
+                            return null;
+                        }
                         viewGroup2 = (ViewGroup) view2.getParent();
                         i = viewGroup2.indexOfChild(view2);
                         viewGroup.getOverlay().add(view2);
+                    } else {
+                        viewGroup2 = null;
+                        i = 0;
                     }
                     round = Math.round(rectF.width());
                     round2 = Math.round(rectF.height());
@@ -198,7 +215,7 @@ public class TransitionUtils {
             }
             z2 = false;
             Bitmap bitmap2 = null;
-            if (HAS_OVERLAY) {
+            if (!HAS_OVERLAY) {
             }
             viewGroup2 = null;
             i = 0;

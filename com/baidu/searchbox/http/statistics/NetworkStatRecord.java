@@ -27,7 +27,7 @@ public class NetworkStatRecord {
     public static final int DEFAULT_SUBFROM_ID = 0;
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<InetAddress> addressList;
+    public List addressList;
     public String bdTraceId;
     public String clientIP;
     public long connTs;
@@ -104,32 +104,33 @@ public class NetworkStatRecord {
     private String getStackTraceString(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, this, th)) != null) {
-            return (String) invokeL.objValue;
-        }
-        if (th == null) {
-            return "";
-        }
-        PrintWriter printWriter = null;
-        try {
-            StringWriter stringWriter = new StringWriter();
-            PrintWriter printWriter2 = new PrintWriter(stringWriter);
-            try {
-                th.printStackTrace(printWriter2);
-                printWriter2.flush();
-                String stringWriter2 = stringWriter.toString();
-                printWriter2.close();
-                return stringWriter2;
-            } catch (Throwable th2) {
-                th = th2;
-                printWriter = printWriter2;
-                if (printWriter != null) {
-                    printWriter.close();
-                }
-                throw th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, th)) == null) {
+            if (th == null) {
+                return "";
             }
-        } catch (Throwable th3) {
-            th = th3;
+            PrintWriter printWriter = null;
+            try {
+                StringWriter stringWriter = new StringWriter();
+                PrintWriter printWriter2 = new PrintWriter(stringWriter);
+                try {
+                    th.printStackTrace(printWriter2);
+                    printWriter2.flush();
+                    String stringWriter2 = stringWriter.toString();
+                    printWriter2.close();
+                    return stringWriter2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    printWriter = printWriter2;
+                    if (printWriter != null) {
+                        printWriter.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
@@ -151,11 +152,19 @@ public class NetworkStatRecord {
     public boolean isNeedFinishRightNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.exception == null && this.statusCode == 200) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.exception == null && this.statusCode == 200) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -208,7 +217,12 @@ public class NetworkStatRecord {
             sb.append(", clientIP=");
             sb.append(this.clientIP);
             sb.append(", isConnReused=");
-            sb.append(this.isConnReused ? "1" : "0");
+            if (this.isConnReused) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            sb.append(str);
             sb.append(", realResponseLength=");
             sb.append(this.realResponseLength);
             sb.append(", readOverTime=");
@@ -219,7 +233,13 @@ public class NetworkStatRecord {
             sb.append(this.subFrom);
             sb.append(", extraUserInfo=");
             JSONObject jSONObject = this.extraUserInfo;
-            sb.append(jSONObject != null ? jSONObject.toString() : "");
+            String str3 = "";
+            if (jSONObject == null) {
+                str2 = "";
+            } else {
+                str2 = jSONObject.toString();
+            }
+            sb.append(str2);
             sb.append(", ipStack=");
             sb.append(this.ipStack);
             sb.append(", isVPNConnect=");
@@ -230,7 +250,10 @@ public class NetworkStatRecord {
             sb.append(this.networkQuality);
             sb.append(", sdtProbeErrorCode=");
             JSONObject jSONObject2 = this.sdtProbeErrorCode;
-            sb.append(jSONObject2 != null ? jSONObject2.toString() : "");
+            if (jSONObject2 != null) {
+                str3 = jSONObject2.toString();
+            }
+            sb.append(str3);
             sb.append(", networkQualityFrom=");
             sb.append(this.networkQualityFrom);
             sb.append(", httpDnsAreaInfo=");
@@ -245,6 +268,10 @@ public class NetworkStatRecord {
 
     public JSONObject toUBCJson() {
         InterceptResult invokeV;
+        Object obj;
+        Object obj2;
+        Object obj3;
+        Object obj4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -329,19 +356,39 @@ public class NetworkStatRecord {
                 jSONObject.put("from", this.from);
                 jSONObject.put("subFrom", this.subFrom);
                 String str = "1";
-                jSONObject.put("socketReuse", this.isConnReused ? "1" : "0");
+                if (this.isConnReused) {
+                    obj = "1";
+                } else {
+                    obj = "0";
+                }
+                jSONObject.put("socketReuse", obj);
                 jSONObject.put("ipStack", this.ipStack);
-                jSONObject.put("useFallback", this.useFallbackConn ? "1" : "0");
+                if (this.useFallbackConn) {
+                    obj2 = "1";
+                } else {
+                    obj2 = "0";
+                }
+                jSONObject.put("useFallback", obj2);
                 if (!TextUtils.isEmpty(this.bdTraceId)) {
                     jSONObject.put("bdTraceId", this.bdTraceId);
                 }
-                jSONObject.put("isConnected", this.isConnected ? "1" : "0");
+                if (this.isConnected) {
+                    obj3 = "1";
+                } else {
+                    obj3 = "0";
+                }
+                jSONObject.put("isConnected", obj3);
                 jSONObject.put(CloudStabilityUBCUtils.KEY_WEAK_QUALITY, this.networkQuality);
                 jSONObject.put("networkQualityFrom", this.networkQualityFrom);
                 if (this.sdtProbeErrorCode != null) {
                     jSONObject.put("sdtProbeErrorCode", this.sdtProbeErrorCode.toString());
                 }
-                jSONObject.put("viaVPN", this.isVPNConnect ? "1" : "0");
+                if (this.isVPNConnect) {
+                    obj4 = "1";
+                } else {
+                    obj4 = "0";
+                }
+                jSONObject.put("viaVPN", obj4);
                 if (!this.isProxyConnect) {
                     str = "0";
                 }

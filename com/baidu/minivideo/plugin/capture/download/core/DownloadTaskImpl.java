@@ -32,6 +32,18 @@ public abstract class DownloadTaskImpl implements DownloadTask {
     public String mTag;
     public final ThreadRecord mThreadRecord;
 
+    public abstract RandomAccessFile getFile(File file, String str, long j) throws IOException;
+
+    public abstract Map getHttpHeaders(ThreadRecord threadRecord);
+
+    public abstract int getResponseCode();
+
+    public abstract String getTag();
+
+    public abstract void insertIntoDB(ThreadRecord threadRecord);
+
+    public abstract void updateDB(ThreadRecord threadRecord);
+
     public DownloadTaskImpl(DownloadInfo downloadInfo, ThreadRecord threadRecord, DownloadTask.OnDownloadListener onDownloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,13 +84,93 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         }
     }
 
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mCommend = 107;
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mStatus == 107) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
+    public boolean isComplete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.mStatus == 105) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
+    public boolean isDownloading() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.mStatus == 104) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
+    public boolean isFailed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mStatus == 108) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.mStatus == 106) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.mCommend = 106;
+        }
+    }
+
     private final void close(Closeable closeable) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, closeable) == null) || closeable == null) {
-            return;
-        }
-        synchronized (DownloadTaskImpl.class) {
-            closeable.close();
+        if ((interceptable == null || interceptable.invokeL(65538, this, closeable) == null) && closeable != null) {
+            synchronized (DownloadTaskImpl.class) {
+                closeable.close();
+            }
         }
     }
 
@@ -89,6 +181,25 @@ public abstract class DownloadTaskImpl implements DownloadTask {
             return this.mDownloadInfo.getDir().getAbsolutePath() + File.separator + this.mDownloadInfo.getName();
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            Process.setThreadPriority(10);
+            insertIntoDB(this.mThreadRecord);
+            try {
+                this.mStatus = 104;
+                executeDownload();
+                synchronized (this.mOnDownloadListener) {
+                    this.mStatus = 105;
+                    this.mOnDownloadListener.onDownloadCompleted(createFileSavedPath());
+                }
+            } catch (DownloadException e) {
+                handleDownloadException(e);
+            }
+        }
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x005c */
@@ -105,57 +216,56 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         IOException e;
         ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) {
-            return;
-        }
-        try {
-            URL url = new URL(this.mThreadRecord.getUri());
-            ?? r2 = 0;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
+                URL url = new URL(this.mThreadRecord.getUri());
+                ?? r2 = 0;
                 try {
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     try {
-                        httpURLConnection.setConnectTimeout(4000);
-                        httpURLConnection.setReadTimeout(4000);
-                        httpURLConnection.setRequestMethod("GET");
-                        setHttpHeader(getHttpHeaders(this.mThreadRecord), httpURLConnection);
-                        int responseCode = httpURLConnection.getResponseCode();
-                        if (responseCode == getResponseCode()) {
-                            transferData(httpURLConnection);
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            setHttpHeader(getHttpHeaders(this.mThreadRecord), httpURLConnection);
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == getResponseCode()) {
+                                transferData(httpURLConnection);
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                    return;
+                                }
                                 return;
                             }
-                            return;
+                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
                         }
-                        throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                    } catch (ProtocolException e3) {
-                        e2 = e3;
-                        throw new DownloadException(108, "Protocol error", e2);
-                    } catch (IOException e4) {
-                        e = e4;
-                        throw new DownloadException(108, "IO error", e);
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    r2 = url;
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (r2 != 0) {
-                        r2.disconnect();
                     }
                     throw th;
                 }
-            } catch (ProtocolException e5) {
-                e2 = e5;
-            } catch (IOException e6) {
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
-                if (r2 != 0) {
-                }
-                throw th;
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
             }
-        } catch (MalformedURLException e7) {
-            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -187,172 +297,87 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         }
     }
 
-    private void setHttpHeader(Map<String, String> map, URLConnection uRLConnection) {
+    private void setHttpHeader(Map map, URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, this, map, uRLConnection) == null) || map == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65542, this, map, uRLConnection) == null) && map != null) {
+            for (String str : map.keySet()) {
+                uRLConnection.setRequestProperty(str, (String) map.get(str));
+            }
         }
-        for (String str : map.keySet()) {
-            uRLConnection.setRequestProperty(str, map.get(str));
+    }
+
+    private void transferData(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, this, inputStream, randomAccessFile) == null) {
+            byte[] bArr = new byte[8192];
+            while (true) {
+                checkPausedOrCanceled();
+                try {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        return;
+                    }
+                    randomAccessFile.write(bArr, 0, read);
+                    long j = read;
+                    this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j);
+                    synchronized (this.mOnDownloadListener) {
+                        this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j);
+                        this.mOnDownloadListener.onDownloadProgress(this.mDownloadInfo.getFinished(), this.mDownloadInfo.getLength());
+                    }
+                } catch (IOException e) {
+                    updateDB(this.mThreadRecord);
+                    throw new DownloadException(108, e);
+                }
+            }
         }
     }
 
     private void transferData(HttpURLConnection httpURLConnection) throws DownloadException {
         Closeable closeable;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65544, this, httpURLConnection) != null) {
-            return;
-        }
-        Closeable closeable2 = null;
-        try {
+        if (interceptable == null || interceptable.invokeL(65544, this, httpURLConnection) == null) {
+            Closeable closeable2 = null;
             try {
-                InputStream inputStream = httpURLConnection.getInputStream();
                 try {
-                    long start = this.mThreadRecord.getStart() + this.mThreadRecord.getFinished();
+                    InputStream inputStream = httpURLConnection.getInputStream();
                     try {
-                        File dir = this.mDownloadInfo.getDir();
-                        if (!dir.exists()) {
-                            dir.mkdirs();
-                        }
-                        RandomAccessFile file = getFile(dir, this.mDownloadInfo.getName(), start);
-                        transferData(inputStream, file);
+                        long start = this.mThreadRecord.getStart() + this.mThreadRecord.getFinished();
                         try {
-                            close(inputStream);
-                            close(file);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            File dir = this.mDownloadInfo.getDir();
+                            if (!dir.exists()) {
+                                dir.mkdirs();
+                            }
+                            RandomAccessFile file = getFile(dir, this.mDownloadInfo.getName(), start);
+                            transferData(inputStream, file);
+                            try {
+                                close(inputStream);
+                                close(file);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (IOException e2) {
+                            throw new DownloadException(108, "File occur IOException ", e2);
+                        } catch (Exception e3) {
+                            throw new DownloadException(108, "Occur Exception ", e3);
                         }
-                    } catch (IOException e2) {
-                        throw new DownloadException(108, "File occur IOException ", e2);
-                    } catch (Exception e3) {
-                        throw new DownloadException(108, "Occur Exception ", e3);
+                    } catch (Throwable th) {
+                        th = th;
+                        closeable2 = inputStream;
+                        closeable = null;
+                        try {
+                            close(closeable2);
+                            close(closeable);
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable2 = inputStream;
-                    closeable = null;
-                    try {
-                        close(closeable2);
-                        close(closeable);
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                    throw th;
+                } catch (IOException e5) {
+                    throw new DownloadException(108, "http get inputStream error", e5);
                 }
-            } catch (IOException e5) {
-                throw new DownloadException(108, "http get inputStream error", e5);
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            closeable = null;
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mCommend = 107;
-        }
-    }
-
-    public abstract RandomAccessFile getFile(File file, String str, long j) throws IOException;
-
-    public abstract Map<String, String> getHttpHeaders(ThreadRecord threadRecord);
-
-    public abstract int getResponseCode();
-
-    public abstract String getTag();
-
-    public abstract void insertIntoDB(ThreadRecord threadRecord);
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStatus == 107 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
-    public boolean isComplete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mStatus == 105 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
-    public boolean isDownloading() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mStatus == 104 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
-    public boolean isFailed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStatus == 108 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
-    public boolean isPaused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mStatus == 106 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.mCommend = 106;
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            Process.setThreadPriority(10);
-            insertIntoDB(this.mThreadRecord);
-            try {
-                this.mStatus = 104;
-                executeDownload();
-                synchronized (this.mOnDownloadListener) {
-                    this.mStatus = 105;
-                    this.mOnDownloadListener.onDownloadCompleted(createFileSavedPath());
-                }
-            } catch (DownloadException e) {
-                handleDownloadException(e);
-            }
-        }
-    }
-
-    public abstract void updateDB(ThreadRecord threadRecord);
-
-    private void transferData(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65543, this, inputStream, randomAccessFile) != null) {
-            return;
-        }
-        byte[] bArr = new byte[8192];
-        while (true) {
-            checkPausedOrCanceled();
-            try {
-                int read = inputStream.read(bArr);
-                if (read == -1) {
-                    return;
-                }
-                randomAccessFile.write(bArr, 0, read);
-                long j = read;
-                this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j);
-                synchronized (this.mOnDownloadListener) {
-                    this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j);
-                    this.mOnDownloadListener.onDownloadProgress(this.mDownloadInfo.getFinished(), this.mDownloadInfo.getLength());
-                }
-            } catch (IOException e) {
-                updateDB(this.mThreadRecord);
-                throw new DownloadException(108, e);
+            } catch (Throwable th2) {
+                th = th2;
+                closeable = null;
             }
         }
     }

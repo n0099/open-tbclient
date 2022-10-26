@@ -17,7 +17,7 @@ public class WXOpenBusinessView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class Req extends BaseReq {
+    public final class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.WXOpenBusinessView.Req";
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class WXOpenBusinessView {
     }
 
     /* loaded from: classes8.dex */
-    public static final class Resp extends BaseResp {
+    public final class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String businessType;

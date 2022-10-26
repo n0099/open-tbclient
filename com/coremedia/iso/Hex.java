@@ -65,26 +65,36 @@ public class Hex {
     public static String encodeHex(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? encodeHex(bArr, 0) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return encodeHex(bArr, 0);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String encodeHex(byte[] bArr, int i) {
         InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i)) == null) {
             int length = bArr.length;
-            char[] cArr = new char[(length << 1) + (i > 0 ? length / i : 0)];
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                if (i > 0 && i3 % i == 0 && i2 > 0) {
-                    cArr[i2] = SignatureImpl.SEP;
-                    i2++;
+            int i3 = length << 1;
+            if (i > 0) {
+                i2 = length / i;
+            } else {
+                i2 = 0;
+            }
+            char[] cArr = new char[i3 + i2];
+            int i4 = 0;
+            for (int i5 = 0; i5 < length; i5++) {
+                if (i > 0 && i5 % i == 0 && i4 > 0) {
+                    cArr[i4] = SignatureImpl.SEP;
+                    i4++;
                 }
-                int i4 = i2 + 1;
+                int i6 = i4 + 1;
                 char[] cArr2 = DIGITS;
-                cArr[i2] = cArr2[(bArr[i3] & 240) >>> 4];
-                i2 = i4 + 1;
-                cArr[i4] = cArr2[bArr[i3] & 15];
+                cArr[i4] = cArr2[(bArr[i5] & 240) >>> 4];
+                i4 = i6 + 1;
+                cArr[i6] = cArr2[bArr[i5] & 15];
             }
             return new String(cArr);
         }

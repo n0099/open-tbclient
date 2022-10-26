@@ -13,6 +13,8 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void q1();
+
     public AlaSquareBaseFragment() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -27,15 +29,6 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onActivityCreated(bundle);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
@@ -45,5 +38,12 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
         }
     }
 
-    public abstract void q1();
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
 }

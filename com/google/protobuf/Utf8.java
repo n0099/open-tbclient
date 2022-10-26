@@ -13,20 +13,6 @@ public final class Utf8 {
     public static final int MALFORMED = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public Utf8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static int incompleteStateFor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -63,6 +49,20 @@ public final class Utf8 {
         return invokeIII.intValue;
     }
 
+    public Utf8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static int incompleteStateFor(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -86,7 +86,37 @@ public final class Utf8 {
     public static boolean isValidUtf8(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? isValidUtf8(bArr, 0, bArr.length) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            return isValidUtf8(bArr, 0, bArr.length);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isValidUtf8(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i, i2)) == null) {
+            if (partialIsValidUtf8(bArr, i, i2) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLII.booleanValue;
+    }
+
+    public static int partialIsValidUtf8(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, bArr, i, i2)) == null) {
+            while (i < i2 && bArr[i] >= 0) {
+                i++;
+            }
+            if (i >= i2) {
+                return 0;
+            }
+            return partialIsValidUtf8NonAscii(bArr, i, i2);
+        }
+        return invokeLII.intValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0019, code lost:
@@ -182,29 +212,29 @@ public final class Utf8 {
                             }
                         }
                         return -1;
-                    } else if (b >= -16) {
-                        if (i3 >= i2 - 2) {
+                    } else if (b < -16) {
+                        if (i3 >= i2 - 1) {
                             return incompleteStateFor(bArr, i3, i2);
                         }
                         int i4 = i3 + 1;
                         byte b2 = bArr[i3];
-                        if (b2 <= -65 && (((b << 28) + (b2 + 112)) >> 30) == 0) {
-                            int i5 = i4 + 1;
-                            if (bArr[i4] <= -65) {
-                                i3 = i5 + 1;
-                                if (bArr[i5] > -65) {
-                                }
+                        if (b2 <= -65 && ((b != -32 || b2 >= -96) && (b != -19 || b2 < -96))) {
+                            i = i4 + 1;
+                            if (bArr[i4] > -65) {
                             }
                         }
                         return -1;
-                    } else if (i3 >= i2 - 1) {
+                    } else if (i3 >= i2 - 2) {
                         return incompleteStateFor(bArr, i3, i2);
                     } else {
-                        int i6 = i3 + 1;
+                        int i5 = i3 + 1;
                         byte b3 = bArr[i3];
-                        if (b3 <= -65 && ((b != -32 || b3 >= -96) && (b != -19 || b3 < -96))) {
-                            i = i6 + 1;
-                            if (bArr[i6] > -65) {
+                        if (b3 <= -65 && (((b << 28) + (b3 + 112)) >> 30) == 0) {
+                            int i6 = i5 + 1;
+                            if (bArr[i5] <= -65) {
+                                i3 = i6 + 1;
+                                if (bArr[i6] > -65) {
+                                }
                             }
                         }
                         return -1;
@@ -213,27 +243,6 @@ public final class Utf8 {
                 i = i3;
             }
             return 0;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static boolean isValidUtf8(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i, i2)) == null) ? partialIsValidUtf8(bArr, i, i2) == 0 : invokeLII.booleanValue;
-    }
-
-    public static int partialIsValidUtf8(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, bArr, i, i2)) == null) {
-            while (i < i2 && bArr[i] >= 0) {
-                i++;
-            }
-            if (i >= i2) {
-                return 0;
-            }
-            return partialIsValidUtf8NonAscii(bArr, i, i2);
         }
         return invokeLII.intValue;
     }

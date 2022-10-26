@@ -12,7 +12,6 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
-import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +24,6 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
 /* loaded from: classes2.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -102,7 +100,10 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             String versionName = VersionUtils.getVersionName();
-            return compareVersion(versionName, str) >= 0 && compareVersion(versionName, str2) <= 0;
+            if (compareVersion(versionName, str) >= 0 && compareVersion(versionName, str2) <= 0) {
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
     }
@@ -114,34 +115,37 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
             if (str == null && str2 == null) {
                 return 0;
             }
-            if (str == null || str2 != null) {
-                if (str != null || str2 == null) {
-                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    int i = 0;
-                    while (i < split.length && i < split2.length) {
-                        try {
-                            int parseInt = Integer.parseInt(split[i]);
-                            int parseInt2 = Integer.parseInt(split2[i]);
-                            if (parseInt < parseInt2) {
-                                return -1;
-                            }
-                            if (parseInt > parseInt2) {
-                                return 1;
-                            }
-                            i++;
-                        } catch (NumberFormatException unused) {
-                            return str.compareTo(str2);
-                        }
-                    }
-                    if (split.length > i) {
-                        return 1;
-                    }
-                    return split2.length > i ? -1 : 0;
-                }
+            if (str != null && str2 == null) {
+                return 1;
+            }
+            if (str == null && str2 != null) {
                 return -1;
             }
-            return 1;
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            int i = 0;
+            while (i < split.length && i < split2.length) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    if (parseInt < parseInt2) {
+                        return -1;
+                    }
+                    if (parseInt > parseInt2) {
+                        return 1;
+                    }
+                    i++;
+                } catch (NumberFormatException unused) {
+                    return str.compareTo(str2);
+                }
+            }
+            if (split.length > i) {
+                return 1;
+            }
+            if (split2.length <= i) {
+                return 0;
+            }
+            return -1;
         }
         return invokeLL.intValue;
     }
@@ -149,12 +153,12 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) || commandPostData == null || commandPostData.getVersion() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) && commandPostData != null && commandPostData.getVersion() != null) {
+            commandPostData.getVersion().put(DESC_PATCH_ACTION, getLocalVersion(context, str, str2));
         }
-        commandPostData.getVersion().put(DESC_PATCH_ACTION, getLocalVersion(context, str, str2));
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -168,12 +172,12 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
                     String str3 = TAG;
                     Log.d(str3, "value.data " + actionData.data);
                 }
-                if (SavePatchToFile(actionData.data.toString())) {
+                if (SavePatchToFile(((JSONObject) actionData.data).toString())) {
                     PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(DESC_PATCH_VERSION, actionData.version).apply();
-                    JSONArray optJSONArray = actionData.data.optJSONArray(PATCH);
+                    JSONArray optJSONArray = ((JSONObject) actionData.data).optJSONArray(PATCH);
                     if (optJSONArray != null) {
-                        startVersion = actionData.data.optString(START_VERSION);
-                        endVersion = actionData.data.optString(END_VERSION);
+                        startVersion = ((JSONObject) actionData.data).optString(START_VERSION);
+                        endVersion = ((JSONObject) actionData.data).optString(END_VERSION);
                         amendDes = optJSONArray.toString();
                         SchemeCollecter.finalDesPatch = SchemeCollecter.getAmendDes();
                         return true;
@@ -190,6 +194,9 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public String getLocalVersion(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) ? PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getString(DESC_PATCH_VERSION, "0") : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getString(DESC_PATCH_VERSION, "0");
+        }
+        return (String) invokeLLL.objValue;
     }
 }

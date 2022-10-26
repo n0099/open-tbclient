@@ -7,7 +7,6 @@ import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.file.DownloadOutputStream;
@@ -27,19 +26,25 @@ import java.nio.channels.FileChannel;
 public class DownloadUriOutputStream implements DownloadOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final FileChannel channel;
-    @NonNull
     public final FileOutputStream fos;
-    @NonNull
     public final BufferedOutputStream out;
-    @NonNull
     public final ParcelFileDescriptor pdf;
 
     /* loaded from: classes2.dex */
-    public static class Factory implements DownloadOutputStream.Factory {
+    public class Factory implements DownloadOutputStream.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
+        public boolean supportSeek() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         public Factory() {
             Interceptable interceptable = $ic;
@@ -56,27 +61,23 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
-        public DownloadOutputStream create(Context context, File file, int i) throws FileNotFoundException {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, file, i)) == null) ? new DownloadUriOutputStream(context, Uri.fromFile(file), i) : (DownloadOutputStream) invokeLLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
-        public boolean supportSeek() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
         public DownloadOutputStream create(Context context, Uri uri, int i) throws FileNotFoundException {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, context, uri, i)) == null) ? new DownloadUriOutputStream(context, uri, i) : (DownloadOutputStream) invokeLLI.objValue;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, context, uri, i)) == null) {
+                return new DownloadUriOutputStream(context, uri, i);
+            }
+            return (DownloadOutputStream) invokeLLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
+        public DownloadOutputStream create(Context context, File file, int i) throws FileNotFoundException {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, file, i)) == null) {
+                return new DownloadUriOutputStream(context, Uri.fromFile(file), i);
+            }
+            return (DownloadOutputStream) invokeLLI.objValue;
         }
     }
 
@@ -105,6 +106,27 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
             return;
         }
         throw new FileNotFoundException("result of " + uri + " is null!");
+    }
+
+    public DownloadUriOutputStream(FileChannel fileChannel, ParcelFileDescriptor parcelFileDescriptor, FileOutputStream fileOutputStream, BufferedOutputStream bufferedOutputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fileChannel, parcelFileDescriptor, fileOutputStream, bufferedOutputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.channel = fileChannel;
+        this.pdf = parcelFileDescriptor;
+        this.fos = fileOutputStream;
+        this.out = bufferedOutputStream;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream
@@ -171,26 +193,5 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             this.out.write(bArr, i, i2);
         }
-    }
-
-    public DownloadUriOutputStream(@NonNull FileChannel fileChannel, @NonNull ParcelFileDescriptor parcelFileDescriptor, @NonNull FileOutputStream fileOutputStream, @NonNull BufferedOutputStream bufferedOutputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fileChannel, parcelFileDescriptor, fileOutputStream, bufferedOutputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.channel = fileChannel;
-        this.pdf = parcelFileDescriptor;
-        this.fos = fileOutputStream;
-        this.out = bufferedOutputStream;
     }
 }

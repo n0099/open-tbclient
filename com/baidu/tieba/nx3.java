@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,39 +9,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
 public class nx3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
-    public static volatile nx3 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ArrayList<b>> a;
-    public final ExecutorService b;
+    public t14 a;
+    public String b;
     public String c;
-    public Object d;
+    public lx3 d;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsArrayBuffer a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ nx3 c;
+        public final /* synthetic */ nx3 a;
 
-        public a(nx3 nx3Var, JsArrayBuffer jsArrayBuffer, b bVar) {
+        public a(nx3 nx3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nx3Var, jsArrayBuffer, bVar};
+                Object[] objArr = {nx3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,36 +48,132 @@ public class nx3 {
                     return;
                 }
             }
-            this.c = nx3Var;
-            this.a = jsArrayBuffer;
-            this.b = bVar;
+            this.a = nx3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String g = this.c.g(this.a.buffer());
-                File file = new File(g);
-                if (!file.exists()) {
-                    if (this.c.e(g, this.b)) {
-                        return;
-                    }
-                    this.c.i(g, this.a.buffer());
-                } else if (!file.isDirectory()) {
-                    this.b.a(g);
-                } else {
-                    this.b.b();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (nx3.e) {
+                    Log.e("AudioDownloader", this.a.b + " load failed");
+                    iOException.printStackTrace();
+                }
+                if (this.a.d != null) {
+                    this.a.d.fail(-1, this.a.b);
                 }
             }
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            FileOutputStream fileOutputStream;
+            File file;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                byte[] bArr = new byte[2048];
+                InputStream inputStream = null;
+                try {
+                    InputStream byteStream = response.body().byteStream();
+                    try {
+                        try {
+                            String d = ix3.d(this.a.b);
+                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
+                            File file2 = new File(str);
+                            if (!file2.exists() || !file2.isDirectory()) {
+                                file2.mkdirs();
+                            }
+                            String substring = d.substring(d.lastIndexOf("/") + 1);
+                            file = new File(str, substring + ".bddownload");
+                            try {
+                                fileOutputStream = new FileOutputStream(file);
+                                while (true) {
+                                    try {
+                                        int read = byteStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } catch (Exception e) {
+                                        e = e;
+                                        inputStream = byteStream;
+                                        try {
+                                            if (nx3.e) {
+                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
+                                            }
+                                            if (file != null) {
+                                                file.delete();
+                                            }
+                                            if (this.a.d != null) {
+                                                this.a.d.fail(-1, this.a.b);
+                                            }
+                                            qj4.d(inputStream);
+                                            qj4.d(fileOutputStream);
+                                            qj4.d(response);
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            qj4.d(inputStream);
+                                            qj4.d(fileOutputStream);
+                                            qj4.d(response);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        inputStream = byteStream;
+                                        qj4.d(inputStream);
+                                        qj4.d(fileOutputStream);
+                                        qj4.d(response);
+                                        throw th;
+                                    }
+                                }
+                                fileOutputStream.flush();
+                                File file3 = new File(str, substring);
+                                if (file3.exists() && !file3.isDirectory()) {
+                                    file3.delete();
+                                }
+                                String absolutePath = file3.getAbsolutePath();
+                                if (file.renameTo(file3)) {
+                                    if (nx3.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
+                                    }
+                                    if (this.a.d != null) {
+                                        this.a.d.a(this.a.b, absolutePath);
+                                    }
+                                } else {
+                                    if (nx3.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
+                                    }
+                                    file.delete();
+                                    if (this.a.d != null) {
+                                        this.a.d.fail(-1, absolutePath);
+                                    }
+                                }
+                                qj4.d(byteStream);
+                            } catch (Exception e2) {
+                                e = e2;
+                                fileOutputStream = null;
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            file = null;
+                            fileOutputStream = null;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    file = null;
+                    fileOutputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream = null;
+                }
+                qj4.d(fileOutputStream);
+                qj4.d(response);
+            }
+        }
     }
 
     static {
@@ -98,13 +189,22 @@ public class nx3 {
                 return;
             }
         }
-        e = vj1.a;
+        e = wj1.a;
     }
 
-    public nx3() {
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
+        }
+    }
+
+    public nx3(t14 t14Var, String str, String str2, lx3 lx3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t14Var, str, str2, lx3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -114,156 +214,11 @@ public class nx3 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = Executors.newCachedThreadPool();
-        this.d = new Object();
-        this.c = hx3.g() + hx3.f();
-    }
-
-    public static nx3 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f == null) {
-                synchronized (nx3.class) {
-                    if (f == null) {
-                        f = new nx3();
-                    }
-                }
-            }
-            return f;
-        }
-        return (nx3) invokeV.objValue;
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                if (arrayList == null) {
-                    return;
-                }
-                boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<b> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    b next = it.next();
-                    if (!isEmpty) {
-                        if (e) {
-                            Log.e("AudioBufferManager", "save success path: " + str);
-                        }
-                        next.a(str);
-                    } else {
-                        next.b();
-                    }
-                }
-                this.a.remove(str);
-            }
-        }
-    }
-
-    public final boolean e(String str, b bVar) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                z = true;
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.a.put(str, arrayList);
-                    z = false;
-                }
-                arrayList.add(bVar);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            String h = hx3.h(bArr);
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.c);
-            sb.append(bArr.length);
-            if (TextUtils.isEmpty(h)) {
-                h = "";
-            }
-            sb.append(h);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
-            this.b.execute(new a(this, jsArrayBuffer, bVar));
-        }
-    }
-
-    public final void i(String str, byte[] bArr) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
-            File file = new File(this.c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(str + ".bdsave");
-            Closeable closeable = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        fileOutputStream.write(bArr);
-                        fileOutputStream.flush();
-                        File file3 = new File(str);
-                        if (file3.exists() && !file3.isDirectory()) {
-                            file3.delete();
-                        }
-                        if (file2.renameTo(file3)) {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename success path = " + str);
-                            }
-                            d(str);
-                        } else {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename error path = " + str);
-                            }
-                            file2.delete();
-                            d(null);
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (e) {
-                            e.printStackTrace();
-                        }
-                        if (file2.exists()) {
-                            file2.delete();
-                        }
-                        d(null);
-                        pj4.d(fileOutputStream);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable = ".bdsave";
-                    pj4.d(closeable);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                pj4.d(closeable);
-                throw th;
-            }
-            pj4.d(fileOutputStream);
-        }
+        this.b = "";
+        this.c = "";
+        this.a = t14Var;
+        this.c = str;
+        this.b = str2;
+        this.d = lx3Var;
     }
 }

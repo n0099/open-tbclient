@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public st8 f;
+    public cu8 f;
     public int g;
 
     /* loaded from: classes6.dex */
@@ -88,22 +88,22 @@ public class MemberRecommendView extends FrameLayout {
                     case 5:
                         TiebaStatic.log("c10278");
                         i = 12;
-                        if (this.a.g != 4) {
-                            str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
+                        if (this.a.g == 4) {
+                            str = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND;
                             break;
                         } else {
-                            str = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND;
+                            str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                             break;
                         }
                     case 6:
                     case 7:
                         TiebaStatic.log("c10762");
                         i = 19;
-                        if (this.a.g != 7) {
-                            str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+                        if (this.a.g == 7) {
+                            str = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
                             break;
                         } else {
-                            str = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
+                            str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                             break;
                         }
                     case 8:
@@ -146,66 +146,6 @@ public class MemberRecommendView extends FrameLayout {
         }
         this.a = context;
         f();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
-        }
-    }
-
-    public void e(st8 st8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, st8Var) == null) || st8Var == null) {
-            return;
-        }
-        this.f = st8Var;
-        this.c.K(st8Var.b(), 10, false);
-        this.d.setText(this.f.c());
-        if (StringUtils.isNull(this.f.a())) {
-            this.e.setVisibility(8);
-            return;
-        }
-        this.e.setVisibility(0);
-        this.e.setText(this.f.a());
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d057b, this);
-            this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ee);
-            this.c = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
-            this.c.setAutoChangeStyle(true);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224b);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091033);
-            this.e = textView;
-            textView.setOnClickListener(new a(this));
-        }
-    }
-
-    public View getButton() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (View) invokeV.objValue;
-    }
-
-    public int getFromType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public void setFromType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -252,5 +192,71 @@ public class MemberRecommendView extends FrameLayout {
         }
         this.a = context;
         f();
+    }
+
+    public void setFromType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
+        }
+    }
+
+    public View getButton() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int getFromType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public void e(cu8 cu8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu8Var) != null) || cu8Var == null) {
+            return;
+        }
+        this.f = cu8Var;
+        this.c.L(cu8Var.b(), 10, false);
+        this.d.setText(this.f.c());
+        if (StringUtils.isNull(this.f.a())) {
+            this.e.setVisibility(8);
+            return;
+        }
+        this.e.setVisibility(0);
+        this.e.setText(this.f.a());
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d057b, this);
+            this.b = inflate;
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925d6);
+            this.c = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            this.c.setAutoChangeStyle(true);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092235);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091027);
+            this.e = textView;
+            textView.setOnClickListener(new a(this));
+        }
     }
 }

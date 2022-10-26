@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.atomData;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ep8;
-import com.baidu.tieba.y19;
+import com.baidu.tieba.e29;
+import com.baidu.tieba.lp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,50 +33,65 @@ public class WorkPublishManager {
     public static String getObjLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? objLocate : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return objLocate;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static boolean isWorkPublishLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? isWorkPublishLocateMyTab() || isWorkPublishLocateVideoCenter() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!isWorkPublishLocateMyTab() && !isWorkPublishLocateVideoCenter()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isWorkPublishLocateMyTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "5".equals(objLocate) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return "5".equals(objLocate);
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isWorkPublishLocateVideoCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "6".equals(objLocate) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return "6".equals(objLocate);
+        }
+        return invokeV.booleanValue;
     }
 
     public static void prepareToSend(String str, String str2, String str3, String str4, String str5) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65541, null, str, str2, str3, str4, str5) == null) || WriteActivityConfig.isAsyncWriting()) {
+        if ((interceptable != null && interceptable.invokeLLLLL(65541, null, str, str2, str3, str4, str5) != null) || WriteActivityConfig.isAsyncWriting()) {
             return;
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            ep8.k().z(true);
-            ep8.k().x(str2);
+            lp8.k().z(true);
+            lp8.k().x(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            ep8.k().y(8);
-            ep8.k().x(str2);
+            lp8.k().y(8);
+            lp8.k().x(str2);
             i = 8;
         } else {
             i = 6;
         }
-        if (y19.b()) {
-            y19.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        if (e29.b()) {
+            e29.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
             return;
         }
-        y19.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        e29.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void setObjLocate(String str) {

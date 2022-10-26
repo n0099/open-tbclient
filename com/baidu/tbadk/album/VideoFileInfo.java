@@ -31,6 +31,16 @@ public class VideoFileInfo extends MediaFileInfo {
     public String videoPath;
     public int videoWidth;
 
+    @Override // com.baidu.tbadk.album.MediaFileInfo
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
     public VideoFileInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,15 +55,5 @@ public class VideoFileInfo extends MediaFileInfo {
             }
         }
         this.hasLoaded = false;
-    }
-
-    @Override // com.baidu.tbadk.album.MediaFileInfo
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
     }
 }

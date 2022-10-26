@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.write.write.work.selectview.SelectClassView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -62,15 +62,69 @@ public class SelectClassView extends LinearLayout {
         b();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SelectClassView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        b();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SelectClassView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        b();
+    }
+
     public static final void c(SelectClassView this$0, View view2) {
+        String firstClass;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             SelectClassDialogActivityConfig selectClassDialogActivityConfig = new SelectClassDialogActivityConfig(this$0.getContext());
             VideoCategoryClassData mVideoCategoryClassData = this$0.getMVideoCategoryClassData();
-            selectClassDialogActivityConfig.setFirstOption(mVideoCategoryClassData == null ? null : mVideoCategoryClassData.getFirstClass());
+            String str = null;
+            if (mVideoCategoryClassData == null) {
+                firstClass = null;
+            } else {
+                firstClass = mVideoCategoryClassData.getFirstClass();
+            }
+            selectClassDialogActivityConfig.setFirstOption(firstClass);
             VideoCategoryClassData mVideoCategoryClassData2 = this$0.getMVideoCategoryClassData();
-            selectClassDialogActivityConfig.setSecondOption(mVideoCategoryClassData2 != null ? mVideoCategoryClassData2.getSecondClass() : null);
+            if (mVideoCategoryClassData2 != null) {
+                str = mVideoCategoryClassData2.getSecondClass();
+            }
+            selectClassDialogActivityConfig.setSecondOption(str);
             selectClassDialogActivityConfig.setIsSelectedTags(this$0.getMIsSelectedTags());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectClassDialogActivityConfig));
         }
@@ -78,18 +132,24 @@ public class SelectClassView extends LinearLayout {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.String : 0x0046: INVOKE  (r2v6 java.lang.String A[REMOVE]) = (r5v0 com.baidu.tbadk.data.VideoCategoryClassData) type: VIRTUAL call: com.baidu.tbadk.data.VideoCategoryClassData.getFirstClass():java.lang.String)), (wrap: char : ?: SGET   org.aspectj.runtime.reflect.SignatureImpl.SEP char), (wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.String : 0x0052: INVOKE  (r5v3 java.lang.String A[REMOVE]) = (r5v0 com.baidu.tbadk.data.VideoCategoryClassData) type: VIRTUAL call: com.baidu.tbadk.data.VideoCategoryClassData.getSecondClass():java.lang.String))] */
     public final void a(VideoCategoryClassData videoCategoryClassData) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCategoryClassData) == null) {
             this.h = videoCategoryClassData;
             if (videoCategoryClassData != null) {
                 String firstClass = videoCategoryClassData.getFirstClass();
-                boolean z = true;
-                if (!(firstClass == null || firstClass.length() == 0)) {
+                boolean z2 = true;
+                if (firstClass != null && firstClass.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
                     String secondClass = videoCategoryClassData.getSecondClass();
                     if (secondClass != null && secondClass.length() != 0) {
-                        z = false;
+                        z2 = false;
                     }
-                    if (!z) {
+                    if (!z2) {
                         getMCenterContent().setVisibility(0);
                         getMCenterContentTips().setVisibility(8);
                         TextView mCenterContent = getMCenterContent();
@@ -110,27 +170,27 @@ public class SelectClassView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f2, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0926a4);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f3, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09268c);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
             setMClassTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912da);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912ce);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905e0);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905e9);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905de);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905e7);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2f);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2b);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ee);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903f7);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y79
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.q89
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,10 +210,10 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807ad, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            hv4 d = hv4.d(getMCenterContent());
+            nv4 d = nv4.d(getMCenterContent());
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
@@ -219,7 +279,10 @@ public class SelectClassView extends LinearLayout {
     public final boolean getMIsSelectedTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
     }
 
     public final TextView getMLeftTitle() {
@@ -253,7 +316,10 @@ public class SelectClassView extends LinearLayout {
     public final VideoCategoryClassData getMVideoCategoryClassData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (VideoCategoryClassData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return (VideoCategoryClassData) invokeV.objValue;
     }
 
     public final void setMBottomLine(View view2) {
@@ -316,49 +382,5 @@ public class SelectClassView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048594, this, videoCategoryClassData) == null) {
             this.h = videoCategoryClassData;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectClassView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectClassView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        b();
     }
 }

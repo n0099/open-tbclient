@@ -14,15 +14,6 @@ public final class FilePathComponents {
     public final File root;
     public final List<File> segments;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.List<? extends java.io.File> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public FilePathComponents(File root, List<? extends File> segments) {
-        Intrinsics.checkNotNullParameter(root, "root");
-        Intrinsics.checkNotNullParameter(segments, "segments");
-        this.root = root;
-        this.segments = segments;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.io.FilePathComponents */
     /* JADX WARN: Multi-variable type inference failed */
     public static /* synthetic */ FilePathComponents copy$default(FilePathComponents filePathComponents, File file, List list, int i, Object obj) {
@@ -60,6 +51,36 @@ public final class FilePathComponents {
         return true;
     }
 
+    public int hashCode() {
+        File file = this.root;
+        int hashCode = (file != null ? file.hashCode() : 0) * 31;
+        List<File> list = this.segments;
+        return hashCode + (list != null ? list.hashCode() : 0);
+    }
+
+    public String toString() {
+        return "FilePathComponents(root=" + this.root + ", segments=" + this.segments + SmallTailInfo.EMOTION_SUFFIX;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.List<? extends java.io.File> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public FilePathComponents(File root, List<? extends File> segments) {
+        Intrinsics.checkNotNullParameter(root, "root");
+        Intrinsics.checkNotNullParameter(segments, "segments");
+        this.root = root;
+        this.segments = segments;
+    }
+
+    public final File subPath(int i, int i2) {
+        if (i >= 0 && i <= i2 && i2 <= getSize()) {
+            List<File> subList = this.segments.subList(i, i2);
+            String str = File.separator;
+            Intrinsics.checkNotNullExpressionValue(str, "File.separator");
+            return new File(CollectionsKt___CollectionsKt.joinToString$default(subList, str, null, null, 0, null, null, 62, null));
+        }
+        throw new IllegalArgumentException();
+    }
+
     public final File getRoot() {
         return this.root;
     }
@@ -78,30 +99,12 @@ public final class FilePathComponents {
         return this.segments.size();
     }
 
-    public int hashCode() {
-        File file = this.root;
-        int hashCode = (file != null ? file.hashCode() : 0) * 31;
-        List<File> list = this.segments;
-        return hashCode + (list != null ? list.hashCode() : 0);
-    }
-
     public final boolean isRooted() {
         String path = this.root.getPath();
         Intrinsics.checkNotNullExpressionValue(path, "root.path");
-        return path.length() > 0;
-    }
-
-    public final File subPath(int i, int i2) {
-        if (i >= 0 && i <= i2 && i2 <= getSize()) {
-            List<File> subList = this.segments.subList(i, i2);
-            String str = File.separator;
-            Intrinsics.checkNotNullExpressionValue(str, "File.separator");
-            return new File(CollectionsKt___CollectionsKt.joinToString$default(subList, str, null, null, 0, null, null, 62, null));
+        if (path.length() > 0) {
+            return true;
         }
-        throw new IllegalArgumentException();
-    }
-
-    public String toString() {
-        return "FilePathComponents(root=" + this.root + ", segments=" + this.segments + SmallTailInfo.EMOTION_SUFFIX;
+        return false;
     }
 }

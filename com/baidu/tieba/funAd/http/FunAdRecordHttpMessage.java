@@ -24,6 +24,36 @@ public class FunAdRecordHttpMessage extends HttpMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FunAdRecordHttpMessage(int i, String str) {
+        super(CmdConfigHttp.CMD_FUN_AD_RECORD);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("obj_source", String.valueOf(i));
+            jSONObject.put("obj_type", str);
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put(SKIP_SPLASH_RECORD, jSONObject);
+            addParam("ad_str", Uri.encode(jSONObject2.toString()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunAdRecordHttpMessage(int i, String str, String str2, String str3, String str4, String str5) {
         super(CmdConfigHttp.CMD_FUN_AD_RECORD);
         Interceptable interceptable = $ic;
@@ -62,27 +92,6 @@ public class FunAdRecordHttpMessage extends HttpMessage {
             addParam("ad_str", Uri.encode(jSONObject2.toString()));
         } catch (JSONException e) {
             e.printStackTrace();
-        }
-    }
-
-    public static void uploadRequestRecord(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, str5) == null) && FunAdServerRecordSwitch.isOpen()) {
-            MessageManager.getInstance().sendMessageFromBackground(new FunAdRecordHttpMessage(6, str, str2, str3, str4, str5));
-        }
-    }
-
-    public static void uploadShowOrClickRecord(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10}) == null) && FunAdServerRecordSwitch.isOpen()) {
-            MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(str, 6, str2, str3, str4, str5, str6, str7, str8, str9, str10));
-        }
-    }
-
-    public static void uploadSplashSkipRecord(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && FunAdServerRecordSwitch.isOpen()) {
-            MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(6, str));
         }
     }
 
@@ -140,33 +149,24 @@ public class FunAdRecordHttpMessage extends HttpMessage {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunAdRecordHttpMessage(int i, String str) {
-        super(CmdConfigHttp.CMD_FUN_AD_RECORD);
+    public static void uploadRequestRecord(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, str5) == null) && FunAdServerRecordSwitch.isOpen()) {
+            MessageManager.getInstance().sendMessageFromBackground(new FunAdRecordHttpMessage(6, str, str2, str3, str4, str5));
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("obj_source", String.valueOf(i));
-            jSONObject.put("obj_type", str);
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(SKIP_SPLASH_RECORD, jSONObject);
-            addParam("ad_str", Uri.encode(jSONObject2.toString()));
-        } catch (JSONException e) {
-            e.printStackTrace();
+    }
+
+    public static void uploadShowOrClickRecord(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10}) == null) && FunAdServerRecordSwitch.isOpen()) {
+            MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(str, 6, str2, str3, str4, str5, str6, str7, str8, str9, str10));
+        }
+    }
+
+    public static void uploadSplashSkipRecord(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && FunAdServerRecordSwitch.isOpen()) {
+            MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(6, str));
         }
     }
 }

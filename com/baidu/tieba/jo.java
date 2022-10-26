@@ -1,16 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import java.util.List;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes4.dex */
-public interface jo<V extends ViewGroup> {
-    void a(List<qn> list);
+public interface jo<T> extends fo<T> {
+    int b(int i, int i2);
 
-    List<Cdo> getData();
-
-    eo getListAdapter();
-
-    V getListView();
-
-    void setData(List<? extends Cdo> list);
+    rn<eo, TypeAdapter.ViewHolder> c(eo eoVar);
 }

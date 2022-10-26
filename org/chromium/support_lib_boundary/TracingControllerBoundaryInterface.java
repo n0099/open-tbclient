@@ -7,7 +7,7 @@ import java.util.concurrent.Executor;
 public interface TracingControllerBoundaryInterface {
     boolean isTracing();
 
-    void start(int i, Collection<String> collection, int i2) throws IllegalStateException, IllegalArgumentException;
+    void start(int i, Collection collection, int i2) throws IllegalStateException, IllegalArgumentException;
 
     boolean stop(OutputStream outputStream, Executor executor);
 }

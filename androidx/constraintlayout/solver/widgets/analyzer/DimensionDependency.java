@@ -39,7 +39,7 @@ public class DimensionDependency extends DependencyNode {
     @Override // androidx.constraintlayout.solver.widgets.analyzer.DependencyNode
     public void resolve(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.resolved) {
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.resolved) {
             return;
         }
         this.resolved = true;

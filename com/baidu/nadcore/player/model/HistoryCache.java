@@ -3,8 +3,8 @@ package com.baidu.nadcore.player.model;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dz0;
-import com.baidu.tieba.nx0;
+import com.baidu.tieba.ez0;
+import com.baidu.tieba.ox0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J#\u0010\n\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\r\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000eJ#\u0010\u000f\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\u000f\u0010\u000b¨\u0006\u0012"}, d2 = {"Lcom/baidu/nadcore/player/model/HistoryCache;", "Ljava/util/ArrayList;", "Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "element", "", "add", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;)Z", "", "id", TiebaStatic.Params.VID, "findCache", "(Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "info", "isSameHistory", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;Ljava/lang/String;Ljava/lang/String;)Z", "removeCache", "<init>", "()V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class HistoryCache extends ArrayList<nx0> {
+public final class HistoryCache extends ArrayList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,117 +38,73 @@ public final class HistoryCache extends ArrayList<nx0> {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
-        if (kotlin.jvm.internal.Intrinsics.areEqual(r5.b(), r6) != false) goto L11;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private final boolean isSameHistory(nx0 nx0Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, nx0Var, str, str2)) == null) {
-            String b = nx0Var.b();
-            if (b != null) {
-                if (b.length() > 0) {
-                }
-            }
-            String e = nx0Var.e();
-            if (e != null) {
-                return (e.length() > 0) && Intrinsics.areEqual(nx0Var.e(), str2);
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public /* bridge */ boolean contains(nx0 nx0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nx0Var)) == null) ? super.contains((Object) nx0Var) : invokeL.booleanValue;
-    }
-
-    public final nx0 findCache(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            for (nx0 nx0Var : this) {
-                if (isSameHistory(nx0Var, str, str2)) {
-                    return nx0Var;
-                }
-            }
-            return null;
-        }
-        return (nx0) invokeLL.objValue;
-    }
-
     public /* bridge */ int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? super.size() : invokeV.intValue;
-    }
-
-    public /* bridge */ int indexOf(nx0 nx0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, nx0Var)) == null) ? super.indexOf((Object) nx0Var) : invokeL.intValue;
-    }
-
-    public /* bridge */ int lastIndexOf(nx0 nx0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nx0Var)) == null) ? super.lastIndexOf((Object) nx0Var) : invokeL.intValue;
-    }
-
-    @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
-    public final /* bridge */ nx0 remove(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? removeAt(i) : (nx0) invokeI.objValue;
-    }
-
-    public /* bridge */ nx0 removeAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? (nx0) super.remove(i) : (nx0) invokeI.objValue;
-    }
-
-    public final nx0 removeCache(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            Iterator<nx0> it = iterator();
-            Intrinsics.checkNotNullExpressionValue(it, "iterator()");
-            while (it.hasNext()) {
-                nx0 next = it.next();
-                Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-                nx0 nx0Var = next;
-                if (isSameHistory(nx0Var, str, str2)) {
-                    it.remove();
-                    return nx0Var;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return super.size();
         }
-        return (nx0) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public final /* bridge */ int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getSize() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return getSize();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
+        if (kotlin.jvm.internal.Intrinsics.areEqual(r5.b(), r6) != false) goto L11;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private final boolean isSameHistory(ox0 ox0Var, String str, String str2) {
+        InterceptResult invokeLLL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, ox0Var, str, str2)) == null) {
+            String b = ox0Var.b();
+            if (b != null) {
+                if (b.length() > 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z2) {
+                }
+            }
+            String e = ox0Var.e();
+            if (e == null) {
+                return false;
+            }
+            if (e.length() > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z || !Intrinsics.areEqual(ox0Var.e(), str2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public boolean add(nx0 element) {
+    public boolean add(ox0 element) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, element)) == null) {
             Intrinsics.checkNotNullParameter(element, "element");
             if (size() >= 50) {
-                dz0.a("remove item " + remove(0));
+                ez0.a("remove item " + ((ox0) remove(0)));
             }
             removeCache(element.b(), element.e());
             return super.add((HistoryCache) element);
@@ -156,13 +112,59 @@ public final class HistoryCache extends ArrayList<nx0> {
         return invokeL.booleanValue;
     }
 
+    public /* bridge */ boolean contains(ox0 ox0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ox0Var)) == null) {
+            return super.contains((Object) ox0Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public /* bridge */ int indexOf(ox0 ox0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ox0Var)) == null) {
+            return super.indexOf((Object) ox0Var);
+        }
+        return invokeL.intValue;
+    }
+
+    public /* bridge */ int lastIndexOf(ox0 ox0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ox0Var)) == null) {
+            return super.lastIndexOf((Object) ox0Var);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
+    public final /* bridge */ ox0 remove(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return removeAt(i);
+        }
+        return (ox0) invokeI.objValue;
+    }
+
+    public /* bridge */ ox0 removeAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            return (ox0) super.remove(i);
+        }
+        return (ox0) invokeI.objValue;
+    }
+
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public final /* bridge */ boolean contains(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj instanceof nx0) {
-                return contains((nx0) obj);
+            if (obj instanceof ox0) {
+                return contains((ox0) obj);
             }
             return false;
         }
@@ -174,8 +176,8 @@ public final class HistoryCache extends ArrayList<nx0> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (obj instanceof nx0) {
-                return indexOf((nx0) obj);
+            if (obj instanceof ox0) {
+                return indexOf((ox0) obj);
             }
             return -1;
         }
@@ -187,18 +189,37 @@ public final class HistoryCache extends ArrayList<nx0> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            if (obj instanceof nx0) {
-                return lastIndexOf((nx0) obj);
+            if (obj instanceof ox0) {
+                return lastIndexOf((ox0) obj);
             }
             return -1;
         }
         return invokeL.intValue;
     }
 
-    public /* bridge */ boolean remove(nx0 nx0Var) {
+    public /* bridge */ boolean remove(ox0 ox0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, nx0Var)) == null) ? super.remove((Object) nx0Var) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, ox0Var)) == null) {
+            return super.remove((Object) ox0Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final ox0 findCache(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            Iterator<E> it = iterator();
+            while (it.hasNext()) {
+                ox0 ox0Var = (ox0) it.next();
+                if (isSameHistory(ox0Var, str, str2)) {
+                    return ox0Var;
+                }
+            }
+            return null;
+        }
+        return (ox0) invokeLL.objValue;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -206,11 +227,31 @@ public final class HistoryCache extends ArrayList<nx0> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
-            if (obj instanceof nx0) {
-                return remove((nx0) obj);
+            if (obj instanceof ox0) {
+                return remove((ox0) obj);
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public final ox0 removeCache(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
+            Iterator it = iterator();
+            Intrinsics.checkNotNullExpressionValue(it, "iterator()");
+            while (it.hasNext()) {
+                Object next = it.next();
+                Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
+                ox0 ox0Var = (ox0) next;
+                if (isSameHistory(ox0Var, str, str2)) {
+                    it.remove();
+                    return ox0Var;
+                }
+            }
+            return null;
+        }
+        return (ox0) invokeLL.objValue;
     }
 }

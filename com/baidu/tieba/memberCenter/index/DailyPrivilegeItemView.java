@@ -45,21 +45,6 @@ public class DailyPrivilegeItemView extends RelativeLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d7, this);
-            this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a96);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa5);
-            this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
-            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa6);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a95);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DailyPrivilegeItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -104,5 +89,20 @@ public class DailyPrivilegeItemView extends RelativeLayout {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d4, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a92);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa1);
+            this.d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081252);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa2);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a91);
+        }
     }
 }

@@ -40,7 +40,10 @@ public final class HlsSampleStream implements SampleStream {
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sampleStreamWrapper.isReady(this.group) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sampleStreamWrapper.isReady(this.group);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.source.SampleStream
@@ -55,13 +58,19 @@ public final class HlsSampleStream implements SampleStream {
     public int readData(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, formatHolder, decoderInputBuffer, z)) == null) ? this.sampleStreamWrapper.readData(this.group, formatHolder, decoderInputBuffer, z) : invokeLLZ.intValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, formatHolder, decoderInputBuffer, z)) == null) {
+            return this.sampleStreamWrapper.readData(this.group, formatHolder, decoderInputBuffer, z);
+        }
+        return invokeLLZ.intValue;
     }
 
     @Override // com.google.android.exoplayer2.source.SampleStream
     public int skipData(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.sampleStreamWrapper.skipData(this.group, j) : invokeJ.intValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            return this.sampleStreamWrapper.skipData(this.group, j);
+        }
+        return invokeJ.intValue;
     }
 }

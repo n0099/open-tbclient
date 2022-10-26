@@ -16,9 +16,19 @@ public class LightEstimate {
     public final Session a;
     public long b;
 
+    public static native long nativeCreateLightEstimate(long j);
+
+    public static native void nativeDestroyLightEstimate(long j);
+
+    private native void nativeGetColorCorrection(long j, long j2, float[] fArr, int i);
+
+    private native float nativeGetPixelIntensity(long j, long j2);
+
+    private native int nativeGetState(long j, long j2);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State NOT_VALID;
@@ -87,13 +97,47 @@ public class LightEstimate {
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
+        }
+    }
+
+    public LightEstimate() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0L;
+        this.b = 0L;
+    }
+
+    public void finalize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.b;
+            if (j != 0) {
+                nativeDestroyLightEstimate(j);
+            }
+            super.finalize();
         }
     }
 
@@ -115,43 +159,5 @@ public class LightEstimate {
         this.b = 0L;
         this.a = session;
         this.b = nativeCreateLightEstimate(session.a);
-    }
-
-    public static native long nativeCreateLightEstimate(long j);
-
-    public static native void nativeDestroyLightEstimate(long j);
-
-    private native void nativeGetColorCorrection(long j, long j2, float[] fArr, int i);
-
-    private native float nativeGetPixelIntensity(long j, long j2);
-
-    private native int nativeGetState(long j, long j2);
-
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.b;
-            if (j != 0) {
-                nativeDestroyLightEstimate(j);
-            }
-            super.finalize();
-        }
-    }
-
-    public LightEstimate() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0L;
-        this.b = 0L;
     }
 }

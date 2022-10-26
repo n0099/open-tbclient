@@ -1,8 +1,6 @@
 package com.kwad.sdk.core.response.a;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdStyleInfo;
@@ -11,13 +9,15 @@ import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ax;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class d {
-    @Nullable
-    public static AdTemplate a(List<AdTemplate> list, long j, int i) {
+    public static AdTemplate a(List list, long j, int i) {
         if (j >= 0 && list != null) {
-            for (AdTemplate adTemplate : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                AdTemplate adTemplate = (AdTemplate) it.next();
                 if (b(adTemplate, j, i)) {
                     return adTemplate;
                 }
@@ -39,15 +39,15 @@ public final class d {
         return false;
     }
 
-    public static boolean bI(@NonNull AdTemplate adTemplate) {
+    public static boolean bI(AdTemplate adTemplate) {
         return (adTemplate.realShowType != 2 || adTemplate.adInfoList.isEmpty() || adTemplate.adInfoList.get(0) == null) ? false : true;
     }
 
-    public static long bJ(@NonNull AdTemplate adTemplate) {
+    public static long bJ(AdTemplate adTemplate) {
         return adTemplate.posId;
     }
 
-    public static int bK(@NonNull AdTemplate adTemplate) {
+    public static int bK(AdTemplate adTemplate) {
         return adTemplate.adStyle;
     }
 
@@ -59,25 +59,24 @@ public final class d {
         return sceneImpl.getAdStyle();
     }
 
-    public static int bM(@NonNull AdTemplate adTemplate) {
+    public static int bM(AdTemplate adTemplate) {
         return adTemplate.contentType;
     }
 
-    public static long bN(@NonNull AdTemplate adTemplate) {
+    public static long bN(AdTemplate adTemplate) {
         return adTemplate.llsid;
     }
 
-    public static String bO(@NonNull AdTemplate adTemplate) {
+    public static String bO(AdTemplate adTemplate) {
         return adTemplate.extra;
     }
 
-    public static String bP(@NonNull AdTemplate adTemplate) {
+    public static String bP(AdTemplate adTemplate) {
         return adTemplate.impAdExtra;
     }
 
-    @NonNull
-    public static AdInfo bQ(@NonNull AdTemplate adTemplate) {
-        AdInfo adInfo = adTemplate.adInfoList.size() > 0 ? adTemplate.adInfoList.get(0) : null;
+    public static AdInfo bQ(AdTemplate adTemplate) {
+        AdInfo adInfo = adTemplate.adInfoList.size() > 0 ? (AdInfo) adTemplate.adInfoList.get(0) : null;
         if (adInfo == null) {
             com.kwad.sdk.core.e.b.e("AdTemplateHelper", "adInfo in null");
             return new AdInfo();
@@ -85,22 +84,21 @@ public final class d {
         return adInfo;
     }
 
-    @NonNull
-    public static PhotoInfo bR(@NonNull AdTemplate adTemplate) {
+    public static PhotoInfo bR(AdTemplate adTemplate) {
         return adTemplate.photoInfo;
     }
 
-    public static String bS(@NonNull AdTemplate adTemplate) {
+    public static String bS(AdTemplate adTemplate) {
         return bI(adTemplate) ? a.A(bQ(adTemplate)) : f.a(bR(adTemplate));
     }
 
-    public static String bT(@NonNull AdTemplate adTemplate) {
+    public static String bT(AdTemplate adTemplate) {
         e uV = uV();
         String uW = uV == null ? "" : uV.uW();
         return TextUtils.isEmpty(uW) ? uW : a.L(bQ(adTemplate));
     }
 
-    public static String bU(@NonNull AdTemplate adTemplate) {
+    public static String bU(AdTemplate adTemplate) {
         if (bI(adTemplate)) {
             return a.bn(bQ(adTemplate));
         }
@@ -108,7 +106,7 @@ public final class d {
         return uV == null ? "" : uV.uX();
     }
 
-    public static long bV(@NonNull AdTemplate adTemplate) {
+    public static long bV(AdTemplate adTemplate) {
         if (bI(adTemplate)) {
             return a.O(bQ(adTemplate));
         }
@@ -116,7 +114,7 @@ public final class d {
         return uV == null ? adTemplate.hashCode() : uV.uY();
     }
 
-    public static int bW(@NonNull AdTemplate adTemplate) {
+    public static int bW(AdTemplate adTemplate) {
         e uV = uV();
         if (uV == null) {
             return 0;
@@ -124,7 +122,7 @@ public final class d {
         return uV.uZ();
     }
 
-    public static boolean bX(@NonNull AdTemplate adTemplate) {
+    public static boolean bX(AdTemplate adTemplate) {
         AdStyleInfo bG = c.bG(adTemplate);
         AdInfo bQ = bQ(adTemplate);
         return (bG.playEndInfo.showLandingPage3 == 1 || a.ab(bQ)) && !a.am(bQ) && !(ax.dT(a.bM(bQ)) ^ true) && (ax.dT(a.ar(bQ)) ^ true);
@@ -137,7 +135,7 @@ public final class d {
         return bQ(adTemplate).adBaseInfo.taskType;
     }
 
-    public static String bZ(@NonNull AdTemplate adTemplate) {
+    public static String bZ(AdTemplate adTemplate) {
         return bI(adTemplate) ? a.bC(bQ(adTemplate)) : f.c(bR(adTemplate));
     }
 
@@ -149,21 +147,21 @@ public final class d {
         return bQ(adTemplate).adConversionInfo.blockCallbackIfSpam && adTemplate.mCheatingFlow;
     }
 
-    public static boolean cc(@NonNull AdTemplate adTemplate) {
+    public static boolean cc(AdTemplate adTemplate) {
         return cd(adTemplate) || ce(adTemplate);
     }
 
-    public static boolean cd(@NonNull AdTemplate adTemplate) {
+    public static boolean cd(AdTemplate adTemplate) {
         int f = f(adTemplate, true);
         return f == 1 || f == 2;
     }
 
-    public static boolean ce(@NonNull AdTemplate adTemplate) {
+    public static boolean ce(AdTemplate adTemplate) {
         int f = f(adTemplate, false);
         return f == 1 || f == 2;
     }
 
-    public static int cf(@NonNull AdTemplate adTemplate) {
+    public static int cf(AdTemplate adTemplate) {
         return bQ(adTemplate).adBaseInfo.ecpm;
     }
 
@@ -175,7 +173,7 @@ public final class d {
         return a.am(bQ) && !a.bQ(bQ) && !z && bY(adTemplate) == 2;
     }
 
-    public static int f(@NonNull AdTemplate adTemplate, boolean z) {
+    public static int f(AdTemplate adTemplate, boolean z) {
         AdInfo bQ = bQ(adTemplate);
         if (bK(adTemplate) == 3) {
             AdMatrixInfo.AdDataV2 adDataV2 = bQ.adMatrixInfo.adDataV2;
@@ -196,7 +194,6 @@ public final class d {
         return (a.am(bQ) || a.bQ(bQ) || bY(adTemplate) != 3) ? false : true;
     }
 
-    @Nullable
     public static e uV() {
         com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
         if (dVar != null) {

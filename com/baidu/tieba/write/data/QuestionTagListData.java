@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
+import com.baidu.tieba.eo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class QuestionTagListData {
     public List<QuestionTag> b;
 
     /* loaded from: classes6.dex */
-    public static class QuestionTag implements Parcelable, Cdo {
+    public static class QuestionTag implements Parcelable, eo {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<QuestionTag> CREATOR;
         public static final BdUniqueId TYPE_TAG;
@@ -35,8 +35,18 @@ public class QuestionTagListData {
         @SerializedName("name")
         public String tagName;
 
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
         /* loaded from: classes6.dex */
-        public static class a implements Parcelable.Creator<QuestionTag> {
+        public final class a implements Parcelable.Creator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +70,10 @@ public class QuestionTagListData {
             public QuestionTag createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new QuestionTag(parcel) : (QuestionTag) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                    return new QuestionTag(parcel);
+                }
+                return (QuestionTag) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +82,10 @@ public class QuestionTagListData {
             public QuestionTag[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new QuestionTag[i] : (QuestionTag[]) invokeI.objValue;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    return new QuestionTag[i];
+                }
+                return (QuestionTag[]) invokeI.objValue;
             }
         }
 
@@ -104,40 +120,14 @@ public class QuestionTagListData {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.Cdo
+        @Override // com.baidu.tieba.eo
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TYPE_TAG : (BdUniqueId) invokeV.objValue;
-        }
-
-        public void readFromParcel(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parcel) == null) {
-                this.id = parcel.readString();
-                this.tagName = parcel.readString();
-                this.tagIcon = parcel.readString();
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return TYPE_TAG;
             }
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-                parcel.writeString(this.id);
-                parcel.writeString(this.tagName);
-                parcel.writeString(this.tagIcon);
-            }
+            return (BdUniqueId) invokeV.objValue;
         }
 
         public QuestionTag(Parcel parcel) {
@@ -158,6 +148,25 @@ public class QuestionTagListData {
             this.id = parcel.readString();
             this.tagName = parcel.readString();
             this.tagIcon = parcel.readString();
+        }
+
+        public void readFromParcel(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parcel) == null) {
+                this.id = parcel.readString();
+                this.tagName = parcel.readString();
+                this.tagIcon = parcel.readString();
+            }
+        }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+                parcel.writeString(this.id);
+                parcel.writeString(this.tagName);
+                parcel.writeString(this.tagIcon);
+            }
         }
     }
 

@@ -1,7 +1,5 @@
 package androidx.core.util;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,11 +12,10 @@ public final class Pools {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface Pool<T> {
-        @Nullable
-        T acquire();
+    public interface Pool {
+        Object acquire();
 
-        boolean release(@NonNull T t);
+        boolean release(Object obj);
     }
 
     /* loaded from: classes.dex */
@@ -50,7 +47,7 @@ public final class Pools {
             throw new IllegalArgumentException("The max pool size must be > 0");
         }
 
-        private boolean isInPool(@NonNull T t) {
+        private boolean isInPool(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, t)) == null) {
@@ -65,26 +62,7 @@ public final class Pools {
         }
 
         @Override // androidx.core.util.Pools.Pool
-        public T acquire() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.mPoolSize;
-                if (i > 0) {
-                    int i2 = i - 1;
-                    Object[] objArr = this.mPool;
-                    T t = (T) objArr[i2];
-                    objArr[i2] = null;
-                    this.mPoolSize = i - 1;
-                    return t;
-                }
-                return null;
-            }
-            return (T) invokeV.objValue;
-        }
-
-        @Override // androidx.core.util.Pools.Pool
-        public boolean release(@NonNull T t) {
+        public boolean release(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
@@ -101,6 +79,25 @@ public final class Pools {
                 throw new IllegalStateException("Already in the pool!");
             }
             return invokeL.booleanValue;
+        }
+
+        @Override // androidx.core.util.Pools.Pool
+        public T acquire() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.mPoolSize;
+                if (i <= 0) {
+                    return null;
+                }
+                int i2 = i - 1;
+                Object[] objArr = this.mPool;
+                T t = (T) objArr[i2];
+                objArr[i2] = null;
+                this.mPoolSize = i - 1;
+                return t;
+            }
+            return (T) invokeV.objValue;
         }
     }
 
@@ -146,7 +143,7 @@ public final class Pools {
         }
 
         @Override // androidx.core.util.Pools.SimplePool, androidx.core.util.Pools.Pool
-        public boolean release(@NonNull T t) {
+        public boolean release(T t) {
             InterceptResult invokeL;
             boolean release;
             Interceptable interceptable = $ic;

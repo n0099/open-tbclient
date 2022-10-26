@@ -34,14 +34,20 @@ public final class DataRes extends Message {
     public final List<GroupInfo> groups;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<DataRes> {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<GroupInfo> commonGroups;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List commonGroups;
         public Integer commongroupnum;
         public GroupPermission groupPerm;
         public Integer groupnum;
-        public List<GroupInfo> groups;
+        public List groups;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -90,14 +96,11 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new DataRes(this, z, null) : (DataRes) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new DataRes(this, z, null);
+            }
+            return (DataRes) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -119,10 +122,6 @@ public final class DataRes extends Message {
         DEFAULT_COMMONGROUPNUM = 0;
     }
 
-    public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {
-        this(builder, z);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DataRes(Builder builder, boolean z) {
         super(builder);
@@ -142,14 +141,14 @@ public final class DataRes extends Message {
             }
         }
         if (z) {
-            List<GroupInfo> list = builder.groups;
+            List list = builder.groups;
             if (list == null) {
                 this.groups = DEFAULT_GROUPS;
             } else {
                 this.groups = Message.immutableCopyOf(list);
             }
             this.groupPerm = builder.groupPerm;
-            List<GroupInfo> list2 = builder.commonGroups;
+            List list2 = builder.commonGroups;
             if (list2 == null) {
                 this.commonGroups = DEFAULT_COMMONGROUPS;
             } else {
@@ -175,5 +174,9 @@ public final class DataRes extends Message {
         this.commonGroups = Message.immutableCopyOf(builder.commonGroups);
         this.groupnum = builder.groupnum;
         this.commongroupnum = builder.commongroupnum;
+    }
+
+    public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

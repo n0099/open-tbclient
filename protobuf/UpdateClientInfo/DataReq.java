@@ -26,6 +26,7 @@ public final class DataReq extends Message {
     public static final String DEFAULT_STOKEN = "";
     public static final Integer DEFAULT_UNREAD_MSG;
     public static final Integer DEFAULT_WIDTH;
+    public static final String DEFAULT_Z_ID = "";
     public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String bduss;
@@ -51,9 +52,17 @@ public final class DataReq extends Message {
     public final Integer unread_msg;
     @ProtoField(tag = 6, type = Message.Datatype.INT32)
     public final Integer width;
+    @ProtoField(tag = 13, type = Message.Datatype.STRING)
+    public final String z_id;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<DataReq> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String bduss;
@@ -68,6 +77,7 @@ public final class DataReq extends Message {
         public String stoken;
         public Integer unread_msg;
         public Integer width;
+        public String z_id;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -116,6 +126,7 @@ public final class DataReq extends Message {
             this.project = dataReq.project;
             this.groupId = dataReq.groupId;
             this.stoken = dataReq.stoken;
+            this.z_id = dataReq.z_id;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,14 +134,11 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new DataReq(this, z, null) : (DataReq) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new DataReq(this, z, null);
+            }
+            return (DataReq) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -155,10 +163,6 @@ public final class DataReq extends Message {
         DEFAULT_UNREAD_MSG = 0;
         DEFAULT_PUB_ENV = 0;
         DEFAULT_GROUPID = 0L;
-    }
-
-    public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -249,9 +253,15 @@ public final class DataReq extends Message {
             String str4 = builder.stoken;
             if (str4 == null) {
                 this.stoken = "";
-                return;
             } else {
                 this.stoken = str4;
+            }
+            String str5 = builder.z_id;
+            if (str5 == null) {
+                this.z_id = "";
+                return;
+            } else {
+                this.z_id = str5;
                 return;
             }
         }
@@ -267,5 +277,10 @@ public final class DataReq extends Message {
         this.project = builder.project;
         this.groupId = builder.groupId;
         this.stoken = builder.stoken;
+        this.z_id = builder.z_id;
+    }
+
+    public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

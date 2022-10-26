@@ -7,25 +7,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.DelayTB;
-import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class bp0 {
+public class bp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
     public int a;
-    @JvmField
-    public long b;
-    @JvmField
-    public long c;
+    public int b;
+    public Object c;
+    public vo0 d;
+    public yo0 e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652519, "Lcom/baidu/tieba/bp0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947652519, "Lcom/baidu/tieba/bp0;");
+                return;
+            }
+        }
+        f = new a(null);
+    }
 
     /* loaded from: classes3.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,42 +56,36 @@ public final class bp0 {
             }
         }
 
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         @JvmStatic
         public final bp0 a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    bp0 bp0Var = new bp0();
-                    bp0Var.a = jSONObject.optInt("style");
-                    bp0Var.b = jSONObject.optLong(DelayTB.DELAY) >= 0 ? jSONObject.optLong(DelayTB.DELAY) : 0L;
-                    bp0Var.c = jSONObject.optLong("duration");
-                    return bp0Var;
+                if (jSONObject == null) {
+                    return null;
                 }
-                return null;
+                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
+                if (optJSONObject == null) {
+                    optJSONObject = yz0.c(jSONObject.optString("popover"));
+                }
+                if (optJSONObject == null) {
+                    return null;
+                }
+                bp0 bp0Var = new bp0();
+                bp0Var.a = optJSONObject.optInt("type");
+                bp0Var.b = optJSONObject.optInt("show_time");
+                optJSONObject.optInt("async_get_popover_data_switch");
+                optJSONObject.optInt("async_get_popover_data_delay_time");
+                optJSONObject.optString("popover_data_request_url");
+                optJSONObject.optJSONObject("popover_data_request_params");
+                return bp0Var;
             }
             return (bp0) invokeL.objValue;
         }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652519, "Lcom/baidu/tieba/bp0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947652519, "Lcom/baidu/tieba/bp0;");
-                return;
-            }
-        }
-        d = new a(null);
     }
 
     public bp0() {

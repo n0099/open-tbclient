@@ -1,18 +1,17 @@
 package com.baidu.searchbox.logsystem.javacrash;
 
-import androidx.annotation.NonNull;
 import java.lang.Thread;
 /* loaded from: classes2.dex */
 public interface ProcessExceptionListener {
-    void onProcessExceptionFail(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th, @NonNull Throwable th2);
+    void onProcessExceptionFail(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th, Throwable th2);
 
-    void onProcessExceptionStart(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th);
+    void onProcessExceptionStart(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th);
 
-    void onProcessExceptionSuccess(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th);
+    void onProcessExceptionSuccess(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th);
 
-    void onProxyProcessExceptionFail(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th, @NonNull Throwable th2);
+    void onProxyProcessExceptionFail(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th, Throwable th2);
 
-    void onProxyProcessExceptionStart(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th);
+    void onProxyProcessExceptionStart(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th);
 
-    void onProxyProcessExceptionSuccess(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th);
+    void onProxyProcessExceptionSuccess(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th);
 }

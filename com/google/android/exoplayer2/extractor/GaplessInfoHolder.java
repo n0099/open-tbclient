@@ -40,6 +40,13 @@ public final class GaplessInfoHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            @Override // com.google.android.exoplayer2.metadata.id3.Id3Decoder.FramePredicate
+            public boolean evaluate(int i, int i2, int i3, int i4, int i5) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? i2 == 67 && i3 == 79 && i4 == 77 && (i5 == 77 || i == 2) : invokeCommon.booleanValue;
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -52,13 +59,6 @@ public final class GaplessInfoHolder {
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
                 }
-            }
-
-            @Override // com.google.android.exoplayer2.metadata.id3.Id3Decoder.FramePredicate
-            public boolean evaluate(int i, int i2, int i3, int i4, int i5) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? i2 == 67 && i3 == 79 && i4 == 77 && (i5 == 77 || i == 2) : invokeCommon.booleanValue;
             }
         };
         GAPLESS_COMMENT_PATTERN = Pattern.compile("^ [0-9a-fA-F]{8} ([0-9a-fA-F]{8}) ([0-9a-fA-F]{8})");
@@ -81,35 +81,41 @@ public final class GaplessInfoHolder {
         this.encoderPadding = -1;
     }
 
+    public boolean hasGaplessInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.encoderDelay != -1 && this.encoderPadding != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     private boolean setFromComment(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            if (GAPLESS_COMMENT_ID.equals(str)) {
-                Matcher matcher = GAPLESS_COMMENT_PATTERN.matcher(str2);
-                if (matcher.find()) {
-                    try {
-                        int parseInt = Integer.parseInt(matcher.group(1), 16);
-                        int parseInt2 = Integer.parseInt(matcher.group(2), 16);
-                        if (parseInt > 0 || parseInt2 > 0) {
-                            this.encoderDelay = parseInt;
-                            this.encoderPadding = parseInt2;
-                            return true;
-                        }
-                    } catch (NumberFormatException unused) {
-                    }
-                }
+            if (!GAPLESS_COMMENT_ID.equals(str)) {
                 return false;
+            }
+            Matcher matcher = GAPLESS_COMMENT_PATTERN.matcher(str2);
+            if (matcher.find()) {
+                try {
+                    int parseInt = Integer.parseInt(matcher.group(1), 16);
+                    int parseInt2 = Integer.parseInt(matcher.group(2), 16);
+                    if (parseInt > 0 || parseInt2 > 0) {
+                        this.encoderDelay = parseInt;
+                        this.encoderPadding = parseInt2;
+                        return true;
+                    }
+                } catch (NumberFormatException unused) {
+                }
             }
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public boolean hasGaplessInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.encoderDelay == -1 || this.encoderPadding == -1) ? false : true : invokeV.booleanValue;
     }
 
     public boolean setFromMetadata(Metadata metadata) {
@@ -136,12 +142,12 @@ public final class GaplessInfoHolder {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             int i2 = i >> 12;
             int i3 = i & 4095;
-            if (i2 > 0 || i3 > 0) {
-                this.encoderDelay = i2;
-                this.encoderPadding = i3;
-                return true;
+            if (i2 <= 0 && i3 <= 0) {
+                return false;
             }
-            return false;
+            this.encoderDelay = i2;
+            this.encoderPadding = i3;
+            return true;
         }
         return invokeI.booleanValue;
     }

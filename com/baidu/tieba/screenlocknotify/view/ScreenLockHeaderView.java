@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.fg8;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.pg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public fg8 h;
+    public pg8 h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -55,97 +55,21 @@ public class ScreenLockHeaderView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078f, (ViewGroup) this, true);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090adc);
-        this.b = findViewById(R.id.obfuscated_res_0x7f090adb);
-        this.c = findViewById(R.id.obfuscated_res_0x7f09157e);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091258);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09173a);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092473);
-        this.g = findViewById(R.id.obfuscated_res_0x7f091306);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) this, true);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ae6);
+        this.b = findViewById(R.id.obfuscated_res_0x7f090ae5);
+        this.c = findViewById(R.id.obfuscated_res_0x7f091570);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09124c);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09172c);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09245d);
+        this.g = findViewById(R.id.obfuscated_res_0x7f0912fc);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a8);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b9);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dc8);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc9);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091dc7);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dc4);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091dc3);
         this.k.setVisibility(8);
-    }
-
-    public String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j)) : (String) invokeJ.objValue;
-    }
-
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 100) {
-                return "" + i;
-            }
-            return "99+";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (z) {
-                this.k.setVisibility(0);
-                this.g.setVisibility(8);
-                return;
-            }
-            this.k.setVisibility(8);
-            this.g.setVisibility(0);
-        }
-    }
-
-    public void d(fg8 fg8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fg8Var) == null) {
-            this.h = fg8Var;
-            this.a.setText(fg8Var.a);
-            this.d.setText(a(fg8Var.l));
-            this.e.setText(fg8Var.e);
-            this.f.setText(b(fg8Var.i));
-        }
-    }
-
-    public fg8 getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (fg8) invokeV.objValue;
-    }
-
-    public View getEditText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (View) invokeV.objValue;
-    }
-
-    public String getInputMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            EditText editText = this.j;
-            if (editText != null) {
-                return dj.charSequence2String(editText.getText(), null);
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, onClickListener, onClickListener2) == null) {
-            this.i.setOnClickListener(onClickListener);
-            this.b.setOnClickListener(onClickListener2);
-            this.c.setOnClickListener(onClickListener2);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -187,6 +111,91 @@ public class ScreenLockHeaderView extends LinearLayout {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    public String a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 100) {
+                return "" + i;
+            }
+            return "99+";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                this.k.setVisibility(0);
+                this.g.setVisibility(8);
+                return;
+            }
+            this.k.setVisibility(8);
+            this.g.setVisibility(0);
+        }
+    }
+
+    public void d(pg8 pg8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pg8Var) == null) {
+            this.h = pg8Var;
+            this.a.setText(pg8Var.a);
+            this.d.setText(a(pg8Var.l));
+            this.e.setText(pg8Var.e);
+            this.f.setText(b(pg8Var.i));
+        }
+    }
+
+    public pg8 getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return (pg8) invokeV.objValue;
+    }
+
+    public View getEditText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public String getInputMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            EditText editText = this.j;
+            if (editText == null) {
+                return null;
+            }
+            return ej.charSequence2String(editText.getText(), null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, onClickListener, onClickListener2) == null) {
+            this.i.setOnClickListener(onClickListener);
+            this.b.setOnClickListener(onClickListener2);
+            this.c.setOnClickListener(onClickListener2);
         }
     }
 }

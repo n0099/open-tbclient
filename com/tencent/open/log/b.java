@@ -43,7 +43,65 @@ public class b {
                 return;
             }
         }
-        a = d.C0706d.a("yy.MM.dd.HH");
+        a = d.C0702d.a("yy.MM.dd.HH");
+    }
+
+    public File[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return c(System.currentTimeMillis());
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            File e = e();
+            if (e != null) {
+                e.mkdirs();
+            }
+            return e;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public File e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.g;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
     }
 
     public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {
@@ -80,6 +138,40 @@ public class b {
         b(j2);
     }
 
+    private String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            return "com.tencent.mobileqq_connectSdk." + str + ".log";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            return new SimpleDateFormat("yy.MM.dd.HH").format(calendar.getTime());
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
     private File[] c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -109,87 +201,10 @@ public class b {
         return (File[]) invokeJ.objValue;
     }
 
-    private String d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
-            return new SimpleDateFormat("yy.MM.dd.HH").format(calendar.getTime());
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public File[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c(System.currentTimeMillis()) : (File[]) invokeV.objValue;
-    }
-
-    public File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            File e = e();
-            if (e != null) {
-                e.mkdirs();
-            }
-            return e;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public File e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.g : (File) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             this.f = j;
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void a(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-            this.g = file;
         }
     }
 
@@ -200,10 +215,11 @@ public class b {
         }
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
+        }
     }
 
     public void d(int i) {
@@ -213,25 +229,24 @@ public class b {
         }
     }
 
-    private String c(String str) {
-        InterceptResult invokeL;
+    public void a(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            return "com.tencent.mobileqq_connectSdk." + str + ".log";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
+            this.g = file;
         }
-        return (String) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.i = str;
+        }
     }
 
-    public void c(int i) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
     }
 }

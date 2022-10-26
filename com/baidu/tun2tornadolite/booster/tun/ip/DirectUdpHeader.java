@@ -19,7 +19,7 @@ import kotlin.reflect.KProperty;
 @Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\b\u001d\u0018\u0000 #2\u00020\u0001:\u0001#B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004RI\u0010\n\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t2\u0015\u0010\u0005\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u0011\u0010\u0011\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\fRI\u0010\u0013\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t2\u0015\u0010\u0005\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u0016\u0010\u0010\u001a\u0004\b\u0014\u0010\f\"\u0004\b\u0015\u0010\u000eR\u0014\u0010\u0017\u001a\u00020\u0006X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\fR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u001aRI\u0010\u001b\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t2\u0015\u0010\u0005\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u001e\u0010\u0010\u001a\u0004\b\u001c\u0010\f\"\u0004\b\u001d\u0010\u000eRI\u0010\u001f\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t2\u0015\u0010\u0005\u001a\u00110\u0006¢\u0006\f\b\u0007\u0012\b\b\b\u0012\u0004\b\b(\t8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\"\u0010\u0010\u001a\u0004\b \u0010\f\"\u0004\b!\u0010\u000e¨\u0006$"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectUdpHeader;", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;", "ipHeader", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPHeader;", "(Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPHeader;)V", "<set-?>", "", "Lkotlin/ParameterName;", "name", "value", "checksum", "getChecksum", "()I", "setChecksum", "(I)V", "checksum$delegate", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader$Field;", "dataLength", "getDataLength", "destinationPort", "getDestinationPort", "setDestinationPort", "destinationPort$delegate", "headerLength", "getHeaderLength", "getIpHeader", "()Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPHeader;", "sourcePort", "getSourcePort", "setSourcePort", "sourcePort$delegate", "totalLength", "getTotalLength", "setTotalLength", "totalLength$delegate", "Companion", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public final class DirectUdpHeader extends DirectHeader {
-    public static final /* synthetic */ KProperty<Object>[] $$delegatedProperties;
+    public static final /* synthetic */ KProperty[] $$delegatedProperties;
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final int OFFSET_CHECKSUM = 6;
@@ -37,9 +37,13 @@ public final class DirectUdpHeader extends DirectHeader {
 
     @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\b"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectUdpHeader$Companion;", "", "()V", "OFFSET_CHECKSUM", "", "OFFSET_DESTINATION_PORT", "OFFSET_LENGTH", "OFFSET_SOURCE_PORT", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes6.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -53,10 +57,6 @@ public final class DirectUdpHeader extends DirectHeader {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
@@ -109,43 +109,64 @@ public final class DirectUdpHeader extends DirectHeader {
     public final int getChecksum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((Number) this.checksum$delegate.getValue(this, $$delegatedProperties[3])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((Number) this.checksum$delegate.getValue(this, $$delegatedProperties[3])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final int getDataLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataLength : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dataLength;
+        }
+        return invokeV.intValue;
     }
 
     public final int getDestinationPort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((Number) this.destinationPort$delegate.getValue(this, $$delegatedProperties[1])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((Number) this.destinationPort$delegate.getValue(this, $$delegatedProperties[1])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final int getHeaderLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.headerLength : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.headerLength;
+        }
+        return invokeV.intValue;
     }
 
     public final DirectIPHeader getIpHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ipHeader : (DirectIPHeader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.ipHeader;
+        }
+        return (DirectIPHeader) invokeV.objValue;
     }
 
     public final int getSourcePort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((Number) this.sourcePort$delegate.getValue(this, $$delegatedProperties[0])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ((Number) this.sourcePort$delegate.getValue(this, $$delegatedProperties[0])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final int getTotalLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((Number) this.totalLength$delegate.getValue(this, $$delegatedProperties[2])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ((Number) this.totalLength$delegate.getValue(this, $$delegatedProperties[2])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final void setChecksum(int i) {

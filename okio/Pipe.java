@@ -81,7 +81,10 @@ public final class Pipe {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.timeout;
+            }
+            return (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
@@ -89,23 +92,24 @@ public final class Pipe {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
                 synchronized (this.this$0.buffer) {
-                    if (this.this$0.sinkClosed) {
-                        throw new IllegalStateException("closed");
-                    }
-                    while (j > 0) {
-                        if (!this.this$0.sourceClosed) {
-                            long size = this.this$0.maxBufferSize - this.this$0.buffer.size();
-                            if (size == 0) {
-                                this.timeout.waitUntilNotified(this.this$0.buffer);
+                    if (!this.this$0.sinkClosed) {
+                        while (j > 0) {
+                            if (!this.this$0.sourceClosed) {
+                                long size = this.this$0.maxBufferSize - this.this$0.buffer.size();
+                                if (size == 0) {
+                                    this.timeout.waitUntilNotified(this.this$0.buffer);
+                                } else {
+                                    long min = Math.min(size, j);
+                                    this.this$0.buffer.write(buffer, min);
+                                    j -= min;
+                                    this.this$0.buffer.notifyAll();
+                                }
                             } else {
-                                long min = Math.min(size, j);
-                                this.this$0.buffer.write(buffer, min);
-                                j -= min;
-                                this.this$0.buffer.notifyAll();
+                                throw new IOException("source is closed");
                             }
-                        } else {
-                            throw new IOException("source is closed");
                         }
+                    } else {
+                        throw new IllegalStateException("closed");
                     }
                 }
             }
@@ -150,6 +154,16 @@ public final class Pipe {
         }
 
         @Override // okio.Source
+        public Timeout timeout() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.timeout;
+            }
+            return (Timeout) invokeV.objValue;
+        }
+
+        @Override // okio.Source
         public long read(Buffer buffer, long j) throws IOException {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
@@ -170,13 +184,6 @@ public final class Pipe {
                 }
             }
             return invokeLJ.longValue;
-        }
-
-        @Override // okio.Source
-        public Timeout timeout() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
         }
     }
 
@@ -208,12 +215,18 @@ public final class Pipe {
     public Sink sink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sink : (Sink) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sink;
+        }
+        return (Sink) invokeV.objValue;
     }
 
     public Source source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (Source) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.source;
+        }
+        return (Source) invokeV.objValue;
     }
 }

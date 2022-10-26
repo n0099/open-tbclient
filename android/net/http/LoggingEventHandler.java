@@ -29,22 +29,6 @@ public class LoggingEventHandler implements EventHandler {
     }
 
     @Override // android.net.http.EventHandler
-    public void certificate(SslCertificate sslCertificate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sslCertificate) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // android.net.http.EventHandler
-    public void data(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // android.net.http.EventHandler
     public void endData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -52,10 +36,17 @@ public class LoggingEventHandler implements EventHandler {
         }
     }
 
-    @Override // android.net.http.EventHandler
-    public void error(int i, String str) {
+    public void requestSent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // android.net.http.EventHandler
+    public void certificate(SslCertificate sslCertificate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sslCertificate) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -78,16 +69,25 @@ public class LoggingEventHandler implements EventHandler {
         }
     }
 
-    public void locationChanged(String str, boolean z) {
+    @Override // android.net.http.EventHandler
+    public void data(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void requestSent() {
+    @Override // android.net.http.EventHandler
+    public void error(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void locationChanged(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
             throw new RuntimeException("Stub!");
         }
     }

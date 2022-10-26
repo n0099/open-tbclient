@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +54,7 @@ public class KSNativeAdVideoH5OpenView extends x {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdVideoH5OpenView(Context context, @Nullable AttributeSet attributeSet) {
+    public KSNativeAdVideoH5OpenView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +75,7 @@ public class KSNativeAdVideoH5OpenView extends x {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdVideoH5OpenView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KSNativeAdVideoH5OpenView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,6 +92,32 @@ public class KSNativeAdVideoH5OpenView extends x {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.view.View
+    public void onFinishInflate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onFinishInflate();
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.e = (TextView) findViewById(R.id.ad_h5_description);
+            this.f = (Button) findViewById(R.id.ad_h5_open);
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i5;
+            layoutParams.height = (int) (i5 / 1.78f);
+            this.c.setLayoutParams(layoutParams);
         }
     }
 
@@ -121,32 +146,6 @@ public class KSNativeAdVideoH5OpenView extends x {
             }
             this.e.setText(adSource);
             this.f.setText(ksNativeAd.getActionDescription());
-        }
-    }
-
-    @Override // android.view.View
-    public void onFinishInflate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
-            this.e = (TextView) findViewById(R.id.ad_h5_description);
-            this.f = (Button) findViewById(R.id.ad_h5_open);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-            layoutParams.width = i5;
-            layoutParams.height = (int) (i5 / 1.78f);
-            this.c.setLayoutParams(layoutParams);
         }
     }
 }

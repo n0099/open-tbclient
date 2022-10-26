@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes7.dex */
-public class ViewTransition<R> implements Transition<R> {
+public class ViewTransition implements Transition {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ViewTransitionAnimationFactory viewTransitionAnimationFactory;
@@ -39,10 +39,10 @@ public class ViewTransition<R> implements Transition<R> {
     }
 
     @Override // com.bumptech.glide.request.transition.Transition
-    public boolean transition(R r, Transition.ViewAdapter viewAdapter) {
+    public boolean transition(Object obj, Transition.ViewAdapter viewAdapter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r, viewAdapter)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, viewAdapter)) == null) {
             View view2 = viewAdapter.getView();
             if (view2 != null) {
                 view2.clearAnimation();

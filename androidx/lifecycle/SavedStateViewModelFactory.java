@@ -1,10 +1,7 @@
 package androidx.lifecycle;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryOwner;
@@ -49,7 +46,7 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SavedStateViewModelFactory(@NonNull Application application, @NonNull SavedStateRegistryOwner savedStateRegistryOwner) {
+    public SavedStateViewModelFactory(Application application, SavedStateRegistryOwner savedStateRegistryOwner) {
         this(application, savedStateRegistryOwner, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,63 +66,7 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
         }
     }
 
-    public static <T> Constructor<T> findMatchingConstructor(Class<T> cls, Class<?>[] clsArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, clsArr)) == null) {
-            for (Constructor<?> constructor : cls.getConstructors()) {
-                Constructor<T> constructor2 = (Constructor<T>) constructor;
-                if (Arrays.equals(clsArr, constructor2.getParameterTypes())) {
-                    return constructor2;
-                }
-            }
-            return null;
-        }
-        return (Constructor) invokeLL.objValue;
-    }
-
-    @Override // androidx.lifecycle.ViewModelProvider.KeyedFactory
-    @NonNull
-    public <T extends ViewModel> T create(@NonNull String str, @NonNull Class<T> cls) {
-        InterceptResult invokeLL;
-        Constructor findMatchingConstructor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            boolean isAssignableFrom = AndroidViewModel.class.isAssignableFrom(cls);
-            if (isAssignableFrom) {
-                findMatchingConstructor = findMatchingConstructor(cls, ANDROID_VIEWMODEL_SIGNATURE);
-            } else {
-                findMatchingConstructor = findMatchingConstructor(cls, VIEWMODEL_SIGNATURE);
-            }
-            if (findMatchingConstructor == null) {
-                return (T) this.mFactory.create(cls);
-            }
-            SavedStateHandleController create = SavedStateHandleController.create(this.mSavedStateRegistry, this.mLifecycle, str, this.mDefaultArgs);
-            try {
-                T t = isAssignableFrom ? (T) findMatchingConstructor.newInstance(this.mApplication, create.getHandle()) : (T) findMatchingConstructor.newInstance(create.getHandle());
-                t.setTagIfAbsent("androidx.lifecycle.savedstate.vm.tag", create);
-                return t;
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException("Failed to access " + cls, e);
-            } catch (InstantiationException e2) {
-                throw new RuntimeException("A " + cls + " cannot be instantiated.", e2);
-            } catch (InvocationTargetException e3) {
-                throw new RuntimeException("An exception happened in constructor of " + cls, e3.getCause());
-            }
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // androidx.lifecycle.ViewModelProvider.OnRequeryFactory
-    public void onRequery(@NonNull ViewModel viewModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewModel) == null) {
-            SavedStateHandleController.attachHandleIfNeeded(viewModel, this.mSavedStateRegistry, this.mLifecycle);
-        }
-    }
-
-    @SuppressLint({"LambdaLast"})
-    public SavedStateViewModelFactory(@NonNull Application application, @NonNull SavedStateRegistryOwner savedStateRegistryOwner, @Nullable Bundle bundle) {
+    public SavedStateViewModelFactory(Application application, SavedStateRegistryOwner savedStateRegistryOwner, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,9 +88,23 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
         this.mFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(application);
     }
 
+    public static <T> Constructor<T> findMatchingConstructor(Class<T> cls, Class<?>[] clsArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, clsArr)) == null) {
+            for (Constructor<?> constructor : cls.getConstructors()) {
+                Constructor<T> constructor2 = (Constructor<T>) constructor;
+                if (Arrays.equals(clsArr, constructor2.getParameterTypes())) {
+                    return constructor2;
+                }
+            }
+            return null;
+        }
+        return (Constructor) invokeLL.objValue;
+    }
+
     @Override // androidx.lifecycle.ViewModelProvider.KeyedFactory, androidx.lifecycle.ViewModelProvider.Factory
-    @NonNull
-    public <T extends ViewModel> T create(@NonNull Class<T> cls) {
+    public <T extends ViewModel> T create(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -160,5 +115,49 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
             throw new IllegalArgumentException("Local and anonymous classes can not be ViewModels");
         }
         return (T) invokeL.objValue;
+    }
+
+    @Override // androidx.lifecycle.ViewModelProvider.OnRequeryFactory
+    public void onRequery(ViewModel viewModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewModel) == null) {
+            SavedStateHandleController.attachHandleIfNeeded(viewModel, this.mSavedStateRegistry, this.mLifecycle);
+        }
+    }
+
+    @Override // androidx.lifecycle.ViewModelProvider.KeyedFactory
+    public <T extends ViewModel> T create(String str, Class<T> cls) {
+        InterceptResult invokeLL;
+        Constructor findMatchingConstructor;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            boolean isAssignableFrom = AndroidViewModel.class.isAssignableFrom(cls);
+            if (isAssignableFrom) {
+                findMatchingConstructor = findMatchingConstructor(cls, ANDROID_VIEWMODEL_SIGNATURE);
+            } else {
+                findMatchingConstructor = findMatchingConstructor(cls, VIEWMODEL_SIGNATURE);
+            }
+            if (findMatchingConstructor == null) {
+                return (T) this.mFactory.create(cls);
+            }
+            SavedStateHandleController create = SavedStateHandleController.create(this.mSavedStateRegistry, this.mLifecycle, str, this.mDefaultArgs);
+            try {
+                if (isAssignableFrom) {
+                    t = (T) findMatchingConstructor.newInstance(this.mApplication, create.getHandle());
+                } else {
+                    t = (T) findMatchingConstructor.newInstance(create.getHandle());
+                }
+                t.setTagIfAbsent("androidx.lifecycle.savedstate.vm.tag", create);
+                return t;
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException("Failed to access " + cls, e);
+            } catch (InstantiationException e2) {
+                throw new RuntimeException("A " + cls + " cannot be instantiated.", e2);
+            } catch (InvocationTargetException e3) {
+                throw new RuntimeException("An exception happened in constructor of " + cls, e3.getCause());
+            }
+        }
+        return (T) invokeLL.objValue;
     }
 }

@@ -42,55 +42,108 @@ public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializabl
     public double getIconSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIconSize : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mIconSize;
+        }
+        return invokeV.doubleValue;
     }
 
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIconUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mIconUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Item getItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mItem : (Item) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mItem;
+        }
+        return (Item) invokeV.objValue;
     }
 
     public String getItemForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mItemForumName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mItemForumName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getItemID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mItemID : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mItemID;
+        }
+        return (String) invokeV.objValue;
     }
 
     public double getScore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mScore : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mScore;
+        }
+        return invokeV.doubleValue;
     }
 
     public int getStar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStar : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mStar;
+        }
+        return invokeV.intValue;
     }
 
     public List<String> getTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTags : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mTags;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TbRichTextEvaluateItemInfo(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mItemID = String.valueOf(item.item_id.intValue());
+        this.mIconUrl = item.icon_url;
+        this.mTitle = item.item_name;
+        this.mTags = item.tags;
+        this.mScore = item.score.doubleValue();
+        this.mStar = item.star.intValue();
+        this.mIconSize = item.icon_size.doubleValue();
+        this.mItemForumName = item.forum_name;
+        this.mItem = item;
     }
 
     public void setIconSize(double d) {
@@ -147,31 +200,5 @@ public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializabl
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.mTitle = str;
         }
-    }
-
-    public TbRichTextEvaluateItemInfo(Item item) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mItemID = String.valueOf(item.item_id.intValue());
-        this.mIconUrl = item.icon_url;
-        this.mTitle = item.item_name;
-        this.mTags = item.tags;
-        this.mScore = item.score.doubleValue();
-        this.mStar = item.star.intValue();
-        this.mIconSize = item.icon_size.doubleValue();
-        this.mItemForumName = item.forum_name;
-        this.mItem = item;
     }
 }

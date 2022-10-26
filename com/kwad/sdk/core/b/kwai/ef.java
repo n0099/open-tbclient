@@ -3,9 +3,8 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ef implements com.kwad.sdk.core.d<AdStyleInfo.PlayEndInfo> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
+public final class ef implements com.kwad.sdk.core.d {
+    public static void a(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -19,8 +18,7 @@ public final class ef implements com.kwad.sdk.core.d<AdStyleInfo.PlayEndInfo> {
         endTopToolBarInfo.parseJson(jSONObject.optJSONObject("endTopToolBarInfo"));
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
+    public static JSONObject b(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -37,15 +35,13 @@ public final class ef implements com.kwad.sdk.core.d<AdStyleInfo.PlayEndInfo> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
-        a2(playEndInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((AdStyleInfo.PlayEndInfo) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
-        return b2(playEndInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((AdStyleInfo.PlayEndInfo) bVar, jSONObject);
     }
 }

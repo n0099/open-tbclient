@@ -1,6 +1,5 @@
 package com.baidu.android.ddmlib;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,8 +31,7 @@ public class ByteBufferUtil {
         }
     }
 
-    @NonNull
-    public static String getString(@NonNull ByteBuffer byteBuffer, int i) {
+    public static String getString(ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i)) == null) {
@@ -46,8 +44,17 @@ public class ByteBufferUtil {
         return (String) invokeLI.objValue;
     }
 
-    @NonNull
-    public static ByteBuffer mapFile(@NonNull File file, long j, @NonNull ByteOrder byteOrder) throws IOException {
+    public static void putString(ByteBuffer byteBuffer, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, byteBuffer, str) == null) {
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                byteBuffer.putChar(str.charAt(i));
+            }
+        }
+    }
+
+    public static ByteBuffer mapFile(File file, long j, ByteOrder byteOrder) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{file, Long.valueOf(j), byteOrder})) == null) {
@@ -61,15 +68,5 @@ public class ByteBufferUtil {
             }
         }
         return (ByteBuffer) invokeCommon.objValue;
-    }
-
-    public static void putString(@NonNull ByteBuffer byteBuffer, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, byteBuffer, str) == null) {
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                byteBuffer.putChar(str.charAt(i));
-            }
-        }
     }
 }

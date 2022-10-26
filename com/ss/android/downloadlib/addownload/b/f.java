@@ -1,7 +1,6 @@
 package com.ss.android.downloadlib.addownload.b;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -10,6 +9,7 @@ import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,25 +17,56 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f {
     public volatile boolean a;
-    public final ConcurrentHashMap<Long, DownloadModel> b;
-    public final ConcurrentHashMap<Long, DownloadEventConfig> c;
-    public final ConcurrentHashMap<Long, DownloadController> d;
-    public final ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> e;
+    public final ConcurrentHashMap b;
+    public final ConcurrentHashMap c;
+    public final ConcurrentHashMap d;
+    public final ConcurrentHashMap e;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static f a = new f();
     }
 
+    public f() {
+        this.a = false;
+        this.b = new ConcurrentHashMap();
+        this.c = new ConcurrentHashMap();
+        this.d = new ConcurrentHashMap();
+        this.e = new ConcurrentHashMap();
+    }
+
+    public static f a() {
+        return a.a;
+    }
+
+    public void b() {
+        com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.f.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (!f.this.a) {
+                    synchronized (f.class) {
+                        if (!f.this.a) {
+                            f.this.e.putAll(i.a().b());
+                            f.this.a = true;
+                        }
+                    }
+                }
+            }
+        }, true);
+    }
+
+    public ConcurrentHashMap c() {
+        return this.e;
+    }
+
     public DownloadController c(long j) {
-        return this.d.get(Long.valueOf(j));
+        return (DownloadController) this.d.get(Long.valueOf(j));
     }
 
     public com.ss.android.downloadad.api.a.b d(long j) {
-        return this.e.get(Long.valueOf(j));
+        return (com.ss.android.downloadad.api.a.b) this.e.get(Long.valueOf(j));
     }
 
-    @NonNull
     public e e(long j) {
         e eVar = new e();
         eVar.a = j;
@@ -59,51 +90,21 @@ public class f {
         this.d.remove(Long.valueOf(j));
     }
 
-    public f() {
-        this.a = false;
-        this.b = new ConcurrentHashMap<>();
-        this.c = new ConcurrentHashMap<>();
-        this.d = new ConcurrentHashMap<>();
-        this.e = new ConcurrentHashMap<>();
-    }
-
-    public void b() {
-        com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.f.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (f.this.a) {
-                    return;
-                }
-                synchronized (f.class) {
-                    if (!f.this.a) {
-                        f.this.e.putAll(i.a().b());
-                        f.this.a = true;
-                    }
-                }
-            }
-        }, true);
-    }
-
-    public ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> c() {
-        return this.e;
-    }
-
-    public static f a() {
-        return a.a;
+    public DownloadModel a(long j) {
+        return (DownloadModel) this.b.get(Long.valueOf(j));
     }
 
     public DownloadEventConfig b(long j) {
-        return this.c.get(Long.valueOf(j));
+        return (DownloadEventConfig) this.c.get(Long.valueOf(j));
     }
 
-    public void a(DownloadModel downloadModel) {
-        if (downloadModel != null) {
-            this.b.put(Long.valueOf(downloadModel.getId()), downloadModel);
-            if (downloadModel.getDeepLink() != null) {
-                downloadModel.getDeepLink().setId(downloadModel.getId());
-                downloadModel.getDeepLink().setPackageName(downloadModel.getPackageName());
+    public com.ss.android.downloadad.api.a.b a(int i) {
+        for (com.ss.android.downloadad.api.a.b bVar : this.e.values()) {
+            if (bVar != null && bVar.s() == i) {
+                return bVar;
             }
         }
+        return null;
     }
 
     public com.ss.android.downloadad.api.a.b b(String str) {
@@ -112,53 +113,6 @@ public class f {
         }
         for (com.ss.android.downloadad.api.a.b bVar : this.e.values()) {
             if (bVar != null && str.equals(bVar.a())) {
-                return bVar;
-            }
-        }
-        return null;
-    }
-
-    public void b(String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        for (DownloadModel downloadModel : this.b.values()) {
-            if ((downloadModel instanceof AdDownloadModel) && TextUtils.equals(downloadModel.getDownloadUrl(), str)) {
-                ((AdDownloadModel) downloadModel).setPackageName(str2);
-            }
-        }
-    }
-
-    public void a(long j, DownloadEventConfig downloadEventConfig) {
-        if (downloadEventConfig != null) {
-            this.c.put(Long.valueOf(j), downloadEventConfig);
-        }
-    }
-
-    public void a(long j, DownloadController downloadController) {
-        if (downloadController != null) {
-            this.d.put(Long.valueOf(j), downloadController);
-        }
-    }
-
-    public synchronized void a(com.ss.android.downloadad.api.a.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        this.e.put(Long.valueOf(bVar.b()), bVar);
-        i.a().a(bVar);
-    }
-
-    public DownloadModel a(long j) {
-        return this.b.get(Long.valueOf(j));
-    }
-
-    public com.ss.android.downloadad.api.a.b a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        for (com.ss.android.downloadad.api.a.b bVar : this.e.values()) {
-            if (bVar != null && str.equals(bVar.e())) {
                 return bVar;
             }
         }
@@ -197,17 +151,19 @@ public class f {
         return null;
     }
 
-    public com.ss.android.downloadad.api.a.b a(int i) {
+    public com.ss.android.downloadad.api.a.b a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
         for (com.ss.android.downloadad.api.a.b bVar : this.e.values()) {
-            if (bVar != null && bVar.s() == i) {
+            if (bVar != null && str.equals(bVar.e())) {
                 return bVar;
             }
         }
         return null;
     }
 
-    @NonNull
-    public Map<Long, com.ss.android.downloadad.api.a.b> a(String str, String str2) {
+    public Map a(String str, String str2) {
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             for (com.ss.android.downloadad.api.a.b bVar : this.e.values()) {
@@ -220,13 +176,54 @@ public class f {
         return hashMap;
     }
 
-    public synchronized void a(List<Long> list) {
+    public void b(String str, String str2) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            for (DownloadModel downloadModel : this.b.values()) {
+                if ((downloadModel instanceof AdDownloadModel) && TextUtils.equals(downloadModel.getDownloadUrl(), str)) {
+                    ((AdDownloadModel) downloadModel).setPackageName(str2);
+                }
+            }
+        }
+    }
+
+    public void a(long j, DownloadController downloadController) {
+        if (downloadController != null) {
+            this.d.put(Long.valueOf(j), downloadController);
+        }
+    }
+
+    public void a(long j, DownloadEventConfig downloadEventConfig) {
+        if (downloadEventConfig != null) {
+            this.c.put(Long.valueOf(j), downloadEventConfig);
+        }
+    }
+
+    public void a(DownloadModel downloadModel) {
+        if (downloadModel != null) {
+            this.b.put(Long.valueOf(downloadModel.getId()), downloadModel);
+            if (downloadModel.getDeepLink() != null) {
+                downloadModel.getDeepLink().setId(downloadModel.getId());
+                downloadModel.getDeepLink().setPackageName(downloadModel.getPackageName());
+            }
+        }
+    }
+
+    public synchronized void a(com.ss.android.downloadad.api.a.b bVar) {
+        if (bVar == null) {
+            return;
+        }
+        this.e.put(Long.valueOf(bVar.b()), bVar);
+        i.a().a(bVar);
+    }
+
+    public synchronized void a(List list) {
         ArrayList arrayList = new ArrayList();
-        for (Long l : list) {
-            long longValue = l.longValue();
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            long longValue = ((Long) it.next()).longValue();
             arrayList.add(String.valueOf(longValue));
             this.e.remove(Long.valueOf(longValue));
         }
-        i.a().a((List<String>) arrayList);
+        i.a().a((List) arrayList);
     }
 }

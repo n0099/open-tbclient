@@ -4,9 +4,9 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.b16;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.l06;
-import com.baidu.tieba.n06;
+import com.baidu.tieba.s06;
 import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class VoteAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public n06 b;
-    public List<l06> c;
+    public u06 b;
+    public List c;
     public int d;
 
     public VoteAdapter(TbPageContext tbPageContext) {
@@ -42,10 +42,60 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.a = tbPageContext;
     }
 
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void g(u06 u06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, u06Var) == null) {
+            this.b = u06Var;
+            if (u06Var != null) {
+                this.c = u06Var.b();
+            }
+            this.d = -1;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            List list = this.c;
+            if (list != null && list.size() > i && ((s06) this.c.get(i)).i() == 1 && i == 0) {
+                return b16.c;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List list = this.c;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,53 +110,6 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return new VoteViewHolder(voteCandidateCard);
         }
         return (VoteViewHolder) invokeLI.objValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(n06 n06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n06Var) == null) {
-            this.b = n06Var;
-            if (n06Var != null) {
-                this.c = n06Var.b();
-            }
-            this.d = -1;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<l06> list = this.c;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            List<l06> list = this.c;
-            if (list == null || list.size() <= i || this.c.get(i).i() != 1 || i != 0) {
-                return 0;
-            }
-            return u06.c;
-        }
-        return invokeI.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

@@ -11,6 +11,30 @@ public class LogUtils {
     public static final String TAG = "LogUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+        }
+    }
+
+    public static void w(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+        }
+    }
+
     public LogUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,18 +56,6 @@ public class LogUtils {
         }
     }
 
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-        }
-    }
-
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
@@ -51,22 +63,10 @@ public class LogUtils {
         }
     }
 
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-        }
-    }
-
     public static void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             w(TAG, str);
-        }
-    }
-
-    public static void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
         }
     }
 }

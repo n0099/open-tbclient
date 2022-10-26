@@ -30,6 +30,7 @@ public abstract class SimpleAsyncListener extends SimpleSyncListener {
         }
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.SimpleSyncListener, com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(final Context context, final String str, final String str2, final ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -68,19 +69,24 @@ public abstract class SimpleAsyncListener extends SimpleSyncListener {
 
                 @Override // java.lang.Runnable
                 public final void run() {
+                    String str3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.$context == null || this.$module == null || this.$action == null) {
-                        return;
-                    }
-                    synchronized (this.this$0) {
-                        if (this.this$0.executeBusinessCommand(this.$context, this.$module, this.$action, this.$value)) {
-                            SimpleAsyncListener simpleAsyncListener = this.this$0;
-                            String str3 = this.$module;
-                            String str4 = this.$action;
-                            ActionData actionData2 = this.$value;
-                            simpleAsyncListener.setLocationVersion(str3, str4, actionData2 != null ? actionData2.version : null);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.$context != null && this.$module != null && this.$action != null) {
+                        synchronized (this.this$0) {
+                            if (this.this$0.executeBusinessCommand(this.$context, this.$module, this.$action, this.$value)) {
+                                SimpleAsyncListener simpleAsyncListener = this.this$0;
+                                String str4 = this.$module;
+                                String str5 = this.$action;
+                                ActionData actionData2 = this.$value;
+                                if (actionData2 != null) {
+                                    str3 = actionData2.version;
+                                } else {
+                                    str3 = null;
+                                }
+                                simpleAsyncListener.setLocationVersion(str4, str5, str3);
+                            }
+                            Unit unit = Unit.INSTANCE;
                         }
-                        Unit unit = Unit.INSTANCE;
                     }
                 }
             };

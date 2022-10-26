@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
@@ -26,10 +26,30 @@ public class i04 implements z04 {
     }
 
     @Override // com.baidu.tieba.z04
-    public void a(@NonNull Activity activity, yz3 yz3Var, c14 c14Var) {
+    public byte[] a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, yz3Var, c14Var) == null) {
-            c14Var.a();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null && bArr != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 76158) {
+                    if (hashCode == 1952093519 && str.equals("BASE64")) {
+                        c = 1;
+                    }
+                } else if (str.equals("MD5")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        return bArr;
+                    }
+                    return Base64.encode(bArr, 2);
+                }
+                return sj4.d(bArr, false).getBytes();
+            }
+            return bArr;
         }
+        return (byte[]) invokeLL.objValue;
     }
 }

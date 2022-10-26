@@ -24,6 +24,16 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
     public BIMRtcAnswerAbilityListener mListener;
     public String mSource;
 
+    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public BIMRtcAnswerAbilityRequest(Context context, String str, String str2, BIMRtcAnswerAbilityListener bIMRtcAnswerAbilityListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,10 +56,13 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashMap() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
@@ -121,15 +134,5 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
             }
             this.mListener.onResult(i, str2, bIMRtcAnswerAbilityResult);
         }
-    }
-
-    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

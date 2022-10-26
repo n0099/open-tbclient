@@ -31,11 +31,18 @@ public class TaskManager {
     public ExecutorService singleThreadService;
 
     /* loaded from: classes.dex */
-    public static class Task implements Runnable {
+    public class Task implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mAction;
         public String mJson;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
 
         public Task() {
             Interceptable interceptable = $ic;
@@ -48,13 +55,6 @@ public class TaskManager {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
@@ -135,17 +135,13 @@ public class TaskManager {
         return (TaskManager) invokeL.objValue;
     }
 
-    public void clearTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.service.purge();
-        }
-    }
-
-    public <T> Future<T> submitForLocalCallable(Callable<T> callable) {
+    public Future submitForLocalCallable(Callable callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callable)) == null) ? this.singleThreadService.submit(callable) : (Future) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callable)) == null) {
+            return this.singleThreadService.submit(callable);
+        }
+        return (Future) invokeL.objValue;
     }
 
     public void submitForLocalOperation(Runnable runnable) {
@@ -172,5 +168,12 @@ public class TaskManager {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public void clearTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.service.purge();
+        }
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.swan.apps.commonsync;
 
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.tieba.l02;
+import com.baidu.tieba.m02;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +18,10 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int count;
-    public List<MetaItemInfo> metaItems;
+    public List metaItems;
 
     /* loaded from: classes2.dex */
-    public static class MetaItemInfo implements NoProGuard {
+    public class MetaItemInfo implements NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String appKey;
@@ -64,7 +63,6 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
         this.count = 0;
     }
 
-    @Nullable
     public static CommonSyncServerData parseFromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -93,7 +91,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
                         metaItemInfo.appKey = optJSONObject.getString("AppKey");
                         metaItemInfo.payProtected = optJSONObject.getInt("PayProtected");
                     } catch (JSONException e) {
-                        l02.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
+                        m02.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
                         metaItemInfo = null;
                     }
                     if (metaItemInfo != null) {

@@ -38,6 +38,7 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
     @Override // com.googlecode.mp4parser.authoring.builder.FragmentIntersectionFinder
     public long[] sampleNumbers(Track track) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, track)) == null) {
             double d = 0.0d;
@@ -47,10 +48,14 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
                     d = duration;
                 }
             }
-            int i = 1;
+            int i2 = 1;
             int ceil = ((int) Math.ceil(d / this.fragmentLength)) - 1;
-            int i2 = ceil < 1 ? 1 : ceil;
-            long[] jArr = new long[i2];
+            if (ceil < 1) {
+                i = 1;
+            } else {
+                i = ceil;
+            }
+            long[] jArr = new long[i];
             Arrays.fill(jArr, -1L);
             int i3 = 0;
             jArr[0] = 1;
@@ -60,19 +65,19 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
             int i4 = 0;
             while (i3 < length) {
                 long j2 = sampleDurations[i3];
-                int timescale = ((int) ((j / track.getTrackMetaData().getTimescale()) / this.fragmentLength)) + i;
-                if (timescale >= i2) {
+                int timescale = ((int) ((j / track.getTrackMetaData().getTimescale()) / this.fragmentLength)) + i2;
+                if (timescale >= i) {
                     break;
                 }
                 i4++;
                 jArr[timescale] = i4;
                 j += j2;
                 i3++;
-                i2 = i2;
-                i = 1;
+                i = i;
+                i2 = 1;
             }
-            long j3 = i4 + i;
-            for (int i5 = i2 - i; i5 >= 0; i5--) {
+            long j3 = i4 + i2;
+            for (int i5 = i - i2; i5 >= 0; i5--) {
                 if (jArr[i5] == -1) {
                     jArr[i5] = j3;
                 }

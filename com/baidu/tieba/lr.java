@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class lr extends er {
+public final class lr extends fr {
     public static /* synthetic */ Interceptable $ic;
     public static final UniqueId b;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,10 @@ public final class lr extends er {
         public final UniqueId a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? lr.b : (UniqueId) invokeV.objValue;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (UniqueId) invokeV.objValue;
+            }
+            return lr.b;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -62,9 +65,18 @@ public final class lr extends er {
             }
         }
         c = new a(null);
-        UniqueId gen = UniqueId.gen("TaskViewCloseEvent");
-        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskViewCloseEvent\")");
+        UniqueId gen = UniqueId.gen("TaskBackFlowEvent");
+        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowEvent\")");
         b = gen;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "" + c.a().getAlias() + ':' + a().toJson();
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,14 +97,5 @@ public final class lr extends er {
                 return;
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + c.a().getAlias() + ':' + a().toJson();
-        }
-        return (String) invokeV.objValue;
     }
 }

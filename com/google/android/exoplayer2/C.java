@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioManager;
 import androidx.core.view.InputDeviceCompat;
@@ -225,8 +224,15 @@ public final class C {
     public @interface VideoScalingMode {
     }
 
+    public static long msToUs(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? (j == TIME_UNSET || j == Long.MIN_VALUE) ? j : j * 1000 : invokeJ.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
+        int i;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-127027210, "Lcom/google/android/exoplayer2/C;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -238,7 +244,12 @@ public final class C {
                 return;
             }
         }
-        CHANNEL_OUT_7POINT1_SURROUND = Util.SDK_INT < 23 ? 1020 : 6396;
+        if (Util.SDK_INT < 23) {
+            i = 1020;
+        } else {
+            i = 6396;
+        }
+        CHANNEL_OUT_7POINT1_SURROUND = i;
         UUID_NIL = new UUID(0L, 0L);
         COMMON_PSSH_UUID = new UUID(1186680826959645954L, -5988876978535335093L);
         CLEARKEY_UUID = new UUID(-2129748144642739255L, 8654423357094679310L);
@@ -260,22 +271,24 @@ public final class C {
         }
     }
 
-    @TargetApi(21)
     public static int generateAudioSessionIdV21(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ((AudioManager) context.getSystemService("audio")).generateAudioSessionId() : invokeL.intValue;
-    }
-
-    public static long msToUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? (j == TIME_UNSET || j == Long.MIN_VALUE) ? j : j * 1000 : invokeJ.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return ((AudioManager) context.getSystemService("audio")).generateAudioSessionId();
+        }
+        return invokeL.intValue;
     }
 
     public static long usToMs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? (j == TIME_UNSET || j == Long.MIN_VALUE) ? j : j / 1000 : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j != TIME_UNSET && j != Long.MIN_VALUE) {
+                return j / 1000;
+            }
+            return j;
+        }
+        return invokeJ.longValue;
     }
 }

@@ -1,76 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.os.HandlerThread;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class nw {
+public class nw extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, mw> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448312580, "Lcom/baidu/tieba/nw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448312580, "Lcom/baidu/tieba/nw;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nw(String str, int i) {
+        super(str, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
     }
 
-    public static synchronized mw a(String str) {
-        InterceptResult invokeL;
-        mw b;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (nw.class) {
-                b = b(str, 0);
-            }
-            return b;
-        }
-        return (mw) invokeL.objValue;
-    }
-
-    public static synchronized mw b(String str, int i) {
-        InterceptResult invokeLI;
-        mw mwVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            synchronized (nw.class) {
-                if (!a.containsKey(str) || (mwVar = a.get(str)) == null) {
-                    mw mwVar2 = new mw(str, i);
-                    try {
-                        mwVar2.start();
-                    } catch (Exception unused) {
-                    }
-                    a.put(str, mwVar2);
-                    return mwVar2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                Looper looper = getLooper();
+                if (Build.VERSION.SDK_INT >= 18) {
+                    looper.quitSafely();
+                } else {
+                    looper.quit();
                 }
-                return mwVar;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        return (mw) invokeLI.objValue;
     }
 
-    public static synchronized void c(mw mwVar) {
+    @Override // android.os.HandlerThread
+    public boolean quit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, mwVar) == null) {
-            synchronized (nw.class) {
-                if (mwVar != null) {
-                    mwVar.a();
-                    a.values().remove(mwVar);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return quitSafely();
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.os.HandlerThread
+    public boolean quitSafely() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ow.c(this);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.spswitch.utils.UIUtils;
@@ -60,37 +59,16 @@ public class PopupEmotionView extends FrameLayout {
             if (str.indexOf(PreferencesUtil.LEFT_MOUNT) == 0) {
                 str = str.substring(1);
             }
-            return str.indexOf(PreferencesUtil.RIGHT_MOUNT) == str.length() - 1 ? str.substring(0, str.length() - 1) : str;
+            if (str.indexOf(PreferencesUtil.RIGHT_MOUNT) == str.length() - 1) {
+                return str.substring(0, str.length() - 1);
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
-    private void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            this.mCtx = context;
-            setLayoutParams(new ViewGroup.LayoutParams((int) UIUtils.dp2px(this.mCtx, 75.0f), (int) UIUtils.dp2px(this.mCtx, 85.0f)));
-            setBackground(this.mCtx.getResources().getDrawable(R.drawable.emotion_vertical_long_pressed_bg));
-            setPadding(0, 0, 0, 0);
-            LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_long_pressed_layout, (ViewGroup) this, true);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e20);
-            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
-        }
-    }
-
-    public void configView(String str, Bitmap bitmap) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || this.mIcon == null || (textView = this.mText) == null) {
-            return;
-        }
-        textView.setText(filter(str));
-        this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f060242));
-        this.mIcon.setImageBitmap(bitmap);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PopupEmotionView(Context context, @Nullable AttributeSet attributeSet) {
+    public PopupEmotionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,8 +89,18 @@ public class PopupEmotionView extends FrameLayout {
         init(context);
     }
 
+    public void configView(String str, Bitmap bitmap) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) && this.mIcon != null && (textView = this.mText) != null) {
+            textView.setText(filter(str));
+            this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f060242));
+            this.mIcon.setImageBitmap(bitmap);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PopupEmotionView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PopupEmotionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,5 +119,18 @@ public class PopupEmotionView extends FrameLayout {
             }
         }
         init(context);
+    }
+
+    private void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
+            this.mCtx = context;
+            setLayoutParams(new ViewGroup.LayoutParams((int) UIUtils.dp2px(this.mCtx, 75.0f), (int) UIUtils.dp2px(this.mCtx, 85.0f)));
+            setBackground(this.mCtx.getResources().getDrawable(R.drawable.emotion_vertical_long_pressed_bg));
+            setPadding(0, 0, 0, 0);
+            LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_long_pressed_layout, (ViewGroup) this, true);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e14);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+        }
     }
 }

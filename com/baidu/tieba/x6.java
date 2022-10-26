@@ -29,33 +29,10 @@ public class x6 extends v6 implements w6 {
     public x3 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (x3) invokeV.objValue;
-    }
-
-    public void p(x3 x3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x3Var) == null) {
-            this.h = x3Var;
-            if (x3Var != null) {
-                j(x3Var.k());
-                h(x3Var.j());
-                f(x3Var.g());
-                c(x3Var.f());
-                d(x3Var.d());
-                b(x3Var.e());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
         }
-    }
-
-    public x6 q(l3 l3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l3Var)) == null) {
-            x6 x6Var = new x6(this);
-            x6Var.h = new x3(x6Var.o(), l3Var);
-            return x6Var;
-        }
-        return (x6) invokeL.objValue;
+        return (x3) invokeV.objValue;
     }
 
     public x6(x3 x3Var) {
@@ -74,6 +51,17 @@ public class x6 extends v6 implements w6 {
             }
         }
         p(x3Var);
+    }
+
+    public x6 q(l3 l3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l3Var)) == null) {
+            x6 x6Var = new x6(this);
+            x6Var.h = new x3(x6Var.o(), l3Var);
+            return x6Var;
+        }
+        return (x6) invokeL.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,5 +83,20 @@ public class x6 extends v6 implements w6 {
             }
         }
         this.h = x6Var.h;
+    }
+
+    public void p(x3 x3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x3Var) == null) {
+            this.h = x3Var;
+            if (x3Var != null) {
+                j(x3Var.k());
+                h(x3Var.j());
+                f(x3Var.g());
+                c(x3Var.f());
+                d(x3Var.d());
+                b(x3Var.e());
+            }
+        }
     }
 }

@@ -65,17 +65,17 @@ public class TbViewPager extends ViewPager {
         }
 
         @Override // android.widget.Scroller
-        public void startScroll(int i, int i2, int i3, int i4, int i5) {
+        public void startScroll(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
                 super.startScroll(i, i2, i3, i4, this.a.d);
             }
         }
 
         @Override // android.widget.Scroller
-        public void startScroll(int i, int i2, int i3, int i4) {
+        public void startScroll(int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                 super.startScroll(i, i2, i3, i4, this.a.d);
             }
         }
@@ -104,31 +104,6 @@ public class TbViewPager extends ViewPager {
         b();
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
-        }
-    }
-
-    public final boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = (motionEvent.getAction() & 65280) >> 8;
-            return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getParent() == null) {
-            return;
-        }
-        getParent().requestDisallowInterceptTouchEvent(z);
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
@@ -150,106 +125,6 @@ public class TbViewPager extends ViewPager {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public int getScrollingDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (c(motionEvent)) {
-                return true;
-            }
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x001a, code lost:
-        if (r0 != 6) goto L15;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x006e A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, motionEvent)) != null) {
-            return invokeL.booleanValue;
-        }
-        int action = motionEvent.getAction() & 255;
-        if (action != 0) {
-            if (action != 1) {
-                if (action == 2) {
-                    float x = motionEvent.getX() - this.b;
-                    if (getCurrentItem() == 0) {
-                        if (x >= this.c) {
-                            d(false);
-                        } else {
-                            d(true);
-                        }
-                    } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                        if (x <= (-this.c)) {
-                            d(false);
-                        } else {
-                            d(true);
-                        }
-                    }
-                } else if (action != 3) {
-                    if (action != 5) {
-                    }
-                }
-                if (c(motionEvent)) {
-                    return true;
-                }
-                try {
-                    return super.onTouchEvent(motionEvent);
-                } catch (IllegalArgumentException unused) {
-                    return true;
-                }
-            }
-            d(false);
-            this.b = 0.0f;
-            if (c(motionEvent)) {
-            }
-        }
-        d(true);
-        this.b = motionEvent.getX();
-        if (c(motionEvent)) {
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
-            super.requestDisallowInterceptTouchEvent(z);
-        }
-    }
-
-    public void setViewPagerScroll(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.d = i;
-            new a(this, getContext()).a(this);
-        }
-    }
-
-    public void setViewPagerScroll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            setViewPagerScroll(600);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -274,5 +149,138 @@ public class TbViewPager extends ViewPager {
         this.a = false;
         this.d = 600;
         b();
+    }
+
+    public final boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = (motionEvent.getAction() & 65280) >> 8;
+            if (motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (c(motionEvent)) {
+                return true;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.a = z;
+            super.requestDisallowInterceptTouchEvent(z);
+        }
+    }
+
+    public void setViewPagerScroll(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.d = i;
+            new a(this, getContext()).a(this);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+        }
+    }
+
+    public int getScrollingDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setViewPagerScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            setViewPagerScroll(600);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x001a, code lost:
+        if (r0 != 6) goto L15;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006e A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            int action = motionEvent.getAction() & 255;
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action != 3) {
+                            if (action != 5) {
+                            }
+                        }
+                    } else {
+                        float x = motionEvent.getX() - this.b;
+                        if (getCurrentItem() == 0) {
+                            if (x >= this.c) {
+                                d(false);
+                            } else {
+                                d(true);
+                            }
+                        } else if (getCurrentItem() == getAdapter().getCount() - 1) {
+                            if (x <= (-this.c)) {
+                                d(false);
+                            } else {
+                                d(true);
+                            }
+                        }
+                    }
+                    if (c(motionEvent)) {
+                        return true;
+                    }
+                    try {
+                        return super.onTouchEvent(motionEvent);
+                    } catch (IllegalArgumentException unused) {
+                        return true;
+                    }
+                }
+                d(false);
+                this.b = 0.0f;
+                if (c(motionEvent)) {
+                }
+            }
+            d(true);
+            this.b = motionEvent.getX();
+            if (c(motionEvent)) {
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
     }
 }

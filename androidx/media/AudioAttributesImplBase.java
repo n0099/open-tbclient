@@ -1,8 +1,5 @@
 package androidx.media;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,19 +9,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AudioAttributesImplBase implements AudioAttributesImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mContentType;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mFlags;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mLegacyStream;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mUsage;
+
+    @Override // androidx.media.AudioAttributesImpl
+    public Object getAudioAttributes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
 
     /* loaded from: classes.dex */
     public static class Builder implements AudioAttributesImpl.Builder {
@@ -55,62 +57,42 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         }
 
         @Override // androidx.media.AudioAttributesImpl.Builder
-        @NonNull
         public AudioAttributesImpl build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AudioAttributesImplBase(this.mContentType, this.mFlags, this.mUsage, this.mLegacyStream) : (AudioAttributesImpl) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new AudioAttributesImplBase(this.mContentType, this.mFlags, this.mUsage, this.mLegacyStream);
+            }
+            return (AudioAttributesImpl) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.media.AudioAttributesImpl.Builder
-        @NonNull
-        public Builder setContentType(int i) {
-            InterceptResult invokeI;
+        public Builder(AudioAttributesCompat audioAttributesCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i != 0 && i != 1 && i != 2 && i != 3 && i != 4) {
-                    this.mUsage = 0;
-                } else {
-                    this.mContentType = i;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {audioAttributesCompat};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
-                return this;
             }
-            return (Builder) invokeI.objValue;
+            this.mUsage = 0;
+            this.mContentType = 0;
+            this.mFlags = 0;
+            this.mLegacyStream = -1;
+            this.mUsage = audioAttributesCompat.getUsage();
+            this.mContentType = audioAttributesCompat.getContentType();
+            this.mFlags = audioAttributesCompat.getFlags();
+            this.mLegacyStream = audioAttributesCompat.getRawLegacyStreamType();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
-        @NonNull
-        public Builder setFlags(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.mFlags = (i & 1023) | this.mFlags;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.media.AudioAttributesImpl.Builder
-        @NonNull
-        public Builder setLegacyStreamType(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                if (i != 10) {
-                    this.mLegacyStream = i;
-                    return this;
-                }
-                throw new IllegalArgumentException("STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback");
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.media.AudioAttributesImpl.Builder
-        @NonNull
         public Builder setUsage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -146,33 +128,50 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder(AudioAttributesCompat audioAttributesCompat) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.media.AudioAttributesImpl.Builder
+        public Builder setContentType(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {audioAttributesCompat};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                if (i != 0 && i != 1 && i != 2 && i != 3 && i != 4) {
+                    this.mUsage = 0;
+                } else {
+                    this.mContentType = i;
                 }
+                return this;
             }
-            this.mUsage = 0;
-            this.mContentType = 0;
-            this.mFlags = 0;
-            this.mLegacyStream = -1;
-            this.mUsage = audioAttributesCompat.getUsage();
-            this.mContentType = audioAttributesCompat.getContentType();
-            this.mFlags = audioAttributesCompat.getFlags();
-            this.mLegacyStream = audioAttributesCompat.getRawLegacyStreamType();
+            return (Builder) invokeI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.media.AudioAttributesImpl.Builder
+        public Builder setFlags(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.mFlags = (i & 1023) | this.mFlags;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.media.AudioAttributesImpl.Builder
+        public Builder setLegacyStreamType(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                if (i != 10) {
+                    this.mLegacyStream = i;
+                    return this;
+                }
+                throw new IllegalArgumentException("STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback");
+            }
+            return (Builder) invokeI.objValue;
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesImplBase() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -192,35 +191,14 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         this.mLegacyStream = -1;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof AudioAttributesImplBase) {
-                AudioAttributesImplBase audioAttributesImplBase = (AudioAttributesImplBase) obj;
-                return this.mContentType == audioAttributesImplBase.getContentType() && this.mFlags == audioAttributesImplBase.getFlags() && this.mUsage == audioAttributesImplBase.getUsage() && this.mLegacyStream == audioAttributesImplBase.mLegacyStream;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.media.AudioAttributesImpl
-    @Nullable
-    public Object getAudioAttributes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
-    }
-
     @Override // androidx.media.AudioAttributesImpl
     public int getContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mContentType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mContentType;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.media.AudioAttributesImpl
@@ -246,7 +224,10 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int i = this.mLegacyStream;
-            return i != -1 ? i : AudioAttributesCompat.toVolumeStreamType(false, this.mFlags, this.mUsage);
+            if (i != -1) {
+                return i;
+            }
+            return AudioAttributesCompat.toVolumeStreamType(false, this.mFlags, this.mUsage);
         }
         return invokeV.intValue;
     }
@@ -255,49 +236,30 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
     public int getRawLegacyStreamType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLegacyStream : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mLegacyStream;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.media.AudioAttributesImpl
     public int getUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mUsage : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mUsage;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.media.AudioAttributesImpl
     public int getVolumeControlStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? AudioAttributesCompat.toVolumeStreamType(true, this.mFlags, this.mUsage) : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Arrays.hashCode(new Object[]{Integer.valueOf(this.mContentType), Integer.valueOf(this.mFlags), Integer.valueOf(this.mUsage), Integer.valueOf(this.mLegacyStream)}) : invokeV.intValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            StringBuilder sb = new StringBuilder("AudioAttributesCompat:");
-            if (this.mLegacyStream != -1) {
-                sb.append(" stream=");
-                sb.append(this.mLegacyStream);
-                sb.append(" derived");
-            }
-            sb.append(" usage=");
-            sb.append(AudioAttributesCompat.usageToString(this.mUsage));
-            sb.append(" content=");
-            sb.append(this.mContentType);
-            sb.append(" flags=0x");
-            sb.append(Integer.toHexString(this.mFlags).toUpperCase());
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return AudioAttributesCompat.toVolumeStreamType(true, this.mFlags, this.mUsage);
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public AudioAttributesImplBase(int i, int i2, int i3, int i4) {
@@ -323,5 +285,51 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         this.mFlags = i2;
         this.mUsage = i3;
         this.mLegacyStream = i4;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof AudioAttributesImplBase)) {
+                return false;
+            }
+            AudioAttributesImplBase audioAttributesImplBase = (AudioAttributesImplBase) obj;
+            if (this.mContentType != audioAttributesImplBase.getContentType() || this.mFlags != audioAttributesImplBase.getFlags() || this.mUsage != audioAttributesImplBase.getUsage() || this.mLegacyStream != audioAttributesImplBase.mLegacyStream) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return Arrays.hashCode(new Object[]{Integer.valueOf(this.mContentType), Integer.valueOf(this.mFlags), Integer.valueOf(this.mUsage), Integer.valueOf(this.mLegacyStream)});
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            StringBuilder sb = new StringBuilder("AudioAttributesCompat:");
+            if (this.mLegacyStream != -1) {
+                sb.append(" stream=");
+                sb.append(this.mLegacyStream);
+                sb.append(" derived");
+            }
+            sb.append(" usage=");
+            sb.append(AudioAttributesCompat.usageToString(this.mUsage));
+            sb.append(" content=");
+            sb.append(this.mContentType);
+            sb.append(" flags=0x");
+            sb.append(Integer.toHexString(this.mFlags).toUpperCase());
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

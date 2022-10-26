@@ -25,7 +25,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<a.c> a;
+    public static final List a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

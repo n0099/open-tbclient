@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteFullException;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -85,6 +83,18 @@ public class PmsContentProviderImpl {
         this.mContext = context;
     }
 
+    public static String getType(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            if (sUriMatcher.match(uri) != 100) {
+                return null;
+            }
+            return "package_info";
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static int deleteExt(Context context, Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -122,19 +132,6 @@ public class PmsContentProviderImpl {
         return (DbHelper) invokeV.objValue;
     }
 
-    @Nullable
-    public static String getType(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (sUriMatcher.match(uri) != 100) {
-                return null;
-            }
-            return "package_info";
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static long insertExt(Context context, Uri uri, ContentValues contentValues) {
         Uri uri2;
         InterceptResult invokeLLL;
@@ -159,35 +156,7 @@ public class PmsContentProviderImpl {
         return invokeLLL.longValue;
     }
 
-    public static Cursor queryExt(Context context, Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, uri, strArr, str, strArr2, str2})) == null) {
-            try {
-                return context.getContentResolver().query(uri, strArr, str, strArr2, str2);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                return null;
-            }
-        }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    public static int updateExt(Context context, Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65545, null, context, uri, contentValues, str, strArr)) == null) {
-            try {
-                return context.getContentResolver().update(uri, contentValues, str, strArr);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                return 0;
-            }
-        }
-        return invokeLLLLL.intValue;
-    }
-
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+    public int delete(Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
@@ -208,8 +177,49 @@ public class PmsContentProviderImpl {
         return invokeLLL.intValue;
     }
 
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+    public static Cursor queryExt(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, uri, strArr, str, strArr2, str2})) == null) {
+            try {
+                return context.getContentResolver().query(uri, strArr, str, strArr2, str2);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
+                return null;
+            }
+        }
+        return (Cursor) invokeCommon.objValue;
+    }
+
+    public static Cursor queryExt(Context context, String str, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, strArr)) == null) {
+            try {
+                return context.getContentResolver().query(CONTENT_URI_QUERY_SQL, null, str, strArr, null);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
+                return null;
+            }
+        }
+        return (Cursor) invokeLLL.objValue;
+    }
+
+    public static int updateExt(Context context, Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65545, null, context, uri, contentValues, str, strArr)) == null) {
+            try {
+                return context.getContentResolver().update(uri, contentValues, str, strArr);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
+                return 0;
+            }
+        }
+        return invokeLLLLL.intValue;
+    }
+
+    public Uri insert(Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
@@ -231,8 +241,7 @@ public class PmsContentProviderImpl {
         return (Uri) invokeLL.objValue;
     }
 
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
@@ -243,10 +252,10 @@ public class PmsContentProviderImpl {
                 }
                 int match = sUriMatcher.match(uri);
                 if (match != 101) {
-                    if (match != 102) {
+                    if (match == 102) {
+                        getDbHelper().getWritableDatabase().execSQL(str);
                         return null;
                     }
-                    getDbHelper().getWritableDatabase().execSQL(str);
                     return null;
                 }
                 return getDbHelper().getReadableDatabase().rawQuery(str, strArr2);
@@ -258,7 +267,7 @@ public class PmsContentProviderImpl {
         return (Cursor) invokeLLLLL.objValue;
     }
 
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {
@@ -277,19 +286,5 @@ public class PmsContentProviderImpl {
             }
         }
         return invokeLLLL.intValue;
-    }
-
-    public static Cursor queryExt(Context context, String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, strArr)) == null) {
-            try {
-                return context.getContentResolver().query(CONTENT_URI_QUERY_SQL, null, str, strArr, null);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                return null;
-            }
-        }
-        return (Cursor) invokeLLL.objValue;
     }
 }

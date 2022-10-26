@@ -1,73 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes5.dex */
-public class ss5 {
+public class ss5 extends mz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ss5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948162004, "Lcom/baidu/tieba/ss5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948162004, "Lcom/baidu/tieba/ss5;");
-        }
-    }
 
     public ss5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ss5 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mz2
+    public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (ss5.class) {
-                    if (b == null) {
-                        b = new ss5();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("key_param_url");
+            if (StringUtils.isNull(string)) {
+                c();
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001447, string));
             }
-            return b;
-        }
-        return (ss5) invokeV.objValue;
-    }
-
-    public void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
-            this.a = createWXAPI;
-            createWXAPI.registerApp("wx7088ea0f777314d2");
         }
     }
 }

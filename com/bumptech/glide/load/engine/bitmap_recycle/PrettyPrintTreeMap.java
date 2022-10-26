@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class PrettyPrintTreeMap<K, V> extends TreeMap<K, V> {
+public class PrettyPrintTreeMap extends TreeMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class PrettyPrintTreeMap<K, V> extends TreeMap<K, V> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("( ");
-            for (Map.Entry<K, V> entry : entrySet()) {
+            for (Map.Entry entry : entrySet()) {
                 sb.append('{');
                 sb.append(entry.getKey());
                 sb.append(':');

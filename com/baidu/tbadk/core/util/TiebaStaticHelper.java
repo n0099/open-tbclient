@@ -17,7 +17,7 @@ import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class TiebaStaticHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> mActivityNames;
+    public static final HashMap mActivityNames;
     public static String mCurrentActivityAllName;
     public static String mCurrentActivityName;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class TiebaStaticHelper {
                 return;
             }
         }
-        mActivityNames = new HashMap<>();
+        mActivityNames = new HashMap();
     }
 
     public TiebaStaticHelper() {
@@ -52,9 +52,35 @@ public class TiebaStaticHelper {
         }
     }
 
+    public static String getCurrentActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return mCurrentActivityName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getCurrentActivityAllName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return mCurrentActivityAllName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void addYYParam(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, statisticItem) != null) || !TbSingleton.getInstance().isYYSwitchStatusIsOn()) {
+            return;
+        }
+        statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+    }
+
     public static void addYYParam(StatisticItem statisticItem, YyExtData yyExtData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, statisticItem, yyExtData) == null) || yyExtData == null) {
+        if ((interceptable != null && interceptable.invokeLL(65539, null, statisticItem, yyExtData) != null) || yyExtData == null) {
             return;
         }
         statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
@@ -63,38 +89,30 @@ public class TiebaStaticHelper {
         statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
         statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
         statisticItem.param("template_id", yyExtData.mTemplateId);
-        if (statisticItem.hasParam("liveid")) {
-            return;
+        if (!statisticItem.hasParam("liveid")) {
+            statisticItem.param("liveid", yyExtData.liveId);
         }
-        statisticItem.param("liveid", yyExtData.liveId);
-    }
-
-    public static String getCurrentActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mCurrentActivityName : (String) invokeV.objValue;
-    }
-
-    public static String getCurrentActivityAllName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? mCurrentActivityAllName : (String) invokeV.objValue;
     }
 
     public static String getShortName(String str) {
         InterceptResult invokeL;
-        int length;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }
-            return ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && (length = str.length() + (-8)) >= 0) ? str.substring(0, length) : str;
+            int length = str.length();
+            if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
+                return str.substring(0, i);
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
     public static void setCurrentActivity(String str) {
+        String str2;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
@@ -107,11 +125,15 @@ public class TiebaStaticHelper {
             if (lastIndexOf != -1 && (i = lastIndexOf + 1) < str.length()) {
                 str = str.substring(i, str.length());
             }
-            HashMap<String, String> hashMap = mActivityNames;
-            String str2 = hashMap != null ? hashMap.get(str) : "";
+            HashMap hashMap = mActivityNames;
+            if (hashMap != null) {
+                str2 = (String) hashMap.get(str);
+            } else {
+                str2 = "";
+            }
             if (str2 == null) {
                 str2 = getShortName(str);
-                HashMap<String, String> hashMap2 = mActivityNames;
+                HashMap hashMap2 = mActivityNames;
                 if (hashMap2 != null) {
                     hashMap2.put(str, str2);
                 }
@@ -120,13 +142,6 @@ public class TiebaStaticHelper {
                 long currentTimeMillis = System.currentTimeMillis();
                 mCurrentActivityName = str2 + currentTimeMillis;
             }
-        }
-    }
-
-    public static void addYYParam(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, statisticItem) == null) && TbSingleton.getInstance().isYYSwitchStatusIsOn()) {
-            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
         }
     }
 }

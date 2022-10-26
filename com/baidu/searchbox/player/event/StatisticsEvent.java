@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.event;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,8 +62,7 @@ public class StatisticsEvent extends VideoEvent {
         }
     }
 
-    @PublicMethod(version = "11.24.0.0")
-    public static VideoEvent obtainEvent(@NonNull String str) {
+    public static VideoEvent obtainEvent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -78,9 +75,15 @@ public class StatisticsEvent extends VideoEvent {
     }
 
     @Override // com.baidu.searchbox.player.event.VideoEvent
-    public boolean filter(@NonNull INeuron iNeuron) {
+    public boolean filter(INeuron iNeuron) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iNeuron)) == null) ? 1 != iNeuron.getType() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iNeuron)) == null) {
+            if (1 != iNeuron.getType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

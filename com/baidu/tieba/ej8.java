@@ -1,48 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ej8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dj8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public ej8() {
+    public static synchronized dj8 a() {
+        InterceptResult invokeV;
+        dj8 dj8Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ej8.class) {
+                if (a == null) {
+                    a = new dj8();
+                }
+                dj8Var = a;
             }
+            return dj8Var;
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
-                return;
-            }
-            try {
-                this.a = jSONObject.optString("banner_pic");
-                this.b = jSONObject.optString("banner_url");
-            } catch (Exception e) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
-                BdLog.e(e.getMessage());
-            }
-        }
+        return (dj8) invokeV.objValue;
     }
 }

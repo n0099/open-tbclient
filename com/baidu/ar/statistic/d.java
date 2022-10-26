@@ -14,13 +14,13 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Scanner;
 /* loaded from: classes.dex */
-public class d extends ArrayList<a> {
+public class d extends ArrayList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean sM;
     public int wA;
     public int wB;
-    public WeakReference<Context> wn;
+    public WeakReference wn;
     public String wz;
 
     public d(Context context, String str, int i, int i2) {
@@ -38,7 +38,7 @@ public class d extends ArrayList<a> {
                 return;
             }
         }
-        this.wn = new WeakReference<>(context);
+        this.wn = new WeakReference(context);
         this.sM = false;
         this.wA = i;
         this.wz = str;
@@ -64,7 +64,7 @@ public class d extends ArrayList<a> {
         Exception e;
         a aG;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.wB <= 0 || (context = this.wn.get()) == null || !context.getFileStreamPath(this.wz).exists()) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.wB <= 0 || (context = (Context) this.wn.get()) == null || !context.getFileStreamPath(this.wz).exists()) {
             return;
         }
         try {
@@ -121,7 +121,7 @@ public class d extends ArrayList<a> {
         }
         a[] aVarArr = new a[i];
         for (int i2 = 0; i2 < i; i2++) {
-            aVarArr[i2] = get(i2);
+            aVarArr[i2] = (a) get(i2);
         }
         removeRange(0, i);
         a.a(aVarArr);
@@ -130,7 +130,7 @@ public class d extends ArrayList<a> {
     public void flush() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.wB <= 0 || (context = this.wn.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.wB <= 0 || (context = (Context) this.wn.get()) == null) {
             return;
         }
         int size = size();

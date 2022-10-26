@@ -17,13 +17,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes8.dex */
-public final class BlockingMultiObserver<T> extends CountDownLatch implements SingleObserver<T>, CompletableObserver, MaybeObserver<T> {
+public final class BlockingMultiObserver extends CountDownLatch implements SingleObserver, CompletableObserver, MaybeObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
     public Disposable d;
     public Throwable error;
-    public T value;
+    public Object value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlockingMultiObserver() {
@@ -41,53 +41,6 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
                 return;
             }
         }
-    }
-
-    public boolean blockingAwait(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
-            if (getCount() != 0) {
-                try {
-                    BlockingHelper.verifyNonBlocking();
-                    if (!await(j, timeUnit)) {
-                        dispose();
-                        return false;
-                    }
-                } catch (InterruptedException e) {
-                    dispose();
-                    throw ExceptionHelper.wrapOrThrow(e);
-                }
-            }
-            Throwable th = this.error;
-            if (th == null) {
-                return true;
-            }
-            throw ExceptionHelper.wrapOrThrow(th);
-        }
-        return invokeJL.booleanValue;
-    }
-
-    public T blockingGet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (getCount() != 0) {
-                try {
-                    BlockingHelper.verifyNonBlocking();
-                    await();
-                } catch (InterruptedException e) {
-                    dispose();
-                    throw ExceptionHelper.wrapOrThrow(e);
-                }
-            }
-            Throwable th = this.error;
-            if (th == null) {
-                return this.value;
-            }
-            throw ExceptionHelper.wrapOrThrow(th);
-        }
-        return (T) invokeV.objValue;
     }
 
     public Throwable blockingGetError() {
@@ -127,33 +80,29 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         }
     }
 
-    @Override // io.reactivex.SingleObserver
-    public void onError(Throwable th) {
+    public boolean blockingAwait(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
-            this.error = th;
-            countDown();
-        }
-    }
-
-    @Override // io.reactivex.SingleObserver
-    public void onSubscribe(Disposable disposable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
-            this.d = disposable;
-            if (this.cancelled) {
-                disposable.dispose();
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
+            if (getCount() != 0) {
+                try {
+                    BlockingHelper.verifyNonBlocking();
+                    if (!await(j, timeUnit)) {
+                        dispose();
+                        return false;
+                    }
+                } catch (InterruptedException e) {
+                    dispose();
+                    throw ExceptionHelper.wrapOrThrow(e);
+                }
             }
+            Throwable th = this.error;
+            if (th == null) {
+                return true;
+            }
+            throw ExceptionHelper.wrapOrThrow(th);
         }
-    }
-
-    @Override // io.reactivex.SingleObserver
-    public void onSuccess(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
-            this.value = t;
-            countDown();
-        }
+        return invokeJL.booleanValue;
     }
 
     public Throwable blockingGetError(long j, TimeUnit timeUnit) {
@@ -177,10 +126,10 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         return (Throwable) invokeJL.objValue;
     }
 
-    public T blockingGet(T t) {
-        InterceptResult invokeL;
+    public Object blockingGet() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (getCount() != 0) {
                 try {
                     BlockingHelper.verifyNonBlocking();
@@ -192,11 +141,65 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
             }
             Throwable th = this.error;
             if (th == null) {
-                T t2 = this.value;
-                return t2 != null ? t2 : t;
+                return this.value;
             }
             throw ExceptionHelper.wrapOrThrow(th);
         }
-        return (T) invokeL.objValue;
+        return invokeV.objValue;
+    }
+
+    public Object blockingGet(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (getCount() != 0) {
+                try {
+                    BlockingHelper.verifyNonBlocking();
+                    await();
+                } catch (InterruptedException e) {
+                    dispose();
+                    throw ExceptionHelper.wrapOrThrow(e);
+                }
+            }
+            Throwable th = this.error;
+            if (th == null) {
+                Object obj2 = this.value;
+                if (obj2 != null) {
+                    return obj2;
+                }
+                return obj;
+            }
+            throw ExceptionHelper.wrapOrThrow(th);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // io.reactivex.SingleObserver
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
+            this.error = th;
+            countDown();
+        }
+    }
+
+    @Override // io.reactivex.SingleObserver
+    public void onSubscribe(Disposable disposable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
+            this.d = disposable;
+            if (this.cancelled) {
+                disposable.dispose();
+            }
+        }
+    }
+
+    @Override // io.reactivex.SingleObserver
+    public void onSuccess(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            this.value = obj;
+            countDown();
+        }
     }
 }

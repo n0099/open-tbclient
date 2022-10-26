@@ -1,329 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.clientConfig.ClientConfigModel;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tieba.tblauncher.alarmRemind.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetClientConfig.DataRes;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class hq8 {
+public class hq8 extends gq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static hq8 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClientConfigModel a;
-    public d b;
-    public boolean c;
-    public final up4 d;
-    public CustomMessageListener e;
-    public CustomMessageListener f;
+    public final WeakReference b;
 
-    /* loaded from: classes4.dex */
-    public class a implements up4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hq8 a;
-
-        public a(hq8 hq8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hq8Var;
-        }
-
-        @Override // com.baidu.tieba.up4
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.c = false;
-                if (obj == null || !(obj instanceof DataRes)) {
-                    return;
-                }
-                DataRes dataRes = (DataRes) obj;
-                if (dataRes.local_dialog != null) {
-                    String g = gq8.g(dataRes);
-                    if (TextUtils.isEmpty(g)) {
-                        return;
-                    }
-                    TbadkSettings.getInst().saveString(this.a.h("remind_recommend_info"), g);
-                    TbadkSettings.getInst().saveInt(this.a.h("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                    TbadkSettings.getInst().saveString(this.a.h("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                    this.a.k(true);
-                    TbadkSettings.getInst().saveLong(this.a.h("remind_recommend_data_time"), System.currentTimeMillis());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.up4
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.c = false;
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hq8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(hq8 hq8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hq8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hq8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && BdNetTypeUtil.isNetWorkAvailable() && this.a.f()) {
-                this.a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hq8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(hq8 hq8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hq8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hq8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && this.a.f()) {
-                this.a.k(true);
-                this.a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hq8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(hq8 hq8Var) {
-            super(2001011);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hq8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Boolean data;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) == null || data.booleanValue()) {
-                return;
-            }
-            ox4.k().x("tieba_last_active_time", System.currentTimeMillis());
-            if (this.a.f()) {
-                this.a.k(true);
-                this.a.g();
-            }
-        }
-    }
-
-    public hq8() {
+    public hq8(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.d = new a(this);
-        this.e = new b(this, 2000994);
-        this.f = new c(this, 2005016);
+        this.b = new WeakReference(view2);
+        this.a = i;
     }
 
-    public static hq8 i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gq8
+    public void b() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (g == null) {
-                synchronized (hq8.class) {
-                    if (g == null) {
-                        g = new hq8();
-                    }
-                }
-            }
-            return g;
-        }
-        return (hq8) invokeV.objValue;
-    }
-
-    public void e(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, baseFragmentActivity) == null) {
-            d dVar = new d(this);
-            this.b = dVar;
-            baseFragmentActivity.registerListener(dVar);
-            baseFragmentActivity.registerListener(this.e);
-            baseFragmentActivity.registerListener(this.f);
-            this.a = new ClientConfigModel(baseFragmentActivity, this.d);
-            ox4.k().x("tieba_last_active_time", System.currentTimeMillis());
-            if (f()) {
-                k(true);
-                g();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = (View) this.b.get()) != null) {
+            view2.setVisibility(0);
         }
     }
 
-    public final boolean f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gq8
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TbadkCoreApplication.isLogin()) {
-                k(false);
-                return false;
-            } else if (!gq8.e()) {
-                k(false);
-                return false;
-            } else if (gq8.d()) {
-                return true;
-            } else {
-                k(false);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (gq8.f(TbadkSettings.getInst().loadLong(h("remind_recommend_data_time"), 0L)) || TbadkCoreApplication.getInst().checkInterrupt()) {
-                return;
-            }
-            j();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            aq8.a = Math.max(aq8.a, this.a + 1);
         }
     }
 
-    public String h(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gq8
+    public void d() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void j() {
-        ClientConfigModel clientConfigModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (clientConfigModel = this.a) == null || this.c) {
-            return;
-        }
-        this.c = true;
-        clientConfigModel.E("local_dialog");
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
-            PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), 134217728);
-            try {
-                if (z) {
-                    alarmManager.setRepeating(0, gq8.b() + 86400000, 86400000L, broadcast);
-                } else {
-                    alarmManager.cancel(broadcast);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view2 = (View) this.b.get()) != null) {
+            view2.setVisibility(8);
         }
     }
 }

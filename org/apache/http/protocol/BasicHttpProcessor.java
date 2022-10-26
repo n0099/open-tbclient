@@ -38,29 +38,6 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         throw new RuntimeException("Stub!");
     }
 
-    public final void addInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, httpRequestInterceptor) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, httpRequestInterceptor) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, httpResponseInterceptor, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public void clearInterceptors() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -102,6 +79,49 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         return (BasicHttpProcessor) invokeV.objValue;
     }
 
+    @Override // org.apache.http.protocol.HttpRequestInterceptorList
+    public int getRequestInterceptorCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // org.apache.http.protocol.HttpResponseInterceptorList
+    public int getResponseInterceptorCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
+    }
+
+    public final void addInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, httpRequestInterceptor) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.protocol.HttpRequestInterceptorList
+    public void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, httpRequestInterceptor) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.protocol.HttpResponseInterceptorList
+    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, httpResponseInterceptor) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public void copyInterceptors(BasicHttpProcessor basicHttpProcessor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, basicHttpProcessor) == null) {
@@ -119,16 +139,6 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         return (HttpRequestInterceptor) invokeI.objValue;
     }
 
-    @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public int getRequestInterceptorCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
-    }
-
     @Override // org.apache.http.protocol.HttpResponseInterceptorList
     public HttpResponseInterceptor getResponseInterceptor(int i) {
         InterceptResult invokeI;
@@ -137,24 +147,6 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
             throw new RuntimeException("Stub!");
         }
         return (HttpResponseInterceptor) invokeI.objValue;
-    }
-
-    @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public int getResponseInterceptorCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // org.apache.http.HttpRequestInterceptor
-    public void process(HttpRequest httpRequest, HttpContext httpContext) throws IOException, HttpException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, httpRequest, httpContext) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 
     @Override // org.apache.http.protocol.HttpRequestInterceptorList
@@ -197,17 +189,17 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
     }
 
     @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor) {
+    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, httpResponseInterceptor) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048583, this, httpResponseInterceptor, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    @Override // org.apache.http.HttpResponseInterceptor
-    public void process(HttpResponse httpResponse, HttpContext httpContext) throws IOException, HttpException {
+    @Override // org.apache.http.HttpRequestInterceptor
+    public void process(HttpRequest httpRequest, HttpContext httpContext) throws IOException, HttpException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, httpResponse, httpContext) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, httpRequest, httpContext) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -222,6 +214,14 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
     public final void addInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, httpResponseInterceptor, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.HttpResponseInterceptor
+    public void process(HttpResponse httpResponse, HttpContext httpContext) throws IOException, HttpException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, httpResponse, httpContext) == null) {
             throw new RuntimeException("Stub!");
         }
     }

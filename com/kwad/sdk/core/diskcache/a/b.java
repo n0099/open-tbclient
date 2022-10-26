@@ -11,7 +11,7 @@ public final class b {
     public long maxSize;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public Context WF;
         public File Wa;
         public int We = 1;

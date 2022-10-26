@@ -1,8 +1,5 @@
 package com.baidu.searchbox.logsystem.uploadfile;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
 import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
 import com.baidu.searchbox.aperf.bosuploader.UploadUrlListener;
@@ -15,8 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-@Singleton
-@Service
 /* loaded from: classes2.dex */
 public class BOSAttachFileUploader extends BaseAttachFileUploader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,7 +33,7 @@ public class BOSAttachFileUploader extends BaseAttachFileUploader {
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.upload.BaseAttachFileUploader
-    public ResponseEntity uploadSync(@NonNull String str, @NonNull File file) {
+    public ResponseEntity uploadSync(String str, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
@@ -69,7 +64,10 @@ public class BOSAttachFileUploader extends BaseAttachFileUploader {
                 public String processUrl() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? LokiIdentityManager.getInstance().processUrl(UploadUrlListener.BASE_UPLOAD_URL) : (String) invokeV.objValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return LokiIdentityManager.getInstance().processUrl(UploadUrlListener.BASE_UPLOAD_URL);
+                    }
+                    return (String) invokeV.objValue;
                 }
             });
             return new ResponseEntity(uploadFileSync.isSuccess(), uploadFileSync.getMessage());

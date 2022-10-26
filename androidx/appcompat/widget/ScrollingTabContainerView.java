@@ -24,8 +24,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -39,7 +37,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ScrollingTabContainerView extends HorizontalScrollView implements AdapterView.OnItemSelectedListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -59,11 +56,25 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     public final VisibilityAnimListener mVisAnimListener;
     public ViewPropertyAnimator mVisibilityAnim;
 
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, adapterView) == null) {
+        }
+    }
+
     /* loaded from: classes.dex */
     public class TabAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScrollingTabContainerView this$0;
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+        }
 
         public TabAdapter(ScrollingTabContainerView scrollingTabContainerView) {
             Interceptable interceptable = $ic;
@@ -84,24 +95,23 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.mTabLayout.getChildCount() : invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
         public Object getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? ((TabView) this.this$0.mTabLayout.getChildAt(i)).getTab() : invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return ((TabView) this.this$0.mTabLayout.getChildAt(i)).getTab();
+            }
+            return invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
+        public int getCount() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.this$0.mTabLayout.getChildCount();
+            }
+            return invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -145,13 +155,19 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ((TabView) view2).getTab().select();
                 int childCount = this.this$0.mTabLayout.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.this$0.mTabLayout.getChildAt(i);
-                    childAt.setSelected(childAt == view2);
+                    if (childAt == view2) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    childAt.setSelected(z);
                 }
             }
         }
@@ -211,12 +227,6 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             }
         }
 
-        public ActionBar.Tab getTab() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTab : (ActionBar.Tab) invokeV.objValue;
-        }
-
         @Override // android.view.View
         public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
@@ -235,6 +245,32 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             }
         }
 
+        @Override // android.view.View
+        public void setSelected(boolean z) {
+            boolean z2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+                if (isSelected() != z) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                super.setSelected(z);
+                if (z2 && z) {
+                    sendAccessibilityEvent(4);
+                }
+            }
+        }
+
+        public ActionBar.Tab getTab() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mTab;
+            }
+            return (ActionBar.Tab) invokeV.objValue;
+        }
+
         @Override // android.widget.LinearLayout, android.view.View
         public void onMeasure(int i, int i2) {
             Interceptable interceptable = $ic;
@@ -250,23 +286,12 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             }
         }
 
-        @Override // android.view.View
-        public void setSelected(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-                boolean z2 = isSelected() != z;
-                super.setSelected(z);
-                if (z2 && z) {
-                    sendAccessibilityEvent(4);
-                }
-            }
-        }
-
         public void update() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 ActionBar.Tab tab = this.mTab;
                 View customView = tab.getCustomView();
+                CharSequence charSequence = null;
                 if (customView != null) {
                     ViewParent parent = customView.getParent();
                     if (parent != this) {
@@ -337,7 +362,10 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 if (imageView3 != null) {
                     imageView3.setContentDescription(tab.getContentDescription());
                 }
-                TooltipCompat.setTooltipText(this, z ? null : tab.getContentDescription());
+                if (!z) {
+                    charSequence = tab.getContentDescription();
+                }
+                TooltipCompat.setTooltipText(this, charSequence);
             }
         }
     }
@@ -380,7 +408,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.mCanceled) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.mCanceled) {
                 return;
             }
             ScrollingTabContainerView scrollingTabContainerView = this.this$0;
@@ -425,8 +453,71 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         sAlphaInterpolator = new DecelerateInterpolator();
     }
 
+    private Spinner createSpinner() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            AppCompatSpinner appCompatSpinner = new AppCompatSpinner(getContext(), null, R.attr.obfuscated_res_0x7f040056);
+            appCompatSpinner.setLayoutParams(new LinearLayoutCompat.LayoutParams(-2, -1));
+            appCompatSpinner.setOnItemSelectedListener(this);
+            return appCompatSpinner;
+        }
+        return (Spinner) invokeV.objValue;
+    }
+
+    private boolean isCollapsed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            Spinner spinner = this.mTabSpinner;
+            if (spinner != null && spinner.getParent() == this) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onAttachedToWindow();
+            Runnable runnable = this.mTabSelector;
+            if (runnable != null) {
+                post(runnable);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDetachedFromWindow();
+            Runnable runnable = this.mTabSelector;
+            if (runnable != null) {
+                removeCallbacks(runnable);
+            }
+        }
+    }
+
+    public void removeAllTabs() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.mTabLayout.removeAllViews();
+            Spinner spinner = this.mTabSpinner;
+            if (spinner != null) {
+                ((TabAdapter) spinner.getAdapter()).notifyDataSetChanged();
+            }
+            if (this.mAllowCollapse) {
+                requestLayout();
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollingTabContainerView(@NonNull Context context) {
+    public ScrollingTabContainerView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -453,16 +544,30 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         addView(createTabLayout, new ViewGroup.LayoutParams(-2, -1));
     }
 
-    private Spinner createSpinner() {
-        InterceptResult invokeV;
+    public void animateToVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            AppCompatSpinner appCompatSpinner = new AppCompatSpinner(getContext(), null, R.attr.obfuscated_res_0x7f040056);
-            appCompatSpinner.setLayoutParams(new LinearLayoutCompat.LayoutParams(-2, -1));
-            appCompatSpinner.setOnItemSelectedListener(this);
-            return appCompatSpinner;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            ViewPropertyAnimator viewPropertyAnimator = this.mVisibilityAnim;
+            if (viewPropertyAnimator != null) {
+                viewPropertyAnimator.cancel();
+            }
+            if (i == 0) {
+                if (getVisibility() != 0) {
+                    setAlpha(0.0f);
+                }
+                ViewPropertyAnimator alpha = animate().alpha(1.0f);
+                alpha.setDuration(200L);
+                alpha.setInterpolator(sAlphaInterpolator);
+                alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i));
+                alpha.start();
+                return;
+            }
+            ViewPropertyAnimator alpha2 = animate().alpha(0.0f);
+            alpha2.setDuration(200L);
+            alpha2.setInterpolator(sAlphaInterpolator);
+            alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i));
+            alpha2.start();
         }
-        return (Spinner) invokeV.objValue;
     }
 
     private LinearLayoutCompat createTabLayout() {
@@ -478,19 +583,24 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         return (LinearLayoutCompat) invokeV.objValue;
     }
 
-    private boolean isCollapsed() {
+    private boolean performExpand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            Spinner spinner = this.mTabSpinner;
-            return spinner != null && spinner.getParent() == this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            if (!isCollapsed()) {
+                return false;
+            }
+            removeView(this.mTabSpinner);
+            addView(this.mTabLayout, new ViewGroup.LayoutParams(-2, -1));
+            setTabSelected(this.mTabSpinner.getSelectedItemPosition());
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     private void performCollapse() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || isCollapsed()) {
+        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || isCollapsed()) {
             return;
         }
         if (this.mTabSpinner == null) {
@@ -509,19 +619,22 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         this.mTabSpinner.setSelection(this.mSelectedTabIndex);
     }
 
-    private boolean performExpand() {
-        InterceptResult invokeV;
+    public void addTab(ActionBar.Tab tab, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (isCollapsed()) {
-                removeView(this.mTabSpinner);
-                addView(this.mTabLayout, new ViewGroup.LayoutParams(-2, -1));
-                setTabSelected(this.mTabSpinner.getSelectedItemPosition());
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tab, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            TabView createTabView = createTabView(tab, false);
+            this.mTabLayout.addView(createTabView, i, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
+            Spinner spinner = this.mTabSpinner;
+            if (spinner != null) {
+                ((TabAdapter) spinner.getAdapter()).notifyDataSetChanged();
             }
-            return false;
+            if (z) {
+                createTabView.setSelected(true);
+            }
+            if (this.mAllowCollapse) {
+                requestLayout();
+            }
         }
-        return invokeV.booleanValue;
     }
 
     public void addTab(ActionBar.Tab tab, boolean z) {
@@ -540,6 +653,26 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 requestLayout();
             }
         }
+    }
+
+    public TabView createTabView(ActionBar.Tab tab, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, tab, z)) == null) {
+            TabView tabView = new TabView(this, getContext(), tab, z);
+            if (z) {
+                tabView.setBackgroundDrawable(null);
+                tabView.setLayoutParams(new AbsListView.LayoutParams(-1, this.mContentHeight));
+            } else {
+                tabView.setFocusable(true);
+                if (this.mTabClickListener == null) {
+                    this.mTabClickListener = new TabClickListener(this);
+                }
+                tabView.setOnClickListener(this.mTabClickListener);
+            }
+            return tabView;
+        }
+        return (TabView) invokeLZ.objValue;
     }
 
     public void animateToTab(int i) {
@@ -589,64 +722,6 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void animateToVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            ViewPropertyAnimator viewPropertyAnimator = this.mVisibilityAnim;
-            if (viewPropertyAnimator != null) {
-                viewPropertyAnimator.cancel();
-            }
-            if (i == 0) {
-                if (getVisibility() != 0) {
-                    setAlpha(0.0f);
-                }
-                ViewPropertyAnimator alpha = animate().alpha(1.0f);
-                alpha.setDuration(200L);
-                alpha.setInterpolator(sAlphaInterpolator);
-                alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i));
-                alpha.start();
-                return;
-            }
-            ViewPropertyAnimator alpha2 = animate().alpha(0.0f);
-            alpha2.setDuration(200L);
-            alpha2.setInterpolator(sAlphaInterpolator);
-            alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i));
-            alpha2.start();
-        }
-    }
-
-    public TabView createTabView(ActionBar.Tab tab, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, tab, z)) == null) {
-            TabView tabView = new TabView(this, getContext(), tab, z);
-            if (z) {
-                tabView.setBackgroundDrawable(null);
-                tabView.setLayoutParams(new AbsListView.LayoutParams(-1, this.mContentHeight));
-            } else {
-                tabView.setFocusable(true);
-                if (this.mTabClickListener == null) {
-                    this.mTabClickListener = new TabClickListener(this);
-                }
-                tabView.setOnClickListener(this.mTabClickListener);
-            }
-            return tabView;
-        }
-        return (TabView) invokeLZ.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onAttachedToWindow();
-            Runnable runnable = this.mTabSelector;
-            if (runnable != null) {
-                post(runnable);
-            }
-        }
-    }
-
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
@@ -655,87 +730,6 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             ActionBarPolicy actionBarPolicy = ActionBarPolicy.get(getContext());
             setContentHeight(actionBarPolicy.getTabContainerHeight());
             this.mStackedTabMaxWidth = actionBarPolicy.getStackedTabMaxWidth();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDetachedFromWindow();
-            Runnable runnable = this.mTabSelector;
-            if (runnable != null) {
-                removeCallbacks(runnable);
-            }
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            ((TabView) view2).getTab().select();
-        }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            int mode = View.MeasureSpec.getMode(i);
-            boolean z = true;
-            boolean z2 = mode == 1073741824;
-            setFillViewport(z2);
-            int childCount = this.mTabLayout.getChildCount();
-            if (childCount > 1 && (mode == 1073741824 || mode == Integer.MIN_VALUE)) {
-                if (childCount > 2) {
-                    this.mMaxTabWidth = (int) (View.MeasureSpec.getSize(i) * 0.4f);
-                } else {
-                    this.mMaxTabWidth = View.MeasureSpec.getSize(i) / 2;
-                }
-                this.mMaxTabWidth = Math.min(this.mMaxTabWidth, this.mStackedTabMaxWidth);
-            } else {
-                this.mMaxTabWidth = -1;
-            }
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContentHeight, 1073741824);
-            if ((z2 || !this.mAllowCollapse) ? false : false) {
-                this.mTabLayout.measure(0, makeMeasureSpec);
-                if (this.mTabLayout.getMeasuredWidth() > View.MeasureSpec.getSize(i)) {
-                    performCollapse();
-                } else {
-                    performExpand();
-                }
-            } else {
-                performExpand();
-            }
-            int measuredWidth = getMeasuredWidth();
-            super.onMeasure(i, makeMeasureSpec);
-            int measuredWidth2 = getMeasuredWidth();
-            if (!z2 || measuredWidth == measuredWidth2) {
-                return;
-            }
-            setTabSelected(this.mSelectedTabIndex);
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onNothingSelected(AdapterView<?> adapterView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, adapterView) == null) {
-        }
-    }
-
-    public void removeAllTabs() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.mTabLayout.removeAllViews();
-            Spinner spinner = this.mTabSpinner;
-            if (spinner != null) {
-                ((TabAdapter) spinner.getAdapter()).notifyDataSetChanged();
-            }
-            if (this.mAllowCollapse) {
-                requestLayout();
-            }
         }
     }
 
@@ -768,29 +762,6 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void setTabSelected(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mSelectedTabIndex = i;
-            int childCount = this.mTabLayout.getChildCount();
-            int i2 = 0;
-            while (i2 < childCount) {
-                View childAt = this.mTabLayout.getChildAt(i2);
-                boolean z = i2 == i;
-                childAt.setSelected(z);
-                if (z) {
-                    animateToTab(i);
-                }
-                i2++;
-            }
-            Spinner spinner = this.mTabSpinner;
-            if (spinner == null || i < 0) {
-                return;
-            }
-            spinner.setSelection(i);
-        }
-    }
-
     public void updateTab(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -805,20 +776,79 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void addTab(ActionBar.Tab tab, int i, boolean z) {
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tab, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TabView createTabView = createTabView(tab, false);
-            this.mTabLayout.addView(createTabView, i, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            ((TabView) view2).getTab().select();
+        }
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            boolean z2 = true;
+            if (mode == 1073741824) {
+                z = true;
+            } else {
+                z = false;
+            }
+            setFillViewport(z);
+            int childCount = this.mTabLayout.getChildCount();
+            if (childCount > 1 && (mode == 1073741824 || mode == Integer.MIN_VALUE)) {
+                if (childCount > 2) {
+                    this.mMaxTabWidth = (int) (View.MeasureSpec.getSize(i) * 0.4f);
+                } else {
+                    this.mMaxTabWidth = View.MeasureSpec.getSize(i) / 2;
+                }
+                this.mMaxTabWidth = Math.min(this.mMaxTabWidth, this.mStackedTabMaxWidth);
+            } else {
+                this.mMaxTabWidth = -1;
+            }
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContentHeight, 1073741824);
+            if ((z || !this.mAllowCollapse) ? false : false) {
+                this.mTabLayout.measure(0, makeMeasureSpec);
+                if (this.mTabLayout.getMeasuredWidth() > View.MeasureSpec.getSize(i)) {
+                    performCollapse();
+                } else {
+                    performExpand();
+                }
+            } else {
+                performExpand();
+            }
+            int measuredWidth = getMeasuredWidth();
+            super.onMeasure(i, makeMeasureSpec);
+            int measuredWidth2 = getMeasuredWidth();
+            if (z && measuredWidth != measuredWidth2) {
+                setTabSelected(this.mSelectedTabIndex);
+            }
+        }
+    }
+
+    public void setTabSelected(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mSelectedTabIndex = i;
+            int childCount = this.mTabLayout.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.mTabLayout.getChildAt(i2);
+                if (i2 == i) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                childAt.setSelected(z);
+                if (z) {
+                    animateToTab(i);
+                }
+            }
             Spinner spinner = this.mTabSpinner;
-            if (spinner != null) {
-                ((TabAdapter) spinner.getAdapter()).notifyDataSetChanged();
-            }
-            if (z) {
-                createTabView.setSelected(true);
-            }
-            if (this.mAllowCollapse) {
-                requestLayout();
+            if (spinner != null && i >= 0) {
+                spinner.setSelection(i);
             }
         }
     }

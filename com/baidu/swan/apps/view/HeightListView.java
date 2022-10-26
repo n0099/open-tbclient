@@ -36,25 +36,6 @@ public class HeightListView extends ListView {
         this.a = -1;
     }
 
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            int i3 = this.a;
-            if (i3 > -1) {
-                i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public void setListViewHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -97,5 +78,24 @@ public class HeightListView extends ListView {
             }
         }
         this.a = -1;
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            int i3 = this.a;
+            if (i3 > -1) {
+                i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
+            }
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public void setListViewHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
     }
 }

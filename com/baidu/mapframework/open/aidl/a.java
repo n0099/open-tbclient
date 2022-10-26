@@ -17,13 +17,13 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.mapframework.open.aidl.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC0104a extends Binder implements a {
+    public abstract class AbstractBinderC0104a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0105a implements a {
+        public class C0105a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;

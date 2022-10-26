@@ -53,6 +53,20 @@ public class BigEndianDataIutputStream {
         return invokeI.intValue;
     }
 
+    public final void readFully(byte[] bArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+            this.mDis.readFully(bArr, 0, bArr.length);
+        }
+    }
+
+    public final void skipBytes(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mDis.skipBytes(i);
+        }
+    }
+
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -72,11 +86,17 @@ public class BigEndianDataIutputStream {
         return invokeV.byteValue;
     }
 
-    public final void readFully(byte[] bArr) throws IOException {
+    public final short readShort() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            this.mDis.readFully(bArr, 0, bArr.length);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (readToBuff(2) >= 0) {
+                byte[] bArr = this.buff;
+                return (short) ((bArr[1] & 255) | ((bArr[0] & 255) << 8));
+            }
+            throw new EOFException();
         }
+        return invokeV.shortValue;
     }
 
     public final int readInt() throws IOException {
@@ -103,25 +123,5 @@ public class BigEndianDataIutputStream {
             throw new EOFException();
         }
         return invokeV.longValue;
-    }
-
-    public final short readShort() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (readToBuff(2) >= 0) {
-                byte[] bArr = this.buff;
-                return (short) ((bArr[1] & 255) | ((bArr[0] & 255) << 8));
-            }
-            throw new EOFException();
-        }
-        return invokeV.shortValue;
-    }
-
-    public final void skipBytes(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.mDis.skipBytes(i);
-        }
     }
 }

@@ -1,11 +1,10 @@
 package org.aspectj.lang.reflect;
 
-import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 /* loaded from: classes8.dex */
 public interface InterTypeMethodDeclaration extends InterTypeDeclaration {
-    AjType<?>[] getExceptionTypes();
+    AjType[] getExceptionTypes();
 
     Type[] getGenericParameterTypes();
 
@@ -13,9 +12,9 @@ public interface InterTypeMethodDeclaration extends InterTypeDeclaration {
 
     String getName();
 
-    AjType<?>[] getParameterTypes();
+    AjType[] getParameterTypes();
 
-    AjType<?> getReturnType();
+    AjType getReturnType();
 
-    TypeVariable<Method>[] getTypeParameters();
+    TypeVariable[] getTypeParameters();
 }

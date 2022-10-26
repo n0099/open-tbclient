@@ -1,37 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieCompositionFactory;
-import com.airbnb.lottie.LottieListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.game.guide.dialog.CoinClickDialog;
-import com.baidu.swan.game.guide.view.GameGuideView;
-import com.baidu.swan.game.guide.view.GameGuideViewContainer;
-import com.baidu.tieba.ig3;
-import com.baidu.tieba.io2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,574 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes4.dex */
-public final class kt3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 0;
-    public static boolean b = false;
-    public static long c = 0;
-    public static GameGuideConfigInfo d = null;
-    public static GameGuideView e = null;
-    public static String f = "";
-    public static String g = "";
-    public static int h = 0;
-    public static GameGuideViewContainer i = null;
-    public static String j = null;
-    public static boolean k = false;
-    public static boolean l = false;
-    public static boolean m = true;
-    public static ki3 n;
-    public static final kt3 o;
+public class kt3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static kt3 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static final class a extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            String string;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                if (bundle != null && (string = bundle.getString("type", "")) != null) {
-                    switch (string.hashCode()) {
-                        case -1261832223:
-                            if (string.equals("addCoins")) {
-                                int i2 = bundle.getInt("coinsNum", 0);
-                                kt3 kt3Var = kt3.o;
-                                kt3.h += i2;
-                                GameGuideConfigInfo z = kt3.o.z();
-                                if (z != null) {
-                                    kt3 kt3Var2 = kt3.o;
-                                    int i3 = kt3.h;
-                                    int i4 = z.maxNums;
-                                    if (i3 > i4) {
-                                        kt3 kt3Var3 = kt3.o;
-                                        kt3.h = i4;
-                                    }
-                                }
-                                kt3.o.S(kt3.h);
-                                break;
-                            }
-                            break;
-                        case -977015124:
-                            if (string.equals("setHasShowedTips")) {
-                                kt3.o.X(true);
-                                break;
-                            }
-                            break;
-                        case -426887517:
-                            if (string.equals("setPlayTime")) {
-                                kt3.o.Z(bundle.getLong("playTime", 0L));
-                                break;
-                            }
-                            break;
-                        case -338307689:
-                            if (string.equals("getPlayTime")) {
-                                kt3 kt3Var4 = kt3.o;
-                                bundle2.putLong("playTime", kt3.a);
-                                break;
-                            }
-                            break;
-                        case 45198779:
-                            if (string.equals("onGameTimeUsed")) {
-                                kt3.o.d0();
-                                break;
-                            }
-                            break;
-                        case 142663368:
-                            if (string.equals("initGameGuideInfo")) {
-                                long F = kt3.o.F();
-                                if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
-                                    kt3 kt3Var5 = kt3.o;
-                                    kt3.a = F;
-                                }
-                                int J = kt3.o.J();
-                                GameGuideConfigInfo z2 = kt3.o.z();
-                                if (z2 != null && J > (i = z2.maxNums)) {
-                                    kt3.o.S(i);
-                                    J = i;
-                                }
-                                kt3 kt3Var6 = kt3.o;
-                                kt3.h = J;
-                                break;
-                            }
-                            break;
-                        case 854427704:
-                            if (string.equals("getHasShowedTips")) {
-                                bundle2.putBoolean("hasShowedTips", kt3.o.E());
-                                break;
-                            }
-                            break;
-                        case 1950665292:
-                            if (string.equals("getCoins")) {
-                                kt3 kt3Var7 = kt3.o;
-                                bundle2.putInt("coinsNum", kt3.h);
-                                break;
-                            }
-                            break;
-                    }
-                }
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-650243487, "Lcom/baidu/tieba/kt3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-650243487, "Lcom/baidu/tieba/kt3$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l33 b0 = l33.b0();
-                if (b0 == null) {
-                    if (vj1.a) {
-                        Log.d("GamenowPlaytimeManager", "非法小游戏");
-                    }
-                    hu3.n().a("小游戏非法");
-                    kt3.o.a0(false);
-                    return;
-                }
-                String cacheConfig = jt3.c().e(b0.O());
-                if (TextUtils.isEmpty(cacheConfig)) {
-                    hu3 n = hu3.n();
-                    kt3 kt3Var = kt3.o;
-                    n.d("start", kt3.k, "");
-                    kt3.o.R();
-                    return;
-                }
-                if (vj1.a) {
-                    Log.d("GamenowPlaytimeManager", "展示缓存数据， 小游戏为  " + b0.Z());
-                }
-                kt3 kt3Var2 = kt3.o;
-                kt3.k = true;
-                hu3 n2 = hu3.n();
-                kt3 kt3Var3 = kt3.o;
-                n2.d("start", kt3.k, "");
-                kt3 kt3Var4 = kt3.o;
-                Intrinsics.checkNotNullExpressionValue(cacheConfig, "cacheConfig");
-                kt3Var4.O(cacheConfig);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class c<T> implements LottieListener<LottieComposition> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameGuideConfigInfo a;
-
-        public c(GameGuideConfigInfo gameGuideConfigInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gameGuideConfigInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameGuideConfigInfo;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public final void onResult(LottieComposition lottieComposition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                GameGuideConfigInfo.ViewInfo viewInfo = this.a.viewInfo;
-                if (viewInfo != null) {
-                    viewInfo.iconDoneLottie = lottieComposition;
-                }
-                kt3.o.y(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class d<T> implements LottieListener<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final d a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-650243425, "Lcom/baidu/tieba/kt3$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-650243425, "Lcom/baidu/tieba/kt3$d;");
-                    return;
-                }
-            }
-            a = new d();
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public final void onResult(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                kt3.o.a0(false);
-                hu3 n = hu3.n();
-                kt3 kt3Var = kt3.o;
-                n.d(com.baidu.pass.biometrics.face.liveness.b.a.g0, kt3.k, "下发配置中导流view的资源不可用");
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class e implements ig3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameGuideConfigInfo a;
-
-        /* loaded from: classes4.dex */
-        public static final class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    kt3.o.c0(this.a.a);
-                }
-            }
-        }
-
-        public e(GameGuideConfigInfo gameGuideConfigInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gameGuideConfigInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameGuideConfigInfo;
-        }
-
-        @Override // com.baidu.tieba.ig3.b
-        public final void a(String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (bitmap == null) {
-                    kt3.o.a0(false);
-                    if (vj1.a) {
-                        Log.e("GamenowPlaytimeManager", "下载导流view的图片失败， url = " + str);
-                    }
-                    hu3 n = hu3.n();
-                    kt3 kt3Var = kt3.o;
-                    n.d(com.baidu.pass.biometrics.face.liveness.b.a.g0, kt3.k, "下发配置中导流view的资源不可用");
-                    return;
-                }
-                bitmap.setDensity(480);
-                GameGuideConfigInfo.ViewInfo viewInfo = this.a.viewInfo;
-                if (viewInfo != null) {
-                    viewInfo.iconNormalImg = bitmap;
-                }
-                l33 b0 = l33.b0();
-                if (b0 == null) {
-                    kt3.o.a0(false);
-                    hu3 n2 = hu3.n();
-                    kt3 kt3Var2 = kt3.o;
-                    n2.d(com.baidu.pass.biometrics.face.liveness.b.a.g0, kt3.k, "小游戏非法");
-                    return;
-                }
-                SwanAppActivity w = b0.w();
-                Intrinsics.checkNotNullExpressionValue(w, "swanApp.swanActivity");
-                if (w.isDestroyed()) {
-                    kt3.o.a0(false);
-                    hu3 n3 = hu3.n();
-                    kt3 kt3Var3 = kt3.o;
-                    n3.d(com.baidu.pass.biometrics.face.liveness.b.a.g0, kt3.k, "小游戏非法");
-                    return;
-                }
-                kt3.o.a0(true);
-                kt3.o.T(this.a);
-                kt3.o.K();
-                fh3.e0(new a(this));
-                kt3 kt3Var4 = kt3.o;
-                String str2 = kt3.j;
-                if (str2 != null) {
-                    kt3 kt3Var5 = kt3.o;
-                    if (kt3.k || this.a.expirationTime <= 0) {
-                        return;
-                    }
-                    jt3.c().a(b0.O(), str2, SystemClock.elapsedRealtime() + this.a.expirationTime);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class f extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (str == null || str.length() == 0) {
-                    if (vj1.a) {
-                        Log.e("GamenowPlaytimeManager", "配置信息下发异常，code = " + i + ",  response = " + str);
-                    }
-                    kt3.o.a0(false);
-                    hu3 n = hu3.n();
-                    kt3 kt3Var = kt3.o;
-                    n.d(com.baidu.pass.biometrics.face.liveness.b.a.g0, kt3.k, "下发数据非法");
-                    return;
-                }
-                if (vj1.a) {
-                    Log.d("GamenowPlaytimeManager", "配置信息 =   " + str);
-                }
-                kt3.o.O(str);
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (vj1.a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("请求配置信息失败，err = ");
-                    sb.append(exc != null ? exc.getMessage() : null);
-                    Log.e("GamenowPlaytimeManager", sb.toString());
-                }
-                kt3.o.a0(false);
-                hu3 n = hu3.n();
-                kt3 kt3Var = kt3.o;
-                n.d(com.baidu.pass.biometrics.face.liveness.b.a.g0, kt3.k, "网络请求失败");
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class g implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public static final g a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-650243332, "Lcom/baidu/tieba/kt3$g;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-650243332, "Lcom/baidu/tieba/kt3$g;");
-                    return;
-                }
-            }
-            a = new g();
-        }
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                kt3.o.N();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class h implements ki3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ki3
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                kt3 kt3Var = kt3.o;
-                GameGuideView gameGuideView = kt3.e;
-                if (gameGuideView != null) {
-                    gameGuideView.p();
-                }
-                ju3.f.k();
-            }
-        }
-
-        @Override // com.baidu.tieba.ki3
-        public void l() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ju3.f.j();
-                kt3 kt3Var = kt3.o;
-                GameGuideView gameGuideView = kt3.e;
-                if (gameGuideView != null) {
-                    gameGuideView.o(ju3.f.f());
-                }
-                yo2.U().c();
-                if (kt3.o.C()) {
-                    kt3.o.Q();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ki3
-        public void onViewDestroy() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                kt3.o.P();
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -621,8 +33,8 @@ public final class kt3 {
                 return;
             }
         }
-        o = new kt3();
-        n = new h();
+        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
+        b = new kt3();
     }
 
     public kt3() {
@@ -630,568 +42,130 @@ public final class kt3 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final long A() {
+    public static kt3 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return a;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "getPlayTime");
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-            Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
-            if (callOnMainWithContentProvider.isOk()) {
-                return callOnMainWithContentProvider.mResult.getLong("playTime", 0L);
-            }
-            return 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeV.longValue;
+        return (kt3) invokeV.objValue;
     }
 
-    public final GameGuideViewContainer B() {
-        InterceptResult invokeV;
+    public synchronized void a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i : (GameGuideViewContainer) invokeV.objValue;
-    }
-
-    public final boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean z = zb3.a().getBoolean("hasChoiceNotShow", false);
-            l = z;
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean z = zb3.a().getBoolean("hasInstallResult", true);
-            m = z;
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? zb3.a().getBoolean("key_gt_ths", false) : invokeV.booleanValue;
-    }
-
-    public final long F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? zb3.a().getLong("key_l_gt", 0L) : invokeV.longValue;
-    }
-
-    public final int G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return h;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "getCoins");
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-            Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
-            if (callOnMainWithContentProvider.isOk()) {
-                return callOnMainWithContentProvider.mResult.getInt("coinsNum", 0);
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? g : (String) invokeV.objValue;
-    }
-
-    public final String I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f : (String) invokeV.objValue;
-    }
-
-    public final int J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? zb3.a().getInt("coinsNum", 0) : invokeV.intValue;
-    }
-
-    public final void K() {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                long F = F();
-                if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
-                    a = F;
-                }
-                int J = J();
-                GameGuideConfigInfo gameGuideConfigInfo = d;
-                if (gameGuideConfigInfo != null && J > (i2 = gameGuideConfigInfo.maxNums)) {
-                    o.S(i2);
-                    J = i2;
-                }
-                h = J;
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "initGameGuideInfo");
-            Intrinsics.checkNotNullExpressionValue(DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle), "DelegateUtils.callOnMain…tion::class.java, bundle)");
-        }
-    }
-
-    public final boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (b) {
-                return true;
-            }
-            if (ProcessUtils.isMainProcess()) {
-                boolean E = E();
-                b = E;
-                return E;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "getHasShowedTips");
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-            Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
-            if (callOnMainWithContentProvider.isOk()) {
-                boolean z = callOnMainWithContentProvider.mResult.getBoolean("hasShowedTips", false);
-                b = z;
-                return z;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void M() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                d0();
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "onGameTimeUsed");
-            Intrinsics.checkNotNullExpressionValue(DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle), "DelegateUtils.callOnMain…tion::class.java, bundle)");
-        }
-    }
-
-    public final void N() {
-        GameGuideConfigInfo gameGuideConfigInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (gameGuideConfigInfo = d) == null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - c < 500) {
-            if (vj1.a) {
-                Log.d("GamenowPlaytimeManager", "快速点击");
-                return;
-            }
-            return;
-        }
-        l33 b0 = l33.b0();
-        if (b0 != null) {
-            c = currentTimeMillis;
-            long f2 = ju3.f.f() / 30000;
-            if (f2 <= 0) {
-                if (vj1.a) {
-                    Log.d("GamenowPlaytimeManager", "时长没有满足一个豆以上");
-                }
-            } else if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-                if (vj1.a) {
-                    Log.d("GamenowPlaytimeManager", "没有网络");
-                }
-                d33.g(AppRuntime.getAppContext(), "网络异常，请稍后重试").G();
-            } else {
-                int i2 = (int) f2;
-                hu3.n().i(i2);
-                int i3 = gameGuideConfigInfo.perCoinNum * i2;
-                int G = G();
-                boolean z = G >= gameGuideConfigInfo.maxNums;
-                if (vj1.a) {
-                    Log.d("GamenowPlaytimeManager", "before    expectedRewardCoins = " + i3 + " , currentRewardCoinsNum = " + G + ",  isMax = " + z);
-                }
-                int i4 = i3 + G;
-                int i5 = gameGuideConfigInfo.maxNums;
-                if (i4 > i5) {
-                    i3 = i5 - G;
-                }
-                if (vj1.a) {
-                    Log.d("GamenowPlaytimeManager", "after    realRewardCoins = " + i3);
-                }
-                if (!z) {
-                    ju3.f.h();
-                    GameGuideView gameGuideView = e;
-                    if (gameGuideView != null) {
-                        gameGuideView.r();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
+                    File file = new File(a);
+                    if (!file.exists() && !file.mkdirs()) {
+                        if (wj1.a) {
+                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
+                        }
+                        return;
                     }
-                    v(i3);
-                }
-                yo2.U().p();
-                Intent intent = new Intent(b0.w(), CoinClickDialog.class);
-                intent.putExtra("isShowMax", z);
-                intent.putExtra("rewardCoinsThisTime", i3);
-                intent.putExtra("totalRewardCoins", G + i3);
-                b0.w().startActivity(intent);
-            }
-        }
-    }
-
-    public final void O(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("errno", -1);
-                if (optInt != 0) {
-                    if (vj1.a) {
-                        Log.e("GamenowPlaytimeManager", "返回结果异常，errNo = " + optInt + "， response = " + str);
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null && listFiles.length > 0) {
+                        for (File file2 : listFiles) {
+                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
+                                qj4.j(file2);
+                            }
+                        }
                     }
-                    hu3.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "下发数据非法");
+                    boolean N = qj4.N(str2, new File(a, b(str, j)));
+                    if (wj1.a) {
+                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
+                    }
                     return;
                 }
-                GameGuideConfigInfo parseData = GameGuideConfigInfo.parseData(jSONObject.optJSONObject("data"));
-                if (parseData == null) {
-                    if (vj1.a) {
-                        Log.d("GamenowPlaytimeManager", "配置信息下发异常");
+                if (wj1.a) {
+                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
+                }
+            }
+        }
+    }
+
+    public final String b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return str + "_" + j;
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final boolean d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            if (file != null && file.exists()) {
+                String[] split = file.getName().split("_");
+                if (split.length != 2) {
+                    return true;
+                }
+                try {
+                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
+                        return false;
                     }
-                    hu3.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "下发数据非法");
-                    return;
-                }
-                W(parseData.install_result);
-                String str2 = parseData.targetAppPackageId;
-                Intrinsics.checkNotNullExpressionValue(str2, "configInfo.targetAppPackageId");
-                f = str2;
-                String str3 = parseData.targetAppDownloadUrl;
-                Intrinsics.checkNotNullExpressionValue(str3, "configInfo.targetAppDownloadUrl");
-                g = str3;
-                if (parseData.status == 0) {
-                    if (vj1.a) {
-                        Log.d("GamenowPlaytimeManager", "下发数据 status = 0，不展示");
+                } catch (Throwable th) {
+                    if (wj1.a) {
+                        th.printStackTrace();
                     }
-                    l33 b0 = l33.b0();
-                    if (!k && parseData.expirationTime > 0 && b0 != null) {
-                        jt3.c().a(b0.O(), str, SystemClock.elapsedRealtime() + parseData.expirationTime);
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    if (wj1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
                     }
-                    hu3.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "配置下发不展示");
-                    return;
+                    return null;
                 }
-                j = str;
-                if (parseData.popupSelection == 2) {
-                    d = parseData;
-                } else if (C()) {
-                    hu3.n().a("hasClosedWithNotShow");
-                    d = parseData;
-                } else {
-                    x(parseData);
+                File file = new File(a);
+                if (!file.exists()) {
+                    if (wj1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
+                    }
+                    return null;
                 }
-                hu3.n().d("success", k, "");
-            } catch (Throwable th) {
-                if (vj1.a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("解析配置信息失败，err = ");
-                    th.printStackTrace();
-                    sb.append(Unit.INSTANCE);
-                    Log.e("GamenowPlaytimeManager", sb.toString());
+                File[] listFiles = file.listFiles();
+                if (listFiles != null && listFiles.length > 0) {
+                    File file2 = null;
+                    for (File file3 : listFiles) {
+                        if (d(file3)) {
+                            qj4.j(file3);
+                        } else if (file3.getName().startsWith(str)) {
+                            file2 = file3;
+                        }
+                    }
+                    if (file2 == null) {
+                        return null;
+                    }
+                    return qj4.E(file2);
                 }
-                hu3.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "下发数据非法");
-            }
-        }
-    }
-
-    public final void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            e = null;
-            i = null;
-            k = false;
-        }
-    }
-
-    public final void Q() {
-        GameGuideViewContainer gameGuideViewContainer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (gameGuideViewContainer = i) == null) {
-            return;
-        }
-        yo2 U = yo2.U();
-        Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-        U.X().f(n);
-        yo2 U2 = yo2.U();
-        Intrinsics.checkNotNullExpressionValue(U2, "SwanAppController.getInstance()");
-        cl1 X = U2.X();
-        Intrinsics.checkNotNullExpressionValue(X, "SwanAppController.getIns…swanGameNARootViewManager");
-        FrameLayout rootView = X.getRootView();
-        if (rootView != null) {
-            rootView.removeView(gameGuideViewContainer);
-        }
-        o.P();
-    }
-
-    public final void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            l33 M = l33.M();
-            if (M == null) {
-                hu3.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "小游戏非法");
-                return;
-            }
-            String i2 = sm2.h0().i(AppRuntime.getAppContext());
-            if (i2 == null) {
-                i2 = "";
-            }
-            String h2 = qc3.h(1);
-            n83 a2 = sm2.q().a();
-            Application c2 = sm2.c();
-            Intrinsics.checkNotNullExpressionValue(c2, "SwanAppRuntime.getAppContext()");
-            io2.a W = M.W();
-            Intrinsics.checkNotNullExpressionValue(W, "swanApp.info");
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().url("https://gamecenter.baidu.com/api/minigame/get_flowout_config")).cookieManager(a2)).addParam("cuid", i2).addParam("appkey", M.O()).addParam("host", c2.getPackageName()).addParam("from", W.T()).addParam("gamecore_version", h2).requestFrom(16)).requestSubFrom(1602)).build().executeAsync(new f());
-        }
-    }
-
-    public final void S(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            zb3.a().putInt("coinsNum", i2);
-        }
-    }
-
-    public final void T(GameGuideConfigInfo gameGuideConfigInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, gameGuideConfigInfo) == null) {
-            d = gameGuideConfigInfo;
-        }
-    }
-
-    public final void U(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                Z(j2);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "setPlayTime");
-            bundle.putLong("playTime", j2);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-        }
-    }
-
-    public final void V(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            l = z;
-            zb3.a().putBoolean("hasChoiceNotShow", z);
-        }
-    }
-
-    public final void W(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            m = z;
-            zb3.a().putBoolean("hasInstallResult", z);
-        }
-    }
-
-    public final void X(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            zb3.a().putBoolean("key_gt_ths", z);
-        }
-    }
-
-    public final void Y(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            zb3.a().putLong("key_l_gt", j2);
-        }
-    }
-
-    public final void Z(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            if (j2 < 0) {
-                if (vj1.a) {
-                    Log.d("GamenowPlaytimeManager", "游戏时长不能为负数");
-                    return;
+                if (wj1.a) {
+                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
                 }
-                return;
-            }
-            if (j2 > SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                j2 = 90000;
-            }
-            a = j2;
-            Y(j2);
-        }
-    }
-
-    public final void a0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-        }
-    }
-
-    public final void b0() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || b) {
-            return;
-        }
-        b = true;
-        if (ProcessUtils.isMainProcess()) {
-            X(true);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("type", "setHasShowedTips");
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-    }
-
-    public final void c0(GameGuideConfigInfo gameGuideConfigInfo) {
-        GameGuideConfigInfo.ViewInfo viewInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, gameGuideConfigInfo) == null) || (viewInfo = gameGuideConfigInfo.viewInfo) == null) {
-            return;
-        }
-        hu3.n().l();
-        Context appContext = AppRuntime.getAppContext();
-        Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
-        Resources resources = appContext.getResources();
-        int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700eb) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07016f) + ch3.g(10.0f);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams.gravity = 8388613;
-        l33 b0 = l33.b0();
-        if (b0 != null) {
-            i = new GameGuideViewContainer(sm2.c());
-            int e2 = ug3.e(b0.w());
-            if (ug3.d()) {
-                layoutParams.topMargin = dimensionPixelSize + e2;
-            } else {
-                layoutParams.topMargin = dimensionPixelSize;
-            }
-            yo2 U = yo2.U();
-            Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-            cl1 X = U.X();
-            Intrinsics.checkNotNullExpressionValue(X, "SwanAppController.getIns…swanGameNARootViewManager");
-            X.getRootView().addView(i, layoutParams);
-            Context appContext2 = AppRuntime.getAppContext();
-            Intrinsics.checkNotNullExpressionValue(appContext2, "AppRuntime.getAppContext()");
-            LottieComposition lottieComposition = viewInfo.iconDoneLottie;
-            Intrinsics.checkNotNullExpressionValue(lottieComposition, "it.iconDoneLottie");
-            Bitmap bitmap = viewInfo.iconNormalImg;
-            Intrinsics.checkNotNullExpressionValue(bitmap, "it.iconNormalImg");
-            String str = viewInfo.progressColor;
-            Intrinsics.checkNotNullExpressionValue(str, "it.progressColor");
-            String str2 = viewInfo.tips;
-            Intrinsics.checkNotNullExpressionValue(str2, "it.tips");
-            GameGuideView gameGuideView = new GameGuideView(appContext2, lottieComposition, bitmap, str, str2);
-            e = gameGuideView;
-            GameGuideViewContainer gameGuideViewContainer = i;
-            if (gameGuideViewContainer != null) {
-                gameGuideViewContainer.addView(gameGuideView);
-            }
-            yo2 U2 = yo2.U();
-            Intrinsics.checkNotNullExpressionValue(U2, "SwanAppController.getInstance()");
-            U2.X().e(n);
-            GameGuideView gameGuideView2 = e;
-            if (gameGuideView2 != null) {
-                gameGuideView2.setOnClickListener(g.a);
-            }
-            if (ju3.f.g()) {
-                return;
-            }
-            ju3.f.j();
-            GameGuideView gameGuideView3 = e;
-            if (gameGuideView3 != null) {
-                gameGuideView3.o(ju3.f.f());
+                return null;
             }
         }
-    }
-
-    public final void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            long j2 = a;
-            if (j2 < 30000) {
-                return;
-            }
-            long j3 = j2 % 30000;
-            a = j3;
-            Y(j3);
-        }
-    }
-
-    public final void v(int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                int i4 = h + i2;
-                h = i4;
-                GameGuideConfigInfo gameGuideConfigInfo = d;
-                if (gameGuideConfigInfo != null && i4 > (i3 = gameGuideConfigInfo.maxNums)) {
-                    h = i3;
-                }
-                S(h);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "addCoins");
-            bundle.putInt("coinsNum", i2);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            fg3.k(b.a, "thread_gamenowGuideInitAndCheck");
-        }
-    }
-
-    public final void x(GameGuideConfigInfo gameGuideConfigInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, gameGuideConfigInfo) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            GameGuideConfigInfo.ViewInfo viewInfo = gameGuideConfigInfo.viewInfo;
-            LottieCompositionFactory.fromUrl(appContext, viewInfo != null ? viewInfo.iconDoneUrl : null).addListener(new c(gameGuideConfigInfo)).addFailureListener(d.a);
-        }
-    }
-
-    public final void y(GameGuideConfigInfo gameGuideConfigInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, gameGuideConfigInfo) == null) {
-            GameGuideConfigInfo.ViewInfo viewInfo = gameGuideConfigInfo.viewInfo;
-            ig3.e(viewInfo != null ? viewInfo.iconNormalUrl : null, new e(gameGuideConfigInfo));
-        }
-    }
-
-    public final GameGuideConfigInfo z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? d : (GameGuideConfigInfo) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

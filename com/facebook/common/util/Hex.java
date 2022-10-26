@@ -106,10 +106,10 @@ public class Hex {
                     }
                     z = true;
                 }
-                if (z) {
-                    throw new IllegalArgumentException("Invalid hexadecimal digit: " + str);
+                if (!z) {
+                    return bArr;
                 }
-                return bArr;
+                throw new IllegalArgumentException("Invalid hexadecimal digit: " + str);
             }
             throw new IllegalArgumentException("Odd number of characters.");
         }
@@ -137,6 +137,9 @@ public class Hex {
     public static byte[] hexStringToByteArray(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? decodeHex(str.replaceAll(" ", "")) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return decodeHex(str.replaceAll(" ", ""));
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

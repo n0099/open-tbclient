@@ -21,7 +21,7 @@ public class AdOperator {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class TYPE {
+    public final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TYPE CHECK;
@@ -87,18 +87,24 @@ public class AdOperator {
         public static TYPE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TYPE) Enum.valueOf(TYPE.class, str) : (TYPE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (TYPE) Enum.valueOf(TYPE.class, str);
+            }
+            return (TYPE) invokeL.objValue;
         }
 
         public static TYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TYPE[]) $VALUES.clone() : (TYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (TYPE[]) $VALUES.clone();
+            }
+            return (TYPE[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -127,7 +133,10 @@ public class AdOperator {
         public static a a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new a(jSONObject) : (a) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                return new a(jSONObject);
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -167,6 +176,9 @@ public class AdOperator {
     public static AdOperator a(JSONObject jSONObject) throws ParseError {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new AdOperator(jSONObject) : (AdOperator) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            return new AdOperator(jSONObject);
+        }
+        return (AdOperator) invokeL.objValue;
     }
 }

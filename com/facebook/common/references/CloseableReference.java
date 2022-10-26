@@ -12,33 +12,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Closeables;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
-import com.facebook.infer.annotation.PropagatesNullable;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
-public abstract class CloseableReference<T> implements Cloneable, Closeable {
+public abstract class CloseableReference implements Cloneable, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final ResourceReleaser<Closeable> DEFAULT_CLOSEABLE_RELEASER;
+    public static final ResourceReleaser DEFAULT_CLOSEABLE_RELEASER;
     public static final LeakHandler DEFAULT_LEAK_HANDLER;
     public static final int REF_TYPE_DEFAULT = 0;
     public static final int REF_TYPE_FINALIZER = 1;
     public static final int REF_TYPE_NOOP = 3;
     public static final int REF_TYPE_REF_COUNT = 2;
-    public static Class<CloseableReference> TAG;
-    @CloseableRefType
+    public static Class TAG;
     public static int sBitmapCloseableRefType;
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("this")
     public boolean mIsClosed;
     public final LeakHandler mLeakHandler;
-    public final SharedReference<T> mSharedReference;
+    public final SharedReference mSharedReference;
     @Nullable
     public final Throwable mStacktrace;
 
@@ -48,10 +44,14 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
 
     /* loaded from: classes7.dex */
     public interface LeakHandler {
-        void reportLeak(SharedReference<Object> sharedReference, @Nullable Throwable th);
+        void reportLeak(SharedReference sharedReference, @Nullable Throwable th);
 
         boolean requiresStacktrace();
     }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public abstract CloseableReference m76clone();
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +68,7 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
         }
         TAG = CloseableReference.class;
         sBitmapCloseableRefType = 0;
-        DEFAULT_CLOSEABLE_RELEASER = new ResourceReleaser<Closeable>() { // from class: com.facebook.common.references.CloseableReference.1
+        DEFAULT_CLOSEABLE_RELEASER = new ResourceReleaser() { // from class: com.facebook.common.references.CloseableReference.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,6 +102,16 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            @Override // com.facebook.common.references.CloseableReference.LeakHandler
+            public boolean requiresStacktrace() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -117,26 +127,16 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
             }
 
             @Override // com.facebook.common.references.CloseableReference.LeakHandler
-            public void reportLeak(SharedReference<Object> sharedReference, @Nullable Throwable th) {
+            public void reportLeak(SharedReference sharedReference, @Nullable Throwable th) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, sharedReference, th) == null) {
                     FLog.w(CloseableReference.TAG, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(sharedReference)), sharedReference.get().getClass().getName());
                 }
             }
-
-            @Override // com.facebook.common.references.CloseableReference.LeakHandler
-            public boolean requiresStacktrace() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return false;
-                }
-                return invokeV.booleanValue;
-            }
         };
     }
 
-    public CloseableReference(SharedReference<T> sharedReference, LeakHandler leakHandler, @Nullable Throwable th) {
+    public CloseableReference(SharedReference sharedReference, LeakHandler leakHandler, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,46 +158,47 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
         this.mStacktrace = th;
     }
 
-    public static void closeSafely(@Nullable CloseableReference<?> closeableReference) {
+    public CloseableReference(Object obj, ResourceReleaser resourceReleaser, LeakHandler leakHandler, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, closeableReference) == null) || closeableReference == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj, resourceReleaser, leakHandler, th};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        closeableReference.close();
-    }
-
-    /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/CloseableReference<TT;>; */
-    public static CloseableReference of(@PropagatesNullable Closeable closeable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, closeable)) == null) ? of(closeable, DEFAULT_CLOSEABLE_RELEASER) : (CloseableReference) invokeL.objValue;
-    }
-
-    public static void setDisableCloseableReferencesForBitmaps(@CloseableRefType int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
-            sBitmapCloseableRefType = i;
-        }
+        this.mIsClosed = false;
+        this.mSharedReference = new SharedReference(obj, resourceReleaser);
+        this.mLeakHandler = leakHandler;
+        this.mStacktrace = th;
     }
 
     public static boolean useGc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? sBitmapCloseableRefType == 3 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (sBitmapCloseableRefType == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public abstract CloseableReference<T> m77clone();
-
     @Nullable
-    public synchronized CloseableReference<T> cloneOrNull() {
+    public synchronized CloseableReference cloneOrNull() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 if (isValid()) {
-                    return m77clone();
+                    return m76clone();
                 }
                 return null;
             }
@@ -236,24 +237,29 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
         }
     }
 
-    public synchronized T get() {
+    public synchronized Object get() {
         InterceptResult invokeV;
-        T t;
+        boolean z;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                Preconditions.checkState(!this.mIsClosed);
-                t = this.mSharedReference.get();
+                if (!this.mIsClosed) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkState(z);
+                obj = this.mSharedReference.get();
             }
-            return t;
+            return obj;
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    @VisibleForTesting
-    public synchronized SharedReference<T> getUnderlyingReferenceTestOnly() {
+    public synchronized SharedReference getUnderlyingReferenceTestOnly() {
         InterceptResult invokeV;
-        SharedReference<T> sharedReference;
+        SharedReference sharedReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
@@ -289,43 +295,8 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
         return invokeV.booleanValue;
     }
 
-    public static void closeSafely(@Nullable Iterable<? extends CloseableReference<?>> iterable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, iterable) == null) || iterable == null) {
-            return;
-        }
-        for (CloseableReference<?> closeableReference : iterable) {
-            closeSafely(closeableReference);
-        }
-    }
-
-    public static boolean isValid(@Nullable CloseableReference<?> closeableReference) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, closeableReference)) == null) ? closeableReference != null && closeableReference.isValid() : invokeL.booleanValue;
-    }
-
-    public static <T> CloseableReference<T> of(@PropagatesNullable T t, ResourceReleaser<T> resourceReleaser) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, t, resourceReleaser)) == null) ? of(t, resourceReleaser, DEFAULT_LEAK_HANDLER) : (CloseableReference) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;Lcom/facebook/common/references/CloseableReference$LeakHandler;)Lcom/facebook/common/references/CloseableReference<TT;>; */
-    public static CloseableReference of(@PropagatesNullable Closeable closeable, LeakHandler leakHandler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, closeable, leakHandler)) == null) {
-            if (closeable == null) {
-                return null;
-            }
-            return of(closeable, DEFAULT_CLOSEABLE_RELEASER, leakHandler, leakHandler.requiresStacktrace() ? new Throwable() : null);
-        }
-        return (CloseableReference) invokeLL.objValue;
-    }
-
     @Nullable
-    public static <T> CloseableReference<T> cloneOrNull(@Nullable CloseableReference<T> closeableReference) {
+    public static CloseableReference cloneOrNull(@Nullable CloseableReference closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, closeableReference)) == null) {
@@ -337,7 +308,42 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
         return (CloseableReference) invokeL.objValue;
     }
 
-    public static <T> List<CloseableReference<T>> cloneOrNull(@PropagatesNullable Collection<CloseableReference<T>> collection) {
+    public static void closeSafely(@Nullable CloseableReference closeableReference) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, closeableReference) == null) && closeableReference != null) {
+            closeableReference.close();
+        }
+    }
+
+    public static boolean isValid(@Nullable CloseableReference closeableReference) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, closeableReference)) == null) {
+            if (closeableReference != null && closeableReference.isValid()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static CloseableReference of(Closeable closeable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, closeable)) == null) {
+            return of(closeable, DEFAULT_CLOSEABLE_RELEASER);
+        }
+        return (CloseableReference) invokeL.objValue;
+    }
+
+    public static void setDisableCloseableReferencesForBitmaps(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
+            sBitmapCloseableRefType = i;
+        }
+    }
+
+    public static List cloneOrNull(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, collection)) == null) {
@@ -345,67 +351,89 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
                 return null;
             }
             ArrayList arrayList = new ArrayList(collection.size());
-            for (CloseableReference<T> closeableReference : collection) {
-                arrayList.add(cloneOrNull(closeableReference));
+            Iterator it = collection.iterator();
+            while (it.hasNext()) {
+                arrayList.add(cloneOrNull((CloseableReference) it.next()));
             }
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    public static <T> CloseableReference<T> of(@PropagatesNullable T t, ResourceReleaser<T> resourceReleaser, LeakHandler leakHandler) {
-        InterceptResult invokeLLL;
+    public static void closeSafely(@Nullable Iterable iterable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, t, resourceReleaser, leakHandler)) == null) {
-            if (t == null) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, iterable) == null) && iterable != null) {
+            Iterator it = iterable.iterator();
+            while (it.hasNext()) {
+                closeSafely((CloseableReference) it.next());
+            }
+        }
+    }
+
+    public static CloseableReference of(Closeable closeable, LeakHandler leakHandler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, closeable, leakHandler)) == null) {
+            Throwable th = null;
+            if (closeable == null) {
                 return null;
             }
-            return of(t, resourceReleaser, leakHandler, leakHandler.requiresStacktrace() ? new Throwable() : null);
+            ResourceReleaser resourceReleaser = DEFAULT_CLOSEABLE_RELEASER;
+            if (leakHandler.requiresStacktrace()) {
+                th = new Throwable();
+            }
+            return of(closeable, resourceReleaser, leakHandler, th);
+        }
+        return (CloseableReference) invokeLL.objValue;
+    }
+
+    public static CloseableReference of(Object obj, ResourceReleaser resourceReleaser) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, obj, resourceReleaser)) == null) {
+            return of(obj, resourceReleaser, DEFAULT_LEAK_HANDLER);
+        }
+        return (CloseableReference) invokeLL.objValue;
+    }
+
+    public static CloseableReference of(Object obj, ResourceReleaser resourceReleaser, LeakHandler leakHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, obj, resourceReleaser, leakHandler)) == null) {
+            Throwable th = null;
+            if (obj == null) {
+                return null;
+            }
+            if (leakHandler.requiresStacktrace()) {
+                th = new Throwable();
+            }
+            return of(obj, resourceReleaser, leakHandler, th);
         }
         return (CloseableReference) invokeLLL.objValue;
     }
 
-    public CloseableReference(T t, ResourceReleaser<T> resourceReleaser, LeakHandler leakHandler, @Nullable Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, resourceReleaser, leakHandler, th};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mIsClosed = false;
-        this.mSharedReference = new SharedReference<>(t, resourceReleaser);
-        this.mLeakHandler = leakHandler;
-        this.mStacktrace = th;
-    }
-
-    public static <T> CloseableReference<T> of(@PropagatesNullable T t, ResourceReleaser<T> resourceReleaser, LeakHandler leakHandler, @Nullable Throwable th) {
+    public static CloseableReference of(Object obj, ResourceReleaser resourceReleaser, LeakHandler leakHandler, @Nullable Throwable th) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, t, resourceReleaser, leakHandler, th)) == null) {
-            if (t == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, obj, resourceReleaser, leakHandler, th)) == null) {
+            if (obj == null) {
                 return null;
             }
-            if ((t instanceof Bitmap) || (t instanceof HasBitmap)) {
+            if ((obj instanceof Bitmap) || (obj instanceof HasBitmap)) {
                 int i = sBitmapCloseableRefType;
-                if (i == 1) {
-                    return new FinalizerCloseableReference(t, resourceReleaser, leakHandler, th);
-                }
-                if (i == 2) {
-                    return new RefCountCloseableReference(t, resourceReleaser, leakHandler, th);
-                }
-                if (i == 3) {
-                    return new NoOpCloseableReference(t, resourceReleaser, leakHandler, th);
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return new NoOpCloseableReference(obj, resourceReleaser, leakHandler, th);
+                        }
+                    } else {
+                        return new RefCountCloseableReference(obj, resourceReleaser, leakHandler, th);
+                    }
+                } else {
+                    return new FinalizerCloseableReference(obj, resourceReleaser, leakHandler, th);
                 }
             }
-            return new DefaultCloseableReference(t, resourceReleaser, leakHandler, th);
+            return new DefaultCloseableReference(obj, resourceReleaser, leakHandler, th);
         }
         return (CloseableReference) invokeLLLL.objValue;
     }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +22,11 @@ import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.dx4;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.jx4;
 import com.baidu.tieba.qm;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.rm;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +52,7 @@ public class ViewHelper {
     public static final int TYPE_DOWN = 2;
     public static final int TYPE_MIDDLE = 1;
     public static final int TYPE_UP = 0;
-    public static tg<Integer, Integer> cachedSkinInViews = null;
+    public static ug cachedSkinInViews = null;
     public static Context mAppContext = null;
     public static boolean mIsNeedInit = false;
     public static int mMore_color = -1;
@@ -83,7 +84,7 @@ public class ViewHelper {
                 return;
             }
         }
-        cachedSkinInViews = new tg<>(500);
+        cachedSkinInViews = new ug(500);
         mAppContext = null;
     }
 
@@ -101,32 +102,6 @@ public class ViewHelper {
         }
     }
 
-    public static void addStateBarViewSpace(View view2, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || view2 == null || view2.getParent() == null) {
-            return;
-        }
-        View view3 = (View) view2.getParent().getParent();
-        if (view3 instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) view3;
-            linearLayout.setOrientation(1);
-            View view4 = new View(view2.getContext());
-            if (z) {
-                SkinManager.setBackgroundColor(view4, i);
-            } else {
-                view4.setBackgroundResource(i);
-            }
-            linearLayout.addView(view4, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
-        }
-    }
-
-    public static void checkDownloadSo(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
-            SoLoadUtils.checkDownloadSo(str, str2, str3);
-        }
-    }
-
     public static boolean checkUpIsLogin(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -140,17 +115,17 @@ public class ViewHelper {
         return invokeL.booleanValue;
     }
 
-    public static boolean checkUpIsLoginFromH5(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
+    public static boolean checkUpIsLoginFromH5(LoginActivityConfig loginActivityConfig) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, loginActivityConfig)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
-                skipToLoginActivityFromH5(context, str, str2);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
             }
             return isLogin;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
     public static int getCommonColor(int i) {
@@ -166,16 +141,6 @@ public class ViewHelper {
         return invokeI.intValue;
     }
 
-    public static void initCommonColor() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, null) == null) || (context = mAppContext) == null || context.getResources() == null) {
-            return;
-        }
-        mMore_color = mAppContext.getResources().getColor(R.color.common_color_10097);
-        mSkin_1_common_color = mAppContext.getResources().getColor(R.color.common_color_10004);
-    }
-
     public static void initSkinDataOnStartup(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
@@ -186,37 +151,10 @@ public class ViewHelper {
 
     public static void prepareNewView(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, view2) == null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeL(65548, null, view2) != null) || view2 == null) {
             return;
         }
         cachedSkinInViews.i(Integer.valueOf(System.identityHashCode(view2)));
-    }
-
-    public static void processAllViewsIn(ViewGroup viewGroup, boolean z, ViewCallback viewCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65549, null, new Object[]{viewGroup, Boolean.valueOf(z), viewCallback}) != null) {
-            return;
-        }
-        if (z && viewCallback.onViewFound(viewGroup)) {
-            return;
-        }
-        LinkedList linkedList = new LinkedList();
-        while (true) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (viewCallback.onViewFound(childAt)) {
-                    return;
-                }
-                if (childAt instanceof ViewGroup) {
-                    linkedList.addLast((ViewGroup) childAt);
-                }
-            }
-            if (linkedList.isEmpty()) {
-                return;
-            }
-            viewGroup = (ViewGroup) linkedList.removeFirst();
-        }
     }
 
     public static void processCurrentSkin(View view2) {
@@ -226,22 +164,149 @@ public class ViewHelper {
         }
     }
 
-    public static void processSkin(ViewGroup viewGroup, int i) {
+    public static void skipToLoginActivity(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65551, null, viewGroup, i) == null) {
-            int identityHashCode = System.identityHashCode(viewGroup);
-            Integer f = cachedSkinInViews.f(Integer.valueOf(identityHashCode));
-            if (f == null || i != f.intValue()) {
-                processSkin0(viewGroup, i);
-                cachedSkinInViews.h(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeL(65559, null, context) == null) {
+            skipToLoginActivity(context, null);
+        }
+    }
+
+    @Deprecated
+    public static void skipToRegisterActivity(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65562, null, context) == null) && context != null) {
+            jx4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+            skipToLoginActivity(context);
+        }
+    }
+
+    public static void addStateBarViewSpace(View view2, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && view2 != null && view2.getParent() != null) {
+            View view3 = (View) view2.getParent().getParent();
+            if (view3 instanceof LinearLayout) {
+                LinearLayout linearLayout = (LinearLayout) view3;
+                linearLayout.setOrientation(1);
+                View view4 = new View(view2.getContext());
+                if (z) {
+                    SkinManager.setBackgroundColor(view4, i);
+                } else {
+                    view4.setBackgroundResource(i);
+                }
+                linearLayout.addView(view4, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
             }
         }
     }
 
+    public static void checkDownloadSo(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
+            SoLoadUtils.checkDownloadSo(str, str2, str3);
+        }
+    }
+
+    public static boolean checkUpIsLoginFromH5(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) {
+            boolean isLogin = TbadkCoreApplication.isLogin();
+            if (!isLogin) {
+                skipToLoginActivityFromH5(context, str, str2);
+            }
+            return isLogin;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void setSkinForListItem(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(65556, null, view2, i, i2) != null) || view2 == null) {
+            return;
+        }
+        view2.setBackgroundDrawable(null);
+        if (i == 0) {
+            SkinManager.setBackgroundResource(view2, R.drawable.auto_skin_list_item_bg_up);
+        } else if (i == 2) {
+            SkinManager.setBackgroundResource(view2, R.drawable.auto_skin_list_item_bg_down);
+        } else {
+            SkinManager.setBackgroundResource(view2, R.drawable.list_selector_item);
+        }
+    }
+
+    public static int getCommonColor(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, null, z)) == null) {
+            if (mIsNeedInit) {
+                mIsNeedInit = false;
+                initCommonColor();
+            }
+            if (z) {
+                return mSkin_1_common_color;
+            }
+            return mMore_color;
+        }
+        return invokeZ.intValue;
+    }
+
+    public static void initCommonColor() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && (context = mAppContext) != null && context.getResources() != null) {
+            mMore_color = mAppContext.getResources().getColor(R.color.common_color_10097);
+            mSkin_1_common_color = mAppContext.getResources().getColor(R.color.common_color_10004);
+        }
+    }
+
+    public static void processAllViewsIn(ViewGroup viewGroup, boolean z, ViewCallback viewCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{viewGroup, Boolean.valueOf(z), viewCallback}) == null) {
+            if (z && viewCallback.onViewFound(viewGroup)) {
+                return;
+            }
+            LinkedList linkedList = new LinkedList();
+            while (true) {
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (viewCallback.onViewFound(childAt)) {
+                        return;
+                    }
+                    if (childAt instanceof ViewGroup) {
+                        linkedList.addLast((ViewGroup) childAt);
+                    }
+                }
+                if (linkedList.isEmpty()) {
+                    return;
+                }
+                viewGroup = (ViewGroup) linkedList.removeFirst();
+            }
+        }
+    }
+
+    public static void processSkin(ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65551, null, viewGroup, i) == null) {
+            int identityHashCode = System.identityHashCode(viewGroup);
+            Integer num = (Integer) cachedSkinInViews.f(Integer.valueOf(identityHashCode));
+            if (num != null && i == num.intValue()) {
+                return;
+            }
+            processSkin0(viewGroup, i);
+            cachedSkinInViews.h(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+        }
+    }
+
     public static void processSkin0(ViewGroup viewGroup, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65552, null, viewGroup, i) == null) {
-            processAllViewsIn(viewGroup, true, new ViewCallback(i, i == 1 || i == 4) { // from class: com.baidu.tbadk.core.util.ViewHelper.1
+            if (i != 1 && i != 4) {
+                z = false;
+            } else {
+                z = true;
+            }
+            processAllViewsIn(viewGroup, true, new ViewCallback(i, z) { // from class: com.baidu.tbadk.core.util.ViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean val$isNight;
@@ -252,7 +317,7 @@ public class ViewHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(r7)};
+                        Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -263,12 +328,13 @@ public class ViewHelper {
                         }
                     }
                     this.val$skinType = i;
-                    this.val$isNight = r7;
+                    this.val$isNight = z;
                 }
 
                 @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
                 public boolean onViewFound(View view2) {
                     InterceptResult invokeL;
+                    int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
                         Object tag = view2.getTag();
@@ -286,7 +352,14 @@ public class ViewHelper {
                                 ViewHelper.setTextColor((CheckBox) view2, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.SIDE_BAR_CONTENT.equals(tag)) {
-                                ((TextView) view2).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.obfuscated_res_0x7f1003f9 : R.style.obfuscated_res_0x7f1003f8);
+                                TextView textView = (TextView) view2;
+                                Application app = TbadkCoreApplication.getInst().getApp();
+                                if (this.val$isNight) {
+                                    i2 = R.style.obfuscated_res_0x7f1003fa;
+                                } else {
+                                    i2 = R.style.obfuscated_res_0x7f1003f9;
+                                }
+                                textView.setTextAppearance(app, i2);
                                 return false;
                             } else if (ViewHelper.MORE_UP.equals(tag)) {
                                 if (view2 instanceof RadioButton) {
@@ -330,35 +403,20 @@ public class ViewHelper {
         }
     }
 
-    public static void removeStateBarViewSpace(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65553, null, view2) == null) || view2 == null || view2.getParent() == null) {
-            return;
-        }
-        View view3 = (View) view2.getParent().getParent();
-        if (view3 instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) view3;
-            if (linearLayout.getChildCount() >= 2) {
-                linearLayout.removeViewAt(0);
-            }
-        }
-    }
-
     public static void setGroupTextColor(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65554, null, textView, i) == null) || textView == null) {
-            return;
-        }
-        if (i != 1 && i != 4) {
-            textView.setTextColor(-5065030);
-        } else {
-            textView.setTextColor(-11446171);
+        if ((interceptable == null || interceptable.invokeLI(65554, null, textView, i) == null) && textView != null) {
+            if (i != 1 && i != 4) {
+                textView.setTextColor(-5065030);
+            } else {
+                textView.setTextColor(-11446171);
+            }
         }
     }
 
     public static void setSkinForListDivider(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65555, null, view2, i) == null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeLI(65555, null, view2, i) != null) || view2 == null) {
             return;
         }
         if (i != 1 && i != 4) {
@@ -368,110 +426,61 @@ public class ViewHelper {
         }
     }
 
-    public static void setSkinForListItem(View view2, int i, int i2) {
+    public static void setTextColor(CheckBox checkBox, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65556, null, view2, i, i2) == null) || view2 == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(65557, null, checkBox, i) == null) && checkBox != null) {
+            checkBox.setTextColor(getCommonColor(i));
         }
-        view2.setBackgroundDrawable(null);
-        if (i == 0) {
-            SkinManager.setBackgroundResource(view2, R.drawable.auto_skin_list_item_bg_up);
-        } else if (i == 2) {
-            SkinManager.setBackgroundResource(view2, R.drawable.auto_skin_list_item_bg_down);
-        } else {
-            SkinManager.setBackgroundResource(view2, R.drawable.list_selector_item);
+    }
+
+    public static void removeStateBarViewSpace(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65553, null, view2) == null) && view2 != null && view2.getParent() != null) {
+            View view3 = (View) view2.getParent().getParent();
+            if (view3 instanceof LinearLayout) {
+                LinearLayout linearLayout = (LinearLayout) view3;
+                if (linearLayout.getChildCount() >= 2) {
+                    linearLayout.removeViewAt(0);
+                }
+            }
         }
     }
 
     public static void setTextColor(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65558, null, textView, i) == null) || textView == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(65558, null, textView, i) == null) && textView != null) {
+            textView.setTextColor(getCommonColor(i));
         }
-        textView.setTextColor(getCommonColor(i));
     }
 
-    public static void skipToLoginActivity(Context context) {
+    public static void skipToLoginActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, context) == null) {
-            skipToLoginActivity(context, null);
+        if ((interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) && context != null) {
+            jx4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
+            checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
+            checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
+            checkDownloadSo("libbd_pass_face_sdk.so", "com.baidu.tieba.soloader.libbdface", "bd_pass_face_sdk");
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
+            if (!ej.isEmpty(str)) {
+                loginActivityConfig.setFrom(str);
+            }
+            if (StringUtils.isNull((String) BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
+                RequestParams requestParams = new RequestParams();
+                requestParams.setRunType(rm.a);
+                requestParams.setRunNode("aps");
+                requestParams.addChannel(new qm("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+                PmsManager.getInstance().execute(requestParams);
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
         }
     }
 
     public static void skipToLoginActivityFromH5(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) && context != null) {
+            jx4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
         }
-        dx4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
-    }
-
-    @Deprecated
-    public static void skipToRegisterActivity(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65562, null, context) == null) || context == null) {
-            return;
-        }
-        dx4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
-        skipToLoginActivity(context);
-    }
-
-    public static int getCommonColor(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, null, z)) == null) {
-            if (mIsNeedInit) {
-                mIsNeedInit = false;
-                initCommonColor();
-            }
-            return z ? mSkin_1_common_color : mMore_color;
-        }
-        return invokeZ.intValue;
-    }
-
-    public static void setTextColor(CheckBox checkBox, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65557, null, checkBox, i) == null) || checkBox == null) {
-            return;
-        }
-        checkBox.setTextColor(getCommonColor(i));
-    }
-
-    public static void skipToLoginActivity(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) || context == null) {
-            return;
-        }
-        dx4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-        checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
-        checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
-        checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
-        checkDownloadSo("libbd_pass_face_sdk.so", "com.baidu.tieba.soloader.libbdface", "bd_pass_face_sdk");
-        LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
-        if (!dj.isEmpty(str)) {
-            loginActivityConfig.setFrom(str);
-        }
-        if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
-            RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(qm.a);
-            requestParams.setRunNode("aps");
-            requestParams.addChannel(new pm("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
-            PmsManager.getInstance().execute(requestParams);
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
-    }
-
-    public static boolean checkUpIsLoginFromH5(LoginActivityConfig loginActivityConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, loginActivityConfig)) == null) {
-            boolean isLogin = TbadkCoreApplication.isLogin();
-            if (!isLogin) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
-            }
-            return isLogin;
-        }
-        return invokeL.booleanValue;
     }
 }

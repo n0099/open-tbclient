@@ -1,16 +1,109 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ge4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public class cd4 extends ad4<nd4> implements jd4 {
+public class cd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile nd4 b;
+    public dd4 a;
+    public BlockingQueue b;
+    public ThreadPoolExecutor c;
+    public od4 d;
+    public final AtomicBoolean e;
+    public final kd4 f;
+    public final ud4 g;
+    public jd4 h;
+
+    /* loaded from: classes3.dex */
+    public class a implements kd4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cd4 a;
+
+        public a(cd4 cd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cd4Var;
+        }
+
+        @Override // com.baidu.tieba.kd4
+        public void a(od4 od4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, od4Var) != null) {
+                return;
+            }
+            this.a.d = od4Var;
+        }
+
+        @Override // com.baidu.tieba.kd4
+        public void b(od4 od4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, od4Var) != null) || this.a.d != od4Var) {
+                return;
+            }
+            this.a.d = null;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements jd4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cd4 a;
+
+        public b(cd4 cd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cd4Var;
+        }
+
+        @Override // com.baidu.tieba.jd4
+        public Runnable a(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return this.a.d(z);
+            }
+            return (Runnable) invokeZ.objValue;
+        }
+    }
 
     public cd4() {
         Interceptable interceptable = $ic;
@@ -22,118 +115,123 @@ public class cd4 extends ad4<nd4> implements jd4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = new AtomicBoolean(false);
+        this.f = new a(this);
+        this.g = new ud4(this.f);
+        this.h = new b(this);
+        this.a = new dd4();
+        this.b = new LinkedBlockingQueue();
+        this.c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.b);
+        c(this.a);
     }
 
-    @Override // com.baidu.tieba.jd4
-    public <T> void a(nd4<T> nd4Var) {
+    public void c(kd4 kd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nd4Var) == null) {
-            this.b = nd4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kd4Var) == null) {
+            this.g.c(kd4Var);
         }
     }
 
-    @Override // com.baidu.tieba.jd4
-    public <T> void b(nd4<T> nd4Var) {
+    public synchronized Runnable d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nd4Var) == null) {
-            if (this.b == nd4Var) {
-                this.b = null;
-            }
-            k(nd4Var);
-        }
-    }
-
-    public synchronized nd4 g() {
-        InterceptResult invokeV;
-        nd4 nd4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             synchronized (this) {
-                nd4Var = (nd4) super.c();
-            }
-            return nd4Var;
-        }
-        return (nd4) invokeV.objValue;
-    }
-
-    public synchronized void h(nd4 nd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nd4Var) == null) {
-            synchronized (this) {
-                if (nd4Var == null) {
-                    return;
-                }
-                if (this.b != null && this.b.d(nd4Var)) {
-                    nd4Var.e().f(nd4Var.f());
-                    return;
-                }
-                nd4 e = e(nd4Var);
-                if (e != null) {
-                    nd4Var.e().f(nd4Var.f());
-                    if (nd4Var.g() <= e.g()) {
-                        return;
+                if (this.a != null) {
+                    if (z) {
+                        return this.a.g();
                     }
+                    return this.a.i();
                 }
-                int g = nd4Var.g();
-                if (g != 200) {
-                    if (g == 300) {
-                        j(nd4Var);
-                        if (e != null) {
-                            this.a.remove(e);
-                            this.a.add(0, e);
-                        } else {
-                            this.a.add(0, nd4Var);
+                return null;
+            }
+        }
+        return (Runnable) invokeZ.objValue;
+    }
+
+    public synchronized void g(od4 od4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, od4Var) == null) {
+            synchronized (this) {
+                this.a.h(od4Var);
+            }
+        }
+    }
+
+    public synchronized void h(od4 od4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, od4Var) == null) {
+            synchronized (this) {
+                g(od4Var);
+                j();
+            }
+        }
+    }
+
+    public void i(kd4 kd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, kd4Var) == null) {
+            this.g.d(kd4Var);
+        }
+    }
+
+    public synchronized boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    return false;
+                }
+                Object f = this.d.f();
+                if (f instanceof lc4) {
+                    return TextUtils.equals(((lc4) f).g, str);
+                }
+                if (!(f instanceof ge4.a)) {
+                    return false;
+                }
+                return TextUtils.equals(((ge4.a) f).b, str);
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                Iterator f = this.a.f();
+                while (f.hasNext()) {
+                    od4 od4Var = (od4) f.next();
+                    if (od4Var != null) {
+                        Object f2 = od4Var.f();
+                        if (f2 instanceof lc4) {
+                            if (TextUtils.equals(((lc4) f2).g, str)) {
+                                return true;
+                            }
+                        } else if ((f2 instanceof ge4.a) && TextUtils.equals(((ge4.a) f2).b, str)) {
+                            return true;
                         }
-                    } else if (e == null) {
-                        this.a.add(nd4Var);
                     }
-                } else if (e != null) {
-                    this.a.remove(e);
-                    this.a.add(0, e);
-                } else {
-                    this.a.add(0, nd4Var);
                 }
-                notifyAll();
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public synchronized nd4 i() {
-        InterceptResult invokeV;
-        nd4 nd4Var;
+    public synchronized void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                nd4Var = (nd4) super.d();
+                if (this.b.size() < 1) {
+                    this.c.execute(new pd4(this.e, this.g, this.h));
+                }
             }
-            return nd4Var;
-        }
-        return (nd4) invokeV.objValue;
-    }
-
-    public final void j(nd4 nd4Var) {
-        nd4 nd4Var2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, nd4Var) == null) || nd4Var.g() != 300 || (nd4Var2 = this.b) == null || nd4Var2.g() == 300) {
-            return;
-        }
-        nd4Var2.o();
-        for (int i = 0; i < 500 && this.b != null; i++) {
-            try {
-                Thread.sleep(10L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void k(nd4 nd4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, nd4Var) == null) && nd4Var.k()) {
-            nd4Var.r(true);
-            this.a.add(0, nd4Var);
         }
     }
 }

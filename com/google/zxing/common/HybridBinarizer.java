@@ -22,6 +22,12 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
     public transient /* synthetic */ FieldHolder $fh;
     public BitMatrix matrix;
 
+    public static int cap(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) ? i < i2 ? i2 : i > i3 ? i3 : i : invokeIII.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HybridBinarizer(LuminanceSource luminanceSource) {
         super(luminanceSource);
@@ -140,12 +146,6 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
         }
     }
 
-    public static int cap(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) ? i < i2 ? i2 : i > i3 ? i3 : i : invokeIII.intValue;
-    }
-
     public static void thresholdBlock(byte[] bArr, int i, int i2, int i3, int i4, BitMatrix bitMatrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitMatrix}) == null) {
@@ -167,7 +167,10 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
     public Binarizer createBinarizer(LuminanceSource luminanceSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, luminanceSource)) == null) ? new HybridBinarizer(luminanceSource) : (Binarizer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, luminanceSource)) == null) {
+            return new HybridBinarizer(luminanceSource);
+        }
+        return (Binarizer) invokeL.objValue;
     }
 
     @Override // com.google.zxing.common.GlobalHistogramBinarizer, com.google.zxing.Binarizer

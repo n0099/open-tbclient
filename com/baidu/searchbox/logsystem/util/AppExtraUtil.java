@@ -36,10 +36,10 @@ public class AppExtraUtil {
         JSONObject appExtraInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (sAppExtraCall == null || (appExtraInfo = sAppExtraCall.getAppExtraInfo()) == null) {
-                return null;
+            if (sAppExtraCall != null && (appExtraInfo = sAppExtraCall.getAppExtraInfo()) != null) {
+                return appExtraInfo.toString();
             }
-            return appExtraInfo.toString();
+            return null;
         }
         return (String) invokeV.objValue;
     }

@@ -24,6 +24,16 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
     public int[] pendingOutputChannels;
     public int sampleRateHz;
 
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int getOutputEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     public ChannelMappingAudioProcessor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,45 +52,6 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
         this.outputBuffer = byteBuffer;
         this.channelCount = -1;
         this.sampleRateHz = -1;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) != null) {
-            return invokeIII.booleanValue;
-        }
-        boolean z = !Arrays.equals(this.pendingOutputChannels, this.outputChannels);
-        int[] iArr = this.pendingOutputChannels;
-        this.outputChannels = iArr;
-        if (iArr == null) {
-            this.active = false;
-            return z;
-        } else if (i3 == 2) {
-            if (!z && this.sampleRateHz == i && this.channelCount == i2) {
-                return false;
-            }
-            this.sampleRateHz = i;
-            this.channelCount = i2;
-            this.active = i2 != this.outputChannels.length;
-            int i4 = 0;
-            while (true) {
-                int[] iArr2 = this.outputChannels;
-                if (i4 >= iArr2.length) {
-                    return true;
-                }
-                int i5 = iArr2[i4];
-                if (i5 < i2) {
-                    this.active = (i5 != i4) | this.active;
-                    i4++;
-                } else {
-                    throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
-                }
-            }
-        } else {
-            throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
-        }
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -110,17 +81,10 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int[] iArr = this.outputChannels;
-            return iArr == null ? this.channelCount : iArr.length;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int getOutputEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 2;
+            if (iArr == null) {
+                return this.channelCount;
+            }
+            return iArr.length;
         }
         return invokeV.intValue;
     }
@@ -129,21 +93,33 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
     public int getOutputSampleRateHz() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sampleRateHz : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sampleRateHz;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean isActive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.active : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.active;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean isEnded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.inputEnded && this.outputBuffer == AudioProcessor.EMPTY_BUFFER : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.inputEnded && this.outputBuffer == AudioProcessor.EMPTY_BUFFER) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -151,6 +127,72 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.inputEnded = true;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            flush();
+            this.buffer = AudioProcessor.EMPTY_BUFFER;
+            this.channelCount = -1;
+            this.sampleRateHz = -1;
+            this.outputChannels = null;
+            this.active = false;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
+        InterceptResult invokeIII;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            boolean z3 = !Arrays.equals(this.pendingOutputChannels, this.outputChannels);
+            int[] iArr = this.pendingOutputChannels;
+            this.outputChannels = iArr;
+            if (iArr == null) {
+                this.active = false;
+                return z3;
+            } else if (i3 == 2) {
+                if (!z3 && this.sampleRateHz == i && this.channelCount == i2) {
+                    return false;
+                }
+                this.sampleRateHz = i;
+                this.channelCount = i2;
+                if (i2 != this.outputChannels.length) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.active = z;
+                int i4 = 0;
+                while (true) {
+                    int[] iArr2 = this.outputChannels;
+                    if (i4 >= iArr2.length) {
+                        return true;
+                    }
+                    int i5 = iArr2[i4];
+                    if (i5 < i2) {
+                        boolean z4 = this.active;
+                        if (i5 != i4) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        this.active = z2 | z4;
+                        i4++;
+                    } else {
+                        throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
+                    }
+                }
+            } else {
+                throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
+            }
+        } else {
+            return invokeIII.booleanValue;
         }
     }
 
@@ -175,19 +217,6 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
             byteBuffer.position(limit);
             this.buffer.flip();
             this.outputBuffer = this.buffer;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            flush();
-            this.buffer = AudioProcessor.EMPTY_BUFFER;
-            this.channelCount = -1;
-            this.sampleRateHz = -1;
-            this.outputChannels = null;
-            this.active = false;
         }
     }
 

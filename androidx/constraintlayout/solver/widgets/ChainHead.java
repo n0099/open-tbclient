@@ -203,48 +203,72 @@ public class ChainHead {
     public ConstraintWidget getFirst() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFirst : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFirst;
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getFirstMatchConstraintWidget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFirstMatchConstraintWidget : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFirstMatchConstraintWidget;
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getFirstVisibleWidget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFirstVisibleWidget : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFirstVisibleWidget;
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getHead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mHead : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mHead;
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLast : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mLast;
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getLastMatchConstraintWidget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mLastMatchConstraintWidget : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mLastMatchConstraintWidget;
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintWidget getLastVisibleWidget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLastVisibleWidget : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mLastVisibleWidget;
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public float getTotalWeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTotalWeight : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mTotalWeight;
+        }
+        return invokeV.floatValue;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AfterAdjustChildWidthListener Q;
+    public AfterAdjustChildWidthListener R;
 
     /* loaded from: classes5.dex */
     public interface AfterAdjustChildWidthListener {
@@ -43,44 +43,6 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
         }
     }
 
-    public void addAdTagView(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
-            return;
-        }
-        this.o.removeAllViews();
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(11);
-        layoutParams.addRule(15);
-        view2.setLayoutParams(layoutParams);
-        this.o.addView(view2);
-    }
-
-    @Override // com.baidu.card.view.CardUserInfoLayout
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.f();
-            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.Q;
-            if (afterAdjustChildWidthListener != null) {
-                afterAdjustChildWidthListener.afterChildWidth();
-            }
-        }
-    }
-
-    public HeadPendantClickableView getHeaderImg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getAvatar() : (HeadPendantClickableView) invokeV.objValue;
-    }
-
-    public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, afterAdjustChildWidthListener) == null) {
-            this.Q = afterAdjustChildWidthListener;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -100,5 +62,46 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
                 return;
             }
         }
+    }
+
+    public void addAdTagView(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
+            return;
+        }
+        this.o.removeAllViews();
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(11);
+        layoutParams.addRule(15);
+        view2.setLayoutParams(layoutParams);
+        this.o.addView(view2);
+    }
+
+    public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, afterAdjustChildWidthListener) == null) {
+            this.R = afterAdjustChildWidthListener;
+        }
+    }
+
+    @Override // com.baidu.card.view.CardUserInfoLayout
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.f();
+            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.R;
+            if (afterAdjustChildWidthListener != null) {
+                afterAdjustChildWidthListener.afterChildWidth();
+            }
+        }
+    }
+
+    public HeadPendantClickableView getHeaderImg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getAvatar();
+        }
+        return (HeadPendantClickableView) invokeV.objValue;
     }
 }

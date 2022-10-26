@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 /* loaded from: classes3.dex */
-public class a4 extends b2<z3, a> {
+public class a4 extends b2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a b;
     public com.badlogic.gdx.math.a c;
 
     /* loaded from: classes3.dex */
-    public static class a extends l1<z3> {
+    public class a extends l1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String b;
@@ -67,9 +67,21 @@ public class a4 extends b2<z3, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b2
+    /* renamed from: e */
+    public z3 c(n1 n1Var, String str, k3 k3Var, a aVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, n1Var, str, k3Var, aVar)) == null) {
+            return f(new d4((Texture) n1Var.i((String) n1Var.n(str).f())), k3Var);
+        }
+        return (z3) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: d */
-    public b7<j1> a(String str, k3 k3Var, a aVar) {
+    public b7 a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
         String str2;
         String[] strArr;
@@ -101,26 +113,17 @@ public class a4 extends b2<z3, a> {
                         }
                     }
                 }
-                if (str2 != null) {
-                    b7<j1> b7Var = new b7<>(1);
-                    b7Var.a(new j1(k3Var.s(str2), Texture.class));
-                    return b7Var;
+                if (str2 == null) {
+                    return null;
                 }
-                return null;
+                b7 b7Var = new b7(1);
+                b7Var.a(new j1(k3Var.s(str2), Texture.class));
+                return b7Var;
             } catch (IOException e) {
                 throw new GdxRuntimeException("Error reading " + str, e);
             }
         }
         return (b7) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b2
-    /* renamed from: e */
-    public z3 c(n1 n1Var, String str, k3 k3Var, a aVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, n1Var, str, k3Var, aVar)) == null) ? f(new d4((Texture) n1Var.i(n1Var.n(str).f())), k3Var) : (z3) invokeLLLL.objValue;
     }
 
     public z3 f(d4 d4Var, k3 k3Var) {

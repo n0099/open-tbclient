@@ -20,8 +20,8 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<ThreadData> liveList;
-    public List<String> sortType;
+    public List liveList;
+    public List sortType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaNewSquareSubListResponseMessage() {
@@ -51,7 +51,11 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
             if (jSONObject == null) {
                 return;
             }
-            this.hasMore = jSONObject.optInt("has_more") == 1;
+            boolean z = true;
+            if (jSONObject.optInt("has_more") != 1) {
+                z = false;
+            }
+            this.hasMore = z;
             this.liveCount = jSONObject.optInt("count");
             JSONArray optJSONArray = jSONObject.optJSONArray("live");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -68,14 +72,13 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                 this.hasMore = false;
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("live_tab_type");
-            if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
-                return;
-            }
-            int length2 = optJSONArray2.length();
-            for (int i3 = 0; i3 < length2; i3++) {
-                String optString = optJSONArray2.optString(i3);
-                if (!StringUtils.isNull(optString)) {
-                    this.sortType.add(optString);
+            if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                int length2 = optJSONArray2.length();
+                for (int i3 = 0; i3 < length2; i3++) {
+                    String optString = optJSONArray2.optString(i3);
+                    if (!StringUtils.isNull(optString)) {
+                        this.sortType.add(optString);
+                    }
                 }
             }
         }
@@ -84,24 +87,36 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
     public int getLiveCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.liveCount;
+        }
+        return invokeV.intValue;
     }
 
-    public List<ThreadData> getLiveList() {
+    public List getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.liveList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.liveList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<String> getSortTypeList() {
+    public List getSortTypeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sortType : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sortType;
+        }
+        return (List) invokeV.objValue;
     }
 
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hasMore : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.hasMore;
+        }
+        return invokeV.booleanValue;
     }
 }

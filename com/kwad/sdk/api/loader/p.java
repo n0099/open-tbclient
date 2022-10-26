@@ -1,12 +1,10 @@
 package com.kwad.sdk.api.loader;
 
-import android.annotation.SuppressLint;
 import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.res.Resources;
 import androidx.appcompat.view.ContextThemeWrapper;
 import com.kwad.sdk.api.core.ResContext;
-@SuppressLint({"RestrictedApi"})
 /* loaded from: classes7.dex */
 public final class p extends ContextThemeWrapper implements ResContext {
     public Resources.Theme SF;

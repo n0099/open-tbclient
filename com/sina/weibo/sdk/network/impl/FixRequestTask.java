@@ -25,19 +25,29 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
+public class FixRequestTask implements Runnable, RequestCancelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FixRequestTask<T, R>.RequestCallback callback;
+    public RequestCallback callback;
     public IRequestParam param;
-    public Class<T> tClass;
-    public Target<R> target;
+    public Class tClass;
+    public Target target;
 
     /* renamed from: com.sina.weibo.sdk.network.impl.FixRequestTask$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.sina.weibo.sdk.network.RequestCancelable
+    public boolean isCancelRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes8.dex */
@@ -64,8 +74,10 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
             this.this$0 = fixRequestTask;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: com.sina.weibo.sdk.network.target.Target */
-        /* JADX WARN: Multi-variable type inference failed */
+        public /* synthetic */ RequestCallback(FixRequestTask fixRequestTask, AnonymousClass1 anonymousClass1) {
+            this(fixRequestTask);
+        }
+
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             InterceptResult invokeL;
@@ -86,13 +98,9 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
             }
             return invokeL.booleanValue;
         }
-
-        public /* synthetic */ RequestCallback(FixRequestTask fixRequestTask, AnonymousClass1 anonymousClass1) {
-            this(fixRequestTask);
-        }
     }
 
-    public FixRequestTask(IRequestParam iRequestParam, Target<R> target) {
+    public FixRequestTask(IRequestParam iRequestParam, Target target) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,16 +128,6 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
         }
     }
 
-    @Override // com.sina.weibo.sdk.network.RequestCancelable
-    public boolean isCancelRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
@@ -142,18 +140,18 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
             if (this.param.needIntercept()) {
                 try {
                     Bundle bundle = new Bundle();
-                    HashMap<String, IRequestIntercept> globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
+                    HashMap globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
                     for (String str : globalIntercept.keySet()) {
-                        IRequestIntercept iRequestIntercept = globalIntercept.get(str);
+                        IRequestIntercept iRequestIntercept = (IRequestIntercept) globalIntercept.get(str);
                         if (iRequestIntercept != null && iRequestIntercept.needIntercept(this.param, bundle)) {
                             iRequestIntercept.doIntercept(this.param, bundle);
                         }
                     }
-                    Iterator<IRequestIntercept> it = this.param.getIntercept().iterator();
+                    Iterator it = this.param.getIntercept().iterator();
                     while (it.hasNext()) {
-                        IRequestIntercept next = it.next();
-                        if (next.needIntercept(this.param, bundle)) {
-                            next.doIntercept(this.param, bundle);
+                        IRequestIntercept iRequestIntercept2 = (IRequestIntercept) it.next();
+                        if (iRequestIntercept2.needIntercept(this.param, bundle)) {
+                            iRequestIntercept2.doIntercept(this.param, bundle);
                         }
                     }
                     this.param.getGetBundle().putAll(bundle);
@@ -170,7 +168,7 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
             }
             try {
                 WbResponse request = RequestEngine.request(this.param);
-                R transResponse = this.target.transResponse(request);
+                Object transResponse = this.target.transResponse(request);
                 this.target.onRequestSuccessBg(transResponse);
                 requestResult.setResponse(transResponse);
                 try {

@@ -15,19 +15,19 @@ import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
+public final class InnerQueuedSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 22876611072430776L;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean done;
     public int fusionMode;
     public final int limit;
-    public final InnerQueuedSubscriberSupport<T> parent;
+    public final InnerQueuedSubscriberSupport parent;
     public final int prefetch;
     public long produced;
-    public volatile SimpleQueue<T> queue;
+    public volatile SimpleQueue queue;
 
-    public InnerQueuedSubscriber(InnerQueuedSubscriberSupport<T> innerQueuedSubscriberSupport, int i) {
+    public InnerQueuedSubscriber(InnerQueuedSubscriberSupport innerQueuedSubscriberSupport, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,10 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription
     public boolean isDone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.done : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.done;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // org.reactivestreams.Subscriber
@@ -66,6 +69,35 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.parent.innerComplete(this);
+        }
+    }
+
+    public SimpleQueue queue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.queue;
+        }
+        return (SimpleQueue) invokeV.objValue;
+    }
+
+    public void requestOne() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.fusionMode != 1) {
+            long j = this.produced + 1;
+            if (j == this.limit) {
+                this.produced = 0L;
+                ((Subscription) get()).request(j);
+                return;
+            }
+            this.produced = j;
+        }
+    }
+
+    public void setDone() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.done = true;
         }
     }
 
@@ -78,14 +110,28 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
             if (this.fusionMode == 0) {
-                this.parent.innerNext(this, t);
+                this.parent.innerNext(this, obj);
             } else {
                 this.parent.drain();
             }
+        }
+    }
+
+    @Override // org.reactivestreams.Subscription
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && this.fusionMode != 1) {
+            long j2 = this.produced + j;
+            if (j2 >= this.limit) {
+                this.produced = 0L;
+                ((Subscription) get()).request(j2);
+                return;
+            }
+            this.produced = j2;
         }
     }
 
@@ -111,48 +157,6 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription
             }
             this.queue = QueueDrainHelper.createQueue(this.prefetch);
             QueueDrainHelper.request(subscription, this.prefetch);
-        }
-    }
-
-    public SimpleQueue<T> queue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.queue : (SimpleQueue) invokeV.objValue;
-    }
-
-    @Override // org.reactivestreams.Subscription
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j) == null) || this.fusionMode == 1) {
-            return;
-        }
-        long j2 = this.produced + j;
-        if (j2 >= this.limit) {
-            this.produced = 0L;
-            get().request(j2);
-            return;
-        }
-        this.produced = j2;
-    }
-
-    public void requestOne() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.fusionMode == 1) {
-            return;
-        }
-        long j = this.produced + 1;
-        if (j == this.limit) {
-            this.produced = 0L;
-            get().request(j);
-            return;
-        }
-        this.produced = j;
-    }
-
-    public void setDone() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.done = true;
         }
     }
 }

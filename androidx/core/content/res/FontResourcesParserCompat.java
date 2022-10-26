@@ -6,10 +6,6 @@ import android.os.Build;
 import android.util.Base64;
 import android.util.TypedValue;
 import android.util.Xml;
-import androidx.annotation.ArrayRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.R;
 import androidx.core.provider.FontRequest;
 import androidx.core.view.InputDeviceCompat;
@@ -28,7 +24,6 @@ import java.util.Collections;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FontResourcesParserCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -53,10 +48,9 @@ public class FontResourcesParserCompat {
     public static final class FontFamilyFilesResourceEntry implements FamilyResourceEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final FontFileResourceEntry[] mEntries;
 
-        public FontFamilyFilesResourceEntry(@NonNull FontFileResourceEntry[] fontFileResourceEntryArr) {
+        public FontFamilyFilesResourceEntry(FontFileResourceEntry[] fontFileResourceEntryArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,11 +68,13 @@ public class FontResourcesParserCompat {
             this.mEntries = fontFileResourceEntryArr;
         }
 
-        @NonNull
         public FontFileResourceEntry[] getEntries() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mEntries : (FontFileResourceEntry[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mEntries;
+            }
+            return (FontFileResourceEntry[]) invokeV.objValue;
         }
     }
 
@@ -86,7 +82,6 @@ public class FontResourcesParserCompat {
     public static final class FontFileResourceEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final String mFileName;
         public boolean mItalic;
         public int mResourceId;
@@ -94,7 +89,7 @@ public class FontResourcesParserCompat {
         public String mVariationSettings;
         public int mWeight;
 
-        public FontFileResourceEntry(@NonNull String str, int i, boolean z, @Nullable String str2, int i2, int i3) {
+        public FontFileResourceEntry(String str, int i, boolean z, String str2, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,42 +112,58 @@ public class FontResourcesParserCompat {
             this.mResourceId = i3;
         }
 
-        @NonNull
         public String getFileName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFileName : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mFileName;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getResourceId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mResourceId : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mResourceId;
+            }
+            return invokeV.intValue;
         }
 
         public int getTtcIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTtcIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mTtcIndex;
+            }
+            return invokeV.intValue;
         }
 
-        @Nullable
         public String getVariationSettings() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVariationSettings : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mVariationSettings;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getWeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mWeight : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mWeight;
+            }
+            return invokeV.intValue;
         }
 
         public boolean isItalic() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mItalic : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.mItalic;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -160,12 +171,11 @@ public class FontResourcesParserCompat {
     public static final class ProviderResourceEntry implements FamilyResourceEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final FontRequest mRequest;
         public final int mStrategy;
         public final int mTimeoutMs;
 
-        public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i, int i2) {
+        public ProviderResourceEntry(FontRequest fontRequest, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,20 +198,28 @@ public class FontResourcesParserCompat {
         public int getFetchStrategy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStrategy : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mStrategy;
+            }
+            return invokeV.intValue;
         }
 
-        @NonNull
         public FontRequest getRequest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRequest : (FontRequest) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mRequest;
+            }
+            return (FontRequest) invokeV.objValue;
         }
 
         public int getTimeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTimeoutMs : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mTimeoutMs;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -233,7 +251,6 @@ public class FontResourcesParserCompat {
         return invokeLI.intValue;
     }
 
-    @Nullable
     public static FamilyResourceEntry parse(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         int next;
         InterceptResult invokeLL;
@@ -253,7 +270,21 @@ public class FontResourcesParserCompat {
         return (FamilyResourceEntry) invokeLL.objValue;
     }
 
-    public static List<List<byte[]>> readCerts(Resources resources, @ArrayRes int i) {
+    public static FamilyResourceEntry readFamilies(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser, resources)) == null) {
+            xmlPullParser.require(2, null, CssParser.PROPERTY_FONT_FAMILY);
+            if (xmlPullParser.getName().equals(CssParser.PROPERTY_FONT_FAMILY)) {
+                return readFamily(xmlPullParser, resources);
+            }
+            skip(xmlPullParser);
+            return null;
+        }
+        return (FamilyResourceEntry) invokeLL.objValue;
+    }
+
+    public static List<List<byte[]>> readCerts(Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i)) == null) {
@@ -284,22 +315,51 @@ public class FontResourcesParserCompat {
         return (List) invokeLI.objValue;
     }
 
-    @Nullable
-    public static FamilyResourceEntry readFamilies(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
+    public static FontFileResourceEntry readFont(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser, resources)) == null) {
-            xmlPullParser.require(2, null, CssParser.PROPERTY_FONT_FAMILY);
-            if (xmlPullParser.getName().equals(CssParser.PROPERTY_FONT_FAMILY)) {
-                return readFamily(xmlPullParser, resources);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, xmlPullParser, resources)) == null) {
+            TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamilyFont);
+            int i = 8;
+            if (!obtainAttributes.hasValue(8)) {
+                i = 1;
             }
-            skip(xmlPullParser);
-            return null;
+            int i2 = obtainAttributes.getInt(i, 400);
+            int i3 = 6;
+            if (!obtainAttributes.hasValue(6)) {
+                i3 = 2;
+            }
+            if (1 == obtainAttributes.getInt(i3, 0)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int i4 = 9;
+            if (!obtainAttributes.hasValue(9)) {
+                i4 = 3;
+            }
+            int i5 = 7;
+            if (!obtainAttributes.hasValue(7)) {
+                i5 = 4;
+            }
+            String string = obtainAttributes.getString(i5);
+            int i6 = obtainAttributes.getInt(i4, 0);
+            int i7 = 5;
+            if (!obtainAttributes.hasValue(5)) {
+                i7 = 0;
+            }
+            int resourceId = obtainAttributes.getResourceId(i7, 0);
+            String string2 = obtainAttributes.getString(i7);
+            obtainAttributes.recycle();
+            while (xmlPullParser.next() != 3) {
+                skip(xmlPullParser);
+            }
+            return new FontFileResourceEntry(string2, i2, z, string, i6, resourceId);
         }
-        return (FamilyResourceEntry) invokeLL.objValue;
+        return (FontFileResourceEntry) invokeLL.objValue;
     }
 
-    @Nullable
     public static FamilyResourceEntry readFamily(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -336,38 +396,18 @@ public class FontResourcesParserCompat {
         return (FamilyResourceEntry) invokeLL.objValue;
     }
 
-    public static FontFileResourceEntry readFont(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, xmlPullParser, resources)) == null) {
-            TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamilyFont);
-            int i = obtainAttributes.getInt(obtainAttributes.hasValue(8) ? 8 : 1, 400);
-            boolean z = 1 == obtainAttributes.getInt(obtainAttributes.hasValue(6) ? 6 : 2, 0);
-            int i2 = obtainAttributes.hasValue(9) ? 9 : 3;
-            String string = obtainAttributes.getString(obtainAttributes.hasValue(7) ? 7 : 4);
-            int i3 = obtainAttributes.getInt(i2, 0);
-            int i4 = obtainAttributes.hasValue(5) ? 5 : 0;
-            int resourceId = obtainAttributes.getResourceId(i4, 0);
-            String string2 = obtainAttributes.getString(i4);
-            obtainAttributes.recycle();
-            while (xmlPullParser.next() != 3) {
-                skip(xmlPullParser);
-            }
-            return new FontFileResourceEntry(string2, i, z, string, i3, resourceId);
-        }
-        return (FontFileResourceEntry) invokeLL.objValue;
-    }
-
     public static void skip(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, xmlPullParser) == null) {
             int i = 1;
             while (i > 0) {
                 int next = xmlPullParser.next();
-                if (next == 2) {
+                if (next != 2) {
+                    if (next == 3) {
+                        i--;
+                    }
+                } else {
                     i++;
-                } else if (next == 3) {
-                    i--;
                 }
             }
         }

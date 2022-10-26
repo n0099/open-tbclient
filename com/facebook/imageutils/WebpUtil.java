@@ -49,16 +49,34 @@ public class WebpUtil {
         return invokeLL.booleanValue;
     }
 
+    public static boolean isBitOne(byte b, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b), Integer.valueOf(i)})) == null) {
+            if (((b >> (i % 8)) & 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     public static int get2BytesAsInt(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) ? ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            return ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255);
+        }
+        return invokeL.intValue;
     }
 
     public static byte getByte(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) ? (byte) (inputStream.read() & 255) : invokeL.byteValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            return (byte) (inputStream.read() & 255);
+        }
+        return invokeL.byteValue;
     }
 
     public static String getHeader(byte[] bArr) {
@@ -74,21 +92,46 @@ public class WebpUtil {
         return (String) invokeL.objValue;
     }
 
-    public static int getInt(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) ? ((((byte) inputStream.read()) << 24) & (-16777216)) | ((((byte) inputStream.read()) << 16) & 16711680) | ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255) : invokeL.intValue;
-    }
-
     public static short getShort(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) ? (short) (inputStream.read() & 255) : invokeL.shortValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) {
+            return (short) (inputStream.read() & 255);
+        }
+        return invokeL.shortValue;
+    }
+
+    public static int read3Bytes(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, inputStream)) == null) {
+            return ((getByte(inputStream) << 16) & 16711680) | ((getByte(inputStream) << 8) & 65280) | (getByte(inputStream) & 255);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getInt(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
+            return ((((byte) inputStream.read()) << 24) & (-16777216)) | ((((byte) inputStream.read()) << 16) & 16711680) | ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255);
+        }
+        return invokeL.intValue;
+    }
+
+    public static Pair getVP8XDimension(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, inputStream)) == null) {
+            inputStream.skip(8L);
+            return new Pair(Integer.valueOf(read3Bytes(inputStream) + 1), Integer.valueOf(read3Bytes(inputStream) + 1));
+        }
+        return (Pair) invokeL.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     @Nullable
-    public static Pair<Integer, Integer> getSize(InputStream inputStream) {
+    public static Pair getSize(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, inputStream)) == null) {
@@ -106,59 +149,59 @@ public class WebpUtil {
                         inputStream.close();
                     }
                 }
-                if (compare(bArr, "RIFF")) {
-                    getInt(inputStream);
-                    inputStream.read(bArr);
-                    if (!compare(bArr, "WEBP")) {
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        return null;
-                    }
-                    inputStream.read(bArr);
-                    String header = getHeader(bArr);
-                    if (VP8_HEADER.equals(header)) {
-                        Pair<Integer, Integer> vP8Dimension = getVP8Dimension(inputStream);
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        return vP8Dimension;
-                    } else if (VP8L_HEADER.equals(header)) {
-                        Pair<Integer, Integer> vP8LDimension = getVP8LDimension(inputStream);
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        return vP8LDimension;
-                    } else if (!VP8X_HEADER.equals(header)) {
-                        if (inputStream != null) {
-                            inputStream.close();
-                        }
-                        return null;
-                    } else {
-                        Pair<Integer, Integer> vP8XDimension = getVP8XDimension(inputStream);
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
-                        return vP8XDimension;
-                    }
+                if (!compare(bArr, "RIFF")) {
+                    return null;
                 }
-                return null;
+                getInt(inputStream);
+                inputStream.read(bArr);
+                if (!compare(bArr, "WEBP")) {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return null;
+                }
+                inputStream.read(bArr);
+                String header = getHeader(bArr);
+                if (VP8_HEADER.equals(header)) {
+                    Pair vP8Dimension = getVP8Dimension(inputStream);
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    return vP8Dimension;
+                } else if (VP8L_HEADER.equals(header)) {
+                    Pair vP8LDimension = getVP8LDimension(inputStream);
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    return vP8LDimension;
+                } else if (VP8X_HEADER.equals(header)) {
+                    Pair vP8XDimension = getVP8XDimension(inputStream);
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    return vP8XDimension;
+                } else {
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    return null;
+                }
             } finally {
                 if (inputStream != null) {
                     try {
@@ -173,7 +216,7 @@ public class WebpUtil {
     }
 
     @Nullable
-    public static Pair<Integer, Integer> getVP8Dimension(InputStream inputStream) throws IOException {
+    public static Pair getVP8Dimension(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, inputStream)) == null) {
@@ -182,7 +225,7 @@ public class WebpUtil {
             short s2 = getShort(inputStream);
             short s3 = getShort(inputStream);
             if (s == 157 && s2 == 1 && s3 == 42) {
-                return new Pair<>(Integer.valueOf(get2BytesAsInt(inputStream)), Integer.valueOf(get2BytesAsInt(inputStream)));
+                return new Pair(Integer.valueOf(get2BytesAsInt(inputStream)), Integer.valueOf(get2BytesAsInt(inputStream)));
             }
             return null;
         }
@@ -190,7 +233,7 @@ public class WebpUtil {
     }
 
     @Nullable
-    public static Pair<Integer, Integer> getVP8LDimension(InputStream inputStream) throws IOException {
+    public static Pair getVP8LDimension(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, inputStream)) == null) {
@@ -199,33 +242,8 @@ public class WebpUtil {
                 return null;
             }
             int read = ((byte) inputStream.read()) & 255;
-            return new Pair<>(Integer.valueOf(((((byte) inputStream.read()) & 255) | ((read & 63) << 8)) + 1), Integer.valueOf(((((((byte) inputStream.read()) & 255) & 15) << 10) | ((((byte) inputStream.read()) & 255) << 2) | ((read & 192) >> 6)) + 1));
+            return new Pair(Integer.valueOf(((((byte) inputStream.read()) & 255) | ((read & 63) << 8)) + 1), Integer.valueOf(((((((byte) inputStream.read()) & 255) & 15) << 10) | ((((byte) inputStream.read()) & 255) << 2) | ((read & 192) >> 6)) + 1));
         }
         return (Pair) invokeL.objValue;
-    }
-
-    public static Pair<Integer, Integer> getVP8XDimension(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, inputStream)) == null) {
-            inputStream.skip(8L);
-            return new Pair<>(Integer.valueOf(read3Bytes(inputStream) + 1), Integer.valueOf(read3Bytes(inputStream) + 1));
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static boolean isBitOne(byte b, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b), Integer.valueOf(i)})) == null) ? ((b >> (i % 8)) & 1) == 1 : invokeCommon.booleanValue;
-    }
-
-    public static int read3Bytes(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, inputStream)) == null) {
-            return ((getByte(inputStream) << 16) & 16711680) | ((getByte(inputStream) << 8) & 65280) | (getByte(inputStream) & 255);
-        }
-        return invokeL.intValue;
     }
 }

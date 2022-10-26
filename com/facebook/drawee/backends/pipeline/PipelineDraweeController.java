@@ -33,6 +33,7 @@ import com.facebook.drawee.backends.pipeline.info.ImagePerfMonitor;
 import com.facebook.drawee.components.DeferredReleaser;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
+import com.facebook.drawee.controller.ControllerListener;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeControllerListener;
 import com.facebook.drawee.drawable.ScaleTypeDrawable;
@@ -54,24 +55,22 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
-public class PipelineDraweeController extends AbstractDraweeController<CloseableReference<CloseableImage>, ImageInfo> {
+public class PipelineDraweeController extends AbstractDraweeController {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public CacheKey mCacheKey;
     @Nullable
-    public ImmutableList<DrawableFactory> mCustomDrawableFactories;
-    public Supplier<DataSource<CloseableReference<CloseableImage>>> mDataSourceSupplier;
+    public ImmutableList mCustomDrawableFactories;
+    public Supplier mDataSourceSupplier;
     public DebugOverlayImageOriginListener mDebugOverlayImageOriginListener;
     public final DrawableFactory mDefaultDrawableFactory;
     public boolean mDrawDebugOverlay;
     @Nullable
     public ImageRequest[] mFirstAvailableImageRequests;
     @Nullable
-    public final ImmutableList<DrawableFactory> mGlobalDrawableFactories;
-    @GuardedBy("this")
+    public final ImmutableList mGlobalDrawableFactories;
     @Nullable
     public ImageOriginListener mImageOriginListener;
     @Nullable
@@ -81,10 +80,9 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
     @Nullable
     public ImageRequest mLowResImageRequest;
     @Nullable
-    public final MemoryCache<CacheKey, CloseableImage> mMemoryCache;
-    @GuardedBy("this")
+    public final MemoryCache mMemoryCache;
     @Nullable
-    public Set<RequestListener> mRequestListeners;
+    public Set mRequestListeners;
     public final Resources mResources;
 
     static {
@@ -103,8 +101,65 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         TAG = PipelineDraweeController.class;
     }
 
+    public void clearImageOriginListeners() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.mImageOriginListener = null;
+            }
+        }
+    }
+
+    public CacheKey getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mCacheKey;
+        }
+        return (CacheKey) invokeV.objValue;
+    }
+
+    public Supplier getDataSourceSupplier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mDataSourceSupplier;
+        }
+        return (Supplier) invokeV.objValue;
+    }
+
+    @Override // com.facebook.drawee.controller.AbstractDraweeController
+    @Nullable
+    public Uri getMainUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return MultiUriHelper.getMainUri(this.mImageRequest, this.mLowResImageRequest, this.mFirstAvailableImageRequests, ImageRequest.REQUEST_TO_URI_FN);
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mResources;
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    @Override // com.facebook.drawee.controller.AbstractDraweeController
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return Objects.toStringHelper(this).add("super", super.toString()).add("dataSourceSupplier", this.mDataSourceSupplier).toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PipelineDraweeController(Resources resources, DeferredReleaser deferredReleaser, DrawableFactory drawableFactory, Executor executor, @Nullable MemoryCache<CacheKey, CloseableImage> memoryCache, @Nullable ImmutableList<DrawableFactory> immutableList) {
+    public PipelineDraweeController(Resources resources, DeferredReleaser deferredReleaser, DrawableFactory drawableFactory, Executor executor, @Nullable MemoryCache memoryCache, @Nullable ImmutableList immutableList) {
         super(deferredReleaser, executor, null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,66 +183,11 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         this.mMemoryCache = memoryCache;
     }
 
-    private void init(Supplier<DataSource<CloseableReference<CloseableImage>>> supplier) {
+    private void init(Supplier supplier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, supplier) == null) {
             this.mDataSourceSupplier = supplier;
             maybeUpdateDebugOverlay(null);
-        }
-    }
-
-    @Nullable
-    private Drawable maybeCreateDrawableFromFactories(@Nullable ImmutableList<DrawableFactory> immutableList, CloseableImage closeableImage) {
-        InterceptResult invokeLL;
-        Drawable createDrawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, immutableList, closeableImage)) == null) {
-            if (immutableList == null) {
-                return null;
-            }
-            Iterator<DrawableFactory> it = immutableList.iterator();
-            while (it.hasNext()) {
-                DrawableFactory next = it.next();
-                if (next.supportsImageType(closeableImage) && (createDrawable = next.createDrawable(closeableImage)) != null) {
-                    return createDrawable;
-                }
-            }
-            return null;
-        }
-        return (Drawable) invokeLL.objValue;
-    }
-
-    private void maybeUpdateDebugOverlay(@Nullable CloseableImage closeableImage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, closeableImage) == null) && this.mDrawDebugOverlay) {
-            if (getControllerOverlay() == null) {
-                DebugControllerOverlayDrawable debugControllerOverlayDrawable = new DebugControllerOverlayDrawable();
-                ImageLoadingTimeControllerListener imageLoadingTimeControllerListener = new ImageLoadingTimeControllerListener(debugControllerOverlayDrawable);
-                this.mDebugOverlayImageOriginListener = new DebugOverlayImageOriginListener();
-                addControllerListener(imageLoadingTimeControllerListener);
-                setControllerOverlay(debugControllerOverlayDrawable);
-            }
-            if (this.mImageOriginListener == null) {
-                addImageOriginListener(this.mDebugOverlayImageOriginListener);
-            }
-            if (getControllerOverlay() instanceof DebugControllerOverlayDrawable) {
-                updateDebugOverlay(closeableImage, (DebugControllerOverlayDrawable) getControllerOverlay());
-            }
-        }
-    }
-
-    public synchronized void addImageOriginListener(ImageOriginListener imageOriginListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, imageOriginListener) == null) {
-            synchronized (this) {
-                if (this.mImageOriginListener instanceof ForwardingImageOriginListener) {
-                    ((ForwardingImageOriginListener) this.mImageOriginListener).addImageOriginListener(imageOriginListener);
-                } else if (this.mImageOriginListener != null) {
-                    this.mImageOriginListener = new ForwardingImageOriginListener(this.mImageOriginListener, imageOriginListener);
-                } else {
-                    this.mImageOriginListener = imageOriginListener;
-                }
-            }
         }
     }
 
@@ -203,120 +203,30 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         }
     }
 
-    public void clearImageOriginListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.mImageOriginListener = null;
-            }
-        }
-    }
-
-    public CacheKey getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCacheKey : (CacheKey) invokeV.objValue;
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.AbstractDraweeController
-    public DataSource<CloseableReference<CloseableImage>> getDataSource() {
-        InterceptResult invokeV;
+    public int getImageHash(@Nullable CloseableReference closeableReference) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("PipelineDraweeController#getDataSource");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, closeableReference)) == null) {
+            if (closeableReference != null) {
+                return closeableReference.getValueHash();
             }
-            if (FLog.isLoggable(2)) {
-                FLog.v(TAG, "controller %x: getDataSource", Integer.valueOf(System.identityHashCode(this)));
-            }
-            DataSource<CloseableReference<CloseableImage>> dataSource = this.mDataSourceSupplier.get();
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
-            }
-            return dataSource;
+            return 0;
         }
-        return (DataSource) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    public Supplier<DataSource<CloseableReference<CloseableImage>>> getDataSourceSupplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mDataSourceSupplier : (Supplier) invokeV.objValue;
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.AbstractDraweeController
-    @Nullable
-    public Uri getMainUri() {
-        InterceptResult invokeV;
+    public ImageInfo getImageInfo(CloseableReference closeableReference) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? MultiUriHelper.getMainUri(this.mImageRequest, this.mLowResImageRequest, this.mFirstAvailableImageRequests, ImageRequest.REQUEST_TO_URI_FN) : (Uri) invokeV.objValue;
-    }
-
-    @Nullable
-    public synchronized RequestListener getRequestListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            synchronized (this) {
-                ImageOriginRequestListener imageOriginRequestListener = this.mImageOriginListener != null ? new ImageOriginRequestListener(getId(), this.mImageOriginListener) : null;
-                if (this.mRequestListeners != null) {
-                    ForwardingRequestListener forwardingRequestListener = new ForwardingRequestListener(this.mRequestListeners);
-                    if (imageOriginRequestListener != null) {
-                        forwardingRequestListener.addRequestListener(imageOriginRequestListener);
-                    }
-                    return forwardingRequestListener;
-                }
-                return imageOriginRequestListener;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, closeableReference)) == null) {
+            Preconditions.checkState(CloseableReference.isValid(closeableReference));
+            return (ImageInfo) closeableReference.get();
         }
-        return (RequestListener) invokeV.objValue;
-    }
-
-    public Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mResources : (Resources) invokeV.objValue;
-    }
-
-    public void initialize(Supplier<DataSource<CloseableReference<CloseableImage>>> supplier, String str, CacheKey cacheKey, Object obj, @Nullable ImmutableList<DrawableFactory> immutableList, @Nullable ImageOriginListener imageOriginListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{supplier, str, cacheKey, obj, immutableList, imageOriginListener}) == null) {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("PipelineDraweeController#initialize");
-            }
-            super.initialize(str, obj);
-            init(supplier);
-            this.mCacheKey = cacheKey;
-            setCustomDrawableFactories(immutableList);
-            clearImageOriginListeners();
-            maybeUpdateDebugOverlay(null);
-            addImageOriginListener(imageOriginListener);
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
-            }
-        }
-    }
-
-    public synchronized void initializePerformanceMonitoring(@Nullable ImagePerfDataListener imagePerfDataListener, AbstractDraweeControllerBuilder<PipelineDraweeControllerBuilder, ImageRequest, CloseableReference<CloseableImage>, ImageInfo> abstractDraweeControllerBuilder, Supplier<Boolean> supplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, imagePerfDataListener, abstractDraweeControllerBuilder, supplier) == null) {
-            synchronized (this) {
-                if (this.mImagePerfMonitor != null) {
-                    this.mImagePerfMonitor.reset();
-                }
-                if (imagePerfDataListener != null) {
-                    if (this.mImagePerfMonitor == null) {
-                        this.mImagePerfMonitor = new ImagePerfMonitor(AwakeTimeSinceBootClock.get(), this, supplier);
-                    }
-                    this.mImagePerfMonitor.addImagePerfDataListener(imagePerfDataListener);
-                    this.mImagePerfMonitor.setEnabled(true);
-                    this.mImagePerfMonitor.updateImageRequestData(abstractDraweeControllerBuilder);
-                }
-                this.mImageRequest = abstractDraweeControllerBuilder.getImageRequest();
-                this.mFirstAvailableImageRequests = abstractDraweeControllerBuilder.getFirstAvailableImageRequests();
-                this.mLowResImageRequest = abstractDraweeControllerBuilder.getLowResImageRequest();
-            }
-        }
+        return (ImageInfo) invokeL.objValue;
     }
 
     @Override // com.facebook.drawee.interfaces.DraweeController
@@ -325,12 +235,27 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, draweeController)) == null) {
             CacheKey cacheKey = this.mCacheKey;
-            if (cacheKey == null || !(draweeController instanceof PipelineDraweeController)) {
-                return false;
+            if (cacheKey != null && (draweeController instanceof PipelineDraweeController)) {
+                return Objects.equal(cacheKey, ((PipelineDraweeController) draweeController).getCacheKey());
             }
-            return Objects.equal(cacheKey, ((PipelineDraweeController) draweeController).getCacheKey());
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.controller.AbstractDraweeController
+    @Nullable
+    public Map obtainExtrasFromImage(ImageInfo imageInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, imageInfo)) == null) {
+            if (imageInfo == null) {
+                return null;
+            }
+            return imageInfo.getExtras();
+        }
+        return (Map) invokeL.objValue;
     }
 
     @Override // com.facebook.drawee.controller.AbstractDraweeController
@@ -338,6 +263,15 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048600, this, drawable) == null) && (drawable instanceof DrawableWithCaches)) {
             ((DrawableWithCaches) drawable).dropCaches();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.controller.AbstractDraweeController
+    public void releaseImage(@Nullable CloseableReference closeableReference) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, closeableReference) == null) {
+            CloseableReference.closeSafely(closeableReference);
         }
     }
 
@@ -368,7 +302,7 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         }
     }
 
-    public void setCustomDrawableFactories(@Nullable ImmutableList<DrawableFactory> immutableList) {
+    public void setCustomDrawableFactories(@Nullable ImmutableList immutableList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, immutableList) == null) {
             this.mCustomDrawableFactories = immutableList;
@@ -391,39 +325,66 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         }
     }
 
-    @Override // com.facebook.drawee.controller.AbstractDraweeController
-    public String toString() {
-        InterceptResult invokeV;
+    @Nullable
+    private Drawable maybeCreateDrawableFromFactories(@Nullable ImmutableList immutableList, CloseableImage closeableImage) {
+        InterceptResult invokeLL;
+        Drawable createDrawable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? Objects.toStringHelper(this).add("super", super.toString()).add("dataSourceSupplier", this.mDataSourceSupplier).toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, immutableList, closeableImage)) == null) {
+            if (immutableList == null) {
+                return null;
+            }
+            Iterator it = immutableList.iterator();
+            while (it.hasNext()) {
+                DrawableFactory drawableFactory = (DrawableFactory) it.next();
+                if (drawableFactory.supportsImageType(closeableImage) && (createDrawable = drawableFactory.createDrawable(closeableImage)) != null) {
+                    return createDrawable;
+                }
+            }
+            return null;
+        }
+        return (Drawable) invokeLL.objValue;
     }
 
-    public void updateDebugOverlay(@Nullable CloseableImage closeableImage, DebugControllerOverlayDrawable debugControllerOverlayDrawable) {
-        ScaleTypeDrawable activeScaleTypeDrawable;
+    private void maybeUpdateDebugOverlay(@Nullable CloseableImage closeableImage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048609, this, closeableImage, debugControllerOverlayDrawable) == null) {
-            debugControllerOverlayDrawable.setControllerId(getId());
-            DraweeHierarchy hierarchy = getHierarchy();
-            ScalingUtils.ScaleType scaleType = null;
-            if (hierarchy != null && (activeScaleTypeDrawable = ScalingUtils.getActiveScaleTypeDrawable(hierarchy.getTopLevelDrawable())) != null) {
-                scaleType = activeScaleTypeDrawable.getScaleType();
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, closeableImage) != null) || !this.mDrawDebugOverlay) {
+            return;
+        }
+        if (getControllerOverlay() == null) {
+            DebugControllerOverlayDrawable debugControllerOverlayDrawable = new DebugControllerOverlayDrawable();
+            ControllerListener imageLoadingTimeControllerListener = new ImageLoadingTimeControllerListener(debugControllerOverlayDrawable);
+            this.mDebugOverlayImageOriginListener = new DebugOverlayImageOriginListener();
+            addControllerListener(imageLoadingTimeControllerListener);
+            setControllerOverlay(debugControllerOverlayDrawable);
+        }
+        if (this.mImageOriginListener == null) {
+            addImageOriginListener(this.mDebugOverlayImageOriginListener);
+        }
+        if (getControllerOverlay() instanceof DebugControllerOverlayDrawable) {
+            updateDebugOverlay(closeableImage, (DebugControllerOverlayDrawable) getControllerOverlay());
+        }
+    }
+
+    public synchronized void addImageOriginListener(ImageOriginListener imageOriginListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, imageOriginListener) == null) {
+            synchronized (this) {
+                if (this.mImageOriginListener instanceof ForwardingImageOriginListener) {
+                    ((ForwardingImageOriginListener) this.mImageOriginListener).addImageOriginListener(imageOriginListener);
+                } else if (this.mImageOriginListener != null) {
+                    this.mImageOriginListener = new ForwardingImageOriginListener(this.mImageOriginListener, imageOriginListener);
+                } else {
+                    this.mImageOriginListener = imageOriginListener;
+                }
             }
-            debugControllerOverlayDrawable.setScaleType(scaleType);
-            int imageOrigin = this.mDebugOverlayImageOriginListener.getImageOrigin();
-            debugControllerOverlayDrawable.setOrigin(ImageOriginUtils.toString(imageOrigin), DebugOverlayImageOriginColor.getImageOriginColor(imageOrigin));
-            if (closeableImage != null) {
-                debugControllerOverlayDrawable.setDimensions(closeableImage.getWidth(), closeableImage.getHeight());
-                debugControllerOverlayDrawable.setImageSize(closeableImage.getSizeInBytes());
-                return;
-            }
-            debugControllerOverlayDrawable.reset();
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.AbstractDraweeController
-    public Drawable createDrawable(CloseableReference<CloseableImage> closeableReference) {
+    public Drawable createDrawable(CloseableReference closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, closeableReference)) == null) {
@@ -432,7 +393,7 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
                     FrescoSystrace.beginSection("PipelineDraweeController#createDrawable");
                 }
                 Preconditions.checkState(CloseableReference.isValid(closeableReference));
-                CloseableImage closeableImage = closeableReference.get();
+                CloseableImage closeableImage = (CloseableImage) closeableReference.get();
                 maybeUpdateDebugOverlay(closeableImage);
                 Drawable maybeCreateDrawableFromFactories = maybeCreateDrawableFromFactories(this.mCustomDrawableFactories, closeableImage);
                 if (maybeCreateDrawableFromFactories != null) {
@@ -464,10 +425,9 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.drawee.controller.AbstractDraweeController
     @Nullable
-    public CloseableReference<CloseableImage> getCachedImage() {
+    public CloseableReference getCachedImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -476,8 +436,8 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
             }
             try {
                 if (this.mMemoryCache != null && this.mCacheKey != null) {
-                    CloseableReference<CloseableImage> closeableReference = this.mMemoryCache.get(this.mCacheKey);
-                    if (closeableReference != null && !closeableReference.get().getQualityInfo().isOfFullQuality()) {
+                    CloseableReference closeableReference = this.mMemoryCache.get(this.mCacheKey);
+                    if (closeableReference != null && !((CloseableImage) closeableReference.get()).getQualityInfo().isOfFullQuality()) {
                         closeableReference.close();
                         return null;
                     }
@@ -499,53 +459,96 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         return (CloseableReference) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.AbstractDraweeController
-    public int getImageHash(@Nullable CloseableReference<CloseableImage> closeableReference) {
-        InterceptResult invokeL;
+    public DataSource getDataSource() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, closeableReference)) == null) {
-            if (closeableReference != null) {
-                return closeableReference.getValueHash();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.beginSection("PipelineDraweeController#getDataSource");
             }
-            return 0;
+            if (FLog.isLoggable(2)) {
+                FLog.v(TAG, "controller %x: getDataSource", Integer.valueOf(System.identityHashCode(this)));
+            }
+            DataSource dataSource = (DataSource) this.mDataSourceSupplier.get();
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.endSection();
+            }
+            return dataSource;
         }
-        return invokeL.intValue;
+        return (DataSource) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.controller.AbstractDraweeController
-    public ImageInfo getImageInfo(CloseableReference<CloseableImage> closeableReference) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, closeableReference)) == null) {
-            Preconditions.checkState(CloseableReference.isValid(closeableReference));
-            return closeableReference.get();
-        }
-        return (ImageInfo) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.controller.AbstractDraweeController
     @Nullable
-    public Map<String, Object> obtainExtrasFromImage(ImageInfo imageInfo) {
-        InterceptResult invokeL;
+    public synchronized RequestListener getRequestListener() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, imageInfo)) == null) {
-            if (imageInfo == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            synchronized (this) {
+                ImageOriginRequestListener imageOriginRequestListener = null;
+                if (this.mImageOriginListener != null) {
+                    imageOriginRequestListener = new ImageOriginRequestListener(getId(), this.mImageOriginListener);
+                }
+                if (this.mRequestListeners != null) {
+                    ForwardingRequestListener forwardingRequestListener = new ForwardingRequestListener(this.mRequestListeners);
+                    if (imageOriginRequestListener != null) {
+                        forwardingRequestListener.addRequestListener(imageOriginRequestListener);
+                    }
+                    return forwardingRequestListener;
+                }
+                return imageOriginRequestListener;
             }
-            return imageInfo.getExtras();
         }
-        return (Map) invokeL.objValue;
+        return (RequestListener) invokeV.objValue;
+    }
+
+    public void initialize(Supplier supplier, String str, CacheKey cacheKey, Object obj, @Nullable ImmutableList immutableList, @Nullable ImageOriginListener imageOriginListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{supplier, str, cacheKey, obj, immutableList, imageOriginListener}) == null) {
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.beginSection("PipelineDraweeController#initialize");
+            }
+            super.initialize(str, obj);
+            init(supplier);
+            this.mCacheKey = cacheKey;
+            setCustomDrawableFactories(immutableList);
+            clearImageOriginListeners();
+            maybeUpdateDebugOverlay(null);
+            addImageOriginListener(imageOriginListener);
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.endSection();
+            }
+        }
+    }
+
+    public synchronized void initializePerformanceMonitoring(@Nullable ImagePerfDataListener imagePerfDataListener, AbstractDraweeControllerBuilder abstractDraweeControllerBuilder, Supplier supplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048594, this, imagePerfDataListener, abstractDraweeControllerBuilder, supplier) == null) {
+            synchronized (this) {
+                if (this.mImagePerfMonitor != null) {
+                    this.mImagePerfMonitor.reset();
+                }
+                if (imagePerfDataListener != null) {
+                    if (this.mImagePerfMonitor == null) {
+                        this.mImagePerfMonitor = new ImagePerfMonitor(AwakeTimeSinceBootClock.get(), this, supplier);
+                    }
+                    this.mImagePerfMonitor.addImagePerfDataListener(imagePerfDataListener);
+                    this.mImagePerfMonitor.setEnabled(true);
+                    this.mImagePerfMonitor.updateImageRequestData(abstractDraweeControllerBuilder);
+                }
+                this.mImageRequest = (ImageRequest) abstractDraweeControllerBuilder.getImageRequest();
+                this.mFirstAvailableImageRequests = (ImageRequest[]) abstractDraweeControllerBuilder.getFirstAvailableImageRequests();
+                this.mLowResImageRequest = (ImageRequest) abstractDraweeControllerBuilder.getLowResImageRequest();
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.AbstractDraweeController
-    public void onImageLoadedFromCacheImmediately(String str, CloseableReference<CloseableImage> closeableReference) {
+    public void onImageLoadedFromCacheImmediately(String str, CloseableReference closeableReference) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048598, this, str, closeableReference) == null) {
-            super.onImageLoadedFromCacheImmediately(str, (String) closeableReference);
+            super.onImageLoadedFromCacheImmediately(str, (Object) closeableReference);
             synchronized (this) {
                 if (this.mImageOriginListener != null) {
                     this.mImageOriginListener.onImageLoaded(str, 6, true, "PipelineDraweeController");
@@ -554,12 +557,25 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.controller.AbstractDraweeController
-    public void releaseImage(@Nullable CloseableReference<CloseableImage> closeableReference) {
+    public void updateDebugOverlay(@Nullable CloseableImage closeableImage, DebugControllerOverlayDrawable debugControllerOverlayDrawable) {
+        ScaleTypeDrawable activeScaleTypeDrawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, closeableReference) == null) {
-            CloseableReference.closeSafely(closeableReference);
+        if (interceptable == null || interceptable.invokeLL(1048609, this, closeableImage, debugControllerOverlayDrawable) == null) {
+            debugControllerOverlayDrawable.setControllerId(getId());
+            DraweeHierarchy hierarchy = getHierarchy();
+            ScalingUtils.ScaleType scaleType = null;
+            if (hierarchy != null && (activeScaleTypeDrawable = ScalingUtils.getActiveScaleTypeDrawable(hierarchy.getTopLevelDrawable())) != null) {
+                scaleType = activeScaleTypeDrawable.getScaleType();
+            }
+            debugControllerOverlayDrawable.setScaleType(scaleType);
+            int imageOrigin = this.mDebugOverlayImageOriginListener.getImageOrigin();
+            debugControllerOverlayDrawable.setOrigin(ImageOriginUtils.toString(imageOrigin), DebugOverlayImageOriginColor.getImageOriginColor(imageOrigin));
+            if (closeableImage != null) {
+                debugControllerOverlayDrawable.setDimensions(closeableImage.getWidth(), closeableImage.getHeight());
+                debugControllerOverlayDrawable.setImageSize(closeableImage.getSizeInBytes());
+                return;
+            }
+            debugControllerOverlayDrawable.reset();
         }
     }
 }

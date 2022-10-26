@@ -21,13 +21,13 @@ public class ImageLoadSpeedRecorder {
     public static ImageLoadSpeedRecorder _speedRecorder;
     public transient /* synthetic */ FieldHolder $fh;
     public float mAverageSpeed;
-    public Queue<LoadSpeedRecordItem> mSpeedRecordQueue;
+    public Queue mSpeedRecordQueue;
     public BdAsyncTaskParallel mTaskParallelThree;
     public BdAsyncTaskParallel mTaskSerial;
 
     /* renamed from: com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoadSpeedRecorder$1  reason: invalid class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -44,6 +44,39 @@ public class ImageLoadSpeedRecorder {
         }
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(490226495, "Lcom/baidu/tbadk/core/util/resourceLoaderProc/ImageLoadSpeedRecorder;");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class LoadSpeedRecordItem {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int downloadSize;
+        public final /* synthetic */ ImageLoadSpeedRecorder this$0;
+        public long timeCosts;
+
+        public LoadSpeedRecordItem(ImageLoadSpeedRecorder imageLoadSpeedRecorder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageLoadSpeedRecorder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = imageLoadSpeedRecorder;
+            this.downloadSize = 0;
+            this.timeCosts = 0L;
+        }
+
+        public /* synthetic */ LoadSpeedRecordItem(ImageLoadSpeedRecorder imageLoadSpeedRecorder, AnonymousClass1 anonymousClass1) {
+            this(imageLoadSpeedRecorder);
         }
     }
 
@@ -78,6 +111,18 @@ public class ImageLoadSpeedRecorder {
         return (ImageLoadSpeedRecorder) invokeV.objValue;
     }
 
+    public boolean speedRedordAvilable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mSpeedRecordQueue.size() == 5) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public synchronized void addSpeedRecordItem(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -106,59 +151,20 @@ public class ImageLoadSpeedRecorder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (BdNetTypeUtil.is4GNet()) {
-                if (speedRedordAvilable() && this.mAverageSpeed < 20.0f) {
-                    if (this.mTaskSerial == null) {
-                        this.mTaskSerial = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-                    }
-                    return this.mTaskSerial;
-                }
-                if (this.mTaskParallelThree == null) {
-                    this.mTaskParallelThree = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
-                }
-                return this.mTaskParallelThree;
+            if (!BdNetTypeUtil.is4GNet()) {
+                return null;
             }
-            return null;
+            if (speedRedordAvilable() && this.mAverageSpeed < 20.0f) {
+                if (this.mTaskSerial == null) {
+                    this.mTaskSerial = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+                }
+                return this.mTaskSerial;
+            }
+            if (this.mTaskParallelThree == null) {
+                this.mTaskParallelThree = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+            }
+            return this.mTaskParallelThree;
         }
         return (BdAsyncTaskParallel) invokeV.objValue;
-    }
-
-    public boolean speedRedordAvilable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedRecordQueue.size() == 5 : invokeV.booleanValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class LoadSpeedRecordItem {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int downloadSize;
-        public final /* synthetic */ ImageLoadSpeedRecorder this$0;
-        public long timeCosts;
-
-        public LoadSpeedRecordItem(ImageLoadSpeedRecorder imageLoadSpeedRecorder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {imageLoadSpeedRecorder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = imageLoadSpeedRecorder;
-            this.downloadSize = 0;
-            this.timeCosts = 0L;
-        }
-
-        public /* synthetic */ LoadSpeedRecordItem(ImageLoadSpeedRecorder imageLoadSpeedRecorder, AnonymousClass1 anonymousClass1) {
-            this(imageLoadSpeedRecorder);
-        }
     }
 }

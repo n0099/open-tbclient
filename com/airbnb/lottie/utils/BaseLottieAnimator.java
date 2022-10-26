@@ -8,18 +8,8 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes.dex */
 public abstract class BaseLottieAnimator extends ValueAnimator {
-    public final Set<ValueAnimator.AnimatorUpdateListener> updateListeners = new CopyOnWriteArraySet();
-    public final Set<Animator.AnimatorListener> listeners = new CopyOnWriteArraySet();
-
-    @Override // android.animation.Animator
-    public void addListener(Animator.AnimatorListener animatorListener) {
-        this.listeners.add(animatorListener);
-    }
-
-    @Override // android.animation.ValueAnimator
-    public void addUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.updateListeners.add(animatorUpdateListener);
-    }
+    public final Set updateListeners = new CopyOnWriteArraySet();
+    public final Set listeners = new CopyOnWriteArraySet();
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public long getStartDelay() {
@@ -32,29 +22,9 @@ public abstract class BaseLottieAnimator extends ValueAnimator {
         }
     }
 
-    public void notifyEnd(boolean z) {
-        for (Animator.AnimatorListener animatorListener : this.listeners) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                animatorListener.onAnimationEnd(this, z);
-            } else {
-                animatorListener.onAnimationEnd(this);
-            }
-        }
-    }
-
     public void notifyRepeat() {
         for (Animator.AnimatorListener animatorListener : this.listeners) {
             animatorListener.onAnimationRepeat(this);
-        }
-    }
-
-    public void notifyStart(boolean z) {
-        for (Animator.AnimatorListener animatorListener : this.listeners) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                animatorListener.onAnimationStart(this, z);
-            } else {
-                animatorListener.onAnimationStart(this);
-            }
         }
     }
 
@@ -72,6 +42,36 @@ public abstract class BaseLottieAnimator extends ValueAnimator {
     @Override // android.animation.ValueAnimator
     public void removeAllUpdateListeners() {
         this.updateListeners.clear();
+    }
+
+    @Override // android.animation.Animator
+    public void addListener(Animator.AnimatorListener animatorListener) {
+        this.listeners.add(animatorListener);
+    }
+
+    @Override // android.animation.ValueAnimator
+    public void addUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
+        this.updateListeners.add(animatorUpdateListener);
+    }
+
+    public void notifyEnd(boolean z) {
+        for (Animator.AnimatorListener animatorListener : this.listeners) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                animatorListener.onAnimationEnd(this, z);
+            } else {
+                animatorListener.onAnimationEnd(this);
+            }
+        }
+    }
+
+    public void notifyStart(boolean z) {
+        for (Animator.AnimatorListener animatorListener : this.listeners) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                animatorListener.onAnimationStart(this, z);
+            } else {
+                animatorListener.onAnimationStart(this);
+            }
+        }
     }
 
     @Override // android.animation.Animator

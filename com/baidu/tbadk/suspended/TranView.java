@@ -43,47 +43,6 @@ public class TranView extends View {
         }
     }
 
-    @Override // android.view.View
-    public void computeScroll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.computeScroll();
-            Scroller scroller = this.a;
-            if (scroller == null) {
-                return;
-            }
-            if (scroller.computeScrollOffset()) {
-                int currY = this.a.getCurrY();
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                if (layoutParams != null) {
-                    layoutParams.height = currY;
-                    setLayoutParams(layoutParams);
-                    return;
-                }
-                return;
-            }
-            a aVar = this.b;
-            if (aVar != null) {
-                aVar.a();
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawColor(0);
-        }
-    }
-
-    public void setScrollCallBack(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TranView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -123,6 +82,47 @@ public class TranView extends View {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.view.View
+    public void computeScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.computeScroll();
+            Scroller scroller = this.a;
+            if (scroller == null) {
+                return;
+            }
+            if (scroller.computeScrollOffset()) {
+                int currY = this.a.getCurrY();
+                ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                if (layoutParams != null) {
+                    layoutParams.height = currY;
+                    setLayoutParams(layoutParams);
+                    return;
+                }
+                return;
+            }
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            canvas.drawColor(0);
+        }
+    }
+
+    public void setScrollCallBack(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 }

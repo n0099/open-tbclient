@@ -15,6 +15,7 @@ import tbclient.YyExt;
 public class LiveRemindRecommendData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAGE_LOCATE_BIG_PIC = 2;
+    public static final int PAGE_LOCATE_BIG_RECOM_LIVE_CHANNEL = 4;
     public static final int PAGE_LOCATE_HOMEPAGE = 1;
     public static final int PAGE_LOCATE_TOP_FLOAT_VIEW = 0;
     public static final int PAGE_LOCATE_VIDEO_CHANNEL = 3;
@@ -60,114 +61,168 @@ public class LiveRemindRecommendData implements Serializable {
     public String getBtnText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBtnText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBtnText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getDayMaxNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dayMaxNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dayMaxNum;
+        }
+        return invokeV.intValue;
     }
 
     public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.desc : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.desc;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getDescGlobalMaxNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.descGlobalMaxNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.descGlobalMaxNum;
+        }
+        return invokeV.intValue;
     }
 
     public int getDisappearSecond() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.disappearSecond : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.disappearSecond;
+        }
+        return invokeV.intValue;
     }
 
     public int getDisappearType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.disappearType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.disappearType;
+        }
+        return invokeV.intValue;
     }
 
     public String getFeedId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.feedId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.feedId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLiveIconScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.liveIconScheme : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.liveIconScheme;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLiveIconSrc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.liveIconSrc : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.liveIconSrc;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getMinStepSecond() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.minStepSecond : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.minStepSecond;
+        }
+        return invokeV.intValue;
     }
 
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.portrait : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.portrait;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getRemindType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.remindType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.remindType;
+        }
+        return invokeV.intValue;
     }
 
     public Long getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRoomId : (Long) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mRoomId;
+        }
+        return (Long) invokeV.objValue;
     }
 
     public int getShowPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.showPage : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.showPage;
+        }
+        return invokeV.intValue;
     }
 
     public int getSingleOpenMaxNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.singleOpenMaxNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.singleOpenMaxNum;
+        }
+        return invokeV.intValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.userName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.userName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public YyExtData getYyExtData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.yyExtData : (YyExtData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.yyExtData;
+        }
+        return (YyExtData) invokeV.objValue;
     }
 
     public void parserProtobuf(YyLiveInfoSimple yyLiveInfoSimple) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, yyLiveInfoSimple) == null) || yyLiveInfoSimple == null) {
+        if ((interceptable != null && interceptable.invokeL(1048594, this, yyLiveInfoSimple) != null) || yyLiveInfoSimple == null) {
             return;
         }
         this.liveIconSrc = yyLiveInfoSimple.icon_url;
@@ -192,19 +247,22 @@ public class LiveRemindRecommendData implements Serializable {
 
     public void parserYyExt(YyExt yyExt) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, yyExt) == null) || yyExt == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, yyExt) == null) && yyExt != null) {
+            YyExtData yyExtData = this.yyExtData;
+            yyExtData.mSid = yyExt.sid;
+            yyExtData.mSsid = yyExt.ssid;
+            yyExtData.mTemplateId = yyExt.template_id;
+            yyExtData.mYyUid = yyExt.yy_uid;
+            boolean z = true;
+            if (yyExt.is_yy_game.intValue() != 1) {
+                z = false;
+            }
+            yyExtData.isYyGame = z;
+            YyExtData yyExtData2 = this.yyExtData;
+            yyExtData2.mRankShow = yyExt.rank_show;
+            yyExtData2.streamInfo = yyExt.stream_info;
+            yyExtData2.mIconUrl = yyExt.icon_url;
         }
-        YyExtData yyExtData = this.yyExtData;
-        yyExtData.mSid = yyExt.sid;
-        yyExtData.mSsid = yyExt.ssid;
-        yyExtData.mTemplateId = yyExt.template_id;
-        yyExtData.mYyUid = yyExt.yy_uid;
-        yyExtData.isYyGame = yyExt.is_yy_game.intValue() == 1;
-        YyExtData yyExtData2 = this.yyExtData;
-        yyExtData2.mRankShow = yyExt.rank_show;
-        yyExtData2.streamInfo = yyExt.stream_info;
-        yyExtData2.mIconUrl = yyExt.icon_url;
     }
 
     public void setBtnText(String str) {

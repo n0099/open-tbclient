@@ -29,7 +29,6 @@ public class JNILogging {
         this.loggable = loggable;
     }
 
-    @CalledByNative
     public void logToInjectable(String str, Integer num, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, num, str2) == null) {

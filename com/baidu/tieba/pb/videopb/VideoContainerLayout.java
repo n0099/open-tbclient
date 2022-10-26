@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,25 +39,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = ej.k(context) / 10;
-    }
-
-    public int getMaxHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int getMinHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int getOriginHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+        this.d = fj.k(context) / 10;
     }
 
     @Override // android.view.ViewGroup
@@ -71,27 +53,6 @@ public class VideoContainerLayout extends FrameLayout {
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    public void setMaxHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setMinHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void setOriginHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +74,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = ej.k(context) / 10;
+        this.d = fj.k(context) / 10;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -135,6 +96,54 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = ej.k(context) / 10;
+        this.d = fj.k(context) / 10;
+    }
+
+    public int getMaxHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getMinHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getOriginHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setMaxHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void setMinHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void setOriginHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c = i;
+        }
     }
 }

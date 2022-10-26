@@ -34,10 +34,14 @@ public final class URLTOResultParser extends ResultParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result)) == null) {
             String massagedText = ResultParser.getMassagedText(result);
-            if ((massagedText.startsWith("urlto:") || massagedText.startsWith("URLTO:")) && (indexOf = massagedText.indexOf(58, 6)) >= 0) {
-                return new URIParsedResult(massagedText.substring(indexOf + 1), indexOf > 6 ? massagedText.substring(6, indexOf) : null);
+            String str = null;
+            if ((!massagedText.startsWith("urlto:") && !massagedText.startsWith("URLTO:")) || (indexOf = massagedText.indexOf(58, 6)) < 0) {
+                return null;
             }
-            return null;
+            if (indexOf > 6) {
+                str = massagedText.substring(6, indexOf);
+            }
+            return new URIParsedResult(massagedText.substring(indexOf + 1), str);
         }
         return (URIParsedResult) invokeL.objValue;
     }

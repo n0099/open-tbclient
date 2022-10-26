@@ -1,8 +1,5 @@
 package com.baidu.searchbox.bddownload.core.listener.assist;
 
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -17,14 +14,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public class TaskProgressListenerAssist implements ListenerAssist, ListenerModelHandler.ModelCreator<Listener1Model> {
+public class TaskProgressListenerAssist implements ListenerAssist, ListenerModelHandler.ModelCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TaskProgressListenerCallback callback;
-    public final ListenerModelHandler<Listener1Model> modelHandler;
+    public final ListenerModelHandler modelHandler;
 
     /* loaded from: classes2.dex */
-    public static class Listener1Model implements ListenerModelHandler.ListenerModel {
+    public interface TaskProgressListenerCallback {
+        void connected(DownloadTask downloadTask, int i, long j, long j2);
+
+        void progress(DownloadTask downloadTask, long j, long j2);
+
+        void retry(DownloadTask downloadTask, ResumeFailedCause resumeFailedCause);
+
+        void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc, Listener1Model listener1Model);
+
+        void taskStart(DownloadTask downloadTask, Listener1Model listener1Model);
+    }
+
+    /* loaded from: classes2.dex */
+    public class Listener1Model implements ListenerModelHandler.ListenerModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int blockCount;
@@ -58,17 +68,24 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         public int getId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.id;
+            }
+            return invokeV.intValue;
         }
 
         public long getTotalLength() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.totalLength : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.totalLength;
+            }
+            return invokeV.longValue;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ListenerModel
-        public void onInfoValid(@NonNull BreakpointInfo breakpointInfo) {
+        public void onInfoValid(BreakpointInfo breakpointInfo) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, breakpointInfo) == null) {
                 this.blockCount = breakpointInfo.getBlockCount();
@@ -78,26 +95,18 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
                     this.isStarted = Boolean.FALSE;
                 }
                 if (this.isFromResumed == null) {
-                    this.isFromResumed = Boolean.valueOf(this.currentOffset.get() > 0);
+                    if (this.currentOffset.get() > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.isFromResumed = Boolean.valueOf(z);
                 }
                 if (this.isFirstConnect == null) {
                     this.isFirstConnect = Boolean.TRUE;
                 }
             }
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface TaskProgressListenerCallback {
-        void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
-
-        void progress(@NonNull DownloadTask downloadTask, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
-
-        void retry(@NonNull DownloadTask downloadTask, @NonNull ResumeFailedCause resumeFailedCause);
-
-        void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull Listener1Model listener1Model);
-
-        void taskStart(@NonNull DownloadTask downloadTask, @NonNull Listener1Model listener1Model);
     }
 
     public TaskProgressListenerAssist() {
@@ -113,77 +122,35 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
                 return;
             }
         }
-        this.modelHandler = new ListenerModelHandler<>(this);
-    }
-
-    public void connectEnd(DownloadTask downloadTask) {
-        Listener1Model orRecoverModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadTask) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
-            return;
-        }
-        if (orRecoverModel.isFromResumed == null) {
-            orRecoverModel.isFromResumed = Boolean.FALSE;
-        }
-        if (orRecoverModel.isFirstConnect == null) {
-            orRecoverModel.isFirstConnect = Boolean.TRUE;
-        }
-        if (orRecoverModel.isFromResumed.booleanValue() && orRecoverModel.isFirstConnect.booleanValue()) {
-            orRecoverModel.isFirstConnect = Boolean.FALSE;
-        }
-        TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
-        if (taskProgressListenerCallback != null) {
-            taskProgressListenerCallback.connected(downloadTask, orRecoverModel.blockCount, orRecoverModel.currentOffset.get(), orRecoverModel.totalLength);
-        }
-    }
-
-    public void downloadFromBeginning(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, ResumeFailedCause resumeFailedCause) {
-        Listener1Model orRecoverModel;
-        TaskProgressListenerCallback taskProgressListenerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, downloadTask, breakpointInfo, resumeFailedCause) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, breakpointInfo)) == null) {
-            return;
-        }
-        orRecoverModel.onInfoValid(breakpointInfo);
-        if (orRecoverModel.isStarted.booleanValue() && (taskProgressListenerCallback = this.callback) != null) {
-            taskProgressListenerCallback.retry(downloadTask, resumeFailedCause);
-        }
-        orRecoverModel.isStarted = Boolean.TRUE;
-        orRecoverModel.isFromResumed = Boolean.FALSE;
-        orRecoverModel.isFirstConnect = Boolean.TRUE;
-    }
-
-    public void downloadFromBreakpoint(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
-        Listener1Model orRecoverModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, downloadTask, breakpointInfo) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, breakpointInfo)) == null) {
-            return;
-        }
-        orRecoverModel.onInfoValid(breakpointInfo);
-        Boolean bool = Boolean.TRUE;
-        orRecoverModel.isStarted = bool;
-        orRecoverModel.isFromResumed = bool;
-        orRecoverModel.isFirstConnect = bool;
-    }
-
-    public void fetchProgress(DownloadTask downloadTask, long j) {
-        Listener1Model orRecoverModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048581, this, downloadTask, j) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
-            return;
-        }
-        orRecoverModel.currentOffset.addAndGet(j);
-        TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
-        if (taskProgressListenerCallback != null) {
-            taskProgressListenerCallback.progress(downloadTask, orRecoverModel.currentOffset.get(), orRecoverModel.totalLength);
-        }
+        this.modelHandler = new ListenerModelHandler(this);
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist
     public boolean isAlwaysRecoverAssistModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.modelHandler.isAlwaysRecoverAssistModel() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.modelHandler.isAlwaysRecoverAssistModel();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public TaskProgressListenerAssist(ListenerModelHandler listenerModelHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {listenerModelHandler};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.modelHandler = listenerModelHandler;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist
@@ -202,32 +169,42 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         }
     }
 
-    public void setCallback(@NonNull TaskProgressListenerCallback taskProgressListenerCallback) {
+    public void setCallback(TaskProgressListenerCallback taskProgressListenerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, taskProgressListenerCallback) == null) {
             this.callback = taskProgressListenerCallback;
         }
     }
 
-    public void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc) {
+    public void taskStart(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, downloadTask, endCause, exc) == null) {
-            Listener1Model removeOrCreate = this.modelHandler.removeOrCreate(downloadTask, downloadTask.getInfo());
+        if (interceptable == null || interceptable.invokeL(1048587, this, downloadTask) == null) {
+            Listener1Model listener1Model = (Listener1Model) this.modelHandler.addAndGetModel(downloadTask, null);
             TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
             if (taskProgressListenerCallback != null) {
-                taskProgressListenerCallback.taskEnd(downloadTask, endCause, exc, removeOrCreate);
+                taskProgressListenerCallback.taskStart(downloadTask, listener1Model);
             }
         }
     }
 
-    public void taskStart(DownloadTask downloadTask) {
+    public void connectEnd(DownloadTask downloadTask) {
+        Listener1Model listener1Model;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, downloadTask) == null) {
-            Listener1Model addAndGetModel = this.modelHandler.addAndGetModel(downloadTask, null);
-            TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
-            if (taskProgressListenerCallback != null) {
-                taskProgressListenerCallback.taskStart(downloadTask, addAndGetModel);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, downloadTask) != null) || (listener1Model = (Listener1Model) this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
+            return;
+        }
+        if (listener1Model.isFromResumed == null) {
+            listener1Model.isFromResumed = Boolean.FALSE;
+        }
+        if (listener1Model.isFirstConnect == null) {
+            listener1Model.isFirstConnect = Boolean.TRUE;
+        }
+        if (listener1Model.isFromResumed.booleanValue() && listener1Model.isFirstConnect.booleanValue()) {
+            listener1Model.isFirstConnect = Boolean.FALSE;
+        }
+        TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
+        if (taskProgressListenerCallback != null) {
+            taskProgressListenerCallback.connected(downloadTask, listener1Model.blockCount, listener1Model.currentOffset.get(), listener1Model.totalLength);
         }
     }
 
@@ -236,24 +213,62 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
     public Listener1Model create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Listener1Model(i) : (Listener1Model) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return new Listener1Model(i);
+        }
+        return (Listener1Model) invokeI.objValue;
     }
 
-    public TaskProgressListenerAssist(ListenerModelHandler<Listener1Model> listenerModelHandler) {
+    public void downloadFromBeginning(DownloadTask downloadTask, BreakpointInfo breakpointInfo, ResumeFailedCause resumeFailedCause) {
+        Listener1Model listener1Model;
+        TaskProgressListenerCallback taskProgressListenerCallback;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {listenerModelHandler};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeLLL(1048579, this, downloadTask, breakpointInfo, resumeFailedCause) != null) || (listener1Model = (Listener1Model) this.modelHandler.getOrRecoverModel(downloadTask, breakpointInfo)) == null) {
+            return;
+        }
+        listener1Model.onInfoValid(breakpointInfo);
+        if (listener1Model.isStarted.booleanValue() && (taskProgressListenerCallback = this.callback) != null) {
+            taskProgressListenerCallback.retry(downloadTask, resumeFailedCause);
+        }
+        listener1Model.isStarted = Boolean.TRUE;
+        listener1Model.isFromResumed = Boolean.FALSE;
+        listener1Model.isFirstConnect = Boolean.TRUE;
+    }
+
+    public void downloadFromBreakpoint(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+        Listener1Model listener1Model;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, downloadTask, breakpointInfo) != null) || (listener1Model = (Listener1Model) this.modelHandler.getOrRecoverModel(downloadTask, breakpointInfo)) == null) {
+            return;
+        }
+        listener1Model.onInfoValid(breakpointInfo);
+        Boolean bool = Boolean.TRUE;
+        listener1Model.isStarted = bool;
+        listener1Model.isFromResumed = bool;
+        listener1Model.isFirstConnect = bool;
+    }
+
+    public void fetchProgress(DownloadTask downloadTask, long j) {
+        Listener1Model listener1Model;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048581, this, downloadTask, j) != null) || (listener1Model = (Listener1Model) this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
+            return;
+        }
+        listener1Model.currentOffset.addAndGet(j);
+        TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
+        if (taskProgressListenerCallback != null) {
+            taskProgressListenerCallback.progress(downloadTask, listener1Model.currentOffset.get(), listener1Model.totalLength);
+        }
+    }
+
+    public void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, downloadTask, endCause, exc) == null) {
+            Listener1Model listener1Model = (Listener1Model) this.modelHandler.removeOrCreate(downloadTask, downloadTask.getInfo());
+            TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
+            if (taskProgressListenerCallback != null) {
+                taskProgressListenerCallback.taskEnd(downloadTask, endCause, exc, listener1Model);
             }
         }
-        this.modelHandler = listenerModelHandler;
     }
 }

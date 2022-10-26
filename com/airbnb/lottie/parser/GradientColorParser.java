@@ -1,7 +1,6 @@
 package com.airbnb.lottie.parser;
 
 import android.graphics.Color;
-import androidx.annotation.IntRange;
 import com.airbnb.lottie.model.content.GradientColor;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.MiscUtils;
@@ -9,14 +8,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GradientColorParser implements ValueParser<GradientColor> {
+public class GradientColorParser implements ValueParser {
     public int colorPoints;
 
     public GradientColorParser(int i) {
         this.colorPoints = i;
     }
 
-    private void addOpacityStopsToGradientIfNeeded(GradientColor gradientColor, List<Float> list) {
+    private void addOpacityStopsToGradientIfNeeded(GradientColor gradientColor, List list) {
         int i = this.colorPoints * 4;
         if (list.size() <= i) {
             return;
@@ -27,9 +26,9 @@ public class GradientColorParser implements ValueParser<GradientColor> {
         int i2 = 0;
         while (i < list.size()) {
             if (i % 2 == 0) {
-                dArr[i2] = list.get(i).floatValue();
+                dArr[i2] = ((Float) list.get(i)).floatValue();
             } else {
-                dArr2[i2] = list.get(i).floatValue();
+                dArr2[i2] = ((Float) list.get(i)).floatValue();
                 i2++;
             }
             i++;
@@ -40,34 +39,16 @@ public class GradientColorParser implements ValueParser<GradientColor> {
         }
     }
 
-    @IntRange(from = 0, to = 255)
-    private int getOpacityAtPosition(double d, double[] dArr, double[] dArr2) {
-        double d2;
-        int i = 1;
-        while (true) {
-            if (i < dArr.length) {
-                int i2 = i - 1;
-                double d3 = dArr[i2];
-                double d4 = dArr[i];
-                if (dArr[i] >= d) {
-                    d2 = MiscUtils.lerp(dArr2[i2], dArr2[i], MiscUtils.clamp((d - d3) / (d4 - d3), 0.0d, 1.0d));
-                    break;
-                }
-                i++;
-            } else {
-                d2 = dArr2[dArr2.length - 1];
-                break;
-            }
-        }
-        return (int) (d2 * 255.0d);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
     public GradientColor parse(JsonReader jsonReader, float f) throws IOException {
+        boolean z;
         ArrayList arrayList = new ArrayList();
-        boolean z = jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY;
+        if (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
+            z = true;
+        } else {
+            z = false;
+        }
         if (z) {
             jsonReader.beginArray();
         }
@@ -87,20 +68,47 @@ public class GradientColorParser implements ValueParser<GradientColor> {
         int i3 = 0;
         for (int i4 = 0; i4 < this.colorPoints * 4; i4++) {
             int i5 = i4 / 4;
-            double floatValue = arrayList.get(i4).floatValue();
+            double floatValue = ((Float) arrayList.get(i4)).floatValue();
             int i6 = i4 % 4;
-            if (i6 == 0) {
+            if (i6 != 0) {
+                if (i6 != 1) {
+                    if (i6 != 2) {
+                        if (i6 == 3) {
+                            iArr[i5] = Color.argb(255, i2, i3, (int) (floatValue * 255.0d));
+                        }
+                    } else {
+                        i3 = (int) (floatValue * 255.0d);
+                    }
+                } else {
+                    i2 = (int) (floatValue * 255.0d);
+                }
+            } else {
                 fArr[i5] = (float) floatValue;
-            } else if (i6 == 1) {
-                i2 = (int) (floatValue * 255.0d);
-            } else if (i6 == 2) {
-                i3 = (int) (floatValue * 255.0d);
-            } else if (i6 == 3) {
-                iArr[i5] = Color.argb(255, i2, i3, (int) (floatValue * 255.0d));
             }
         }
         GradientColor gradientColor = new GradientColor(fArr, iArr);
         addOpacityStopsToGradientIfNeeded(gradientColor, arrayList);
         return gradientColor;
+    }
+
+    private int getOpacityAtPosition(double d, double[] dArr, double[] dArr2) {
+        double d2;
+        int i = 1;
+        while (true) {
+            if (i < dArr.length) {
+                int i2 = i - 1;
+                double d3 = dArr[i2];
+                double d4 = dArr[i];
+                if (dArr[i] >= d) {
+                    d2 = MiscUtils.lerp(dArr2[i2], dArr2[i], MiscUtils.clamp((d - d3) / (d4 - d3), 0.0d, 1.0d));
+                    break;
+                }
+                i++;
+            } else {
+                d2 = dArr2[dArr2.length - 1];
+                break;
+            }
+        }
+        return (int) (d2 * 255.0d);
     }
 }

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nps.interfa.IThreadManager;
+import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +15,16 @@ public class x81 {
     public static /* synthetic */ Interceptable $ic;
     public static x81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public se1<IWebViewDataDirectoryManager> a;
+    public te1 a;
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            re1 b2 = re1.b();
+            this.a = b2;
+            b2.a(new IThreadManager_ThreadManager_Provider());
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,31 +55,24 @@ public class x81 {
                 return;
             }
         }
-        b();
+        c();
     }
 
     public static x81 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (x81) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (x81) invokeV.objValue;
     }
 
-    public void b() {
+    public IThreadManager b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qe1 b2 = qe1.b();
-            this.a = b2;
-            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (IThreadManager) this.a.get();
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (q91.a()) {
-                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
-            }
-            this.a.get().setDataDirectorySuffix();
-        }
+        return (IThreadManager) invokeV.objValue;
     }
 }

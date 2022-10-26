@@ -30,6 +30,17 @@ public class RequestService implements IRequestService {
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService fixedThreadPool;
 
+    @Override // com.sina.weibo.sdk.network.IRequestService
+    @Deprecated
+    public Object request(IRequestParam iRequestParam, Class cls) throws RequestException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, iRequestParam, cls)) == null) {
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
     public RequestService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,7 +71,7 @@ public class RequestService implements IRequestService {
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestService
-    public <T> RequestCancelable asyncRequest(IRequestParam iRequestParam, Target<T> target) {
+    public RequestCancelable asyncRequest(IRequestParam iRequestParam, Target target) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iRequestParam, target)) == null) {
@@ -83,18 +94,18 @@ public class RequestService implements IRequestService {
             if (iRequestParam.needIntercept()) {
                 try {
                     Bundle bundle = new Bundle();
-                    HashMap<String, IRequestIntercept> globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
+                    HashMap globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
                     for (String str : globalIntercept.keySet()) {
-                        IRequestIntercept iRequestIntercept = globalIntercept.get(str);
+                        IRequestIntercept iRequestIntercept = (IRequestIntercept) globalIntercept.get(str);
                         if (iRequestIntercept != null && iRequestIntercept.needIntercept(iRequestParam, bundle)) {
                             iRequestIntercept.doIntercept(iRequestParam, bundle);
                         }
                     }
-                    Iterator<IRequestIntercept> it = iRequestParam.getIntercept().iterator();
+                    Iterator it = iRequestParam.getIntercept().iterator();
                     while (it.hasNext()) {
-                        IRequestIntercept next = it.next();
-                        if (next.needIntercept(iRequestParam, bundle)) {
-                            next.doIntercept(iRequestParam, bundle);
+                        IRequestIntercept iRequestIntercept2 = (IRequestIntercept) it.next();
+                        if (iRequestIntercept2.needIntercept(iRequestParam, bundle)) {
+                            iRequestIntercept2.doIntercept(iRequestParam, bundle);
                         }
                     }
                     iRequestParam.getPostBundle().putAll(bundle);
@@ -112,16 +123,5 @@ public class RequestService implements IRequestService {
             return requestResult;
         }
         return (RequestResult) invokeL.objValue;
-    }
-
-    @Override // com.sina.weibo.sdk.network.IRequestService
-    @Deprecated
-    public <T> T request(IRequestParam iRequestParam, Class<T> cls) throws RequestException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, iRequestParam, cls)) == null) {
-            return null;
-        }
-        return (T) invokeLL.objValue;
     }
 }

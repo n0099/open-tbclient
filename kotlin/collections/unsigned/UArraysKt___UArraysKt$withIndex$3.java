@@ -18,9 +18,8 @@ public final class UArraysKt___UArraysKt$withIndex$3 extends Lambda implements F
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'java.util.Iterator<kotlin.UByte>' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public final Iterator<? extends UByte> invoke() {
-        return UByteArray.m778iteratorimpl(this.$this_withIndex);
+    public final Iterator<UByte> invoke() {
+        return UByteArray.m777iteratorimpl(this.$this_withIndex);
     }
 }

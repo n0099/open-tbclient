@@ -20,7 +20,7 @@ public final class CompletableMergeDelayErrorArray extends Completable {
     public final CompletableSource[] sources;
 
     /* loaded from: classes8.dex */
-    public static final class MergeInnerCompletableObserver implements CompletableObserver {
+    public final class MergeInnerCompletableObserver implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
@@ -57,6 +57,18 @@ public final class CompletableMergeDelayErrorArray extends Completable {
             }
         }
 
+        public void tryTerminate() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.wip.decrementAndGet() == 0) {
+                Throwable terminate = this.error.terminate();
+                if (terminate == null) {
+                    this.actual.onComplete();
+                } else {
+                    this.actual.onError(terminate);
+                }
+            }
+        }
+
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -74,18 +86,6 @@ public final class CompletableMergeDelayErrorArray extends Completable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) {
                 this.set.add(disposable);
-            }
-        }
-
-        public void tryTerminate() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.wip.decrementAndGet() == 0) {
-                Throwable terminate = this.error.terminate();
-                if (terminate == null) {
-                    this.actual.onComplete();
-                } else {
-                    this.actual.onError(terminate);
-                }
             }
         }
     }

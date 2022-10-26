@@ -27,7 +27,7 @@ public class FreeBox implements Box {
     public ByteBuffer data;
     public long offset;
     public Container parent;
-    public List<Box> replacers;
+    public List replacers;
 
     static {
         InterceptResult invokeClinit;
@@ -42,6 +42,13 @@ public class FreeBox implements Box {
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(-1106873952, "Lcom/coremedia/iso/boxes/FreeBox;");
         }
+    }
+
+    @Override // com.coremedia.iso.boxes.Box
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "free" : (String) invokeV.objValue;
     }
 
     public FreeBox() {
@@ -61,13 +68,37 @@ public class FreeBox implements Box {
         this.data = ByteBuffer.wrap(new byte[0]);
     }
 
-    public void addAndReplace(Box box) {
+    @Override // com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, box) == null) {
-            this.data.position(CastUtils.l2i(box.getSize()));
-            this.data = this.data.slice();
-            this.replacers.add(box);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            long j = 8;
+            for (Box box : this.replacers) {
+                j += box.getSize();
+            }
+            return j + this.data.limit();
         }
+        return invokeV.longValue;
+    }
+
+    public FreeBox(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.replacers = new LinkedList();
+        this.data = ByteBuffer.allocate(i);
     }
 
     public boolean equals(Object obj) {
@@ -81,9 +112,36 @@ public class FreeBox implements Box {
                 return false;
             }
             FreeBox freeBox = (FreeBox) obj;
-            return getData() == null ? freeBox.getData() == null : getData().equals(freeBox.getData());
+            if (getData() == null ? freeBox.getData() == null : getData().equals(freeBox.getData())) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void addAndReplace(Box box) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, box) == null) {
+            this.data.position(CastUtils.l2i(box.getSize()));
+            this.data = this.data.slice();
+            this.replacers.add(box);
+        }
+    }
+
+    public void setData(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
+            this.data = byteBuffer;
+        }
+    }
+
+    @Override // com.coremedia.iso.boxes.Box
+    public void setParent(Container container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, container) == null) {
+            this.parent = container;
+        }
     }
 
     @Override // com.coremedia.iso.boxes.Box
@@ -122,35 +180,20 @@ public class FreeBox implements Box {
     public long getOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.offset : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.offset;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public Container getParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.parent : (Container) invokeV.objValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j = 8;
-            for (Box box : this.replacers) {
-                j += box.getSize();
-            }
-            return j + this.data.limit();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.parent;
         }
-        return invokeV.longValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "free" : (String) invokeV.objValue;
+        return (Container) invokeV.objValue;
     }
 
     public int hashCode() {
@@ -180,39 +223,5 @@ public class FreeBox implements Box {
             this.data = allocate;
             dataSource.read(allocate);
         }
-    }
-
-    public void setData(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
-            this.data = byteBuffer;
-        }
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public void setParent(Container container) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, container) == null) {
-            this.parent = container;
-        }
-    }
-
-    public FreeBox(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.replacers = new LinkedList();
-        this.data = ByteBuffer.allocate(i);
     }
 }

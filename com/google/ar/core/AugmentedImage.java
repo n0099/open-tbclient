@@ -9,6 +9,16 @@ public class AugmentedImage extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    private native Pose nativeGetCenterPose(long j, long j2);
+
+    private native float nativeGetExtentX(long j, long j2);
+
+    private native float nativeGetExtentZ(long j, long j2);
+
+    private native int nativeGetIndex(long j, long j2);
+
+    private native String nativeGetName(long j, long j2);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AugmentedImage(long j, Session session) {
         super(j, session);
@@ -29,14 +39,4 @@ public class AugmentedImage extends TrackableBase {
             }
         }
     }
-
-    private native Pose nativeGetCenterPose(long j, long j2);
-
-    private native float nativeGetExtentX(long j, long j2);
-
-    private native float nativeGetExtentZ(long j, long j2);
-
-    private native int nativeGetIndex(long j, long j2);
-
-    private native String nativeGetName(long j, long j2);
 }

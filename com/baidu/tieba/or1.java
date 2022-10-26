@@ -1,17 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
-import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,29 +9,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class or1 implements lr1 {
+public abstract class or1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final JSONObject c;
-    public static final Pair<lv1, JSONObject> d;
-    public static final Pair<lv1, JSONObject> e;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public mr1 a;
-    @NonNull
-    public CallbackHandler b;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        lv1 a(l33 l33Var, JSONObject jSONObject, @Nullable String str);
-    }
+    public String a;
+    public pr1 b;
 
     /* loaded from: classes5.dex */
     public interface b {
-        lv1 a(l33 l33Var);
+        void a(mv1 mv1Var);
+    }
+
+    public abstract mv1 d(JSONObject jSONObject, b bVar);
+
+    public abstract mv1 e(JSONObject jSONObject);
+
+    public abstract boolean i();
+
+    /* loaded from: classes5.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ or1 b;
+
+        public a(or1 or1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {or1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = or1Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.or1.b
+        public void a(mv1 mv1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mv1Var) == null) {
+                if (or1.c) {
+                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + mv1Var.toString());
+                }
+                this.b.b.d(this.a, mv1Var);
+            }
+        }
     }
 
     static {
@@ -57,17 +80,15 @@ public abstract class or1 implements lr1 {
                 return;
             }
         }
-        c = new JSONObject();
-        d = new Pair<>(lv1.d(), c);
-        e = new Pair<>(lv1.e(), c);
+        c = wj1.a;
     }
 
-    public or1(@NonNull mr1 mr1Var) {
+    public or1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mr1Var};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,359 +98,66 @@ public abstract class or1 implements lr1 {
                 return;
             }
         }
-        this.a = mr1Var;
-        this.b = mr1Var.g();
+        this.a = str;
     }
 
-    @Nullable
-    public static JSONObject r(String str) {
-        InterceptResult invokeL;
+    public mv1 f(JSONObject jSONObject, String str, pr1 pr1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, pr1Var)) == null) {
+            this.b = pr1Var;
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
             }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException unused) {
-                return null;
+            if (i()) {
+                return h(jSONObject);
             }
+            return g(jSONObject, str);
         }
-        return (JSONObject) invokeL.objValue;
+        return (mv1) invokeLLL.objValue;
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static Pair<kv1, JSONObject> t(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return new Pair<>(new lv1(202, "parseParams(JsObject): jsObject cannot be null"), null);
-            }
-            int type = jsObject.getType();
-            int length = jsObject.length();
-            if (type != 9) {
-                String str = "parseParams(JsObject): jsObject cannot be " + JsObject.typeToString(type) + " ,length " + length;
-                jsObject.release();
-                return new Pair<>(new lv1(202, str), null);
-            }
-            JSONObject jSONObject = new JSONObject();
-            for (int i = 0; i < length; i++) {
-                try {
-                    int propertyType = jsObject.getPropertyType(i);
-                    String propertyName = jsObject.getPropertyName(i);
-                    switch (propertyType) {
-                        case 1:
-                            jSONObject.put(propertyName, jsObject.toBoolean(i));
-                            break;
-                        case 2:
-                            jSONObject.put(propertyName, jsObject.toInteger(i));
-                            break;
-                        case 3:
-                            jSONObject.put(propertyName, jsObject.toLong(i));
-                            break;
-                        case 5:
-                            try {
-                                jSONObject.put(propertyName, jsObject.toDouble(i));
-                                break;
-                            } catch (JSONException unused) {
-                                break;
-                            }
-                        case 6:
-                            JsObject[] objectArray = jsObject.toObjectArray(i);
-                            if (objectArray == null) {
-                                break;
-                            } else {
-                                jSONObject.put(propertyName, v(objectArray));
-                                break;
-                            }
-                        case 7:
-                            jSONObject.put(propertyName, jsObject.toString(i));
-                            break;
-                        case 8:
-                            jSONObject.put(propertyName, jsObject.toJsFunction(i));
-                            break;
-                        case 9:
-                            jSONObject.put(propertyName, t(jsObject.toJsObject(i)).second);
-                            break;
-                        case 10:
-                            jSONObject.put(propertyName, jsObject.toJsArrayBuffer(i));
-                            break;
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    String str2 = "parseParams(JsObject): with exception " + e2.getMessage();
-                    jsObject.release();
-                    return new Pair<>(new lv1(202, str2), null);
-                }
-            }
-            jsObject.release();
-            return new Pair<>(new lv1(0), jSONObject);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    @NonNull
-    public static Pair<kv1, JSONObject> u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new Pair<>(new lv1(202, "parseParams(String): json string cannot be empty"), null);
-            }
-            try {
-                return new Pair<>(new lv1(0), new JSONObject(str));
-            } catch (JSONException unused) {
-                return new Pair<>(new lv1(202, "parseParams(String): with json exception "), null);
-            }
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static JSONArray v(@NonNull JsObject[] jsObjectArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jsObjectArr)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (JsObject jsObject : jsObjectArr) {
-                if (jsObject == null) {
-                    jSONArray.put((Object) null);
-                } else {
-                    switch (jsObject.getType()) {
-                        case 0:
-                            jSONArray.put((Object) null);
-                            continue;
-                        case 1:
-                            jSONArray.put(jsObject.toBoolean(0));
-                            continue;
-                        case 2:
-                            jSONArray.put(jsObject.toInteger(0));
-                            continue;
-                        case 3:
-                            jSONArray.put(jsObject.toLong(0));
-                            continue;
-                        case 5:
-                            try {
-                                jSONArray.put(jsObject.toDouble(0));
-                                continue;
-                            } catch (JSONException unused) {
-                                jSONArray.put((Object) null);
-                                break;
-                            }
-                        case 6:
-                            JsObject[] objectArray = jsObject.toObjectArray(0);
-                            if (objectArray == null) {
-                                jSONArray.put((Object) null);
-                                continue;
-                            } else {
-                                jSONArray.put(v(objectArray));
-                                break;
-                            }
-                        case 7:
-                            jSONArray.put(jsObject.toString(0));
-                            continue;
-                        case 8:
-                            jSONArray.put(jsObject.toJsFunction(0));
-                            continue;
-                        case 9:
-                            jSONArray.put(t(jsObject).second);
-                            continue;
-                        case 10:
-                            jSONArray.put(jsObject.toJsArrayBuffer(0));
-                            continue;
-                        case 11:
-                            jSONArray.put((Object) null);
-                            continue;
-                        case 12:
-                            jSONArray.put((Object) null);
-                            continue;
-                    }
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lr1
-    @NonNull
-    public final mr1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (mr1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lr1
-    @SuppressLint({"BDThrowableCheck"})
-    public final void d(@NonNull String str, @NonNull lv1 lv1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, lv1Var) == null) {
-            if (TextUtils.isEmpty(str)) {
-                p("callback is empty", null, true);
-            } else if (lv1Var == null) {
-                p("api result is empty", null, true);
-            } else {
-                w(str, lv1Var);
-            }
-        }
-    }
-
-    @NonNull
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
-    }
-
-    public abstract String h();
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "API-" + h();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public abstract String j();
-
-    public lv1 k(boolean z, @NonNull b bVar) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048582, this, z, bVar)) == null) {
-            l33 b0 = l33.b0();
-            if (b0 == null) {
-                p("swan app is null", null, false);
-                return lv1.j();
-            } else if (z && b0.w() == null) {
-                p("swan activity is null", null, true);
-                return lv1.i();
-            } else {
-                return bVar.a(b0);
-            }
-        }
-        return (lv1) invokeZL.objValue;
-    }
-
-    public lv1 l(String str, boolean z, a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), aVar})) == null) {
-            l33 b0 = l33.b0();
-            String str2 = null;
-            if (b0 == null) {
-                p("swan app is null", null, false);
-                return new lv1(1001, "swan app is null");
-            }
-            Pair<lv1, JSONObject> s = s(str);
-            lv1 lv1Var = (lv1) s.first;
-            if (!lv1Var.isSuccess()) {
-                p("json str parse fail", null, true);
-                return lv1Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (z) {
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    p("cb is empty", null, true);
-                    return new lv1(202, "cb is empty");
-                }
-                str2 = optString;
-            }
-            return aVar.a(b0, jSONObject, str2);
-        }
-        return (lv1) invokeCommon.objValue;
-    }
-
-    public lv1 m(@Nullable String str, @NonNull nr1 nr1Var) {
+    public final mv1 g(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, nr1Var)) == null) {
-            Pair<lv1, JSONObject> s = s(str);
-            lv1 lv1Var = (lv1) s.first;
-            if (!lv1Var.isSuccess()) {
-                p("json str parse fail", null, true);
-                return lv1Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                p("cb is empty", null, true);
-                return new lv1(202, "cb is empty");
+            mv1 d = d(jSONObject, new a(this, str));
+            if (!d.h("isSync", Boolean.FALSE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
+                }
+                return new mv1(1001, "make result json error");
             }
-            return nr1Var.f(jSONObject, optString, this);
-        }
-        return (lv1) invokeLL.objValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            l33 b0 = l33.b0();
-            if (b0 == null) {
-                return true;
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
             }
-            return b0.n0();
+            return d;
         }
-        return invokeV.booleanValue;
+        return (mv1) invokeLL.objValue;
     }
 
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p(String str, @Nullable Throwable th, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048587, this, str, th, z) == null) && o()) {
-            l02.e(j(), i(), str, th, z);
-        }
-    }
-
-    public void q(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) && o()) {
-            l02.j(j(), i(), str, z);
-        }
-    }
-
-    @NonNull
-    public Pair<lv1, JSONObject> s(String str) {
+    public final mv1 h(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                p("json str is empty", null, true);
-                return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
             }
-            try {
-                return new Pair<>(lv1.f(), new JSONObject(str));
-            } catch (JSONException e2) {
-                p("json str parse fail", e2, true);
-                return e;
+            mv1 e = e(jSONObject);
+            if (!e.h("isSync", Boolean.TRUE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
+                }
+                return new mv1(1001, "make result json error");
             }
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
+            }
+            return e;
         }
-        return (Pair) invokeL.objValue;
-    }
-
-    @UiThread
-    public final void w(@NonNull String str, @NonNull lv1 lv1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, lv1Var) == null) {
-            if (TextUtils.isEmpty(str) && !(this.b instanceof NullableCallbackHandler)) {
-                q("#realInvokeCallback check-fail callback=" + str, false);
-                return;
-            }
-            this.b.handleSchemeDispatchCallback(str, lv1Var.a());
-        }
+        return (mv1) invokeL.objValue;
     }
 }

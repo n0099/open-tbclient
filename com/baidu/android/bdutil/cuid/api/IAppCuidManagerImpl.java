@@ -2,15 +2,11 @@ package com.baidu.android.bdutil.cuid.api;
 
 import com.baidu.android.bdutil.cuid.sdk.IAppCuidManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes.dex */
 public class IAppCuidManagerImpl implements IAppCuidManager {
     public static /* synthetic */ Interceptable $ic;
@@ -34,13 +30,19 @@ public class IAppCuidManagerImpl implements IAppCuidManager {
     public String getCuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AppCuidHelper.getInstance().getmUid() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return AppCuidHelper.getInstance().getmUid();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.bdutil.cuid.sdk.IAppCuidManager
     public String getEnCuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? AppCuidHelper.getInstance().getmEnUid() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return AppCuidHelper.getInstance().getmEnUid();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,290 +1,249 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class tp2 extends i53 {
+public final class tp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final Set e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final Object b;
+    public final int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tp2(i43 i43Var) {
-        super(i43Var, "/swanAPI/map");
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public Object b;
+        public int c;
+        public RuntimeException d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public Exception c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
+            }
+            return (Exception) invokeV.objValue;
+        }
+
+        public tp2 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.d != null) {
+                    if (!tp2.d) {
+                        return null;
+                    }
+                    throw this.d;
+                } else if (this.a == null) {
+                    this.d = new IllegalStateException("key == null");
+                    if (!tp2.d) {
+                        return null;
+                    }
+                    throw this.d;
+                } else {
+                    synchronized (a.class) {
+                        if (tp2.e.contains(this.a)) {
+                            this.d = new IllegalStateException("the key of switch has been occupied");
+                            if (!tp2.d) {
+                                return null;
+                            }
+                            throw this.d;
+                        } else if (this.b == null) {
+                            this.d = new IllegalStateException("defaultValue == null");
+                            if (!tp2.d) {
+                                return null;
+                            }
+                            throw this.d;
+                        } else if (!tp2.c(this.c, this.b)) {
+                            this.d = new IllegalStateException("valueType error");
+                            if (!tp2.d) {
+                                return null;
+                            }
+                            throw this.d;
+                        } else {
+                            tp2.e.add(this.a);
+                            return new tp2(this);
+                        }
+                    }
+                }
+            }
+            return (tp2) invokeV.objValue;
+        }
+
+        public a b(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                this.b = obj;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.c = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    this.d = new IllegalArgumentException("the key of switch must not be empty");
+                    if (!tp2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else if (TextUtils.equals(Config.SID, str)) {
+                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
+                    if (!tp2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else {
+                    this.a = str;
+                    return this;
+                }
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188819, "Lcom/baidu/tieba/tp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948188819, "Lcom/baidu/tieba/tp2;");
+                return;
+            }
+        }
+        d = wj1.a;
+        e = new HashSet();
+    }
+
+    public Object d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public tp2(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
-        InterceptResult invokeLLLL;
+    public static boolean c(int i, Object obj) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            if (i53.b) {
-                Log.d("MapAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return false;
+                            }
+                            return obj instanceof String;
+                        }
+                        return obj instanceof Long;
+                    }
+                    return obj instanceof Integer;
+                }
+                return obj instanceof Double;
             }
-            return false;
+            return obj instanceof Boolean;
         }
-        return invokeLLLL.booleanValue;
+        return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, l33 l33Var) {
-        InterceptResult invokeLLLLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, l33Var)) == null) {
-            if (i53.b) {
-                Log.d("MapAction", "handleSubAction subAction: " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (d) {
+                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
             }
-            l02.i("map", "handleSubAction " + str);
-            up2 a = up2.a(unitedSchemeEntity, callbackHandler);
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -2079680864:
-                    if (str.equals("/swanAPI/map/translateMarker")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -2068557416:
-                    if (str.equals("/swanAPI/map/getCenterLocation")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case -398143716:
-                    if (str.equals("/swanAPI/map/getScale")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 51993511:
-                    if (str.equals("/swanAPI/map/openLocation")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 379323012:
-                    if (str.equals("/swanAPI/map/create")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 515840866:
-                    if (str.equals("/swanAPI/map/getRegion")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 797006348:
-                    if (str.equals("/swanAPI/map/remove")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 892770897:
-                    if (str.equals("/swanAPI/map/update")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 1007473955:
-                    if (str.equals("/swanAPI/map/includePoints")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1142165295:
-                    if (str.equals("/swanAPI/map/openWalkNavigation")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 1256916873:
-                    if (str.equals("/swanAPI/map/moveToLocation")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 1475857524:
-                    if (str.equals("/swanAPI/map/chooseLocation")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    xp2 j = j(unitedSchemeEntity, xp2.class);
-                    if (k(j, a)) {
-                        return false;
-                    }
-                    return sm2.J().g(context, j, a, l33Var);
-                case 1:
-                    xp2 j2 = j(unitedSchemeEntity, xp2.class);
-                    if (k(j2, a)) {
-                        return false;
-                    }
-                    return sm2.J().update(context, j2, a, l33Var);
-                case 2:
-                    xp2 j3 = j(unitedSchemeEntity, xp2.class);
-                    if (k(j3, a)) {
-                        return false;
-                    }
-                    return sm2.J().l(context, j3, a, l33Var);
-                case 3:
-                    aq2 aq2Var = (aq2) j(unitedSchemeEntity, aq2.class);
-                    if (k(aq2Var, a)) {
-                        return false;
-                    }
-                    return sm2.J().j(context, aq2Var, a, l33Var);
-                case 4:
-                    zp2 zp2Var = (zp2) j(unitedSchemeEntity, zp2.class);
-                    if (k(zp2Var, a)) {
-                        return false;
-                    }
-                    return sm2.J().h(context, zp2Var, a, l33Var);
-                case 5:
-                    xp2 j4 = j(unitedSchemeEntity, xp2.class);
-                    if (k(j4, a)) {
-                        return false;
-                    }
-                    return sm2.J().m(context, j4, a, l33Var);
-                case 6:
-                    wp2 wp2Var = (wp2) j(unitedSchemeEntity, wp2.class);
-                    if (k(wp2Var, a)) {
-                        return false;
-                    }
-                    return sm2.J().b(context, wp2Var, a, l33Var);
-                case 7:
-                    xp2 j5 = j(unitedSchemeEntity, xp2.class);
-                    if (k(j5, a)) {
-                        return false;
-                    }
-                    return sm2.J().c(context, j5, a, l33Var);
-                case '\b':
-                    xp2 j6 = j(unitedSchemeEntity, xp2.class);
-                    if (k(j6, a)) {
-                        return false;
-                    }
-                    return sm2.J().n(context, j6, a, l33Var);
-                case '\t':
-                    xp2 j7 = j(unitedSchemeEntity, xp2.class);
-                    if (k(j7, a)) {
-                        return false;
-                    }
-                    return sm2.J().k(context, j7, a, l33Var);
-                case '\n':
-                    vp2 vp2Var = (vp2) j(unitedSchemeEntity, vp2.class);
-                    if (k(vp2Var, a)) {
-                        return false;
-                    }
-                    return sm2.J().e(context, vp2Var, a, l33Var);
-                case 11:
-                    bq2 bq2Var = (bq2) j(unitedSchemeEntity, bq2.class);
-                    if (k(bq2Var, a)) {
-                        return false;
-                    }
-                    return sm2.J().a(context, bq2Var, a, l33Var);
-                default:
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, l33Var);
-            }
+            return super.toString();
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public <T extends xp2> T j(UnitedSchemeEntity unitedSchemeEntity, Class<T> cls) {
-        InterceptResult invokeLL;
-        JSONObject jSONObject;
-        T newInstance;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, cls)) == null) {
-            T t = null;
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            HashMap<String, String> params = unitedSchemeEntity.getParams();
-            if (params != null && !params.isEmpty()) {
-                String str = params.get("params");
-                if (str == null) {
-                    l02.c("map", "params string is empty");
-                    return null;
-                }
-                try {
-                    jSONObject = new JSONObject(str);
-                    newInstance = cls.newInstance();
-                } catch (Exception e) {
-                    e = e;
-                }
-                try {
-                    newInstance.a(jSONObject);
-                    return newInstance;
-                } catch (Exception e2) {
-                    e = e2;
-                    t = newInstance;
-                    e.printStackTrace();
-                    l02.c("map", "params json parse error");
-                    return t;
-                }
-            }
-            l02.c("map", "entity get Params is empty");
-            return null;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public final boolean k(xp2 xp2Var, up2 up2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, xp2Var, up2Var)) == null) {
-            if (xp2Var == null) {
-                l02.c("map", "parse error, model is null");
-                up2Var.d(202);
-                return true;
-            }
-            if (k33.K().q().y0()) {
-                xp2Var.c = dj3.c().h();
-            }
-            if (TextUtils.isEmpty(xp2Var.c)) {
-                String B = fh3.B();
-                if (!TextUtils.isEmpty(B)) {
-                    xp2Var.c = B;
-                }
-                l02.o("map", "webView id is empty, use current webView");
-            }
-            if (fh3.m(xp2Var.c) == null) {
-                up2Var.d(202);
-                l02.c("map", "can not find weiView by id " + xp2Var.c);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

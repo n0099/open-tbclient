@@ -35,7 +35,10 @@ public final class h implements k {
     public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.capacity() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.capacity();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.bytedance.pangle.f.k

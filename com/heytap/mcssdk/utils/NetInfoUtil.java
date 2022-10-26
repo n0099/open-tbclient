@@ -1,6 +1,5 @@
 package com.heytap.mcssdk.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"DefaultLocale"})
 /* loaded from: classes7.dex */
 public class NetInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -57,7 +55,6 @@ public class NetInfoUtil {
         }
     }
 
-    @SuppressLint({"DefaultLocale"})
     public static String getNetType(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

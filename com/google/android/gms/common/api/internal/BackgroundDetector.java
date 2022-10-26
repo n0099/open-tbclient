@@ -1,14 +1,11 @@
 package com.google.android.gms.common.api.internal;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.ComponentCallbacks2;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,13 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.util.PlatformVersion;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
-import javax.annotation.concurrent.GuardedBy;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public final class BackgroundDetector implements Application.ActivityLifecycleCallbacks, ComponentCallbacks2 {
     public static /* synthetic */ Interceptable $ic;
@@ -32,16 +26,67 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean zzb;
     public final AtomicBoolean zzc;
-    @GuardedBy("sInstance")
-    public final ArrayList<BackgroundStateChangeListener> zzd;
-    @GuardedBy("sInstance")
+    public final ArrayList zzd;
     public boolean zze;
 
-    @KeepForSdk
     /* loaded from: classes7.dex */
     public interface BackgroundStateChangeListener {
-        @KeepForSdk
         void onBackgroundStateChanged(boolean z);
+    }
+
+    public static BackgroundDetector getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? zza : (BackgroundDetector) invokeV.objValue;
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+        }
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public final void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
+        }
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public final void onLowMemory() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
     }
 
     static {
@@ -60,7 +105,15 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
         zza = new BackgroundDetector();
     }
 
-    @KeepForSdk
+    public boolean isInBackground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.zzb.get();
+        }
+        return invokeV.booleanValue;
+    }
+
     public BackgroundDetector() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,20 +129,11 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
         }
         this.zzb = new AtomicBoolean();
         this.zzc = new AtomicBoolean();
-        this.zzd = new ArrayList<>();
+        this.zzd = new ArrayList();
         this.zze = false;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static BackgroundDetector getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? zza : (BackgroundDetector) invokeV.objValue;
-    }
-
-    @KeepForSdk
-    public static void initialize(@NonNull Application application) {
+    public static void initialize(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, application) == null) {
             synchronized (zza) {
@@ -107,16 +151,15 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
             synchronized (zza) {
-                Iterator<BackgroundStateChangeListener> it = this.zzd.iterator();
+                Iterator it = this.zzd.iterator();
                 while (it.hasNext()) {
-                    it.next().onBackgroundStateChanged(z);
+                    ((BackgroundStateChangeListener) it.next()).onBackgroundStateChanged(z);
                 }
             }
         }
     }
 
-    @KeepForSdk
-    public void addListener(@NonNull BackgroundStateChangeListener backgroundStateChangeListener) {
+    public void addListener(BackgroundStateChangeListener backgroundStateChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, backgroundStateChangeListener) == null) {
             synchronized (zza) {
@@ -125,41 +168,8 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
         }
     }
 
-    @KeepForSdk
-    public boolean isInBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb.get() : invokeV.booleanValue;
-    }
-
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
-            boolean compareAndSet = this.zzb.compareAndSet(true, false);
-            this.zzc.set(true);
-            if (compareAndSet) {
-                zza(false);
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityResumed(@NonNull Activity activity) {
+    public final void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             boolean compareAndSet = this.zzb.compareAndSet(true, false);
@@ -167,41 +177,6 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
             if (compareAndSet) {
                 zza(false);
             }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-        }
-    }
-
-    @Override // android.content.ComponentCallbacks
-    public final void onConfigurationChanged(@NonNull Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
-        }
-    }
-
-    @Override // android.content.ComponentCallbacks
-    public final void onLowMemory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
@@ -214,20 +189,31 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
         }
     }
 
-    @KeepForSdk
-    @TargetApi(16)
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
+            boolean compareAndSet = this.zzb.compareAndSet(true, false);
+            this.zzc.set(true);
+            if (compareAndSet) {
+                zza(false);
+            }
+        }
+    }
+
     public boolean readCurrentStateIfPossible(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             if (!this.zzc.get()) {
-                if (!PlatformVersion.isAtLeastJellyBean()) {
+                if (PlatformVersion.isAtLeastJellyBean()) {
+                    ActivityManager.RunningAppProcessInfo runningAppProcessInfo = new ActivityManager.RunningAppProcessInfo();
+                    ActivityManager.getMyMemoryState(runningAppProcessInfo);
+                    if (!this.zzc.getAndSet(true) && runningAppProcessInfo.importance > 100) {
+                        this.zzb.set(true);
+                    }
+                } else {
                     return z;
-                }
-                ActivityManager.RunningAppProcessInfo runningAppProcessInfo = new ActivityManager.RunningAppProcessInfo();
-                ActivityManager.getMyMemoryState(runningAppProcessInfo);
-                if (!this.zzc.getAndSet(true) && runningAppProcessInfo.importance > 100) {
-                    this.zzb.set(true);
                 }
             }
             return isInBackground();

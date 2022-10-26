@@ -1,6 +1,5 @@
 package com.kwad.components.core.l;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import java.util.WeakHashMap;
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile boolean IA = false;
-    public static volatile Set<c> IB = null;
+    public static volatile Set IB = null;
     public static volatile b Ix = null;
     public static volatile int Iy = 204800;
     public static volatile boolean Iz = true;
@@ -102,7 +101,7 @@ public class b {
         return (b) invokeV.objValue;
     }
 
-    public static synchronized InputStream wrap(@NonNull InputStream inputStream) {
+    public static synchronized InputStream wrap(InputStream inputStream) {
         InterceptResult invokeL;
         c cVar;
         Interceptable interceptable = $ic;

@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.l1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class b2<T, P extends l1<T>> extends o1<T, P> {
+public abstract class b2 extends o1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Object c(n1 n1Var, String str, k3 k3Var, l1 l1Var);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b2(s1 s1Var) {
@@ -29,6 +30,4 @@ public abstract class b2<T, P extends l1<T>> extends o1<T, P> {
             }
         }
     }
-
-    public abstract T c(n1 n1Var, String str, k3 k3Var, P p);
 }

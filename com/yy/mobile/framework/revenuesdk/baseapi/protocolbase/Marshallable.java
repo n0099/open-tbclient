@@ -22,7 +22,7 @@ public class Marshallable extends PacketBase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class ELenType {
+    public final class ELenType {
         public static final /* synthetic */ ELenType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ELenType E_INT16;
@@ -74,13 +74,19 @@ public class Marshallable extends PacketBase {
         public static ELenType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ELenType) Enum.valueOf(ELenType.class, str) : (ELenType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ELenType) Enum.valueOf(ELenType.class, str);
+            }
+            return (ELenType) invokeL.objValue;
         }
 
         public static ELenType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ELenType[]) $VALUES.clone() : (ELenType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ELenType[]) $VALUES.clone();
+            }
+            return (ELenType[]) invokeV.objValue;
         }
     }
 
@@ -98,102 +104,6 @@ public class Marshallable extends PacketBase {
         }
     }
 
-    private <K> K popKey(Class<K> cls, ELenType eLenType) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, cls, eLenType)) == null) {
-            if (cls == Byte.class) {
-                return (K) Byte.valueOf(popInt8());
-            }
-            if (cls == Short.class) {
-                return (K) Short.valueOf(popInt16());
-            }
-            if (cls == Integer.class) {
-                if (eLenType == ELenType.E_INT16) {
-                    return (K) Integer.valueOf(popUint16());
-                }
-                return (K) Integer.valueOf(popInt32());
-            } else if (cls == Long.class) {
-                if (eLenType == ELenType.E_INT32) {
-                    return (K) Long.valueOf(popUint32());
-                }
-                return (K) Long.valueOf(popInt64());
-            } else if (cls == String.class) {
-                if (eLenType == ELenType.E_INT16) {
-                    return (K) popString16();
-                }
-                return (K) popString32();
-            } else {
-                throw new IllegalStateException("unknow map key type: " + cls.getName());
-            }
-        }
-        return (K) invokeLL.objValue;
-    }
-
-    private <V> V popValue(Class<V> cls, ELenType eLenType) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, cls, eLenType)) == null) {
-            if (cls == Byte.class) {
-                return (V) Byte.valueOf(popInt8());
-            }
-            if (cls == Short.class) {
-                return (V) Short.valueOf(popInt16());
-            }
-            if (cls == Integer.class) {
-                return (V) Integer.valueOf(popInt32());
-            }
-            if (cls == Long.class) {
-                if (eLenType == ELenType.E_INT32) {
-                    return (V) Long.valueOf(popUint32());
-                }
-                return (V) Long.valueOf(popInt64());
-            } else if (cls == String.class) {
-                if (eLenType == ELenType.E_INT16) {
-                    return (V) popString16();
-                }
-                return (V) popString32();
-            } else {
-                throw new IllegalStateException("unknow map value type: " + cls.getName());
-            }
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    private <K> void pushKey(K k) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, k) == null) {
-            if (k instanceof Byte) {
-                pushInt8(((Byte) k).byteValue());
-            } else if (k instanceof Short) {
-                pushInt16(((Short) k).shortValue());
-            } else if (k instanceof Integer) {
-                pushInt32(((Integer) k).intValue());
-            } else if (k instanceof String) {
-                pushString16((String) k);
-            } else {
-                throw new IllegalStateException("unknow map value type: " + k.getClass().getName());
-            }
-        }
-    }
-
-    private <V> void pushValue(V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, v) == null) {
-            if (v instanceof Byte) {
-                pushInt8(((Byte) v).byteValue());
-            } else if (v instanceof Short) {
-                pushInt16(((Short) v).shortValue());
-            } else if (v instanceof Integer) {
-                pushInt32(((Integer) v).intValue());
-            } else if (v instanceof String) {
-                pushString16((String) v);
-            } else {
-                throw new IllegalStateException("unknow map value type: " + v.getClass().getName());
-            }
-        }
-    }
-
     public final byte[] popByteArray16() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -206,24 +116,6 @@ public class Marshallable extends PacketBase {
             return bArr;
         }
         return (byte[]) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: java.util.Collection<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final <T> Collection<T> popCollection(Class<? extends Collection> cls, Class<T> cls2, ELenType eLenType) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, eLenType)) == null) {
-            int popInt32 = popInt32();
-            Collection<T> collection = (Collection<T>) cls.newInstance();
-            if (collection != 0) {
-                for (int i = 0; i < popInt32; i++) {
-                    collection.add(popValue(cls2, eLenType));
-                }
-            }
-            return collection;
-        }
-        return (Collection) invokeLLL.objValue;
     }
 
     public final short popInt16() throws Exception {
@@ -264,22 +156,6 @@ public class Marshallable extends PacketBase {
             return this.buffer.get();
         }
         return invokeV.byteValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.TreeMap */
-    /* JADX WARN: Multi-variable type inference failed */
-    public <K, V> Map<K, V> popMap(Class<K> cls, ELenType eLenType, Class<V> cls2, ELenType eLenType2) throws Exception {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, cls, eLenType, cls2, eLenType2)) == null) {
-            int popInt32 = popInt32();
-            TreeMap treeMap = new TreeMap();
-            for (int i = 0; i < popInt32; i++) {
-                treeMap.put(popKey(cls, eLenType), popValue(cls2, eLenType2));
-            }
-            return treeMap;
-        }
-        return (Map) invokeLLLL.objValue;
     }
 
     public final String popStingWithOutLength() throws Exception {
@@ -353,6 +229,166 @@ public class Marshallable extends PacketBase {
         return invokeV.shortValue;
     }
 
+    private Object popKey(Class cls, ELenType eLenType) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, cls, eLenType)) == null) {
+            if (cls == Byte.class) {
+                return Byte.valueOf(popInt8());
+            }
+            if (cls == Short.class) {
+                return Short.valueOf(popInt16());
+            }
+            if (cls == Integer.class) {
+                if (eLenType == ELenType.E_INT16) {
+                    return Integer.valueOf(popUint16());
+                }
+                return Integer.valueOf(popInt32());
+            } else if (cls == Long.class) {
+                if (eLenType == ELenType.E_INT32) {
+                    return Long.valueOf(popUint32());
+                }
+                return Long.valueOf(popInt64());
+            } else if (cls == String.class) {
+                if (eLenType == ELenType.E_INT16) {
+                    return popString16();
+                }
+                return popString32();
+            } else {
+                throw new IllegalStateException("unknow map key type: " + cls.getName());
+            }
+        }
+        return invokeLL.objValue;
+    }
+
+    private Object popValue(Class cls, ELenType eLenType) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, cls, eLenType)) == null) {
+            if (cls == Byte.class) {
+                return Byte.valueOf(popInt8());
+            }
+            if (cls == Short.class) {
+                return Short.valueOf(popInt16());
+            }
+            if (cls == Integer.class) {
+                return Integer.valueOf(popInt32());
+            }
+            if (cls == Long.class) {
+                if (eLenType == ELenType.E_INT32) {
+                    return Long.valueOf(popUint32());
+                }
+                return Long.valueOf(popInt64());
+            } else if (cls == String.class) {
+                if (eLenType == ELenType.E_INT16) {
+                    return popString16();
+                }
+                return popString32();
+            } else {
+                throw new IllegalStateException("unknow map value type: " + cls.getName());
+            }
+        }
+        return invokeLL.objValue;
+    }
+
+    private void pushKey(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, obj) == null) {
+            if (obj instanceof Byte) {
+                pushInt8(((Byte) obj).byteValue());
+            } else if (obj instanceof Short) {
+                pushInt16(((Short) obj).shortValue());
+            } else if (obj instanceof Integer) {
+                pushInt32(((Integer) obj).intValue());
+            } else if (obj instanceof String) {
+                pushString16((String) obj);
+            } else {
+                throw new IllegalStateException("unknow map value type: " + obj.getClass().getName());
+            }
+        }
+    }
+
+    private void pushValue(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj) == null) {
+            if (obj instanceof Byte) {
+                pushInt8(((Byte) obj).byteValue());
+            } else if (obj instanceof Short) {
+                pushInt16(((Short) obj).shortValue());
+            } else if (obj instanceof Integer) {
+                pushInt32(((Integer) obj).intValue());
+            } else if (obj instanceof String) {
+                pushString16((String) obj);
+            } else {
+                throw new IllegalStateException("unknow map value type: " + obj.getClass().getName());
+            }
+        }
+    }
+
+    public void pushMap(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, map) == null) {
+            if (map != null && map.size() != 0) {
+                pushInt32(map.size());
+                for (Map.Entry entry : map.entrySet()) {
+                    pushKey(entry.getKey());
+                    pushValue(entry.getValue());
+                }
+                return;
+            }
+            pushInt32(0);
+        }
+    }
+
+    public final Collection popCollection(Class cls, Class cls2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2)) == null) {
+            return popCollection(cls, cls2, ELenType.E_INT32);
+        }
+        return (Collection) invokeLL.objValue;
+    }
+
+    public Map popMap(Class cls, Class cls2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, cls2)) == null) {
+            ELenType eLenType = ELenType.E_INT64;
+            return popMap(cls, eLenType, cls2, eLenType);
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public final Collection popCollection(Class cls, Class cls2, ELenType eLenType) throws Exception {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, eLenType)) == null) {
+            int popInt32 = popInt32();
+            Collection collection = (Collection) cls.newInstance();
+            if (collection != null) {
+                for (int i = 0; i < popInt32; i++) {
+                    collection.add(popValue(cls2, eLenType));
+                }
+            }
+            return collection;
+        }
+        return (Collection) invokeLLL.objValue;
+    }
+
+    public Map popMap(Class cls, ELenType eLenType, Class cls2, ELenType eLenType2) throws Exception {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, cls, eLenType, cls2, eLenType2)) == null) {
+            int popInt32 = popInt32();
+            TreeMap treeMap = new TreeMap();
+            for (int i = 0; i < popInt32; i++) {
+                treeMap.put(popKey(cls, eLenType), popValue(cls2, eLenType2));
+            }
+            return treeMap;
+        }
+        return (Map) invokeLLLL.objValue;
+    }
+
     public final void pushByteArray(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bArr) == null) {
@@ -388,81 +424,47 @@ public class Marshallable extends PacketBase {
         }
     }
 
-    public <K, V> void pushMap(Map<K, V> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, map) == null) {
-            if (map != null && map.size() != 0) {
-                pushInt32(map.size());
-                for (Map.Entry<K, V> entry : map.entrySet()) {
-                    pushKey(entry.getKey());
-                    pushValue(entry.getValue());
-                }
-                return;
-            }
-            pushInt32(0);
-        }
-    }
-
     public final void pushString16(String str) {
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || str == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && str != null) {
+            try {
+                bArr = str.getBytes(IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                bArr = new byte[0];
+            }
+            pushInt16((short) bArr.length);
+            this.buffer.put(bArr);
         }
-        try {
-            bArr = str.getBytes(IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            bArr = new byte[0];
-        }
-        pushInt16((short) bArr.length);
-        this.buffer.put(bArr);
     }
 
     public final void pushString32(String str) {
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, str) == null) || str == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, str) == null) && str != null) {
+            try {
+                bArr = str.getBytes(IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                bArr = new byte[0];
+            }
+            pushInt32(bArr.length);
+            this.buffer.put(bArr);
         }
-        try {
-            bArr = str.getBytes(IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            bArr = new byte[0];
-        }
-        pushInt32(bArr.length);
-        this.buffer.put(bArr);
     }
 
     public final void pushStringWithoutLength(String str) {
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || str == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, str) == null) && str != null) {
+            try {
+                bArr = str.getBytes(IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                bArr = new byte[0];
+            }
+            this.buffer.put(bArr);
         }
-        try {
-            bArr = str.getBytes(IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            bArr = new byte[0];
-        }
-        this.buffer.put(bArr);
-    }
-
-    public final <T> Collection<T> popCollection(Class<? extends Collection> cls, Class<T> cls2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2)) == null) ? popCollection(cls, cls2, ELenType.E_INT32) : (Collection) invokeLL.objValue;
-    }
-
-    public <K, V> Map<K, V> popMap(Class<K> cls, Class<V> cls2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, cls2)) == null) {
-            ELenType eLenType = ELenType.E_INT64;
-            return popMap(cls, eLenType, cls2, eLenType);
-        }
-        return (Map) invokeLL.objValue;
     }
 }

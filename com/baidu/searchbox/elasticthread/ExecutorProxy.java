@@ -1,6 +1,5 @@
 package com.baidu.searchbox.elasticthread;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,6 +11,13 @@ public abstract class ExecutorProxy implements Executor {
     public transient /* synthetic */ FieldHolder $fh;
     public int mDefaultPriority;
     public String mDefaultTaskName;
+
+    @Override // java.util.concurrent.Executor
+    public abstract void execute(Runnable runnable);
+
+    public abstract void execute(Runnable runnable, String str);
+
+    public abstract void execute(Runnable runnable, String str, int i);
 
     public ExecutorProxy(String str, int i) {
         Interceptable interceptable = $ic;
@@ -31,13 +37,6 @@ public abstract class ExecutorProxy implements Executor {
         this.mDefaultPriority = i;
         this.mDefaultTaskName = str;
     }
-
-    @Override // java.util.concurrent.Executor
-    public abstract void execute(@NonNull Runnable runnable);
-
-    public abstract void execute(@NonNull Runnable runnable, @NonNull String str);
-
-    public abstract void execute(@NonNull Runnable runnable, @NonNull String str, int i);
 
     public void setDefaultPriority(int i) {
         Interceptable interceptable = $ic;

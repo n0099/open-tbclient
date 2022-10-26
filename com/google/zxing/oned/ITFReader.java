@@ -140,6 +140,20 @@ public final class ITFReader extends OneDReader {
         return (int[]) invokeL.objValue;
     }
 
+    public static int skipWhiteSpace(BitArray bitArray) throws NotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bitArray)) == null) {
+            int size = bitArray.getSize();
+            int nextSet = bitArray.getNextSet(0);
+            if (nextSet != size) {
+                return nextSet;
+            }
+            throw NotFoundException.getNotFoundInstance();
+        }
+        return invokeL.intValue;
+    }
+
     public static int[] findGuardPattern(BitArray bitArray, int i, int[] iArr) throws NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -155,17 +169,18 @@ public final class ITFReader extends OneDReader {
                     iArr2[i3] = iArr2[i3] + 1;
                 } else {
                     int i4 = length - 1;
-                    if (i3 != i4) {
-                        i3++;
-                    } else if (OneDReader.patternMatchVariance(iArr2, iArr, 0.78f) < 0.38f) {
-                        return new int[]{i2, i};
-                    } else {
+                    if (i3 == i4) {
+                        if (OneDReader.patternMatchVariance(iArr2, iArr, 0.78f) < 0.38f) {
+                            return new int[]{i2, i};
+                        }
                         i2 += iArr2[0] + iArr2[1];
                         int i5 = length - 2;
                         System.arraycopy(iArr2, 2, iArr2, 0, i5);
                         iArr2[i5] = 0;
                         iArr2[i4] = 0;
                         i3--;
+                    } else {
+                        i3++;
                     }
                     iArr2[i3] = 1;
                     z = !z;
@@ -177,18 +192,56 @@ public final class ITFReader extends OneDReader {
         return (int[]) invokeLIL.objValue;
     }
 
-    public static int skipWhiteSpace(BitArray bitArray) throws NotFoundException {
-        InterceptResult invokeL;
+    @Override // com.google.zxing.oned.OneDReader
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws FormatException, NotFoundException {
+        InterceptResult invokeILL;
+        int[] iArr;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bitArray)) == null) {
-            int size = bitArray.getSize();
-            int nextSet = bitArray.getNextSet(0);
-            if (nextSet != size) {
-                return nextSet;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
+            int[] decodeStart = decodeStart(bitArray);
+            int[] decodeEnd = decodeEnd(bitArray);
+            StringBuilder sb = new StringBuilder(20);
+            decodeMiddle(bitArray, decodeStart[1], decodeEnd[0], sb);
+            String sb2 = sb.toString();
+            if (map != null) {
+                iArr = (int[]) map.get(DecodeHintType.ALLOWED_LENGTHS);
+            } else {
+                iArr = null;
             }
-            throw NotFoundException.getNotFoundInstance();
+            if (iArr == null) {
+                iArr = DEFAULT_ALLOWED_LENGTHS;
+            }
+            int length = sb2.length();
+            int length2 = iArr.length;
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                if (i2 < length2) {
+                    int i4 = iArr[i2];
+                    if (length == i4) {
+                        z = true;
+                        break;
+                    }
+                    if (i4 > i3) {
+                        i3 = i4;
+                    }
+                    i2++;
+                } else {
+                    z = false;
+                    break;
+                }
+            }
+            if (!z && length > i3) {
+                z = true;
+            }
+            if (z) {
+                float f = i;
+                return new Result(sb2, null, new ResultPoint[]{new ResultPoint(decodeStart[1], f), new ResultPoint(decodeEnd[0], f)}, BarcodeFormat.ITF);
+            }
+            throw FormatException.getFormatInstance();
         }
-        return invokeL.intValue;
+        return (Result) invokeILL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x001f, code lost:
@@ -209,51 +262,5 @@ public final class ITFReader extends OneDReader {
             }
             throw NotFoundException.getNotFoundInstance();
         }
-    }
-
-    @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws FormatException, NotFoundException {
-        InterceptResult invokeILL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
-            int[] decodeStart = decodeStart(bitArray);
-            int[] decodeEnd = decodeEnd(bitArray);
-            StringBuilder sb = new StringBuilder(20);
-            decodeMiddle(bitArray, decodeStart[1], decodeEnd[0], sb);
-            String sb2 = sb.toString();
-            int[] iArr = map != null ? (int[]) map.get(DecodeHintType.ALLOWED_LENGTHS) : null;
-            if (iArr == null) {
-                iArr = DEFAULT_ALLOWED_LENGTHS;
-            }
-            int length = sb2.length();
-            int length2 = iArr.length;
-            int i2 = 0;
-            int i3 = 0;
-            while (true) {
-                if (i2 >= length2) {
-                    z = false;
-                    break;
-                }
-                int i4 = iArr[i2];
-                if (length == i4) {
-                    z = true;
-                    break;
-                }
-                if (i4 > i3) {
-                    i3 = i4;
-                }
-                i2++;
-            }
-            if (!z && length > i3) {
-                z = true;
-            }
-            if (z) {
-                float f = i;
-                return new Result(sb2, null, new ResultPoint[]{new ResultPoint(decodeStart[1], f), new ResultPoint(decodeEnd[0], f)}, BarcodeFormat.ITF);
-            }
-            throw FormatException.getFormatInstance();
-        }
-        return (Result) invokeILL.objValue;
     }
 }

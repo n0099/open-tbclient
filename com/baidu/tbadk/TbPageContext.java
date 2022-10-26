@@ -10,18 +10,18 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.yp4;
+import com.baidu.tieba.zp4;
 /* loaded from: classes3.dex */
-public interface TbPageContext<T> extends r9<T> {
+public interface TbPageContext extends r9 {
     @Override // com.baidu.tieba.r9
     /* synthetic */ Context getContext();
 
-    yp4 getLayoutMode();
+    zp4 getLayoutMode();
 
     @Override // com.baidu.tieba.r9
-    /* synthetic */ T getOrignalPage();
+    /* synthetic */ Object getOrignalPage();
 
     @Override // com.baidu.tieba.r9
     /* synthetic */ Activity getPageActivity();
@@ -35,17 +35,17 @@ public interface TbPageContext<T> extends r9<T> {
     @Override // com.baidu.tieba.r9
     /* synthetic */ BdUniqueId getUniqueId();
 
-    /* synthetic */ void registerListener(int i, MessageListener<?> messageListener);
+    /* synthetic */ void registerListener(int i, MessageListener messageListener);
 
-    /* synthetic */ void registerListener(int i, pb pbVar);
-
-    @Override // com.baidu.tieba.r9
-    /* synthetic */ void registerListener(MessageListener<?> messageListener);
-
-    /* synthetic */ void registerListener(pb pbVar);
+    /* synthetic */ void registerListener(int i, qb qbVar);
 
     @Override // com.baidu.tieba.r9
-    /* synthetic */ void sendMessage(Message<?> message);
+    /* synthetic */ void registerListener(MessageListener messageListener);
+
+    /* synthetic */ void registerListener(qb qbVar);
+
+    @Override // com.baidu.tieba.r9
+    /* synthetic */ void sendMessage(Message message);
 
     /* synthetic */ void sendMessage(NetMessage netMessage);
 

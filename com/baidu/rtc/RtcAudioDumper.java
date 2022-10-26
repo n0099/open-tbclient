@@ -2,7 +2,6 @@ package com.baidu.rtc;
 
 import android.os.Environment;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.RtcAudioDumper;
@@ -27,7 +26,6 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
     public long fileSizeInBytes;
     public boolean isRunning;
     public final Object lock;
-    @Nullable
     public OutputStream rawAudioFileOutputStream;
 
     public RtcAudioDumper(ExecutorService executorService) {
@@ -50,64 +48,6 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
         this.executor = executorService;
     }
 
-    private void dumpAudioSamples(final RTCAudioSamples rTCAudioSamples) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) {
-            if (rTCAudioSamples.getAudioFormat() != 2) {
-                Log.e(TAG, "Invalid audio format");
-                return;
-            }
-            synchronized (this.lock) {
-                if (this.isRunning) {
-                    if (this.rawAudioFileOutputStream == null) {
-                        openRawAudioOutputFile(rTCAudioSamples.getSampleRate(), rTCAudioSamples.getChannelCount());
-                        this.fileSizeInBytes = 0L;
-                    }
-                    this.executor.execute(new Runnable() { // from class: com.baidu.tieba.kf1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                RtcAudioDumper.this.a(rTCAudioSamples);
-                            }
-                        }
-                    });
-                }
-            }
-        }
-    }
-
-    private boolean isExternalStorageWritable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? "mounted".equals(Environment.getExternalStorageState()) : invokeV.booleanValue;
-    }
-
-    private void openRawAudioOutputFile(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(Environment.getExternalStorageDirectory().getPath());
-            sb.append(File.separator);
-            sb.append("audio_16bits_");
-            sb.append(String.valueOf(i));
-            sb.append("Hz");
-            sb.append(i2 == 1 ? "_mono_" : "_stereo_");
-            sb.append(System.currentTimeMillis());
-            sb.append(".pcm");
-            String sb2 = sb.toString();
-            try {
-                this.rawAudioFileOutputStream = new FileOutputStream(new File(sb2));
-            } catch (FileNotFoundException e) {
-                Log.e(TAG, "Failed to open audio output file: " + e.getMessage());
-            }
-            Log.d(TAG, "Opened file for recording: " + sb2);
-        }
-    }
-
     public /* synthetic */ void a(RTCAudioSamples rTCAudioSamples) {
         OutputStream outputStream = this.rawAudioFileOutputStream;
         if (outputStream != null) {
@@ -122,20 +62,47 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
         }
     }
 
-    @Override // com.baidu.rtc.RTCAudioSamples.RTCSamplesReadyCallback
-    public void onRtcAudioRecordSamplesReady(RTCAudioSamples rTCAudioSamples) {
+    private void dumpAudioSamples(final RTCAudioSamples rTCAudioSamples) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rTCAudioSamples) == null) {
-            dumpAudioSamples(rTCAudioSamples);
+        if (interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) {
+            if (rTCAudioSamples.getAudioFormat() != 2) {
+                Log.e(TAG, "Invalid audio format");
+                return;
+            }
+            synchronized (this.lock) {
+                if (!this.isRunning) {
+                    return;
+                }
+                if (this.rawAudioFileOutputStream == null) {
+                    openRawAudioOutputFile(rTCAudioSamples.getSampleRate(), rTCAudioSamples.getChannelCount());
+                    this.fileSizeInBytes = 0L;
+                }
+                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.lf1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            RtcAudioDumper.this.a(rTCAudioSamples);
+                        }
+                    }
+                });
+            }
         }
     }
 
-    @Override // com.baidu.rtc.RTCAudioSamples.RTCRemoteSamplesReadyCallback
-    public void onRtcAudioRemoteSamplesReady(RTCAudioSamples rTCAudioSamples) {
+    private boolean isExternalStorageWritable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rTCAudioSamples) == null) {
-            dumpAudioSamples(rTCAudioSamples);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState())) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public boolean start() {
@@ -153,6 +120,50 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    private void openRawAudioOutputFile(int i, int i2) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(Environment.getExternalStorageDirectory().getPath());
+            sb.append(File.separator);
+            sb.append("audio_16bits_");
+            sb.append(String.valueOf(i));
+            sb.append("Hz");
+            if (i2 == 1) {
+                str = "_mono_";
+            } else {
+                str = "_stereo_";
+            }
+            sb.append(str);
+            sb.append(System.currentTimeMillis());
+            sb.append(".pcm");
+            String sb2 = sb.toString();
+            try {
+                this.rawAudioFileOutputStream = new FileOutputStream(new File(sb2));
+            } catch (FileNotFoundException e) {
+                Log.e(TAG, "Failed to open audio output file: " + e.getMessage());
+            }
+            Log.d(TAG, "Opened file for recording: " + sb2);
+        }
+    }
+
+    @Override // com.baidu.rtc.RTCAudioSamples.RTCSamplesReadyCallback
+    public void onRtcAudioRecordSamplesReady(RTCAudioSamples rTCAudioSamples) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rTCAudioSamples) == null) {
+            dumpAudioSamples(rTCAudioSamples);
+        }
+    }
+
+    @Override // com.baidu.rtc.RTCAudioSamples.RTCRemoteSamplesReadyCallback
+    public void onRtcAudioRemoteSamplesReady(RTCAudioSamples rTCAudioSamples) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rTCAudioSamples) == null) {
+            dumpAudioSamples(rTCAudioSamples);
+        }
     }
 
     public void stop() {

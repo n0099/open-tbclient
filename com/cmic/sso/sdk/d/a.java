@@ -21,7 +21,7 @@ public class a extends g {
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public CopyOnWriteArrayList<Throwable> a;
+    public CopyOnWriteArrayList a;
     public String b;
     public String c;
     public String d;
@@ -47,6 +47,26 @@ public class a extends g {
     public String x;
     public String y;
     public String z;
+
+    @Override // com.cmic.sso.sdk.c.b.g
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.cmic.sso.sdk.c.b.g
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
 
     public a() {
         Interceptable interceptable = $ic;
@@ -83,7 +103,7 @@ public class a extends g {
         this.v = null;
         this.w = null;
         this.x = null;
-        this.a = new CopyOnWriteArrayList<>();
+        this.a = new CopyOnWriteArrayList();
     }
 
     public void A(String str) {
@@ -98,26 +118,6 @@ public class a extends g {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.B = str;
         }
-    }
-
-    @Override // com.cmic.sso.sdk.c.b.g
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.cmic.sso.sdk.c.b.g
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 
     public void a(JSONArray jSONArray) {

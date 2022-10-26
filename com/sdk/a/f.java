@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes8.dex */
-public class f implements HostnameVerifier {
+public final class f implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

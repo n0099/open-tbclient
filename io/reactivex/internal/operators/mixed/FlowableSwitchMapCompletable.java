@@ -14,7 +14,6 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -26,17 +25,16 @@ import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableSwitchMapCompletable<T> extends Completable {
+public final class FlowableSwitchMapCompletable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function<? super T, ? extends CompletableSource> mapper;
-    public final Flowable<T> source;
+    public final Function mapper;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class SwitchMapCompletableObserver<T> implements FlowableSubscriber<T>, Disposable {
+    public final class SwitchMapCompletableObserver implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchMapInnerObserver INNER_DISPOSED;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,18 +42,18 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
         public volatile boolean done;
         public final CompletableObserver downstream;
         public final AtomicThrowable errors;
-        public final AtomicReference<SwitchMapInnerObserver> inner;
-        public final Function<? super T, ? extends CompletableSource> mapper;
+        public final AtomicReference inner;
+        public final Function mapper;
         public Subscription upstream;
 
         /* loaded from: classes8.dex */
-        public static final class SwitchMapInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
+        public final class SwitchMapInnerObserver extends AtomicReference implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8003404460084760287L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final SwitchMapCompletableObserver<?> parent;
+            public final SwitchMapCompletableObserver parent;
 
-            public SwitchMapInnerObserver(SwitchMapCompletableObserver<?> switchMapCompletableObserver) {
+            public SwitchMapInnerObserver(SwitchMapCompletableObserver switchMapCompletableObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,21 +71,6 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
                 this.parent = switchMapCompletableObserver;
             }
 
-            public void dispose() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DisposableHelper.dispose(this);
-                }
-            }
-
-            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.parent.innerComplete(this);
-                }
-            }
-
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
@@ -101,6 +84,21 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
                     DisposableHelper.setOnce(this, disposable);
+                }
+            }
+
+            public void dispose() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
+                }
+            }
+
+            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.parent.innerComplete(this);
                 }
             }
         }
@@ -121,7 +119,53 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
             INNER_DISPOSED = new SwitchMapInnerObserver(null);
         }
 
-        public SwitchMapCompletableObserver(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function, boolean z) {
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.upstream.cancel();
+                disposeInner();
+            }
+        }
+
+        public void disposeInner() {
+            SwitchMapInnerObserver switchMapInnerObserver;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (switchMapInnerObserver = (SwitchMapInnerObserver) this.inner.getAndSet(INNER_DISPOSED)) != null && switchMapInnerObserver != INNER_DISPOSED) {
+                switchMapInnerObserver.dispose();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.inner.get() == INNER_DISPOSED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.done = true;
+                if (this.inner.get() == null) {
+                    Throwable terminate = this.errors.terminate();
+                    if (terminate == null) {
+                        this.downstream.onComplete();
+                    } else {
+                        this.downstream.onError(terminate);
+                    }
+                }
+            }
+        }
+
+        public SwitchMapCompletableObserver(CompletableObserver completableObserver, Function function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,25 +184,7 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
             this.mapper = function;
             this.delayErrors = z;
             this.errors = new AtomicThrowable();
-            this.inner = new AtomicReference<>();
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.upstream.cancel();
-                disposeInner();
-            }
-        }
-
-        public void disposeInner() {
-            SwitchMapInnerObserver andSet;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (andSet = this.inner.getAndSet(INNER_DISPOSED)) == null || andSet == INNER_DISPOSED) {
-                return;
-            }
-            andSet.dispose();
+            this.inner = new AtomicReference();
         }
 
         public void innerComplete(SwitchMapInnerObserver switchMapInnerObserver) {
@@ -170,6 +196,16 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
                 } else {
                     this.downstream.onError(terminate);
                 }
+            }
+        }
+
+        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+        public void onSubscribe(Subscription subscription) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) && SubscriptionHelper.validate(this.upstream, subscription)) {
+                this.upstream = subscription;
+                this.downstream.onSubscribe(this);
+                subscription.request(Long.MAX_VALUE);
             }
         }
 
@@ -196,29 +232,6 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
             }
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.inner.get() == INNER_DISPOSED : invokeV.booleanValue;
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.done = true;
-                if (this.inner.get() == null) {
-                    Throwable terminate = this.errors.terminate();
-                    if (terminate == null) {
-                        this.downstream.onComplete();
-                    } else {
-                        this.downstream.onError(terminate);
-                    }
-                }
-            }
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -241,15 +254,15 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             SwitchMapInnerObserver switchMapInnerObserver;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
                 try {
-                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null CompletableSource");
                     SwitchMapInnerObserver switchMapInnerObserver2 = new SwitchMapInnerObserver(this);
                     do {
-                        switchMapInnerObserver = this.inner.get();
+                        switchMapInnerObserver = (SwitchMapInnerObserver) this.inner.get();
                         if (switchMapInnerObserver == INNER_DISPOSED) {
                             return;
                         }
@@ -265,19 +278,9 @@ public final class FlowableSwitchMapCompletable<T> extends Completable {
                 }
             }
         }
-
-        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
-        public void onSubscribe(Subscription subscription) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) && SubscriptionHelper.validate(this.upstream, subscription)) {
-                this.upstream = subscription;
-                this.downstream.onSubscribe(this);
-                subscription.request(Long.MAX_VALUE);
-            }
-        }
     }
 
-    public FlowableSwitchMapCompletable(Flowable<T> flowable, Function<? super T, ? extends CompletableSource> function, boolean z) {
+    public FlowableSwitchMapCompletable(Flowable flowable, Function function, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

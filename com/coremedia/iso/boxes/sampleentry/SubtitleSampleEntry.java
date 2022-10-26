@@ -44,6 +44,18 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
         this.imageMimeType = "";
     }
 
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = 8;
+            long containerSize = getContainerSize() + this.namespace.length() + 8 + this.schemaLocation.length() + this.imageMimeType.length() + 3;
+            return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 16);
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public void getBox(WritableByteChannel writableByteChannel) throws IOException {
         Interceptable interceptable = $ic;
@@ -63,31 +75,28 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
     public String getImageMimeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.imageMimeType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.imageMimeType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getNamespace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.namespace : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.namespace;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSchemaLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.schemaLocation : (String) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = 8;
-            long containerSize = getContainerSize() + this.namespace.length() + 8 + this.schemaLocation.length() + this.imageMimeType.length() + 3;
-            return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 16);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.schemaLocation;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box

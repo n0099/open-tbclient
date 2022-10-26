@@ -55,11 +55,17 @@ public final class DataReq extends Message {
     public final Integer width;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<DataReq> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String gettype;
-        public List<GroupLastId> groupMids;
+        public List groupMids;
         public Integer height;
         public String max_time;
         public String min_time;
@@ -125,14 +131,11 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new DataReq(this, z, null) : (DataReq) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new DataReq(this, z, null);
+            }
+            return (DataReq) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -154,10 +157,6 @@ public final class DataReq extends Message {
         DEFAULT_SMALLHEIGHT = 0;
         DEFAULT_GROUPMIDS = Collections.emptyList();
         DEFAULT_NOTIFY_MSG_ID = 0L;
-    }
-
-    public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -209,7 +208,7 @@ public final class DataReq extends Message {
             } else {
                 this.pushTimes = str;
             }
-            List<GroupLastId> list = builder.groupMids;
+            List list = builder.groupMids;
             if (list == null) {
                 this.groupMids = DEFAULT_GROUPMIDS;
             } else {
@@ -261,5 +260,9 @@ public final class DataReq extends Message {
         this.process_type = builder.process_type;
         this.newpushRepire = builder.newpushRepire;
         this.notify_msg_id = builder.notify_msg_id;
+    }
+
+    public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

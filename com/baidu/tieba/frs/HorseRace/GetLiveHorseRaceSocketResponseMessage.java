@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs.HorseRace;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.fi6;
+import com.baidu.tieba.mi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
 public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fi6 mData;
+    public mi6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetLiveHorseRaceSocketResponseMessage() {
@@ -34,11 +33,10 @@ public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessa
                 return;
             }
         }
-        this.mData = new fi6();
+        this.mData = new mi6();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -62,9 +60,12 @@ public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessa
         return invokeIL.objValue;
     }
 
-    public fi6 getData() {
+    public mi6 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (fi6) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (mi6) invokeV.objValue;
     }
 }

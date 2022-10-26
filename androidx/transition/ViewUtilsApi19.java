@@ -1,9 +1,6 @@
 package androidx.transition;
 
-import android.annotation.SuppressLint;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(19)
 /* loaded from: classes.dex */
 public class ViewUtilsApi19 extends ViewUtilsBase {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,6 +30,20 @@ public class ViewUtilsApi19 extends ViewUtilsBase {
         }
     }
 
+    @Override // androidx.transition.ViewUtilsBase
+    public void clearNonTransitionAlpha(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+        }
+    }
+
+    @Override // androidx.transition.ViewUtilsBase
+    public void saveNonTransitionAlpha(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+        }
+    }
+
     public ViewUtilsApi19() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,15 +59,7 @@ public class ViewUtilsApi19 extends ViewUtilsBase {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void clearNonTransitionAlpha(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-        }
-    }
-
-    @Override // androidx.transition.ViewUtilsBase
-    @SuppressLint({"NewApi"})
-    public float getTransitionAlpha(@NonNull View view2) {
+    public float getTransitionAlpha(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
@@ -74,15 +76,7 @@ public class ViewUtilsApi19 extends ViewUtilsBase {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void saveNonTransitionAlpha(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-        }
-    }
-
-    @Override // androidx.transition.ViewUtilsBase
-    @SuppressLint({"NewApi"})
-    public void setTransitionAlpha(@NonNull View view2, float f) {
+    public void setTransitionAlpha(View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
             if (sTryHiddenTransitionAlpha) {

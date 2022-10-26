@@ -76,20 +76,23 @@ public final class BundleKt {
                     }
                     Intrinsics.checkExpressionValueIsNotNull(componentType, "value::class.java.componentType!!");
                     if (Parcelable.class.isAssignableFrom(componentType)) {
-                        if (component2 == null) {
+                        if (component2 != null) {
+                            bundle.putParcelableArray(component1, (Parcelable[]) component2);
+                        } else {
                             throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<android.os.Parcelable>");
                         }
-                        bundle.putParcelableArray(component1, (Parcelable[]) component2);
                     } else if (String.class.isAssignableFrom(componentType)) {
-                        if (component2 == null) {
+                        if (component2 != null) {
+                            bundle.putStringArray(component1, (String[]) component2);
+                        } else {
                             throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<kotlin.String>");
                         }
-                        bundle.putStringArray(component1, (String[]) component2);
                     } else if (CharSequence.class.isAssignableFrom(componentType)) {
-                        if (component2 == null) {
+                        if (component2 != null) {
+                            bundle.putCharSequenceArray(component1, (CharSequence[]) component2);
+                        } else {
                             throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<kotlin.CharSequence>");
                         }
-                        bundle.putCharSequenceArray(component1, (CharSequence[]) component2);
                     } else if (Serializable.class.isAssignableFrom(componentType)) {
                         bundle.putSerializable(component1, (Serializable) component2);
                     } else {

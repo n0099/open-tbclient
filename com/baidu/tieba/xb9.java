@@ -1,64 +1,81 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vb9;
-import com.baidu.tieba.yb9;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.zb9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class xb9 implements vb9.a {
+public class xb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xb9() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948294746, "Lcom/baidu/tieba/xb9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948294746, "Lcom/baidu/tieba/xb9;");
+        }
+    }
+
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return zb9.a.a.f(str);
             }
+            return SampleResult.OTHERE;
+        }
+        return (SampleResult) invokeL.objValue;
+    }
+
+    public static void b(yb9 yb9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, yb9Var) != null) || yb9Var == null) {
+            return;
+        }
+        tc9.b(yb9Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            rc9.a().b(str);
         }
     }
 
-    @Override // com.baidu.tieba.vb9.a
-    public final void U() {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            rc9.a().c(str);
         }
     }
 
-    @Override // com.baidu.tieba.vb9.a
-    public final void a(Activity activity) {
-        yb9 yb9Var;
+    public static void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            yb9Var = yb9.a.a;
-            yb9Var.c(new WeakReference<>(activity));
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
         }
     }
 
-    @Override // com.baidu.tieba.vb9.a
-    public final void b() {
+    public static void c(String str, String str2, String str3, Map map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.vb9.a
-    public final void onActivityDestroyed(Activity activity) {
-        yb9 yb9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            yb9Var = yb9.a.a;
-            yb9Var.d(activity);
-        }
+        wc9.a(str, str2, str3, map);
     }
 }

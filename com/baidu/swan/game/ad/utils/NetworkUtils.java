@@ -1,6 +1,5 @@
 package com.baidu.swan.game.ad.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -24,7 +23,7 @@ public class NetworkUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class NetType {
+    public final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -85,13 +84,19 @@ public class NetworkUtils {
         public static NetType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetType) Enum.valueOf(NetType.class, str) : (NetType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetType) Enum.valueOf(NetType.class, str);
+            }
+            return (NetType) invokeL.objValue;
         }
 
         public static NetType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetType[]) $VALUES.clone() : (NetType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetType[]) $VALUES.clone();
+            }
+            return (NetType[]) invokeV.objValue;
         }
     }
 
@@ -107,6 +112,32 @@ public class NetworkUtils {
             return connectivityManager.getActiveNetworkInfo();
         }
         return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            if (a != null && a.isConnectedOrConnecting()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            if (a != null && a.isAvailable() && a.getType() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static String b(int i, String str) {
@@ -139,7 +170,10 @@ public class NetworkUtils {
                 case 20:
                     return "5g";
                 default:
-                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
+                    if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
+                        return "4g";
+                    }
+                    return "unknown";
             }
         }
         return (String) invokeIL.objValue;
@@ -152,55 +186,66 @@ public class NetworkUtils {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
             String d = d();
             int hashCode = d.hashCode();
-            if (hashCode == -284840886) {
+            if (hashCode != -284840886) {
+                if (hashCode != 1653) {
+                    if (hashCode != 1684) {
+                        if (hashCode != 1715) {
+                            if (hashCode != 1746) {
+                                if (hashCode == 3649301 && d.equals("wifi")) {
+                                    c = 0;
+                                }
+                                c = 65535;
+                            } else {
+                                if (d.equals("5g")) {
+                                    c = 4;
+                                }
+                                c = 65535;
+                            }
+                        } else {
+                            if (d.equals("4g")) {
+                                c = 3;
+                            }
+                            c = 65535;
+                        }
+                    } else {
+                        if (d.equals("3g")) {
+                            c = 2;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (d.equals("2g")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
                 if (d.equals("unknown")) {
                     c = 5;
                 }
                 c = 65535;
-            } else if (hashCode == 1653) {
-                if (d.equals("2g")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else if (hashCode == 1684) {
-                if (d.equals("3g")) {
-                    c = 2;
-                }
-                c = 65535;
-            } else if (hashCode == 1715) {
-                if (d.equals("4g")) {
-                    c = 3;
-                }
-                c = 65535;
-            } else if (hashCode != 1746) {
-                if (hashCode == 3649301 && d.equals("wifi")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (d.equals("5g")) {
-                    c = 4;
-                }
-                c = 65535;
             }
-            if (c == 0) {
-                return z ? 1 : 100;
-            } else if (c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        if (c != 4) {
-                            if (c != 5) {
-                                return 0;
-                            }
-                            return !z ? 1 : 0;
-                        }
-                        return 5;
-                    }
+            if (c != 0) {
+                if (c == 1) {
+                    return 2;
+                }
+                if (c == 2) {
+                    return 3;
+                }
+                if (c == 3) {
                     return 4;
                 }
-                return 3;
+                if (c == 4) {
+                    return 5;
+                }
+                if (c != 5) {
+                    return 0;
+                }
+                return !z ? 1 : 0;
+            } else if (z) {
+                return 1;
             } else {
-                return 2;
+                return 100;
             }
         }
         return invokeZ.intValue;
@@ -211,12 +256,20 @@ public class NetworkUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             NetworkInfo a = a(AppRuntime.getAppContext());
-            return (a == null || !a.isConnected()) ? "no" : a.getType() == 1 ? "wifi" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
+            if (a != null && a.isConnected()) {
+                if (a.getType() == 1) {
+                    return "wifi";
+                }
+                if (a.getType() == 0) {
+                    return b(a.getSubtype(), a.getSubtypeName());
+                }
+                return "unknown";
+            }
+            return "no";
         }
         return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"HardwareIds"})
     public static String e(Context context) {
         String str;
         InterceptResult invokeL;
@@ -227,28 +280,11 @@ public class NetworkUtils {
             } catch (Exception unused) {
                 str = null;
             }
-            return TextUtils.isEmpty(str) ? "" : str;
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeL.objValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            NetworkInfo a = a(AppRuntime.getAppContext());
-            return a != null && a.isConnectedOrConnecting();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            NetworkInfo a = a(AppRuntime.getAppContext());
-            return a != null && a.isAvailable() && a.getType() == 1;
-        }
-        return invokeL.booleanValue;
     }
 }

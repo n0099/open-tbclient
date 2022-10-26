@@ -1,80 +1,136 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkApplication;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ay4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public Toast f;
+    public Handler g;
+    public Runnable h;
 
-    public static void a(ImageView imageView, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) || imageView == null) {
-            return;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ay4 a;
+
+        public a(ay4 ay4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ay4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ay4Var;
         }
-        WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-        if (layoutParams != null) {
-            layoutParams.width = ej.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            layoutParams.height = ej.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            imageView.setLayoutParams(layoutParams);
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.f != null) {
+                    this.a.f.cancel();
+                }
+                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
+                }
+            }
         }
     }
 
-    public static void b(ViewGroup viewGroup) {
-        ViewGroup.LayoutParams layoutParams;
+    public ay4() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) || viewGroup == null || (layoutParams = viewGroup.getLayoutParams()) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        layoutParams.height = ej.f(TbadkApplication.getInst(), R.dimen.tbds120);
-        viewGroup.setLayoutParams(layoutParams);
+        this.a = 3000L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.h = new a(this);
+        this.b = TbadkCoreApplication.getInst().getContext();
+        this.g = new Handler();
     }
 
-    public static void c(TextView textView) {
+    public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, textView) == null) || textView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c4, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ee);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(fj.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ada);
+            e(this.c);
         }
-        hv4.d(textView).v(R.color.CAM_X0107);
     }
 
-    public static void d(TextView textView) {
+    public void d(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, textView) == null) || textView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c4, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ee);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(fj.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080adb);
+            e(this.c);
         }
-        hv4.d(textView).z(R.dimen.tbds36);
     }
 
-    public static void e(TextView textView) {
+    public void e(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) || textView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.g.removeCallbacks(this.h);
+            if (this.f == null) {
+                this.f = new Toast(this.b);
+            }
+            this.g.postDelayed(this.h, this.a);
+            this.f.setView(view2);
+            this.f.setDuration(1);
+            this.f.setGravity(17, 0, 0);
+            this.f.show();
         }
-        hv4 d = hv4.d(textView);
-        d.z(R.dimen.tbds36);
-        d.v(R.color.CAM_X0107);
-    }
-
-    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) || tBLottieAnimationView == null) {
-            return;
-        }
-        if (i != 1 && i != 4) {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110020);
-        } else {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110022);
-        }
-        tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
     }
 }

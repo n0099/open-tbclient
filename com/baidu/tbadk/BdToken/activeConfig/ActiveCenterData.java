@@ -21,13 +21,13 @@ public class ActiveCenterData implements Serializable {
     public int is_first_up;
     public boolean is_new_window;
     public ActiveCenterMissionData mission;
-    public ArrayList<ActiveCenterStatusData> mission_status_list;
+    public ArrayList mission_status_list;
     public String win_desc;
     public int win_jump_time;
     public String win_title;
 
     /* loaded from: classes3.dex */
-    public static class ActiveCenterMissionData implements Serializable {
+    public class ActiveCenterMissionData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int active_id;
@@ -71,7 +71,7 @@ public class ActiveCenterData implements Serializable {
     }
 
     /* loaded from: classes3.dex */
-    public static class ActiveCenterStatusData implements Serializable {
+    public class ActiveCenterStatusData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int day;
@@ -98,7 +98,11 @@ public class ActiveCenterData implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, activeCenterStatus) == null) {
                 this.day = activeCenterStatus.day.intValue();
-                this.is_completed = activeCenterStatus.is_completed.intValue() == 1;
+                boolean z = true;
+                if (activeCenterStatus.is_completed.intValue() != 1) {
+                    z = false;
+                }
+                this.is_completed = z;
                 this.mission = activeCenterStatus.mission;
                 this.is_today_mission = activeCenterStatus.is_today_mission.intValue();
                 this.desc = activeCenterStatus.desc;
@@ -140,11 +144,11 @@ public class ActiveCenterData implements Serializable {
             if (ListUtils.isEmpty(this.mission_status_list)) {
                 return null;
             }
-            Iterator<ActiveCenterStatusData> it = this.mission_status_list.iterator();
+            Iterator it = this.mission_status_list.iterator();
             while (it.hasNext()) {
-                ActiveCenterStatusData next = it.next();
-                if (next.is_today_mission == 1) {
-                    return next;
+                ActiveCenterStatusData activeCenterStatusData = (ActiveCenterStatusData) it.next();
+                if (activeCenterStatusData.is_today_mission == 1) {
+                    return activeCenterStatusData;
                 }
             }
             return null;
@@ -163,7 +167,7 @@ public class ActiveCenterData implements Serializable {
                 activeCenterMissionData.parseProto(activeCenter.mission);
             }
             if (activeCenter.mission_status_list != null) {
-                this.mission_status_list = new ArrayList<>();
+                this.mission_status_list = new ArrayList();
                 for (ActiveCenterStatus activeCenterStatus : activeCenter.mission_status_list) {
                     ActiveCenterStatusData activeCenterStatusData = new ActiveCenterStatusData();
                     activeCenterStatusData.parseProto(activeCenterStatus);
@@ -171,7 +175,11 @@ public class ActiveCenterData implements Serializable {
                 }
             }
             this.win_jump_time = activeCenter.win_jump_time.intValue();
-            this.is_new_window = activeCenter.is_new_window.intValue() == 1;
+            boolean z = true;
+            if (activeCenter.is_new_window.intValue() != 1) {
+                z = false;
+            }
+            this.is_new_window = z;
             this.is_first_up = activeCenter.is_first_up.intValue();
         }
     }
@@ -188,7 +196,7 @@ public class ActiveCenterData implements Serializable {
                 activeCenterMissionData.parseProto(dataRes.active_center.mission);
             }
             if (dataRes.active_center.mission_status_list != null) {
-                this.mission_status_list = new ArrayList<>();
+                this.mission_status_list = new ArrayList();
                 for (ActiveCenterStatus activeCenterStatus : dataRes.active_center.mission_status_list) {
                     ActiveCenterStatusData activeCenterStatusData = new ActiveCenterStatusData();
                     activeCenterStatusData.parseProto(activeCenterStatus);
@@ -196,7 +204,11 @@ public class ActiveCenterData implements Serializable {
                 }
             }
             this.win_jump_time = dataRes.active_center.win_jump_time.intValue();
-            this.is_new_window = dataRes.active_center.is_new_window.intValue() == 1;
+            boolean z = true;
+            if (dataRes.active_center.is_new_window.intValue() != 1) {
+                z = false;
+            }
+            this.is_new_window = z;
             this.is_first_up = dataRes.active_center.is_first_up.intValue();
         }
     }

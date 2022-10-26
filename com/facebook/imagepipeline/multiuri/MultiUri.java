@@ -21,13 +21,13 @@ public class MultiUri {
 
     /* renamed from: com.facebook.imagepipeline.multiuri.MultiUri$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -37,14 +37,31 @@ public class MultiUri {
         @Nullable
         public ImageRequest[] mMultiImageRequests;
 
-        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
-            this();
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public MultiUri build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MultiUri(this, null) : (MultiUri) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new MultiUri(this, null);
+            }
+            return (MultiUri) invokeV.objValue;
+        }
+
+        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
+            this();
         }
 
         public Builder setHighResImageRequest(@Nullable ImageRequest imageRequest) {
@@ -76,51 +93,6 @@ public class MultiUri {
             }
             return (Builder) invokeL.objValue;
         }
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public /* synthetic */ MultiUri(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    public static Builder create() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new Builder(null) : (Builder) invokeV.objValue;
-    }
-
-    @Nullable
-    public ImageRequest getHighResImageRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHighResImageRequest : (ImageRequest) invokeV.objValue;
-    }
-
-    @Nullable
-    public ImageRequest getLowResImageRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLowResImageRequest : (ImageRequest) invokeV.objValue;
-    }
-
-    @Nullable
-    public ImageRequest[] getMultiImageRequests() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMultiImageRequests : (ImageRequest[]) invokeV.objValue;
     }
 
     public MultiUri(Builder builder) {
@@ -141,5 +113,48 @@ public class MultiUri {
         this.mLowResImageRequest = builder.mLowResImageRequest;
         this.mHighResImageRequest = builder.mHighResImageRequest;
         this.mMultiImageRequests = builder.mMultiImageRequests;
+    }
+
+    public /* synthetic */ MultiUri(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public static Builder create() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new Builder(null);
+        }
+        return (Builder) invokeV.objValue;
+    }
+
+    @Nullable
+    public ImageRequest getHighResImageRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mHighResImageRequest;
+        }
+        return (ImageRequest) invokeV.objValue;
+    }
+
+    @Nullable
+    public ImageRequest getLowResImageRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLowResImageRequest;
+        }
+        return (ImageRequest) invokeV.objValue;
+    }
+
+    @Nullable
+    public ImageRequest[] getMultiImageRequests() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMultiImageRequests;
+        }
+        return (ImageRequest[]) invokeV.objValue;
     }
 }

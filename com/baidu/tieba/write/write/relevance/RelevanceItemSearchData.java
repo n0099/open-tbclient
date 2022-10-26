@@ -35,12 +35,15 @@ public class RelevanceItemSearchData implements Serializable {
     public ReleavanceItemListData getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDataList : (ReleavanceItemListData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDataList;
+        }
+        return (ReleavanceItemListData) invokeV.objValue;
     }
 
     public void parseJson(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || str == null) {
             return;
         }
         this.mDataList = (ReleavanceItemListData) this.gson.fromJson(str, (Class<Object>) ReleavanceItemListData.class);

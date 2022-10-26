@@ -31,13 +31,19 @@ public class ChatSetting extends OrmObject {
     public String getDraft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.draft : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.draft;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isAcceptNotify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isAcceptNotify : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isAcceptNotify;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setAcceptNotify(boolean z) {

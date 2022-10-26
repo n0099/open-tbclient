@@ -1,6 +1,5 @@
 package com.baidu.searchbox.network.outback.support.request.body;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.FilePart;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -41,14 +40,14 @@ public final class MultipartBody extends RequestBody {
     public long contentLength;
     public final MediaType contentType;
     public final MediaType originalType;
-    public final List<Part> parts;
+    public final List parts;
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String boundary;
-        public final List<Part> parts;
+        public final List parts;
         public MediaType type;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -69,18 +68,6 @@ public final class MultipartBody extends RequestBody {
             }
         }
 
-        public Builder addFormDataPart(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? addPart(Part.createFormData(str, str2)) : (Builder) invokeLL.objValue;
-        }
-
-        public Builder addPart(@Nullable Headers headers, RequestBody requestBody) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, headers, requestBody)) == null) ? addPart(Part.create(headers, requestBody)) : (Builder) invokeLL.objValue;
-        }
-
         public MultipartBody build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -91,22 +78,6 @@ public final class MultipartBody extends RequestBody {
                 throw new IllegalStateException("Multipart body must have at least one part.");
             }
             return (MultipartBody) invokeV.objValue;
-        }
-
-        public Builder setType(MediaType mediaType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaType)) == null) {
-                if (mediaType != null) {
-                    if (mediaType.type().equals("multipart")) {
-                        this.type = mediaType;
-                        return this;
-                    }
-                    throw new IllegalArgumentException("multipart != " + mediaType);
-                }
-                throw new NullPointerException("type == null");
-            }
-            return (Builder) invokeL.objValue;
         }
 
         public Builder(String str) {
@@ -129,16 +100,56 @@ public final class MultipartBody extends RequestBody {
             this.boundary = str;
         }
 
-        public Builder addFormDataPart(String str, @Nullable String str2, RequestBody requestBody) {
+        public Builder setType(MediaType mediaType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaType)) == null) {
+                if (mediaType != null) {
+                    if (mediaType.type().equals("multipart")) {
+                        this.type = mediaType;
+                        return this;
+                    }
+                    throw new IllegalArgumentException("multipart != " + mediaType);
+                }
+                throw new NullPointerException("type == null");
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder addFormDataPart(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+                return addPart(Part.createFormData(str, str2));
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder addPart(Headers headers, RequestBody requestBody) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, headers, requestBody)) == null) {
+                return addPart(Part.create(headers, requestBody));
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder addFormDataPart(String str, String str2, RequestBody requestBody) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, requestBody)) == null) ? addPart(Part.createFormData(str, str2, requestBody)) : (Builder) invokeLLL.objValue;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, requestBody)) == null) {
+                return addPart(Part.createFormData(str, str2, requestBody));
+            }
+            return (Builder) invokeLLL.objValue;
         }
 
         public Builder addPart(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, requestBody)) == null) ? addPart(Part.create(requestBody)) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, requestBody)) == null) {
+                return addPart(Part.create(requestBody));
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder addPart(Part part) {
@@ -156,14 +167,13 @@ public final class MultipartBody extends RequestBody {
     }
 
     /* loaded from: classes2.dex */
-    public static final class Part {
+    public final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RequestBody body;
-        @Nullable
         public final Headers headers;
 
-        public Part(@Nullable Headers headers, RequestBody requestBody) {
+        public Part(Headers headers, RequestBody requestBody) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,32 +192,7 @@ public final class MultipartBody extends RequestBody {
             this.body = requestBody;
         }
 
-        public static Part create(RequestBody requestBody) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, requestBody)) == null) ? create(null, requestBody) : (Part) invokeL.objValue;
-        }
-
-        public static Part createFormData(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) ? createFormData(str, null, RequestBody.create((MediaType) null, str2)) : (Part) invokeLL.objValue;
-        }
-
-        public RequestBody body() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.body : (RequestBody) invokeV.objValue;
-        }
-
-        @Nullable
-        public Headers headers() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.headers : (Headers) invokeV.objValue;
-        }
-
-        public static Part create(@Nullable Headers headers, RequestBody requestBody) {
+        public static Part create(Headers headers, RequestBody requestBody) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, headers, requestBody)) == null) {
@@ -225,7 +210,25 @@ public final class MultipartBody extends RequestBody {
             return (Part) invokeLL.objValue;
         }
 
-        public static Part createFormData(String str, @Nullable String str2, RequestBody requestBody) {
+        public static Part create(RequestBody requestBody) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, requestBody)) == null) {
+                return create(null, requestBody);
+            }
+            return (Part) invokeL.objValue;
+        }
+
+        public static Part createFormData(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+                return createFormData(str, null, RequestBody.create((MediaType) null, str2));
+            }
+            return (Part) invokeLL.objValue;
+        }
+
+        public static Part createFormData(String str, String str2, RequestBody requestBody) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, requestBody)) == null) {
@@ -241,6 +244,24 @@ public final class MultipartBody extends RequestBody {
                 throw new NullPointerException("name == null");
             }
             return (Part) invokeLLL.objValue;
+        }
+
+        public RequestBody body() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.body;
+            }
+            return (RequestBody) invokeV.objValue;
+        }
+
+        public Headers headers() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.headers;
+            }
+            return (Headers) invokeV.objValue;
         }
     }
 
@@ -267,7 +288,7 @@ public final class MultipartBody extends RequestBody {
         DASHDASH = new byte[]{45, 45};
     }
 
-    public MultipartBody(String str, MediaType mediaType, List<Part> list) {
+    public MultipartBody(String str, MediaType mediaType, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -297,14 +318,18 @@ public final class MultipartBody extends RequestBody {
             int length = str.length();
             for (int i = 0; i < length; i++) {
                 char charAt = str.charAt(i);
-                if (charAt == '\n') {
-                    sb.append("%0A");
-                } else if (charAt == '\r') {
-                    sb.append("%0D");
-                } else if (charAt != '\"') {
-                    sb.append(charAt);
+                if (charAt != '\n') {
+                    if (charAt != '\r') {
+                        if (charAt != '\"') {
+                            sb.append(charAt);
+                        } else {
+                            sb.append("%22");
+                        }
+                    } else {
+                        sb.append("%0D");
+                    }
                 } else {
-                    sb.append("%22");
+                    sb.append("%0A");
                 }
             }
             sb.append(Typography.quote);
@@ -313,7 +338,7 @@ public final class MultipartBody extends RequestBody {
         return (StringBuilder) invokeLL.objValue;
     }
 
-    private long writeOrCountBytes(@Nullable OutputStream outputStream, boolean z) throws IOException {
+    private long writeOrCountBytes(OutputStream outputStream, boolean z) throws IOException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, outputStream, z)) == null) {
@@ -324,7 +349,7 @@ public final class MultipartBody extends RequestBody {
             int size = this.parts.size();
             long j = 0;
             for (int i = 0; i < size; i++) {
-                Part part = this.parts.get(i);
+                Part part = (Part) this.parts.get(i);
                 Headers headers = part.headers;
                 RequestBody requestBody = part.body;
                 bufferedOutputStream.write(DASHDASH);
@@ -380,7 +405,10 @@ public final class MultipartBody extends RequestBody {
     public String boundary() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.boundary : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.boundary;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.core.RequestBody
@@ -403,31 +431,46 @@ public final class MultipartBody extends RequestBody {
     public MediaType contentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.contentType : (MediaType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.contentType;
+        }
+        return (MediaType) invokeV.objValue;
     }
 
-    public Part part(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.parts.get(i) : (Part) invokeI.objValue;
-    }
-
-    public List<Part> parts() {
+    public List parts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.parts : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.parts;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.parts.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.parts.size();
+        }
+        return invokeV.intValue;
     }
 
     public MediaType type() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.originalType : (MediaType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.originalType;
+        }
+        return (MediaType) invokeV.objValue;
+    }
+
+    public Part part(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return (Part) this.parts.get(i);
+        }
+        return (Part) invokeI.objValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.core.RequestBody

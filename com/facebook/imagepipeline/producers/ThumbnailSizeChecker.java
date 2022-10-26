@@ -15,6 +15,12 @@ public final class ThumbnailSizeChecker {
     public static final int ROTATED_90_DEGREES_COUNTER_CLOCKWISE = 270;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int getAcceptableSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) (i * 1.3333334f) : invokeI.intValue;
+    }
+
     public ThumbnailSizeChecker() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,16 +35,22 @@ public final class ThumbnailSizeChecker {
         }
     }
 
-    public static int getAcceptableSize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) (i * 1.3333334f) : invokeI.intValue;
-    }
-
     public static boolean isImageBigEnough(int i, int i2, ResizeOptions resizeOptions) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, resizeOptions)) == null) ? resizeOptions == null ? ((float) getAcceptableSize(i)) >= 2048.0f && getAcceptableSize(i2) >= 2048 : getAcceptableSize(i) >= resizeOptions.width && getAcceptableSize(i2) >= resizeOptions.height : invokeIIL.booleanValue;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, resizeOptions)) == null) {
+            if (resizeOptions == null) {
+                if (getAcceptableSize(i) >= 2048.0f && getAcceptableSize(i2) >= 2048) {
+                    return true;
+                }
+                return false;
+            } else if (getAcceptableSize(i) >= resizeOptions.width && getAcceptableSize(i2) >= resizeOptions.height) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeIIL.booleanValue;
     }
 
     public static boolean isImageBigEnough(EncodedImage encodedImage, ResizeOptions resizeOptions) {

@@ -1,17 +1,15 @@
 package com.baidu.nadcore.player.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.zy0;
+import com.baidu.tieba.az0;
+import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,22 +50,6 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    public final int a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            int i3 = this.f;
-            if (i3 != 0) {
-                if (i3 == 1 || i3 != 2) {
-                    return 0;
-                }
-                return getMeasuredWidth() - i2;
-            }
-            return (getMeasuredWidth() - i2) / 2;
-        }
-        return invokeII.intValue;
-    }
-
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -88,6 +70,121 @@ public class BdPlayerProgressView extends View {
         }
     }
 
+    public final int e(int i) {
+        InterceptResult invokeI;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.g == 1) {
+                str = com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
+            } else {
+                str = com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_TIME_TEXT;
+            }
+            int measureText = (int) this.e.measureText(str);
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            if (mode == 1073741824) {
+                return size;
+            }
+            if (mode != Integer.MIN_VALUE) {
+                return this.h;
+            }
+            return measureText;
+        }
+        return invokeI.intValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BdPlayerProgressView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BdPlayerProgressView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.c = com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
+        this.h = 0;
+        this.i = 0;
+        this.h = az0.a(this, 120.0f);
+        this.i = az0.a(this, 15.0f);
+        TypedArray typedArray = null;
+        try {
+            typedArray = context.obtainStyledAttributes(attributeSet, q61.nad_bdvideoplayer_bdPlayerProgressView);
+            this.a = typedArray.getDimension(3, 15.0f);
+            this.b = typedArray.getColor(1, -1);
+            this.f = typedArray.getInt(0, 1);
+            this.g = typedArray.getInt(2, 1);
+            Paint paint = new Paint();
+            this.e = paint;
+            paint.setAntiAlias(true);
+            this.e.setColor(this.b);
+            this.e.setTextSize(this.a);
+            if (this.g == 2) {
+                this.e.setFakeBoldText(true);
+            }
+        } finally {
+            if (typedArray != null) {
+                typedArray.recycle();
+            }
+        }
+    }
+
+    public final int a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            int i3 = this.f;
+            if (i3 != 0) {
+                if (i3 == 1 || i3 != 2) {
+                    return 0;
+                }
+                return getMeasuredWidth() - i2;
+            }
+            return (getMeasuredWidth() - i2) / 2;
+        }
+        return invokeII.intValue;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            setMeasuredDimension(e(i), d(i2));
+        }
+    }
+
     public final int d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -105,41 +202,6 @@ public class BdPlayerProgressView extends View {
         return invokeI.intValue;
     }
 
-    public final int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            int measureText = (int) this.e.measureText(this.g == 1 ? com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT : com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_TIME_TEXT);
-            int mode = View.MeasureSpec.getMode(i);
-            return mode == 1073741824 ? View.MeasureSpec.getSize(i) : mode == Integer.MIN_VALUE ? measureText : this.h;
-        }
-        return invokeI.intValue;
-    }
-
-    public String getPositionText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int getTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public float getTextSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    public String getTimeText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
@@ -154,15 +216,7 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            setMeasuredDimension(e(i), d(i2));
-        }
-    }
-
-    public void setPositionText(@NonNull String str) {
+    public void setPositionText(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && this.g == 1) {
             this.c = str;
@@ -194,71 +248,39 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdPlayerProgressView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    public String getPositionText() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"CustomViewStyleable"})
-    public BdPlayerProgressView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public int getTextColor() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
         }
-        this.c = com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
-        this.h = 0;
-        this.i = 0;
-        this.h = zy0.a(this, 120.0f);
-        this.i = zy0.a(this, 15.0f);
-        TypedArray typedArray = null;
-        try {
-            typedArray = context.obtainStyledAttributes(attributeSet, p61.nad_bdvideoplayer_bdPlayerProgressView);
-            this.a = typedArray.getDimension(3, 15.0f);
-            this.b = typedArray.getColor(1, -1);
-            this.f = typedArray.getInt(0, 1);
-            this.g = typedArray.getInt(2, 1);
-            Paint paint = new Paint();
-            this.e = paint;
-            paint.setAntiAlias(true);
-            this.e.setColor(this.b);
-            this.e.setTextSize(this.a);
-            if (this.g == 2) {
-                this.e.setFakeBoldText(true);
-            }
-        } finally {
-            if (typedArray != null) {
-                typedArray.recycle();
-            }
+        return invokeV.intValue;
+    }
+
+    public float getTextSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
         }
+        return invokeV.floatValue;
+    }
+
+    public String getTimeText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -93,13 +93,14 @@ public final class Http2 {
         }
         while (true) {
             String[] strArr5 = FLAGS;
-            if (i >= strArr5.length) {
+            if (i < strArr5.length) {
+                if (strArr5[i] == null) {
+                    strArr5[i] = BINARY[i];
+                }
+                i++;
+            } else {
                 return;
             }
-            if (strArr5[i] == null) {
-                strArr5[i] = BINARY[i];
-            }
-            i++;
         }
     }
 
@@ -119,21 +120,33 @@ public final class Http2 {
 
     public static String formatFlags(byte b, byte b2) {
         InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
             if (b2 == 0) {
                 return "";
             }
             if (b != 2 && b != 3) {
-                if (b == 4 || b == 6) {
-                    return b2 == 1 ? "ACK" : BINARY[b2];
-                } else if (b != 7 && b != 8) {
-                    String[] strArr = FLAGS;
-                    String str = b2 < strArr.length ? strArr[b2] : BINARY[b2];
-                    if (b != 5 || (b2 & 4) == 0) {
-                        return (b != 0 || (b2 & 32) == 0) ? str : str.replace("PRIORITY", "COMPRESSED");
+                if (b != 4 && b != 6) {
+                    if (b != 7 && b != 8) {
+                        String[] strArr = FLAGS;
+                        if (b2 < strArr.length) {
+                            str = strArr[b2];
+                        } else {
+                            str = BINARY[b2];
+                        }
+                        if (b == 5 && (b2 & 4) != 0) {
+                            return str.replace("HEADERS", "PUSH_PROMISE");
+                        }
+                        if (b == 0 && (b2 & 32) != 0) {
+                            return str.replace("PRIORITY", "COMPRESSED");
+                        }
+                        return str;
                     }
-                    return str.replace("HEADERS", "PUSH_PROMISE");
+                } else if (b2 == 1) {
+                    return "ACK";
+                } else {
+                    return BINARY[b2];
                 }
             }
             return BINARY[b2];
@@ -143,13 +156,24 @@ public final class Http2 {
 
     public static String frameLog(boolean z, int i, int i2, byte b, byte b2) {
         InterceptResult invokeCommon;
+        String format;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
             String[] strArr = FRAME_NAMES;
-            String format = b < strArr.length ? strArr[b] : Util.format("0x%02x", Byte.valueOf(b));
+            if (b < strArr.length) {
+                format = strArr[b];
+            } else {
+                format = Util.format("0x%02x", Byte.valueOf(b));
+            }
             String formatFlags = formatFlags(b, b2);
             Object[] objArr = new Object[5];
-            objArr[0] = z ? "<<" : ">>";
+            if (z) {
+                str = "<<";
+            } else {
+                str = ">>";
+            }
+            objArr[0] = str;
             objArr[1] = Integer.valueOf(i);
             objArr[2] = Integer.valueOf(i2);
             objArr[3] = format;

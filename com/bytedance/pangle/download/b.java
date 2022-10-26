@@ -15,7 +15,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
+    public final List a;
 
     public b() {
         Interceptable interceptable = $ic;

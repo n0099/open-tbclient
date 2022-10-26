@@ -1,28 +1,43 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hj4 {
+public class hj4 extends wj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public SparseIntArray b;
-    public ArrayList<String> c;
-    public long d;
-    public long e;
-    public String f;
-    public boolean g;
 
+    /* loaded from: classes4.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hj4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-745336390, "Lcom/baidu/tieba/hj4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-745336390, "Lcom/baidu/tieba/hj4$a;");
+                    return;
+                }
+            }
+            a = new hj4();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hj4() {
+        super("com.baidu.searchbox_aiapp_openstat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,73 +45,20 @@ public class hj4 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = false;
-        this.a = new JSONArray();
-        this.b = new SparseIntArray();
-        this.c = new ArrayList<>();
-        this.d = 0L;
-        this.e = 0L;
-        this.f = "0";
     }
 
-    public final void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a.put(jSONObject);
-        }
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.toString().getBytes().length >= i : invokeI.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.clear();
-            this.c.clear();
-            this.a = null;
-        }
-    }
-
-    public boolean d() {
+    public static hj4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.length() == 0 : invokeV.booleanValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.c.contains(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        this.c.add(str);
-    }
-
-    public final void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.b.put(i, i2);
-        }
-    }
-
-    public final void g(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long j3 = this.d;
-            if ((j < j3 || j3 == 0) && j != 0) {
-                this.d = j;
-            }
-            if (j2 > this.e) {
-                this.e = j2;
-            }
-        }
+        return (hj4) invokeV.objValue;
     }
 }

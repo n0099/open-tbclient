@@ -28,7 +28,7 @@ public abstract class Animation {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RepeatMode {
+    public final class RepeatMode {
         public static /* synthetic */ Interceptable $ic;
         public static final RepeatMode RESTART;
         public static final RepeatMode REVERSE;

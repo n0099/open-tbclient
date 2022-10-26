@@ -1,6 +1,5 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,10 +11,10 @@ import java.util.Set;
 public class SearchResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Call> mInstances;
-    public final Set<MethodInfo> mMethods;
+    public final Set mInstances;
+    public final Set mMethods;
 
-    public SearchResult(@NonNull Set<MethodInfo> set, @NonNull Set<Call> set2) {
+    public SearchResult(Set set, Set set2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,17 +33,21 @@ public class SearchResult {
         this.mInstances = set2;
     }
 
-    @NonNull
-    public Set<Call> getInstances() {
+    public Set getInstances() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInstances : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mInstances;
+        }
+        return (Set) invokeV.objValue;
     }
 
-    @NonNull
-    public Set<MethodInfo> getMethods() {
+    public Set getMethods() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMethods : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMethods;
+        }
+        return (Set) invokeV.objValue;
     }
 }

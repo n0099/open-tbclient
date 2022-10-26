@@ -1,7 +1,5 @@
 package androidx.webkit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.webkit.internal.ProxyControllerImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,6 +13,10 @@ import java.util.concurrent.Executor;
 public abstract class ProxyController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void clearProxyOverride(Executor executor, Runnable runnable);
+
+    public abstract void setProxyOverride(ProxyConfig proxyConfig, Executor executor, Runnable runnable);
 
     /* loaded from: classes.dex */
     public static class LAZY_HOLDER {
@@ -53,7 +55,6 @@ public abstract class ProxyController {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ProxyController() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +69,6 @@ public abstract class ProxyController {
         }
     }
 
-    @NonNull
     public static ProxyController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,8 +80,4 @@ public abstract class ProxyController {
         }
         return (ProxyController) invokeV.objValue;
     }
-
-    public abstract void clearProxyOverride(@NonNull Executor executor, @NonNull Runnable runnable);
-
-    public abstract void setProxyOverride(@NonNull ProxyConfig proxyConfig, @NonNull Executor executor, @NonNull Runnable runnable);
 }

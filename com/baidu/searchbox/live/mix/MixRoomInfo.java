@@ -22,9 +22,25 @@ public final class MixRoomInfo {
     public String roomId;
     public String scheme;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-356780238, "Lcom/baidu/searchbox/live/mix/MixRoomInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-356780238, "Lcom/baidu/searchbox/live/mix/MixRoomInfo;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\u0004\u001a\u0004\u0018\u00010\u00032\b\u0010\u0002\u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/mix/MixRoomInfo$Companion;", "Lorg/json/JSONObject;", "jsonObject", "Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "parse", "(Lorg/json/JSONObject;)Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,6 +58,10 @@ public final class MixRoomInfo {
             }
         }
 
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         public final MixRoomInfo parse(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -57,26 +77,6 @@ public final class MixRoomInfo {
             }
             return (MixRoomInfo) invokeL.objValue;
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-356780238, "Lcom/baidu/searchbox/live/mix/MixRoomInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-356780238, "Lcom/baidu/searchbox/live/mix/MixRoomInfo;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
     }
 
     public MixRoomInfo() {
@@ -96,27 +96,42 @@ public final class MixRoomInfo {
     public final String getAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.avatar : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.avatar;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.roomId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.roomId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.scheme : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.scheme;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final boolean isValid() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String str = this.scheme;
-            return !(str == null || str.length() == 0);
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            return !z;
         }
         return invokeV.booleanValue;
     }

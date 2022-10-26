@@ -31,7 +31,7 @@ public class bn {
         return (String) invokeL.objValue;
     }
 
-    public static String a(String str, String str2, Map<String, String> map, String str3) {
+    public static String a(String str, String str2, Map map, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, map, str3)) == null) {

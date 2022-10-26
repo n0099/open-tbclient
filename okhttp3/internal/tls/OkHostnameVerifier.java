@@ -130,6 +130,18 @@ public final class OkHostnameVerifier implements HostnameVerifier {
         return invokeLL.booleanValue;
     }
 
+    public boolean verify(String str, X509Certificate x509Certificate) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, x509Certificate)) == null) {
+            if (Util.verifyAsIpAddress(str)) {
+                return verifyIpAddress(str, x509Certificate);
+            }
+            return verifyHostname(str, x509Certificate);
+        }
+        return invokeLL.booleanValue;
+    }
+
     @Override // javax.net.ssl.HostnameVerifier
     public boolean verify(String str, SSLSession sSLSession) {
         InterceptResult invokeLL;
@@ -140,18 +152,6 @@ public final class OkHostnameVerifier implements HostnameVerifier {
             } catch (SSLException unused) {
                 return false;
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean verify(String str, X509Certificate x509Certificate) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, x509Certificate)) == null) {
-            if (Util.verifyAsIpAddress(str)) {
-                return verifyIpAddress(str, x509Certificate);
-            }
-            return verifyHostname(str, x509Certificate);
         }
         return invokeLL.booleanValue;
     }
@@ -175,11 +175,14 @@ public final class OkHostnameVerifier implements HostnameVerifier {
                     return false;
                 }
                 String substring = lowerCase.substring(1);
-                if (str.endsWith(substring)) {
-                    int length = str.length() - substring.length();
-                    return length <= 0 || str.lastIndexOf(46, length - 1) == -1;
+                if (!str.endsWith(substring)) {
+                    return false;
                 }
-                return false;
+                int length = str.length() - substring.length();
+                if (length > 0 && str.lastIndexOf(46, length - 1) != -1) {
+                    return false;
+                }
+                return true;
             }
             return false;
         }

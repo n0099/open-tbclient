@@ -1,6 +1,5 @@
 package com.bumptech.glide.util;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +18,7 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     public int availableBytes;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MarkEnforcingInputStream(@NonNull InputStream inputStream) {
+    public MarkEnforcingInputStream(InputStream inputStream) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,7 +46,10 @@ public class MarkEnforcingInputStream extends FilterInputStream {
             if (i == 0) {
                 return -1L;
             }
-            return (i == Integer.MIN_VALUE || j <= ((long) i)) ? j : i;
+            if (i != Integer.MIN_VALUE && j > i) {
+                return i;
+            }
+            return j;
         }
         return invokeJ.longValue;
     }
@@ -55,21 +57,9 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     private void updateAvailableBytesAfterRead(long j) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (i = this.availableBytes) == Integer.MIN_VALUE || j == -1) {
-            return;
+        if ((interceptable == null || interceptable.invokeJ(65538, this, j) == null) && (i = this.availableBytes) != Integer.MIN_VALUE && j != -1) {
+            this.availableBytes = (int) (i - j);
         }
-        this.availableBytes = (int) (i - j);
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.availableBytes;
-            return i == Integer.MIN_VALUE ? super.available() : Math.min(i, super.available());
-        }
-        return invokeV.intValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -81,6 +71,36 @@ public class MarkEnforcingInputStream extends FilterInputStream {
                 this.availableBytes = i;
             }
         }
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            long bytesToRead = getBytesToRead(j);
+            if (bytesToRead == -1) {
+                return 0L;
+            }
+            long skip = super.skip(bytesToRead);
+            updateAvailableBytesAfterRead(skip);
+            return skip;
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.availableBytes;
+            if (i == Integer.MIN_VALUE) {
+                return super.available();
+            }
+            return Math.min(i, super.available());
+        }
+        return invokeV.intValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -110,23 +130,7 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            long bytesToRead = getBytesToRead(j);
-            if (bytesToRead == -1) {
-                return 0L;
-            }
-            long skip = super.skip(bytesToRead);
-            updateAvailableBytesAfterRead(skip);
-            return skip;
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {

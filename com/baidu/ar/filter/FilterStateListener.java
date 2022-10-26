@@ -3,5 +3,5 @@ package com.baidu.ar.filter;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public interface FilterStateListener {
-    void onFilterStateChanged(HashMap<FilterNode, Boolean> hashMap, String str);
+    void onFilterStateChanged(HashMap hashMap, String str);
 }

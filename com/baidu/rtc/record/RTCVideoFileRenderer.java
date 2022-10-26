@@ -11,7 +11,7 @@ import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.record.RTCVideoFileRenderer;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.px9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -111,10 +111,10 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
 
     private void audioSamplesRecord(final RTCAudioSamples rTCAudioSamples) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) || rTCAudioSamples == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, rTCAudioSamples) != null) || rTCAudioSamples == null) {
             return;
         }
-        this.audioThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.of1
+        this.audioThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.pf1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,121 +128,150 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         });
     }
 
+    @Override // org.webrtc.VideoSink
+    public void onFrame(final VideoFrame videoFrame) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, videoFrame) == null) {
+            videoFrame.retain();
+            if (this.videoEncoder == null) {
+                initVideoEncoder();
+            }
+            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.rf1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        RTCVideoFileRenderer.this.c(videoFrame);
+                    }
+                }
+            });
+        }
+    }
+
     private void drainAudio() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65538, this) != null) {
-            return;
-        }
-        if (this.audioBufferInfo == null) {
-            this.audioBufferInfo = new MediaCodec.BufferInfo();
-        }
-        while (true) {
-            int dequeueOutputBuffer = this.audioEncoder.dequeueOutputBuffer(this.audioBufferInfo, 10000L);
-            if (dequeueOutputBuffer == -1) {
-                return;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            if (this.audioBufferInfo == null) {
+                this.audioBufferInfo = new MediaCodec.BufferInfo();
             }
-            if (dequeueOutputBuffer == -3) {
-                this.audioOutputBuffers = this.audioEncoder.getOutputBuffers();
-                Log.w(TAG, "encoder output buffers changed");
-            } else {
-                boolean z = true;
-                if (dequeueOutputBuffer == -2) {
-                    MediaFormat outputFormat = this.audioEncoder.getOutputFormat();
-                    Log.w(TAG, "audio encoder output format changed: " + outputFormat);
-                    this.audioTrackIndex = this.mediaMuxer.addTrack(outputFormat);
-                    if (this.trackIndex != -1 && !this.muxerStarted) {
-                        this.mediaMuxer.start();
-                        this.muxerStarted = true;
+            while (true) {
+                int dequeueOutputBuffer = this.audioEncoder.dequeueOutputBuffer(this.audioBufferInfo, 10000L);
+                if (dequeueOutputBuffer != -1) {
+                    if (dequeueOutputBuffer == -3) {
+                        this.audioOutputBuffers = this.audioEncoder.getOutputBuffers();
+                        Log.w(TAG, "encoder output buffers changed");
+                    } else {
+                        boolean z = true;
+                        if (dequeueOutputBuffer == -2) {
+                            MediaFormat outputFormat = this.audioEncoder.getOutputFormat();
+                            Log.w(TAG, "audio encoder output format changed: " + outputFormat);
+                            this.audioTrackIndex = this.mediaMuxer.addTrack(outputFormat);
+                            if (this.trackIndex != -1 && !this.muxerStarted) {
+                                this.mediaMuxer.start();
+                                this.muxerStarted = true;
+                            }
+                            if (!this.muxerStarted) {
+                                return;
+                            }
+                        } else if (dequeueOutputBuffer < 0) {
+                            Log.e(TAG, "unexpected on audio encoder dequeueOutputBuffer: " + dequeueOutputBuffer);
+                        } else {
+                            try {
+                                ByteBuffer byteBuffer = this.audioOutputBuffers[dequeueOutputBuffer];
+                                if (byteBuffer == null) {
+                                    Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                                    return;
+                                }
+                                byteBuffer.position(this.audioBufferInfo.offset);
+                                byteBuffer.limit(this.audioBufferInfo.offset + this.audioBufferInfo.size);
+                                if (this.muxerStarted && this.mediaMuxer != null) {
+                                    this.mediaMuxer.writeSampleData(this.audioTrackIndex, byteBuffer, this.audioBufferInfo);
+                                }
+                                if (!this.isRunning || (this.audioBufferInfo.flags & 4) != 0) {
+                                    z = false;
+                                }
+                                this.isRunning = z;
+                                this.audioEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                if ((this.audioBufferInfo.flags & 4) != 0) {
+                                    return;
+                                }
+                            } catch (Exception e) {
+                                Log.e(TAG, e.getMessage());
+                                return;
+                            }
+                        }
                     }
-                    if (!this.muxerStarted) {
-                        return;
-                    }
-                } else if (dequeueOutputBuffer < 0) {
-                    Log.e(TAG, "unexpected on audio encoder dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
-                    try {
-                        ByteBuffer byteBuffer = this.audioOutputBuffers[dequeueOutputBuffer];
-                        if (byteBuffer == null) {
-                            Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                            return;
-                        }
-                        byteBuffer.position(this.audioBufferInfo.offset);
-                        byteBuffer.limit(this.audioBufferInfo.offset + this.audioBufferInfo.size);
-                        if (this.muxerStarted && this.mediaMuxer != null) {
-                            this.mediaMuxer.writeSampleData(this.audioTrackIndex, byteBuffer, this.audioBufferInfo);
-                        }
-                        if (!this.isRunning || (this.audioBufferInfo.flags & 4) != 0) {
-                            z = false;
-                        }
-                        this.isRunning = z;
-                        this.audioEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                        if ((this.audioBufferInfo.flags & 4) != 0) {
-                            return;
-                        }
-                    } catch (Exception e) {
-                        Log.e(TAG, e.getMessage());
-                        return;
-                    }
+                    return;
                 }
             }
         }
     }
 
     private void drainVideo() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65539, this) != null) {
-            return;
-        }
-        if (!this.encoderStarted) {
-            this.videoEncoder.start();
-            this.videoOutputBuffers = this.videoEncoder.getOutputBuffers();
-            this.encoderStarted = true;
-            return;
-        }
-        while (true) {
-            int dequeueOutputBuffer = this.videoEncoder.dequeueOutputBuffer(this.videoBufferInfo, 10000L);
-            if (dequeueOutputBuffer == -1) {
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            if (!this.encoderStarted) {
+                this.videoEncoder.start();
+                this.videoOutputBuffers = this.videoEncoder.getOutputBuffers();
+                this.encoderStarted = true;
                 return;
             }
-            if (dequeueOutputBuffer == -3) {
-                this.videoOutputBuffers = this.videoEncoder.getOutputBuffers();
-                Log.e(TAG, "video encoder output buffers changed");
-            } else if (dequeueOutputBuffer == -2) {
-                MediaFormat outputFormat = this.videoEncoder.getOutputFormat();
-                Log.e(TAG, "video encoder output format changed: " + outputFormat);
-                this.trackIndex = this.mediaMuxer.addTrack(outputFormat);
-                if (this.audioTrackIndex != -1 && !this.muxerStarted) {
-                    this.mediaMuxer.start();
-                    this.muxerStarted = true;
-                }
-                if (!this.muxerStarted) {
-                    return;
-                }
-            } else if (dequeueOutputBuffer < 0) {
-                Log.e(TAG, "unexpected on video encoder dequeueOutputBuffer: " + dequeueOutputBuffer);
-            } else {
-                try {
-                    ByteBuffer byteBuffer = this.videoOutputBuffers[dequeueOutputBuffer];
-                    if (byteBuffer == null) {
-                        Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                        return;
+            while (true) {
+                int dequeueOutputBuffer = this.videoEncoder.dequeueOutputBuffer(this.videoBufferInfo, 10000L);
+                if (dequeueOutputBuffer != -1) {
+                    if (dequeueOutputBuffer == -3) {
+                        this.videoOutputBuffers = this.videoEncoder.getOutputBuffers();
+                        Log.e(TAG, "video encoder output buffers changed");
+                    } else if (dequeueOutputBuffer == -2) {
+                        MediaFormat outputFormat = this.videoEncoder.getOutputFormat();
+                        Log.e(TAG, "video encoder output format changed: " + outputFormat);
+                        this.trackIndex = this.mediaMuxer.addTrack(outputFormat);
+                        if (this.audioTrackIndex != -1 && !this.muxerStarted) {
+                            this.mediaMuxer.start();
+                            this.muxerStarted = true;
+                        }
+                        if (!this.muxerStarted) {
+                            return;
+                        }
+                    } else if (dequeueOutputBuffer < 0) {
+                        Log.e(TAG, "unexpected on video encoder dequeueOutputBuffer: " + dequeueOutputBuffer);
+                    } else {
+                        try {
+                            ByteBuffer byteBuffer = this.videoOutputBuffers[dequeueOutputBuffer];
+                            if (byteBuffer == null) {
+                                Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                                return;
+                            }
+                            byteBuffer.position(this.videoBufferInfo.offset);
+                            byteBuffer.limit(this.videoBufferInfo.offset + this.videoBufferInfo.size);
+                            if (this.videoFrameStart == 0 && this.videoBufferInfo.presentationTimeUs != 0) {
+                                this.videoFrameStart = this.videoBufferInfo.presentationTimeUs;
+                            }
+                            this.videoBufferInfo.presentationTimeUs -= this.videoFrameStart;
+                            if (this.muxerStarted && this.mediaMuxer != null) {
+                                this.mediaMuxer.writeSampleData(this.trackIndex, byteBuffer, this.videoBufferInfo);
+                            }
+                            if (this.isRunning && (this.videoBufferInfo.flags & 4) == 0) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            this.isRunning = z;
+                            this.videoEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            if ((this.videoBufferInfo.flags & 4) != 0) {
+                                return;
+                            }
+                        } catch (Exception e) {
+                            Log.wtf(TAG, e);
+                            return;
+                        }
                     }
-                    byteBuffer.position(this.videoBufferInfo.offset);
-                    byteBuffer.limit(this.videoBufferInfo.offset + this.videoBufferInfo.size);
-                    if (this.videoFrameStart == 0 && this.videoBufferInfo.presentationTimeUs != 0) {
-                        this.videoFrameStart = this.videoBufferInfo.presentationTimeUs;
-                    }
-                    this.videoBufferInfo.presentationTimeUs -= this.videoFrameStart;
-                    if (this.muxerStarted && this.mediaMuxer != null) {
-                        this.mediaMuxer.writeSampleData(this.trackIndex, byteBuffer, this.videoBufferInfo);
-                    }
-                    this.isRunning = this.isRunning && (this.videoBufferInfo.flags & 4) == 0;
-                    this.videoEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if ((this.videoBufferInfo.flags & 4) != 0) {
-                        return;
-                    }
-                } catch (Exception e) {
-                    Log.wtf(TAG, e);
+                } else {
                     return;
                 }
             }
@@ -284,7 +313,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.encodeParams.getVideoCodec());
                 this.videoEncoder = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.nf1
+                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.of1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -300,6 +329,35 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 Log.wtf(TAG, e);
             }
         }
+    }
+
+    public /* synthetic */ void d() {
+        Log.w(TAG, "stop audio encoder ...");
+        MediaCodec mediaCodec = this.audioEncoder;
+        if (mediaCodec != null) {
+            mediaCodec.flush();
+            this.audioEncoder.stop();
+            this.audioEncoder.release();
+            this.audioEncoder = null;
+        }
+        try {
+            if (this.mediaMuxer != null && this.muxerStarted) {
+                this.mediaMuxer.stop();
+                this.mediaMuxer.release();
+                if (this.mCallback != null) {
+                    this.mCallback.onRecordCompleted(true, this.outputFileName);
+                }
+            } else if (this.mCallback != null) {
+                this.mCallback.onRecordCompleted(false, "Record is not started!");
+            }
+        } catch (IllegalStateException e) {
+            Log.e(TAG, "Stop media muxer exception : " + e.getLocalizedMessage());
+            RecorderCallback recorderCallback = this.mCallback;
+            if (recorderCallback != null) {
+                recorderCallback.onRecordCompleted(false, e.getLocalizedMessage());
+            }
+        }
+        this.audioThread.quit();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -335,41 +393,12 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public /* synthetic */ void b() {
-        this.eglBase = xw9.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
+        this.eglBase = px9.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
         Surface createInputSurface = this.videoEncoder.createInputSurface();
         this.surface = createInputSurface;
         this.eglBase.createSurface(createInputSurface);
         this.eglBase.makeCurrent();
         this.drawer = new GlRectDrawer();
-    }
-
-    public /* synthetic */ void d() {
-        Log.w(TAG, "stop audio encoder ...");
-        MediaCodec mediaCodec = this.audioEncoder;
-        if (mediaCodec != null) {
-            mediaCodec.flush();
-            this.audioEncoder.stop();
-            this.audioEncoder.release();
-            this.audioEncoder = null;
-        }
-        try {
-            if (this.mediaMuxer != null && this.muxerStarted) {
-                this.mediaMuxer.stop();
-                this.mediaMuxer.release();
-                if (this.mCallback != null) {
-                    this.mCallback.onRecordCompleted(true, this.outputFileName);
-                }
-            } else if (this.mCallback != null) {
-                this.mCallback.onRecordCompleted(false, "Record is not started!");
-            }
-        } catch (IllegalStateException e) {
-            Log.e(TAG, "Stop media muxer exception : " + e.getLocalizedMessage());
-            RecorderCallback recorderCallback = this.mCallback;
-            if (recorderCallback != null) {
-                recorderCallback.onRecordCompleted(false, e.getLocalizedMessage());
-            }
-        }
-        this.audioThread.quit();
     }
 
     public /* synthetic */ void e() {
@@ -388,50 +417,13 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         }
     }
 
-    @Override // org.webrtc.VideoSink
-    public void onFrame(final VideoFrame videoFrame) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoFrame) == null) {
-            videoFrame.retain();
-            if (this.videoEncoder == null) {
-                initVideoEncoder();
-            }
-            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.qf1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        RTCVideoFileRenderer.this.c(videoFrame);
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.rtc.RTCAudioSamples.RTCRemoteSamplesReadyCallback
-    public void onRtcAudioRemoteSamplesReady(RTCAudioSamples rTCAudioSamples) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rTCAudioSamples) == null) {
-            if (this.audioEncodeBufferSize + rTCAudioSamples.getData().length > 3840) {
-                RTCAudioSamples rTCAudioSamples2 = new RTCAudioSamples(rTCAudioSamples.getAudioFormat(), rTCAudioSamples.getChannelCount(), rTCAudioSamples.getSampleRate(), Arrays.copyOfRange(this.mByteBuffer, 0, this.audioEncodeBufferSize));
-                this.audioEncodeBufferSize = 0;
-                audioSamplesRecord(rTCAudioSamples2);
-            }
-            System.arraycopy(rTCAudioSamples.getData(), 0, this.mByteBuffer, this.audioEncodeBufferSize, rTCAudioSamples.getData().length);
-            this.audioEncodeBufferSize += rTCAudioSamples.getData().length;
-        }
-    }
-
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.isRunning = false;
             Handler handler = this.audioThreadHandler;
             if (handler != null) {
-                handler.post(new Runnable() { // from class: com.baidu.tieba.mf1
+                handler.post(new Runnable() { // from class: com.baidu.tieba.nf1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -446,7 +438,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             Handler handler2 = this.renderThreadHandler;
             if (handler2 != null) {
-                handler2.post(new Runnable() { // from class: com.baidu.tieba.pf1
+                handler2.post(new Runnable() { // from class: com.baidu.tieba.qf1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -459,6 +451,20 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     }
                 });
             }
+        }
+    }
+
+    @Override // com.baidu.rtc.RTCAudioSamples.RTCRemoteSamplesReadyCallback
+    public void onRtcAudioRemoteSamplesReady(RTCAudioSamples rTCAudioSamples) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, rTCAudioSamples) == null) {
+            if (this.audioEncodeBufferSize + rTCAudioSamples.getData().length > 3840) {
+                RTCAudioSamples rTCAudioSamples2 = new RTCAudioSamples(rTCAudioSamples.getAudioFormat(), rTCAudioSamples.getChannelCount(), rTCAudioSamples.getSampleRate(), Arrays.copyOfRange(this.mByteBuffer, 0, this.audioEncodeBufferSize));
+                this.audioEncodeBufferSize = 0;
+                audioSamplesRecord(rTCAudioSamples2);
+            }
+            System.arraycopy(rTCAudioSamples.getData(), 0, this.mByteBuffer, this.audioEncodeBufferSize, rTCAudioSamples.getData().length);
+            this.audioEncodeBufferSize += rTCAudioSamples.getData().length;
         }
     }
 }

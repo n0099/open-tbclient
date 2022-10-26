@@ -2,10 +2,8 @@ package com.fun.ad.sdk.channel.model.gdt;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +48,7 @@ public class GDTNativeUnifiedImg3View extends u {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GDTNativeUnifiedImg3View(Context context, @Nullable AttributeSet attributeSet) {
+    public GDTNativeUnifiedImg3View(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +69,7 @@ public class GDTNativeUnifiedImg3View extends u {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GDTNativeUnifiedImg3View(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public GDTNativeUnifiedImg3View(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,7 +90,7 @@ public class GDTNativeUnifiedImg3View extends u {
     }
 
     @Override // com.fun.module.gdt.u
-    public List<View> a() {
+    public List a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -112,9 +110,9 @@ public class GDTNativeUnifiedImg3View extends u {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
             super.a(nativeUnifiedADData);
             LogPrinter.e("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgList().get(0), this.e);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgList().get(1), this.f);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgList().get(2), this.g);
+            GlideHelper.get().load(getContext(), (String) nativeUnifiedADData.getImgList().get(0), this.e);
+            GlideHelper.get().load(getContext(), (String) nativeUnifiedADData.getImgList().get(1), this.f);
+            GlideHelper.get().load(getContext(), (String) nativeUnifiedADData.getImgList().get(2), this.g);
         }
     }
 

@@ -22,7 +22,13 @@ public final class ImEffect extends Message {
     public final String stroke_color;
 
     /* loaded from: classes.dex */
-    public static final class Builder extends Message.Builder<ImEffect> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String end_color;
@@ -70,23 +76,15 @@ public final class ImEffect extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public ImEffect build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new ImEffect(this, z, null) : (ImEffect) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return new ImEffect(this, z, null);
+            }
+            return (ImEffect) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public /* synthetic */ ImEffect(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,5 +130,9 @@ public final class ImEffect extends Message {
         this.start_color = builder.start_color;
         this.end_color = builder.end_color;
         this.stroke_color = builder.stroke_color;
+    }
+
+    public /* synthetic */ ImEffect(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

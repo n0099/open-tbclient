@@ -1,122 +1,238 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
+import android.util.SparseIntArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.view.BaseLegoCardView;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
+import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
+import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
+import com.baidu.tieba.s95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gf8 {
+public class gf8 extends bh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    @Override // com.baidu.tieba.bh7
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
-            if (i != 2) {
-                return i == 3 ? bp5.k().r(i2, AbsDataRecorder.Scene.PB) : i == 1 && "INDEX".equals(str) && bp5.k().s(AbsDataRecorder.Scene.RECOMMEND);
-            } else if ("frs_new_tab".equals(str) && bp5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
-                return true;
-            } else {
-                return "frs_hot_tab".equals(str) && bp5.k().s(AbsDataRecorder.Scene.FRS_HOT);
-            }
-        }
-        return invokeLII.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_for_RecApp" : (String) invokeV.objValue;
     }
 
-    public static void b(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (i == 2 || i == 1) {
-                if (vipAdFreeGuideLayout != null) {
-                    vipAdFreeGuideLayout.setBottomCornerRound(true);
-                }
-            } else if (i == 3) {
-                if (bp5.k().m() && i2 == 1) {
-                    vipAdFreeGuideLayout.setBottomCornerRound(false);
-                    vipAdFreeGuideLayout.setAllCornerRound(false);
-                    if (adCardBaseView.getPbBottomView() != null) {
-                        adCardBaseView.getPbBottomView().setVisibility(8);
-                        return;
-                    }
+    /* loaded from: classes4.dex */
+    public class a implements s95.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public a(gf8 gf8Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf8Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                if (vipAdFreeGuideLayout != null) {
-                    vipAdFreeGuideLayout.setBottomCornerRound(false);
-                    vipAdFreeGuideLayout.setAllCornerRound(true);
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.s95.a
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new AdCardSinglePicView(this.a);
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements s95.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public b(gf8 gf8Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf8Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (adCardBaseView.getPbBottomView() != null) {
-                    adCardBaseView.getPbBottomView().setVisibility(0);
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.s95.a
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new AdCardMultiPicView(this.a);
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements s95.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ int b;
+
+        public c(gf8 gf8Var, TbPageContext tbPageContext, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf8Var, tbPageContext, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = tbPageContext;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.s95.a
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new AdCardVideoView(this.a, this.b);
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    public gf8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
+    @Override // com.baidu.tieba.bh7
+    public uh7 a(TbPageContext tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
+        int cardType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65538, null, vipAdFreeGuideLayout, str, str2, i) == null) {
-            if (i == 2) {
-                if ("frs_new_tab".equals(str2)) {
-                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
-                } else if ("frs_hot_tab".equals(str2)) {
-                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
-                }
-            } else if (i == 3) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
-            } else if (i == 1) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
+            if (iCardInfo == null) {
+                cardType = -1;
+            } else {
+                cardType = iCardInfo.getCardType();
             }
+            if (cardType != 17 && cardType != 34) {
+                return null;
+            }
+            return e(tbPageContext, iCardInfo, i);
+        }
+        return (uh7) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.bh7
+    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
+            if (i != 17 && i != 34) {
+                return null;
+            }
+            return new AdCard(jSONObject);
+        }
+        return (ICardInfo) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.bh7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SparseIntArray sparseIntArray = bh7.a;
+            sparseIntArray.put(17, sparseIntArray.size() + 1);
+            SparseIntArray sparseIntArray2 = bh7.a;
+            sparseIntArray2.put(33, sparseIntArray2.size() + 1);
+            SparseIntArray sparseIntArray3 = bh7.a;
+            sparseIntArray3.put(34, sparseIntArray3.size() + 1);
+            bh7.b.put(17, BdUniqueId.gen());
+            bh7.b.put(33, BdUniqueId.gen());
+            bh7.b.put(34, BdUniqueId.gen());
         }
     }
 
-    public static void d(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i, int i2) {
+    public final BaseLegoCardView e(TbPageContext tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || vipAdFreeGuideLayout == null) {
-            return;
-        }
-        vipAdFreeGuideLayout.setVisibility(0);
-        b(adCardBaseView, vipAdFreeGuideLayout, str2, i, i2);
-        vipAdFreeGuideLayout.f();
-        c(vipAdFreeGuideLayout, str, str2, i);
-    }
-
-    public static void e(AdvertAppInfo advertAppInfo, jh7<?> jh7Var, String str, String str2, int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{advertAppInfo, jh7Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            AdCardBaseView adCardBaseView = jh7Var instanceof AdCardBaseView ? (AdCardBaseView) jh7Var : null;
-            VipAdFreeGuideLayout vipAdFreeGuideLayout = adCardBaseView != null ? adCardBaseView.getVipAdFreeGuideLayout() : null;
-            if (vipAdFreeGuideLayout != null) {
-                if (i == 1) {
-                    i3 = bp5.k().j(advertAppInfo.a);
-                } else {
-                    i3 = advertAppInfo.s;
-                }
-                if (i3 == 1) {
-                    vipAdFreeGuideLayout.setVisibility(8);
-                } else if (i3 == 2) {
-                    d(adCardBaseView, vipAdFreeGuideLayout, str, str2, i, i2);
-                } else if (a(str2, i, i2)) {
-                    d(adCardBaseView, vipAdFreeGuideLayout, str, str2, i, i2);
-                    bp5.k().c();
-                    if (i == 1) {
-                        bp5.k().p(advertAppInfo.a, 2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            if (!(iCardInfo instanceof AdCard)) {
+                return null;
+            }
+            AdCard adCard = (AdCard) iCardInfo;
+            int cardType = adCard.getCardType();
+            if (cardType != 17 && cardType != 34) {
+                BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
+                return null;
+            }
+            int i2 = adCard.goodsStyle;
+            if (i2 != 2) {
+                if (i2 != 14) {
+                    if (i2 != 6) {
+                        if (i2 != 7) {
+                            if (i2 != 8) {
+                                return null;
+                            }
+                        }
                     } else {
-                        advertAppInfo.s = 2;
-                    }
-                } else {
-                    vipAdFreeGuideLayout.setVisibility(8);
-                    if (i == 1) {
-                        bp5.k().p(advertAppInfo.a, 1);
-                    } else {
-                        advertAppInfo.s = 1;
+                        return (AdCardMultiPicView) s95.e().d(1102, new b(this, tbPageContext));
                     }
                 }
+                AdCardVideoView adCardVideoView = (AdCardVideoView) s95.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
+                adCardVideoView.setBusinessType(i);
+                return adCardVideoView;
             }
+            return (AdCardSinglePicView) s95.e().d(1101, new a(this, tbPageContext));
         }
+        return (BaseLegoCardView) invokeLLI.objValue;
     }
 }

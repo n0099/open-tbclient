@@ -51,37 +51,12 @@ public class SocketHttpServerConnection extends AbstractHttpServerConnection imp
         }
     }
 
-    public void bind(Socket socket, HttpParams httpParams) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, socket, httpParams) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     @Override // org.apache.http.HttpConnection
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public SessionInputBuffer createHttpDataReceiver(Socket socket, int i, HttpParams httpParams) throws IOException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, socket, i, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (SessionInputBuffer) invokeLIL.objValue;
-    }
-
-    public SessionOutputBuffer createHttpDataTransmitter(Socket socket, int i, HttpParams httpParams) throws IOException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, socket, i, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (SessionOutputBuffer) invokeLIL.objValue;
     }
 
     @Override // org.apache.http.HttpInetConnection
@@ -154,17 +129,42 @@ public class SocketHttpServerConnection extends AbstractHttpServerConnection imp
     }
 
     @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i) {
+    public void shutdown() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    @Override // org.apache.http.HttpConnection
-    public void shutdown() throws IOException {
+    public void bind(Socket socket, HttpParams httpParams) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, socket, httpParams) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public SessionInputBuffer createHttpDataReceiver(Socket socket, int i, HttpParams httpParams) throws IOException {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, socket, i, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (SessionInputBuffer) invokeLIL.objValue;
+    }
+
+    public SessionOutputBuffer createHttpDataTransmitter(Socket socket, int i, HttpParams httpParams) throws IOException {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, socket, i, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (SessionOutputBuffer) invokeLIL.objValue;
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public void setSocketTimeout(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -81,24 +81,36 @@ public final class SwanInterfaceType {
     public static SwanInterfaceType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SwanInterfaceType) Enum.valueOf(SwanInterfaceType.class, str) : (SwanInterfaceType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (SwanInterfaceType) Enum.valueOf(SwanInterfaceType.class, str);
+        }
+        return (SwanInterfaceType) invokeL.objValue;
     }
 
     public static SwanInterfaceType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwanInterfaceType[]) $VALUES.clone() : (SwanInterfaceType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (SwanInterfaceType[]) $VALUES.clone();
+        }
+        return (SwanInterfaceType[]) invokeV.objValue;
     }
 
     public String getClassify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.classify : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.classify;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getInterfaceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.interfaceName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.interfaceName;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -34,16 +34,17 @@ public class StreamProcessor {
             int i3 = 0;
             for (int i4 = 0; i4 < i; i4++) {
                 int read = inputStream.read();
-                if (read == -1) {
+                if (read != -1) {
+                    if (z) {
+                        i2 = (read & 255) << (i4 * 8);
+                    } else {
+                        i3 <<= 8;
+                        i2 = read & 255;
+                    }
+                    i3 |= i2;
+                } else {
                     throw new IOException("no more bytes");
                 }
-                if (z) {
-                    i2 = (read & 255) << (i4 * 8);
-                } else {
-                    i3 <<= 8;
-                    i2 = read & 255;
-                }
-                i3 |= i2;
             }
             return i3;
         }

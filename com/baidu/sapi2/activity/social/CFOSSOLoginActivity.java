@@ -59,11 +59,11 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
                 try {
                     String string = bundle.getString("code");
-                    if (this.a.sapiWebView == null) {
-                        this.a.a(-202, this.a.getString(R.string.obfuscated_res_0x7f0f1075));
+                    if (this.a.sapiWebView != null) {
+                        this.a.a(ParamsUtil.addExtras(ParamsUtil.getUrlCFOLogin(this.a.configuration, string), new HashMap()), "春风授权登录中");
                         return;
                     }
-                    this.a.a(ParamsUtil.addExtras(ParamsUtil.getUrlCFOLogin(this.a.configuration, string), new HashMap()), "春风授权登录中");
+                    this.a.a(-202, this.a.getString(R.string.obfuscated_res_0x7f0f1087));
                 } catch (Exception unused) {
                     this.a.a(-205, "服务端数据异常，请稍后再试");
                 }
@@ -75,7 +75,7 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cFWebError) == null) {
                 Log.e(CFOSSOLoginActivity.n, String.format("onError: [%s] %s", cFWebError.getErrorCode(), cFWebError.getMessage()));
                 CFOSSOLoginActivity cFOSSOLoginActivity = this.a;
-                cFOSSOLoginActivity.a(-202, cFOSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1075));
+                cFOSSOLoginActivity.a(-202, cFOSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1087));
             }
         }
     }
@@ -94,14 +94,18 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    private void d() {
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void setupViews() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            CFOauth.getInstance().initCFOauth(this.configuration.cfoAppKey);
-            if (this.configuration.cfoOpenDebugMode) {
-                CFOauth.getInstance().openDebugMode();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.setupViews();
+            setTitleText(R.string.obfuscated_res_0x7f0f10a6);
+            try {
+                d();
+            } catch (Exception e) {
+                e.printStackTrace();
+                finish();
             }
-            CFOauth.getInstance().getCFAuthCode(this, new a(this));
         }
     }
 
@@ -114,21 +118,6 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
             SapiWebView sapiWebView = this.sapiWebView;
             if (sapiWebView != null) {
                 sapiWebView.mIsCFProess = true;
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void setupViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1094);
-            try {
-                d();
-            } catch (Exception e) {
-                e.printStackTrace();
-                finish();
             }
         }
     }
@@ -149,6 +138,17 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
                 CoreViewRouter.getInstance().release();
             }
             finish();
+        }
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            CFOauth.getInstance().initCFOauth(this.configuration.cfoAppKey);
+            if (this.configuration.cfoOpenDebugMode) {
+                CFOauth.getInstance().openDebugMode();
+            }
+            CFOauth.getInstance().getCFAuthCode(this, new a(this));
         }
     }
 }

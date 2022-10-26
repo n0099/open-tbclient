@@ -1,6 +1,5 @@
 package com.baidu.android.common.others.lang;
 
-import android.annotation.SuppressLint;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
@@ -87,6 +86,119 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
+    public static String collectionToDelimitedString(Collection collection, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, collection, str)) == null) {
+            return collectionToDelimitedString(collection, str, "", "");
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static int countOccurrencesOf(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, str2)) == null) {
+            return StringUtils.getRepetitions(str, str2);
+        }
+        return invokeLL.intValue;
+    }
+
+    @Deprecated
+    public static String delete(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, str, str2)) == null) {
+            return replace(str, str2, "");
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static String[] delimitedListToStringArray(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
+            return delimitedListToStringArray(str, str2, null);
+        }
+        return (String[]) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static boolean endsWithIgnoreCase(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, str, str2)) == null) {
+            return StringUtils.endsWith(str, str2, true);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean lenghtEnought(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, str, i)) == null) {
+            if (i >= 0 && !isEmpty(str) && str.length() >= i) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean pathEquals(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65595, null, str, str2)) == null) {
+            return cleanPath(str).equals(cleanPath(str2));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Deprecated
+    public static Properties splitArrayElementsIntoProperties(String[] strArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, strArr, str)) == null) {
+            return splitArrayElementsIntoProperties(strArr, str, null);
+        }
+        return (Properties) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static boolean startsWithIgnoreCase(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65605, null, str, str2)) == null) {
+            return StringUtils.startsWith(str, str2, true);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Deprecated
+    public static String[] tokenizeToStringArray(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65611, null, str, str2)) == null) {
+            return tokenizeToStringArray(str, str2, true, true);
+        }
+        return (String[]) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static String unqualify(String str, char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65622, null, new Object[]{str, Character.valueOf(c)})) == null) {
+            return str.substring(str.lastIndexOf(c) + 1);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    @Deprecated
     public static String applyRelativePath(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -104,11 +216,419 @@ public final class StringUtil implements IStringUtil {
         return (String) invokeLL.objValue;
     }
 
+    public static String changeFirstCharacterCase(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
+            if (str != null && str.length() != 0) {
+                StringBuilder sb = new StringBuilder(str.length());
+                if (z) {
+                    sb.append(Character.toUpperCase(str.charAt(0)));
+                } else {
+                    sb.append(Character.toLowerCase(str.charAt(0)));
+                }
+                sb.append(str.substring(1));
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    @Deprecated
+    public static String trimTrailingCharacter(String str, char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65617, null, new Object[]{str, Character.valueOf(c)})) == null) {
+            if (!hasLength(str)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            while (sb.length() > 0 && sb.charAt(sb.length() - 1) == c) {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            return sb.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
     @Deprecated
     public static String arrayToCommaDelimitedString(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr)) == null) ? arrayToDelimitedString(objArr, ",") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr)) == null) {
+            return arrayToDelimitedString(objArr, ",");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String capitalize(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return changeFirstCharacterCase(str, true);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean collectionIsEmpty(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) {
+            if (collection != null && !collection.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static String collectionToCommaDelimitedString(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, collection)) == null) {
+            return collectionToDelimitedString(collection, ",");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static Set commaDelimitedListToSet(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            LinkedHashSet linkedHashSet = new LinkedHashSet();
+            for (String str2 : commaDelimitedListToStringArray(str)) {
+                linkedHashSet.add(str2);
+            }
+            return linkedHashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String[] commaDelimitedListToStringArray(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            return delimitedListToStringArray(str, ",");
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static boolean containsEmoji(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            return EmojionUtils.containsEmoji(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean containsWhitespace(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, charSequence)) == null) {
+            return StringUtils.containsWhitespace(charSequence);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static int countWordsLength(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            return StringUtils.length(str, true) / 2;
+        }
+        return invokeL.intValue;
+    }
+
+    @Deprecated
+    public static float countWordsLengthForFloat(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
+            return StringUtils.length(str, true) / 2.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    @Deprecated
+    public static int countWordsRealLength(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            return StringUtils.length(str, false) / 2;
+        }
+        return invokeL.intValue;
+    }
+
+    @Deprecated
+    public static String getFilename(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf != -1) {
+                return str.substring(lastIndexOf + 1);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static boolean hasLength(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, charSequence)) == null) {
+            if (charSequence != null && charSequence.length() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean hasLowerLetter(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) {
+            return Pattern.compile("[a-z]+").matcher(str).find();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean hasNumber(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, str)) == null) {
+            return Pattern.compile("[0-9]+").matcher(str).find();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean hasText(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, charSequence)) == null) {
+            return !StringUtils.isBlank(charSequence);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean hasUpLetter(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
+            return Pattern.compile("[A-Z]+").matcher(str).find();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isBlank(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, charSequence)) == null) {
+            return StringUtils.isBlank(charSequence);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isEmail(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
+            return Pattern.matches(IStringUtil.REGEX_EMAIL, str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isEmpty(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, obj)) == null) {
+            if (obj != null && !"".equals(obj)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isLetterDigitOrChinese(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, str)) == null) {
+            return str.matches("^[a-z0-9A-Z一-龥]+$");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isNotBlank(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, charSequence)) == null) {
+            return !isBlank(charSequence);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isNumbers(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) {
+            return Pattern.matches(IStringUtil.REGEX_NUM, str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isObjectArrayEmpty(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, objArr)) == null) {
+            if (objArr != null && objArr.length != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static String quote(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, str)) == null) {
+            if (str != null) {
+                return "'" + str + "'";
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static Object quoteIfString(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, obj)) == null) {
+            if (obj instanceof String) {
+                return quote((String) obj);
+            }
+            return obj;
+        }
+        return invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String[] removeDuplicateStrings(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, strArr)) == null) {
+            if (isObjectArrayEmpty(strArr)) {
+                return strArr;
+            }
+            LinkedHashSet linkedHashSet = new LinkedHashSet();
+            for (String str : strArr) {
+                linkedHashSet.add(str);
+            }
+            return toStringArray(linkedHashSet);
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String removeEmoji(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, str)) == null) {
+            return EmojionUtils.removeEmoji(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String[] sortStringArray(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, strArr)) == null) {
+            if (isObjectArrayEmpty(strArr)) {
+                return new String[0];
+            }
+            Arrays.sort(strArr);
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String stripFilenameExtension(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65606, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf == -1) {
+                return str;
+            }
+            if (str.lastIndexOf("/") > lastIndexOf) {
+                return str;
+            }
+            return str.substring(0, lastIndexOf);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String[] toStringArray(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, collection)) == null) {
+            if (collection == null) {
+                return null;
+            }
+            return (String[]) collection.toArray(new String[collection.size()]);
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String uncapitalize(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65620, null, str)) == null) {
+            return changeFirstCharacterCase(str, false);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String unqualify(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65621, null, str)) == null) {
+            return unqualify(str, IStringUtil.EXTENSION_SEPARATOR);
+        }
+        return (String) invokeL.objValue;
     }
 
     @Deprecated
@@ -135,29 +655,96 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String capitalize(String str) {
-        InterceptResult invokeL;
+    public static String[] concatenateStringArrays(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? changeFirstCharacterCase(str, true) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, strArr, strArr2)) == null) {
+            if (isObjectArrayEmpty(strArr)) {
+                return strArr2;
+            }
+            if (isObjectArrayEmpty(strArr2)) {
+                return strArr;
+            }
+            String[] strArr3 = new String[strArr.length + strArr2.length];
+            System.arraycopy(strArr, 0, strArr3, 0, strArr.length);
+            System.arraycopy(strArr2, 0, strArr3, strArr.length, strArr2.length);
+            return strArr3;
+        }
+        return (String[]) invokeLL.objValue;
     }
 
-    public static String changeFirstCharacterCase(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Deprecated
+    public static String deleteAny(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
-            if (str == null || str.length() == 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, str, str2)) == null) {
+            if (hasLength(str) && hasLength(str2)) {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < str.length(); i++) {
+                    char charAt = str.charAt(i);
+                    if (str2.indexOf(charAt) == -1) {
+                        sb.append(charAt);
+                    }
+                }
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static String[] mergeStringArrays(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65583, null, strArr, strArr2)) == null) {
+            if (isObjectArrayEmpty(strArr)) {
+                return strArr2;
+            }
+            if (isObjectArrayEmpty(strArr2)) {
+                return strArr;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(Arrays.asList(strArr));
+            for (String str : strArr2) {
+                if (!arrayList.contains(str)) {
+                    arrayList.add(str);
+                }
+            }
+            return toStringArray(arrayList);
+        }
+        return (String[]) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static String[] split(String str, String str2) {
+        InterceptResult invokeLL;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65602, null, str, str2)) == null) {
+            if (!hasLength(str) || !hasLength(str2) || (indexOf = str.indexOf(str2)) < 0) {
+                return null;
+            }
+            return new String[]{str.substring(0, indexOf), str.substring(indexOf + str2.length())};
+        }
+        return (String[]) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static String trimLeadingCharacter(String str, char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65615, null, new Object[]{str, Character.valueOf(c)})) == null) {
+            if (!hasLength(str)) {
                 return str;
             }
-            StringBuilder sb = new StringBuilder(str.length());
-            if (z) {
-                sb.append(Character.toUpperCase(str.charAt(0)));
-            } else {
-                sb.append(Character.toLowerCase(str.charAt(0)));
+            StringBuilder sb = new StringBuilder(str);
+            while (sb.length() > 0 && sb.charAt(0) == c) {
+                sb.deleteCharAt(0);
             }
-            sb.append(str.substring(1));
             return sb.toString();
         }
-        return (String) invokeLZ.objValue;
+        return (String) invokeCommon.objValue;
     }
 
     @Deprecated
@@ -206,21 +793,8 @@ public final class StringUtil implements IStringUtil {
         return (String) invokeL.objValue;
     }
 
-    public static boolean collectionIsEmpty(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) ? collection == null || collection.isEmpty() : invokeL.booleanValue;
-    }
-
     @Deprecated
-    public static String collectionToCommaDelimitedString(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, collection)) == null) ? collectionToDelimitedString(collection, ",") : (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String collectionToDelimitedString(Collection<?> collection, String str, String str2, String str3) {
+    public static String collectionToDelimitedString(Collection collection, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, collection, str, str2, str3)) == null) {
@@ -228,7 +802,7 @@ public final class StringUtil implements IStringUtil {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            Iterator<?> it = collection.iterator();
+            Iterator it = collection.iterator();
             while (it.hasNext()) {
                 sb.append(str2);
                 sb.append(it.next());
@@ -243,763 +817,71 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static Set<String> commaDelimitedListToSet(String str) {
-        InterceptResult invokeL;
+    public static String[] tokenizeToStringArray(String str, String str2, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            for (String str2 : commaDelimitedListToStringArray(str)) {
-                linkedHashSet.add(str2);
-            }
-            return linkedHashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] commaDelimitedListToStringArray(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? delimitedListToStringArray(str, ",") : (String[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] concatenateStringArrays(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, strArr, strArr2)) == null) {
-            if (isObjectArrayEmpty(strArr)) {
-                return strArr2;
-            }
-            if (isObjectArrayEmpty(strArr2)) {
-                return strArr;
-            }
-            String[] strArr3 = new String[strArr.length + strArr2.length];
-            System.arraycopy(strArr, 0, strArr3, 0, strArr.length);
-            System.arraycopy(strArr2, 0, strArr3, strArr.length, strArr2.length);
-            return strArr3;
-        }
-        return (String[]) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static boolean containsEmoji(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? EmojionUtils.containsEmoji(str) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean containsWhitespace(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, charSequence)) == null) ? StringUtils.containsWhitespace(charSequence) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static int countOccurrencesOf(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, str2)) == null) ? StringUtils.getRepetitions(str, str2) : invokeLL.intValue;
-    }
-
-    @Deprecated
-    public static int countWordsLength(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) ? StringUtils.length(str, true) / 2 : invokeL.intValue;
-    }
-
-    @Deprecated
-    public static float countWordsLengthForFloat(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) ? StringUtils.length(str, true) / 2.0f : invokeL.floatValue;
-    }
-
-    @Deprecated
-    public static int countWordsRealLength(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) ? StringUtils.length(str, false) / 2 : invokeL.intValue;
-    }
-
-    @Deprecated
-    public static String delete(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, str, str2)) == null) ? replace(str, str2, "") : (String) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static String deleteAny(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, str, str2)) == null) {
-            if (hasLength(str) && hasLength(str2)) {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < str.length(); i++) {
-                    char charAt = str.charAt(i);
-                    if (str2.indexOf(charAt) == -1) {
-                        sb.append(charAt);
-                    }
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static String[] delimitedListToStringArray(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) ? delimitedListToStringArray(str, str2, null) : (String[]) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static boolean endsWithIgnoreCase(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, str, str2)) == null) ? StringUtils.endsWith(str, str2, true) : invokeLL.booleanValue;
-    }
-
-    @Deprecated
-    public static byte[] getByteFromInputStream(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException e) {
-                    Log.e(TAG, e.toString());
-                    i = 0;
-                }
-                if (i == -1) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr, 0, i);
-            }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e2) {
-                Log.e(TAG, e2.toString());
-            }
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String getFilename(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65612, null, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (str == null) {
                 return null;
             }
-            int lastIndexOf = str.lastIndexOf("/");
-            return lastIndexOf != -1 ? str.substring(lastIndexOf + 1) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String getFilenameExtension(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(46)) == -1 || str.lastIndexOf("/") > lastIndexOf) {
-                return null;
-            }
-            return str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String getStringFromInput(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
-            try {
-                try {
-                    try {
-                        byte[] byteFromInputStream = getByteFromInputStream(inputStream);
-                        if (byteFromInputStream != null) {
-                            String str = new String(byteFromInputStream);
-                            if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                                str = str.substring(1);
-                            }
-                            return str;
-                        } else if (inputStream != null) {
-                            inputStream.close();
-                            return null;
-                        } else {
-                            return null;
-                        }
-                    } catch (Exception e) {
-                        Log.e(TAG, " getStringFromInput exception: ", e);
-                        if (inputStream != null) {
-                            inputStream.close();
-                            return null;
-                        }
-                        return null;
-                    }
-                } catch (Exception e2) {
-                    Log.e(TAG, e2.toString());
-                    return null;
-                }
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception e3) {
-                        Log.e(TAG, e3.toString());
-                    }
-                }
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static boolean hasLength(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, charSequence)) == null) ? charSequence != null && charSequence.length() > 0 : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean hasLowerLetter(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) ? Pattern.compile("[a-z]+").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean hasNumber(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, str)) == null) ? Pattern.compile("[0-9]+").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean hasText(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65572, null, charSequence)) == null) ? !StringUtils.isBlank(charSequence) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean hasUpLetter(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) ? Pattern.compile("[A-Z]+").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    public static boolean isBlank(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65575, null, charSequence)) == null) ? StringUtils.isBlank(charSequence) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isEmail(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) ? Pattern.matches(IStringUtil.REGEX_EMAIL, str) : invokeL.booleanValue;
-    }
-
-    public static boolean isEmpty(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65577, null, obj)) == null) ? obj == null || "".equals(obj) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isLetterDigitOrChinese(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65578, null, str)) == null) ? str.matches("^[a-z0-9A-Z一-龥]+$") : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isNotBlank(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65579, null, charSequence)) == null) ? !isBlank(charSequence) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isNumbers(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) ? Pattern.matches(IStringUtil.REGEX_NUM, str) : invokeL.booleanValue;
-    }
-
-    public static boolean isObjectArrayEmpty(Object[] objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65581, null, objArr)) == null) ? objArr == null || objArr.length == 0 : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean lenghtEnought(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, str, i)) == null) ? i >= 0 && !isEmpty(str) && str.length() >= i : invokeLI.booleanValue;
-    }
-
-    @Deprecated
-    public static String[] mergeStringArrays(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65583, null, strArr, strArr2)) == null) {
-            if (isObjectArrayEmpty(strArr)) {
-                return strArr2;
-            }
-            if (isObjectArrayEmpty(strArr2)) {
-                return strArr;
-            }
+            StringTokenizer stringTokenizer = new StringTokenizer(str, str2);
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(Arrays.asList(strArr));
-            for (String str : strArr2) {
-                if (!arrayList.contains(str)) {
-                    arrayList.add(str);
+            while (stringTokenizer.hasMoreTokens()) {
+                String nextToken = stringTokenizer.nextToken();
+                if (z) {
+                    nextToken = nextToken.trim();
+                }
+                if (!z2 || nextToken.length() > 0) {
+                    arrayList.add(nextToken);
                 }
             }
             return toStringArray(arrayList);
         }
-        return (String[]) invokeLL.objValue;
-    }
-
-    public static String nullSafeToString(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, obj)) == null) {
-            if (obj == null) {
-                return NULL_STRING;
-            }
-            if (obj instanceof String) {
-                return (String) obj;
-            }
-            if (obj instanceof Object[]) {
-                return nullSafeToString((Object[]) obj);
-            }
-            if (obj instanceof boolean[]) {
-                return nullSafeToString((boolean[]) obj);
-            }
-            if (obj instanceof byte[]) {
-                return nullSafeToString((byte[]) obj);
-            }
-            if (obj instanceof char[]) {
-                return nullSafeToString((char[]) obj);
-            }
-            if (obj instanceof double[]) {
-                return nullSafeToString((double[]) obj);
-            }
-            if (obj instanceof float[]) {
-                return nullSafeToString((float[]) obj);
-            }
-            if (obj instanceof int[]) {
-                return nullSafeToString((int[]) obj);
-            }
-            if (obj instanceof long[]) {
-                return nullSafeToString((long[]) obj);
-            }
-            if (obj instanceof short[]) {
-                return nullSafeToString((short[]) obj);
-            }
-            String obj2 = obj.toString();
-            return obj2 != null ? obj2 : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static Locale parseLocaleString(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
-            String[] strArr = tokenizeToStringArray(str, "_ ", false, false);
-            if (strArr == null) {
-                return null;
-            }
-            String str2 = "";
-            String str3 = strArr.length > 0 ? strArr[0] : "";
-            String str4 = strArr.length > 1 ? strArr[1] : "";
-            validateLocalePart(str3);
-            validateLocalePart(str4);
-            if (strArr.length > 2) {
-                str2 = trimLeadingWhitespace(str.substring(str.indexOf(str4, str3.length()) + str4.length()));
-                if (str2.startsWith("_")) {
-                    str2 = trimLeadingCharacter(str2, '_');
-                }
-            }
-            if (str3.length() > 0) {
-                return new Locale(str3, str4, str2);
-            }
-            return null;
-        }
-        return (Locale) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static boolean pathEquals(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65595, null, str, str2)) == null) ? cleanPath(str).equals(cleanPath(str2)) : invokeLL.booleanValue;
-    }
-
-    @Deprecated
-    public static String quote(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, str)) == null) {
-            if (str != null) {
-                return "'" + str + "'";
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static Object quoteIfString(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65597, null, obj)) == null) ? obj instanceof String ? quote((String) obj) : obj : invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] removeDuplicateStrings(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, strArr)) == null) {
-            if (isObjectArrayEmpty(strArr)) {
-                return strArr;
-            }
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            for (String str : strArr) {
-                linkedHashSet.add(str);
-            }
-            return toStringArray(linkedHashSet);
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String removeEmoji(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65599, null, str)) == null) ? EmojionUtils.removeEmoji(str) : (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String replace(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65600, null, str, str2, str3)) == null) {
-            if (hasLength(str) && hasLength(str2) && str3 != null) {
-                StringBuilder sb = new StringBuilder();
-                int i = 0;
-                int indexOf = str.indexOf(str2);
-                int length = str2.length();
-                while (indexOf >= 0) {
-                    sb.append(str.substring(i, indexOf));
-                    sb.append(str3);
-                    i = indexOf + length;
-                    indexOf = str.indexOf(str2, i);
-                }
-                sb.append(str.substring(i));
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    @Deprecated
-    public static String[] sortStringArray(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, strArr)) == null) {
-            if (isObjectArrayEmpty(strArr)) {
-                return new String[0];
-            }
-            Arrays.sort(strArr);
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] split(String str, String str2) {
-        InterceptResult invokeLL;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65602, null, str, str2)) == null) {
-            if (hasLength(str) && hasLength(str2) && (indexOf = str.indexOf(str2)) >= 0) {
-                return new String[]{str.substring(0, indexOf), str.substring(indexOf + str2.length())};
-            }
-            return null;
-        }
-        return (String[]) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static Properties splitArrayElementsIntoProperties(String[] strArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, strArr, str)) == null) ? splitArrayElementsIntoProperties(strArr, str, null) : (Properties) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static boolean startsWithIgnoreCase(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65605, null, str, str2)) == null) ? StringUtils.startsWith(str, str2, true) : invokeLL.booleanValue;
-    }
-
-    @Deprecated
-    public static String stripFilenameExtension(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65606, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            int lastIndexOf = str.lastIndexOf(46);
-            return (lastIndexOf != -1 && str.lastIndexOf("/") <= lastIndexOf) ? str.substring(0, lastIndexOf) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static boolean substringMatch(CharSequence charSequence, int i, CharSequence charSequence2) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65607, null, charSequence, i, charSequence2)) == null) {
-            for (int i2 = 0; i2 < charSequence2.length(); i2++) {
-                int i3 = i + i2;
-                if (i3 >= charSequence.length() || charSequence.charAt(i3) != charSequence2.charAt(i2)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    @Deprecated
-    public static String toLanguageTag(Locale locale) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, locale)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(locale.getLanguage());
-            if (hasText(locale.getCountry())) {
-                str = "-" + locale.getCountry();
-            } else {
-                str = "";
-            }
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] toStringArray(Collection<String> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, collection)) == null) {
-            if (collection == null) {
-                return null;
-            }
-            return (String[]) collection.toArray(new String[collection.size()]);
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] tokenizeToStringArray(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65611, null, str, str2)) == null) ? tokenizeToStringArray(str, str2, true, true) : (String[]) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static String trimAllWhitespace(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65613, null, str)) == null) {
-            if (hasLength(str)) {
-                int length = str.length();
-                StringBuilder sb = new StringBuilder(length);
-                for (int i = 0; i < length; i++) {
-                    char charAt = str.charAt(i);
-                    if (!Character.isWhitespace(charAt)) {
-                        sb.append(charAt);
-                    }
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] trimArrayElements(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65614, null, strArr)) == null) {
-            if (isObjectArrayEmpty(strArr)) {
-                return new String[0];
-            }
-            String[] strArr2 = new String[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                String str = strArr[i];
-                strArr2[i] = str != null ? str.trim() : null;
-            }
-            return strArr2;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String trimLeadingCharacter(String str, char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65615, null, new Object[]{str, Character.valueOf(c)})) == null) {
-            if (hasLength(str)) {
-                StringBuilder sb = new StringBuilder(str);
-                while (sb.length() > 0 && sb.charAt(0) == c) {
-                    sb.deleteCharAt(0);
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    @Deprecated
-    public static String trimLeadingWhitespace(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, str)) == null) {
-            if (hasLength(str)) {
-                StringBuilder sb = new StringBuilder(str);
-                while (sb.length() > 0 && Character.isWhitespace(sb.charAt(0))) {
-                    sb.deleteCharAt(0);
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String trimTrailingCharacter(String str, char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65617, null, new Object[]{str, Character.valueOf(c)})) == null) {
-            if (hasLength(str)) {
-                StringBuilder sb = new StringBuilder(str);
-                while (sb.length() > 0 && sb.charAt(sb.length() - 1) == c) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    @Deprecated
-    public static String trimTrailingWhitespace(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65618, null, str)) == null) {
-            if (hasLength(str)) {
-                StringBuilder sb = new StringBuilder(str);
-                while (sb.length() > 0 && Character.isWhitespace(sb.charAt(sb.length() - 1))) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String trimWhitespace(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65619, null, str)) == null) {
-            if (hasLength(str)) {
-                StringBuilder sb = new StringBuilder(str);
-                while (sb.length() > 0 && Character.isWhitespace(sb.charAt(0))) {
-                    sb.deleteCharAt(0);
-                }
-                while (sb.length() > 0 && Character.isWhitespace(sb.charAt(sb.length() - 1))) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String uncapitalize(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65620, null, str)) == null) ? changeFirstCharacterCase(str, false) : (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String unqualify(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65621, null, str)) == null) ? unqualify(str, IStringUtil.EXTENSION_SEPARATOR) : (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void validateLocalePart(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65623, null, str) == null) {
-            for (int i = 0; i < str.length(); i++) {
-                char charAt = str.charAt(i);
-                if (charAt != '_' && charAt != ' ' && !Character.isLetterOrDigit(charAt)) {
-                    throw new IllegalArgumentException("Locale part \"" + str + "\" contains invalid characters");
-                }
-            }
-        }
+        return (String[]) invokeCommon.objValue;
     }
 
     @Deprecated
     public static boolean containsWhitespace(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) ? containsWhitespace((CharSequence) str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+            return containsWhitespace((CharSequence) str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean hasLength(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
+            return hasLength((CharSequence) str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean hasText(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
+            return hasText((CharSequence) str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static String[] toStringArray(Enumeration enumeration) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65610, null, enumeration)) == null) {
+            if (enumeration == null) {
+                return null;
+            }
+            ArrayList list = Collections.list(enumeration);
+            return (String[]) list.toArray(new String[list.size()]);
+        }
+        return (String[]) invokeL.objValue;
     }
 
     @Deprecated
@@ -1040,144 +922,37 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static boolean hasLength(String str) {
+    public static byte[] getByteFromInputStream(InputStream inputStream) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) ? hasLength((CharSequence) str) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean hasText(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) ? hasText((CharSequence) str) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static Properties splitArrayElementsIntoProperties(String[] strArr, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65604, null, strArr, str, str2)) == null) {
-            if (isObjectArrayEmpty(strArr)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, inputStream)) == null) {
+            if (inputStream == null) {
                 return null;
             }
-            Properties properties = new Properties();
-            for (String str3 : strArr) {
-                if (str2 != null) {
-                    str3 = deleteAny(str3, str2);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                try {
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException e) {
+                    Log.e(TAG, e.toString());
+                    i = 0;
                 }
-                String[] split = split(str3, str);
-                if (split != null) {
-                    properties.setProperty(split[0].trim(), split[1].trim());
+                if (i == -1) {
+                    break;
                 }
+                byteArrayOutputStream.write(bArr, 0, i);
             }
-            return properties;
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e2) {
+                Log.e(TAG, e2.toString());
+            }
+            return byteArray;
         }
-        return (Properties) invokeLLL.objValue;
-    }
-
-    @Deprecated
-    public static String[] toStringArray(Enumeration<String> enumeration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65610, null, enumeration)) == null) {
-            if (enumeration == null) {
-                return null;
-            }
-            ArrayList list = Collections.list(enumeration);
-            return (String[]) list.toArray(new String[list.size()]);
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String[] tokenizeToStringArray(String str, String str2, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65612, null, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (str == null) {
-                return null;
-            }
-            StringTokenizer stringTokenizer = new StringTokenizer(str, str2);
-            ArrayList arrayList = new ArrayList();
-            while (stringTokenizer.hasMoreTokens()) {
-                String nextToken = stringTokenizer.nextToken();
-                if (z) {
-                    nextToken = nextToken.trim();
-                }
-                if (!z2 || nextToken.length() > 0) {
-                    arrayList.add(nextToken);
-                }
-            }
-            return toStringArray(arrayList);
-        }
-        return (String[]) invokeCommon.objValue;
-    }
-
-    @Deprecated
-    public static String unqualify(String str, char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65622, null, new Object[]{str, Character.valueOf(c)})) == null) ? str.substring(str.lastIndexOf(c) + 1) : (String) invokeCommon.objValue;
-    }
-
-    @Deprecated
-    public static String collectionToDelimitedString(Collection<?> collection, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, collection, str)) == null) ? collectionToDelimitedString(collection, str, "", "") : (String) invokeLL.objValue;
-    }
-
-    public static String nullSafeToString(Object[] objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, objArr)) == null) {
-            if (objArr == null) {
-                return NULL_STRING;
-            }
-            int length = objArr.length;
-            if (length == 0) {
-                return EMPTY_ARRAY;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < length; i++) {
-                if (i == 0) {
-                    sb.append("{");
-                } else {
-                    sb.append(ARRAY_ELEMENT_SEPARATOR);
-                }
-                sb.append(String.valueOf(objArr[i]));
-            }
-            sb.append("}");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String nullSafeToString(boolean[] zArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, zArr)) == null) {
-            if (zArr == null) {
-                return NULL_STRING;
-            }
-            int length = zArr.length;
-            if (length == 0) {
-                return EMPTY_ARRAY;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < length; i++) {
-                if (i == 0) {
-                    sb.append("{");
-                } else {
-                    sb.append(ARRAY_ELEMENT_SEPARATOR);
-                }
-                sb.append(zArr[i]);
-            }
-            sb.append("}");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
     public static String nullSafeToString(byte[] bArr) {
@@ -1204,6 +979,280 @@ public final class StringUtil implements IStringUtil {
             return sb.toString();
         }
         return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String toLanguageTag(Locale locale) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, locale)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(locale.getLanguage());
+            if (hasText(locale.getCountry())) {
+                str = "-" + locale.getCountry();
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String trimWhitespace(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65619, null, str)) == null) {
+            if (!hasLength(str)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            while (sb.length() > 0 && Character.isWhitespace(sb.charAt(0))) {
+                sb.deleteCharAt(0);
+            }
+            while (sb.length() > 0 && Character.isWhitespace(sb.charAt(sb.length() - 1))) {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void validateLocalePart(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65623, null, str) == null) {
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
+                if (charAt != '_' && charAt != ' ' && !Character.isLetterOrDigit(charAt)) {
+                    throw new IllegalArgumentException("Locale part \"" + str + "\" contains invalid characters");
+                }
+            }
+        }
+    }
+
+    @Deprecated
+    public static String getFilenameExtension(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
+            if (str == null || (lastIndexOf = str.lastIndexOf(46)) == -1 || str.lastIndexOf("/") > lastIndexOf) {
+                return null;
+            }
+            return str.substring(lastIndexOf + 1);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String trimAllWhitespace(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65613, null, str)) == null) {
+            if (!hasLength(str)) {
+                return str;
+            }
+            int length = str.length();
+            StringBuilder sb = new StringBuilder(length);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (!Character.isWhitespace(charAt)) {
+                    sb.append(charAt);
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String[] trimArrayElements(String[] strArr) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65614, null, strArr)) == null) {
+            if (isObjectArrayEmpty(strArr)) {
+                return new String[0];
+            }
+            String[] strArr2 = new String[strArr.length];
+            for (int i = 0; i < strArr.length; i++) {
+                String str2 = strArr[i];
+                if (str2 != null) {
+                    str = str2.trim();
+                } else {
+                    str = null;
+                }
+                strArr2[i] = str;
+            }
+            return strArr2;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String trimLeadingWhitespace(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, str)) == null) {
+            if (!hasLength(str)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            while (sb.length() > 0 && Character.isWhitespace(sb.charAt(0))) {
+                sb.deleteCharAt(0);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String trimTrailingWhitespace(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65618, null, str)) == null) {
+            if (!hasLength(str)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            while (sb.length() > 0 && Character.isWhitespace(sb.charAt(sb.length() - 1))) {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String getStringFromInput(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
+            try {
+                try {
+                    try {
+                        byte[] byteFromInputStream = getByteFromInputStream(inputStream);
+                        if (byteFromInputStream != null) {
+                            String str = new String(byteFromInputStream);
+                            if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                                str = str.substring(1);
+                            }
+                            return str;
+                        } else if (inputStream != null) {
+                            inputStream.close();
+                            return null;
+                        } else {
+                            return null;
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, e.toString());
+                        return null;
+                    }
+                } catch (Exception e2) {
+                    Log.e(TAG, " getStringFromInput exception: ", e2);
+                    if (inputStream != null) {
+                        inputStream.close();
+                        return null;
+                    }
+                    return null;
+                }
+            } finally {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception e3) {
+                        Log.e(TAG, e3.toString());
+                    }
+                }
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String nullSafeToString(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, obj)) == null) {
+            if (obj == null) {
+                return NULL_STRING;
+            }
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            if (obj instanceof Object[]) {
+                return nullSafeToString((Object[]) obj);
+            }
+            if (obj instanceof boolean[]) {
+                return nullSafeToString((boolean[]) obj);
+            }
+            if (obj instanceof byte[]) {
+                return nullSafeToString((byte[]) obj);
+            }
+            if (obj instanceof char[]) {
+                return nullSafeToString((char[]) obj);
+            }
+            if (obj instanceof double[]) {
+                return nullSafeToString((double[]) obj);
+            }
+            if (obj instanceof float[]) {
+                return nullSafeToString((float[]) obj);
+            }
+            if (obj instanceof int[]) {
+                return nullSafeToString((int[]) obj);
+            }
+            if (obj instanceof long[]) {
+                return nullSafeToString((long[]) obj);
+            }
+            if (obj instanceof short[]) {
+                return nullSafeToString((short[]) obj);
+            }
+            String obj2 = obj.toString();
+            if (obj2 == null) {
+                return "";
+            }
+            return obj2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static Locale parseLocaleString(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
+            String[] strArr = tokenizeToStringArray(str, "_ ", false, false);
+            if (strArr == null) {
+                return null;
+            }
+            String str4 = "";
+            if (strArr.length <= 0) {
+                str2 = "";
+            } else {
+                str2 = strArr[0];
+            }
+            if (strArr.length <= 1) {
+                str3 = "";
+            } else {
+                str3 = strArr[1];
+            }
+            validateLocalePart(str2);
+            validateLocalePart(str3);
+            if (strArr.length > 2) {
+                str4 = trimLeadingWhitespace(str.substring(str.indexOf(str3, str2.length()) + str3.length()));
+                if (str4.startsWith("_")) {
+                    str4 = trimLeadingCharacter(str4, '_');
+                }
+            }
+            if (str2.length() <= 0) {
+                return null;
+            }
+            return new Locale(str2, str3, str4);
+        }
+        return (Locale) invokeL.objValue;
     }
 
     public static String nullSafeToString(char[] cArr) {
@@ -1338,6 +1387,32 @@ public final class StringUtil implements IStringUtil {
         return (String) invokeL.objValue;
     }
 
+    public static String nullSafeToString(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, objArr)) == null) {
+            if (objArr == null) {
+                return NULL_STRING;
+            }
+            int length = objArr.length;
+            if (length == 0) {
+                return EMPTY_ARRAY;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
+                    sb.append("{");
+                } else {
+                    sb.append(ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(String.valueOf(objArr[i]));
+            }
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String nullSafeToString(short[] sArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1362,5 +1437,94 @@ public final class StringUtil implements IStringUtil {
             return sb.toString();
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String nullSafeToString(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, zArr)) == null) {
+            if (zArr == null) {
+                return NULL_STRING;
+            }
+            int length = zArr.length;
+            if (length == 0) {
+                return EMPTY_ARRAY;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
+                    sb.append("{");
+                } else {
+                    sb.append(ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(zArr[i]);
+            }
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String replace(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65600, null, str, str2, str3)) == null) {
+            if (hasLength(str) && hasLength(str2) && str3 != null) {
+                StringBuilder sb = new StringBuilder();
+                int i = 0;
+                int indexOf = str.indexOf(str2);
+                int length = str2.length();
+                while (indexOf >= 0) {
+                    sb.append(str.substring(i, indexOf));
+                    sb.append(str3);
+                    i = indexOf + length;
+                    indexOf = str.indexOf(str2, i);
+                }
+                sb.append(str.substring(i));
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    @Deprecated
+    public static Properties splitArrayElementsIntoProperties(String[] strArr, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65604, null, strArr, str, str2)) == null) {
+            if (isObjectArrayEmpty(strArr)) {
+                return null;
+            }
+            Properties properties = new Properties();
+            for (String str3 : strArr) {
+                if (str2 != null) {
+                    str3 = deleteAny(str3, str2);
+                }
+                String[] split = split(str3, str);
+                if (split != null) {
+                    properties.setProperty(split[0].trim(), split[1].trim());
+                }
+            }
+            return properties;
+        }
+        return (Properties) invokeLLL.objValue;
+    }
+
+    @Deprecated
+    public static boolean substringMatch(CharSequence charSequence, int i, CharSequence charSequence2) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65607, null, charSequence, i, charSequence2)) == null) {
+            for (int i2 = 0; i2 < charSequence2.length(); i2++) {
+                int i3 = i + i2;
+                if (i3 >= charSequence.length() || charSequence.charAt(i3) != charSequence2.charAt(i2)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLIL.booleanValue;
     }
 }

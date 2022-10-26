@@ -4,54 +4,24 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.vo6;
+import com.baidu.tieba.cp6;
+import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, vo6, T> {
+public class FrsItemTabNetModel extends NetAutoModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsItemTabNetModel(TbPageContext tbPageContext, FrsItemTabRequestData frsItemTabRequestData) {
-        super(tbPageContext, frsItemTabRequestData);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, frsItemTabRequestData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (sb5) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
     public int M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CmdConfigHttp.CMD_FRS_ITEM_TAB : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? FrsItemTabHttpResponseMessage.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -71,17 +41,54 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, v
         return invokeV.intValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FrsItemTabNetModel(TbPageContext tbPageContext, FrsItemTabRequestData frsItemTabRequestData) {
+        super(tbPageContext, frsItemTabRequestData);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, frsItemTabRequestData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (xb5) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> R() {
+    public Class O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? FrsItemTabSocketResponseMessage.class : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return FrsItemTabHttpResponseMessage.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return FrsItemTabSocketResponseMessage.class;
+        }
+        return (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
     public Class getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? vo6.class : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return cp6.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

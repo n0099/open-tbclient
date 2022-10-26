@@ -10,12 +10,12 @@ import java.lang.ref.SoftReference;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class OOMSoftReference<T> {
+public class OOMSoftReference {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SoftReference<T> softRef1;
-    public SoftReference<T> softRef2;
-    public SoftReference<T> softRef3;
+    public SoftReference softRef1;
+    public SoftReference softRef2;
+    public SoftReference softRef3;
 
     public OOMSoftReference() {
         Interceptable interceptable = $ic;
@@ -38,17 +38,17 @@ public class OOMSoftReference<T> {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SoftReference<T> softReference = this.softRef1;
+            SoftReference softReference = this.softRef1;
             if (softReference != null) {
                 softReference.clear();
                 this.softRef1 = null;
             }
-            SoftReference<T> softReference2 = this.softRef2;
+            SoftReference softReference2 = this.softRef2;
             if (softReference2 != null) {
                 softReference2.clear();
                 this.softRef2 = null;
             }
-            SoftReference<T> softReference3 = this.softRef3;
+            SoftReference softReference3 = this.softRef3;
             if (softReference3 != null) {
                 softReference3.clear();
                 this.softRef3 = null;
@@ -57,25 +57,25 @@ public class OOMSoftReference<T> {
     }
 
     @Nullable
-    public T get() {
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SoftReference<T> softReference = this.softRef1;
+            SoftReference softReference = this.softRef1;
             if (softReference == null) {
                 return null;
             }
             return softReference.get();
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public void set(@Nonnull T t) {
+    public void set(@Nonnull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.softRef1 = new SoftReference<>(t);
-            this.softRef2 = new SoftReference<>(t);
-            this.softRef3 = new SoftReference<>(t);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            this.softRef1 = new SoftReference(obj);
+            this.softRef2 = new SoftReference(obj);
+            this.softRef3 = new SoftReference(obj);
         }
     }
 }

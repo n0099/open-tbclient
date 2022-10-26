@@ -20,11 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -88,6 +83,12 @@ public class ListPopupWindow implements ShowableListMenu {
     public Runnable mShowDropDownRunnable;
     public final Rect mTempRect;
     public final PopupTouchInterceptor mTouchInterceptor;
+
+    public static boolean isConfirmKey(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i == 66 || i == 23 : invokeI.booleanValue;
+    }
 
     /* loaded from: classes.dex */
     public class ListSelectorHider implements Runnable {
@@ -169,6 +170,13 @@ public class ListPopupWindow implements ShowableListMenu {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ListPopupWindow this$0;
 
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) {
+            }
+        }
+
         public PopupScrollListener(ListPopupWindow listPopupWindow) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -188,21 +196,13 @@ public class ListPopupWindow implements ShowableListMenu {
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) || i != 1 || this.this$0.isInputMethodNotNeeded() || this.this$0.mPopup.getContentView() == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && i == 1 && !this.this$0.isInputMethodNotNeeded() && this.this$0.mPopup.getContentView() != null) {
+                ListPopupWindow listPopupWindow = this.this$0;
+                listPopupWindow.mHandler.removeCallbacks(listPopupWindow.mResizePopupRunnable);
+                this.this$0.mResizePopupRunnable.run();
             }
-            ListPopupWindow listPopupWindow = this.this$0;
-            listPopupWindow.mHandler.removeCallbacks(listPopupWindow.mResizePopupRunnable);
-            this.this$0.mResizePopupRunnable.run();
         }
     }
 
@@ -283,14 +283,13 @@ public class ListPopupWindow implements ShowableListMenu {
         public void run() {
             DropDownListView dropDownListView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dropDownListView = this.this$0.mDropDownList) == null || !ViewCompat.isAttachedToWindow(dropDownListView) || this.this$0.mDropDownList.getCount() <= this.this$0.mDropDownList.getChildCount()) {
-                return;
-            }
-            int childCount = this.this$0.mDropDownList.getChildCount();
-            ListPopupWindow listPopupWindow = this.this$0;
-            if (childCount <= listPopupWindow.mListItemExpandMaximum) {
-                listPopupWindow.mPopup.setInputMethodMode(2);
-                this.this$0.show();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dropDownListView = this.this$0.mDropDownList) != null && ViewCompat.isAttachedToWindow(dropDownListView) && this.this$0.mDropDownList.getCount() > this.this$0.mDropDownList.getChildCount()) {
+                int childCount = this.this$0.mDropDownList.getChildCount();
+                ListPopupWindow listPopupWindow = this.this$0;
+                if (childCount <= listPopupWindow.mListItemExpandMaximum) {
+                    listPopupWindow.mPopup.setInputMethodMode(2);
+                    this.this$0.show();
+                }
             }
         }
     }
@@ -330,7 +329,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ListPopupWindow(@NonNull Context context) {
+    public ListPopupWindow(Context context) {
         this(context, null, R.attr.obfuscated_res_0x7f04043d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -350,6 +349,122 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ListPopupWindow(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043d);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public boolean onKeyPreIme(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i, keyEvent)) == null) {
+            if (i == 4 && isShowing()) {
+                View view2 = this.mDropDownAnchorView;
+                if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {
+                    KeyEvent.DispatcherState keyDispatcherState = view2.getKeyDispatcherState();
+                    if (keyDispatcherState != null) {
+                        keyDispatcherState.startTracking(keyEvent, this);
+                    }
+                    return true;
+                } else if (keyEvent.getAction() == 1) {
+                    KeyEvent.DispatcherState keyDispatcherState2 = view2.getKeyDispatcherState();
+                    if (keyDispatcherState2 != null) {
+                        keyDispatcherState2.handleUpEvent(keyEvent);
+                    }
+                    if (keyEvent.isTracking() && !keyEvent.isCanceled()) {
+                        dismiss();
+                        return true;
+                    }
+                    return false;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ListPopupWindow(Context context, AttributeSet attributeSet, int i) {
+        this(context, attributeSet, i, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public ListPopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.mDropDownHeight = -2;
+        this.mDropDownWidth = -2;
+        this.mDropDownWindowLayoutType = 1002;
+        this.mDropDownGravity = 0;
+        this.mDropDownAlwaysVisible = false;
+        this.mForceIgnoreOutsideTouch = false;
+        this.mListItemExpandMaximum = Integer.MAX_VALUE;
+        this.mPromptPosition = 0;
+        this.mResizePopupRunnable = new ResizePopupRunnable(this);
+        this.mTouchInterceptor = new PopupTouchInterceptor(this);
+        this.mScrollListener = new PopupScrollListener(this);
+        this.mHideSelector = new ListSelectorHider(this);
+        this.mTempRect = new Rect();
+        this.mContext = context;
+        this.mHandler = new Handler(context.getMainLooper());
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.appcompat.R.styleable.ListPopupWindow, i, i2);
+        this.mDropDownHorizontalOffset = obtainStyledAttributes.getDimensionPixelOffset(0, 0);
+        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
+        this.mDropDownVerticalOffset = dimensionPixelOffset;
+        if (dimensionPixelOffset != 0) {
+            this.mDropDownVerticalOffsetSet = true;
+        }
+        obtainStyledAttributes.recycle();
+        AppCompatPopupWindow appCompatPopupWindow = new AppCompatPopupWindow(context, attributeSet, i, i2);
+        this.mPopup = appCompatPopupWindow;
+        appCompatPopupWindow.setInputMethodMode(1);
+    }
+
     /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: android.widget.LinearLayout */
     /* JADX WARN: Multi-variable type inference failed */
     private int buildDropDown() {
@@ -360,6 +475,7 @@ public class ListPopupWindow implements ShowableListMenu {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            boolean z = true;
             if (this.mDropDownList == null) {
                 Context context = this.mContext;
                 this.mShowDropDownRunnable = new Runnable(this) { // from class: androidx.appcompat.widget.ListPopupWindow.2
@@ -389,10 +505,9 @@ public class ListPopupWindow implements ShowableListMenu {
                     public void run() {
                         View anchorView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (anchorView = this.this$0.getAnchorView()) == null || anchorView.getWindowToken() == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (anchorView = this.this$0.getAnchorView()) != null && anchorView.getWindowToken() != null) {
+                            this.this$0.show();
                         }
-                        this.this$0.show();
                     }
                 };
                 DropDownListView createDropDownListView = createDropDownListView(context, !this.mModal);
@@ -409,6 +524,13 @@ public class ListPopupWindow implements ShowableListMenu {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ListPopupWindow this$0;
+
+                    @Override // android.widget.AdapterView.OnItemSelectedListener
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
+                        }
+                    }
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -432,16 +554,8 @@ public class ListPopupWindow implements ShowableListMenu {
                     public void onItemSelected(AdapterView<?> adapterView, View view2, int i4, long j) {
                         DropDownListView dropDownListView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i4), Long.valueOf(j)}) == null) || i4 == -1 || (dropDownListView = this.this$0.mDropDownList) == null) {
-                            return;
-                        }
-                        dropDownListView.setListSelectionHidden(false);
-                    }
-
-                    @Override // android.widget.AdapterView.OnItemSelectedListener
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
+                        if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i4), Long.valueOf(j)}) == null) && i4 != -1 && (dropDownListView = this.this$0.mDropDownList) != null) {
+                            dropDownListView.setListSelectionHidden(false);
                         }
                     }
                 });
@@ -457,14 +571,16 @@ public class ListPopupWindow implements ShowableListMenu {
                     linearLayout.setOrientation(1);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0, 1.0f);
                     int i4 = this.mPromptPosition;
-                    if (i4 == 0) {
-                        linearLayout.addView(view2);
-                        linearLayout.addView(dropDownListView, layoutParams);
-                    } else if (i4 != 1) {
-                        Log.e(TAG, "Invalid hint position " + this.mPromptPosition);
+                    if (i4 != 0) {
+                        if (i4 != 1) {
+                            Log.e(TAG, "Invalid hint position " + this.mPromptPosition);
+                        } else {
+                            linearLayout.addView(dropDownListView, layoutParams);
+                            linearLayout.addView(view2);
+                        }
                     } else {
-                        linearLayout.addView(dropDownListView, layoutParams);
                         linearLayout.addView(view2);
+                        linearLayout.addView(dropDownListView, layoutParams);
                     }
                     int i5 = this.mDropDownWidth;
                     if (i5 >= 0) {
@@ -504,29 +620,151 @@ public class ListPopupWindow implements ShowableListMenu {
                 this.mTempRect.setEmpty();
                 i2 = 0;
             }
-            int maxAvailableHeight = getMaxAvailableHeight(getAnchorView(), this.mDropDownVerticalOffset, this.mPopup.getInputMethodMode() == 2);
-            if (this.mDropDownAlwaysVisible || this.mDropDownHeight == -1) {
-                return maxAvailableHeight + i2;
+            if (this.mPopup.getInputMethodMode() != 2) {
+                z = false;
             }
-            int i7 = this.mDropDownWidth;
-            if (i7 == -2) {
-                int i8 = this.mContext.getResources().getDisplayMetrics().widthPixels;
-                Rect rect2 = this.mTempRect;
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i8 - (rect2.left + rect2.right), Integer.MIN_VALUE);
-            } else if (i7 != -1) {
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i7, 1073741824);
-            } else {
-                int i9 = this.mContext.getResources().getDisplayMetrics().widthPixels;
-                Rect rect3 = this.mTempRect;
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i9 - (rect3.left + rect3.right), 1073741824);
+            int maxAvailableHeight = getMaxAvailableHeight(getAnchorView(), this.mDropDownVerticalOffset, z);
+            if (!this.mDropDownAlwaysVisible && this.mDropDownHeight != -1) {
+                int i7 = this.mDropDownWidth;
+                if (i7 != -2) {
+                    if (i7 != -1) {
+                        makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i7, 1073741824);
+                    } else {
+                        int i8 = this.mContext.getResources().getDisplayMetrics().widthPixels;
+                        Rect rect2 = this.mTempRect;
+                        makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i8 - (rect2.left + rect2.right), 1073741824);
+                    }
+                } else {
+                    int i9 = this.mContext.getResources().getDisplayMetrics().widthPixels;
+                    Rect rect3 = this.mTempRect;
+                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i9 - (rect3.left + rect3.right), Integer.MIN_VALUE);
+                }
+                int measureHeightOfChildrenCompat = this.mDropDownList.measureHeightOfChildrenCompat(makeMeasureSpec, 0, -1, maxAvailableHeight - i, -1);
+                if (measureHeightOfChildrenCompat > 0) {
+                    i += i2 + this.mDropDownList.getPaddingTop() + this.mDropDownList.getPaddingBottom();
+                }
+                return measureHeightOfChildrenCompat + i;
             }
-            int measureHeightOfChildrenCompat = this.mDropDownList.measureHeightOfChildrenCompat(makeMeasureSpec, 0, -1, maxAvailableHeight - i, -1);
-            if (measureHeightOfChildrenCompat > 0) {
-                i += i2 + this.mDropDownList.getPaddingTop() + this.mDropDownList.getPaddingBottom();
-            }
-            return measureHeightOfChildrenCompat + i;
+            return maxAvailableHeight + i2;
         }
         return invokeV.intValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.ShowableListMenu
+    public void show() {
+        boolean z;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+            int buildDropDown = buildDropDown();
+            boolean isInputMethodNotNeeded = isInputMethodNotNeeded();
+            PopupWindowCompat.setWindowLayoutType(this.mPopup, this.mDropDownWindowLayoutType);
+            boolean z2 = true;
+            if (this.mPopup.isShowing()) {
+                if (!ViewCompat.isAttachedToWindow(getAnchorView())) {
+                    return;
+                }
+                int i5 = this.mDropDownWidth;
+                if (i5 == -1) {
+                    i5 = -1;
+                } else if (i5 == -2) {
+                    i5 = getAnchorView().getWidth();
+                }
+                int i6 = this.mDropDownHeight;
+                if (i6 == -1) {
+                    if (!isInputMethodNotNeeded) {
+                        buildDropDown = -1;
+                    }
+                    if (isInputMethodNotNeeded) {
+                        PopupWindow popupWindow = this.mPopup;
+                        if (this.mDropDownWidth == -1) {
+                            i4 = -1;
+                        } else {
+                            i4 = 0;
+                        }
+                        popupWindow.setWidth(i4);
+                        this.mPopup.setHeight(0);
+                    } else {
+                        PopupWindow popupWindow2 = this.mPopup;
+                        if (this.mDropDownWidth == -1) {
+                            i3 = -1;
+                        } else {
+                            i3 = 0;
+                        }
+                        popupWindow2.setWidth(i3);
+                        this.mPopup.setHeight(-1);
+                    }
+                } else if (i6 != -2) {
+                    buildDropDown = i6;
+                }
+                this.mPopup.setOutsideTouchable((this.mForceIgnoreOutsideTouch || this.mDropDownAlwaysVisible) ? false : false);
+                PopupWindow popupWindow3 = this.mPopup;
+                View anchorView = getAnchorView();
+                int i7 = this.mDropDownHorizontalOffset;
+                int i8 = this.mDropDownVerticalOffset;
+                if (i5 < 0) {
+                    i = -1;
+                } else {
+                    i = i5;
+                }
+                if (buildDropDown < 0) {
+                    i2 = -1;
+                } else {
+                    i2 = buildDropDown;
+                }
+                popupWindow3.update(anchorView, i7, i8, i, i2);
+                return;
+            }
+            int i9 = this.mDropDownWidth;
+            if (i9 == -1) {
+                i9 = -1;
+            } else if (i9 == -2) {
+                i9 = getAnchorView().getWidth();
+            }
+            int i10 = this.mDropDownHeight;
+            if (i10 == -1) {
+                buildDropDown = -1;
+            } else if (i10 != -2) {
+                buildDropDown = i10;
+            }
+            this.mPopup.setWidth(i9);
+            this.mPopup.setHeight(buildDropDown);
+            setPopupClipToScreenEnabled(true);
+            PopupWindow popupWindow4 = this.mPopup;
+            if (!this.mForceIgnoreOutsideTouch && !this.mDropDownAlwaysVisible) {
+                z = true;
+            } else {
+                z = false;
+            }
+            popupWindow4.setOutsideTouchable(z);
+            this.mPopup.setTouchInterceptor(this.mTouchInterceptor);
+            if (this.mOverlapAnchorSet) {
+                PopupWindowCompat.setOverlapAnchor(this.mPopup, this.mOverlapAnchor);
+            }
+            if (Build.VERSION.SDK_INT <= 28) {
+                Method method = sSetEpicenterBoundsMethod;
+                if (method != null) {
+                    try {
+                        method.invoke(this.mPopup, this.mEpicenterBounds);
+                    } catch (Exception e) {
+                        Log.e(TAG, "Could not invoke setEpicenterBounds on PopupWindow", e);
+                    }
+                }
+            } else {
+                this.mPopup.setEpicenterBounds(this.mEpicenterBounds);
+            }
+            PopupWindowCompat.showAsDropDown(this.mPopup, getAnchorView(), this.mDropDownHorizontalOffset, this.mDropDownVerticalOffset, this.mDropDownGravity);
+            this.mDropDownList.setSelection(-1);
+            if (!this.mModal || this.mDropDownList.isInTouchMode()) {
+                clearListSelection();
+            }
+            if (!this.mModal) {
+                this.mHandler.post(this.mHideSelector);
+            }
+        }
     }
 
     private int getMaxAvailableHeight(View view2, int i, boolean z) {
@@ -549,21 +787,245 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeCommon.intValue;
     }
 
-    public static boolean isConfirmKey(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i == 66 || i == 23 : invokeI.booleanValue;
-    }
-
     private void removePromptView() {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (view2 = this.mPromptView) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && (view2 = this.mPromptView) != null) {
+            ViewParent parent = view2.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this.mPromptView);
+            }
         }
-        ViewParent parent = view2.getParent();
-        if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.mPromptView);
+    }
+
+    public void clearListSelection() {
+        DropDownListView dropDownListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dropDownListView = this.mDropDownList) != null) {
+            dropDownListView.setListSelectionHidden(true);
+            dropDownListView.requestLayout();
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.ShowableListMenu
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mPopup.dismiss();
+            removePromptView();
+            this.mPopup.setContentView(null);
+            this.mDropDownList = null;
+            this.mHandler.removeCallbacks(this.mResizePopupRunnable);
+        }
+    }
+
+    public View getAnchorView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDropDownAnchorView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int getAnimationStyle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPopup.getAnimationStyle();
+        }
+        return invokeV.intValue;
+    }
+
+    public Drawable getBackground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mPopup.getBackground();
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public Rect getEpicenterBounds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.mEpicenterBounds != null) {
+                return new Rect(this.mEpicenterBounds);
+            }
+            return null;
+        }
+        return (Rect) invokeV.objValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mDropDownHeight;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getHorizontalOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mDropDownHorizontalOffset;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getInputMethodMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mPopup.getInputMethodMode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.ShowableListMenu
+    public ListView getListView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mDropDownList;
+        }
+        return (ListView) invokeV.objValue;
+    }
+
+    public int getPromptPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mPromptPosition;
+        }
+        return invokeV.intValue;
+    }
+
+    public Object getSelectedItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (!isShowing()) {
+                return null;
+            }
+            return this.mDropDownList.getSelectedItem();
+        }
+        return invokeV.objValue;
+    }
+
+    public long getSelectedItemId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (!isShowing()) {
+                return Long.MIN_VALUE;
+            }
+            return this.mDropDownList.getSelectedItemId();
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSelectedItemPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (!isShowing()) {
+                return -1;
+            }
+            return this.mDropDownList.getSelectedItemPosition();
+        }
+        return invokeV.intValue;
+    }
+
+    public View getSelectedView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (!isShowing()) {
+                return null;
+            }
+            return this.mDropDownList.getSelectedView();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int getSoftInputMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mPopup.getSoftInputMode();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getVerticalOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (!this.mDropDownVerticalOffsetSet) {
+                return 0;
+            }
+            return this.mDropDownVerticalOffset;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mDropDownWidth;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isDropDownAlwaysVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mDropDownAlwaysVisible;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isInputMethodNotNeeded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (this.mPopup.getInputMethodMode() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isModal() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mModal;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.ShowableListMenu
+    public boolean isShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mPopup.isShowing();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void postShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            this.mHandler.post(this.mShowDropDownRunnable);
         }
     }
 
@@ -587,336 +1049,6 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void clearListSelection() {
-        DropDownListView dropDownListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dropDownListView = this.mDropDownList) == null) {
-            return;
-        }
-        dropDownListView.setListSelectionHidden(true);
-        dropDownListView.requestLayout();
-    }
-
-    public View.OnTouchListener createDragToOpenListener(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? new ForwardingListener(this, view2) { // from class: androidx.appcompat.widget.ListPopupWindow.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ListPopupWindow this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(view2);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, view2};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((View) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // androidx.appcompat.widget.ForwardingListener
-            public ListPopupWindow getPopup() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0 : (ListPopupWindow) invokeV.objValue;
-            }
-        } : (View.OnTouchListener) invokeL.objValue;
-    }
-
-    @NonNull
-    public DropDownListView createDropDownListView(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z)) == null) ? new DropDownListView(context, z) : (DropDownListView) invokeLZ.objValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.ShowableListMenu
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mPopup.dismiss();
-            removePromptView();
-            this.mPopup.setContentView(null);
-            this.mDropDownList = null;
-            this.mHandler.removeCallbacks(this.mResizePopupRunnable);
-        }
-    }
-
-    @Nullable
-    public View getAnchorView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDropDownAnchorView : (View) invokeV.objValue;
-    }
-
-    @StyleRes
-    public int getAnimationStyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPopup.getAnimationStyle() : invokeV.intValue;
-    }
-
-    @Nullable
-    public Drawable getBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPopup.getBackground() : (Drawable) invokeV.objValue;
-    }
-
-    @Nullable
-    public Rect getEpicenterBounds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.mEpicenterBounds != null) {
-                return new Rect(this.mEpicenterBounds);
-            }
-            return null;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDropDownHeight : invokeV.intValue;
-    }
-
-    public int getHorizontalOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mDropDownHorizontalOffset : invokeV.intValue;
-    }
-
-    public int getInputMethodMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mPopup.getInputMethodMode() : invokeV.intValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.ShowableListMenu
-    @Nullable
-    public ListView getListView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mDropDownList : (ListView) invokeV.objValue;
-    }
-
-    public int getPromptPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mPromptPosition : invokeV.intValue;
-    }
-
-    @Nullable
-    public Object getSelectedItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (isShowing()) {
-                return this.mDropDownList.getSelectedItem();
-            }
-            return null;
-        }
-        return invokeV.objValue;
-    }
-
-    public long getSelectedItemId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (isShowing()) {
-                return this.mDropDownList.getSelectedItemId();
-            }
-            return Long.MIN_VALUE;
-        }
-        return invokeV.longValue;
-    }
-
-    public int getSelectedItemPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (isShowing()) {
-                return this.mDropDownList.getSelectedItemPosition();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public View getSelectedView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (isShowing()) {
-                return this.mDropDownList.getSelectedView();
-            }
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public int getSoftInputMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mPopup.getSoftInputMode() : invokeV.intValue;
-    }
-
-    public int getVerticalOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.mDropDownVerticalOffsetSet) {
-                return this.mDropDownVerticalOffset;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mDropDownWidth : invokeV.intValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public boolean isDropDownAlwaysVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mDropDownAlwaysVisible : invokeV.booleanValue;
-    }
-
-    public boolean isInputMethodNotNeeded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mPopup.getInputMethodMode() == 2 : invokeV.booleanValue;
-    }
-
-    public boolean isModal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mModal : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.ShowableListMenu
-    public boolean isShowing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mPopup.isShowing() : invokeV.booleanValue;
-    }
-
-    public boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        int lookForSelectablePosition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, keyEvent)) == null) {
-            if (isShowing() && i != 62 && (this.mDropDownList.getSelectedItemPosition() >= 0 || !isConfirmKey(i))) {
-                int selectedItemPosition = this.mDropDownList.getSelectedItemPosition();
-                boolean z = !this.mPopup.isAboveAnchor();
-                ListAdapter listAdapter = this.mAdapter;
-                int i2 = Integer.MAX_VALUE;
-                int i3 = Integer.MIN_VALUE;
-                if (listAdapter != null) {
-                    boolean areAllItemsEnabled = listAdapter.areAllItemsEnabled();
-                    int lookForSelectablePosition2 = areAllItemsEnabled ? 0 : this.mDropDownList.lookForSelectablePosition(0, true);
-                    if (areAllItemsEnabled) {
-                        lookForSelectablePosition = listAdapter.getCount() - 1;
-                    } else {
-                        lookForSelectablePosition = this.mDropDownList.lookForSelectablePosition(listAdapter.getCount() - 1, false);
-                    }
-                    i2 = lookForSelectablePosition2;
-                    i3 = lookForSelectablePosition;
-                }
-                if ((z && i == 19 && selectedItemPosition <= i2) || (!z && i == 20 && selectedItemPosition >= i3)) {
-                    clearListSelection();
-                    this.mPopup.setInputMethodMode(1);
-                    show();
-                    return true;
-                }
-                this.mDropDownList.setListSelectionHidden(false);
-                if (this.mDropDownList.onKeyDown(i, keyEvent)) {
-                    this.mPopup.setInputMethodMode(2);
-                    this.mDropDownList.requestFocusFromTouch();
-                    show();
-                    if (i == 19 || i == 20 || i == 23 || i == 66) {
-                        return true;
-                    }
-                } else if (z && i == 20) {
-                    if (selectedItemPosition == i3) {
-                        return true;
-                    }
-                } else if (!z && i == 19 && selectedItemPosition == i2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public boolean onKeyPreIme(int i, @NonNull KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i, keyEvent)) == null) {
-            if (i == 4 && isShowing()) {
-                View view2 = this.mDropDownAnchorView;
-                if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {
-                    KeyEvent.DispatcherState keyDispatcherState = view2.getKeyDispatcherState();
-                    if (keyDispatcherState != null) {
-                        keyDispatcherState.startTracking(keyEvent, this);
-                    }
-                    return true;
-                } else if (keyEvent.getAction() == 1) {
-                    KeyEvent.DispatcherState keyDispatcherState2 = view2.getKeyDispatcherState();
-                    if (keyDispatcherState2 != null) {
-                        keyDispatcherState2.handleUpEvent(keyEvent);
-                    }
-                    if (!keyEvent.isTracking() || keyEvent.isCanceled()) {
-                        return false;
-                    }
-                    dismiss();
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i, keyEvent)) == null) {
-            if (!isShowing() || this.mDropDownList.getSelectedItemPosition() < 0) {
-                return false;
-            }
-            boolean onKeyUp = this.mDropDownList.onKeyUp(i, keyEvent);
-            if (onKeyUp && isConfirmKey(i)) {
-                dismiss();
-            }
-            return onKeyUp;
-        }
-        return invokeIL.booleanValue;
-    }
-
     public boolean performItemClick(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -934,14 +1066,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeI.booleanValue;
     }
 
-    public void postShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.mHandler.post(this.mShowDropDownRunnable);
-        }
-    }
-
-    public void setAdapter(@Nullable ListAdapter listAdapter) {
+    public void setAdapter(ListAdapter listAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, listAdapter) == null) {
             DataSetObserver dataSetObserver = this.mObserver;
@@ -964,21 +1089,66 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void setAnchorView(@Nullable View view2) {
+    public View.OnTouchListener createDragToOpenListener(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            return new ForwardingListener(this, view2) { // from class: androidx.appcompat.widget.ListPopupWindow.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ListPopupWindow this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(view2);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, view2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super((View) newInitContext.callArgs[0]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // androidx.appcompat.widget.ForwardingListener
+                public ListPopupWindow getPopup() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return this.this$0;
+                    }
+                    return (ListPopupWindow) invokeV.objValue;
+                }
+            };
+        }
+        return (View.OnTouchListener) invokeL.objValue;
+    }
+
+    public void setAnchorView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, view2) == null) {
             this.mDropDownAnchorView = view2;
         }
     }
 
-    public void setAnimationStyle(@StyleRes int i) {
+    public void setAnimationStyle(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             this.mPopup.setAnimationStyle(i);
         }
     }
 
-    public void setBackgroundDrawable(@Nullable Drawable drawable) {
+    public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
             this.mPopup.setBackgroundDrawable(drawable);
@@ -999,7 +1169,6 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDropDownAlwaysVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
@@ -1014,14 +1183,19 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void setEpicenterBounds(@Nullable Rect rect) {
+    public void setEpicenterBounds(Rect rect) {
+        Rect rect2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, rect) == null) {
-            this.mEpicenterBounds = rect != null ? new Rect(rect) : null;
+            if (rect != null) {
+                rect2 = new Rect(rect);
+            } else {
+                rect2 = null;
+            }
+            this.mEpicenterBounds = rect2;
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setForceIgnoreOutsideTouch(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
@@ -1075,28 +1249,27 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void setOnDismissListener(@Nullable PopupWindow.OnDismissListener onDismissListener) {
+    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, onDismissListener) == null) {
             this.mPopup.setOnDismissListener(onDismissListener);
         }
     }
 
-    public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
+    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, onItemClickListener) == null) {
             this.mItemClickListener = onItemClickListener;
         }
     }
 
-    public void setOnItemSelectedListener(@Nullable AdapterView.OnItemSelectedListener onItemSelectedListener) {
+    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, onItemSelectedListener) == null) {
             this.mItemSelectedListener = onItemSelectedListener;
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setOverlapAnchor(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
@@ -1112,7 +1285,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void setPromptView(@Nullable View view2) {
+    public void setPromptView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, view2) == null) {
             boolean isShowing = isShowing();
@@ -1130,13 +1303,12 @@ public class ListPopupWindow implements ShowableListMenu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
             DropDownListView dropDownListView = this.mDropDownList;
-            if (!isShowing() || dropDownListView == null) {
-                return;
-            }
-            dropDownListView.setListSelectionHidden(false);
-            dropDownListView.setSelection(i);
-            if (dropDownListView.getChoiceMode() != 0) {
-                dropDownListView.setItemChecked(i, true);
+            if (isShowing() && dropDownListView != null) {
+                dropDownListView.setListSelectionHidden(false);
+                dropDownListView.setSelection(i);
+                if (dropDownListView.getChoiceMode() != 0) {
+                    dropDownListView.setItemChecked(i, true);
+                }
             }
         }
     }
@@ -1170,169 +1342,82 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    @Override // androidx.appcompat.view.menu.ShowableListMenu
-    public void show() {
+    public DropDownListView createDropDownListView(Context context, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            int buildDropDown = buildDropDown();
-            boolean isInputMethodNotNeeded = isInputMethodNotNeeded();
-            PopupWindowCompat.setWindowLayoutType(this.mPopup, this.mDropDownWindowLayoutType);
-            boolean z = true;
-            if (this.mPopup.isShowing()) {
-                if (ViewCompat.isAttachedToWindow(getAnchorView())) {
-                    int i = this.mDropDownWidth;
-                    if (i == -1) {
-                        i = -1;
-                    } else if (i == -2) {
-                        i = getAnchorView().getWidth();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z)) == null) {
+            return new DropDownListView(context, z);
+        }
+        return (DropDownListView) invokeLZ.objValue;
+    }
+
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        int lookForSelectablePosition;
+        int lookForSelectablePosition2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, keyEvent)) == null) {
+            if (isShowing() && i != 62 && (this.mDropDownList.getSelectedItemPosition() >= 0 || !isConfirmKey(i))) {
+                int selectedItemPosition = this.mDropDownList.getSelectedItemPosition();
+                boolean z = !this.mPopup.isAboveAnchor();
+                ListAdapter listAdapter = this.mAdapter;
+                int i2 = Integer.MAX_VALUE;
+                int i3 = Integer.MIN_VALUE;
+                if (listAdapter != null) {
+                    boolean areAllItemsEnabled = listAdapter.areAllItemsEnabled();
+                    if (areAllItemsEnabled) {
+                        lookForSelectablePosition = 0;
+                    } else {
+                        lookForSelectablePosition = this.mDropDownList.lookForSelectablePosition(0, true);
                     }
-                    int i2 = this.mDropDownHeight;
-                    if (i2 == -1) {
-                        if (!isInputMethodNotNeeded) {
-                            buildDropDown = -1;
-                        }
-                        if (isInputMethodNotNeeded) {
-                            this.mPopup.setWidth(this.mDropDownWidth == -1 ? -1 : 0);
-                            this.mPopup.setHeight(0);
-                        } else {
-                            this.mPopup.setWidth(this.mDropDownWidth == -1 ? -1 : 0);
-                            this.mPopup.setHeight(-1);
-                        }
-                    } else if (i2 != -2) {
-                        buildDropDown = i2;
+                    if (areAllItemsEnabled) {
+                        lookForSelectablePosition2 = listAdapter.getCount() - 1;
+                    } else {
+                        lookForSelectablePosition2 = this.mDropDownList.lookForSelectablePosition(listAdapter.getCount() - 1, false);
                     }
-                    this.mPopup.setOutsideTouchable((this.mForceIgnoreOutsideTouch || this.mDropDownAlwaysVisible) ? false : false);
-                    this.mPopup.update(getAnchorView(), this.mDropDownHorizontalOffset, this.mDropDownVerticalOffset, i < 0 ? -1 : i, buildDropDown < 0 ? -1 : buildDropDown);
-                    return;
+                    i2 = lookForSelectablePosition;
+                    i3 = lookForSelectablePosition2;
                 }
-                return;
-            }
-            int i3 = this.mDropDownWidth;
-            if (i3 == -1) {
-                i3 = -1;
-            } else if (i3 == -2) {
-                i3 = getAnchorView().getWidth();
-            }
-            int i4 = this.mDropDownHeight;
-            if (i4 == -1) {
-                buildDropDown = -1;
-            } else if (i4 != -2) {
-                buildDropDown = i4;
-            }
-            this.mPopup.setWidth(i3);
-            this.mPopup.setHeight(buildDropDown);
-            setPopupClipToScreenEnabled(true);
-            this.mPopup.setOutsideTouchable((this.mForceIgnoreOutsideTouch || this.mDropDownAlwaysVisible) ? false : true);
-            this.mPopup.setTouchInterceptor(this.mTouchInterceptor);
-            if (this.mOverlapAnchorSet) {
-                PopupWindowCompat.setOverlapAnchor(this.mPopup, this.mOverlapAnchor);
-            }
-            if (Build.VERSION.SDK_INT <= 28) {
-                Method method = sSetEpicenterBoundsMethod;
-                if (method != null) {
-                    try {
-                        method.invoke(this.mPopup, this.mEpicenterBounds);
-                    } catch (Exception e) {
-                        Log.e(TAG, "Could not invoke setEpicenterBounds on PopupWindow", e);
-                    }
+                if ((z && i == 19 && selectedItemPosition <= i2) || (!z && i == 20 && selectedItemPosition >= i3)) {
+                    clearListSelection();
+                    this.mPopup.setInputMethodMode(1);
+                    show();
+                    return true;
                 }
-            } else {
-                this.mPopup.setEpicenterBounds(this.mEpicenterBounds);
+                this.mDropDownList.setListSelectionHidden(false);
+                if (this.mDropDownList.onKeyDown(i, keyEvent)) {
+                    this.mPopup.setInputMethodMode(2);
+                    this.mDropDownList.requestFocusFromTouch();
+                    show();
+                    if (i == 19 || i == 20 || i == 23 || i == 66) {
+                        return true;
+                    }
+                } else if (z && i == 20) {
+                    if (selectedItemPosition == i3) {
+                        return true;
+                    }
+                } else if (!z && i == 19 && selectedItemPosition == i2) {
+                    return true;
+                }
             }
-            PopupWindowCompat.showAsDropDown(this.mPopup, getAnchorView(), this.mDropDownHorizontalOffset, this.mDropDownVerticalOffset, this.mDropDownGravity);
-            this.mDropDownList.setSelection(-1);
-            if (!this.mModal || this.mDropDownList.isInTouchMode()) {
-                clearListSelection();
-            }
-            if (this.mModal) {
-                return;
-            }
-            this.mHandler.post(this.mHideSelector);
+            return false;
         }
+        return invokeIL.booleanValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043d);
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i, keyEvent)) == null) {
+            if (isShowing() && this.mDropDownList.getSelectedItemPosition() >= 0) {
+                boolean onKeyUp = this.mDropDownList.onKeyUp(i, keyEvent);
+                if (onKeyUp && isConfirmKey(i)) {
+                    dismiss();
+                }
+                return onKeyUp;
             }
+            return false;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
-        this(context, attributeSet, i, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.mDropDownHeight = -2;
-        this.mDropDownWidth = -2;
-        this.mDropDownWindowLayoutType = 1002;
-        this.mDropDownGravity = 0;
-        this.mDropDownAlwaysVisible = false;
-        this.mForceIgnoreOutsideTouch = false;
-        this.mListItemExpandMaximum = Integer.MAX_VALUE;
-        this.mPromptPosition = 0;
-        this.mResizePopupRunnable = new ResizePopupRunnable(this);
-        this.mTouchInterceptor = new PopupTouchInterceptor(this);
-        this.mScrollListener = new PopupScrollListener(this);
-        this.mHideSelector = new ListSelectorHider(this);
-        this.mTempRect = new Rect();
-        this.mContext = context;
-        this.mHandler = new Handler(context.getMainLooper());
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.appcompat.R.styleable.ListPopupWindow, i, i2);
-        this.mDropDownHorizontalOffset = obtainStyledAttributes.getDimensionPixelOffset(0, 0);
-        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
-        this.mDropDownVerticalOffset = dimensionPixelOffset;
-        if (dimensionPixelOffset != 0) {
-            this.mDropDownVerticalOffsetSet = true;
-        }
-        obtainStyledAttributes.recycle();
-        AppCompatPopupWindow appCompatPopupWindow = new AppCompatPopupWindow(context, attributeSet, i, i2);
-        this.mPopup = appCompatPopupWindow;
-        appCompatPopupWindow.setInputMethodMode(1);
+        return invokeIL.booleanValue;
     }
 }

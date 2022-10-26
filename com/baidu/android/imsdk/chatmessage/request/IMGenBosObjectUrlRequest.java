@@ -45,6 +45,50 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     public int mOriWidth;
     public int mReqSource;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getConnectTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 15000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getReadTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 15000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMGenBosObjectUrlRequest(Context context, String str, String str2, String str3, int i, int i2, int i3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,24 +115,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public int getConnectTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 15000;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -113,7 +140,16 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
-            return readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? "https://pim.baidu.com/rest/3.0/im/bos/generate_bos_url" : "http://180.97.36.95:8080/rest/3.0/im/bos/generate_bos_url" : "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/3.0/im/bos/generate_bos_url" : "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/bos/generate_bos_url";
+            if (readIntData != 1) {
+                if (readIntData != 2) {
+                    if (readIntData != 3) {
+                        return "https://pim.baidu.com/rest/3.0/im/bos/generate_bos_url";
+                    }
+                    return "http://180.97.36.95:8080/rest/3.0/im/bos/generate_bos_url";
+                }
+                return "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/3.0/im/bos/generate_bos_url";
+            }
+            return "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/bos/generate_bos_url";
         }
         return (String) invokeV.objValue;
     }
@@ -127,23 +163,6 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             return Utility.byte2Hex(messageDigest.digest());
         }
         return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public int getReadTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 15000;
-        }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -213,7 +232,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d("", "IMGenBosObjectUrlRequest onFailure " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null, null, null);
         }
@@ -294,31 +313,23 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         }
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, bArr, th)) == null) {
-            if (th != null) {
+            if (th == null) {
+                if (i == 1005) {
+                    str = new String(bArr);
+                } else {
+                    str = "http response is error! response code:" + i;
+                    i = 1011;
+                }
+            } else {
                 i = 1012;
                 str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-            } else if (i == 1005) {
-                str = new String(bArr);
-            } else {
-                str = "http response is error! response code:" + i;
-                i = 1011;
             }
-            return new Pair<>(Integer.valueOf(i), str);
+            return new Pair(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }

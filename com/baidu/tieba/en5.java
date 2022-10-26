@@ -1,28 +1,132 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import java.util.List;
+import android.app.Application;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface en5 extends hn5<jn5> {
-    void a(int i);
+public class en5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final CustomMessageListener a;
+    public c b;
 
-    List<Integer> d();
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(Application application);
 
-    void e(List<dn5> list, String str, String str2, String str3, String str4, boolean z, int i);
+        void b(Application application);
+    }
 
-    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ en5 a;
 
-    void i(List<dn5> list, int i);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(en5 en5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {en5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = en5Var;
+        }
 
-    void k(List<Object> list);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            Lifecycle.Event event;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage.getData() instanceof cu4)) {
+                return;
+            }
+            cu4 cu4Var = (cu4) customResponsedMessage.getData();
+            if (cu4Var.a != null && (event = cu4Var.c) != null) {
+                if (event.equals(Lifecycle.Event.ON_PAUSE)) {
+                    if (this.a.b != null) {
+                        this.a.b.a(cu4Var.a);
+                    }
+                } else if (cu4Var.c.equals(Lifecycle.Event.ON_RESUME) && this.a.b != null) {
+                    this.a.b.b(cu4Var.a);
+                }
+            }
+        }
+    }
 
-    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+    /* loaded from: classes3.dex */
+    public final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static en5 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-827499937, "Lcom/baidu/tieba/en5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-827499937, "Lcom/baidu/tieba/en5$b;");
+                    return;
+                }
+            }
+            a = new en5();
+        }
+    }
 
-    void o(List<dn5> list, List<dn5> list2, boolean z, int i);
+    public en5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a(this, 2921698);
+    }
 
-    void p(String str);
+    public static en5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (en5) invokeV.objValue;
+    }
+
+    public void c(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.b = cVar;
+            MessageManager.getInstance().registerListener(this.a);
+        }
+    }
 }

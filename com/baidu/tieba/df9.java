@@ -1,13 +1,27 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes3.dex */
-public interface df9 {
-    void a() throws IOException;
+public interface df9 extends Runnable {
 
-    void b(String str) throws IOException;
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(DownloadException downloadException);
 
-    int c(byte[] bArr, int i, int i2) throws IOException;
+        void onDownloadCanceled();
 
-    void d(lf9 lf9Var);
+        void onDownloadCompleted(String str);
+
+        void onDownloadPaused();
+
+        void onDownloadProgress(long j, long j2);
+    }
+
+    void cancel();
+
+    boolean isComplete();
+
+    boolean isDownloading();
+
+    void pause();
 }

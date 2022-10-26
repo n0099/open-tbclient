@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view.spanGroup;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class RequestUrlParserNetMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.mForumId);
             builder.url = this.mUrl;
             builder.link_num = Integer.valueOf(this.mLinkNum);
-            sh5.a(builder, true);
+            yh5.a(builder, true);
             UrlParserReqIdl.Builder builder2 = new UrlParserReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -60,25 +60,37 @@ public class RequestUrlParserNetMessage extends NetMessage {
     public long getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mForumId;
+        }
+        return invokeV.longValue;
     }
 
     public int getLinkNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLinkNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLinkNum;
+        }
+        return invokeV.intValue;
     }
 
     public int getSpanGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSpanGroupId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSpanGroupId;
+        }
+        return invokeV.intValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setParams(long j, int i, String str, int i2) {

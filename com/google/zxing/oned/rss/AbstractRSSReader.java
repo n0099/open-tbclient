@@ -51,7 +51,10 @@ public abstract class AbstractRSSReader extends OneDReader {
     public static int count(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iArr)) == null) ? MathUtils.sum(iArr) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iArr)) == null) {
+            return MathUtils.sum(iArr);
+        }
+        return invokeL.intValue;
     }
 
     public static void decrement(int[] iArr, float[] fArr) {
@@ -84,6 +87,20 @@ public abstract class AbstractRSSReader extends OneDReader {
         }
     }
 
+    public static int parseFinderValue(int[] iArr, int[][] iArr2) throws NotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, iArr, iArr2)) == null) {
+            for (int i = 0; i < iArr2.length; i++) {
+                if (OneDReader.patternMatchVariance(iArr, iArr2[i], 0.45f) < 0.2f) {
+                    return i;
+                }
+            }
+            throw NotFoundException.getNotFoundInstance();
+        }
+        return invokeLL.intValue;
+    }
+
     public static boolean isFinderPattern(int[] iArr) {
         InterceptResult invokeL;
         int i;
@@ -110,53 +127,57 @@ public abstract class AbstractRSSReader extends OneDReader {
         return invokeL.booleanValue;
     }
 
-    public static int parseFinderValue(int[] iArr, int[][] iArr2) throws NotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, iArr, iArr2)) == null) {
-            for (int i = 0; i < iArr2.length; i++) {
-                if (OneDReader.patternMatchVariance(iArr, iArr2[i], 0.45f) < 0.2f) {
-                    return i;
-                }
-            }
-            throw NotFoundException.getNotFoundInstance();
-        }
-        return invokeLL.intValue;
-    }
-
     public final int[] getDataCharacterCounters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dataCharacterCounters : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dataCharacterCounters;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public final int[] getDecodeFinderCounters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.decodeFinderCounters : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.decodeFinderCounters;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public final int[] getEvenCounts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.evenCounts : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.evenCounts;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public final float[] getEvenRoundingErrors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.evenRoundingErrors : (float[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.evenRoundingErrors;
+        }
+        return (float[]) invokeV.objValue;
     }
 
     public final int[] getOddCounts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.oddCounts : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.oddCounts;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public final float[] getOddRoundingErrors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.oddRoundingErrors : (float[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.oddRoundingErrors;
+        }
+        return (float[]) invokeV.objValue;
     }
 }

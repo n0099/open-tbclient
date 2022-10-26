@@ -26,6 +26,16 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type;
 
+    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes5.dex */
     public static class Button implements Serializable {
         public static /* synthetic */ Interceptable $ic;
@@ -87,6 +97,16 @@ public class CustomDialogData implements IBaseDialogData {
         this.type = -1;
     }
 
+    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
+    public int getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
+    }
+
     public static CustomDialogData praseJSON(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -118,22 +138,5 @@ public class CustomDialogData implements IBaseDialogData {
             return customDialogData;
         }
         return (CustomDialogData) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
-    public int getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
     }
 }

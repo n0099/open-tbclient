@@ -73,33 +73,6 @@ public class ClassificationBox extends AbstractFullBox {
         }
     }
 
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("ClassificationBox.java", ClassificationBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getLanguage", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 44);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 48);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "int"), 52);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 56);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationEntity", "", "void"), 60);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "int", "classificationTableIndex", "", "void"), 64);
-        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setLanguage", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "language", "", "void"), 68);
-        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationInfo", "", "void"), 72);
-        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 101);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            byte[] bArr = new byte[4];
-            byteBuffer.get(bArr);
-            this.classificationEntity = IsoFile.bytesToFourCC(bArr);
-            this.classificationTableIndex = IsoTypeReader.readUInt16(byteBuffer);
-            this.language = IsoTypeReader.readIso639(byteBuffer);
-            this.classificationInfo = IsoTypeReader.readString(byteBuffer);
-        }
-    }
-
     public String getClassificationEntity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,22 +104,13 @@ public class ClassificationBox extends AbstractFullBox {
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-            byteBuffer.put(IsoFile.fourCCtoBytes(this.classificationEntity));
-            IsoTypeWriter.writeUInt16(byteBuffer, this.classificationTableIndex);
-            IsoTypeWriter.writeIso639(byteBuffer, this.language);
-            byteBuffer.put(Utf8.convert(this.classificationInfo));
-            byteBuffer.put((byte) 0);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Utf8.utf8StringLengthInBytes(this.classificationInfo) + 8 + 1 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Utf8.utf8StringLengthInBytes(this.classificationInfo) + 8 + 1;
+        }
+        return invokeV.longValue;
     }
 
     public String getLanguage() {
@@ -157,6 +121,45 @@ public class ClassificationBox extends AbstractFullBox {
             return this.language;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("ClassificationBox.java", ClassificationBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getLanguage", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 44);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 48);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "int"), 52);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 56);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationEntity", "", "void"), 60);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "int", "classificationTableIndex", "", "void"), 64);
+        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setLanguage", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "language", "", "void"), 68);
+        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationInfo", "", "void"), 72);
+        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 101);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            byte[] bArr = new byte[4];
+            byteBuffer.get(bArr);
+            this.classificationEntity = IsoFile.bytesToFourCC(bArr);
+            this.classificationTableIndex = IsoTypeReader.readUInt16(byteBuffer);
+            this.language = IsoTypeReader.readIso639(byteBuffer);
+            this.classificationInfo = IsoTypeReader.readString(byteBuffer);
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
+            byteBuffer.put(IsoFile.fourCCtoBytes(this.classificationEntity));
+            IsoTypeWriter.writeUInt16(byteBuffer, this.classificationTableIndex);
+            IsoTypeWriter.writeIso639(byteBuffer, this.language);
+            byteBuffer.put(Utf8.convert(this.classificationInfo));
+            byteBuffer.put((byte) 0);
+        }
     }
 
     public void setClassificationEntity(String str) {

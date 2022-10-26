@@ -28,6 +28,15 @@ public class ZwDebugExtra {
         }
     }
 
+    public static boolean debugModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return debugModel;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void clearCrashKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
@@ -42,20 +51,20 @@ public class ZwDebugExtra {
         }
     }
 
-    public static boolean debugModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? debugModel : invokeV.booleanValue;
-    }
-
     public static synchronized void init(Context context) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (ZwDebugExtra.class) {
                 try {
                     ApplicationInfo applicationInfo = context.getApplicationInfo();
                     if (applicationInfo != null) {
-                        debugModel = (applicationInfo.flags & 2) != 0;
+                        if ((applicationInfo.flags & 2) != 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        debugModel = z;
                     }
                 } catch (Exception unused) {
                 }

@@ -16,26 +16,26 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableSubscribeOn extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean nonScheduledRequests;
     public final Scheduler scheduler;
 
     /* loaded from: classes8.dex */
-    public static final class SubscribeOnSubscriber<T> extends AtomicReference<Thread> implements FlowableSubscriber<T>, Subscription, Runnable {
+    public final class SubscribeOnSubscriber extends AtomicReference implements FlowableSubscriber, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8094547886072529208L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public final boolean nonScheduledRequests;
         public final AtomicLong requested;
-        public final AtomicReference<Subscription> s;
-        public Publisher<T> source;
+        public final AtomicReference s;
+        public Publisher source;
         public final Scheduler.Worker worker;
 
         /* loaded from: classes8.dex */
-        public static final class Request implements Runnable {
+        public final class Request implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final long n;
@@ -69,7 +69,7 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
             }
         }
 
-        public SubscribeOnSubscriber(Subscriber<? super T> subscriber, Scheduler.Worker worker, Publisher<T> publisher, boolean z) {
+        public SubscribeOnSubscriber(Subscriber subscriber, Scheduler.Worker worker, Publisher publisher, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
             this.actual = subscriber;
             this.worker = worker;
             this.source = publisher;
-            this.s = new AtomicReference<>();
+            this.s = new AtomicReference();
             this.requested = new AtomicLong();
             this.nonScheduledRequests = !z;
         }
@@ -110,6 +110,17 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
             }
         }
 
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                lazySet(Thread.currentThread());
+                Publisher publisher = this.source;
+                this.source = null;
+                publisher.subscribe(this);
+            }
+        }
+
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -120,10 +131,10 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -142,13 +153,13 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
         public void request(long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
-                Subscription subscription = this.s.get();
+                Subscription subscription = (Subscription) this.s.get();
                 if (subscription != null) {
                     requestUpstream(j, subscription);
                     return;
                 }
                 BackpressureHelper.add(this.requested, j);
-                Subscription subscription2 = this.s.get();
+                Subscription subscription2 = (Subscription) this.s.get();
                 if (subscription2 != null) {
                     long andSet = this.requested.getAndSet(0L);
                     if (andSet != 0) {
@@ -168,21 +179,10 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
                 }
             }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                lazySet(Thread.currentThread());
-                Publisher<T> publisher = this.source;
-                this.source = null;
-                publisher.subscribe(this);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSubscribeOn(Flowable<T> flowable, Scheduler scheduler, boolean z) {
+    public FlowableSubscribeOn(Flowable flowable, Scheduler scheduler, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -204,7 +204,7 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             Scheduler.Worker createWorker = this.scheduler.createWorker();

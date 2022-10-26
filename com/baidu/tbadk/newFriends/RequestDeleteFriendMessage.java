@@ -50,7 +50,10 @@ public class RequestDeleteFriendMessage extends TbSocketMessage {
     public long getFriendId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.friendId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.friendId;
+        }
+        return invokeV.longValue;
     }
 
     public void setFriendId(long j) {

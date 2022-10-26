@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> cD;
+    public SparseArray cD;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b {
                 return;
             }
         }
-        this.cD = new SparseArray<>();
+        this.cD = new SparseArray();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:43:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -196,7 +196,7 @@ public class b {
         a(a, str, z);
     }
 
-    public SparseArray<a> fm() {
+    public SparseArray fm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cD : (SparseArray) invokeV.objValue;

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,7 +58,7 @@ public class ItemData extends OrmObject implements Serializable {
 
     public void parseItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbRichTextEvaluateItemInfo) == null) || tbRichTextEvaluateItemInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbRichTextEvaluateItemInfo) != null) || tbRichTextEvaluateItemInfo == null) {
             return;
         }
         this.mIconUrl = tbRichTextEvaluateItemInfo.getIconUrl();
@@ -74,27 +74,6 @@ public class ItemData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             parseJson(str, true);
         }
-    }
-
-    public void parseProto(Item item) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, item) == null) || item == null) {
-            return;
-        }
-        this.mIconUrl = item.icon_url;
-        this.mTitle = item.item_name;
-        this.mTags = item.tags;
-        this.mScore = item.score.doubleValue();
-        this.mStar = item.star.intValue();
-        this.mIconSize = item.icon_size.doubleValue();
-        this.itemId = item.item_id.longValue();
-        this.buttonName = item.button_name;
-        this.buttonLink = item.button_link;
-        this.buttonLinkType = item.button_link_type;
-        this.pkgName = item.apk_name;
-        this.forumName = item.forum_name;
-        this.apkDetail = item.apk_detail;
-        this.appId = item.item_appid;
     }
 
     public void parseJson(String str, boolean z) {
@@ -143,10 +122,31 @@ public class ItemData extends OrmObject implements Serializable {
         }
     }
 
+    public void parseProto(Item item) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, item) != null) || item == null) {
+            return;
+        }
+        this.mIconUrl = item.icon_url;
+        this.mTitle = item.item_name;
+        this.mTags = item.tags;
+        this.mScore = item.score.doubleValue();
+        this.mStar = item.star.intValue();
+        this.mIconSize = item.icon_size.doubleValue();
+        this.itemId = item.item_id.longValue();
+        this.buttonName = item.button_name;
+        this.buttonLink = item.button_link;
+        this.buttonLinkType = item.button_link_type;
+        this.pkgName = item.apk_name;
+        this.forumName = item.forum_name;
+        this.apkDetail = item.apk_detail;
+        this.appId = item.item_appid;
+    }
+
     public void parseProto(ItemInfo itemInfo) {
         List<ItemPoint> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, itemInfo) == null) || itemInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, itemInfo) != null) || itemInfo == null) {
             return;
         }
         this.mIconUrl = itemInfo.icon_url;
@@ -167,7 +167,7 @@ public class ItemData extends OrmObject implements Serializable {
             }
         }
         this.mIconSize = itemInfo.icon_size.doubleValue();
-        this.itemId = dh.g(String.valueOf(itemInfo.id), 0L);
+        this.itemId = eh.g(String.valueOf(itemInfo.id), 0L);
         this.buttonName = itemInfo.button_name;
         this.buttonLink = itemInfo.button_link;
         this.buttonLinkType = itemInfo.button_link_type;
@@ -179,7 +179,7 @@ public class ItemData extends OrmObject implements Serializable {
 
     public void parseProto(TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tiebaPlusInfo) == null) || tiebaPlusInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, tiebaPlusInfo) != null) || tiebaPlusInfo == null) {
             return;
         }
         this.mTitle = tiebaPlusInfo.title;
@@ -188,7 +188,7 @@ public class ItemData extends OrmObject implements Serializable {
         this.appId = tiebaPlusInfo.app_id;
         this.mIconUrl = tiebaPlusInfo.app_icon;
         this.mIconSize = 1.0d;
-        this.itemId = dh.g(String.valueOf(tiebaPlusInfo.item_id), 0L);
+        this.itemId = eh.g(String.valueOf(tiebaPlusInfo.item_id), 0L);
         ApkDetail.Builder builder = new ApkDetail.Builder();
         builder.version = tiebaPlusInfo.app_version;
         builder.privacy_url = tiebaPlusInfo.app_privacy;

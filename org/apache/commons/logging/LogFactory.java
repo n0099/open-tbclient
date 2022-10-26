@@ -23,6 +23,20 @@ public abstract class LogFactory {
     public static LogFactory nullClassLoaderFactory;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract Object getAttribute(String str);
+
+    public abstract String[] getAttributeNames();
+
+    public abstract Log getInstance(Class cls) throws LogConfigurationException;
+
+    public abstract Log getInstance(String str) throws LogConfigurationException;
+
+    public abstract void release();
+
+    public abstract void removeAttribute(String str);
+
+    public abstract void setAttribute(String str, Object obj);
+
     public LogFactory() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,15 +53,6 @@ public abstract class LogFactory {
         throw new RuntimeException("Stub!");
     }
 
-    public static Object createFactory(String str, ClassLoader classLoader) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, classLoader)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLL.objValue;
-    }
-
     public static ClassLoader directGetContextClassLoader() throws LogConfigurationException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,15 +60,6 @@ public abstract class LogFactory {
             throw new RuntimeException("Stub!");
         }
         return (ClassLoader) invokeV.objValue;
-    }
-
-    public static ClassLoader getClassLoader(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (ClassLoader) invokeL.objValue;
     }
 
     public static ClassLoader getContextClassLoader() throws LogConfigurationException {
@@ -84,15 +80,6 @@ public abstract class LogFactory {
         return (LogFactory) invokeV.objValue;
     }
 
-    public static Log getLog(Class cls) throws LogConfigurationException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Log) invokeL.objValue;
-    }
-
     public static boolean isDiagnosticsEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,20 +89,54 @@ public abstract class LogFactory {
         return invokeV.booleanValue;
     }
 
+    public static void releaseAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public static Object createFactory(String str, ClassLoader classLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, classLoader)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.objValue;
+    }
+
+    public static LogFactory newFactory(String str, ClassLoader classLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, classLoader)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (LogFactory) invokeLL.objValue;
+    }
+
+    public static ClassLoader getClassLoader(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (ClassLoader) invokeL.objValue;
+    }
+
+    public static Log getLog(Class cls) throws LogConfigurationException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Log) invokeL.objValue;
+    }
+
     public static final void logRawDiagnostic(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public static LogFactory newFactory(String str, ClassLoader classLoader, ClassLoader classLoader2) throws LogConfigurationException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, classLoader, classLoader2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (LogFactory) invokeLLL.objValue;
     }
 
     public static String objectId(Object obj) {
@@ -134,27 +155,6 @@ public abstract class LogFactory {
         }
     }
 
-    public static void releaseAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public abstract Object getAttribute(String str);
-
-    public abstract String[] getAttributeNames();
-
-    public abstract Log getInstance(Class cls) throws LogConfigurationException;
-
-    public abstract Log getInstance(String str) throws LogConfigurationException;
-
-    public abstract void release();
-
-    public abstract void removeAttribute(String str);
-
-    public abstract void setAttribute(String str, Object obj);
-
     public static Log getLog(String str) throws LogConfigurationException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -164,12 +164,12 @@ public abstract class LogFactory {
         return (Log) invokeL.objValue;
     }
 
-    public static LogFactory newFactory(String str, ClassLoader classLoader) {
-        InterceptResult invokeLL;
+    public static LogFactory newFactory(String str, ClassLoader classLoader, ClassLoader classLoader2) throws LogConfigurationException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, classLoader)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, classLoader, classLoader2)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (LogFactory) invokeLL.objValue;
+        return (LogFactory) invokeLLL.objValue;
     }
 }

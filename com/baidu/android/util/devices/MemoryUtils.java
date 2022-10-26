@@ -28,7 +28,7 @@ public class MemoryUtils {
     public static final String THREADS = "Threads";
     public static final String VMPEAK = "VmPeak";
     public static final String VMSIZE = "VmSize";
-    public static HashSet<String> mVssKeys;
+    public static HashSet mVssKeys;
     public static long sJavaMaxMemory;
     public static long sTotalMemory;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class MemoryUtils {
                 return;
             }
         }
-        mVssKeys = new HashSet<String>() { // from class: com.baidu.android.util.devices.MemoryUtils.1
+        mVssKeys = new HashSet() { // from class: com.baidu.android.util.devices.MemoryUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,13 +110,19 @@ public class MemoryUtils {
     public static long getFreeMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? getAMSMemoryInfo().availMem / 1024 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return getAMSMemoryInfo().availMem / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static long getJavaFreeMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Runtime.getRuntime().freeMemory() / 1024 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return Runtime.getRuntime().freeMemory() / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static long getJavaMaxMemory() {
@@ -134,31 +140,46 @@ public class MemoryUtils {
     public static long getJavaTotalMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Runtime.getRuntime().totalMemory() / 1024 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return Runtime.getRuntime().totalMemory() / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static long getJavaUsedMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? getJavaTotalMemory() - getJavaFreeMemory() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return getJavaTotalMemory() - getJavaFreeMemory();
+        }
+        return invokeV.longValue;
     }
 
     public static long getNativeFreeMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Debug.getNativeHeapFreeSize() / 1024 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return Debug.getNativeHeapFreeSize() / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static long getNativeTotalMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? Debug.getNativeHeapSize() / 1024 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return Debug.getNativeHeapSize() / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static long getNativeUsedMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? Debug.getNativeHeapAllocatedSize() / 1024 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return Debug.getNativeHeapAllocatedSize() / 1024;
+        }
+        return invokeV.longValue;
     }
 
     public static long getTotalMemory() {
@@ -173,7 +194,7 @@ public class MemoryUtils {
         return invokeV.longValue;
     }
 
-    public static Map<String, String> parseProcStatus() {
+    public static Map parseProcStatus() {
         InterceptResult invokeV;
         FileReader fileReader;
         Interceptable interceptable = $ic;

@@ -41,61 +41,6 @@ public class ETC1 {
         }
     }
 
-    public ETC1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static Pixmap a(a aVar, Pixmap.Format format) {
-        InterceptResult invokeLL;
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, format)) == null) {
-            if (aVar.f()) {
-                int widthPKM = getWidthPKM(aVar.c, 0);
-                i = getHeightPKM(aVar.c, 0);
-                i2 = widthPKM;
-                i3 = 16;
-            } else {
-                int i4 = aVar.a;
-                i = aVar.b;
-                i2 = i4;
-                i3 = 0;
-            }
-            int b2 = b(format);
-            Pixmap pixmap = new Pixmap(i2, i, format);
-            decodeImage(aVar.c, i3, pixmap.m(), 0, i2, i, b2);
-            return pixmap;
-        }
-        return (Pixmap) invokeLL.objValue;
-    }
-
-    public static int b(Pixmap.Format format) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, format)) == null) {
-            if (format == Pixmap.Format.RGB565) {
-                return 2;
-            }
-            if (format == Pixmap.Format.RGB888) {
-                return 3;
-            }
-            throw new GdxRuntimeException("Can only handle RGB565 or RGB888 images");
-        }
-        return invokeL.intValue;
-    }
-
     public static native void decodeImage(ByteBuffer byteBuffer, int i, ByteBuffer byteBuffer2, int i2, int i3, int i4, int i5);
 
     public static native ByteBuffer encodeImage(ByteBuffer byteBuffer, int i, int i2, int i3, int i4);
@@ -113,7 +58,7 @@ public class ETC1 {
     public static native boolean isValidPKM(ByteBuffer byteBuffer, int i);
 
     /* loaded from: classes.dex */
-    public static final class a implements i7 {
+    public final class a implements i7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -141,50 +86,6 @@ public class ETC1 {
             this.c = byteBuffer;
             this.d = i3;
             a();
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (d.g(this.a) && d.g(this.b)) {
-                    return;
-                }
-                System.out.println("ETC1Data warning: non-power-of-two ETC1 textures may crash the driver of PowerVR GPUs");
-            }
-        }
-
-        @Override // com.baidu.tieba.i7
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                BufferUtils.b(this.c);
-            }
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d == 16 : invokeV.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (f()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(ETC1.isValidPKM(this.c, 0) ? "valid" : "invalid");
-                    sb.append(" pkm [");
-                    sb.append(ETC1.getWidthPKM(this.c, 0));
-                    sb.append("x");
-                    sb.append(ETC1.getHeightPKM(this.c, 0));
-                    sb.append("], compressed: ");
-                    sb.append(this.c.capacity() - ETC1.a);
-                    return sb.toString();
-                }
-                return "raw [" + this.a + "x" + this.b + "], compressed: " + (this.c.capacity() - ETC1.a);
-            }
-            return (String) invokeV.objValue;
         }
 
         public a(k3 k3Var) {
@@ -244,5 +145,115 @@ public class ETC1 {
                 throw th;
             }
         }
+
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!d.g(this.a) || !d.g(this.b)) {
+                    System.out.println("ETC1Data warning: non-power-of-two ETC1 textures may crash the driver of PowerVR GPUs");
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.i7
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                BufferUtils.b(this.c);
+            }
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.d == 16) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (f()) {
+                    StringBuilder sb = new StringBuilder();
+                    if (ETC1.isValidPKM(this.c, 0)) {
+                        str = "valid";
+                    } else {
+                        str = "invalid";
+                    }
+                    sb.append(str);
+                    sb.append(" pkm [");
+                    sb.append(ETC1.getWidthPKM(this.c, 0));
+                    sb.append("x");
+                    sb.append(ETC1.getHeightPKM(this.c, 0));
+                    sb.append("], compressed: ");
+                    sb.append(this.c.capacity() - ETC1.a);
+                    return sb.toString();
+                }
+                return "raw [" + this.a + "x" + this.b + "], compressed: " + (this.c.capacity() - ETC1.a);
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public ETC1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static Pixmap a(a aVar, Pixmap.Format format) {
+        InterceptResult invokeLL;
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, format)) == null) {
+            if (aVar.f()) {
+                int widthPKM = getWidthPKM(aVar.c, 0);
+                i = getHeightPKM(aVar.c, 0);
+                i2 = widthPKM;
+                i3 = 16;
+            } else {
+                int i4 = aVar.a;
+                i = aVar.b;
+                i2 = i4;
+                i3 = 0;
+            }
+            int b2 = b(format);
+            Pixmap pixmap = new Pixmap(i2, i, format);
+            decodeImage(aVar.c, i3, pixmap.m(), 0, i2, i, b2);
+            return pixmap;
+        }
+        return (Pixmap) invokeLL.objValue;
+    }
+
+    public static int b(Pixmap.Format format) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, format)) == null) {
+            if (format == Pixmap.Format.RGB565) {
+                return 2;
+            }
+            if (format == Pixmap.Format.RGB888) {
+                return 3;
+            }
+            throw new GdxRuntimeException("Can only handle RGB565 or RGB888 images");
+        }
+        return invokeL.intValue;
     }
 }

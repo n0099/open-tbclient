@@ -1,9 +1,6 @@
 package com.bumptech.glide.manager;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,8 +21,8 @@ public class RequestTracker {
     public static final String TAG = "RequestTracker";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isPaused;
-    public final List<Request> pendingRequests;
-    public final Set<Request> requests;
+    public final List pendingRequests;
+    public final Set requests;
 
     public RequestTracker() {
         Interceptable interceptable = $ic;
@@ -42,59 +39,6 @@ public class RequestTracker {
         }
         this.requests = Collections.newSetFromMap(new WeakHashMap());
         this.pendingRequests = new ArrayList();
-    }
-
-    private boolean clearRemoveAndMaybeRecycle(@Nullable Request request, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, this, request, z)) == null) {
-            boolean z2 = true;
-            if (request == null) {
-                return true;
-            }
-            boolean remove = this.requests.remove(request);
-            if (!this.pendingRequests.remove(request) && !remove) {
-                z2 = false;
-            }
-            if (z2) {
-                request.clear();
-                if (z) {
-                    request.recycle();
-                }
-            }
-            return z2;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @VisibleForTesting
-    public void addRequest(Request request) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
-            this.requests.add(request);
-        }
-    }
-
-    public boolean clearRemoveAndRecycle(@Nullable Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) ? clearRemoveAndMaybeRecycle(request, true) : invokeL.booleanValue;
-    }
-
-    public void clearRequests() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (Request request : Util.getSnapshot(this.requests)) {
-                clearRemoveAndMaybeRecycle(request, false);
-            }
-            this.pendingRequests.clear();
-        }
-    }
-
-    public boolean isPaused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isPaused : invokeV.booleanValue;
     }
 
     public void pauseAllRequests() {
@@ -116,7 +60,7 @@ public class RequestTracker {
             this.isPaused = true;
             for (Request request : Util.getSnapshot(this.requests)) {
                 if (request.isRunning()) {
-                    request.clear();
+                    request.pause();
                     this.pendingRequests.add(request);
                 }
             }
@@ -152,7 +96,62 @@ public class RequestTracker {
         }
     }
 
-    public void runRequest(@NonNull Request request) {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return super.toString() + "{numRequests=" + this.requests.size() + ", isPaused=" + this.isPaused + "}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void addRequest(Request request) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
+            this.requests.add(request);
+        }
+    }
+
+    public boolean clearAndRemove(Request request) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) {
+            boolean z = true;
+            if (request == null) {
+                return true;
+            }
+            boolean remove = this.requests.remove(request);
+            if (!this.pendingRequests.remove(request) && !remove) {
+                z = false;
+            }
+            if (z) {
+                request.clear();
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void clearRequests() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (Request request : Util.getSnapshot(this.requests)) {
+                clearAndRemove(request);
+            }
+            this.pendingRequests.clear();
+        }
+    }
+
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isPaused;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void runRequest(Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, request) == null) {
             this.requests.add(request);
@@ -166,14 +165,5 @@ public class RequestTracker {
             }
             this.pendingRequests.add(request);
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return super.toString() + "{numRequests=" + this.requests.size() + ", isPaused=" + this.isPaused + "}";
-        }
-        return (String) invokeV.objValue;
     }
 }

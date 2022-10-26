@@ -1,6 +1,5 @@
 package com.baidu.tieba.write.transmit.model;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +12,11 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetRepostRecommendForum.DataRes;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumResIdl;
-import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
 public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<SimpleForum> forumList;
+    public List forumList;
     public int privateThread;
     public String recommendExt;
 
@@ -40,8 +38,34 @@ public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
         }
     }
 
+    public List getForumList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.forumList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getPrivateThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.privateThread;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getRecommendExtension() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.recommendExt;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -66,23 +90,5 @@ public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
             return getRepostRecommendForumResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public List<SimpleForum> getForumList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forumList : (List) invokeV.objValue;
-    }
-
-    public int getPrivateThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privateThread : invokeV.intValue;
-    }
-
-    public String getRecommendExtension() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommendExt : (String) invokeV.objValue;
     }
 }

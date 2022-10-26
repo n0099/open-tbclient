@@ -12,7 +12,6 @@ import com.baidu.searchbox.devicescore.IDeviceScoreConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
-import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
-@UpdateAction(action = "device_score", module = "performance")
 /* loaded from: classes2.dex */
 public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -81,15 +79,15 @@ public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) || commandPostData == null || commandPostData.getVersion() == null) {
-            return;
-        }
-        commandPostData.getVersion().put("device_score", getLocalVersion(context, str, str2));
-        if (DEBUG) {
-            Log.d(TAG, "post version " + commandPostData.getVersion().toString());
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) && commandPostData != null && commandPostData.getVersion() != null) {
+            commandPostData.getVersion().put("device_score", getLocalVersion(context, str, str2));
+            if (DEBUG) {
+                Log.d(TAG, "post version " + commandPostData.getVersion().toString());
+            }
         }
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -98,22 +96,22 @@ public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
             if (DEBUG) {
                 Log.d(TAG, "executeCommand: " + str + " content " + actionData);
             }
-            if (actionData == null || actionData.data == null || TextUtils.isEmpty(actionData.version)) {
-                return false;
-            }
-            JSONObject optJSONObject = actionData.data.optJSONObject("score_threshold");
-            if (optJSONObject != null) {
-                QuickPersistConfig.getInstance().putString(KEY_UPDATE_VERSION, actionData.version);
-                DeviceScoreConfig deviceScoreConfig = new DeviceScoreConfig();
-                deviceScoreConfig.lowThreshold = getFloatByString(optJSONObject.optString("low_threshold"));
-                deviceScoreConfig.midThreshold = getFloatByString(optJSONObject.optString("mid_threshold"));
-                ((IDeviceScoreConfig) ServiceManager.getService(IDeviceScoreConfig.SERVICE_REFERENCE)).updateConfig(deviceScoreConfig);
-            }
-            if (DEBUG) {
-                Log.d(TAG, "version " + actionData.version + " content " + actionData.data.toString());
+            if (actionData != null && actionData.data != null && !TextUtils.isEmpty(actionData.version)) {
+                JSONObject optJSONObject = ((JSONObject) actionData.data).optJSONObject("score_threshold");
+                if (optJSONObject != null) {
+                    QuickPersistConfig.getInstance().putString(KEY_UPDATE_VERSION, actionData.version);
+                    DeviceScoreConfig deviceScoreConfig = new DeviceScoreConfig();
+                    deviceScoreConfig.lowThreshold = getFloatByString(optJSONObject.optString("low_threshold"));
+                    deviceScoreConfig.midThreshold = getFloatByString(optJSONObject.optString("mid_threshold"));
+                    ((IDeviceScoreConfig) ServiceManager.getService(IDeviceScoreConfig.SERVICE_REFERENCE)).updateConfig(deviceScoreConfig);
+                }
+                if (DEBUG) {
+                    Log.d(TAG, "version " + actionData.version + " content " + ((JSONObject) actionData.data).toString());
+                    return true;
+                }
                 return true;
             }
-            return true;
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
@@ -122,6 +120,9 @@ public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
     public String getLocalVersion(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) ? QuickPersistConfig.getInstance().getString(KEY_UPDATE_VERSION, "0") : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+            return QuickPersistConfig.getInstance().getString(KEY_UPDATE_VERSION, "0");
+        }
+        return (String) invokeLLL.objValue;
     }
 }

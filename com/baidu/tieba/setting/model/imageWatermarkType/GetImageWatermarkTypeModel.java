@@ -7,19 +7,28 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.jq4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
+public class GetImageWatermarkTypeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HttpMessageListener a;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -50,11 +59,12 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetImageWatermarkTypeResMsg)) {
-                GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
-                if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                    hq4.c().i(getImageWatermarkTypeResMsg.mMaskType);
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof GetImageWatermarkTypeResMsg)) {
+                return;
+            }
+            GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
+            if (getImageWatermarkTypeResMsg.mMaskType > -1) {
+                jq4.c().i(getImageWatermarkTypeResMsg.mMaskType);
             }
         }
     }
@@ -81,16 +91,6 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
         this.a = aVar;
         registerListener(aVar);
         loadData();
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

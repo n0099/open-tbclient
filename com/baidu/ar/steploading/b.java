@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class b<T> extends com.baidu.ar.e.a<T, T> {
+public class b extends com.baidu.ar.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ICallback xv;
@@ -45,10 +45,10 @@ public class b<T> extends com.baidu.ar.e.a<T, T> {
     }
 
     @Override // com.baidu.ar.e.a
-    public void a(T t, ICallbackWith<T> iCallbackWith, IError iError) {
+    public void a(Object obj, ICallbackWith iCallbackWith, IError iError) {
         ICallback iCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, iCallbackWith, iError) == null) || (iCallback = this.xv) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, iCallbackWith, iError) == null) || (iCallback = this.xv) == null) {
             return;
         }
         iCallback.run();

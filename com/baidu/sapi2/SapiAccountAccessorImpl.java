@@ -30,21 +30,38 @@ public final class SapiAccountAccessorImpl extends ShareAccountAccessor {
     public String getExtra(SapiAccount sapiAccount) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sapiAccount)) == null) ? sapiAccount.extra : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sapiAccount)) == null) {
+            return sapiAccount.extra;
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.sapi2.ShareAccountAccessor
     public String getPtoken(SapiAccount sapiAccount) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiAccount)) == null) ? sapiAccount.ptoken : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiAccount)) == null) {
+            return sapiAccount.ptoken;
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.sapi2.ShareAccountAccessor
     public String getStoken(SapiAccount sapiAccount) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sapiAccount)) == null) ? sapiAccount.stoken : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sapiAccount)) == null) {
+            return sapiAccount.stoken;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.sapi2.ShareAccountAccessor
+    public void updatePtoken(SapiAccount sapiAccount) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sapiAccount) == null) {
+            sapiAccount.updatePtoken();
+        }
     }
 
     @Override // com.baidu.sapi2.ShareAccountAccessor
@@ -76,14 +93,6 @@ public final class SapiAccountAccessorImpl extends ShareAccountAccessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, sapiAccount, str) == null) {
             sapiAccount.stoken = str;
-        }
-    }
-
-    @Override // com.baidu.sapi2.ShareAccountAccessor
-    public void updatePtoken(SapiAccount sapiAccount) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sapiAccount) == null) {
-            sapiAccount.updatePtoken();
         }
     }
 

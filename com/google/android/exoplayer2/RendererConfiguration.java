@@ -31,6 +31,15 @@ public final class RendererConfiguration {
         DEFAULT = new RendererConfiguration(0);
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.tunnelingAudioSessionId;
+        }
+        return invokeV.intValue;
+    }
+
     public RendererConfiguration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,14 +65,11 @@ public final class RendererConfiguration {
             if (this == obj) {
                 return true;
             }
-            return obj != null && RendererConfiguration.class == obj.getClass() && this.tunnelingAudioSessionId == ((RendererConfiguration) obj).tunnelingAudioSessionId;
+            if (obj != null && RendererConfiguration.class == obj.getClass() && this.tunnelingAudioSessionId == ((RendererConfiguration) obj).tunnelingAudioSessionId) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.tunnelingAudioSessionId : invokeV.intValue;
     }
 }

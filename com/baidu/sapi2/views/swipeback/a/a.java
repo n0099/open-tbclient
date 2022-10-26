@@ -35,30 +35,6 @@ public class a {
         }
     }
 
-    public static boolean a(View view2, float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? (view2 == null || !a(view2, f, f2)) ? z : ViewCompat.canScrollVertically(view2, 1) : invokeCommon.booleanValue;
-    }
-
-    public static boolean b(View view2, float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? (view2 == null || !a(view2, f, f2)) ? z : ViewCompat.canScrollHorizontally(view2, 1) : invokeCommon.booleanValue;
-    }
-
-    public static boolean c(View view2, float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? (view2 == null || !a(view2, f, f2)) ? z : ViewCompat.canScrollHorizontally(view2, -1) : invokeCommon.booleanValue;
-    }
-
-    public static boolean d(View view2, float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? (view2 == null || !a(view2, f, f2)) ? z : ViewCompat.canScrollVertically(view2, -1) : invokeCommon.booleanValue;
-    }
-
     public static View a(ViewGroup viewGroup) {
         InterceptResult invokeL;
         View a;
@@ -83,7 +59,13 @@ public class a {
     public static boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) ? (view2 instanceof ScrollView) || (view2 instanceof HorizontalScrollView) || (view2 instanceof NestedScrollView) || (view2 instanceof AbsListView) || (view2 instanceof ViewPager) || (view2 instanceof WebView) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (!(view2 instanceof ScrollView) && !(view2 instanceof HorizontalScrollView) && !(view2 instanceof NestedScrollView) && !(view2 instanceof AbsListView) && !(view2 instanceof ViewPager) && !(view2 instanceof WebView)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean a(View view2, float f, float f2) {
@@ -93,6 +75,54 @@ public class a {
             Rect rect = new Rect();
             view2.getGlobalVisibleRect(rect);
             return rect.contains((int) f, (int) f2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean a(View view2, float f, float f2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            if (view2 != null && a(view2, f, f2)) {
+                return ViewCompat.canScrollVertically(view2, 1);
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean b(View view2, float f, float f2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            if (view2 != null && a(view2, f, f2)) {
+                return ViewCompat.canScrollHorizontally(view2, 1);
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean c(View view2, float f, float f2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            if (view2 != null && a(view2, f, f2)) {
+                return ViewCompat.canScrollHorizontally(view2, -1);
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean d(View view2, float f, float f2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            if (view2 != null && a(view2, f, f2)) {
+                return ViewCompat.canScrollVertically(view2, -1);
+            }
+            return z;
         }
         return invokeCommon.booleanValue;
     }

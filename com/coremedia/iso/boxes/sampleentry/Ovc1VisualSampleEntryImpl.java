@@ -40,19 +40,6 @@ public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
         this.vc1Content = new byte[0];
     }
 
-    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writableByteChannel) == null) {
-            writableByteChannel.write(getHeader());
-            ByteBuffer allocate = ByteBuffer.allocate(8);
-            allocate.position(6);
-            IsoTypeWriter.writeUInt16(allocate, this.dataReferenceIndex);
-            writableByteChannel.write((ByteBuffer) allocate.rewind());
-            writableByteChannel.write(ByteBuffer.wrap(this.vc1Content));
-        }
-    }
-
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         InterceptResult invokeV;
@@ -70,7 +57,23 @@ public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
     public byte[] getVc1Content() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.vc1Content : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.vc1Content;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, writableByteChannel) == null) {
+            writableByteChannel.write(getHeader());
+            ByteBuffer allocate = ByteBuffer.allocate(8);
+            allocate.position(6);
+            IsoTypeWriter.writeUInt16(allocate, this.dataReferenceIndex);
+            writableByteChannel.write((ByteBuffer) allocate.rewind());
+            writableByteChannel.write(ByteBuffer.wrap(this.vc1Content));
+        }
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box

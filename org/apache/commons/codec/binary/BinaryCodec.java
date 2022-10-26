@@ -33,10 +33,10 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    public static byte[] fromAscii(char[] cArr) {
+    public static byte[] fromAscii(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (byte[]) invokeL.objValue;
@@ -79,14 +79,14 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         return invokeL.objValue;
     }
 
-    @Override // org.apache.commons.codec.BinaryEncoder
-    public byte[] encode(byte[] bArr) {
+    @Override // org.apache.commons.codec.Encoder
+    public Object encode(Object obj) throws EncoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.objValue;
     }
 
     public byte[] toByteArray(String str) {
@@ -98,10 +98,10 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] fromAscii(byte[] bArr) {
+    public static byte[] fromAscii(char[] cArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cArr)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (byte[]) invokeL.objValue;
@@ -117,13 +117,13 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         return (byte[]) invokeL.objValue;
     }
 
-    @Override // org.apache.commons.codec.Encoder
-    public Object encode(Object obj) throws EncoderException {
+    @Override // org.apache.commons.codec.BinaryEncoder
+    public byte[] encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

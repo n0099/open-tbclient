@@ -8,12 +8,6 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ReverseOrderComparator implements Comparator<Comparable<? super Object>> {
     public static final ReverseOrderComparator INSTANCE = new ReverseOrderComparator();
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    @Override // java.util.Comparator
-    public /* bridge */ /* synthetic */ int compare(Comparable<? super Object> comparable, Comparable<? super Object> comparable2) {
-        return compare2((Comparable<Object>) comparable, (Comparable<Object>) comparable2);
-    }
-
     /* JADX DEBUG: Return type fixed from 'java.util.Comparator<java.lang.Comparable<java.lang.Object>>' to match base method */
     @Override // java.util.Comparator
     public final Comparator<Comparable<? super Object>> reversed() {
@@ -25,5 +19,11 @@ public final class ReverseOrderComparator implements Comparator<Comparable<? sup
         Intrinsics.checkNotNullParameter(a, "a");
         Intrinsics.checkNotNullParameter(b, "b");
         return b.compareTo(a);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    @Override // java.util.Comparator
+    public /* bridge */ /* synthetic */ int compare(Comparable<? super Object> comparable, Comparable<? super Object> comparable2) {
+        return compare2((Comparable<Object>) comparable, (Comparable<Object>) comparable2);
     }
 }

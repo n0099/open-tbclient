@@ -1,6 +1,5 @@
 package androidx.core.text;
 
-import android.annotation.SuppressLint;
 import android.text.Spannable;
 import android.text.SpannableString;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,6 @@ public final class SpannableStringKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"SyntheticAccessor"})
     public static final void clearSpans(Spannable spannable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, spannable) == null) {
@@ -25,13 +23,6 @@ public final class SpannableStringKt {
             for (Object obj : spans) {
                 spannable.removeSpan(obj);
             }
-        }
-    }
-
-    public static final void set(Spannable spannable, int i, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{spannable, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) {
-            spannable.setSpan(obj, i, i2, 17);
         }
     }
 
@@ -44,6 +35,13 @@ public final class SpannableStringKt {
             return valueOf;
         }
         return (Spannable) invokeL.objValue;
+    }
+
+    public static final void set(Spannable spannable, int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{spannable, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) {
+            spannable.setSpan(obj, i, i2, 17);
+        }
     }
 
     public static final void set(Spannable spannable, IntRange intRange, Object obj) {

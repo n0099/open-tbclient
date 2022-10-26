@@ -8,9 +8,6 @@ import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import android.os.StrictMode;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +23,6 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -50,17 +46,14 @@ public class TypefaceCompatUtil {
 
     public static void closeQuietly(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+            }
         }
     }
 
-    @Nullable
-    @RequiresApi(19)
     public static ByteBuffer copyToDirectBuffer(Context context, Resources resources, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -70,10 +63,10 @@ public class TypefaceCompatUtil {
                 return null;
             }
             try {
-                if (copyToFile(tempFile, resources, i)) {
-                    return mmap(tempFile);
+                if (!copyToFile(tempFile, resources, i)) {
+                    return null;
                 }
-                return null;
+                return mmap(tempFile);
             } finally {
                 tempFile.delete();
             }
@@ -81,53 +74,78 @@ public class TypefaceCompatUtil {
         return (ByteBuffer) invokeLLI.objValue;
     }
 
+    public static boolean copyToFile(File file, Resources resources, int i) {
+        InputStream inputStream;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, file, resources, i)) == null) {
+            try {
+                inputStream = resources.openRawResource(i);
+                try {
+                    boolean copyToFile = copyToFile(file, inputStream);
+                    closeQuietly(inputStream);
+                    return copyToFile;
+                } catch (Throwable th) {
+                    th = th;
+                    closeQuietly(inputStream);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+            }
+        } else {
+            return invokeLLI.booleanValue;
+        }
+    }
+
     public static boolean copyToFile(File file, InputStream inputStream) {
         InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, inputStream)) != null) {
-            return invokeLL.booleanValue;
-        }
-        StrictMode.ThreadPolicy allowThreadDiskWrites = StrictMode.allowThreadDiskWrites();
-        FileOutputStream fileOutputStream2 = null;
-        try {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, inputStream)) == null) {
+            StrictMode.ThreadPolicy allowThreadDiskWrites = StrictMode.allowThreadDiskWrites();
+            FileOutputStream fileOutputStream2 = null;
             try {
-                fileOutputStream = new FileOutputStream(file, false);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (IOException e) {
-            e = e;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    fileOutputStream.write(bArr, 0, read);
-                } else {
-                    closeQuietly(fileOutputStream);
-                    StrictMode.setThreadPolicy(allowThreadDiskWrites);
-                    return true;
+                try {
+                    fileOutputStream = new FileOutputStream(file, false);
+                } catch (Throwable th) {
+                    th = th;
                 }
+            } catch (IOException e) {
+                e = e;
             }
-        } catch (IOException e2) {
-            e = e2;
-            fileOutputStream2 = fileOutputStream;
-            Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
-            closeQuietly(fileOutputStream2);
-            StrictMode.setThreadPolicy(allowThreadDiskWrites);
-            return false;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream2 = fileOutputStream;
-            closeQuietly(fileOutputStream2);
-            StrictMode.setThreadPolicy(allowThreadDiskWrites);
-            throw th;
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read != -1) {
+                        fileOutputStream.write(bArr, 0, read);
+                    } else {
+                        closeQuietly(fileOutputStream);
+                        StrictMode.setThreadPolicy(allowThreadDiskWrites);
+                        return true;
+                    }
+                }
+            } catch (IOException e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
+                closeQuietly(fileOutputStream2);
+                StrictMode.setThreadPolicy(allowThreadDiskWrites);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                closeQuietly(fileOutputStream2);
+                StrictMode.setThreadPolicy(allowThreadDiskWrites);
+                throw th;
+            }
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 
-    @Nullable
     public static File getTempFile(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -148,27 +166,6 @@ public class TypefaceCompatUtil {
         return (File) invokeL.objValue;
     }
 
-    @Nullable
-    @RequiresApi(19)
-    public static ByteBuffer mmap(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                FileChannel channel = fileInputStream.getChannel();
-                MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0L, channel.size());
-                fileInputStream.close();
-                return map;
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (ByteBuffer) invokeL.objValue;
-    }
-
-    @Nullable
-    @RequiresApi(19)
     public static ByteBuffer mmap(Context context, CancellationSignal cancellationSignal, Uri uri) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -196,27 +193,20 @@ public class TypefaceCompatUtil {
         return (ByteBuffer) invokeLLL.objValue;
     }
 
-    public static boolean copyToFile(File file, Resources resources, int i) {
-        InputStream inputStream;
-        InterceptResult invokeLLI;
+    public static ByteBuffer mmap(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65539, null, file, resources, i)) != null) {
-            return invokeLLI.booleanValue;
-        }
-        try {
-            inputStream = resources.openRawResource(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
             try {
-                boolean copyToFile = copyToFile(file, inputStream);
-                closeQuietly(inputStream);
-                return copyToFile;
-            } catch (Throwable th) {
-                th = th;
-                closeQuietly(inputStream);
-                throw th;
+                FileInputStream fileInputStream = new FileInputStream(file);
+                FileChannel channel = fileInputStream.getChannel();
+                MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0L, channel.size());
+                fileInputStream.close();
+                return map;
+            } catch (IOException unused) {
+                return null;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            inputStream = null;
         }
+        return (ByteBuffer) invokeL.objValue;
     }
 }

@@ -54,10 +54,11 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
 
     public TypeAdapter<?> getTypeAdapter(ConstructorConstructor constructorConstructor, Gson gson, TypeToken<?> typeToken, JsonAdapter jsonAdapter) {
         InterceptResult invokeLLLL;
+        JsonSerializer jsonSerializer;
         TypeAdapter<?> treeTypeAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, constructorConstructor, gson, typeToken, jsonAdapter)) == null) {
-            Object construct = constructorConstructor.get(TypeToken.get((Class) jsonAdapter.value())).construct();
+            Object construct = constructorConstructor.get(TypeToken.get(jsonAdapter.value())).construct();
             if (construct instanceof TypeAdapter) {
                 treeTypeAdapter = (TypeAdapter) construct;
             } else if (construct instanceof TypeAdapterFactory) {
@@ -67,9 +68,21 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
                 if (!z && !(construct instanceof JsonDeserializer)) {
                     throw new IllegalArgumentException("Invalid attempt to bind an instance of " + construct.getClass().getName() + " as a @JsonAdapter for " + typeToken.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
                 }
-                treeTypeAdapter = new TreeTypeAdapter<>(z ? (JsonSerializer) construct : null, construct instanceof JsonDeserializer ? (JsonDeserializer) construct : null, gson, typeToken, null);
+                JsonDeserializer jsonDeserializer = null;
+                if (z) {
+                    jsonSerializer = (JsonSerializer) construct;
+                } else {
+                    jsonSerializer = null;
+                }
+                if (construct instanceof JsonDeserializer) {
+                    jsonDeserializer = (JsonDeserializer) construct;
+                }
+                treeTypeAdapter = new TreeTypeAdapter<>(jsonSerializer, jsonDeserializer, gson, typeToken, null);
             }
-            return (treeTypeAdapter == null || !jsonAdapter.nullSafe()) ? treeTypeAdapter : treeTypeAdapter.nullSafe();
+            if (treeTypeAdapter != null && jsonAdapter.nullSafe()) {
+                return treeTypeAdapter.nullSafe();
+            }
+            return treeTypeAdapter;
         }
         return (TypeAdapter) invokeLLLL.objValue;
     }

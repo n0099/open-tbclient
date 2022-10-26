@@ -1,6 +1,5 @@
 package com.baidu.android.imsdk.db;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -23,11 +22,25 @@ public class DBConnection extends SQLiteOpenHelper {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
+        }
+    }
+
     /* loaded from: classes.dex */
     public class Version27And28Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBConnection this$0;
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
 
         public Version27And28Handler(DBConnection dBConnection) {
             Interceptable interceptable = $ic;
@@ -45,13 +58,6 @@ public class DBConnection extends SQLiteOpenHelper {
                 }
             }
             this.this$0 = dBConnection;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -75,6 +81,13 @@ public class DBConnection extends SQLiteOpenHelper {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBConnection this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version47And48Handler(DBConnection dBConnection) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,13 +104,6 @@ public class DBConnection extends SQLiteOpenHelper {
                 }
             }
             this.this$0 = dBConnection;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -122,6 +128,13 @@ public class DBConnection extends SQLiteOpenHelper {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBConnection this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version49And50Handler(DBConnection dBConnection) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -138,13 +151,6 @@ public class DBConnection extends SQLiteOpenHelper {
                 }
             }
             this.this$0 = dBConnection;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -197,6 +203,14 @@ public class DBConnection extends SQLiteOpenHelper {
             } else if (createTable(sQLiteDatabase) < 0) {
                 LogUtils.d(TAG, "create table db failed when db upgrade or downgrade!");
             }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+            createDb(sQLiteDatabase);
         }
     }
 
@@ -272,22 +286,6 @@ public class DBConnection extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            createDb(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @TargetApi(11)
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
@@ -299,10 +297,9 @@ public class DBConnection extends SQLiteOpenHelper {
                 new Version47And48Handler(this).onUpgrade(sQLiteDatabase, i, i2);
                 i = 48;
             }
-            if (i > 49 || i2 < 50) {
-                return;
+            if (i <= 49 && i2 >= 50) {
+                new Version49And50Handler(this).onUpgrade(sQLiteDatabase, i, i2);
             }
-            new Version49And50Handler(this).onUpgrade(sQLiteDatabase, i, i2);
         }
     }
 }

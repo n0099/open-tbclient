@@ -16,11 +16,11 @@ public class LocationData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String formatted_address;
-    public List<NearByAddressData> poi_info;
+    public List poi_info;
     public String sn;
 
     /* loaded from: classes5.dex */
-    public static class NearByAddressData implements Serializable {
+    public class NearByAddressData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String addr;
@@ -44,24 +44,33 @@ public class LocationData implements Serializable {
         public String getAddr() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.addr : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.addr;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.name;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getSn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sn : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.sn;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void parserProtoBuf(PoiInfo poiInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, poiInfo) == null) || poiInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, poiInfo) != null) || poiInfo == null) {
                 return;
             }
             this.name = poiInfo.name;
@@ -101,24 +110,33 @@ public class LocationData implements Serializable {
     public String getFormatted_address() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.formatted_address : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.formatted_address;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public List<NearByAddressData> getPoi_info() {
+    public List getPoi_info() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.poi_info : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.poi_info;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getSn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sn : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sn;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parserProtoBuf(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
             return;
         }
         this.formatted_address = dataRes.formatted_address;

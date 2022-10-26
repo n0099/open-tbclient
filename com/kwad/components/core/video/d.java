@@ -1,12 +1,10 @@
 package com.kwad.components.core.video;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -18,7 +16,6 @@ import com.kwad.components.core.video.a;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bg;
 import java.util.concurrent.atomic.AtomicBoolean;
-@SuppressLint({"ViewConstructor"})
 /* loaded from: classes7.dex */
 public final class d extends com.kwad.components.core.video.a implements bg.a {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +32,7 @@ public final class d extends com.kwad.components.core.video.a implements bg.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(Context context, AdTemplate adTemplate, @NonNull com.kwad.sdk.core.video.videoview.c cVar) {
+    public d(Context context, AdTemplate adTemplate, com.kwad.sdk.core.video.videoview.c cVar) {
         super(context, adTemplate, cVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,7 +110,7 @@ public final class d extends com.kwad.components.core.video.a implements bg.a {
             super.oI();
             ImageView imageView = this.jQ;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080c36);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080c46);
             }
             TextView textView = this.jR;
             if (textView != null) {

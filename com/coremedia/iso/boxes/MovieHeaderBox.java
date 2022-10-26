@@ -92,130 +92,18 @@ public class MovieHeaderBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MovieHeaderBox() {
-        super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.rate = 1.0d;
-        this.volume = 1.0f;
-        this.matrix = Matrix.ROTATE_0;
-    }
-
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("MovieHeaderBox.java", MovieHeaderBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 63);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 67);
-        ajc$tjp_10 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "modificationTime", "", "void"), 203);
-        ajc$tjp_11 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "timescale", "", "void"), 211);
-        ajc$tjp_12 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "duration", "", "void"), 215);
-        ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setRate", "com.coremedia.iso.boxes.MovieHeaderBox", "double", "rate", "", "void"), 222);
-        ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setVolume", "com.coremedia.iso.boxes.MovieHeaderBox", ShaderParams.VALUE_TYPE_FLOAT, "volume", "", "void"), Constants.METHOD_MEDIA_NOTIFY);
-        ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
-        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "nextTrackId", "", "void"), 234);
-        ajc$tjp_17 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), QuickLoginDialog.HEIGHT_ONEKEY);
-        ajc$tjp_18 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewTime", "", "void"), 242);
-        ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 246);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 71);
-        ajc$tjp_20 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewDuration", "", "void"), 250);
-        ajc$tjp_21 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 254);
-        ajc$tjp_22 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "posterTime", "", "void"), ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512);
-        ajc$tjp_23 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 262);
-        ajc$tjp_24 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionTime", "", "void"), 266);
-        ajc$tjp_25 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 270);
-        ajc$tjp_26 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionDuration", "", "void"), 274);
-        ajc$tjp_27 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 278);
-        ajc$tjp_28 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "currentTime", "", "void"), 282);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 75);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getRate", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "double"), 79);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", ShaderParams.VALUE_TYPE_FLOAT), 83);
-        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "com.googlecode.mp4parser.util.Matrix"), 87);
-        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 91);
-        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.lang.String"), Cea708Decoder.COMMAND_TGW);
-        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "creationTime", "", "void"), DownloadConstants.STATUS_WAITING_FOR_NETWORK);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            if (getVersion() == 1) {
-                this.creationTime = DateHelper.convert(IsoTypeReader.readUInt64(byteBuffer));
-                this.modificationTime = DateHelper.convert(IsoTypeReader.readUInt64(byteBuffer));
-                this.timescale = IsoTypeReader.readUInt32(byteBuffer);
-                this.duration = IsoTypeReader.readUInt64(byteBuffer);
-            } else {
-                this.creationTime = DateHelper.convert(IsoTypeReader.readUInt32(byteBuffer));
-                this.modificationTime = DateHelper.convert(IsoTypeReader.readUInt32(byteBuffer));
-                this.timescale = IsoTypeReader.readUInt32(byteBuffer);
-                this.duration = IsoTypeReader.readUInt32(byteBuffer);
-            }
-            this.rate = IsoTypeReader.readFixedPoint1616(byteBuffer);
-            this.volume = IsoTypeReader.readFixedPoint88(byteBuffer);
-            IsoTypeReader.readUInt16(byteBuffer);
-            IsoTypeReader.readUInt32(byteBuffer);
-            IsoTypeReader.readUInt32(byteBuffer);
-            this.matrix = Matrix.fromByteBuffer(byteBuffer);
-            this.previewTime = byteBuffer.getInt();
-            this.previewDuration = byteBuffer.getInt();
-            this.posterTime = byteBuffer.getInt();
-            this.selectionTime = byteBuffer.getInt();
-            this.selectionDuration = byteBuffer.getInt();
-            this.currentTime = byteBuffer.getInt();
-            this.nextTrackId = IsoTypeReader.readUInt32(byteBuffer);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            if (getVersion() == 1) {
-                IsoTypeWriter.writeUInt64(byteBuffer, DateHelper.convert(this.creationTime));
-                IsoTypeWriter.writeUInt64(byteBuffer, DateHelper.convert(this.modificationTime));
-                IsoTypeWriter.writeUInt32(byteBuffer, this.timescale);
-                IsoTypeWriter.writeUInt64(byteBuffer, this.duration);
-            } else {
-                IsoTypeWriter.writeUInt32(byteBuffer, DateHelper.convert(this.creationTime));
-                IsoTypeWriter.writeUInt32(byteBuffer, DateHelper.convert(this.modificationTime));
-                IsoTypeWriter.writeUInt32(byteBuffer, this.timescale);
-                IsoTypeWriter.writeUInt32(byteBuffer, this.duration);
-            }
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.rate);
-            IsoTypeWriter.writeFixedPoint88(byteBuffer, this.volume);
-            IsoTypeWriter.writeUInt16(byteBuffer, 0);
-            IsoTypeWriter.writeUInt32(byteBuffer, 0L);
-            IsoTypeWriter.writeUInt32(byteBuffer, 0L);
-            this.matrix.getContent(byteBuffer);
-            byteBuffer.putInt(this.previewTime);
-            byteBuffer.putInt(this.previewDuration);
-            byteBuffer.putInt(this.posterTime);
-            byteBuffer.putInt(this.selectionTime);
-            byteBuffer.putInt(this.selectionDuration);
-            byteBuffer.putInt(this.currentTime);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.nextTrackId);
-        }
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (getVersion() == 1 ? 32L : 20L) + 80;
+            if (getVersion() == 1) {
+                j = 32;
+            } else {
+                j = 20;
+            }
+            return j + 80;
         }
         return invokeV.longValue;
     }
@@ -358,6 +246,124 @@ public class MovieHeaderBox extends AbstractFullBox {
             return this.volume;
         }
         return invokeV.floatValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MovieHeaderBox() {
+        super(TYPE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.rate = 1.0d;
+        this.volume = 1.0f;
+        this.matrix = Matrix.ROTATE_0;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("MovieHeaderBox.java", MovieHeaderBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 63);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 67);
+        ajc$tjp_10 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "modificationTime", "", "void"), 203);
+        ajc$tjp_11 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "timescale", "", "void"), 211);
+        ajc$tjp_12 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "duration", "", "void"), 215);
+        ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setRate", "com.coremedia.iso.boxes.MovieHeaderBox", "double", "rate", "", "void"), 222);
+        ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setVolume", "com.coremedia.iso.boxes.MovieHeaderBox", ShaderParams.VALUE_TYPE_FLOAT, "volume", "", "void"), Constants.METHOD_MEDIA_NOTIFY);
+        ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
+        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "nextTrackId", "", "void"), 234);
+        ajc$tjp_17 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), QuickLoginDialog.HEIGHT_ONEKEY);
+        ajc$tjp_18 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewTime", "", "void"), 242);
+        ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 246);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 71);
+        ajc$tjp_20 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewDuration", "", "void"), 250);
+        ajc$tjp_21 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 254);
+        ajc$tjp_22 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "posterTime", "", "void"), ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512);
+        ajc$tjp_23 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 262);
+        ajc$tjp_24 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionTime", "", "void"), 266);
+        ajc$tjp_25 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 270);
+        ajc$tjp_26 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionDuration", "", "void"), 274);
+        ajc$tjp_27 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 278);
+        ajc$tjp_28 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "currentTime", "", "void"), 282);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 75);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getRate", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "double"), 79);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", ShaderParams.VALUE_TYPE_FLOAT), 83);
+        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "com.googlecode.mp4parser.util.Matrix"), 87);
+        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 91);
+        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.lang.String"), Cea708Decoder.COMMAND_TGW);
+        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "creationTime", "", "void"), DownloadConstants.STATUS_WAITING_FOR_NETWORK);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            if (getVersion() == 1) {
+                this.creationTime = DateHelper.convert(IsoTypeReader.readUInt64(byteBuffer));
+                this.modificationTime = DateHelper.convert(IsoTypeReader.readUInt64(byteBuffer));
+                this.timescale = IsoTypeReader.readUInt32(byteBuffer);
+                this.duration = IsoTypeReader.readUInt64(byteBuffer);
+            } else {
+                this.creationTime = DateHelper.convert(IsoTypeReader.readUInt32(byteBuffer));
+                this.modificationTime = DateHelper.convert(IsoTypeReader.readUInt32(byteBuffer));
+                this.timescale = IsoTypeReader.readUInt32(byteBuffer);
+                this.duration = IsoTypeReader.readUInt32(byteBuffer);
+            }
+            this.rate = IsoTypeReader.readFixedPoint1616(byteBuffer);
+            this.volume = IsoTypeReader.readFixedPoint88(byteBuffer);
+            IsoTypeReader.readUInt16(byteBuffer);
+            IsoTypeReader.readUInt32(byteBuffer);
+            IsoTypeReader.readUInt32(byteBuffer);
+            this.matrix = Matrix.fromByteBuffer(byteBuffer);
+            this.previewTime = byteBuffer.getInt();
+            this.previewDuration = byteBuffer.getInt();
+            this.posterTime = byteBuffer.getInt();
+            this.selectionTime = byteBuffer.getInt();
+            this.selectionDuration = byteBuffer.getInt();
+            this.currentTime = byteBuffer.getInt();
+            this.nextTrackId = IsoTypeReader.readUInt32(byteBuffer);
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            if (getVersion() == 1) {
+                IsoTypeWriter.writeUInt64(byteBuffer, DateHelper.convert(this.creationTime));
+                IsoTypeWriter.writeUInt64(byteBuffer, DateHelper.convert(this.modificationTime));
+                IsoTypeWriter.writeUInt32(byteBuffer, this.timescale);
+                IsoTypeWriter.writeUInt64(byteBuffer, this.duration);
+            } else {
+                IsoTypeWriter.writeUInt32(byteBuffer, DateHelper.convert(this.creationTime));
+                IsoTypeWriter.writeUInt32(byteBuffer, DateHelper.convert(this.modificationTime));
+                IsoTypeWriter.writeUInt32(byteBuffer, this.timescale);
+                IsoTypeWriter.writeUInt32(byteBuffer, this.duration);
+            }
+            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.rate);
+            IsoTypeWriter.writeFixedPoint88(byteBuffer, this.volume);
+            IsoTypeWriter.writeUInt16(byteBuffer, 0);
+            IsoTypeWriter.writeUInt32(byteBuffer, 0L);
+            IsoTypeWriter.writeUInt32(byteBuffer, 0L);
+            this.matrix.getContent(byteBuffer);
+            byteBuffer.putInt(this.previewTime);
+            byteBuffer.putInt(this.previewDuration);
+            byteBuffer.putInt(this.posterTime);
+            byteBuffer.putInt(this.selectionTime);
+            byteBuffer.putInt(this.selectionDuration);
+            byteBuffer.putInt(this.currentTime);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.nextTrackId);
+        }
     }
 
     public void setCreationTime(Date date) {

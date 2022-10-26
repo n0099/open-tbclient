@@ -1,14 +1,14 @@
 package com.baidu.tieba.imMessageCenter.im.model;
 
 import android.text.TextUtils;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GamePlayServiceData;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ox4;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes4.dex */
 public class GamePlayServiceModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,7 +30,7 @@ public class GamePlayServiceModel {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<Object, Integer, String> {
+    public class b extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
@@ -59,7 +58,7 @@ public class GamePlayServiceModel {
             this.b = str;
             this.c = aVar;
             this.a = new NetWork("https://peiwan.baidu.com/peiwan/api/god/identity");
-            this.a.addPostData("gid", str);
+            this.a.addPostData(TbEnum.ParamKey.GID, str);
             this.a.setNeedBdussForGet(true);
             this.a.getNetContext().getRequest().mIsNeedTbs = true;
         }
@@ -73,7 +72,10 @@ public class GamePlayServiceModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 try {
                     String netString = this.a.getNetString();
-                    return (!this.a.getNetContext().getResponse().isRequestSuccess() || netString == null) ? "" : netString;
+                    if (this.a.getNetContext().getResponse().isRequestSuccess() && netString != null) {
+                        return netString;
+                    }
+                    return "";
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     return "";
@@ -120,6 +122,15 @@ public class GamePlayServiceModel {
         this.mGson = new Gson();
     }
 
+    public void release() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.mPostAsyncTask) != null) {
+            bVar.cancel();
+            this.mPostAsyncTask = null;
+        }
+    }
+
     private GamePlayServiceData getGamePlayServiceData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -135,7 +146,10 @@ public class GamePlayServiceModel {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return gamePlayServiceData == null ? new GamePlayServiceData(str) : gamePlayServiceData;
+            if (gamePlayServiceData == null) {
+                return new GamePlayServiceData(str);
+            }
+            return gamePlayServiceData;
         }
         return (GamePlayServiceData) invokeL.objValue;
     }
@@ -144,7 +158,7 @@ public class GamePlayServiceModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            ox4 k = ox4.k();
+            ux4 k = ux4.k();
             return k.q(PREFIX + str, "");
         }
         return (String) invokeL.objValue;
@@ -183,11 +197,11 @@ public class GamePlayServiceModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, str, gamePlayServiceData) == null) {
             if (gamePlayServiceData == null) {
-                ox4 k = ox4.k();
+                ux4 k = ux4.k();
                 k.y(PREFIX + str, "");
                 return;
             }
-            ox4 k2 = ox4.k();
+            ux4 k2 = ux4.k();
             k2.y(PREFIX + str, new Gson().toJson(gamePlayServiceData));
         }
     }
@@ -204,15 +218,5 @@ public class GamePlayServiceModel {
                 aVar.a(gamePlayServiceData);
             }
         }
-    }
-
-    public void release() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mPostAsyncTask) == null) {
-            return;
-        }
-        bVar.cancel();
-        this.mPostAsyncTask = null;
     }
 }

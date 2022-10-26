@@ -55,6 +55,40 @@ public final class WeiboMultiMessage implements Serializable {
         }
     }
 
+    public int getMsgType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.msgType;
+        }
+        return invokeV.intValue;
+    }
+
+    public WeiboMultiMessage(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundle};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        toBundle(bundle);
+    }
+
+    public void setMsgType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.msgType = i;
+        }
+    }
+
     public boolean checkArgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,19 +115,6 @@ public final class WeiboMultiMessage implements Serializable {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public int getMsgType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgType : invokeV.intValue;
-    }
-
-    public void setMsgType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.msgType = i;
-        }
     }
 
     public Bundle toBundle(Bundle bundle) {
@@ -165,23 +186,5 @@ public final class WeiboMultiMessage implements Serializable {
             return this;
         }
         return (WeiboMultiMessage) invokeL.objValue;
-    }
-
-    public WeiboMultiMessage(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        toBundle(bundle);
     }
 }

@@ -31,7 +31,7 @@ public class ObjectMetadata {
     public Date lastModified;
     public String objectType;
     public String storageClass;
-    public Map<String, String> userMetadata;
+    public Map userMetadata;
 
     public ObjectMetadata() {
         Interceptable interceptable = $ic;
@@ -51,6 +51,197 @@ public class ObjectMetadata {
         this.instanceLength = -1L;
     }
 
+    public long getAppendOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.appendOffset;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getBceContentSha256() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bceContentSha256;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getCacheControl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.cacheControl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getContentDisposition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.contentDisposition;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getContentEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.contentEncoding;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getContentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.contentLength;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getContentMd5() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.contentMd5;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getContentRange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.contentRange;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.contentType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Long getCrc32() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.crc32;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String getETag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.eTag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getExpires() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.expires;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getInstanceLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.instanceLength;
+        }
+        return invokeV.longValue;
+    }
+
+    public Date getLastModified() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.lastModified;
+        }
+        return (Date) invokeV.objValue;
+    }
+
+    public String getObjectType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.objectType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getStorageClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.storageClass;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map getUserMetadata() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.userMetadata;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public ObjectMetadata(ObjectMetadata objectMetadata) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {objectMetadata};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.userMetadata = new HashMap();
+        this.contentLength = -1L;
+        this.instanceLength = -1L;
+        if (objectMetadata.userMetadata != null) {
+            this.userMetadata = new HashMap(objectMetadata.userMetadata);
+        }
+        setBceContentSha256(objectMetadata.getBceContentSha256());
+        setContentDisposition(objectMetadata.getContentDisposition());
+        setContentEncoding(objectMetadata.getContentEncoding());
+        setContentLength(objectMetadata.getContentLength());
+        setContentMd5(objectMetadata.getContentMd5());
+        setContentType(objectMetadata.getContentType());
+        setETag(objectMetadata.getETag());
+        setCrc32(objectMetadata.getCrc32());
+        setInstanceLength(objectMetadata.getInstanceLength());
+        setLastModified(objectMetadata.getLastModified());
+        setExpires(objectMetadata.getExpires());
+        setAppendOffset(objectMetadata.getAppendOffset());
+        setObjectType(objectMetadata.getObjectType());
+        setCacheControl(objectMetadata.getCacheControl());
+        setStorageClass(objectMetadata.getStorageClass());
+    }
+
     public void addUserMetadata(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
@@ -58,119 +249,17 @@ public class ObjectMetadata {
         }
     }
 
-    public long getAppendOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.appendOffset : invokeV.longValue;
-    }
-
-    public String getBceContentSha256() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bceContentSha256 : (String) invokeV.objValue;
-    }
-
-    public String getCacheControl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cacheControl : (String) invokeV.objValue;
-    }
-
-    public String getContentDisposition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.contentDisposition : (String) invokeV.objValue;
-    }
-
-    public String getContentEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.contentEncoding : (String) invokeV.objValue;
-    }
-
-    public long getContentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.contentLength : invokeV.longValue;
-    }
-
-    public String getContentMd5() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.contentMd5 : (String) invokeV.objValue;
-    }
-
-    public String getContentRange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.contentRange : (String) invokeV.objValue;
-    }
-
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.contentType : (String) invokeV.objValue;
-    }
-
-    public Long getCrc32() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.crc32 : (Long) invokeV.objValue;
-    }
-
-    public String getETag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.eTag : (String) invokeV.objValue;
-    }
-
-    public String getExpires() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.expires : (String) invokeV.objValue;
-    }
-
-    public long getInstanceLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.instanceLength : invokeV.longValue;
-    }
-
-    public Date getLastModified() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.lastModified : (Date) invokeV.objValue;
-    }
-
-    public String getObjectType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.objectType : (String) invokeV.objValue;
-    }
-
-    public String getStorageClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.storageClass : (String) invokeV.objValue;
-    }
-
     public String getUserMetaDataOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            Map<String, String> map = this.userMetadata;
+            Map map = this.userMetadata;
             if (map == null) {
                 return null;
             }
-            return map.get(str);
+            return (String) map.get(str);
         }
         return (String) invokeL.objValue;
-    }
-
-    public Map<String, String> getUserMetadata() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.userMetadata : (Map) invokeV.objValue;
     }
 
     public void setAppendOffset(long j) {
@@ -285,7 +374,7 @@ public class ObjectMetadata {
         }
     }
 
-    public void setUserMetadata(Map<String, String> map) {
+    public void setUserMetadata(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, map) == null) {
             CheckUtils.isNotNull(map, "userMetadata should not be null.");
@@ -352,43 +441,5 @@ public class ObjectMetadata {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public ObjectMetadata(ObjectMetadata objectMetadata) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {objectMetadata};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.userMetadata = new HashMap();
-        this.contentLength = -1L;
-        this.instanceLength = -1L;
-        if (objectMetadata.userMetadata != null) {
-            this.userMetadata = new HashMap(objectMetadata.userMetadata);
-        }
-        setBceContentSha256(objectMetadata.getBceContentSha256());
-        setContentDisposition(objectMetadata.getContentDisposition());
-        setContentEncoding(objectMetadata.getContentEncoding());
-        setContentLength(objectMetadata.getContentLength());
-        setContentMd5(objectMetadata.getContentMd5());
-        setContentType(objectMetadata.getContentType());
-        setETag(objectMetadata.getETag());
-        setCrc32(objectMetadata.getCrc32());
-        setInstanceLength(objectMetadata.getInstanceLength());
-        setLastModified(objectMetadata.getLastModified());
-        setExpires(objectMetadata.getExpires());
-        setAppendOffset(objectMetadata.getAppendOffset());
-        setObjectType(objectMetadata.getObjectType());
-        setCacheControl(objectMetadata.getCacheControl());
-        setStorageClass(objectMetadata.getStorageClass());
     }
 }

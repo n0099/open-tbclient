@@ -1,6 +1,5 @@
 package com.baidu.swan.gamecenter.appmanager.install;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,8 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.share.BaseActivity;
-@SuppressLint({BaseActivity.TAG})
 /* loaded from: classes3.dex */
 public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +37,10 @@ public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity

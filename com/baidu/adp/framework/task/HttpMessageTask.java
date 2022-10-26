@@ -3,10 +3,9 @@ package com.baidu.adp.framework.task;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bc;
+import com.baidu.tieba.cc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,16 +17,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HttpMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bc mConnectTimeOut;
+    public cc mConnectTimeOut;
     public boolean mIsImm;
     public HTTP_METHOD mMethod;
     public boolean mNeedGzip;
-    public Class<? extends HttpResponsedMessage> mResponsedClass;
+    public Class mResponsedClass;
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class HTTP_METHOD {
+    public final class HTTP_METHOD {
         public static final /* synthetic */ HTTP_METHOD[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HTTP_METHOD GET;
@@ -75,13 +74,19 @@ public class HttpMessageTask extends MessageTask {
         public static HTTP_METHOD valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HTTP_METHOD) Enum.valueOf(HTTP_METHOD.class, str) : (HTTP_METHOD) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (HTTP_METHOD) Enum.valueOf(HTTP_METHOD.class, str);
+            }
+            return (HTTP_METHOD) invokeL.objValue;
         }
 
         public static HTTP_METHOD[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HTTP_METHOD[]) $VALUES.clone() : (HTTP_METHOD[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (HTTP_METHOD[]) $VALUES.clone();
+            }
+            return (HTTP_METHOD[]) invokeV.objValue;
         }
     }
 
@@ -115,63 +120,83 @@ public class HttpMessageTask extends MessageTask {
 
     private void addProtobufSuffix() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || StringUtils.isNull(this.mUrl)) {
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || StringUtils.isNull(this.mUrl)) {
             return;
         }
         Uri parse = Uri.parse(this.mUrl);
-        if (StringUtils.isNull(parse.getQueryParameter("cmd")) || !StringUtils.isNull(parse.getQueryParameter("format"))) {
-            return;
+        if (!StringUtils.isNull(parse.getQueryParameter("cmd")) && StringUtils.isNull(parse.getQueryParameter("format"))) {
+            this.mUrl = parse.buildUpon().appendQueryParameter("format", "protobuf").toString();
         }
-        this.mUrl = parse.buildUpon().appendQueryParameter("format", "protobuf").toString();
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FrameHelper.b(this.mCmd) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return FrameHelper.b(this.mCmd);
+        }
+        return invokeV.booleanValue;
     }
 
-    public bc getConnectTimeOut() {
+    public cc getConnectTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mConnectTimeOut : (bc) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mConnectTimeOut;
+        }
+        return (cc) invokeV.objValue;
     }
 
     public boolean getIsImm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsImm : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIsImm;
+        }
+        return invokeV.booleanValue;
     }
 
     public HTTP_METHOD getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMethod : (HTTP_METHOD) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mMethod;
+        }
+        return (HTTP_METHOD) invokeV.objValue;
     }
 
-    public Class<? extends HttpResponsedMessage> getResponsedClass() {
+    public Class getResponsedClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mResponsedClass : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mResponsedClass;
+        }
+        return (Class) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isNeedGzip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mNeedGzip : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mNeedGzip;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void setConnectTimeOut(bc bcVar) {
+    public void setConnectTimeOut(cc ccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bcVar) == null) {
-            this.mConnectTimeOut = bcVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ccVar) == null) {
+            this.mConnectTimeOut = ccVar;
         }
     }
 
@@ -196,7 +221,7 @@ public class HttpMessageTask extends MessageTask {
         }
     }
 
-    public void setResponsedClass(Class<? extends HttpResponsedMessage> cls) {
+    public void setResponsedClass(Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cls) == null) {
             this.mResponsedClass = cls;

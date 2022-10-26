@@ -34,13 +34,6 @@ public class VideoListMediaControllerView extends VideoControllerView {
         }
     }
 
-    @Override // com.baidu.tieba.play.VideoControllerView
-    public View f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d08d5, null) : (View) invokeL.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoListMediaControllerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -81,5 +74,15 @@ public class VideoListMediaControllerView extends VideoControllerView {
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public View f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return View.inflate(context, R.layout.obfuscated_res_0x7f0d08d6, null);
+        }
+        return (View) invokeL.objValue;
     }
 }

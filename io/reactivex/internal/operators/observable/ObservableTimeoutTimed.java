@@ -19,22 +19,27 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableTimeoutTimed extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<? extends T> other;
+    public final ObservableSource other;
     public final Scheduler scheduler;
     public final long timeout;
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class FallbackObserver<T> implements Observer<T> {
+    public interface TimeoutSupport {
+        void onTimeout(long j);
+    }
+
+    /* loaded from: classes8.dex */
+    public final class FallbackObserver implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
-        public final AtomicReference<Disposable> arbiter;
+        public final Observer actual;
+        public final AtomicReference arbiter;
 
-        public FallbackObserver(Observer<? super T> observer, AtomicReference<Disposable> atomicReference) {
+        public FallbackObserver(Observer observer, AtomicReference atomicReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,10 +75,10 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -87,20 +92,20 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
     }
 
     /* loaded from: classes8.dex */
-    public static final class TimeoutFallbackObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, TimeoutSupport {
+    public final class TimeoutFallbackObserver extends AtomicReference implements Observer, Disposable, TimeoutSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
-        public ObservableSource<? extends T> fallback;
+        public final Observer actual;
+        public ObservableSource fallback;
         public final AtomicLong index;
         public final SequentialDisposable task;
         public final long timeout;
         public final TimeUnit unit;
-        public final AtomicReference<Disposable> upstream;
+        public final AtomicReference upstream;
         public final Scheduler.Worker worker;
 
-        public TimeoutFallbackObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker, ObservableSource<? extends T> observableSource) {
+        public TimeoutFallbackObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler.Worker worker, ObservableSource observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +127,7 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
             this.fallback = observableSource;
             this.task = new SequentialDisposable();
             this.index = new AtomicLong();
-            this.upstream = new AtomicReference<>();
+            this.upstream = new AtomicReference();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -139,18 +144,20 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.index.getAndSet(Long.MAX_VALUE) == Long.MAX_VALUE) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onComplete();
+                this.worker.dispose();
             }
-            this.task.dispose();
-            this.actual.onComplete();
-            this.worker.dispose();
         }
 
         @Override // io.reactivex.Observer
@@ -168,38 +175,10 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j = this.index.get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = 1 + j;
-                    if (this.index.compareAndSet(j, j2)) {
-                        this.task.get().dispose();
-                        this.actual.onNext(t);
-                        startTimeout(j2);
-                    }
-                }
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
                 DisposableHelper.setOnce(this.upstream, disposable);
-            }
-        }
-
-        @Override // io.reactivex.internal.operators.observable.ObservableTimeoutTimed.TimeoutSupport
-        public void onTimeout(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && this.index.compareAndSet(j, Long.MAX_VALUE)) {
-                DisposableHelper.dispose(this.upstream);
-                ObservableSource<? extends T> observableSource = this.fallback;
-                this.fallback = null;
-                observableSource.subscribe(new FallbackObserver(this.actual, this));
-                this.worker.dispose();
             }
         }
 
@@ -209,21 +188,49 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
                 this.task.replace(this.worker.schedule(new TimeoutTask(j, this), this.timeout, this.unit));
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                long j = this.index.get();
+                if (j != Long.MAX_VALUE) {
+                    long j2 = 1 + j;
+                    if (this.index.compareAndSet(j, j2)) {
+                        ((Disposable) this.task.get()).dispose();
+                        this.actual.onNext(obj);
+                        startTimeout(j2);
+                    }
+                }
+            }
+        }
+
+        @Override // io.reactivex.internal.operators.observable.ObservableTimeoutTimed.TimeoutSupport
+        public void onTimeout(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && this.index.compareAndSet(j, Long.MAX_VALUE)) {
+                DisposableHelper.dispose(this.upstream);
+                ObservableSource observableSource = this.fallback;
+                this.fallback = null;
+                observableSource.subscribe(new FallbackObserver(this.actual, this));
+                this.worker.dispose();
+            }
+        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class TimeoutObserver<T> extends AtomicLong implements Observer<T>, Disposable, TimeoutSupport {
+    public final class TimeoutObserver extends AtomicLong implements Observer, Disposable, TimeoutSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public final SequentialDisposable task;
         public final long timeout;
         public final TimeUnit unit;
-        public final AtomicReference<Disposable> upstream;
+        public final AtomicReference upstream;
         public final Scheduler.Worker worker;
 
-        public TimeoutObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public TimeoutObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -243,7 +250,7 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
             this.unit = timeUnit;
             this.worker = worker;
             this.task = new SequentialDisposable();
-            this.upstream = new AtomicReference<>();
+            this.upstream = new AtomicReference();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -259,18 +266,20 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(this.upstream.get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) this.upstream.get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getAndSet(Long.MAX_VALUE) == Long.MAX_VALUE) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onComplete();
+                this.worker.dispose();
             }
-            this.task.dispose();
-            this.actual.onComplete();
-            this.worker.dispose();
         }
 
         @Override // io.reactivex.Observer
@@ -284,22 +293,6 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
                     return;
                 }
                 RxJavaPlugins.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j = get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = 1 + j;
-                    if (compareAndSet(j, j2)) {
-                        this.task.get().dispose();
-                        this.actual.onNext(t);
-                        startTimeout(j2);
-                    }
-                }
             }
         }
 
@@ -327,15 +320,26 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
                 this.task.replace(this.worker.schedule(new TimeoutTask(j, this), this.timeout, this.unit));
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                long j = get();
+                if (j != Long.MAX_VALUE) {
+                    long j2 = 1 + j;
+                    if (compareAndSet(j, j2)) {
+                        ((Disposable) this.task.get()).dispose();
+                        this.actual.onNext(obj);
+                        startTimeout(j2);
+                    }
+                }
+            }
+        }
     }
 
     /* loaded from: classes8.dex */
-    public interface TimeoutSupport {
-        void onTimeout(long j);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class TimeoutTask implements Runnable {
+    public final class TimeoutTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long idx;
@@ -370,7 +374,7 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTimeoutTimed(Observable<T> observable, long j, TimeUnit timeUnit, Scheduler scheduler, ObservableSource<? extends T> observableSource) {
+    public ObservableTimeoutTimed(Observable observable, long j, TimeUnit timeUnit, Scheduler scheduler, ObservableSource observableSource) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -394,7 +398,7 @@ public final class ObservableTimeoutTimed<T> extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             if (this.other == null) {

@@ -1,102 +1,108 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.view.View;
 import android.view.Window;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.CircleView1080;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qu4 extends AlertDialog {
+public class qu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public TextView b;
-    public TextView c;
-    public CircleView1080 d;
-    public int e;
+    public AlertDialog a;
+    public Activity b;
+    public View c;
+    public DialogInterface.OnDismissListener d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qu4(Context context) {
-        super(context);
+    public qu4(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = activity;
     }
 
-    public void a(String str) {
+    public void c(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = str;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(str);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.c = view2;
         }
     }
 
-    public void b(int i) {
+    public void d(DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.e) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, onDismissListener) == null) {
+            this.d = onDismissListener;
+        }
+    }
+
+    public void a() {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null && alertDialog.isShowing()) {
+            this.a.dismiss();
+        }
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return 5894;
+            }
+            return 1280;
+        }
+        return invokeV.intValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b == null) {
             return;
         }
-        this.e = i;
-        TextView textView = this.b;
-        if (textView != null) {
-            textView.setText(i + "%");
+        if (this.a == null) {
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.a = create;
+            create.requestWindowFeature(b());
         }
-        CircleView1080 circleView1080 = this.d;
-        if (circleView1080 != null) {
-            circleView1080.setProgress(i);
+        if (this.a.isShowing()) {
+            this.a.dismiss();
         }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.show();
-            Window window = getWindow();
-            if (window != null) {
-                window.setContentView(R.layout.obfuscated_res_0x7f0d0757);
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090ad3);
-                if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
-                    layoutParams.topMargin = ej.f(getContext(), R.dimen.tbds50);
-                    findViewById.setLayoutParams(layoutParams);
-                }
-                TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09212f);
-                this.c = textView;
-                if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-                    layoutParams2.topMargin = ej.f(getContext(), R.dimen.tbds35);
-                    this.c.setLayoutParams(layoutParams2);
-                }
-                if (!StringUtils.isNull(this.a)) {
-                    this.c.setText(this.a);
-                }
-                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092130);
-                this.d = (CircleView1080) window.findViewById(R.id.obfuscated_res_0x7f090640);
-            }
+        this.a.setCancelable(true);
+        this.a.setOnDismissListener(this.d);
+        this.a.show();
+        Window window = this.a.getWindow();
+        window.getDecorView().setSystemUiVisibility(b());
+        window.addFlags(Integer.MIN_VALUE);
+        window.setStatusBarColor(0);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width = -1;
+        attributes.height = -1;
+        window.setNavigationBarColor(0);
+        window.setAttributes(attributes);
+        window.setDimAmount(0.0f);
+        View view2 = this.c;
+        if (view2 != null) {
+            this.a.setContentView(view2);
         }
     }
 }

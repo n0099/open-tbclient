@@ -29,7 +29,10 @@ public class AppContextHolder {
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? sAppContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return sAppContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static void setAppContext(Context context) {

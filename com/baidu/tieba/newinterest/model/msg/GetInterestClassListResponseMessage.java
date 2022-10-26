@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.model.msg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.vs7;
+import com.baidu.tieba.gt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vs7> interestSelectionInfoList;
+    public List interestSelectionInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetInterestClassListResponseMessage(int i) {
@@ -47,24 +47,26 @@ public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessag
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error != 0 || jSONObject == null || (jSONArray = jSONObject.getJSONArray("class_list")) == null || jSONArray.length() <= 0) {
-                return;
-            }
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                vs7 vs7Var = new vs7();
-                vs7Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
-                vs7Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                vs7Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                vs7Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
-                vs7Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
-                this.interestSelectionInfoList.add(vs7Var);
+            if (statusCode == 200 && error == 0 && jSONObject != null && (jSONArray = jSONObject.getJSONArray("class_list")) != null && jSONArray.length() > 0) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    gt7 gt7Var = new gt7();
+                    gt7Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
+                    gt7Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    gt7Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    gt7Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
+                    gt7Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
+                    this.interestSelectionInfoList.add(gt7Var);
+                }
             }
         }
     }
 
-    public List<vs7> getInterestSelectionInfoList() {
+    public List getInterestSelectionInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.interestSelectionInfoList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.interestSelectionInfoList;
+        }
+        return (List) invokeV.objValue;
     }
 }

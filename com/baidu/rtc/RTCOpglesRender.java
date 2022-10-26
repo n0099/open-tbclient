@@ -15,6 +15,32 @@ public class RTCOpglesRender {
     public static final String TAG = "RTCOpglesRender";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void destroyRender() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void drawFrame(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, bArr2, bArr3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+        }
+    }
+
+    public void pauseRender() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void resumeRender() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public native String stringFromJNI();
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -45,36 +71,10 @@ public class RTCOpglesRender {
         }
     }
 
-    public void destroyRender() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void drawFrame(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, bArr2, bArr3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-        }
-    }
-
-    public void pauseRender() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void resumeRender() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
     public void setupRender() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Log.d(TAG, "testing " + stringFromJNI());
         }
     }
-
-    public native String stringFromJNI();
 }

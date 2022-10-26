@@ -1,9 +1,8 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.um4;
+import com.baidu.tieba.vm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ import tbclient.Error;
 public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public um4 mData;
+    public vm4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompleteTaskSocketResMsg() {
@@ -37,8 +36,16 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
         }
     }
 
+    public vm4 getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (vm4) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -51,31 +58,31 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
                     setErrorString(completeTaskResIdl.error.usermsg);
                 }
                 if (completeTaskResIdl.data != null) {
-                    um4 um4Var = new um4();
-                    this.mData = um4Var;
-                    um4Var.c = completeTaskResIdl.data.show_type.intValue();
+                    vm4 vm4Var = new vm4();
+                    this.mData = vm4Var;
+                    vm4Var.c = completeTaskResIdl.data.show_type.intValue();
                     this.mData.d = completeTaskResIdl.data.ahead_type.intValue();
-                    um4 um4Var2 = this.mData;
+                    vm4 vm4Var2 = this.mData;
                     DataRes dataRes = completeTaskResIdl.data;
-                    um4Var2.e = dataRes.message;
-                    um4Var2.f = dataRes.btn_text;
-                    um4Var2.g = dataRes.btn_confirm;
-                    um4Var2.h = dataRes.btn_cancel;
-                    um4Var2.i = dataRes.toast_duration.intValue();
-                    um4 um4Var3 = this.mData;
+                    vm4Var2.e = dataRes.message;
+                    vm4Var2.f = dataRes.btn_text;
+                    vm4Var2.g = dataRes.btn_confirm;
+                    vm4Var2.h = dataRes.btn_cancel;
+                    vm4Var2.i = dataRes.toast_duration.intValue();
+                    vm4 vm4Var3 = this.mData;
                     DataRes dataRes2 = completeTaskResIdl.data;
-                    um4Var3.j = dataRes2.img_url;
-                    um4Var3.k = dataRes2.url;
-                    um4Var3.l = dataRes2.schema;
-                    um4Var3.m = dataRes2.token;
-                    um4Var3.a = dataRes2.activity_id.intValue();
+                    vm4Var3.j = dataRes2.img_url;
+                    vm4Var3.k = dataRes2.url;
+                    vm4Var3.l = dataRes2.schema;
+                    vm4Var3.m = dataRes2.token;
+                    vm4Var3.a = dataRes2.activity_id.intValue();
                     this.mData.b = completeTaskResIdl.data.mission_id.intValue();
-                    um4 um4Var4 = this.mData;
+                    vm4 vm4Var4 = this.mData;
                     DataRes dataRes3 = completeTaskResIdl.data;
-                    um4Var4.o = dataRes3.btn_color;
-                    um4Var4.p = dataRes3.message_color;
-                    um4Var4.q = dataRes3.btn_text_color;
-                    um4Var4.r = dataRes3.interface_type.intValue();
+                    vm4Var4.o = dataRes3.btn_color;
+                    vm4Var4.p = dataRes3.message_color;
+                    vm4Var4.q = dataRes3.btn_text_color;
+                    vm4Var4.r = dataRes3.interface_type.intValue();
                     this.mData.n = completeTaskResIdl.data.opacity.doubleValue();
                     this.mData.x = completeTaskResIdl.data.is_not_complete.intValue();
                 }
@@ -83,11 +90,5 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
             return completeTaskResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public um4 getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (um4) invokeV.objValue;
     }
 }

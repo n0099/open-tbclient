@@ -31,7 +31,7 @@ public final class BlockingHelper {
 
     public static void awaitForComplete(CountDownLatch countDownLatch, Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, countDownLatch, disposable) == null) || countDownLatch.getCount() == 0) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, countDownLatch, disposable) != null) || countDownLatch.getCount() == 0) {
             return;
         }
         try {

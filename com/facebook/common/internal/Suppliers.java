@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public class Suppliers {
     public static /* synthetic */ Interceptable $ic;
-    public static final Supplier<Boolean> BOOLEAN_FALSE;
-    public static final Supplier<Boolean> BOOLEAN_TRUE;
+    public static final Supplier BOOLEAN_FALSE;
+    public static final Supplier BOOLEAN_TRUE;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +27,7 @@ public class Suppliers {
                 return;
             }
         }
-        BOOLEAN_TRUE = new Supplier<Boolean>() { // from class: com.facebook.common.internal.Suppliers.2
+        BOOLEAN_TRUE = new Supplier() { // from class: com.facebook.common.internal.Suppliers.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,15 +46,17 @@ public class Suppliers {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.facebook.common.internal.Supplier
             public Boolean get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.TRUE : (Boolean) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return Boolean.TRUE;
+                }
+                return (Boolean) invokeV.objValue;
             }
         };
-        BOOLEAN_FALSE = new Supplier<Boolean>() { // from class: com.facebook.common.internal.Suppliers.3
+        BOOLEAN_FALSE = new Supplier() { // from class: com.facebook.common.internal.Suppliers.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,12 +75,14 @@ public class Suppliers {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.facebook.common.internal.Supplier
             public Boolean get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.FALSE : (Boolean) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return Boolean.FALSE;
+                }
+                return (Boolean) invokeV.objValue;
             }
         };
     }
@@ -99,40 +101,44 @@ public class Suppliers {
         }
     }
 
-    public static <T> Supplier<T> of(T t) {
+    public static Supplier of(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? new Supplier<T>(t) { // from class: com.facebook.common.internal.Suppliers.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Object val$instance;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+            return new Supplier(obj) { // from class: com.facebook.common.internal.Suppliers.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Object val$instance;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {t};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {obj};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.val$instance = obj;
                 }
-                this.val$instance = t;
-            }
 
-            /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
-            /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
-            @Override // com.facebook.common.internal.Supplier
-            public T get() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$instance : invokeV.objValue;
-            }
-        } : (Supplier) invokeL.objValue;
+                @Override // com.facebook.common.internal.Supplier
+                public Object get() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.val$instance;
+                    }
+                    return invokeV.objValue;
+                }
+            };
+        }
+        return (Supplier) invokeL.objValue;
     }
 }

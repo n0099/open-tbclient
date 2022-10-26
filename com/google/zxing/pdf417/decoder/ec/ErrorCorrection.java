@@ -73,44 +73,45 @@ public final class ErrorCorrection {
     private ModulusPoly[] runEuclideanAlgorithm(ModulusPoly modulusPoly, ModulusPoly modulusPoly2, int i) throws ChecksumException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65539, this, modulusPoly, modulusPoly2, i)) != null) {
-            return (ModulusPoly[]) invokeLLI.objValue;
-        }
-        if (modulusPoly.getDegree() < modulusPoly2.getDegree()) {
-            modulusPoly2 = modulusPoly;
-            modulusPoly = modulusPoly2;
-        }
-        ModulusPoly zero = this.field.getZero();
-        ModulusPoly one = this.field.getOne();
-        while (true) {
-            ModulusPoly modulusPoly3 = modulusPoly2;
-            modulusPoly2 = modulusPoly;
-            modulusPoly = modulusPoly3;
-            ModulusPoly modulusPoly4 = one;
-            ModulusPoly modulusPoly5 = zero;
-            zero = modulusPoly4;
-            if (modulusPoly.getDegree() >= i / 2) {
-                if (!modulusPoly.isZero()) {
-                    ModulusPoly zero2 = this.field.getZero();
-                    int inverse = this.field.inverse(modulusPoly.getCoefficient(modulusPoly.getDegree()));
-                    while (modulusPoly2.getDegree() >= modulusPoly.getDegree() && !modulusPoly2.isZero()) {
-                        int degree = modulusPoly2.getDegree() - modulusPoly.getDegree();
-                        int multiply = this.field.multiply(modulusPoly2.getCoefficient(modulusPoly2.getDegree()), inverse);
-                        zero2 = zero2.add(this.field.buildMonomial(degree, multiply));
-                        modulusPoly2 = modulusPoly2.subtract(modulusPoly.multiplyByMonomial(degree, multiply));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, modulusPoly, modulusPoly2, i)) == null) {
+            if (modulusPoly.getDegree() < modulusPoly2.getDegree()) {
+                modulusPoly2 = modulusPoly;
+                modulusPoly = modulusPoly2;
+            }
+            ModulusPoly zero = this.field.getZero();
+            ModulusPoly one = this.field.getOne();
+            while (true) {
+                ModulusPoly modulusPoly3 = modulusPoly2;
+                modulusPoly2 = modulusPoly;
+                modulusPoly = modulusPoly3;
+                ModulusPoly modulusPoly4 = one;
+                ModulusPoly modulusPoly5 = zero;
+                zero = modulusPoly4;
+                if (modulusPoly.getDegree() >= i / 2) {
+                    if (!modulusPoly.isZero()) {
+                        ModulusPoly zero2 = this.field.getZero();
+                        int inverse = this.field.inverse(modulusPoly.getCoefficient(modulusPoly.getDegree()));
+                        while (modulusPoly2.getDegree() >= modulusPoly.getDegree() && !modulusPoly2.isZero()) {
+                            int degree = modulusPoly2.getDegree() - modulusPoly.getDegree();
+                            int multiply = this.field.multiply(modulusPoly2.getCoefficient(modulusPoly2.getDegree()), inverse);
+                            zero2 = zero2.add(this.field.buildMonomial(degree, multiply));
+                            modulusPoly2 = modulusPoly2.subtract(modulusPoly.multiplyByMonomial(degree, multiply));
+                        }
+                        one = zero2.multiply(zero).subtract(modulusPoly5).negative();
+                    } else {
+                        throw ChecksumException.getChecksumInstance();
                     }
-                    one = zero2.multiply(zero).subtract(modulusPoly5).negative();
                 } else {
+                    int coefficient = zero.getCoefficient(0);
+                    if (coefficient != 0) {
+                        int inverse2 = this.field.inverse(coefficient);
+                        return new ModulusPoly[]{zero.multiply(inverse2), modulusPoly.multiply(inverse2)};
+                    }
                     throw ChecksumException.getChecksumInstance();
                 }
-            } else {
-                int coefficient = zero.getCoefficient(0);
-                if (coefficient != 0) {
-                    int inverse2 = this.field.inverse(coefficient);
-                    return new ModulusPoly[]{zero.multiply(inverse2), modulusPoly.multiply(inverse2)};
-                }
-                throw ChecksumException.getChecksumInstance();
             }
+        } else {
+            return (ModulusPoly[]) invokeLLI.objValue;
         }
     }
 
@@ -128,31 +129,31 @@ public final class ErrorCorrection {
                     z = true;
                 }
             }
-            if (z) {
-                ModulusPoly one = this.field.getOne();
-                if (iArr2 != null) {
-                    for (int i3 : iArr2) {
-                        int exp = this.field.exp((iArr.length - 1) - i3);
-                        ModulusGF modulusGF = this.field;
-                        one = one.multiply(new ModulusPoly(modulusGF, new int[]{modulusGF.subtract(0, exp), 1}));
-                    }
-                }
-                ModulusPoly[] runEuclideanAlgorithm = runEuclideanAlgorithm(this.field.buildMonomial(i, 1), new ModulusPoly(this.field, iArr3), i);
-                ModulusPoly modulusPoly2 = runEuclideanAlgorithm[0];
-                ModulusPoly modulusPoly3 = runEuclideanAlgorithm[1];
-                int[] findErrorLocations = findErrorLocations(modulusPoly2);
-                int[] findErrorMagnitudes = findErrorMagnitudes(modulusPoly3, modulusPoly2, findErrorLocations);
-                for (int i4 = 0; i4 < findErrorLocations.length; i4++) {
-                    int length = (iArr.length - 1) - this.field.log(findErrorLocations[i4]);
-                    if (length >= 0) {
-                        iArr[length] = this.field.subtract(iArr[length], findErrorMagnitudes[i4]);
-                    } else {
-                        throw ChecksumException.getChecksumInstance();
-                    }
-                }
-                return findErrorLocations.length;
+            if (!z) {
+                return 0;
             }
-            return 0;
+            ModulusPoly one = this.field.getOne();
+            if (iArr2 != null) {
+                for (int i3 : iArr2) {
+                    int exp = this.field.exp((iArr.length - 1) - i3);
+                    ModulusGF modulusGF = this.field;
+                    one = one.multiply(new ModulusPoly(modulusGF, new int[]{modulusGF.subtract(0, exp), 1}));
+                }
+            }
+            ModulusPoly[] runEuclideanAlgorithm = runEuclideanAlgorithm(this.field.buildMonomial(i, 1), new ModulusPoly(this.field, iArr3), i);
+            ModulusPoly modulusPoly2 = runEuclideanAlgorithm[0];
+            ModulusPoly modulusPoly3 = runEuclideanAlgorithm[1];
+            int[] findErrorLocations = findErrorLocations(modulusPoly2);
+            int[] findErrorMagnitudes = findErrorMagnitudes(modulusPoly3, modulusPoly2, findErrorLocations);
+            for (int i4 = 0; i4 < findErrorLocations.length; i4++) {
+                int length = (iArr.length - 1) - this.field.log(findErrorLocations[i4]);
+                if (length >= 0) {
+                    iArr[length] = this.field.subtract(iArr[length], findErrorMagnitudes[i4]);
+                } else {
+                    throw ChecksumException.getChecksumInstance();
+                }
+            }
+            return findErrorLocations.length;
         }
         return invokeLIL.intValue;
     }

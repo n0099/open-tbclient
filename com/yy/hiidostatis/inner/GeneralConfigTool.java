@@ -57,6 +57,28 @@ public class GeneralConfigTool {
         preference = new Preference("hdcommon_config_cache_pref", true);
     }
 
+    public AbstractConfig getConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mConfig;
+        }
+        return (AbstractConfig) invokeV.objValue;
+    }
+
+    public String getSrvTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                return DefaultPreference.getPreference().getPrefString(this.mContext, PRFKEY_SRV_TM, null);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
     public GeneralConfigTool(Context context, AbstractConfig abstractConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,25 +99,23 @@ public class GeneralConfigTool {
         this.URL_CONFIG_SERVER = abstractConfig.getUrlConfigServer();
     }
 
-    private void addLastModifyTimeToParams(String str, Map<String, String> map) throws JSONException {
+    private void addLastModifyTimeToParams(String str, Map map) throws JSONException {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, map) == null) || Util.empty(str)) {
-            return;
-        }
-        if (new JSONObject(str).has(KEY_LAST_MODIFIED_TIME)) {
-            String str2 = jSONObject.get(KEY_LAST_MODIFIED_TIME) + "";
-            if (Util.empty(str2)) {
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65538, this, str, map) == null) && !Util.empty(str)) {
+            if (new JSONObject(str).has(KEY_LAST_MODIFIED_TIME)) {
+                String str2 = jSONObject.get(KEY_LAST_MODIFIED_TIME) + "";
+                if (!Util.empty(str2)) {
+                    if (map == null) {
+                        map = new HashMap();
+                    }
+                    map.put(KEY_LAST_MODIFIED_TIME, str2);
+                }
             }
-            if (map == null) {
-                map = new HashMap<>();
-            }
-            map.put(KEY_LAST_MODIFIED_TIME, str2);
         }
     }
 
-    private String assblyCacheKey(String str, Map<String, String> map) throws Exception {
+    private String assblyCacheKey(String str, Map map) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, map)) == null) {
@@ -112,7 +132,7 @@ public class GeneralConfigTool {
                     String str2 = (String) it.next();
                     stringBuffer.append(str2);
                     stringBuffer.append("=");
-                    stringBuffer.append(map.get(str2));
+                    stringBuffer.append((String) map.get(str2));
                     stringBuffer.append("&");
                 }
             }
@@ -134,30 +154,37 @@ public class GeneralConfigTool {
         return (String) invokeL.objValue;
     }
 
+    public void setmConfig(AbstractConfig abstractConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, abstractConfig) == null) {
+            this.mConfig = abstractConfig;
+        }
+    }
+
     private String parseData(JSONObject jSONObject, boolean z) throws Exception {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, this, jSONObject, z)) == null) {
-            if (!"1".equals(jSONObject.getString("code"))) {
-                L.error("GeneralConfigTool", "http get fail! code is %s,msg is %s", jSONObject.getString("code"), jSONObject.getString("msg"));
-                return null;
-            }
-            String string = jSONObject.getString("data");
-            if (Util.empty(string)) {
+            if ("1".equals(jSONObject.getString("code"))) {
+                String string = jSONObject.getString("data");
+                if (!Util.empty(string)) {
+                    if (z) {
+                        String string2 = jSONObject.getString("time");
+                        setSrvTime(string2);
+                        String substring = Coder.encryptMD5(string2 + "HiidoData").toLowerCase().substring(0, 8);
+                        L.verbose("GeneralConfigTool", "key is %s", substring);
+                        L.verbose("GeneralConfigTool", "data before decrypt  is %s", string);
+                        String decryptDES = Coder.decryptDES(string, substring);
+                        L.verbose("GeneralConfigTool", "data after decrypt  is %s", decryptDES);
+                        return decryptDES;
+                    }
+                    L.verbose("GeneralConfigTool", "data without decrypt  is %s", string);
+                    return string;
+                }
                 return string;
             }
-            if (z) {
-                String string2 = jSONObject.getString("time");
-                setSrvTime(string2);
-                String substring = Coder.encryptMD5(string2 + "HiidoData").toLowerCase().substring(0, 8);
-                L.verbose("GeneralConfigTool", "key is %s", substring);
-                L.verbose("GeneralConfigTool", "data before decrypt  is %s", string);
-                String decryptDES = Coder.decryptDES(string, substring);
-                L.verbose("GeneralConfigTool", "data after decrypt  is %s", decryptDES);
-                return decryptDES;
-            }
-            L.verbose("GeneralConfigTool", "data without decrypt  is %s", string);
-            return string;
+            L.error("GeneralConfigTool", "http get fail! code is %s,msg is %s", jSONObject.getString("code"), jSONObject.getString("msg"));
+            return null;
         }
         return (String) invokeLZ.objValue;
     }
@@ -168,7 +195,7 @@ public class GeneralConfigTool {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String get(String str, Map<String, String> map, Context context, boolean z) {
+    public String get(String str, Map map, Context context, boolean z) {
         InterceptResult invokeCommon;
         String str2;
         String str3;
@@ -227,7 +254,7 @@ public class GeneralConfigTool {
         return (String) invokeCommon.objValue;
     }
 
-    public synchronized String getCache(String str, Map<String, String> map, Context context, boolean z) throws Exception {
+    public synchronized String getCache(String str, Map map, Context context, boolean z) throws Exception {
         InterceptResult invokeCommon;
         String prefString;
         Interceptable interceptable = $ic;
@@ -263,25 +290,6 @@ public class GeneralConfigTool {
         return (String) invokeCommon.objValue;
     }
 
-    public AbstractConfig getConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mConfig : (AbstractConfig) invokeV.objValue;
-    }
-
-    public String getSrvTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                return DefaultPreference.getPreference().getPrefString(this.mContext, PRFKEY_SRV_TM, null);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
     public void setSrvTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -293,13 +301,6 @@ public class GeneralConfigTool {
             } catch (Throwable th) {
                 L.debug(this, th.getMessage(), new Object[0]);
             }
-        }
-    }
-
-    public void setmConfig(AbstractConfig abstractConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, abstractConfig) == null) {
-            this.mConfig = abstractConfig;
         }
     }
 }

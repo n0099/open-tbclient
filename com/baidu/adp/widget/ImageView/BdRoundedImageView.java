@@ -12,7 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.qn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     public ImageView.ScaleType h;
 
     /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,229 +127,6 @@ public class BdRoundedImageView extends AppCompatImageView {
         this.e = false;
     }
 
-    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.drawableStateChanged();
-            invalidate();
-        }
-    }
-
-    public final void f(Drawable drawable, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, z) == null) || drawable == null) {
-            return;
-        }
-        int i2 = 0;
-        if (drawable instanceof pn) {
-            pn pnVar = (pn) drawable;
-            pnVar.g(this.h);
-            pnVar.e((this.d || !z) ? this.a : 0.0f);
-            if (this.d || !z) {
-                i2 = this.b;
-            }
-            pnVar.d(i2);
-            pnVar.c(this.c);
-            pnVar.f(this.e);
-        } else if (drawable instanceof LayerDrawable) {
-            LayerDrawable layerDrawable = (LayerDrawable) drawable;
-            int numberOfLayers = layerDrawable.getNumberOfLayers();
-            while (i2 < numberOfLayers) {
-                f(layerDrawable.getDrawable(i2), z);
-                i2++;
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f(this.g, true);
-        }
-    }
-
-    public int getBorderColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getDefaultColor() : invokeV.intValue;
-    }
-
-    public ColorStateList getBorderColors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (ColorStateList) invokeV.objValue;
-    }
-
-    public int getBorderWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int getCornerRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // android.widget.ImageView
-    public ImageView.ScaleType getScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (ImageView.ScaleType) invokeV.objValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            f(this.f, false);
-        }
-    }
-
-    @Override // androidx.appcompat.widget.AppCompatImageView, android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = pn.b(drawable);
-            g();
-            super.setBackgroundDrawable(this.g);
-        }
-    }
-
-    public void setBorderColor(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            setBorderColors(ColorStateList.valueOf(i2));
-        }
-    }
-
-    public void setBorderColors(ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, colorStateList) == null) || this.c.equals(colorStateList)) {
-            return;
-        }
-        if (colorStateList == null) {
-            colorStateList = ColorStateList.valueOf(0);
-        }
-        this.c = colorStateList;
-        k();
-        g();
-        if (this.b > 0) {
-            invalidate();
-        }
-    }
-
-    public void setBorderWidth(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.b == i2) {
-            return;
-        }
-        this.b = i2;
-        k();
-        g();
-        invalidate();
-    }
-
-    public void setCornerRadius(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || this.a == i2) {
-            return;
-        }
-        this.a = i2;
-        k();
-        g();
-    }
-
-    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new pn(bitmap);
-                k();
-            } else {
-                this.f = null;
-            }
-            super.setImageDrawable(this.f);
-        }
-    }
-
-    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
-    public void setImageDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
-            if (drawable != null) {
-                this.f = pn.b(drawable);
-                k();
-            } else {
-                this.f = null;
-            }
-            super.setImageDrawable(this.f);
-        }
-    }
-
-    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
-    public void setImageResource(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            super.setImageResource(i2);
-            setImageDrawable(getDrawable());
-        }
-    }
-
-    public void setOval(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.e = z;
-            k();
-            g();
-            invalidate();
-        }
-    }
-
-    public void setRoundBackground(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.d == z) {
-            return;
-        }
-        this.d = z;
-        g();
-        invalidate();
-    }
-
-    @Override // android.widget.ImageView
-    public void setScaleType(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, scaleType) == null) {
-            if (scaleType != null) {
-                if (this.h != scaleType) {
-                    this.h = scaleType;
-                    switch (a.a[scaleType.ordinal()]) {
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                        case 6:
-                        case 7:
-                            super.setScaleType(ImageView.ScaleType.FIT_XY);
-                            break;
-                        default:
-                            super.setScaleType(scaleType);
-                            break;
-                    }
-                    k();
-                    g();
-                    invalidate();
-                    return;
-                }
-                return;
-            }
-            throw null;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BdRoundedImageView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -367,6 +144,38 @@ public class BdRoundedImageView extends AppCompatImageView {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
+            }
+        }
+    }
+
+    public final void f(Drawable drawable, boolean z) {
+        float f;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, z) != null) || drawable == null) {
+            return;
+        }
+        int i2 = 0;
+        if (drawable instanceof qn) {
+            qn qnVar = (qn) drawable;
+            qnVar.g(this.h);
+            if (!this.d && z) {
+                f = 0.0f;
+            } else {
+                f = this.a;
+            }
+            qnVar.e(f);
+            if (this.d || !z) {
+                i2 = this.b;
+            }
+            qnVar.d(i2);
+            qnVar.c(this.c);
+            qnVar.f(this.e);
+        } else if (drawable instanceof LayerDrawable) {
+            LayerDrawable layerDrawable = (LayerDrawable) drawable;
+            int numberOfLayers = layerDrawable.getNumberOfLayers();
+            while (i2 < numberOfLayers) {
+                f(layerDrawable.getDrawable(i2), z);
+                i2++;
             }
         }
     }
@@ -418,5 +227,217 @@ public class BdRoundedImageView extends AppCompatImageView {
         k();
         g();
         obtainStyledAttributes.recycle();
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            invalidate();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f(this.g, true);
+        }
+    }
+
+    public int getBorderColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getDefaultColor();
+        }
+        return invokeV.intValue;
+    }
+
+    public ColorStateList getBorderColors() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    public int getBorderWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getCornerRadius() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.ImageView
+    public ImageView.ScaleType getScaleType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (ImageView.ScaleType) invokeV.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            f(this.f, false);
+        }
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.view.View
+    public void setBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
+            this.g = qn.b(drawable);
+            g();
+            super.setBackgroundDrawable(this.g);
+        }
+    }
+
+    public void setBorderColor(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            setBorderColors(ColorStateList.valueOf(i2));
+        }
+    }
+
+    public void setBorderColors(ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, colorStateList) != null) || this.c.equals(colorStateList)) {
+            return;
+        }
+        if (colorStateList == null) {
+            colorStateList = ColorStateList.valueOf(0);
+        }
+        this.c = colorStateList;
+        k();
+        g();
+        if (this.b > 0) {
+            invalidate();
+        }
+    }
+
+    public void setBorderWidth(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i2) != null) || this.b == i2) {
+            return;
+        }
+        this.b = i2;
+        k();
+        g();
+        invalidate();
+    }
+
+    public void setCornerRadius(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i2) != null) || this.a == i2) {
+            return;
+        }
+        this.a = i2;
+        k();
+        g();
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                this.f = new qn(bitmap);
+                k();
+            } else {
+                this.f = null;
+            }
+            super.setImageDrawable(this.f);
+        }
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
+    public void setImageDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
+            if (drawable != null) {
+                this.f = qn.b(drawable);
+                k();
+            } else {
+                this.f = null;
+            }
+            super.setImageDrawable(this.f);
+        }
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
+    public void setImageResource(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            super.setImageResource(i2);
+            setImageDrawable(getDrawable());
+        }
+    }
+
+    public void setOval(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.e = z;
+            k();
+            g();
+            invalidate();
+        }
+    }
+
+    public void setRoundBackground(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048594, this, z) != null) || this.d == z) {
+            return;
+        }
+        this.d = z;
+        g();
+        invalidate();
+    }
+
+    @Override // android.widget.ImageView
+    public void setScaleType(ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, scaleType) == null) {
+            if (scaleType != null) {
+                if (this.h != scaleType) {
+                    this.h = scaleType;
+                    switch (a.a[scaleType.ordinal()]) {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                            super.setScaleType(ImageView.ScaleType.FIT_XY);
+                            break;
+                        default:
+                            super.setScaleType(scaleType);
+                            break;
+                    }
+                    k();
+                    g();
+                    invalidate();
+                    return;
+                }
+                return;
+            }
+            throw null;
+        }
     }
 }

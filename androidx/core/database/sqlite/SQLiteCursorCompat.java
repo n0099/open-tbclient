@@ -2,7 +2,6 @@ package androidx.core.database.sqlite;
 
 import android.database.sqlite.SQLiteCursor;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,11 +25,10 @@ public final class SQLiteCursorCompat {
         }
     }
 
-    public static void setFillWindowForwardOnly(@NonNull SQLiteCursor sQLiteCursor, boolean z) {
+    public static void setFillWindowForwardOnly(SQLiteCursor sQLiteCursor, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65537, null, sQLiteCursor, z) == null) || Build.VERSION.SDK_INT < 28) {
-            return;
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, sQLiteCursor, z) == null) && Build.VERSION.SDK_INT >= 28) {
+            sQLiteCursor.setFillWindowForwardOnly(z);
         }
-        sQLiteCursor.setFillWindowForwardOnly(z);
     }
 }

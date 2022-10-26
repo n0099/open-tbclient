@@ -44,6 +44,34 @@ public class ImageFormat {
         UNKNOWN = new ImageFormat(RomUtils.UNKNOWN, null);
     }
 
+    @Nullable
+    public String getFileExtension() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFileExtension;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getName();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public ImageFormat(String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,24 +89,5 @@ public class ImageFormat {
         }
         this.mName = str;
         this.mFileExtension = str2;
-    }
-
-    @Nullable
-    public String getFileExtension() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFileExtension : (String) invokeV.objValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mName : (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getName() : (String) invokeV.objValue;
     }
 }

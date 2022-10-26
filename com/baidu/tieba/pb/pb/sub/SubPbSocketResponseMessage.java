@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zv7;
+import com.baidu.tieba.kw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import tbclient.PbFloor.PbFloorResIdl;
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zv7 pbFloorData;
+    public kw7 pbFloorData;
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -40,7 +39,6 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -49,13 +47,13 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (extra != null && (extra instanceof SubPbRequestMessage)) {
                 this.treatDelPage = ((SubPbRequestMessage) extra).isTreatDelPage();
             }
-            zv7 zv7Var = null;
+            kw7 kw7Var = null;
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    zv7Var = zv7.w(pbFloorResIdl.data);
-                    if (zv7Var != null) {
-                        zv7Var.m = pbFloorResIdl.error;
+                    kw7Var = kw7.w(pbFloorResIdl.data);
+                    if (kw7Var != null) {
+                        kw7Var.m = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {
                         if (pbFloorResIdl.error.errorno != null) {
                             setError(pbFloorResIdl.error.errorno.intValue());
@@ -66,8 +64,8 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.pbFloorData = zv7Var;
-            return zv7Var;
+            this.pbFloorData = kw7Var;
+            return kw7Var;
         }
         return invokeIL.objValue;
     }
@@ -75,6 +73,9 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public boolean isTreatDelPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.treatDelPage : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.treatDelPage;
+        }
+        return invokeV.booleanValue;
     }
 }

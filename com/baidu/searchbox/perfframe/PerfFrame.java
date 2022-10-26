@@ -2,7 +2,6 @@ package com.baidu.searchbox.perfframe;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
@@ -28,13 +27,28 @@ public class PerfFrame implements IPerfFrame {
 
     /* renamed from: com.baidu.searchbox.perfframe.PerfFrame$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1864496540, "Lcom/baidu/searchbox/perfframe/PerfFrame;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1864496540, "Lcom/baidu/searchbox/perfframe/PerfFrame;");
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mIsNeedDynamicperf;
@@ -59,7 +73,10 @@ public class PerfFrame implements IPerfFrame {
         public PerfFrame create() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PerfFrame(this, null) : (PerfFrame) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new PerfFrame(this, null);
+            }
+            return (PerfFrame) invokeV.objValue;
         }
 
         public Builder setNeedDynamicperf(boolean z) {
@@ -103,43 +120,6 @@ public class PerfFrame implements IPerfFrame {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1864496540, "Lcom/baidu/searchbox/perfframe/PerfFrame;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1864496540, "Lcom/baidu/searchbox/perfframe/PerfFrame;");
-        }
-    }
-
-    public /* synthetic */ PerfFrame(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrame
-    public void submitPerformanceData(@NonNull String str, @NonNull String str2, long j, long j2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        PerfExpInfo perfExpInfo = new PerfExpInfo(str, str2, j, j2, str3, str4, str5);
-        perfExpInfo.setNeedDynamicperf(this.mIsNeedDynamicperf);
-        perfExpInfo.setNeedStaticperf(this.mIsNeedStaticperf);
-        perfExpInfo.setNeedPageTrace(this.mIsNeedPageTrace);
-        perfExpInfo.setNeedMainStackTrace(this.mIsNeedMainStackTrace);
-        if (AppConfig.isDebug()) {
-            String str6 = TAG;
-            Log.d(str6, "perfExpInfo：" + perfExpInfo.toString());
-        }
-        PerfFrameContext.getPerfFrameContext().onPerfFrameCallBack(AppRuntime.getAppContext(), perfExpInfo);
-    }
-
     public PerfFrame() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -173,5 +153,26 @@ public class PerfFrame implements IPerfFrame {
         this.mIsNeedDynamicperf = builder.mIsNeedDynamicperf;
         this.mIsNeedStaticperf = builder.mIsNeedStaticperf;
         this.mIsNeedMainStackTrace = builder.mIsNeedMainStackTrace;
+    }
+
+    public /* synthetic */ PerfFrame(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrame
+    public void submitPerformanceData(String str, String str2, long j, long j2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            PerfExpInfo perfExpInfo = new PerfExpInfo(str, str2, j, j2, str3, str4, str5);
+            perfExpInfo.setNeedDynamicperf(this.mIsNeedDynamicperf);
+            perfExpInfo.setNeedStaticperf(this.mIsNeedStaticperf);
+            perfExpInfo.setNeedPageTrace(this.mIsNeedPageTrace);
+            perfExpInfo.setNeedMainStackTrace(this.mIsNeedMainStackTrace);
+            if (AppConfig.isDebug()) {
+                String str6 = TAG;
+                Log.d(str6, "perfExpInfo：" + perfExpInfo.toString());
+            }
+            PerfFrameContext.getPerfFrameContext().onPerfFrameCallBack(AppRuntime.getAppContext(), perfExpInfo);
+        }
     }
 }

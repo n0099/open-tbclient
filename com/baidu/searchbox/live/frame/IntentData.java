@@ -21,6 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.net.URLDecoder;
+import kotlin.Deprecated;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -28,7 +29,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b!\b\u0086\b\u0018\u0000 <2\u00020\u0001:\u0002<=B=\u0012\u0006\u0010\f\u001a\u00020\u0002\u0012\u0006\u0010\r\u001a\u00020\u0002\u0012\u0006\u0010\u000e\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u000f\u001a\u00020\u0007\u0012\b\b\u0002\u0010\u0010\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0011\u001a\u00020\u0002¢\u0006\u0004\b:\u0010;J\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0004J\u0010\u0010\b\u001a\u00020\u0007HÆ\u0003¢\u0006\u0004\b\b\u0010\tJ\u0010\u0010\n\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\n\u0010\u0004J\u0010\u0010\u000b\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u000b\u0010\u0004JL\u0010\u0012\u001a\u00020\u00002\b\b\u0002\u0010\f\u001a\u00020\u00022\b\b\u0002\u0010\r\u001a\u00020\u00022\b\b\u0002\u0010\u000e\u001a\u00020\u00022\b\b\u0002\u0010\u000f\u001a\u00020\u00072\b\b\u0002\u0010\u0010\u001a\u00020\u00022\b\b\u0002\u0010\u0011\u001a\u00020\u0002HÆ\u0001¢\u0006\u0004\b\u0012\u0010\u0013J\u001a\u0010\u0017\u001a\u00020\u00162\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014HÖ\u0003¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u0019\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0019\u0010\u0004J\r\u0010\u001a\u001a\u00020\u0002¢\u0006\u0004\b\u001a\u0010\u0004J\u000f\u0010\u001b\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u001b\u0010\u0004J\r\u0010\u001c\u001a\u00020\u0007¢\u0006\u0004\b\u001c\u0010\tJ\u0010\u0010\u001e\u001a\u00020\u001dHÖ\u0001¢\u0006\u0004\b\u001e\u0010\u001fJ\r\u0010 \u001a\u00020\u0016¢\u0006\u0004\b \u0010!J\r\u0010\"\u001a\u00020\u0016¢\u0006\u0004\b\"\u0010!J\u0010\u0010#\u001a\u00020\u0002HÖ\u0001¢\u0006\u0004\b#\u0010\u0004R\"\u0010\u0011\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0011\u0010$\u001a\u0004\b%\u0010\u0004\"\u0004\b&\u0010'R\"\u0010\f\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010$\u001a\u0004\b(\u0010\u0004\"\u0004\b)\u0010'R\"\u0010\u000f\u001a\u00020\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010*\u001a\u0004\b+\u0010\t\"\u0004\b,\u0010-R\"\u0010\u000e\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000e\u0010$\u001a\u0004\b.\u0010\u0004\"\u0004\b/\u0010'R\"\u0010\r\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\r\u0010$\u001a\u0004\b0\u0010\u0004\"\u0004\b1\u0010'R\"\u0010\u0010\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010$\u001a\u0004\b2\u0010\u0004\"\u0004\b3\u0010'R$\u00104\u001a\u0004\u0018\u00010\u00168\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b4\u00105\u001a\u0004\b6\u00107\"\u0004\b8\u00109¨\u0006>"}, d2 = {"Lcom/baidu/searchbox/live/frame/IntentData;", "Lcom/baidu/live/arch/frame/State;", "", "component1", "()Ljava/lang/String;", "component2", "component3", "Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "component4", "()Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "component5", "component6", "id", "source", "scheme", "model", "tpl", "extReq", "copy", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/searchbox/live/frame/IntentData;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "getLiveSource", "getNidFromHLReplay", "getQuestionFromSearch", "getSchemeData", "", TTDownloadField.TT_HASHCODE, "()I", "isEnterBookRoom", "()Z", "isHLReplay", "toString", "Ljava/lang/String;", "getExtReq", "setExtReq", "(Ljava/lang/String;)V", "getId", "setId", "Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "getModel", "setModel", "(Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;)V", "getScheme", "setScheme", "getSource", "setSource", "getTpl", "setTpl", "translucent", "Ljava/lang/Boolean;", "getTranslucent", "()Ljava/lang/Boolean;", "setTranslucent", "(Ljava/lang/Boolean;)V", "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;Ljava/lang/String;Ljava/lang/String;)V", "Companion", "SchemeModel", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b)\b\u0086\b\u0018\u0000 D2\u00020\u0001:\u0002DEB=\u0012\u0006\u0010\f\u001a\u00020\u0002\u0012\u0006\u0010\r\u001a\u00020\u0002\u0012\u0006\u0010\u000e\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u000f\u001a\u00020\u0007\u0012\b\b\u0002\u0010\u0010\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0011\u001a\u00020\u0002¢\u0006\u0004\bB\u0010CJ\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0004J\u0010\u0010\b\u001a\u00020\u0007HÆ\u0003¢\u0006\u0004\b\b\u0010\tJ\u0010\u0010\n\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\n\u0010\u0004J\u0010\u0010\u000b\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u000b\u0010\u0004JL\u0010\u0012\u001a\u00020\u00002\b\b\u0002\u0010\f\u001a\u00020\u00022\b\b\u0002\u0010\r\u001a\u00020\u00022\b\b\u0002\u0010\u000e\u001a\u00020\u00022\b\b\u0002\u0010\u000f\u001a\u00020\u00072\b\b\u0002\u0010\u0010\u001a\u00020\u00022\b\b\u0002\u0010\u0011\u001a\u00020\u0002HÆ\u0001¢\u0006\u0004\b\u0012\u0010\u0013J\u001a\u0010\u0017\u001a\u00020\u00162\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014HÖ\u0003¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u0019\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0019\u0010\u0004J\r\u0010\u001a\u001a\u00020\u0002¢\u0006\u0004\b\u001a\u0010\u0004J\u000f\u0010\u001b\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u001b\u0010\u0004J\r\u0010\u001c\u001a\u00020\u0007¢\u0006\u0004\b\u001c\u0010\tJ\u0010\u0010\u001e\u001a\u00020\u001dHÖ\u0001¢\u0006\u0004\b\u001e\u0010\u001fJ\r\u0010 \u001a\u00020\u0016¢\u0006\u0004\b \u0010!J\r\u0010\"\u001a\u00020\u0016¢\u0006\u0004\b\"\u0010!J\u0010\u0010#\u001a\u00020\u0002HÖ\u0001¢\u0006\u0004\b#\u0010\u0004J\r\u0010$\u001a\u00020\u0016¢\u0006\u0004\b$\u0010!R\"\u0010\u0011\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0011\u0010%\u001a\u0004\b&\u0010\u0004\"\u0004\b'\u0010(R\"\u0010\f\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010%\u001a\u0004\b)\u0010\u0004\"\u0004\b*\u0010(R\"\u0010\u000f\u001a\u00020\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010+\u001a\u0004\b,\u0010\t\"\u0004\b-\u0010.R\"\u0010\u000e\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000e\u0010%\u001a\u0004\b/\u0010\u0004\"\u0004\b0\u0010(R\"\u0010\r\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\r\u0010%\u001a\u0004\b1\u0010\u0004\"\u0004\b2\u0010(R\"\u0010\u0010\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010%\u001a\u0004\b3\u0010\u0004\"\u0004\b4\u0010(R\"\u00105\u001a\u00020\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b5\u00106\u001a\u0004\b7\u0010\u001f\"\u0004\b8\u00109R*\u0010:\u001a\u0004\u0018\u00010\u00168\u0006@\u0006X\u0087\u000e¢\u0006\u0018\n\u0004\b:\u0010;\u0012\u0004\b@\u0010A\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?¨\u0006F"}, d2 = {"Lcom/baidu/searchbox/live/frame/IntentData;", "Lcom/baidu/live/arch/frame/State;", "", "component1", "()Ljava/lang/String;", "component2", "component3", "Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "component4", "()Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "component5", "component6", "id", "source", "scheme", "model", "tpl", "extReq", "copy", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/searchbox/live/frame/IntentData;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "getLiveSource", "getNidFromHLReplay", "getQuestionFromSearch", "getSchemeData", "", TTDownloadField.TT_HASHCODE, "()I", "isEnterBookRoom", "()Z", "isHLReplay", "toString", "transitionSeamless", "Ljava/lang/String;", "getExtReq", "setExtReq", "(Ljava/lang/String;)V", "getId", "setId", "Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "getModel", "setModel", "(Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;)V", "getScheme", "setScheme", "getSource", "setSource", "getTpl", "setTpl", "transitionStatus", "I", "getTransitionStatus", "setTransitionStatus", "(I)V", "translucent", "Ljava/lang/Boolean;", "getTranslucent", "()Ljava/lang/Boolean;", "setTranslucent", "(Ljava/lang/Boolean;)V", "translucent$annotations", "()V", "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;Ljava/lang/String;Ljava/lang/String;)V", "Companion", "SchemeModel", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class IntentData implements State {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,48 +43,147 @@ public final class IntentData implements State {
     public String scheme;
     public String source;
     public String tpl;
+    public int transitionStatus;
     public Boolean translucent;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(433234922, "Lcom/baidu/searchbox/live/frame/IntentData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(433234922, "Lcom/baidu/searchbox/live/frame/IntentData;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
+    public static /* synthetic */ IntentData copy$default(IntentData intentData, String str, String str2, String str3, SchemeModel schemeModel, String str4, String str5, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = intentData.id;
+        }
+        if ((i & 2) != 0) {
+            str2 = intentData.source;
+        }
+        String str6 = str2;
+        if ((i & 4) != 0) {
+            str3 = intentData.scheme;
+        }
+        String str7 = str3;
+        if ((i & 8) != 0) {
+            schemeModel = intentData.model;
+        }
+        SchemeModel schemeModel2 = schemeModel;
+        if ((i & 16) != 0) {
+            str4 = intentData.tpl;
+        }
+        String str8 = str4;
+        if ((i & 32) != 0) {
+            str5 = intentData.extReq;
+        }
+        return intentData.copy(str, str6, str7, schemeModel2, str8, str5);
+    }
+
+    @Deprecated(message = "使用int值来表示更多状态，这里代码不删是兼容老插件")
+    public static /* synthetic */ void translucent$annotations() {
+    }
+
+    public final String component1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : (String) invokeV.objValue;
+    }
+
+    public final String component2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (String) invokeV.objValue;
+    }
+
+    public final String component3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.scheme : (String) invokeV.objValue;
+    }
+
+    public final SchemeModel component4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.model : (SchemeModel) invokeV.objValue;
+    }
+
+    public final String component5() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tpl : (String) invokeV.objValue;
+    }
+
+    public final String component6() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extReq : (String) invokeV.objValue;
+    }
+
+    public final IntentData copy(String str, String str2, String str3, SchemeModel schemeModel, String str4, String str5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, schemeModel, str4, str5})) == null) ? new IntentData(str, str2, str3, schemeModel, str4, str5) : (IntentData) invokeCommon.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof IntentData) {
+                    IntentData intentData = (IntentData) obj;
+                    return Intrinsics.areEqual(this.id, intentData.id) && Intrinsics.areEqual(this.source, intentData.source) && Intrinsics.areEqual(this.scheme, intentData.scheme) && Intrinsics.areEqual(this.model, intentData.model) && Intrinsics.areEqual(this.tpl, intentData.tpl) && Intrinsics.areEqual(this.extReq, intentData.extReq);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            String str = this.id;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.source;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.scheme;
+            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            SchemeModel schemeModel = this.model;
+            int hashCode4 = (hashCode3 + (schemeModel != null ? schemeModel.hashCode() : 0)) * 31;
+            String str4 = this.tpl;
+            int hashCode5 = (hashCode4 + (str4 != null ? str4.hashCode() : 0)) * 31;
+            String str5 = this.extReq;
+            return hashCode5 + (str5 != null ? str5.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return "IntentData(id=" + this.id + ", source=" + this.source + ", scheme=" + this.scheme + ", model=" + this.model + ", tpl=" + this.tpl + ", extReq=" + this.extReq + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\t\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0015\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004J\u0015\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0001¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\t\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\nR\"\u0010\f\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011¨\u0006\u0014"}, d2 = {"Lcom/baidu/searchbox/live/frame/IntentData$Companion;", "", "source", "getLiveSource", "(Ljava/lang/String;)Ljava/lang/String;", "params", "Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "parseSchemeData", "(Ljava/lang/String;)Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "KEY", "Ljava/lang/String;", "", "banQuestionFromSearchDialog", "Z", "getBanQuestionFromSearchDialog", "()Z", "setBanQuestionFromSearchDialog", "(Z)V", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final boolean getBanQuestionFromSearchDialog() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? IntentData.banQuestionFromSearchDialog : invokeV.booleanValue;
-        }
-
-        public final String getLiveSource(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                try {
-                    String optString = new JSONObject(str).optString("livesource");
-                    Intrinsics.checkExpressionValueIsNotNull(optString, "json.optString(\"livesource\")");
-                    return optString;
-                } catch (JSONException unused) {
-                    return str;
-                }
-            }
-            return (String) invokeL.objValue;
-        }
 
         /* JADX WARN: Can't wrap try/catch for region: R(7:(4:(3:173|174|(21:176|(1:178)|179|180|(3:182|(1:184)|185)|136|137|139|140|142|143|144|145|146|147|148|149|150|151|152|153))|151|152|153)|145|146|147|148|149|150) */
         /* JADX WARN: Can't wrap try/catch for region: R(7:123|124|(3:125|126|(4:128|129|130|(2:132|133)(8:195|196|197|(7:212|213|215|216|218|219|220)(1:199)|200|(1:202)(2:206|(1:208))|203|204)))|(3:(4:(10:(3:173|174|(21:176|(1:178)|179|180|(3:182|(1:184)|185)|136|137|139|140|142|143|144|145|146|147|148|149|150|151|152|153))|145|146|147|148|149|150|151|152|153)|142|143|144)|139|140)|135|136|137) */
@@ -1834,21 +1934,60 @@ public final class IntentData implements State {
             }
         }
 
-        public final void setBanQuestionFromSearchDialog(boolean z) {
+        public Companion() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                IntentData.banQuestionFromSearchDialog = z;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
+        }
+
+        public final boolean getBanQuestionFromSearchDialog() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return invokeV.booleanValue;
+            }
+            return IntentData.banQuestionFromSearchDialog;
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
+
+        public final String getLiveSource(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                try {
+                    String optString = new JSONObject(str).optString("livesource");
+                    Intrinsics.checkExpressionValueIsNotNull(optString, "json.optString(\"livesource\")");
+                    return optString;
+                } catch (JSONException unused) {
+                    return str;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public final void setBanQuestionFromSearchDialog(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
+                return;
+            }
+            IntentData.banQuestionFromSearchDialog = z;
+        }
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\bA\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\bB\b\u0086\b\u0018\u0000Bó\u0002\u0012\u0006\u0010%\u001a\u00020\u0001\u0012\b\u0010&\u001a\u0004\u0018\u00010\u0001\u0012\u0006\u0010'\u001a\u00020\u0001\u0012\b\b\u0002\u0010(\u001a\u00020\u0001\u0012\b\b\u0002\u0010)\u001a\u00020\u0001\u0012\b\u0010*\u001a\u0004\u0018\u00010\u0001\u0012\b\u0010+\u001a\u0004\u0018\u00010\u0001\u0012\b\u0010,\u001a\u0004\u0018\u00010\u0001\u0012\b\u0010-\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010.\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010/\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00101\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00102\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00103\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00104\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u00105\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u00106\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00107\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00108\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u00109\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u0010:\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010;\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010<\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010=\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010>\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010?\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010@\u001a\u0004\u0018\u00010\u0005\u0012\n\b\u0002\u0010A\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010B\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010C\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010D\u001a\u0004\u0018\u00010\u0005¢\u0006\u0006\b\u008c\u0001\u0010\u008d\u0001J\u0010\u0010\u0002\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0002\u0010\u0003J\u0012\u0010\u0004\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0004\u0010\u0003J\u0012\u0010\u0006\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\u0012\u0010\b\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\b\u0010\u0007J\u0012\u0010\t\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\t\u0010\u0007J\u0012\u0010\n\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\n\u0010\u0007J\u0012\u0010\u000b\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u000b\u0010\u0007J\u0012\u0010\f\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\f\u0010\u0003J\u0012\u0010\r\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\r\u0010\u0003J\u0012\u0010\u000e\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u000e\u0010\u0007J\u0012\u0010\u000f\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u000f\u0010\u0007J\u0012\u0010\u0010\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0010\u0010\u0003J\u0012\u0010\u0011\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u0011\u0010\u0007J\u0012\u0010\u0012\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u0012\u0010\u0007J\u0012\u0010\u0013\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0013\u0010\u0003J\u0012\u0010\u0014\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0014\u0010\u0003J\u0012\u0010\u0015\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0015\u0010\u0003J\u0012\u0010\u0016\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0016\u0010\u0003J\u0012\u0010\u0017\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0017\u0010\u0003J\u0012\u0010\u0018\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0018\u0010\u0003J\u0012\u0010\u0019\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u0019\u0010\u0007J\u0012\u0010\u001a\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u001a\u0010\u0003J\u0010\u0010\u001b\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u001b\u0010\u0003J\u0012\u0010\u001c\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u001c\u0010\u0003J\u0012\u0010\u001d\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u001d\u0010\u0003J\u0012\u0010\u001e\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0004\b\u001e\u0010\u0007J\u0010\u0010\u001f\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u001f\u0010\u0003J\u0010\u0010 \u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b \u0010\u0003J\u0012\u0010!\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b!\u0010\u0003J\u0012\u0010\"\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\"\u0010\u0003J\u0012\u0010#\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b#\u0010\u0003J\u0012\u0010$\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b$\u0010\u0003J\u0088\u0003\u0010E\u001a\u00020\u00002\b\b\u0002\u0010%\u001a\u00020\u00012\n\b\u0002\u0010&\u001a\u0004\u0018\u00010\u00012\b\b\u0002\u0010'\u001a\u00020\u00012\b\b\u0002\u0010(\u001a\u00020\u00012\b\b\u0002\u0010)\u001a\u00020\u00012\n\b\u0002\u0010*\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010+\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010,\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010-\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010.\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010/\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00101\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00102\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00103\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00104\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u00105\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u00106\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00107\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00108\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u00109\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010:\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010;\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010<\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010=\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010>\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010?\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010@\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010A\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010B\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010C\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010D\u001a\u0004\u0018\u00010\u0005HÆ\u0001¢\u0006\u0004\bE\u0010FJ\u001a\u0010J\u001a\u00020I2\b\u0010H\u001a\u0004\u0018\u00010GHÖ\u0003¢\u0006\u0004\bJ\u0010KJ\u0010\u0010M\u001a\u00020LHÖ\u0001¢\u0006\u0004\bM\u0010NJ\r\u0010O\u001a\u00020\u0001¢\u0006\u0004\bO\u0010\u0003J\u0010\u0010P\u001a\u00020\u0001HÖ\u0001¢\u0006\u0004\bP\u0010\u0003R\u001b\u00104\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b4\u0010Q\u001a\u0004\bR\u0010\u0003R\u001b\u0010<\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b<\u0010Q\u001a\u0004\bS\u0010\u0003R\u0019\u0010(\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b(\u0010Q\u001a\u0004\bT\u0010\u0003R\u001b\u0010/\u001a\u0004\u0018\u00010\u00058\u0006@\u0006¢\u0006\f\n\u0004\b/\u0010U\u001a\u0004\bV\u0010\u0007R\u001b\u00101\u001a\u0004\u0018\u00010\u00058\u0006@\u0006¢\u0006\f\n\u0004\b1\u0010U\u001a\u0004\bW\u0010\u0007R\u001b\u00103\u001a\u0004\u0018\u00010\u00058\u0006@\u0006¢\u0006\f\n\u0004\b3\u0010U\u001a\u0004\bX\u0010\u0007R\u001b\u00100\u001a\u0004\u0018\u00010\u00058\u0006@\u0006¢\u0006\f\n\u0004\b0\u0010U\u001a\u0004\bY\u0010\u0007R\u001b\u0010+\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b+\u0010Q\u001a\u0004\bZ\u0010\u0003R\u001b\u0010=\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b=\u0010Q\u001a\u0004\b[\u0010\u0003R\u001b\u0010C\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\bC\u0010Q\u001a\u0004\b\\\u0010\u0003R$\u00109\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b9\u0010U\u001a\u0004\b]\u0010\u0007\"\u0004\b^\u0010_R$\u0010D\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bD\u0010U\u001a\u0004\b`\u0010\u0007\"\u0004\ba\u0010_R\u001b\u0010B\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\bB\u0010Q\u001a\u0004\bb\u0010\u0003R$\u00107\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b7\u0010U\u001a\u0004\bc\u0010\u0007\"\u0004\bd\u0010_R$\u0010e\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\be\u0010Q\u001a\u0004\bf\u0010\u0003\"\u0004\bg\u0010hR$\u0010.\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b.\u0010Q\u001a\u0004\bi\u0010\u0003\"\u0004\bj\u0010hR$\u00106\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b6\u0010U\u001a\u0004\bk\u0010\u0007\"\u0004\bl\u0010_R\u0019\u0010)\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b)\u0010Q\u001a\u0004\bm\u0010\u0003R$\u0010n\u001a\u0004\u0018\u00010L8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bn\u0010o\u001a\u0004\bp\u0010q\"\u0004\br\u0010sR$\u0010t\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bt\u0010Q\u001a\u0004\bu\u0010\u0003\"\u0004\bv\u0010hR$\u00102\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b2\u0010U\u001a\u0004\bw\u0010\u0007\"\u0004\bx\u0010_R\u001b\u0010A\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\bA\u0010Q\u001a\u0004\by\u0010\u0003R\u0019\u0010%\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b%\u0010Q\u001a\u0004\bz\u0010\u0003R$\u0010&\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b&\u0010Q\u001a\u0004\b{\u0010\u0003\"\u0004\b|\u0010hR\u001b\u0010>\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b>\u0010Q\u001a\u0004\b}\u0010\u0003R\u001b\u0010,\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b,\u0010Q\u001a\u0004\b~\u0010\u0003R%\u00108\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0013\n\u0004\b8\u0010U\u001a\u0004\b\u007f\u0010\u0007\"\u0005\b\u0080\u0001\u0010_R&\u0010;\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0014\n\u0004\b;\u0010Q\u001a\u0005\b\u0081\u0001\u0010\u0003\"\u0005\b\u0082\u0001\u0010hR\u001c\u0010@\u001a\u0004\u0018\u00010\u00058\u0006@\u0006¢\u0006\r\n\u0004\b@\u0010U\u001a\u0005\b\u0083\u0001\u0010\u0007R&\u0010:\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0014\n\u0004\b:\u0010Q\u001a\u0005\b\u0084\u0001\u0010\u0003\"\u0005\b\u0085\u0001\u0010hR\u001a\u0010'\u001a\u00020\u00018\u0006@\u0006¢\u0006\r\n\u0004\b'\u0010Q\u001a\u0005\b\u0086\u0001\u0010\u0003R\u001c\u0010*\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\r\n\u0004\b*\u0010Q\u001a\u0005\b\u0087\u0001\u0010\u0003R\u001c\u0010-\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\r\n\u0004\b-\u0010Q\u001a\u0005\b\u0088\u0001\u0010\u0003R&\u00105\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0014\n\u0004\b5\u0010Q\u001a\u0005\b\u0089\u0001\u0010\u0003\"\u0005\b\u008a\u0001\u0010hR\u001c\u0010?\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\r\n\u0004\b?\u0010Q\u001a\u0005\b\u008b\u0001\u0010\u0003¨\u0006\u008e\u0001"}, d2 = {"Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "", "component1", "()Ljava/lang/String;", "component10", "Lorg/json/JSONObject;", "component11", "()Lorg/json/JSONObject;", "component12", "component13", "component14", "component15", "component16", "component17", "component18", "component19", "component2", "component20", "component21", "component22", "component23", "component24", "component25", "component26", "component27", "component28", "component29", "component3", "component30", "component31", "component32", "component4", "component5", "component6", "component7", "component8", "component9", ILiveNPSPlugin.PARAMS_ROOM_ID, "roomType", "source", AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "playUrl", "status", "format", "screen", MediaTrackConfig.AE_IMPORT_TEMPLATE, "liveBackScheme", "ext", "extRequest", "extLog", "query", "extParams", "askId", "templateId", "otherParams", "invokePop", "searchIntoLiveJson", "hlReplyIntoLive", "shareUid", "shareTag", "avcUrl", "hevcUrl", "rtcUrl", "title", "shareTaskInfo", "quic", "inviterId", "highlightUrl", "introduceTips", "copy", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;)Lcom/baidu/searchbox/live/frame/IntentData$SchemeModel;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "toSchemeParams", "toString", "Ljava/lang/String;", "getAskId", "getAvcUrl", "getCover", "Lorg/json/JSONObject;", "getExt", "getExtLog", "getExtParams", "getExtRequest", "getFormat", "getHevcUrl", "getHighlightUrl", "getHlReplyIntoLive", "setHlReplyIntoLive", "(Lorg/json/JSONObject;)V", "getIntroduceTips", "setIntroduceTips", "getInviterId", "getInvokePop", "setInvokePop", "kabrSpts", "getKabrSpts", "setKabrSpts", "(Ljava/lang/String;)V", "getLiveBackScheme", "setLiveBackScheme", "getOtherParams", "setOtherParams", "getPlayUrl", "playerCacheCodeC", "Ljava/lang/Integer;", "getPlayerCacheCodeC", "()Ljava/lang/Integer;", "setPlayerCacheCodeC", "(Ljava/lang/Integer;)V", "playerCacheKey", "getPlayerCacheKey", "setPlayerCacheKey", "getQuery", "setQuery", "getQuic", "getRoomId", "getRoomType", "setRoomType", "getRtcUrl", "getScreen", "getSearchIntoLiveJson", "setSearchIntoLiveJson", "getShareTag", "setShareTag", "getShareTaskInfo", "getShareUid", "setShareUid", "getSource", "getStatus", "getTemplate", "getTemplateId", "setTemplateId", "getTitle", "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class SchemeModel {
+    public final class SchemeModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String askId;
@@ -1886,55 +2025,6 @@ public final class IntentData implements State {
         public final String template;
         public String templateId;
         public final String title;
-
-        public SchemeModel(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, String str11, String str12, JSONObject jSONObject6, JSONObject jSONObject7, JSONObject jSONObject8, JSONObject jSONObject9, String str13, String str14, String str15, String str16, String str17, String str18, JSONObject jSONObject10, String str19, String str20, String str21, JSONObject jSONObject11) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, str10, jSONObject, jSONObject2, jSONObject3, jSONObject4, jSONObject5, str11, str12, jSONObject6, jSONObject7, jSONObject8, jSONObject9, str13, str14, str15, str16, str17, str18, jSONObject10, str19, str20, str21, jSONObject11};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.roomId = str;
-            this.roomType = str2;
-            this.source = str3;
-            this.cover = str4;
-            this.playUrl = str5;
-            this.status = str6;
-            this.format = str7;
-            this.screen = str8;
-            this.template = str9;
-            this.liveBackScheme = str10;
-            this.ext = jSONObject;
-            this.extRequest = jSONObject2;
-            this.extLog = jSONObject3;
-            this.query = jSONObject4;
-            this.extParams = jSONObject5;
-            this.askId = str11;
-            this.templateId = str12;
-            this.otherParams = jSONObject6;
-            this.invokePop = jSONObject7;
-            this.searchIntoLiveJson = jSONObject8;
-            this.hlReplyIntoLive = jSONObject9;
-            this.shareUid = str13;
-            this.shareTag = str14;
-            this.avcUrl = str15;
-            this.hevcUrl = str16;
-            this.rtcUrl = str17;
-            this.title = str18;
-            this.shareTaskInfo = jSONObject10;
-            this.quic = str19;
-            this.inviterId = str20;
-            this.highlightUrl = str21;
-            this.introduceTips = jSONObject11;
-        }
 
         public final String component1() {
             InterceptResult invokeV;
@@ -2150,216 +2240,6 @@ public final class IntentData implements State {
             return invokeL.booleanValue;
         }
 
-        public final String getAskId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.askId : (String) invokeV.objValue;
-        }
-
-        public final String getAvcUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.avcUrl : (String) invokeV.objValue;
-        }
-
-        public final String getCover() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.cover : (String) invokeV.objValue;
-        }
-
-        public final JSONObject getExt() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.ext : (JSONObject) invokeV.objValue;
-        }
-
-        public final JSONObject getExtLog() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.extLog : (JSONObject) invokeV.objValue;
-        }
-
-        public final JSONObject getExtParams() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.extParams : (JSONObject) invokeV.objValue;
-        }
-
-        public final JSONObject getExtRequest() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.extRequest : (JSONObject) invokeV.objValue;
-        }
-
-        public final String getFormat() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.format : (String) invokeV.objValue;
-        }
-
-        public final String getHevcUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.hevcUrl : (String) invokeV.objValue;
-        }
-
-        public final String getHighlightUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.highlightUrl : (String) invokeV.objValue;
-        }
-
-        public final JSONObject getHlReplyIntoLive() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.hlReplyIntoLive : (JSONObject) invokeV.objValue;
-        }
-
-        public final JSONObject getIntroduceTips() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.introduceTips : (JSONObject) invokeV.objValue;
-        }
-
-        public final String getInviterId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.inviterId : (String) invokeV.objValue;
-        }
-
-        public final JSONObject getInvokePop() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.invokePop : (JSONObject) invokeV.objValue;
-        }
-
-        public final String getKabrSpts() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.kabrSpts : (String) invokeV.objValue;
-        }
-
-        public final String getLiveBackScheme() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.liveBackScheme : (String) invokeV.objValue;
-        }
-
-        public final JSONObject getOtherParams() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.otherParams : (JSONObject) invokeV.objValue;
-        }
-
-        public final String getPlayUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.playUrl : (String) invokeV.objValue;
-        }
-
-        public final Integer getPlayerCacheCodeC() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.playerCacheCodeC : (Integer) invokeV.objValue;
-        }
-
-        public final String getPlayerCacheKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.playerCacheKey : (String) invokeV.objValue;
-        }
-
-        public final JSONObject getQuery() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.query : (JSONObject) invokeV.objValue;
-        }
-
-        public final String getQuic() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.quic : (String) invokeV.objValue;
-        }
-
-        public final String getRoomId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.roomId : (String) invokeV.objValue;
-        }
-
-        public final String getRoomType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.roomType : (String) invokeV.objValue;
-        }
-
-        public final String getRtcUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.rtcUrl : (String) invokeV.objValue;
-        }
-
-        public final String getScreen() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.screen : (String) invokeV.objValue;
-        }
-
-        public final JSONObject getSearchIntoLiveJson() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.searchIntoLiveJson : (JSONObject) invokeV.objValue;
-        }
-
-        public final String getShareTag() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.shareTag : (String) invokeV.objValue;
-        }
-
-        public final JSONObject getShareTaskInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.shareTaskInfo : (JSONObject) invokeV.objValue;
-        }
-
-        public final String getShareUid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.shareUid : (String) invokeV.objValue;
-        }
-
-        public final String getSource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.source : (String) invokeV.objValue;
-        }
-
-        public final String getStatus() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.status : (String) invokeV.objValue;
-        }
-
-        public final String getTemplate() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) ? this.template : (String) invokeV.objValue;
-        }
-
-        public final String getTemplateId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.templateId : (String) invokeV.objValue;
-        }
-
-        public final String getTitle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.title : (String) invokeV.objValue;
-        }
-
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2430,6 +2310,537 @@ public final class IntentData implements State {
                 return hashCode31 + (jSONObject11 != null ? jSONObject11.hashCode() : 0);
             }
             return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
+                return "SchemeModel(roomId=" + this.roomId + ", roomType=" + this.roomType + ", source=" + this.source + ", cover=" + this.cover + ", playUrl=" + this.playUrl + ", status=" + this.status + ", format=" + this.format + ", screen=" + this.screen + ", template=" + this.template + ", liveBackScheme=" + this.liveBackScheme + ", ext=" + this.ext + ", extRequest=" + this.extRequest + ", extLog=" + this.extLog + ", query=" + this.query + ", extParams=" + this.extParams + ", askId=" + this.askId + ", templateId=" + this.templateId + ", otherParams=" + this.otherParams + ", invokePop=" + this.invokePop + ", searchIntoLiveJson=" + this.searchIntoLiveJson + ", hlReplyIntoLive=" + this.hlReplyIntoLive + ", shareUid=" + this.shareUid + ", shareTag=" + this.shareTag + ", avcUrl=" + this.avcUrl + ", hevcUrl=" + this.hevcUrl + ", rtcUrl=" + this.rtcUrl + ", title=" + this.title + ", shareTaskInfo=" + this.shareTaskInfo + ", quic=" + this.quic + ", inviterId=" + this.inviterId + ", highlightUrl=" + this.highlightUrl + ", introduceTips=" + this.introduceTips + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public SchemeModel(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, String str11, String str12, JSONObject jSONObject6, JSONObject jSONObject7, JSONObject jSONObject8, JSONObject jSONObject9, String str13, String str14, String str15, String str16, String str17, String str18, JSONObject jSONObject10, String str19, String str20, String str21, JSONObject jSONObject11) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, str10, jSONObject, jSONObject2, jSONObject3, jSONObject4, jSONObject5, str11, str12, jSONObject6, jSONObject7, jSONObject8, jSONObject9, str13, str14, str15, str16, str17, str18, jSONObject10, str19, str20, str21, jSONObject11};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.roomId = str;
+            this.roomType = str2;
+            this.source = str3;
+            this.cover = str4;
+            this.playUrl = str5;
+            this.status = str6;
+            this.format = str7;
+            this.screen = str8;
+            this.template = str9;
+            this.liveBackScheme = str10;
+            this.ext = jSONObject;
+            this.extRequest = jSONObject2;
+            this.extLog = jSONObject3;
+            this.query = jSONObject4;
+            this.extParams = jSONObject5;
+            this.askId = str11;
+            this.templateId = str12;
+            this.otherParams = jSONObject6;
+            this.invokePop = jSONObject7;
+            this.searchIntoLiveJson = jSONObject8;
+            this.hlReplyIntoLive = jSONObject9;
+            this.shareUid = str13;
+            this.shareTag = str14;
+            this.avcUrl = str15;
+            this.hevcUrl = str16;
+            this.rtcUrl = str17;
+            this.title = str18;
+            this.shareTaskInfo = jSONObject10;
+            this.quic = str19;
+            this.inviterId = str20;
+            this.highlightUrl = str21;
+            this.introduceTips = jSONObject11;
+        }
+
+        /* JADX WARN: Illegal instructions before constructor call */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public /* synthetic */ SchemeModel(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, String str11, String str12, JSONObject jSONObject6, JSONObject jSONObject7, JSONObject jSONObject8, JSONObject jSONObject9, String str13, String str14, String str15, String str16, String str17, String str18, JSONObject jSONObject10, String str19, String str20, String str21, JSONObject jSONObject11, int i, DefaultConstructorMarker defaultConstructorMarker) {
+            this(str, str2, str3, r7, r8, str6, str7, str8, str9, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28, r29, r30, r31, r32, r33, r34, r35);
+            String str22;
+            String str23;
+            String str24;
+            JSONObject jSONObject12;
+            JSONObject jSONObject13;
+            JSONObject jSONObject14;
+            JSONObject jSONObject15;
+            JSONObject jSONObject16;
+            String str25;
+            String str26;
+            JSONObject jSONObject17;
+            JSONObject jSONObject18;
+            JSONObject jSONObject19;
+            JSONObject jSONObject20;
+            String str27;
+            String str28;
+            String str29;
+            String str30;
+            String str31;
+            String str32;
+            JSONObject jSONObject21;
+            String str33;
+            String str34;
+            String str35;
+            JSONObject jSONObject22;
+            if ((i & 8) != 0) {
+                str22 = "";
+            } else {
+                str22 = str4;
+            }
+            if ((i & 16) != 0) {
+                str23 = "";
+            } else {
+                str23 = str5;
+            }
+            if ((i & 512) != 0) {
+                str24 = "";
+            } else {
+                str24 = str10;
+            }
+            if ((i & 1024) != 0) {
+                jSONObject12 = null;
+            } else {
+                jSONObject12 = jSONObject;
+            }
+            if ((i & 2048) != 0) {
+                jSONObject13 = null;
+            } else {
+                jSONObject13 = jSONObject2;
+            }
+            if ((i & 4096) != 0) {
+                jSONObject14 = null;
+            } else {
+                jSONObject14 = jSONObject3;
+            }
+            if ((i & 8192) != 0) {
+                jSONObject15 = null;
+            } else {
+                jSONObject15 = jSONObject4;
+            }
+            if ((i & 16384) != 0) {
+                jSONObject16 = null;
+            } else {
+                jSONObject16 = jSONObject5;
+            }
+            if ((32768 & i) != 0) {
+                str25 = null;
+            } else {
+                str25 = str11;
+            }
+            if ((65536 & i) != 0) {
+                str26 = null;
+            } else {
+                str26 = str12;
+            }
+            if ((131072 & i) != 0) {
+                jSONObject17 = null;
+            } else {
+                jSONObject17 = jSONObject6;
+            }
+            if ((262144 & i) != 0) {
+                jSONObject18 = null;
+            } else {
+                jSONObject18 = jSONObject7;
+            }
+            if ((524288 & i) != 0) {
+                jSONObject19 = null;
+            } else {
+                jSONObject19 = jSONObject8;
+            }
+            if ((1048576 & i) != 0) {
+                jSONObject20 = null;
+            } else {
+                jSONObject20 = jSONObject9;
+            }
+            if ((2097152 & i) != 0) {
+                str27 = "";
+            } else {
+                str27 = str13;
+            }
+            if ((4194304 & i) != 0) {
+                str28 = "";
+            } else {
+                str28 = str14;
+            }
+            if ((8388608 & i) != 0) {
+                str29 = null;
+            } else {
+                str29 = str15;
+            }
+            if ((16777216 & i) != 0) {
+                str30 = null;
+            } else {
+                str30 = str16;
+            }
+            if ((33554432 & i) != 0) {
+                str31 = null;
+            } else {
+                str31 = str17;
+            }
+            if ((67108864 & i) != 0) {
+                str32 = null;
+            } else {
+                str32 = str18;
+            }
+            if ((134217728 & i) != 0) {
+                jSONObject21 = null;
+            } else {
+                jSONObject21 = jSONObject10;
+            }
+            if ((268435456 & i) != 0) {
+                str33 = null;
+            } else {
+                str33 = str19;
+            }
+            if ((536870912 & i) != 0) {
+                str34 = null;
+            } else {
+                str34 = str20;
+            }
+            if ((1073741824 & i) != 0) {
+                str35 = null;
+            } else {
+                str35 = str21;
+            }
+            if ((i & Integer.MIN_VALUE) != 0) {
+                jSONObject22 = null;
+            } else {
+                jSONObject22 = jSONObject11;
+            }
+        }
+
+        public final String getAskId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+                return this.askId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getAvcUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+                return this.avcUrl;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getCover() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+                return this.cover;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final JSONObject getExt() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+                return this.ext;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final JSONObject getExtLog() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+                return this.extLog;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final JSONObject getExtParams() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+                return this.extParams;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final JSONObject getExtRequest() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+                return this.extRequest;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final String getFormat() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+                return this.format;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getHevcUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+                return this.hevcUrl;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getHighlightUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+                return this.highlightUrl;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final JSONObject getHlReplyIntoLive() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+                return this.hlReplyIntoLive;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final JSONObject getIntroduceTips() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+                return this.introduceTips;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final String getInviterId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+                return this.inviterId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final JSONObject getInvokePop() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+                return this.invokePop;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final String getKabrSpts() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+                return this.kabrSpts;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getLiveBackScheme() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+                return this.liveBackScheme;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final JSONObject getOtherParams() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+                return this.otherParams;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final String getPlayUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+                return this.playUrl;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final Integer getPlayerCacheCodeC() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+                return this.playerCacheCodeC;
+            }
+            return (Integer) invokeV.objValue;
+        }
+
+        public final String getPlayerCacheKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+                return this.playerCacheKey;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final JSONObject getQuery() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+                return this.query;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final String getQuic() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+                return this.quic;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getRoomId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+                return this.roomId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getRoomType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+                return this.roomType;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getRtcUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+                return this.rtcUrl;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getScreen() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+                return this.screen;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final JSONObject getSearchIntoLiveJson() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+                return this.searchIntoLiveJson;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final String getShareTag() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+                return this.shareTag;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final JSONObject getShareTaskInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+                return this.shareTaskInfo;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public final String getShareUid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+                return this.shareUid;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getSource() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+                return this.source;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getStatus() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+                return this.status;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getTemplate() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+                return this.template;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getTemplateId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+                return this.templateId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String getTitle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+                return this.title;
+            }
+            return (String) invokeV.objValue;
         }
 
         public final void setHlReplyIntoLive(JSONObject jSONObject) {
@@ -2645,35 +3056,6 @@ public final class IntentData implements State {
             }
             return (String) invokeV.objValue;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
-                return "SchemeModel(roomId=" + this.roomId + ", roomType=" + this.roomType + ", source=" + this.source + ", cover=" + this.cover + ", playUrl=" + this.playUrl + ", status=" + this.status + ", format=" + this.format + ", screen=" + this.screen + ", template=" + this.template + ", liveBackScheme=" + this.liveBackScheme + ", ext=" + this.ext + ", extRequest=" + this.extRequest + ", extLog=" + this.extLog + ", query=" + this.query + ", extParams=" + this.extParams + ", askId=" + this.askId + ", templateId=" + this.templateId + ", otherParams=" + this.otherParams + ", invokePop=" + this.invokePop + ", searchIntoLiveJson=" + this.searchIntoLiveJson + ", hlReplyIntoLive=" + this.hlReplyIntoLive + ", shareUid=" + this.shareUid + ", shareTag=" + this.shareTag + ", avcUrl=" + this.avcUrl + ", hevcUrl=" + this.hevcUrl + ", rtcUrl=" + this.rtcUrl + ", title=" + this.title + ", shareTaskInfo=" + this.shareTaskInfo + ", quic=" + this.quic + ", inviterId=" + this.inviterId + ", highlightUrl=" + this.highlightUrl + ", introduceTips=" + this.introduceTips + SmallTailInfo.EMOTION_SUFFIX;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public /* synthetic */ SchemeModel(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, String str11, String str12, JSONObject jSONObject6, JSONObject jSONObject7, JSONObject jSONObject8, JSONObject jSONObject9, String str13, String str14, String str15, String str16, String str17, String str18, JSONObject jSONObject10, String str19, String str20, String str21, JSONObject jSONObject11, int i, DefaultConstructorMarker defaultConstructorMarker) {
-            this(str, str2, str3, (i & 8) != 0 ? "" : str4, (i & 16) != 0 ? "" : str5, str6, str7, str8, str9, (i & 512) != 0 ? "" : str10, (i & 1024) != 0 ? null : jSONObject, (i & 2048) != 0 ? null : jSONObject2, (i & 4096) != 0 ? null : jSONObject3, (i & 8192) != 0 ? null : jSONObject4, (i & 16384) != 0 ? null : jSONObject5, (32768 & i) != 0 ? null : str11, (65536 & i) != 0 ? null : str12, (131072 & i) != 0 ? null : jSONObject6, (262144 & i) != 0 ? null : jSONObject7, (524288 & i) != 0 ? null : jSONObject8, (1048576 & i) != 0 ? null : jSONObject9, (2097152 & i) != 0 ? "" : str13, (4194304 & i) != 0 ? "" : str14, (8388608 & i) != 0 ? null : str15, (16777216 & i) != 0 ? null : str16, (33554432 & i) != 0 ? null : str17, (67108864 & i) != 0 ? null : str18, (134217728 & i) != 0 ? null : jSONObject10, (268435456 & i) != 0 ? null : str19, (536870912 & i) != 0 ? null : str20, (1073741824 & i) != 0 ? null : str21, (i & Integer.MIN_VALUE) != 0 ? null : jSONObject11);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(433234922, "Lcom/baidu/searchbox/live/frame/IntentData;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(433234922, "Lcom/baidu/searchbox/live/frame/IntentData;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
     }
 
     public IntentData(String str, String str2, String str3, SchemeModel schemeModel, String str4, String str5) {
@@ -2699,112 +3081,66 @@ public final class IntentData implements State {
         this.extReq = str5;
     }
 
-    public static /* synthetic */ IntentData copy$default(IntentData intentData, String str, String str2, String str3, SchemeModel schemeModel, String str4, String str5, int i, Object obj) {
-        if ((i & 1) != 0) {
-            str = intentData.id;
-        }
-        if ((i & 2) != 0) {
-            str2 = intentData.source;
-        }
-        String str6 = str2;
-        if ((i & 4) != 0) {
-            str3 = intentData.scheme;
-        }
-        String str7 = str3;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ IntentData(String str, String str2, String str3, SchemeModel schemeModel, String str4, String str5, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, str3, r40, r41, r42);
+        SchemeModel schemeModel2;
+        String str6;
+        String str7;
         if ((i & 8) != 0) {
-            schemeModel = intentData.model;
+            schemeModel2 = new SchemeModel("", "", "", "", "", "", "", "", "", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, -512, null);
+        } else {
+            schemeModel2 = schemeModel;
         }
-        SchemeModel schemeModel2 = schemeModel;
         if ((i & 16) != 0) {
-            str4 = intentData.tpl;
+            str6 = "";
+        } else {
+            str6 = str4;
         }
-        String str8 = str4;
         if ((i & 32) != 0) {
-            str5 = intentData.extReq;
+            str7 = "";
+        } else {
+            str7 = str5;
         }
-        return intentData.copy(str, str6, str7, schemeModel2, str8, str5);
-    }
-
-    public final String component1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : (String) invokeV.objValue;
-    }
-
-    public final String component2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (String) invokeV.objValue;
-    }
-
-    public final String component3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.scheme : (String) invokeV.objValue;
-    }
-
-    public final SchemeModel component4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.model : (SchemeModel) invokeV.objValue;
-    }
-
-    public final String component5() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tpl : (String) invokeV.objValue;
-    }
-
-    public final String component6() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extReq : (String) invokeV.objValue;
-    }
-
-    public final IntentData copy(String str, String str2, String str3, SchemeModel schemeModel, String str4, String str5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, schemeModel, str4, str5})) == null) ? new IntentData(str, str2, str3, schemeModel, str4, str5) : (IntentData) invokeCommon.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof IntentData) {
-                    IntentData intentData = (IntentData) obj;
-                    return Intrinsics.areEqual(this.id, intentData.id) && Intrinsics.areEqual(this.source, intentData.source) && Intrinsics.areEqual(this.scheme, intentData.scheme) && Intrinsics.areEqual(this.model, intentData.model) && Intrinsics.areEqual(this.tpl, intentData.tpl) && Intrinsics.areEqual(this.extReq, intentData.extReq);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 
     public final String getExtReq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.extReq : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.extReq;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getLiveSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.source : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.source;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final SchemeModel getModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.model : (SchemeModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.model;
+        }
+        return (SchemeModel) invokeV.objValue;
     }
 
     public final String getNidFromHLReplay() {
@@ -2813,7 +3149,10 @@ public final class IntentData implements State {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             JSONObject hlReplyIntoLive = this.model.getHlReplyIntoLive();
-            return (hlReplyIntoLive == null || (optString = hlReplyIntoLive.optString("nid")) == null) ? "" : optString;
+            if (hlReplyIntoLive == null || (optString = hlReplyIntoLive.optString("nid")) == null) {
+                return "";
+            }
+            return optString;
         }
         return (String) invokeV.objValue;
     }
@@ -2827,10 +3166,10 @@ public final class IntentData implements State {
                 this.model.setSearchIntoLiveJson(null);
             }
             JSONObject searchIntoLiveJson = this.model.getSearchIntoLiveJson();
-            if (searchIntoLiveJson != null) {
-                return searchIntoLiveJson.optString("question");
+            if (searchIntoLiveJson == null) {
+                return null;
             }
-            return null;
+            return searchIntoLiveJson.optString("question");
         }
         return (String) invokeV.objValue;
     }
@@ -2838,131 +3177,150 @@ public final class IntentData implements State {
     public final String getScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.scheme : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.scheme;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final SchemeModel getSchemeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.model : (SchemeModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.model;
+        }
+        return (SchemeModel) invokeV.objValue;
     }
 
     public final String getSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.source : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.source;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getTpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.tpl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.tpl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getTransitionStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.transitionStatus;
+        }
+        return invokeV.intValue;
     }
 
     public final Boolean getTranslucent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.translucent : (Boolean) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            String str = this.id;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.source;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.scheme;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            SchemeModel schemeModel = this.model;
-            int hashCode4 = (hashCode3 + (schemeModel != null ? schemeModel.hashCode() : 0)) * 31;
-            String str4 = this.tpl;
-            int hashCode5 = (hashCode4 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.extReq;
-            return hashCode5 + (str5 != null ? str5.hashCode() : 0);
+            return this.translucent;
         }
-        return invokeV.intValue;
+        return (Boolean) invokeV.objValue;
     }
 
-    public final boolean isEnterBookRoom() {
+    public final boolean isHLReplay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            String str = this.scheme;
-            if (str != null) {
-                return StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "enterBookRoom", false, 2, (Object) null) || TextUtils.equals(this.model.getStatus(), String.valueOf(4));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (this.model.getHlReplyIntoLive() != null && MiniShellRuntime.INSTANCE.isMobileBaidu()) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean isHLReplay() {
+    public final boolean transitionSeamless() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.model.getHlReplyIntoLive() != null && MiniShellRuntime.INSTANCE.isMobileBaidu() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (this.transitionStatus >= 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void setExtReq(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.extReq = str;
         }
     }
 
     public final void setId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
             this.id = str;
         }
     }
 
     public final void setModel(SchemeModel schemeModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, schemeModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, schemeModel) == null) {
             this.model = schemeModel;
         }
     }
 
     public final void setScheme(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.scheme = str;
         }
     }
 
     public final void setSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             this.source = str;
         }
     }
 
     public final void setTpl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.tpl = str;
+        }
+    }
+
+    public final void setTransitionStatus(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.transitionStatus = i;
         }
     }
 
     public final void setTranslucent(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, bool) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, bool) == null) {
             this.translucent = bool;
         }
     }
 
-    public String toString() {
+    public final boolean isEnterBookRoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return "IntentData(id=" + this.id + ", source=" + this.source + ", scheme=" + this.scheme + ", model=" + this.model + ", tpl=" + this.tpl + ", extReq=" + this.extReq + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            String str = this.scheme;
+            if (str == null) {
+                return false;
+            }
+            if (!StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "enterBookRoom", false, 2, (Object) null) && !TextUtils.equals(this.model.getStatus(), String.valueOf(4))) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ IntentData(String str, String str2, String str3, SchemeModel schemeModel, String str4, String str5, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, str2, str3, (i & 8) != 0 ? new SchemeModel("", "", "", "", "", "", "", "", "", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, -512, null) : schemeModel, (i & 16) != 0 ? "" : str4, (i & 32) != 0 ? "" : str5);
+        return invokeV.booleanValue;
     }
 }

@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.util.Util;
 /* loaded from: classes7.dex */
 public class ResourceRecycler {
     public static /* synthetic */ Interceptable $ic;
@@ -17,7 +16,7 @@ public class ResourceRecycler {
     public boolean isRecycling;
 
     /* loaded from: classes7.dex */
-    public static final class ResourceRecyclerCallback implements Handler.Callback {
+    public final class ResourceRecyclerCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RECYCLE_RESOURCE = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,17 +66,17 @@ public class ResourceRecycler {
         this.handler = new Handler(Looper.getMainLooper(), new ResourceRecyclerCallback());
     }
 
-    public void recycle(Resource<?> resource) {
+    public synchronized void recycle(Resource resource, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, resource) == null) {
-            Util.assertMainThread();
-            if (this.isRecycling) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, resource, z) == null) {
+            synchronized (this) {
+                if (!this.isRecycling && !z) {
+                    this.isRecycling = true;
+                    resource.recycle();
+                    this.isRecycling = false;
+                }
                 this.handler.obtainMessage(1, resource).sendToTarget();
-                return;
             }
-            this.isRecycling = true;
-            resource.recycle();
-            this.isRecycling = false;
         }
     }
 }

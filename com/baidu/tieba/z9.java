@@ -18,6 +18,10 @@ public abstract class z9 extends SQLiteOpenHelper implements x9 {
     public x9.a callback;
     public final String databaseName;
 
+    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
+
+    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z9(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
@@ -43,21 +47,36 @@ public abstract class z9 extends SQLiteOpenHelper implements x9 {
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
         x9.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (aVar = this.callback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) && (aVar = this.callback) != null) {
+            aVar.onDatabaseCreated(sQLiteDatabase);
         }
-        aVar.onDatabaseCreated(sQLiteDatabase);
     }
-
-    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.tieba.x9
     public boolean dropDatabase(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? context.deleteDatabase(this.databaseName) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return context.deleteDatabase(this.databaseName);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            createAllTables(sQLiteDatabase);
+            exeCallback(sQLiteDatabase);
+        }
+    }
+
+    @Override // com.baidu.tieba.x9
+    public void setOnCreateCallback(x9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.callback = aVar;
+        }
     }
 
     public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
@@ -76,28 +95,11 @@ public abstract class z9 extends SQLiteOpenHelper implements x9 {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            createAllTables(sQLiteDatabase);
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
             clearAllTables(sQLiteDatabase);
             createAllTables(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.x9
-    public void setOnCreateCallback(x9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.callback = aVar;
         }
     }
 }

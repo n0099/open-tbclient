@@ -3,12 +3,15 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class kc9 implements Runnable {
+public final class kc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jc9 a;
 
     public kc9() {
         Interceptable interceptable = $ic;
@@ -20,24 +23,55 @@ public abstract class kc9 implements Runnable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new jc9();
+    }
+
+    public final List d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.c();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.a(str);
         }
     }
 
-    public abstract void a();
-
-    @Override // java.lang.Runnable
-    public void run() {
+    public final boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                a();
-            } catch (Exception e) {
-                qc9.e(e);
-                if (e.getMessage() != null) {
-                    ic9.b(e.getMessage());
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.b(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a.a(str);
+        }
+    }
+
+    public final void e(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
+            this.a.e(nVar);
+        }
+    }
+
+    public final void f(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nVar) == null) {
+            this.a.d(nVar);
         }
     }
 }

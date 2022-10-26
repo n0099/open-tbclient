@@ -69,7 +69,16 @@ public class FaceLoginService {
         this.context = SapiAccountManager.getInstance().getConfignation().context;
     }
 
-    private String buildV2FaceUidString(Map<String, Long> map) {
+    private List getUidsMapFromV2PriStrage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return str2ShareModelV2List(SapiContext.getInstance().getV2FaceLivingUnames());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    private String buildV2FaceUidString(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, map)) == null) {
@@ -84,24 +93,26 @@ public class FaceLoginService {
         return (String) invokeL.objValue;
     }
 
-    private Map<String, Long> getLinkedHashMap(List<FaceLoginModel> list) {
+    private Map getLinkedHashMap(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, list)) == null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             if (list != null && !list.isEmpty()) {
                 Collections.sort(list);
-                for (FaceLoginModel faceLoginModel : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    FaceLoginModel faceLoginModel = (FaceLoginModel) it.next();
                     if (!linkedHashMap.containsKey(faceLoginModel.livingUname)) {
                         linkedHashMap.put(faceLoginModel.livingUname, Long.valueOf(faceLoginModel.time));
                     }
                 }
                 if (linkedHashMap.size() > 10) {
-                    Iterator it = linkedHashMap.entrySet().iterator();
+                    Iterator it2 = linkedHashMap.entrySet().iterator();
                     int size = linkedHashMap.size() - 10;
-                    for (int i = 0; it.hasNext() && i < size; i++) {
-                        it.next();
-                        it.remove();
+                    for (int i = 0; it2.hasNext() && i < size; i++) {
+                        it2.next();
+                        it2.remove();
                     }
                 }
             }
@@ -110,32 +121,26 @@ public class FaceLoginService {
         return (Map) invokeL.objValue;
     }
 
-    private List<FaceLoginModel> getUidsFromV2ShareStorage() {
+    private List getUidsFromV2ShareStorage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (SapiContext.getInstance().shareLivingunameEnable()) {
-                List<Intent> queryShareActivitys = ShareUtils.queryShareActivitys(this.context);
-                if (queryShareActivitys.isEmpty()) {
-                    return arrayList;
-                }
-                ShareStorage shareStorage = new ShareStorage();
-                for (Intent intent : queryShareActivitys) {
-                    arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), KEY_SHARE_FACE_LOGIN_V2)));
-                }
-                arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(KEY_SHARE_FACE_LOGIN_V2.getBytes(), false))));
+            if (!SapiContext.getInstance().shareLivingunameEnable()) {
                 return arrayList;
             }
+            List<Intent> queryShareActivitys = ShareUtils.queryShareActivitys(this.context);
+            if (queryShareActivitys.isEmpty()) {
+                return arrayList;
+            }
+            ShareStorage shareStorage = new ShareStorage();
+            for (Intent intent : queryShareActivitys) {
+                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), KEY_SHARE_FACE_LOGIN_V2)));
+            }
+            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(KEY_SHARE_FACE_LOGIN_V2.getBytes(), false))));
             return arrayList;
         }
         return (List) invokeV.objValue;
-    }
-
-    private List<FaceLoginModel> getUidsMapFromV2PriStrage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? str2ShareModelV2List(SapiContext.getInstance().getV2FaceLivingUnames()) : (List) invokeV.objValue;
     }
 
     private void setV2ShareFaceUids(String str) {
@@ -151,17 +156,7 @@ public class FaceLoginService {
         }
     }
 
-    public boolean isSupFaceLogin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject v2FaceLoginCheckResults = SapiContext.getInstance().getV2FaceLoginCheckResults();
-            return v2FaceLoginCheckResults != null && v2FaceLoginCheckResults.has("list") && v2FaceLoginCheckResults.optJSONArray("list").length() > 0 && SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<FaceLoginModel> str2ShareModelV2List(String str) {
+    public List str2ShareModelV2List(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -185,6 +180,19 @@ public class FaceLoginService {
         return (List) invokeL.objValue;
     }
 
+    public boolean isSupFaceLogin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject v2FaceLoginCheckResults = SapiContext.getInstance().getV2FaceLoginCheckResults();
+            if (v2FaceLoginCheckResults != null && v2FaceLoginCheckResults.has("list") && v2FaceLoginCheckResults.optJSONArray("list").length() > 0 && SapiAccountManager.getInstance().getConfignation().supportFaceLogin) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void syncFaceLoginUID(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
@@ -196,7 +204,7 @@ public class FaceLoginService {
         }
     }
 
-    public void syncFaceLoginUidList(Context context, List<FaceLoginModel> list) {
+    public void syncFaceLoginUidList(Context context, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, list) == null) {
             ArrayList arrayList = new ArrayList();
@@ -205,7 +213,7 @@ public class FaceLoginService {
             }
             arrayList.addAll(getUidsMapFromV2PriStrage());
             arrayList.addAll(getUidsFromV2ShareStorage());
-            Map<String, Long> linkedHashMap = getLinkedHashMap(arrayList);
+            Map linkedHashMap = getLinkedHashMap(arrayList);
             JSONObject jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
             try {

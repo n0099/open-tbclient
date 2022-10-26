@@ -7,7 +7,7 @@ import android.opengl.GLUtils;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.tc9;
+import com.baidu.tieba.ld9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,6 @@ import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.filter.FilterValue;
-import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class OutputSurfaceWithFilter extends BaseOutputSurface {
@@ -28,7 +27,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
     public FilterValue mFilterValue;
     public FullFrameRect mFullScreenFUDisplay;
     public boolean mIsAddWaterMark;
-    public List<BaseEffect> mMagicEffectList;
+    public List mMagicEffectList;
     public Bitmap mWaterMarkBitmap;
     public int mWaterMarkTextureId;
 
@@ -158,7 +157,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         }
     }
 
-    public void setMagicEffectList(List<BaseEffect> list) {
+    public void setMagicEffectList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.mMagicEffectList = list;
@@ -177,7 +176,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setup();
-            this.isAr = tc9.c().i();
+            this.isAr = ld9.c().i();
             this.mFullScreenFUDisplay = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         }
     }

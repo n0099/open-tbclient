@@ -74,7 +74,7 @@ public class DirectorySoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
-    public void addToLdLibraryPath(Collection<String> collection) {
+    public void addToLdLibraryPath(Collection collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
             collection.add(this.soDirectory.getAbsolutePath());
@@ -112,10 +112,28 @@ public class DirectorySoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
+    @Nullable
+    public File unpackLibrary(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            File file = new File(this.soDirectory, str);
+            if (file.exists()) {
+                return file;
+            }
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // com.facebook.soloader.SoSource
     public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, str, i, threadPolicy)) == null) ? loadLibraryFrom(str, i, this.soDirectory, threadPolicy) : invokeLIL.intValue;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, str, i, threadPolicy)) == null) {
+            return loadLibraryFrom(str, i, this.soDirectory, threadPolicy);
+        }
+        return invokeLIL.intValue;
     }
 
     public int loadLibraryFrom(String str, int i, File file, StrictMode.ThreadPolicy threadPolicy) throws IOException {
@@ -165,20 +183,5 @@ public class DirectorySoSource extends SoSource {
             return getClass().getName() + "[root = " + name + " flags = " + this.flags + ']';
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.facebook.soloader.SoSource
-    @Nullable
-    public File unpackLibrary(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            File file = new File(this.soDirectory, str);
-            if (file.exists()) {
-                return file;
-            }
-            return null;
-        }
-        return (File) invokeL.objValue;
     }
 }

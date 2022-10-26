@@ -1,13 +1,10 @@
 package com.kwad.sdk.core.response.model;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.utils.s;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-@KsJson
 /* loaded from: classes7.dex */
 public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -4483350806354759008L;
@@ -15,9 +12,8 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
     public BaseInfo baseInfo = new BaseInfo();
     public VideoInfo videoInfo = new VideoInfo();
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 2257669583403371065L;
         public long commentCount;
         public int contentSourceType;
@@ -35,9 +31,8 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public int waterMarkPosition;
     }
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1395696168725754442L;
         public long duration;
         public String firstFrame;
@@ -53,7 +48,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(@Nullable JSONObject jSONObject) {
+    public void afterParseJson(JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject == null || !TextUtils.isEmpty(this.mOriginJString)) {
             return;

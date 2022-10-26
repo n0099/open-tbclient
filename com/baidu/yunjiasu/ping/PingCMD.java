@@ -27,7 +27,7 @@ import kotlin.text.MatchResult;
 import kotlin.text.Regex;
 import kotlin.text.StringsKt__StringsKt;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0007\u001a\u00020\bJ\u0012\u0010\t\u001a\u0004\u0018\u00010\u00042\u0006\u0010\n\u001a\u00020\u0004H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u000b"}, d2 = {"Lcom/baidu/yunjiasu/ping/PingCMD;", "", "()V", "TAG", "", "ping", "Lcom/baidu/yunjiasu/ping/PingStatistics;", "address", "Ljava/net/InetAddress;", "runCMD", "cmd", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PingCMD {
     public static /* synthetic */ Interceptable $ic = null;
     public static final PingCMD INSTANCE;
@@ -66,6 +66,7 @@ public final class PingCMD {
 
     private final String runCMD(String str) {
         Process exec;
+        BufferedReader bufferedReader;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
@@ -88,7 +89,12 @@ public final class PingCMD {
                 InputStream inputStream = exec.getInputStream();
                 Intrinsics.checkNotNullExpressionValue(inputStream, "process.inputStream");
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charsets.UTF_8);
-                String readText = TextStreamsKt.readText(inputStreamReader instanceof BufferedReader ? (BufferedReader) inputStreamReader : new BufferedReader(inputStreamReader, 8192));
+                if (inputStreamReader instanceof BufferedReader) {
+                    bufferedReader = (BufferedReader) inputStreamReader;
+                } else {
+                    bufferedReader = new BufferedReader(inputStreamReader, 8192);
+                }
+                String readText = TextStreamsKt.readText(bufferedReader);
                 exec.destroy();
                 return readText;
             } catch (Exception e) {
@@ -101,10 +107,15 @@ public final class PingCMD {
 
     public final PingStatistics ping(InetAddress address) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
             Intrinsics.checkNotNullParameter(address, "address");
-            String str = address instanceof Inet6Address ? "ping6" : "ping";
+            if (address instanceof Inet6Address) {
+                str = "ping6";
+            } else {
+                str = "ping";
+            }
             String runCMD = runCMD(str + " -c " + PingSetting.INSTANCE.getCount() + " -i " + (PingSetting.INSTANCE.getTimeMicros() / 1000.0f) + WebvttCueParser.CHAR_SPACE + ((Object) address.getHostAddress()));
             if (runCMD == null) {
                 Log.e(TAG, "runCMD() failed");
@@ -116,17 +127,17 @@ public final class PingCMD {
                 return null;
             }
             try {
-                List<String> groupValues = find$default.getGroupValues();
-                float parseFloat = Float.parseFloat(groupValues.get(1));
-                float parseFloat2 = Float.parseFloat(groupValues.get(2));
-                float parseFloat3 = Float.parseFloat(groupValues.get(3));
-                float parseFloat4 = Float.parseFloat(groupValues.get(4));
+                List groupValues = find$default.getGroupValues();
+                float parseFloat = Float.parseFloat((String) groupValues.get(1));
+                float parseFloat2 = Float.parseFloat((String) groupValues.get(2));
+                float parseFloat3 = Float.parseFloat((String) groupValues.get(3));
+                float parseFloat4 = Float.parseFloat((String) groupValues.get(4));
                 MatchResult find$default2 = Regex.find$default(new Regex("([\\d]+)[a-z\\s]+transmitted[,\\s]+([\\d]+)[a-z\\s]+received[,\\s]+([\\d]+)%[a-z\\s]+loss"), runCMD, 0, 2, null);
                 if (find$default2 == null) {
                     return null;
                 }
-                List<String> groupValues2 = find$default2.getGroupValues();
-                return new PingStatistics(address, Long.parseLong(groupValues2.get(2)), Long.parseLong(groupValues2.get(1)), Float.parseFloat(groupValues2.get(3)) / 100, parseFloat, parseFloat3, parseFloat2, parseFloat4);
+                List groupValues2 = find$default2.getGroupValues();
+                return new PingStatistics(address, Long.parseLong((String) groupValues2.get(2)), Long.parseLong((String) groupValues2.get(1)), Float.parseFloat((String) groupValues2.get(3)) / 100, parseFloat, parseFloat3, parseFloat2, parseFloat4);
             } catch (Exception e) {
                 Log.e(TAG, Intrinsics.stringPlus("Parse failed: Exception: ", e));
                 return null;

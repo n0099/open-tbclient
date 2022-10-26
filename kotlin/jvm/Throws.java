@@ -14,5 +14,5 @@ import kotlin.annotation.AnnotationTarget;
 @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
 /* loaded from: classes8.dex */
 public @interface Throws {
-    Class<? extends Throwable>[] exceptionClasses();
+    Class[] exceptionClasses();
 }

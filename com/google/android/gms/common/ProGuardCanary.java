@@ -4,12 +4,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public final class ProGuardCanary {
     public static /* synthetic */ Interceptable $ic = null;
-    @KeepForSdk
     public static final String CANARY = "gms_proguard_canary";
     public transient /* synthetic */ FieldHolder $fh;
 

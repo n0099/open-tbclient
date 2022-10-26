@@ -41,13 +41,6 @@ public class AndroidHttpClientConnection implements HttpInetConnection, HttpConn
         throw new RuntimeException("Stub!");
     }
 
-    public void bind(Socket socket, HttpParams httpParams) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, socket, httpParams) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     @Override // org.apache.http.HttpConnection
     public void close() throws IOException {
         Interceptable interceptable = $ic;
@@ -150,6 +143,30 @@ public class AndroidHttpClientConnection implements HttpInetConnection, HttpConn
         return invokeV.booleanValue;
     }
 
+    @Override // org.apache.http.HttpConnection
+    public void shutdown() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void bind(Socket socket, HttpParams httpParams) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, socket, httpParams) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public StatusLine parseResponseHeader(Headers headers) throws IOException, ParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -188,22 +205,5 @@ public class AndroidHttpClientConnection implements HttpInetConnection, HttpConn
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public void shutdown() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
     }
 }

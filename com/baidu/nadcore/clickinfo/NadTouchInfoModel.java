@@ -16,7 +16,7 @@ public class NadTouchInfoModel {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class CRCErrorCode {
+    public final class CRCErrorCode {
         public static final /* synthetic */ CRCErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CRCErrorCode NO_IM_TIME_SIGN;
@@ -67,19 +67,28 @@ public class NadTouchInfoModel {
         public static CRCErrorCode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CRCErrorCode) Enum.valueOf(CRCErrorCode.class, str) : (CRCErrorCode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CRCErrorCode) Enum.valueOf(CRCErrorCode.class, str);
+            }
+            return (CRCErrorCode) invokeL.objValue;
         }
 
         public static CRCErrorCode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CRCErrorCode[]) $VALUES.clone() : (CRCErrorCode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CRCErrorCode[]) $VALUES.clone();
+            }
+            return (CRCErrorCode[]) invokeV.objValue;
         }
 
         public int getErrorType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errorType : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.errorType;
+            }
+            return invokeV.intValue;
         }
     }
 

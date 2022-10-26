@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class xml {
+    /* loaded from: classes6.dex */
+    public final class xml {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int booster_network_config = 0x7f130001;
         public transient /* synthetic */ FieldHolder $fh;

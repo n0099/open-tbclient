@@ -15,522 +15,158 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PeerConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<MediaStream> localStreams;
+    public final List localStreams;
     public final long nativePeerConnection;
-    public List<RtpReceiver> receivers;
-    public List<RtpSender> senders;
-    public List<RtpTransceiver> transceivers;
+    public List receivers;
+    public List senders;
+    public List transceivers;
 
     /* renamed from: org.webrtc.PeerConnection$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes8.dex */
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class AdapterType {
-        public static final /* synthetic */ AdapterType[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final AdapterType CELLULAR;
-        public static final AdapterType ETHERNET;
-        public static final AdapterType LOOPBACK;
-        public static final AdapterType UNKNOWN;
-        public static final AdapterType VPN;
-        public static final AdapterType WIFI;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes8.dex */
+    public interface Observer {
+        void onAddStream(MediaStream mediaStream);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(124161099, "Lorg/webrtc/PeerConnection$AdapterType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(124161099, "Lorg/webrtc/PeerConnection$AdapterType;");
-                    return;
-                }
-            }
-            UNKNOWN = new AdapterType(RomUtils.UNKNOWN, 0);
-            ETHERNET = new AdapterType("ETHERNET", 1);
-            WIFI = new AdapterType("WIFI", 2);
-            CELLULAR = new AdapterType("CELLULAR", 3);
-            VPN = new AdapterType("VPN", 4);
-            AdapterType adapterType = new AdapterType("LOOPBACK", 5);
-            LOOPBACK = adapterType;
-            $VALUES = new AdapterType[]{UNKNOWN, ETHERNET, WIFI, CELLULAR, VPN, adapterType};
-        }
+        void onAddTrack(RtpReceiver rtpReceiver, MediaStream[] mediaStreamArr);
 
-        public AdapterType(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+        void onConnectionChange(PeerConnectionState peerConnectionState);
 
-        public static AdapterType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AdapterType) Enum.valueOf(AdapterType.class, str) : (AdapterType) invokeL.objValue;
-        }
+        void onDataChannel(DataChannel dataChannel);
 
-        public static AdapterType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AdapterType[]) $VALUES.clone() : (AdapterType[]) invokeV.objValue;
-        }
+        void onIceCandidate(IceCandidate iceCandidate);
+
+        void onIceCandidatesRemoved(IceCandidate[] iceCandidateArr);
+
+        void onIceConnectionChange(IceConnectionState iceConnectionState);
+
+        void onIceConnectionReceivingChange(boolean z);
+
+        void onIceGatheringChange(IceGatheringState iceGatheringState);
+
+        void onRemoveStream(MediaStream mediaStream);
+
+        void onRenegotiationNeeded();
+
+        void onSignalingChange(SignalingState signalingState);
+
+        void onTrack(RtpTransceiver rtpTransceiver);
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class BundlePolicy {
-        public static final /* synthetic */ BundlePolicy[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final BundlePolicy BALANCED;
-        public static final BundlePolicy MAXBUNDLE;
-        public static final BundlePolicy MAXCOMPAT;
-        public transient /* synthetic */ FieldHolder $fh;
+    private native boolean nativeAddIceCandidate(String str, int i, String str2);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-142153874, "Lorg/webrtc/PeerConnection$BundlePolicy;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-142153874, "Lorg/webrtc/PeerConnection$BundlePolicy;");
-                    return;
-                }
-            }
-            BALANCED = new BundlePolicy("BALANCED", 0);
-            MAXBUNDLE = new BundlePolicy("MAXBUNDLE", 1);
-            BundlePolicy bundlePolicy = new BundlePolicy("MAXCOMPAT", 2);
-            MAXCOMPAT = bundlePolicy;
-            $VALUES = new BundlePolicy[]{BALANCED, MAXBUNDLE, bundlePolicy};
-        }
+    private native boolean nativeAddLocalStream(long j);
 
-        public BundlePolicy(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+    private native RtpSender nativeAddTrack(long j, List list);
 
-        public static BundlePolicy valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BundlePolicy) Enum.valueOf(BundlePolicy.class, str) : (BundlePolicy) invokeL.objValue;
-        }
+    private native RtpTransceiver nativeAddTransceiverOfType(MediaStreamTrack.MediaType mediaType, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
 
-        public static BundlePolicy[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BundlePolicy[]) $VALUES.clone() : (BundlePolicy[]) invokeV.objValue;
-        }
-    }
+    private native RtpTransceiver nativeAddTransceiverWithTrack(long j, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class CandidateNetworkPolicy {
-        public static final /* synthetic */ CandidateNetworkPolicy[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final CandidateNetworkPolicy ALL;
-        public static final CandidateNetworkPolicy LOW_COST;
-        public transient /* synthetic */ FieldHolder $fh;
+    private native void nativeClose();
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2056808421, "Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(2056808421, "Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;");
-                    return;
-                }
-            }
-            ALL = new CandidateNetworkPolicy("ALL", 0);
-            CandidateNetworkPolicy candidateNetworkPolicy = new CandidateNetworkPolicy("LOW_COST", 1);
-            LOW_COST = candidateNetworkPolicy;
-            $VALUES = new CandidateNetworkPolicy[]{ALL, candidateNetworkPolicy};
-        }
+    private native PeerConnectionState nativeConnectionState();
 
-        public CandidateNetworkPolicy(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+    private native void nativeCreateAnswer(SdpObserver sdpObserver, MediaConstraints mediaConstraints);
 
-        public static CandidateNetworkPolicy valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CandidateNetworkPolicy) Enum.valueOf(CandidateNetworkPolicy.class, str) : (CandidateNetworkPolicy) invokeL.objValue;
-        }
+    private native DataChannel nativeCreateDataChannel(String str, DataChannel.Init init);
 
-        public static CandidateNetworkPolicy[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CandidateNetworkPolicy[]) $VALUES.clone() : (CandidateNetworkPolicy[]) invokeV.objValue;
-        }
-    }
+    private native void nativeCreateOffer(SdpObserver sdpObserver, MediaConstraints mediaConstraints);
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class ContinualGatheringPolicy {
-        public static final /* synthetic */ ContinualGatheringPolicy[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final ContinualGatheringPolicy GATHER_CONTINUALLY;
-        public static final ContinualGatheringPolicy GATHER_ONCE;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static native long nativeCreatePeerConnectionObserver(Observer observer);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1024869358, "Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1024869358, "Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;");
-                    return;
-                }
-            }
-            GATHER_ONCE = new ContinualGatheringPolicy("GATHER_ONCE", 0);
-            ContinualGatheringPolicy continualGatheringPolicy = new ContinualGatheringPolicy("GATHER_CONTINUALLY", 1);
-            GATHER_CONTINUALLY = continualGatheringPolicy;
-            $VALUES = new ContinualGatheringPolicy[]{GATHER_ONCE, continualGatheringPolicy};
-        }
+    private native RtpSender nativeCreateSender(String str, String str2);
 
-        public ContinualGatheringPolicy(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+    public static native void nativeFreeOwnedPeerConnection(long j);
 
-        public static ContinualGatheringPolicy valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ContinualGatheringPolicy) Enum.valueOf(ContinualGatheringPolicy.class, str) : (ContinualGatheringPolicy) invokeL.objValue;
-        }
+    private native RtcCertificatePem nativeGetCertificate();
 
-        public static ContinualGatheringPolicy[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ContinualGatheringPolicy[]) $VALUES.clone() : (ContinualGatheringPolicy[]) invokeV.objValue;
-        }
-    }
+    private native SessionDescription nativeGetLocalDescription();
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class IceConnectionState {
-        public static final /* synthetic */ IceConnectionState[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final IceConnectionState CHECKING;
-        public static final IceConnectionState CLOSED;
-        public static final IceConnectionState COMPLETED;
-        public static final IceConnectionState CONNECTED;
-        public static final IceConnectionState DISCONNECTED;
-        public static final IceConnectionState FAILED;
-        public static final IceConnectionState NEW;
-        public transient /* synthetic */ FieldHolder $fh;
+    private native long nativeGetNativePeerConnection();
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1982786886, "Lorg/webrtc/PeerConnection$IceConnectionState;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1982786886, "Lorg/webrtc/PeerConnection$IceConnectionState;");
-                    return;
-                }
-            }
-            NEW = new IceConnectionState("NEW", 0);
-            CHECKING = new IceConnectionState("CHECKING", 1);
-            CONNECTED = new IceConnectionState("CONNECTED", 2);
-            COMPLETED = new IceConnectionState("COMPLETED", 3);
-            FAILED = new IceConnectionState("FAILED", 4);
-            DISCONNECTED = new IceConnectionState("DISCONNECTED", 5);
-            IceConnectionState iceConnectionState = new IceConnectionState("CLOSED", 6);
-            CLOSED = iceConnectionState;
-            $VALUES = new IceConnectionState[]{NEW, CHECKING, CONNECTED, COMPLETED, FAILED, DISCONNECTED, iceConnectionState};
-        }
+    private native List nativeGetReceivers();
 
-        public IceConnectionState(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+    private native SessionDescription nativeGetRemoteDescription();
 
-        @CalledByNative("IceConnectionState")
-        public static IceConnectionState fromNativeIndex(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (IceConnectionState) invokeI.objValue;
-        }
+    private native List nativeGetSenders();
 
-        public static IceConnectionState valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (IceConnectionState) Enum.valueOf(IceConnectionState.class, str) : (IceConnectionState) invokeL.objValue;
-        }
+    private native List nativeGetTransceivers();
 
-        public static IceConnectionState[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (IceConnectionState[]) $VALUES.clone() : (IceConnectionState[]) invokeV.objValue;
-        }
-    }
+    private native IceConnectionState nativeIceConnectionState();
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class IceGatheringState {
-        public static final /* synthetic */ IceGatheringState[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final IceGatheringState COMPLETE;
-        public static final IceGatheringState GATHERING;
-        public static final IceGatheringState NEW;
-        public transient /* synthetic */ FieldHolder $fh;
+    private native IceGatheringState nativeIceGatheringState();
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(604945919, "Lorg/webrtc/PeerConnection$IceGatheringState;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(604945919, "Lorg/webrtc/PeerConnection$IceGatheringState;");
-                    return;
-                }
-            }
-            NEW = new IceGatheringState("NEW", 0);
-            GATHERING = new IceGatheringState("GATHERING", 1);
-            IceGatheringState iceGatheringState = new IceGatheringState("COMPLETE", 2);
-            COMPLETE = iceGatheringState;
-            $VALUES = new IceGatheringState[]{NEW, GATHERING, iceGatheringState};
-        }
+    private native void nativeNewGetStats(RTCStatsCollectorCallback rTCStatsCollectorCallback);
 
-        public IceGatheringState(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+    private native boolean nativeOldGetStats(StatsObserver statsObserver, long j);
 
-        @CalledByNative("IceGatheringState")
-        public static IceGatheringState fromNativeIndex(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (IceGatheringState) invokeI.objValue;
-        }
+    private native boolean nativeRemoveIceCandidates(IceCandidate[] iceCandidateArr);
 
-        public static IceGatheringState valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (IceGatheringState) Enum.valueOf(IceGatheringState.class, str) : (IceGatheringState) invokeL.objValue;
-        }
+    private native void nativeRemoveLocalStream(long j);
 
-        public static IceGatheringState[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (IceGatheringState[]) $VALUES.clone() : (IceGatheringState[]) invokeV.objValue;
-        }
-    }
+    private native boolean nativeRemoveTrack(long j);
 
-    /* loaded from: classes9.dex */
-    public static class IceServer {
+    private native void nativeSetAudioPlayout(boolean z);
+
+    private native void nativeSetAudioRecording(boolean z);
+
+    private native boolean nativeSetBitrate(Integer num, Integer num2, Integer num3);
+
+    private native boolean nativeSetConfiguration(RTCConfiguration rTCConfiguration);
+
+    private native void nativeSetLocalDescription(SdpObserver sdpObserver, SessionDescription sessionDescription);
+
+    private native void nativeSetRemoteDescription(SdpObserver sdpObserver, SessionDescription sessionDescription);
+
+    private native SignalingState nativeSignalingState();
+
+    private native boolean nativeStartRtcEventLog(int i, int i2);
+
+    private native void nativeStopRtcEventLog();
+
+    /* loaded from: classes8.dex */
+    public class IceServer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String hostname;
         public final String password;
-        public final List<String> tlsAlpnProtocols;
+        public final List tlsAlpnProtocols;
         public final TlsCertPolicy tlsCertPolicy;
-        public final List<String> tlsEllipticCurves;
+        public final List tlsEllipticCurves;
         @Deprecated
         public final String uri;
-        public final List<String> urls;
+        public final List urls;
         public final String username;
 
-        /* loaded from: classes9.dex */
-        public static class Builder {
+        /* loaded from: classes8.dex */
+        public class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String hostname;
             public String password;
-            public List<String> tlsAlpnProtocols;
+            public List tlsAlpnProtocols;
             public TlsCertPolicy tlsCertPolicy;
-            public List<String> tlsEllipticCurves;
+            public List tlsEllipticCurves;
             @Nullable
-            public final List<String> urls;
+            public final List urls;
             public String username;
 
-            public /* synthetic */ Builder(List list, AnonymousClass1 anonymousClass1) {
-                this(list);
-            }
-
-            public IceServer createIceServer() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new IceServer(this.urls.get(0), this.urls, this.username, this.password, this.tlsCertPolicy, this.hostname, this.tlsAlpnProtocols, this.tlsEllipticCurves, null) : (IceServer) invokeV.objValue;
-            }
-
-            public Builder setHostname(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                    this.hostname = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Builder setPassword(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                    this.password = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Builder setTlsAlpnProtocols(List<String> list) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-                    this.tlsAlpnProtocols = list;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Builder setTlsCertPolicy(TlsCertPolicy tlsCertPolicy) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tlsCertPolicy)) == null) {
-                    this.tlsCertPolicy = tlsCertPolicy;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Builder setTlsEllipticCurves(List<String> list) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                    this.tlsEllipticCurves = list;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Builder setUsername(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                    this.username = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Builder(List<String> list) {
+            public Builder(List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -555,78 +191,79 @@ public class PeerConnection {
                 }
                 throw new IllegalArgumentException("urls == null || urls.isEmpty(): " + list);
             }
-        }
 
-        public /* synthetic */ IceServer(String str, List list, String str2, String str3, TlsCertPolicy tlsCertPolicy, String str4, List list2, List list3, AnonymousClass1 anonymousClass1) {
-            this(str, list, str2, str3, tlsCertPolicy, str4, list2, list3);
-        }
-
-        public static Builder builder(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? new Builder(Collections.singletonList(str), null) : (Builder) invokeL.objValue;
-        }
-
-        @Nullable
-        @CalledByNative("IceServer")
-        public String getHostname() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.hostname : (String) invokeV.objValue;
-        }
-
-        @Nullable
-        @CalledByNative("IceServer")
-        public String getPassword() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.password : (String) invokeV.objValue;
-        }
-
-        @CalledByNative("IceServer")
-        public List<String> getTlsAlpnProtocols() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tlsAlpnProtocols : (List) invokeV.objValue;
-        }
-
-        @CalledByNative("IceServer")
-        public TlsCertPolicy getTlsCertPolicy() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tlsCertPolicy : (TlsCertPolicy) invokeV.objValue;
-        }
-
-        @CalledByNative("IceServer")
-        public List<String> getTlsEllipticCurves() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tlsEllipticCurves : (List) invokeV.objValue;
-        }
-
-        @Nullable
-        @CalledByNative("IceServer")
-        public List<String> getUrls() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.urls : (List) invokeV.objValue;
-        }
-
-        @Nullable
-        @CalledByNative("IceServer")
-        public String getUsername() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.username : (String) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.urls + " [" + this.username + ":" + this.password + "] [" + this.tlsCertPolicy + "] [" + this.hostname + "] [" + this.tlsAlpnProtocols + "] [" + this.tlsEllipticCurves + PreferencesUtil.RIGHT_MOUNT;
+            public /* synthetic */ Builder(List list, AnonymousClass1 anonymousClass1) {
+                this(list);
             }
-            return (String) invokeV.objValue;
+
+            public IceServer createIceServer() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return new IceServer((String) this.urls.get(0), this.urls, this.username, this.password, this.tlsCertPolicy, this.hostname, this.tlsAlpnProtocols, this.tlsEllipticCurves, null);
+                }
+                return (IceServer) invokeV.objValue;
+            }
+
+            public Builder setHostname(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                    this.hostname = str;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setPassword(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                    this.password = str;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setTlsAlpnProtocols(List list) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+                    this.tlsAlpnProtocols = list;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setTlsCertPolicy(TlsCertPolicy tlsCertPolicy) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tlsCertPolicy)) == null) {
+                    this.tlsCertPolicy = tlsCertPolicy;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setTlsEllipticCurves(List list) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
+                    this.tlsEllipticCurves = list;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setUsername(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                    this.username = str;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -649,12 +286,6 @@ public class PeerConnection {
                     return;
                 }
             }
-        }
-
-        public static Builder builder(List<String> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) ? new Builder(list, null) : (Builder) invokeL.objValue;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -723,7 +354,7 @@ public class PeerConnection {
             }
         }
 
-        public IceServer(String str, List<String> list, String str2, String str3, TlsCertPolicy tlsCertPolicy, String str4, List<String> list2, List<String> list3) {
+        public IceServer(String str, List list, String str2, String str3, TlsCertPolicy tlsCertPolicy, String str4, List list2, List list3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -739,37 +370,572 @@ public class PeerConnection {
                 }
             }
             if (str != null && list != null && !list.isEmpty()) {
-                for (String str5 : list) {
-                    if (str5 == null) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (((String) it.next()) == null) {
                         throw new IllegalArgumentException("urls element is null: " + list);
                     }
                 }
-                if (str2 == null) {
-                    throw new IllegalArgumentException("username == null");
-                }
-                if (str3 == null) {
+                if (str2 != null) {
+                    if (str3 != null) {
+                        if (str4 != null) {
+                            this.uri = str;
+                            this.urls = list;
+                            this.username = str2;
+                            this.password = str3;
+                            this.tlsCertPolicy = tlsCertPolicy;
+                            this.hostname = str4;
+                            this.tlsAlpnProtocols = list2;
+                            this.tlsEllipticCurves = list3;
+                            return;
+                        }
+                        throw new IllegalArgumentException("hostname == null");
+                    }
                     throw new IllegalArgumentException("password == null");
                 }
-                if (str4 != null) {
-                    this.uri = str;
-                    this.urls = list;
-                    this.username = str2;
-                    this.password = str3;
-                    this.tlsCertPolicy = tlsCertPolicy;
-                    this.hostname = str4;
-                    this.tlsAlpnProtocols = list2;
-                    this.tlsEllipticCurves = list3;
-                    return;
-                }
-                throw new IllegalArgumentException("hostname == null");
+                throw new IllegalArgumentException("username == null");
             }
             throw new IllegalArgumentException("uri == null || urls == null || urls.isEmpty()");
+        }
+
+        public /* synthetic */ IceServer(String str, List list, String str2, String str3, TlsCertPolicy tlsCertPolicy, String str4, List list2, List list3, AnonymousClass1 anonymousClass1) {
+            this(str, list, str2, str3, tlsCertPolicy, str4, list2, list3);
+        }
+
+        public static Builder builder(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+                return new Builder(Collections.singletonList(str), null);
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public static Builder builder(List list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
+                return new Builder(list, null);
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        @Nullable
+        public String getHostname() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.hostname;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Nullable
+        public String getPassword() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.password;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public List getTlsAlpnProtocols() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.tlsAlpnProtocols;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public TlsCertPolicy getTlsCertPolicy() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.tlsCertPolicy;
+            }
+            return (TlsCertPolicy) invokeV.objValue;
+        }
+
+        public List getTlsEllipticCurves() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.tlsEllipticCurves;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        @Nullable
+        public List getUrls() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.urls;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        @Nullable
+        public String getUsername() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.username;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.urls + " [" + this.username + ":" + this.password + "] [" + this.tlsCertPolicy + "] [" + this.hostname + "] [" + this.tlsAlpnProtocols + "] [" + this.tlsEllipticCurves + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class IceTransportsType {
+    /* loaded from: classes8.dex */
+    public final class AdapterType {
+        public static final /* synthetic */ AdapterType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final AdapterType CELLULAR;
+        public static final AdapterType ETHERNET;
+        public static final AdapterType LOOPBACK;
+        public static final AdapterType UNKNOWN;
+        public static final AdapterType VPN;
+        public static final AdapterType WIFI;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(124161099, "Lorg/webrtc/PeerConnection$AdapterType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(124161099, "Lorg/webrtc/PeerConnection$AdapterType;");
+                    return;
+                }
+            }
+            UNKNOWN = new AdapterType(RomUtils.UNKNOWN, 0);
+            ETHERNET = new AdapterType("ETHERNET", 1);
+            WIFI = new AdapterType("WIFI", 2);
+            CELLULAR = new AdapterType("CELLULAR", 3);
+            VPN = new AdapterType("VPN", 4);
+            AdapterType adapterType = new AdapterType("LOOPBACK", 5);
+            LOOPBACK = adapterType;
+            $VALUES = new AdapterType[]{UNKNOWN, ETHERNET, WIFI, CELLULAR, VPN, adapterType};
+        }
+
+        public AdapterType(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static AdapterType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AdapterType) Enum.valueOf(AdapterType.class, str);
+            }
+            return (AdapterType) invokeL.objValue;
+        }
+
+        public static AdapterType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AdapterType[]) $VALUES.clone();
+            }
+            return (AdapterType[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public final class BundlePolicy {
+        public static final /* synthetic */ BundlePolicy[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final BundlePolicy BALANCED;
+        public static final BundlePolicy MAXBUNDLE;
+        public static final BundlePolicy MAXCOMPAT;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-142153874, "Lorg/webrtc/PeerConnection$BundlePolicy;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-142153874, "Lorg/webrtc/PeerConnection$BundlePolicy;");
+                    return;
+                }
+            }
+            BALANCED = new BundlePolicy("BALANCED", 0);
+            MAXBUNDLE = new BundlePolicy("MAXBUNDLE", 1);
+            BundlePolicy bundlePolicy = new BundlePolicy("MAXCOMPAT", 2);
+            MAXCOMPAT = bundlePolicy;
+            $VALUES = new BundlePolicy[]{BALANCED, MAXBUNDLE, bundlePolicy};
+        }
+
+        public BundlePolicy(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static BundlePolicy valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (BundlePolicy) Enum.valueOf(BundlePolicy.class, str);
+            }
+            return (BundlePolicy) invokeL.objValue;
+        }
+
+        public static BundlePolicy[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (BundlePolicy[]) $VALUES.clone();
+            }
+            return (BundlePolicy[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public final class CandidateNetworkPolicy {
+        public static final /* synthetic */ CandidateNetworkPolicy[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final CandidateNetworkPolicy ALL;
+        public static final CandidateNetworkPolicy LOW_COST;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2056808421, "Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2056808421, "Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;");
+                    return;
+                }
+            }
+            ALL = new CandidateNetworkPolicy("ALL", 0);
+            CandidateNetworkPolicy candidateNetworkPolicy = new CandidateNetworkPolicy("LOW_COST", 1);
+            LOW_COST = candidateNetworkPolicy;
+            $VALUES = new CandidateNetworkPolicy[]{ALL, candidateNetworkPolicy};
+        }
+
+        public CandidateNetworkPolicy(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static CandidateNetworkPolicy valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CandidateNetworkPolicy) Enum.valueOf(CandidateNetworkPolicy.class, str);
+            }
+            return (CandidateNetworkPolicy) invokeL.objValue;
+        }
+
+        public static CandidateNetworkPolicy[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CandidateNetworkPolicy[]) $VALUES.clone();
+            }
+            return (CandidateNetworkPolicy[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public final class ContinualGatheringPolicy {
+        public static final /* synthetic */ ContinualGatheringPolicy[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final ContinualGatheringPolicy GATHER_CONTINUALLY;
+        public static final ContinualGatheringPolicy GATHER_ONCE;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1024869358, "Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1024869358, "Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;");
+                    return;
+                }
+            }
+            GATHER_ONCE = new ContinualGatheringPolicy("GATHER_ONCE", 0);
+            ContinualGatheringPolicy continualGatheringPolicy = new ContinualGatheringPolicy("GATHER_CONTINUALLY", 1);
+            GATHER_CONTINUALLY = continualGatheringPolicy;
+            $VALUES = new ContinualGatheringPolicy[]{GATHER_ONCE, continualGatheringPolicy};
+        }
+
+        public ContinualGatheringPolicy(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static ContinualGatheringPolicy valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ContinualGatheringPolicy) Enum.valueOf(ContinualGatheringPolicy.class, str);
+            }
+            return (ContinualGatheringPolicy) invokeL.objValue;
+        }
+
+        public static ContinualGatheringPolicy[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ContinualGatheringPolicy[]) $VALUES.clone();
+            }
+            return (ContinualGatheringPolicy[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public final class IceConnectionState {
+        public static final /* synthetic */ IceConnectionState[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final IceConnectionState CHECKING;
+        public static final IceConnectionState CLOSED;
+        public static final IceConnectionState COMPLETED;
+        public static final IceConnectionState CONNECTED;
+        public static final IceConnectionState DISCONNECTED;
+        public static final IceConnectionState FAILED;
+        public static final IceConnectionState NEW;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1982786886, "Lorg/webrtc/PeerConnection$IceConnectionState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1982786886, "Lorg/webrtc/PeerConnection$IceConnectionState;");
+                    return;
+                }
+            }
+            NEW = new IceConnectionState("NEW", 0);
+            CHECKING = new IceConnectionState("CHECKING", 1);
+            CONNECTED = new IceConnectionState("CONNECTED", 2);
+            COMPLETED = new IceConnectionState("COMPLETED", 3);
+            FAILED = new IceConnectionState("FAILED", 4);
+            DISCONNECTED = new IceConnectionState("DISCONNECTED", 5);
+            IceConnectionState iceConnectionState = new IceConnectionState("CLOSED", 6);
+            CLOSED = iceConnectionState;
+            $VALUES = new IceConnectionState[]{NEW, CHECKING, CONNECTED, COMPLETED, FAILED, DISCONNECTED, iceConnectionState};
+        }
+
+        public IceConnectionState(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static IceConnectionState fromNativeIndex(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (IceConnectionState) invokeI.objValue;
+        }
+
+        public static IceConnectionState valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (IceConnectionState) Enum.valueOf(IceConnectionState.class, str);
+            }
+            return (IceConnectionState) invokeL.objValue;
+        }
+
+        public static IceConnectionState[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (IceConnectionState[]) $VALUES.clone();
+            }
+            return (IceConnectionState[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public final class IceGatheringState {
+        public static final /* synthetic */ IceGatheringState[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final IceGatheringState COMPLETE;
+        public static final IceGatheringState GATHERING;
+        public static final IceGatheringState NEW;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(604945919, "Lorg/webrtc/PeerConnection$IceGatheringState;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(604945919, "Lorg/webrtc/PeerConnection$IceGatheringState;");
+                    return;
+                }
+            }
+            NEW = new IceGatheringState("NEW", 0);
+            GATHERING = new IceGatheringState("GATHERING", 1);
+            IceGatheringState iceGatheringState = new IceGatheringState("COMPLETE", 2);
+            COMPLETE = iceGatheringState;
+            $VALUES = new IceGatheringState[]{NEW, GATHERING, iceGatheringState};
+        }
+
+        public IceGatheringState(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static IceGatheringState fromNativeIndex(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (IceGatheringState) invokeI.objValue;
+        }
+
+        public static IceGatheringState valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (IceGatheringState) Enum.valueOf(IceGatheringState.class, str);
+            }
+            return (IceGatheringState) invokeL.objValue;
+        }
+
+        public static IceGatheringState[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (IceGatheringState[]) $VALUES.clone();
+            }
+            return (IceGatheringState[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public final class IceTransportsType {
         public static final /* synthetic */ IceTransportsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final IceTransportsType ALL;
@@ -821,18 +987,24 @@ public class PeerConnection {
         public static IceTransportsType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (IceTransportsType) Enum.valueOf(IceTransportsType.class, str) : (IceTransportsType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (IceTransportsType) Enum.valueOf(IceTransportsType.class, str);
+            }
+            return (IceTransportsType) invokeL.objValue;
         }
 
         public static IceTransportsType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (IceTransportsType[]) $VALUES.clone() : (IceTransportsType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (IceTransportsType[]) $VALUES.clone();
+            }
+            return (IceTransportsType[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class IntervalRange {
+    /* loaded from: classes8.dex */
+    public class IntervalRange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int max;
@@ -857,24 +1029,28 @@ public class PeerConnection {
             this.max = i2;
         }
 
-        @CalledByNative("IntervalRange")
         public int getMax() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.max : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.max;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("IntervalRange")
         public int getMin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.min : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.min;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class KeyType {
+    /* loaded from: classes8.dex */
+    public final class KeyType {
         public static final /* synthetic */ KeyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final KeyType ECDSA;
@@ -922,61 +1098,25 @@ public class PeerConnection {
         public static KeyType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (KeyType) Enum.valueOf(KeyType.class, str) : (KeyType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (KeyType) Enum.valueOf(KeyType.class, str);
+            }
+            return (KeyType) invokeL.objValue;
         }
 
         public static KeyType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (KeyType[]) $VALUES.clone() : (KeyType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (KeyType[]) $VALUES.clone();
+            }
+            return (KeyType[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public interface Observer {
-        @CalledByNative("Observer")
-        void onAddStream(MediaStream mediaStream);
-
-        @CalledByNative("Observer")
-        void onAddTrack(RtpReceiver rtpReceiver, MediaStream[] mediaStreamArr);
-
-        @CalledByNative("Observer")
-        void onConnectionChange(PeerConnectionState peerConnectionState);
-
-        @CalledByNative("Observer")
-        void onDataChannel(DataChannel dataChannel);
-
-        @CalledByNative("Observer")
-        void onIceCandidate(IceCandidate iceCandidate);
-
-        @CalledByNative("Observer")
-        void onIceCandidatesRemoved(IceCandidate[] iceCandidateArr);
-
-        @CalledByNative("Observer")
-        void onIceConnectionChange(IceConnectionState iceConnectionState);
-
-        @CalledByNative("Observer")
-        void onIceConnectionReceivingChange(boolean z);
-
-        @CalledByNative("Observer")
-        void onIceGatheringChange(IceGatheringState iceGatheringState);
-
-        @CalledByNative("Observer")
-        void onRemoveStream(MediaStream mediaStream);
-
-        @CalledByNative("Observer")
-        void onRenegotiationNeeded();
-
-        @CalledByNative("Observer")
-        void onSignalingChange(SignalingState signalingState);
-
-        @CalledByNative("Observer")
-        void onTrack(RtpTransceiver rtpTransceiver);
-    }
-
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class PeerConnectionState {
+    /* loaded from: classes8.dex */
+    public final class PeerConnectionState {
         public static final /* synthetic */ PeerConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PeerConnectionState CLOSED;
@@ -1029,28 +1169,36 @@ public class PeerConnection {
             }
         }
 
-        @CalledByNative("PeerConnectionState")
         public static PeerConnectionState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (PeerConnectionState) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (PeerConnectionState) invokeI.objValue;
         }
 
         public static PeerConnectionState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PeerConnectionState) Enum.valueOf(PeerConnectionState.class, str) : (PeerConnectionState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (PeerConnectionState) Enum.valueOf(PeerConnectionState.class, str);
+            }
+            return (PeerConnectionState) invokeL.objValue;
         }
 
         public static PeerConnectionState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PeerConnectionState[]) $VALUES.clone() : (PeerConnectionState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (PeerConnectionState[]) $VALUES.clone();
+            }
+            return (PeerConnectionState[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class RTCConfiguration {
+    /* loaded from: classes8.dex */
+    public class RTCConfiguration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean activeResetSrtpParams;
@@ -1083,7 +1231,7 @@ public class PeerConnection {
         public int iceConnectionReceivingTimeout;
         @Nullable
         public IntervalRange iceRegatherIntervalRange;
-        public List<IceServer> iceServers;
+        public List iceServers;
         public IceTransportsType iceTransportsType;
         @Nullable
         public Integer iceUnwritableMinChecks;
@@ -1107,7 +1255,7 @@ public class PeerConnection {
         public boolean useMediaTransport;
         public boolean useMediaTransportForDataChannels;
 
-        public RTCConfiguration(List<IceServer> list) {
+        public RTCConfiguration(List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1162,303 +1310,383 @@ public class PeerConnection {
             this.cryptoOptions = null;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getActiveResetSrtpParams() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.activeResetSrtpParams : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.activeResetSrtpParams;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getAudioJitterBufferFastAccelerate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.audioJitterBufferFastAccelerate : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.audioJitterBufferFastAccelerate;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public int getAudioJitterBufferMaxPackets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.audioJitterBufferMaxPackets : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.audioJitterBufferMaxPackets;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public BundlePolicy getBundlePolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bundlePolicy : (BundlePolicy) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.bundlePolicy;
+            }
+            return (BundlePolicy) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public CandidateNetworkPolicy getCandidateNetworkPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.candidateNetworkPolicy : (CandidateNetworkPolicy) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.candidateNetworkPolicy;
+            }
+            return (CandidateNetworkPolicy) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public RtcCertificatePem getCertificate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.certificate : (RtcCertificatePem) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.certificate;
+            }
+            return (RtcCertificatePem) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Boolean getCombinedAudioVideoBwe() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.combinedAudioVideoBwe : (Boolean) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.combinedAudioVideoBwe;
+            }
+            return (Boolean) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public ContinualGatheringPolicy getContinualGatheringPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.continualGatheringPolicy : (ContinualGatheringPolicy) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.continualGatheringPolicy;
+            }
+            return (ContinualGatheringPolicy) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public CryptoOptions getCryptoOptions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.cryptoOptions : (CryptoOptions) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.cryptoOptions;
+            }
+            return (CryptoOptions) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getDisableIPv6OnWifi() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.disableIPv6OnWifi : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.disableIPv6OnWifi;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getDisableIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.disableIpv6 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.disableIpv6;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getEnableCpuOveruseDetection() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.enableCpuOveruseDetection : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.enableCpuOveruseDetection;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getEnableDscp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.enableDscp : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.enableDscp;
+            }
+            return invokeV.booleanValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Boolean getEnableDtlsSrtp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.enableDtlsSrtp : (Boolean) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.enableDtlsSrtp;
+            }
+            return (Boolean) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getEnableRtpDataChannel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.enableRtpDataChannel : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.enableRtpDataChannel;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public int getIceBackupCandidatePairPingInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.iceBackupCandidatePairPingInterval : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.iceBackupCandidatePairPingInterval;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public int getIceCandidatePoolSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.iceCandidatePoolSize : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return this.iceCandidatePoolSize;
+            }
+            return invokeV.intValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Integer getIceCheckIntervalStrongConnectivity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.iceCheckIntervalStrongConnectivityMs : (Integer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.iceCheckIntervalStrongConnectivityMs;
+            }
+            return (Integer) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Integer getIceCheckIntervalWeakConnectivity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.iceCheckIntervalWeakConnectivityMs : (Integer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.iceCheckIntervalWeakConnectivityMs;
+            }
+            return (Integer) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Integer getIceCheckMinInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.iceCheckMinInterval : (Integer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return this.iceCheckMinInterval;
+            }
+            return (Integer) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public int getIceConnectionReceivingTimeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.iceConnectionReceivingTimeout : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                return this.iceConnectionReceivingTimeout;
+            }
+            return invokeV.intValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public IntervalRange getIceRegatherIntervalRange() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.iceRegatherIntervalRange : (IntervalRange) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                return this.iceRegatherIntervalRange;
+            }
+            return (IntervalRange) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
-        public List<IceServer> getIceServers() {
+        public List getIceServers() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.iceServers : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                return this.iceServers;
+            }
+            return (List) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public IceTransportsType getIceTransportsType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.iceTransportsType : (IceTransportsType) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                return this.iceTransportsType;
+            }
+            return (IceTransportsType) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Integer getIceUnwritableMinChecks() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.iceUnwritableMinChecks : (Integer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                return this.iceUnwritableMinChecks;
+            }
+            return (Integer) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Integer getIceUnwritableTimeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.iceUnwritableTimeMs : (Integer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+                return this.iceUnwritableTimeMs;
+            }
+            return (Integer) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public KeyType getKeyType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.keyType : (KeyType) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                return this.keyType;
+            }
+            return (KeyType) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public int getMaxIPv6Networks() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.maxIPv6Networks : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+                return this.maxIPv6Networks;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public AdapterType getNetworkPreference() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.networkPreference : (AdapterType) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+                return this.networkPreference;
+            }
+            return (AdapterType) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getPresumeWritableWhenFullyRelayed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.presumeWritableWhenFullyRelayed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                return this.presumeWritableWhenFullyRelayed;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getPruneTurnPorts() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.pruneTurnPorts : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+                return this.pruneTurnPorts;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public RtcpMuxPolicy getRtcpMuxPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.rtcpMuxPolicy : (RtcpMuxPolicy) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                return this.rtcpMuxPolicy;
+            }
+            return (RtcpMuxPolicy) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Integer getScreencastMinBitrate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.screencastMinBitrate : (Integer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                return this.screencastMinBitrate;
+            }
+            return (Integer) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public SdpSemantics getSdpSemantics() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.sdpSemantics : (SdpSemantics) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+                return this.sdpSemantics;
+            }
+            return (SdpSemantics) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public Integer getStunCandidateKeepaliveInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.stunCandidateKeepaliveIntervalMs : (Integer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+                return this.stunCandidateKeepaliveIntervalMs;
+            }
+            return (Integer) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getSuspendBelowMinBitrate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.suspendBelowMinBitrate : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+                return this.suspendBelowMinBitrate;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public TcpCandidatePolicy getTcpCandidatePolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.tcpCandidatePolicy : (TcpCandidatePolicy) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+                return this.tcpCandidatePolicy;
+            }
+            return (TcpCandidatePolicy) invokeV.objValue;
         }
 
         @Nullable
-        @CalledByNative("RTCConfiguration")
         public TurnCustomizer getTurnCustomizer() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.turnCustomizer : (TurnCustomizer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+                return this.turnCustomizer;
+            }
+            return (TurnCustomizer) invokeV.objValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getUseMediaTransport() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.useMediaTransport : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+                return this.useMediaTransport;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("RTCConfiguration")
         public boolean getUseMediaTransportForDataChannels() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.useMediaTransportForDataChannels : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+                return this.useMediaTransportForDataChannels;
+            }
+            return invokeV.booleanValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class RtcpMuxPolicy {
+    /* loaded from: classes8.dex */
+    public final class RtcpMuxPolicy {
         public static final /* synthetic */ RtcpMuxPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcpMuxPolicy NEGOTIATE;
@@ -1506,19 +1734,25 @@ public class PeerConnection {
         public static RtcpMuxPolicy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcpMuxPolicy) Enum.valueOf(RtcpMuxPolicy.class, str) : (RtcpMuxPolicy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RtcpMuxPolicy) Enum.valueOf(RtcpMuxPolicy.class, str);
+            }
+            return (RtcpMuxPolicy) invokeL.objValue;
         }
 
         public static RtcpMuxPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcpMuxPolicy[]) $VALUES.clone() : (RtcpMuxPolicy[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RtcpMuxPolicy[]) $VALUES.clone();
+            }
+            return (RtcpMuxPolicy[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class SdpSemantics {
+    /* loaded from: classes8.dex */
+    public final class SdpSemantics {
         public static final /* synthetic */ SdpSemantics[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SdpSemantics PLAN_B;
@@ -1566,19 +1800,25 @@ public class PeerConnection {
         public static SdpSemantics valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SdpSemantics) Enum.valueOf(SdpSemantics.class, str) : (SdpSemantics) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SdpSemantics) Enum.valueOf(SdpSemantics.class, str);
+            }
+            return (SdpSemantics) invokeL.objValue;
         }
 
         public static SdpSemantics[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SdpSemantics[]) $VALUES.clone() : (SdpSemantics[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SdpSemantics[]) $VALUES.clone();
+            }
+            return (SdpSemantics[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class SignalingState {
+    /* loaded from: classes8.dex */
+    public final class SignalingState {
         public static final /* synthetic */ SignalingState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SignalingState CLOSED;
@@ -1631,29 +1871,37 @@ public class PeerConnection {
             }
         }
 
-        @CalledByNative("SignalingState")
         public static SignalingState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (SignalingState) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (SignalingState) invokeI.objValue;
         }
 
         public static SignalingState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (SignalingState) Enum.valueOf(SignalingState.class, str) : (SignalingState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (SignalingState) Enum.valueOf(SignalingState.class, str);
+            }
+            return (SignalingState) invokeL.objValue;
         }
 
         public static SignalingState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SignalingState[]) $VALUES.clone() : (SignalingState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (SignalingState[]) $VALUES.clone();
+            }
+            return (SignalingState[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class TcpCandidatePolicy {
+    /* loaded from: classes8.dex */
+    public final class TcpCandidatePolicy {
         public static final /* synthetic */ TcpCandidatePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TcpCandidatePolicy DISABLED;
@@ -1701,19 +1949,25 @@ public class PeerConnection {
         public static TcpCandidatePolicy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TcpCandidatePolicy) Enum.valueOf(TcpCandidatePolicy.class, str) : (TcpCandidatePolicy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TcpCandidatePolicy) Enum.valueOf(TcpCandidatePolicy.class, str);
+            }
+            return (TcpCandidatePolicy) invokeL.objValue;
         }
 
         public static TcpCandidatePolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TcpCandidatePolicy[]) $VALUES.clone() : (TcpCandidatePolicy[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TcpCandidatePolicy[]) $VALUES.clone();
+            }
+            return (TcpCandidatePolicy[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class TlsCertPolicy {
+    /* loaded from: classes8.dex */
+    public final class TlsCertPolicy {
         public static final /* synthetic */ TlsCertPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TlsCertPolicy TLS_CERT_POLICY_INSECURE_NO_CHECK;
@@ -1761,14 +2015,42 @@ public class PeerConnection {
         public static TlsCertPolicy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TlsCertPolicy) Enum.valueOf(TlsCertPolicy.class, str) : (TlsCertPolicy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TlsCertPolicy) Enum.valueOf(TlsCertPolicy.class, str);
+            }
+            return (TlsCertPolicy) invokeL.objValue;
         }
 
         public static TlsCertPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TlsCertPolicy[]) $VALUES.clone() : (TlsCertPolicy[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TlsCertPolicy[]) $VALUES.clone();
+            }
+            return (TlsCertPolicy[]) invokeV.objValue;
         }
+    }
+
+    public PeerConnection(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.localStreams = new ArrayList();
+        this.senders = new ArrayList();
+        this.receivers = new ArrayList();
+        this.transceivers = new ArrayList();
+        this.nativePeerConnection = j;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1794,96 +2076,30 @@ public class PeerConnection {
     public static long createNativePeerConnectionObserver(Observer observer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, observer)) == null) ? nativeCreatePeerConnectionObserver(observer) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, observer)) == null) {
+            return nativeCreatePeerConnectionObserver(observer);
+        }
+        return invokeL.longValue;
     }
-
-    private native boolean nativeAddIceCandidate(String str, int i, String str2);
-
-    private native boolean nativeAddLocalStream(long j);
-
-    private native RtpSender nativeAddTrack(long j, List<String> list);
-
-    private native RtpTransceiver nativeAddTransceiverOfType(MediaStreamTrack.MediaType mediaType, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
-
-    private native RtpTransceiver nativeAddTransceiverWithTrack(long j, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
-
-    private native void nativeClose();
-
-    private native PeerConnectionState nativeConnectionState();
-
-    private native void nativeCreateAnswer(SdpObserver sdpObserver, MediaConstraints mediaConstraints);
-
-    private native DataChannel nativeCreateDataChannel(String str, DataChannel.Init init);
-
-    private native void nativeCreateOffer(SdpObserver sdpObserver, MediaConstraints mediaConstraints);
-
-    public static native long nativeCreatePeerConnectionObserver(Observer observer);
-
-    private native RtpSender nativeCreateSender(String str, String str2);
-
-    public static native void nativeFreeOwnedPeerConnection(long j);
-
-    private native RtcCertificatePem nativeGetCertificate();
-
-    private native SessionDescription nativeGetLocalDescription();
-
-    private native long nativeGetNativePeerConnection();
-
-    private native List<RtpReceiver> nativeGetReceivers();
-
-    private native SessionDescription nativeGetRemoteDescription();
-
-    private native List<RtpSender> nativeGetSenders();
-
-    private native List<RtpTransceiver> nativeGetTransceivers();
-
-    private native IceConnectionState nativeIceConnectionState();
-
-    private native IceGatheringState nativeIceGatheringState();
-
-    private native void nativeNewGetStats(RTCStatsCollectorCallback rTCStatsCollectorCallback);
-
-    private native boolean nativeOldGetStats(StatsObserver statsObserver, long j);
-
-    private native boolean nativeRemoveIceCandidates(IceCandidate[] iceCandidateArr);
-
-    private native void nativeRemoveLocalStream(long j);
-
-    private native boolean nativeRemoveTrack(long j);
-
-    private native void nativeSetAudioPlayout(boolean z);
-
-    private native void nativeSetAudioRecording(boolean z);
-
-    private native boolean nativeSetBitrate(Integer num, Integer num2, Integer num3);
-
-    private native boolean nativeSetConfiguration(RTCConfiguration rTCConfiguration);
-
-    private native void nativeSetLocalDescription(SdpObserver sdpObserver, SessionDescription sessionDescription);
-
-    private native void nativeSetRemoteDescription(SdpObserver sdpObserver, SessionDescription sessionDescription);
-
-    private native SignalingState nativeSignalingState();
-
-    private native boolean nativeStartRtcEventLog(int i, int i2);
-
-    private native void nativeStopRtcEventLog();
 
     public boolean addIceCandidate(IceCandidate iceCandidate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iceCandidate)) == null) ? nativeAddIceCandidate(iceCandidate.sdpMid, iceCandidate.sdpMLineIndex, iceCandidate.sdp) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iceCandidate)) == null) {
+            return nativeAddIceCandidate(iceCandidate.sdpMid, iceCandidate.sdpMLineIndex, iceCandidate.sdp);
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean addStream(MediaStream mediaStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaStream)) == null) {
-            if (nativeAddLocalStream(mediaStream.getNativeMediaStream())) {
-                this.localStreams.add(mediaStream);
-                return true;
+            if (!nativeAddLocalStream(mediaStream.getNativeMediaStream())) {
+                return false;
             }
-            return false;
+            this.localStreams.add(mediaStream);
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -1891,185 +2107,35 @@ public class PeerConnection {
     public RtpSender addTrack(MediaStreamTrack mediaStreamTrack) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaStreamTrack)) == null) ? addTrack(mediaStreamTrack, Collections.emptyList()) : (RtpSender) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaStreamTrack)) == null) {
+            return addTrack(mediaStreamTrack, Collections.emptyList());
+        }
+        return (RtpSender) invokeL.objValue;
     }
 
-    public RtpTransceiver addTransceiver(MediaStreamTrack mediaStreamTrack) {
+    public RtpTransceiver addTransceiver(MediaStreamTrack.MediaType mediaType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaStreamTrack)) == null) ? addTransceiver(mediaStreamTrack, new RtpTransceiver.RtpTransceiverInit()) : (RtpTransceiver) invokeL.objValue;
-    }
-
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            nativeClose();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mediaType)) == null) {
+            return addTransceiver(mediaType, new RtpTransceiver.RtpTransceiverInit());
         }
+        return (RtpTransceiver) invokeL.objValue;
     }
 
-    public PeerConnectionState connectionState() {
-        InterceptResult invokeV;
+    public void getStats(RTCStatsCollectorCallback rTCStatsCollectorCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? nativeConnectionState() : (PeerConnectionState) invokeV.objValue;
-    }
-
-    public void createAnswer(SdpObserver sdpObserver, MediaConstraints mediaConstraints) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, sdpObserver, mediaConstraints) == null) {
-            nativeCreateAnswer(sdpObserver, mediaConstraints);
+        if (interceptable == null || interceptable.invokeL(1048598, this, rTCStatsCollectorCallback) == null) {
+            nativeNewGetStats(rTCStatsCollectorCallback);
         }
-    }
-
-    public DataChannel createDataChannel(String str, DataChannel.Init init) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, init)) == null) ? nativeCreateDataChannel(str, init) : (DataChannel) invokeLL.objValue;
-    }
-
-    public void createOffer(SdpObserver sdpObserver, MediaConstraints mediaConstraints) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, sdpObserver, mediaConstraints) == null) {
-            nativeCreateOffer(sdpObserver, mediaConstraints);
-        }
-    }
-
-    public RtpSender createSender(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
-            RtpSender nativeCreateSender = nativeCreateSender(str, str2);
-            if (nativeCreateSender != null) {
-                this.senders.add(nativeCreateSender);
-            }
-            return nativeCreateSender;
-        }
-        return (RtpSender) invokeLL.objValue;
-    }
-
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            close();
-            for (MediaStream mediaStream : this.localStreams) {
-                nativeRemoveLocalStream(mediaStream.getNativeMediaStream());
-                mediaStream.dispose();
-            }
-            this.localStreams.clear();
-            for (RtpSender rtpSender : this.senders) {
-                rtpSender.dispose();
-            }
-            this.senders.clear();
-            for (RtpReceiver rtpReceiver : this.receivers) {
-                rtpReceiver.dispose();
-            }
-            for (RtpTransceiver rtpTransceiver : this.transceivers) {
-                rtpTransceiver.dispose();
-            }
-            this.transceivers.clear();
-            this.receivers.clear();
-            nativeFreeOwnedPeerConnection(this.nativePeerConnection);
-        }
-    }
-
-    public RtcCertificatePem getCertificate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? nativeGetCertificate() : (RtcCertificatePem) invokeV.objValue;
-    }
-
-    public SessionDescription getLocalDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? nativeGetLocalDescription() : (SessionDescription) invokeV.objValue;
-    }
-
-    @CalledByNative
-    public long getNativeOwnedPeerConnection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.nativePeerConnection : invokeV.longValue;
-    }
-
-    public long getNativePeerConnection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? nativeGetNativePeerConnection() : invokeV.longValue;
-    }
-
-    public List<RtpReceiver> getReceivers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            for (RtpReceiver rtpReceiver : this.receivers) {
-                rtpReceiver.dispose();
-            }
-            List<RtpReceiver> nativeGetReceivers = nativeGetReceivers();
-            this.receivers = nativeGetReceivers;
-            return Collections.unmodifiableList(nativeGetReceivers);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public SessionDescription getRemoteDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? nativeGetRemoteDescription() : (SessionDescription) invokeV.objValue;
-    }
-
-    public List<RtpSender> getSenders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            for (RtpSender rtpSender : this.senders) {
-                rtpSender.dispose();
-            }
-            List<RtpSender> nativeGetSenders = nativeGetSenders();
-            this.senders = nativeGetSenders;
-            return Collections.unmodifiableList(nativeGetSenders);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Deprecated
-    public boolean getStats(StatsObserver statsObserver, @Nullable MediaStreamTrack mediaStreamTrack) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, statsObserver, mediaStreamTrack)) == null) {
-            return nativeOldGetStats(statsObserver, mediaStreamTrack == null ? 0L : mediaStreamTrack.getNativeMediaStreamTrack());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public List<RtpTransceiver> getTransceivers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            for (RtpTransceiver rtpTransceiver : this.transceivers) {
-                rtpTransceiver.dispose();
-            }
-            List<RtpTransceiver> nativeGetTransceivers = nativeGetTransceivers();
-            this.transceivers = nativeGetTransceivers;
-            return Collections.unmodifiableList(nativeGetTransceivers);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public IceConnectionState iceConnectionState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? nativeIceConnectionState() : (IceConnectionState) invokeV.objValue;
-    }
-
-    public IceGatheringState iceGatheringState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? nativeIceGatheringState() : (IceGatheringState) invokeV.objValue;
     }
 
     public boolean removeIceCandidates(IceCandidate[] iceCandidateArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iceCandidateArr)) == null) ? nativeRemoveIceCandidates(iceCandidateArr) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iceCandidateArr)) == null) {
+            return nativeRemoveIceCandidates(iceCandidateArr);
+        }
+        return invokeL.booleanValue;
     }
 
     public void removeStream(MediaStream mediaStream) {
@@ -2106,74 +2172,16 @@ public class PeerConnection {
         }
     }
 
-    public boolean setBitrate(Integer num, Integer num2, Integer num3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048608, this, num, num2, num3)) == null) ? nativeSetBitrate(num, num2, num3) : invokeLLL.booleanValue;
-    }
-
     public boolean setConfiguration(RTCConfiguration rTCConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, rTCConfiguration)) == null) ? nativeSetConfiguration(rTCConfiguration) : invokeL.booleanValue;
-    }
-
-    public void setLocalDescription(SdpObserver sdpObserver, SessionDescription sessionDescription) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, sdpObserver, sessionDescription) == null) {
-            nativeSetLocalDescription(sdpObserver, sessionDescription);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, rTCConfiguration)) == null) {
+            return nativeSetConfiguration(rTCConfiguration);
         }
+        return invokeL.booleanValue;
     }
 
-    public void setRemoteDescription(SdpObserver sdpObserver, SessionDescription sessionDescription) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, sdpObserver, sessionDescription) == null) {
-            nativeSetRemoteDescription(sdpObserver, sessionDescription);
-        }
-    }
-
-    public SignalingState signalingState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? nativeSignalingState() : (SignalingState) invokeV.objValue;
-    }
-
-    public boolean startRtcEventLog(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i, i2)) == null) ? nativeStartRtcEventLog(i, i2) : invokeII.booleanValue;
-    }
-
-    public void stopRtcEventLog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            nativeStopRtcEventLog();
-        }
-    }
-
-    public PeerConnection(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.localStreams = new ArrayList();
-        this.senders = new ArrayList();
-        this.receivers = new ArrayList();
-        this.transceivers = new ArrayList();
-        this.nativePeerConnection = j;
-    }
-
-    public RtpSender addTrack(MediaStreamTrack mediaStreamTrack, List<String> list) {
+    public RtpSender addTrack(MediaStreamTrack mediaStreamTrack, List list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, mediaStreamTrack, list)) == null) {
@@ -2188,6 +2196,35 @@ public class PeerConnection {
             throw new NullPointerException("No MediaStreamTrack specified in addTrack.");
         }
         return (RtpSender) invokeLL.objValue;
+    }
+
+    public RtpTransceiver addTransceiver(MediaStreamTrack.MediaType mediaType, @Nullable RtpTransceiver.RtpTransceiverInit rtpTransceiverInit) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, mediaType, rtpTransceiverInit)) == null) {
+            if (mediaType != null) {
+                if (rtpTransceiverInit == null) {
+                    rtpTransceiverInit = new RtpTransceiver.RtpTransceiverInit();
+                }
+                RtpTransceiver nativeAddTransceiverOfType = nativeAddTransceiverOfType(mediaType, rtpTransceiverInit);
+                if (nativeAddTransceiverOfType != null) {
+                    this.transceivers.add(nativeAddTransceiverOfType);
+                    return nativeAddTransceiverOfType;
+                }
+                throw new IllegalStateException("C++ addTransceiver failed.");
+            }
+            throw new NullPointerException("No MediaType specified for addTransceiver.");
+        }
+        return (RtpTransceiver) invokeLL.objValue;
+    }
+
+    public RtpTransceiver addTransceiver(MediaStreamTrack mediaStreamTrack) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaStreamTrack)) == null) {
+            return addTransceiver(mediaStreamTrack, new RtpTransceiver.RtpTransceiverInit());
+        }
+        return (RtpTransceiver) invokeL.objValue;
     }
 
     public RtpTransceiver addTransceiver(MediaStreamTrack mediaStreamTrack, @Nullable RtpTransceiver.RtpTransceiverInit rtpTransceiverInit) {
@@ -2210,36 +2247,249 @@ public class PeerConnection {
         return (RtpTransceiver) invokeLL.objValue;
     }
 
-    public void getStats(RTCStatsCollectorCallback rTCStatsCollectorCallback) {
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, rTCStatsCollectorCallback) == null) {
-            nativeNewGetStats(rTCStatsCollectorCallback);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            nativeClose();
         }
     }
 
-    public RtpTransceiver addTransceiver(MediaStreamTrack.MediaType mediaType) {
-        InterceptResult invokeL;
+    public PeerConnectionState connectionState() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mediaType)) == null) ? addTransceiver(mediaType, new RtpTransceiver.RtpTransceiverInit()) : (RtpTransceiver) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return nativeConnectionState();
+        }
+        return (PeerConnectionState) invokeV.objValue;
     }
 
-    public RtpTransceiver addTransceiver(MediaStreamTrack.MediaType mediaType, @Nullable RtpTransceiver.RtpTransceiverInit rtpTransceiverInit) {
+    public RtcCertificatePem getCertificate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return nativeGetCertificate();
+        }
+        return (RtcCertificatePem) invokeV.objValue;
+    }
+
+    public SessionDescription getLocalDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return nativeGetLocalDescription();
+        }
+        return (SessionDescription) invokeV.objValue;
+    }
+
+    public long getNativeOwnedPeerConnection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.nativePeerConnection;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getNativePeerConnection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return nativeGetNativePeerConnection();
+        }
+        return invokeV.longValue;
+    }
+
+    public SessionDescription getRemoteDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return nativeGetRemoteDescription();
+        }
+        return (SessionDescription) invokeV.objValue;
+    }
+
+    public IceConnectionState iceConnectionState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return nativeIceConnectionState();
+        }
+        return (IceConnectionState) invokeV.objValue;
+    }
+
+    public IceGatheringState iceGatheringState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return nativeIceGatheringState();
+        }
+        return (IceGatheringState) invokeV.objValue;
+    }
+
+    public SignalingState signalingState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return nativeSignalingState();
+        }
+        return (SignalingState) invokeV.objValue;
+    }
+
+    public void stopRtcEventLog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            nativeStopRtcEventLog();
+        }
+    }
+
+    public void createAnswer(SdpObserver sdpObserver, MediaConstraints mediaConstraints) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, sdpObserver, mediaConstraints) == null) {
+            nativeCreateAnswer(sdpObserver, mediaConstraints);
+        }
+    }
+
+    public DataChannel createDataChannel(String str, DataChannel.Init init) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, mediaType, rtpTransceiverInit)) == null) {
-            if (mediaType != null) {
-                if (rtpTransceiverInit == null) {
-                    rtpTransceiverInit = new RtpTransceiver.RtpTransceiverInit();
-                }
-                RtpTransceiver nativeAddTransceiverOfType = nativeAddTransceiverOfType(mediaType, rtpTransceiverInit);
-                if (nativeAddTransceiverOfType != null) {
-                    this.transceivers.add(nativeAddTransceiverOfType);
-                    return nativeAddTransceiverOfType;
-                }
-                throw new IllegalStateException("C++ addTransceiver failed.");
-            }
-            throw new NullPointerException("No MediaType specified for addTransceiver.");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, init)) == null) {
+            return nativeCreateDataChannel(str, init);
         }
-        return (RtpTransceiver) invokeLL.objValue;
+        return (DataChannel) invokeLL.objValue;
+    }
+
+    public void createOffer(SdpObserver sdpObserver, MediaConstraints mediaConstraints) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, sdpObserver, mediaConstraints) == null) {
+            nativeCreateOffer(sdpObserver, mediaConstraints);
+        }
+    }
+
+    public RtpSender createSender(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            RtpSender nativeCreateSender = nativeCreateSender(str, str2);
+            if (nativeCreateSender != null) {
+                this.senders.add(nativeCreateSender);
+            }
+            return nativeCreateSender;
+        }
+        return (RtpSender) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public boolean getStats(StatsObserver statsObserver, @Nullable MediaStreamTrack mediaStreamTrack) {
+        InterceptResult invokeLL;
+        long nativeMediaStreamTrack;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, statsObserver, mediaStreamTrack)) == null) {
+            if (mediaStreamTrack == null) {
+                nativeMediaStreamTrack = 0;
+            } else {
+                nativeMediaStreamTrack = mediaStreamTrack.getNativeMediaStreamTrack();
+            }
+            return nativeOldGetStats(statsObserver, nativeMediaStreamTrack);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void setLocalDescription(SdpObserver sdpObserver, SessionDescription sessionDescription) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048610, this, sdpObserver, sessionDescription) == null) {
+            nativeSetLocalDescription(sdpObserver, sessionDescription);
+        }
+    }
+
+    public void setRemoteDescription(SdpObserver sdpObserver, SessionDescription sessionDescription) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048611, this, sdpObserver, sessionDescription) == null) {
+            nativeSetRemoteDescription(sdpObserver, sessionDescription);
+        }
+    }
+
+    public boolean startRtcEventLog(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i, i2)) == null) {
+            return nativeStartRtcEventLog(i, i2);
+        }
+        return invokeII.booleanValue;
+    }
+
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            close();
+            for (MediaStream mediaStream : this.localStreams) {
+                nativeRemoveLocalStream(mediaStream.getNativeMediaStream());
+                mediaStream.dispose();
+            }
+            this.localStreams.clear();
+            for (RtpSender rtpSender : this.senders) {
+                rtpSender.dispose();
+            }
+            this.senders.clear();
+            for (RtpReceiver rtpReceiver : this.receivers) {
+                rtpReceiver.dispose();
+            }
+            for (RtpTransceiver rtpTransceiver : this.transceivers) {
+                rtpTransceiver.dispose();
+            }
+            this.transceivers.clear();
+            this.receivers.clear();
+            nativeFreeOwnedPeerConnection(this.nativePeerConnection);
+        }
+    }
+
+    public List getReceivers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            for (RtpReceiver rtpReceiver : this.receivers) {
+                rtpReceiver.dispose();
+            }
+            List nativeGetReceivers = nativeGetReceivers();
+            this.receivers = nativeGetReceivers;
+            return Collections.unmodifiableList(nativeGetReceivers);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getSenders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            for (RtpSender rtpSender : this.senders) {
+                rtpSender.dispose();
+            }
+            List nativeGetSenders = nativeGetSenders();
+            this.senders = nativeGetSenders;
+            return Collections.unmodifiableList(nativeGetSenders);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getTransceivers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            for (RtpTransceiver rtpTransceiver : this.transceivers) {
+                rtpTransceiver.dispose();
+            }
+            List nativeGetTransceivers = nativeGetTransceivers();
+            this.transceivers = nativeGetTransceivers;
+            return Collections.unmodifiableList(nativeGetTransceivers);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean setBitrate(Integer num, Integer num2, Integer num3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048608, this, num, num2, num3)) == null) {
+            return nativeSetBitrate(num, num2, num3);
+        }
+        return invokeLLL.booleanValue;
     }
 }

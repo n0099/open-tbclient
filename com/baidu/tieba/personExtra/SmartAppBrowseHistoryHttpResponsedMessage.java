@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.r68;
+import com.baidu.tieba.b78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.HistorySwan.HistorySwanResIdl;
 public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r68 mData;
+    public b78 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistoryHttpResponsedMessage() {
@@ -36,10 +36,13 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
         }
     }
 
-    public r68 getData() {
+    public b78 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (r68) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mData;
+        }
+        return (b78) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +50,7 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         HistorySwanResIdl historySwanResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (historySwanResIdl = (HistorySwanResIdl) new Wire(new Class[0]).parseFrom(bArr, HistorySwanResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (historySwanResIdl = (HistorySwanResIdl) new Wire(new Class[0]).parseFrom(bArr, HistorySwanResIdl.class)) == null) {
             return;
         }
         Error error = historySwanResIdl.error;
@@ -56,9 +59,9 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
             setErrorString(historySwanResIdl.error.usermsg);
         }
         if (historySwanResIdl.data != null) {
-            r68 r68Var = new r68();
-            this.mData = r68Var;
-            r68Var.b(historySwanResIdl.data);
+            b78 b78Var = new b78();
+            this.mData = b78Var;
+            b78Var.b(historySwanResIdl.data);
         }
     }
 }

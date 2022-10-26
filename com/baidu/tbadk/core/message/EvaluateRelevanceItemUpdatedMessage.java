@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class EvaluateRelevanceItemUpdatedMessage extends CustomResponsedMessage<Object> {
+public class EvaluateRelevanceItemUpdatedMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> tabs;
+    public List tabs;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EvaluateRelevanceItemUpdatedMessage(List<String> list) {
+    public EvaluateRelevanceItemUpdatedMessage(List list) {
         super(2921522);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

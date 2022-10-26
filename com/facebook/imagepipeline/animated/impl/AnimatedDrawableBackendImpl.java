@@ -20,7 +20,6 @@ import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.animated.util.AnimatedDrawableUtil;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +35,6 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public final Rect mRenderDstRect;
     public final Rect mRenderSrcRect;
     public final Rect mRenderedBounds;
-    @GuardedBy("this")
     @Nullable
     public Bitmap mTempBitmap;
 
@@ -84,6 +82,124 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
                 }
             }
         }
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public synchronized void dropCaches() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                clearTempBitmap();
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public AnimatedImageResult getAnimatedImageResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAnimatedImageResult;
+        }
+        return (AnimatedImageResult) invokeV.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getDurationMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDurationMs;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getFrameCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mAnimatedImage.getFrameCount();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getFrameForPreview() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mAnimatedImageResult.getFrameForPreview();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mAnimatedImage.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getLoopCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mAnimatedImage.getLoopCount();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public synchronized int getMemoryUsage() {
+        InterceptResult invokeV;
+        int sizeInBytes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                int i = 0;
+                if (this.mTempBitmap != null) {
+                    i = 0 + this.mAnimatedDrawableUtil.getSizeOfBitmap(this.mTempBitmap);
+                }
+                sizeInBytes = i + this.mAnimatedImage.getSizeInBytes();
+            }
+            return sizeInBytes;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getRenderedHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mRenderedBounds.height();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getRenderedWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mRenderedBounds.width();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mAnimatedImage.getWidth();
+        }
+        return invokeV.intValue;
     }
 
     public static Rect getBoundsToUse(AnimatedImage animatedImage, Rect rect) {
@@ -165,118 +281,56 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public synchronized void dropCaches() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                clearTempBitmap();
-            }
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
     public AnimatedDrawableBackend forNewBounds(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) ? getBoundsToUse(this.mAnimatedImage, rect).equals(this.mRenderedBounds) ? this : new AnimatedDrawableBackendImpl(this.mAnimatedDrawableUtil, this.mAnimatedImageResult, rect, this.mDownscaleFrameToDrawableDimensions) : (AnimatedDrawableBackend) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public AnimatedImageResult getAnimatedImageResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAnimatedImageResult : (AnimatedImageResult) invokeV.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getDurationMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDurationMs : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
+            if (getBoundsToUse(this.mAnimatedImage, rect).equals(this.mRenderedBounds)) {
+                return this;
+            }
+            return new AnimatedDrawableBackendImpl(this.mAnimatedDrawableUtil, this.mAnimatedImageResult, rect, this.mDownscaleFrameToDrawableDimensions);
+        }
+        return (AnimatedDrawableBackend) invokeL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
     public int getDurationMsForFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.mFrameDurationsMs[i] : invokeI.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getFrameCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mAnimatedImage.getFrameCount() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getFrameForPreview() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mAnimatedImageResult.getFrameForPreview() : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.mFrameDurationsMs[i];
+        }
+        return invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
     public int getFrameForTimestampMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.mAnimatedDrawableUtil.getFrameForTimestampMs(this.mFrameTimestampsMs, i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return this.mAnimatedDrawableUtil.getFrameForTimestampMs(this.mFrameTimestampsMs, i);
+        }
+        return invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
     public AnimatedDrawableFrameInfo getFrameInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.mFrameInfos[i] : (AnimatedDrawableFrameInfo) invokeI.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mAnimatedImage.getHeight() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getLoopCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mAnimatedImage.getLoopCount() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public synchronized int getMemoryUsage() {
-        InterceptResult invokeV;
-        int sizeOfBitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this) {
-                sizeOfBitmap = (this.mTempBitmap != null ? 0 + this.mAnimatedDrawableUtil.getSizeOfBitmap(this.mTempBitmap) : 0) + this.mAnimatedImage.getSizeInBytes();
-            }
-            return sizeOfBitmap;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return this.mFrameInfos[i];
         }
-        return invokeV.intValue;
+        return (AnimatedDrawableFrameInfo) invokeI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public CloseableReference<Bitmap> getPreDecodedFrame(int i) {
+    public CloseableReference getPreDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.mAnimatedImageResult.getDecodedFrame(i) : (CloseableReference) invokeI.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getRenderedHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mRenderedBounds.height() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getRenderedWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mRenderedBounds.width() : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            return this.mAnimatedImageResult.getDecodedFrame(i);
+        }
+        return (CloseableReference) invokeI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -291,17 +345,13 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mAnimatedImage.getWidth() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
     public boolean hasPreDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? this.mAnimatedImageResult.hasDecodedFrame(i) : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            return this.mAnimatedImageResult.hasDecodedFrame(i);
+        }
+        return invokeI.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend

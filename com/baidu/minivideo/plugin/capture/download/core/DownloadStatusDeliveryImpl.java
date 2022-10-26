@@ -19,7 +19,7 @@ public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
     public Executor mDownloadStatusPoster;
 
     /* loaded from: classes2.dex */
-    public static class DownloadStatusDeliveryRunnable implements Runnable {
+    public class DownloadStatusDeliveryRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DownloadCallback mCallBack;
@@ -63,11 +63,11 @@ public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
                         return;
                     case 105:
                         LogUtils.d(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.mDownloadStatus.getSavedPath());
-                        if (this.mDownloadStatus.getCalledCompleted()) {
+                        if (!this.mDownloadStatus.getCalledCompleted()) {
+                            this.mDownloadStatus.setCalledCompleted(true);
+                            this.mCallBack.onCompleted(this.mDownloadStatus.getSavedPath());
                             return;
                         }
-                        this.mDownloadStatus.setCalledCompleted(true);
-                        this.mCallBack.onCompleted(this.mDownloadStatus.getSavedPath());
                         return;
                     case 106:
                         LogUtils.d(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");

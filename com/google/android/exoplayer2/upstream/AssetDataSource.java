@@ -19,12 +19,12 @@ public final class AssetDataSource implements DataSource {
     public final AssetManager assetManager;
     public long bytesRemaining;
     public InputStream inputStream;
-    public final TransferListener<? super AssetDataSource> listener;
+    public final TransferListener listener;
     public boolean opened;
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public static final class AssetDataSourceException extends IOException {
+    public final class AssetDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,6 +70,25 @@ public final class AssetDataSource implements DataSource {
         }
     }
 
+    public AssetDataSource(Context context, TransferListener transferListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, transferListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.assetManager = context.getAssets();
+        this.listener = transferListener;
+    }
+
     @Override // com.google.android.exoplayer2.upstream.DataSource
     public void close() throws AssetDataSourceException {
         Interceptable interceptable = $ic;
@@ -87,7 +106,7 @@ public final class AssetDataSource implements DataSource {
                 this.inputStream = null;
                 if (this.opened) {
                     this.opened = false;
-                    TransferListener<? super AssetDataSource> transferListener = this.listener;
+                    TransferListener transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferEnd(this);
                     }
@@ -100,7 +119,10 @@ public final class AssetDataSource implements DataSource {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.uri;
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
@@ -130,7 +152,7 @@ public final class AssetDataSource implements DataSource {
                         }
                     }
                     this.opened = true;
-                    TransferListener<? super AssetDataSource> transferListener = this.listener;
+                    TransferListener transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferStart(this, dataSpec);
                     }
@@ -174,31 +196,12 @@ public final class AssetDataSource implements DataSource {
             if (j2 != -1) {
                 this.bytesRemaining = j2 - read;
             }
-            TransferListener<? super AssetDataSource> transferListener = this.listener;
+            TransferListener transferListener = this.listener;
             if (transferListener != null) {
                 transferListener.onBytesTransferred(this, read);
             }
             return read;
         }
         return invokeLII.intValue;
-    }
-
-    public AssetDataSource(Context context, TransferListener<? super AssetDataSource> transferListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, transferListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.assetManager = context.getAssets();
-        this.listener = transferListener;
     }
 }

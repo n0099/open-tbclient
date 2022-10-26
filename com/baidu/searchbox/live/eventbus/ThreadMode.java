@@ -14,6 +14,12 @@ public class ThreadMode {
     public static final int POSTING = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isValid(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
+    }
+
     public ThreadMode() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,11 +32,5 @@ public class ThreadMode {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static boolean isValid(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
     }
 }

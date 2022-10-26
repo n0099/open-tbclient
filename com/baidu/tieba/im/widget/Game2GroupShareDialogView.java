@@ -15,7 +15,7 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,6 +33,27 @@ public class Game2GroupShareDialogView extends LinearLayout {
     public TextView f;
     public TextView g;
     public ShareFromGameCenterMsgData h;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Game2GroupShareDialogView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        b(context);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Game2GroupShareDialogView(Context context, AttributeSet attributeSet) {
@@ -65,23 +86,45 @@ public class Game2GroupShareDialogView extends LinearLayout {
         }
     }
 
+    public EditText getChatMsgView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public String getLeaveMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            EditText editText = this.b;
+            if (editText == null) {
+                return null;
+            }
+            return ej.charSequence2String(editText.getText(), null);
+        }
+        return (String) invokeV.objValue;
+    }
+
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0378, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0377, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c80);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb2);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090c7e);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c83);
-            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090c82);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7f);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c8a);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb1);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090c88);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c8d);
+            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090c8c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c89);
             SkinManager.setViewTextColor(this.f, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0106, 1);
             this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090c87);
             this.g = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
             a();
@@ -93,33 +136,25 @@ public class Game2GroupShareDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f.setText(this.h.getTitle());
             this.c.setTag(this.h.getImageUrl());
-            this.c.K(this.h.getImageUrl(), 17, false);
+            this.c.L(this.h.getImageUrl(), 17, false);
             this.d.setVisibility(0);
             this.d.setTag(this.h.getShareSourceIcon());
-            this.d.K(this.h.getShareSourceIcon(), 17, false);
+            this.d.L(this.h.getShareSourceIcon(), 17, false);
             this.e.setText(this.h.getContent());
             TextView textView = this.g;
             textView.setText("来自" + this.h.getShareSource());
         }
     }
 
-    public EditText getChatMsgView() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.LinearLayout, android.view.ViewGroup
+    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (EditText) invokeV.objValue;
-    }
-
-    public String getLeaveMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            EditText editText = this.b;
-            if (editText != null) {
-                return dj.charSequence2String(editText.getText(), null);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new LinearLayout.LayoutParams(-1, -2);
         }
-        return (String) invokeV.objValue;
+        return (LinearLayout.LayoutParams) invokeV.objValue;
     }
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData) {
@@ -138,38 +173,9 @@ public class Game2GroupShareDialogView extends LinearLayout {
                 shareFromPBMsgData.setImageUrl("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
             }
             this.c.setTag(shareFromPBMsgData.getImageUrl());
-            this.c.K(shareFromPBMsgData.getImageUrl(), 17, false);
+            this.c.L(shareFromPBMsgData.getImageUrl(), 17, false);
             this.d.setVisibility(8);
             this.e.setText(shareFromPBMsgData.getContent());
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Game2GroupShareDialogView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b(context);
     }
 }

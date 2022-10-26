@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -115,13 +114,13 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int m83if = this.tq.m83if();
+                        int m82if = this.tq.m82if();
                         int S = this.tq.S(this.tr);
                         if (this.tq.to != null) {
                             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.tq.to.getLayoutParams();
                             layoutParams.width = -1;
-                            layoutParams.topMargin = m83if;
-                            layoutParams.height = (az.getScreenHeight(this.tq.getContext()) - m83if) - S;
+                            layoutParams.topMargin = m82if;
+                            layoutParams.height = (az.getScreenHeight(this.tq.getContext()) - m82if) - S;
                             this.tq.to.setLayoutParams(layoutParams);
                         }
                     }
@@ -139,7 +138,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public int m83if() {
+    public int m82if() {
         InterceptResult invokeV;
         ViewGroup viewGroup;
         int height;
@@ -184,7 +183,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
             }
 
             @Override // com.kwad.components.core.webview.b.c, com.kwad.sdk.core.webview.kwai.a
-            public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+            public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, cVar) == null) {
                     super.a(str, cVar);
@@ -223,7 +222,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
             }
 
             @Override // com.kwad.components.core.webview.b.b, com.kwad.sdk.core.webview.kwai.a
-            public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+            public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, cVar) == null) {
                     super.a(str, cVar);
@@ -252,7 +251,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
             this.tp = ig();
             this.nM.a(this.mt);
             hVar.c(this.tp);
-            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0583a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
+            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0579a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b tq;
@@ -275,7 +274,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
                     this.tq = this;
                 }
 
-                @Override // com.kwad.components.core.webview.b.a.InterfaceC0583a
+                @Override // com.kwad.components.core.webview.b.a.InterfaceC0579a
                 public final void ii() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -377,12 +376,12 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onCreate();
-            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910e4);
-            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910e6);
-            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09111e);
-            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910e3);
-            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091124);
-            this.tm = findViewById(R.id.obfuscated_res_0x7f091087);
+            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910d8);
+            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910da);
+            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091112);
+            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910d7);
+            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091118);
+            this.tm = findViewById(R.id.obfuscated_res_0x7f09107b);
         }
     }
 

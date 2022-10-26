@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
-import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vk7 implements LiveLikeProxyService {
+public class vk7 extends gf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,15 @@ public class vk7 implements LiveLikeProxyService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService
-    public ILiveLikeView buildLikeViewInstance() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gf1
+    /* renamed from: a */
+    public AbConfigService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new wk7() : (ILiveLikeView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new wk7();
+        }
+        return (AbConfigService) invokeV.objValue;
     }
 }

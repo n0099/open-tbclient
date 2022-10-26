@@ -33,24 +33,24 @@ public class IMMediaBuildSessionListener implements IMListener {
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicInteger count;
     public Context mContext;
-    public BIMValueCallBack<ArrayList<GroupInfo>> mGetGroupInfoListener;
+    public BIMValueCallBack mGetGroupInfoListener;
     public IGetPaInfosListener mGetPaInfosListener;
     public IGetUserIdentityListener mGetUserIdentityListener;
     public boolean mHasMore;
     public IMediaGetChatSessionListener mListener;
     public int mNewNum;
     public int mResultCode;
-    public List<ChatSession> mResultList;
+    public List mResultList;
     public int mTopHasMore;
 
     /* loaded from: classes.dex */
-    public class GetGroupInfoListener implements BIMValueCallBack<ArrayList<GroupInfo>> {
+    public class GetGroupInfoListener implements BIMValueCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, ChatSession> mGroupMap;
+        public Map mGroupMap;
         public final /* synthetic */ IMMediaBuildSessionListener this$0;
 
-        public GetGroupInfoListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map<String, ChatSession> map) {
+        public GetGroupInfoListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,36 +71,38 @@ public class IMMediaBuildSessionListener implements IMListener {
 
         private void updateChatSessionByGroupInfo(ChatSession chatSession, GroupInfo groupInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65537, this, chatSession, groupInfo) == null) || chatSession == null || groupInfo == null) {
-                return;
-            }
-            chatSession.setName(groupInfo.getGroupName());
-            chatSession.setChatType(groupInfo.getType() == 3 ? 57 : 3);
-            chatSession.setBusinessType(2);
-            chatSession.setIconUrl(groupInfo.getHeadUrl());
-            if (chatSession.getLastMsgUid() > 0) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(String.valueOf(chatSession.getLastMsgUid()));
-                ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(this.this$0.mContext, groupInfo.getGroupId(), arrayList, 1);
-                if (groupMember == null || groupMember.size() <= 0) {
-                    return;
+            if ((interceptable == null || interceptable.invokeLL(65537, this, chatSession, groupInfo) == null) && chatSession != null && groupInfo != null) {
+                chatSession.setName(groupInfo.getGroupName());
+                int i = 3;
+                if (groupInfo.getType() == 3) {
+                    i = 57;
                 }
-                chatSession.setLastMsgName(groupMember.get(0).getShowName());
+                chatSession.setChatType(i);
+                chatSession.setBusinessType(2);
+                chatSession.setIconUrl(groupInfo.getHeadUrl());
+                if (chatSession.getLastMsgUid() > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(String.valueOf(chatSession.getLastMsgUid()));
+                    ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(this.this$0.mContext, groupInfo.getGroupId(), arrayList, 1);
+                    if (groupMember != null && groupMember.size() > 0) {
+                        chatSession.setLastMsgName(((GroupMember) groupMember.get(0)).getShowName());
+                    }
+                }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-        public void onResult(int i, String str, ArrayList<GroupInfo> arrayList) {
+        public void onResult(int i, String str, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, arrayList) == null) {
                 if (i == 0 && arrayList != null && this.mGroupMap != null) {
-                    Iterator<GroupInfo> it = arrayList.iterator();
+                    Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
-                        GroupInfo next = it.next();
-                        ChatSession chatSession = this.mGroupMap.get(next.getGroupId());
+                        GroupInfo groupInfo = (GroupInfo) it.next();
+                        ChatSession chatSession = (ChatSession) this.mGroupMap.get(groupInfo.getGroupId());
                         if (chatSession != null) {
-                            updateChatSessionByGroupInfo(chatSession, next);
+                            updateChatSessionByGroupInfo(chatSession, groupInfo);
                             this.this$0.mResultList.add(chatSession);
                         }
                     }
@@ -114,10 +116,10 @@ public class IMMediaBuildSessionListener implements IMListener {
     public class GetPaInfosListener implements IGetPaInfosListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<Long, ChatSession> mPaMap;
+        public Map mPaMap;
         public final /* synthetic */ IMMediaBuildSessionListener this$0;
 
-        public GetPaInfosListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map<Long, ChatSession> map) {
+        public GetPaInfosListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,45 +140,44 @@ public class IMMediaBuildSessionListener implements IMListener {
 
         private void updateChatSessionByPaInfo(ChatSession chatSession, PaInfo paInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65537, this, chatSession, paInfo) == null) || chatSession == null || paInfo == null) {
-                return;
-            }
-            chatSession.setName(paInfo.getNickName());
-            chatSession.setChatType(paInfo.getSubtype());
-            chatSession.setBusinessType(Utility.getBusinessType(paInfo.getSubtype(), paInfo.getSubsetType()));
-            chatSession.setIconUrl(paInfo.getAvatar());
-            chatSession.setClassType(paInfo.getClassType());
-            chatSession.setClassTitle(paInfo.getClassTitle());
-            chatSession.setClassAvatar(paInfo.getClassavatar());
-            chatSession.setClassShow(paInfo.getClassshow());
-            chatSession.setShield(paInfo.getShield());
-            chatSession.setShieldTime(paInfo.getShieldTime());
-            chatSession.setVipId(paInfo.getVipId());
-            chatSession.setVPortrait(paInfo.getVPortrait());
-            chatSession.setCertification(paInfo.getIdentity());
-            try {
-                PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.this$0.mContext).queryPaInfo(paInfo.getPaId());
-                if (queryPaInfo == null || queryPaInfo.getPaId() < 1) {
-                    paInfo.setMarkTop(chatSession.getMarkTop());
-                    paInfo.setMarkTopTime(chatSession.getLastMsgTime());
-                    PaInfoDBManager.getInstance(this.this$0.mContext).subscribePa(paInfo);
+            if ((interceptable == null || interceptable.invokeLL(65537, this, chatSession, paInfo) == null) && chatSession != null && paInfo != null) {
+                chatSession.setName(paInfo.getNickName());
+                chatSession.setChatType(paInfo.getSubtype());
+                chatSession.setBusinessType(Utility.getBusinessType(paInfo.getSubtype(), paInfo.getSubsetType()));
+                chatSession.setIconUrl(paInfo.getAvatar());
+                chatSession.setClassType(paInfo.getClassType());
+                chatSession.setClassTitle(paInfo.getClassTitle());
+                chatSession.setClassAvatar(paInfo.getClassavatar());
+                chatSession.setClassShow(paInfo.getClassshow());
+                chatSession.setShield(paInfo.getShield());
+                chatSession.setShieldTime(paInfo.getShieldTime());
+                chatSession.setVipId(paInfo.getVipId());
+                chatSession.setVPortrait(paInfo.getVPortrait());
+                chatSession.setCertification(paInfo.getIdentity());
+                try {
+                    PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.this$0.mContext).queryPaInfo(paInfo.getPaId());
+                    if (queryPaInfo == null || queryPaInfo.getPaId() < 1) {
+                        paInfo.setMarkTop(chatSession.getMarkTop());
+                        paInfo.setMarkTopTime(chatSession.getLastMsgTime());
+                        PaInfoDBManager.getInstance(this.this$0.mContext).subscribePa(paInfo);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
 
         @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-        public void onResult(int i, String str, ArrayList<PaInfo> arrayList) {
+        public void onResult(int i, String str, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, arrayList) == null) {
                 if (i == 0 && arrayList != null && this.mPaMap != null) {
-                    Iterator<PaInfo> it = arrayList.iterator();
+                    Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
-                        PaInfo next = it.next();
-                        ChatSession chatSession = this.mPaMap.get(Long.valueOf(next.getPaId()));
+                        PaInfo paInfo = (PaInfo) it.next();
+                        ChatSession chatSession = (ChatSession) this.mPaMap.get(Long.valueOf(paInfo.getPaId()));
                         if (chatSession != null) {
-                            updateChatSessionByPaInfo(this.mPaMap.get(Long.valueOf(next.getPaId())), next);
+                            updateChatSessionByPaInfo((ChatSession) this.mPaMap.get(Long.valueOf(paInfo.getPaId())), paInfo);
                             this.this$0.mResultList.add(chatSession);
                         }
                     }
@@ -190,10 +191,10 @@ public class IMMediaBuildSessionListener implements IMListener {
     public class GetUserIdentityListener implements IGetUserIdentityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<Long, ChatSession> mUserMap;
+        public Map mUserMap;
         public final /* synthetic */ IMMediaBuildSessionListener this$0;
 
-        public GetUserIdentityListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map<Long, ChatSession> map) {
+        public GetUserIdentityListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -214,40 +215,41 @@ public class IMMediaBuildSessionListener implements IMListener {
 
         private void updateChatSessionByChatUser(ChatSession chatSession, ChatUser chatUser) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65537, this, chatSession, chatUser) == null) || chatSession == null || chatUser == null) {
-                return;
-            }
-            chatSession.setName(chatUser.getUserName());
-            chatSession.setChatType(0);
-            chatSession.setBusinessType(1);
-            chatSession.setIconUrl(chatUser.getIconUrl());
-            chatSession.setClassType(0);
-            chatSession.setClassShow(0);
-            chatSession.setShield(chatUser.getShield());
-            chatSession.setShieldTime(chatUser.getShieldTime());
-            chatSession.setVipId(chatUser.getVipId());
-            chatSession.setVPortrait(chatUser.getVPortrait());
-            chatSession.setCertification(chatUser.getIdentity());
-            chatSession.setContacter(chatUser.getUk());
-            try {
-                ChatUser chatUser2 = ChatUserDBManager.getInstance(this.this$0.mContext).getChatUser(chatUser.getUk());
-                if (chatUser2 == null || chatUser2.getUk() < 1) {
-                    chatUser.setMarkTop(chatSession.getMarkTop());
-                    chatUser.setMarkTopTime(chatSession.getLastMsgTime());
-                    ChatUserDBManager.getInstance(this.this$0.mContext).updateUser(chatUser);
+            if ((interceptable == null || interceptable.invokeLL(65537, this, chatSession, chatUser) == null) && chatSession != null && chatUser != null) {
+                chatSession.setName(chatUser.getUserName());
+                chatSession.setChatType(0);
+                chatSession.setBusinessType(1);
+                chatSession.setIconUrl(chatUser.getIconUrl());
+                chatSession.setClassType(0);
+                chatSession.setClassShow(0);
+                chatSession.setShield(chatUser.getShield());
+                chatSession.setShieldTime(chatUser.getShieldTime());
+                chatSession.setVipId(chatUser.getVipId());
+                chatSession.setVPortrait(chatUser.getVPortrait());
+                chatSession.setCertification(chatUser.getIdentity());
+                chatSession.setContacter(chatUser.getUk());
+                try {
+                    ChatUser chatUser2 = ChatUserDBManager.getInstance(this.this$0.mContext).getChatUser(chatUser.getUk());
+                    if (chatUser2 == null || chatUser2.getUk() < 1) {
+                        chatUser.setMarkTop(chatSession.getMarkTop());
+                        chatUser.setMarkTopTime(chatSession.getLastMsgTime());
+                        ChatUserDBManager.getInstance(this.this$0.mContext).updateUser(chatUser);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
 
         @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-        public void onGetUserIdentityResult(int i, List<ChatUser> list) {
+        public void onGetUserIdentityResult(int i, List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
                 if (i == 0 && list != null && this.mUserMap != null) {
-                    for (ChatUser chatUser : list) {
-                        ChatSession chatSession = this.mUserMap.get(Long.valueOf(chatUser.getBuid()));
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        ChatUser chatUser = (ChatUser) it.next();
+                        ChatSession chatSession = (ChatSession) this.mUserMap.get(Long.valueOf(chatUser.getBuid()));
                         if (chatSession != null) {
                             updateChatSessionByChatUser(chatSession, chatUser);
                             this.this$0.mResultList.add(chatSession);
@@ -290,24 +292,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         this.mTopHasMore = i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void callBack(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
-            this.mResultCode |= i;
-            if (this.count.decrementAndGet() != 0 || this.mListener == null) {
-                return;
-            }
-            if (this.mResultList.size() > 0) {
-                this.mResultCode = 0;
-            } else {
-                this.mResultCode = i;
-            }
-            this.mListener.onMediaGetChatSessionResult(0, this.mNewNum, this.mTopHasMore, this.mHasMore, this.mResultList);
-        }
-    }
-
-    public BIMValueCallBack<ArrayList<GroupInfo>> getGroupInfoListener(Map<String, ChatSession> map) {
+    public BIMValueCallBack getGroupInfoListener(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
@@ -320,7 +305,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         return (BIMValueCallBack) invokeL.objValue;
     }
 
-    public IGetPaInfosListener getPaInfosListener(Map<Long, ChatSession> map) {
+    public IGetPaInfosListener getPaInfosListener(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
@@ -333,7 +318,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         return (IGetPaInfosListener) invokeL.objValue;
     }
 
-    public IGetUserIdentityListener getUserIdentityListener(Map<Long, ChatSession> map) {
+    public IGetUserIdentityListener getUserIdentityListener(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
@@ -344,5 +329,21 @@ public class IMMediaBuildSessionListener implements IMListener {
             return this.mGetUserIdentityListener;
         }
         return (IGetUserIdentityListener) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void callBack(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            this.mResultCode |= i;
+            if (this.count.decrementAndGet() == 0 && this.mListener != null) {
+                if (this.mResultList.size() > 0) {
+                    this.mResultCode = 0;
+                } else {
+                    this.mResultCode = i;
+                }
+                this.mListener.onMediaGetChatSessionResult(0, this.mNewNum, this.mTopHasMore, this.mHasMore, this.mResultList);
+            }
+        }
     }
 }

@@ -32,17 +32,23 @@ public final class ProductResultParser extends ResultParser {
     @Override // com.google.zxing.client.result.ResultParser
     public ProductParsedResult parse(Result result) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result)) == null) {
             BarcodeFormat barcodeFormat = result.getBarcodeFormat();
-            if (barcodeFormat == BarcodeFormat.UPC_A || barcodeFormat == BarcodeFormat.UPC_E || barcodeFormat == BarcodeFormat.EAN_8 || barcodeFormat == BarcodeFormat.EAN_13) {
-                String massagedText = ResultParser.getMassagedText(result);
-                if (ResultParser.isStringOfDigits(massagedText, massagedText.length())) {
-                    return new ProductParsedResult(massagedText, (barcodeFormat == BarcodeFormat.UPC_E && massagedText.length() == 8) ? UPCEReader.convertUPCEtoUPCA(massagedText) : massagedText);
-                }
+            if (barcodeFormat != BarcodeFormat.UPC_A && barcodeFormat != BarcodeFormat.UPC_E && barcodeFormat != BarcodeFormat.EAN_8 && barcodeFormat != BarcodeFormat.EAN_13) {
                 return null;
             }
-            return null;
+            String massagedText = ResultParser.getMassagedText(result);
+            if (!ResultParser.isStringOfDigits(massagedText, massagedText.length())) {
+                return null;
+            }
+            if (barcodeFormat == BarcodeFormat.UPC_E && massagedText.length() == 8) {
+                str = UPCEReader.convertUPCEtoUPCA(massagedText);
+            } else {
+                str = massagedText;
+            }
+            return new ProductParsedResult(massagedText, str);
         }
         return (ProductParsedResult) invokeL.objValue;
     }

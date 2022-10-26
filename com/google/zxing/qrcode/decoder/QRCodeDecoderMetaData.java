@@ -33,17 +33,19 @@ public final class QRCodeDecoderMetaData {
 
     public void applyMirroredCorrection(ResultPoint[] resultPointArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, resultPointArr) == null) || !this.mirrored || resultPointArr == null || resultPointArr.length < 3) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, resultPointArr) == null) && this.mirrored && resultPointArr != null && resultPointArr.length >= 3) {
+            ResultPoint resultPoint = resultPointArr[0];
+            resultPointArr[0] = resultPointArr[2];
+            resultPointArr[2] = resultPoint;
         }
-        ResultPoint resultPoint = resultPointArr[0];
-        resultPointArr[0] = resultPointArr[2];
-        resultPointArr[2] = resultPoint;
     }
 
     public boolean isMirrored() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mirrored : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mirrored;
+        }
+        return invokeV.booleanValue;
     }
 }

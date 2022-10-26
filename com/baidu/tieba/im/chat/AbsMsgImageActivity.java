@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.chat;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -30,9 +29,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hb7;
-import com.baidu.tieba.pu4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.pb7;
+import com.baidu.tieba.ru4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,12 +41,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
-public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivity> {
+public abstract class AbsMsgImageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap<String, String> a;
+    public LinkedHashMap a;
     public int b;
     public g c;
     public View d;
@@ -67,10 +65,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public String r;
     public String s;
     public long t;
-    public HashMap<String, Boolean> u;
+    public HashMap u;
     public int v;
     public boolean w;
     public PermissionJudgePolicy x;
+
+    public abstract void i2(String str, pb7 pb7Var);
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -80,12 +80,26 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class animation.Animation$AnimationListenerC0284a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0274a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public animation.Animation$AnimationListenerC0284a(a aVar) {
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                }
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                }
+            }
+
+            public animation.Animation$AnimationListenerC0274a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,27 +120,15 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                    this.a.a.m = true;
-                    if (this.a.a.n) {
-                        this.a.a.n = false;
-                        this.a.a.g.setVisibility(8);
-                    }
+                if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
+                    return;
                 }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                this.a.a.m = true;
+                if (!this.a.a.n) {
+                    return;
                 }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                }
+                this.a.a.n = false;
+                this.a.a.g.setVisibility(8);
             }
         }
 
@@ -181,11 +183,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                             this.a.c.execute(new String[0]);
                             this.a.e.setClickable(false);
                         } else {
-                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c71));
+                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c82));
                         }
                     } catch (Exception unused) {
                     }
-                } else if (this.a.m) {
+                } else if (!this.a.m) {
+                } else {
                     if (this.a.g.getVisibility() != 0) {
                         this.a.g.setVisibility(0);
                         this.a.h.C();
@@ -197,7 +200,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     }
                     this.a.l.setDuration(300L);
                     this.a.l.setFillAfter(true);
-                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0284a(this));
+                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0274a(this));
                     this.a.m = false;
                     this.a.g.startAnimation(this.a.l);
                 }
@@ -210,6 +213,13 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
 
         public b(AbsMsgImageActivity absMsgImageActivity) {
             Interceptable interceptable = $ic;
@@ -230,32 +240,25 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                AbsMsgImageActivity absMsgImageActivity = this.a;
+                absMsgImageActivity.f2(absMsgImageActivity.b, i);
+                this.a.b = i;
+                this.a.j2();
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i != 1 || System.nanoTime() - this.a.t <= 300000000 || this.a.a == null || this.a.b >= this.a.a.size()) {
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i != 1 || System.nanoTime() - this.a.t <= 300000000 || this.a.a == null || this.a.b >= this.a.a.size()) {
                 return;
             }
             HashMap hashMap = this.a.u;
             LinkedHashMap linkedHashMap = this.a.a;
             hashMap.put(linkedHashMap.get("" + this.a.b), Boolean.TRUE);
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                AbsMsgImageActivity absMsgImageActivity = this.a;
-                absMsgImageActivity.g2(absMsgImageActivity.b, i);
-                this.a.b = i;
-                this.a.k2();
-            }
         }
     }
 
@@ -264,6 +267,13 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
+
+        @Override // com.baidu.tbadk.core.view.BaseViewPager.a
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
 
         public c(AbsMsgImageActivity absMsgImageActivity) {
             Interceptable interceptable = $ic;
@@ -282,17 +292,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             }
             this.a = absMsgImageActivity;
         }
-
-        @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements pu4.c {
+    public class d implements ru4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -315,10 +318,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.pu4.c
-        public void a(pu4 pu4Var, int i, View view2) {
+        @Override // com.baidu.tieba.ru4.c
+        public void a(ru4 ru4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, pu4Var, i, view2) == null) && pu4Var == this.a.getListMenu()) {
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, ru4Var, i, view2) == null) && ru4Var == this.a.getListMenu()) {
                 if (i == 0) {
                     try {
                         Activity pageActivity = this.a.getPageContext().getPageActivity();
@@ -337,12 +340,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                             this.a.c.execute(new String[0]);
                             this.a.e.setClickable(false);
                         } else {
-                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c71));
+                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c82));
                         }
                     } catch (Exception unused) {
                     }
                 }
-                pu4Var.e();
+                ru4Var.e();
             }
         }
     }
@@ -351,10 +354,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class e implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pu4.c a;
+        public final /* synthetic */ ru4.c a;
         public final /* synthetic */ AbsMsgImageActivity b;
 
-        public e(AbsMsgImageActivity absMsgImageActivity, pu4.c cVar) {
+        public e(AbsMsgImageActivity absMsgImageActivity, ru4.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -378,7 +381,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                this.b.createListMenu(new String[]{this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a3)}, this.a);
+                this.b.createListMenu(new String[]{this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f10b5)}, this.a);
                 this.b.showListMenu();
                 return false;
             }
@@ -387,7 +390,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* loaded from: classes4.dex */
-    public class f implements hb7 {
+    public class f implements pb7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -410,62 +413,64 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.hb7
-        public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
+        @Override // com.baidu.tieba.pb7
+        public void a(LinkedHashMap linkedHashMap, HashMap hashMap) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, linkedHashMap, hashMap) == null) {
                 if (linkedHashMap == null || this.a.w) {
-                    linkedHashMap = new LinkedHashMap<>();
+                    linkedHashMap = new LinkedHashMap();
                 }
                 if (linkedHashMap.isEmpty() && !TextUtils.isEmpty(this.a.p)) {
                     linkedHashMap.put(this.a.s, this.a.p);
                     if (hashMap == null) {
-                        hashMap = new HashMap<>();
+                        hashMap = new HashMap();
                     }
                     ImageUrlData imageUrlData = new ImageUrlData();
                     imageUrlData.imageUrl = this.a.q;
                     imageUrlData.urlType = 10;
                     hashMap.put(this.a.p, imageUrlData);
                 }
-                if (linkedHashMap.size() != 0) {
-                    String str = this.a.s;
-                    Iterator<String> it = linkedHashMap.keySet().iterator();
-                    int i = 0;
-                    while (true) {
-                        if (!it.hasNext()) {
-                            z = false;
-                            break;
-                        }
-                        String next = it.next();
-                        if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(next) && next.equals(str)) {
+                if (linkedHashMap.size() == 0) {
+                    this.a.finish();
+                    return;
+                }
+                String str = this.a.s;
+                Iterator it = linkedHashMap.keySet().iterator();
+                int i = 0;
+                while (true) {
+                    if (it.hasNext()) {
+                        String str2 = (String) it.next();
+                        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !str2.equals(str)) {
+                            i++;
+                        } else {
                             this.a.b = i;
                             z = true;
                             break;
                         }
-                        i++;
+                    } else {
+                        z = false;
+                        break;
                     }
-                    this.a.o = linkedHashMap.size();
-                    if (!z) {
-                        AbsMsgImageActivity absMsgImageActivity = this.a;
-                        absMsgImageActivity.b = absMsgImageActivity.o - 1;
-                    }
-                    this.a.f.setVisibility(0);
-                    this.a.k2();
-                    this.a.h.setIsFromCDN(true);
-                    this.a.h.setAllowLocalUrl(true);
-                    this.a.h.setAssistUrls(hashMap);
-                    this.a.h.setUrlData(new ArrayList<>(linkedHashMap.values()));
-                    this.a.h.setCurrentItem(this.a.b, false);
-                    return;
                 }
-                this.a.finish();
+                this.a.o = linkedHashMap.size();
+                if (!z) {
+                    AbsMsgImageActivity absMsgImageActivity = this.a;
+                    absMsgImageActivity.b = absMsgImageActivity.o - 1;
+                }
+                this.a.f.setVisibility(0);
+                this.a.j2();
+                this.a.h.setIsFromCDN(true);
+                this.a.h.setAllowLocalUrl(true);
+                this.a.h.setAssistUrls(hashMap);
+                this.a.h.setUrlData(new ArrayList(linkedHashMap.values()));
+                this.a.h.setCurrentItem(this.a.b, false);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class g extends BdAsyncTask<String, Integer, String> {
+    public class g extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -497,11 +502,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.c = null;
-                this.c.e.setClickable(true);
-                super.cancel(true);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.c.c = null;
+            this.c.e.setClickable(true);
+            super.cancel(true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -521,9 +527,9 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10aa);
+                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10bc);
                     }
-                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ab);
+                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10bd);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -577,179 +583,6 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.v = 0;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void closeAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
-        }
-    }
-
-    public final int e2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashMap<String, String> linkedHashMap = this.a;
-            if (linkedHashMap != null && linkedHashMap.size() > 0) {
-                int size = this.a.size();
-                if (this.b >= size) {
-                    this.b = size - 1;
-                }
-                if (this.b < 0) {
-                    this.b = 0;
-                }
-            } else {
-                this.b = 0;
-            }
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
-        }
-    }
-
-    public final void f2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (TextUtils.isEmpty(this.r)) {
-                finish();
-            }
-            j2(this.r, new f(this));
-        }
-    }
-
-    public final void g2(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            synchronized (this.u) {
-                if (System.nanoTime() - this.t > 300000000 && this.a != null && i < this.a.size()) {
-                    HashMap<String, Boolean> hashMap = this.u;
-                    LinkedHashMap<String, String> linkedHashMap = this.a;
-                    hashMap.put(linkedHashMap.get("" + i), Boolean.TRUE);
-                }
-                this.t = System.nanoTime();
-            }
-        }
-    }
-
-    public final void h2(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            Intent intent = getIntent();
-            if (intent != null) {
-                this.p = intent.getStringExtra(AbsMsgImageActivityConfig.CURRENT_URL);
-                this.q = intent.getStringExtra(AbsMsgImageActivityConfig.ASSIST_URL);
-                this.r = intent.getStringExtra("id");
-                this.s = intent.getStringExtra(AbsMsgImageActivityConfig.ID_UNIQUE);
-                this.w = intent.getBooleanExtra("isSingle", false);
-                if (this.s == null) {
-                    this.s = "";
-                }
-                if (this.r == null) {
-                    this.r = "";
-                }
-                if (this.p == null) {
-                    this.p = "";
-                }
-                LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-                this.a = linkedHashMap;
-                linkedHashMap.put(this.s, this.p);
-                this.v = intent.getIntExtra(TbEnum.ParamKey.CHAT_MODE, 0);
-                this.b = 0;
-            } else if (bundle != null) {
-                this.a = (LinkedHashMap) bundle.getSerializable("url");
-                this.b = bundle.getInt("index", -1);
-                this.r = bundle.getString("id");
-                this.s = bundle.getString(AbsMsgImageActivityConfig.ID_UNIQUE);
-                this.v = bundle.getInt(TbEnum.ParamKey.CHAT_MODE, 0);
-                this.w = bundle.getBoolean("isSingle", false);
-                if (this.s == null) {
-                    this.s = "";
-                }
-                if (this.r == null) {
-                    this.r = "";
-                }
-            }
-            this.u = new HashMap<>();
-        }
-    }
-
-    public final void i2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.i = new a(this);
-            this.k = new b(this);
-            this.j = new c(this);
-            e eVar = new e(this, new d(this));
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091657);
-            this.g = navigationBar;
-            FrameLayout frameLayout = (FrameLayout) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03c5, this.i);
-            this.e = frameLayout;
-            if (this.w) {
-                frameLayout.setVisibility(8);
-            }
-            this.d = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.i);
-            SkinManager.setImageResource(this.g.getBackImageView(), R.drawable.icon_return_bg);
-            this.f = this.g.setTitleText("");
-            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0925da);
-            this.h = multiImageView;
-            multiImageView.setPageMargin(ej.d(getPageContext().getContext(), 8.0f));
-            this.h.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-            this.h.setOnPageChangeListener(this.k);
-            this.h.setItemOnclickListener(this.i);
-            this.h.setCurrentItem(e2(), false);
-            this.h.setOnScrollOutListener(this.j);
-            this.h.setItemOnLongClickListener(eVar);
-            this.h.setHasNext(false);
-            this.h.setNextTitle("mNextTitle");
-            this.h.setIsFromCDN(true);
-            this.h.setAllowLocalUrl(true);
-            int i = this.b;
-            g2(i, i);
-            this.f.setVisibility(4);
-        }
-    }
-
-    public abstract void j2(String str, hb7 hb7Var);
-
-    public final void k2() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a == null) {
-            return;
-        }
-        String valueOf = String.valueOf(this.b + 1);
-        if (this.o > 0) {
-            valueOf = (valueOf + "/") + this.o;
-        }
-        if (this.h.getHasNext() && this.b == this.h.getItemNum() - 1) {
-            this.f.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08eb));
-            this.e.setClickable(false);
-            return;
-        }
-        this.f.setText(valueOf);
-        this.e.setClickable(true);
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            super.onChangeSkinType(i);
-            SkinManager.setBackgroundColor(this.h, R.color.black_alpha100);
-            SkinManager.setBackgroundColor(this.g, R.color.common_color_10222);
-            getLayoutMode().k(this.d);
-            getLayoutMode().k(this.f);
-            getLayoutMode().k(this.e);
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
@@ -766,19 +599,20 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             TbadkCoreApplication.getInst().addRemoteActivity(this);
-            setContentView(R.layout.obfuscated_res_0x7f0d03c4);
-            h2(bundle);
-            i2();
-            f2();
+            setContentView(R.layout.obfuscated_res_0x7f0d03c1);
+            g2(bundle);
+            h2();
+            e2();
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            TbadkCoreApplication.getInst().delRemoteActivity(this);
-            super.onDestroy();
+        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
+            super.onNewIntent(intent);
+            setIntent(intent);
+            e2();
         }
     }
 
@@ -799,13 +633,38 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         return invokeIL.booleanValue;
     }
 
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
-            super.onNewIntent(intent);
-            setIntent(intent);
-            f2();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
+        }
+    }
+
+    public final void e2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (TextUtils.isEmpty(this.r)) {
+                finish();
+            }
+            i2(this.r, new f(this));
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            TbadkCoreApplication.getInst().delRemoteActivity(this);
+            super.onDestroy();
         }
     }
 
@@ -827,27 +686,13 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putSerializable("url", this.a);
-            bundle.putInt("index", this.b);
-            bundle.putString("id", this.r);
-            bundle.putString(AbsMsgImageActivityConfig.ID_UNIQUE, this.s);
-            bundle.putInt(TbEnum.ParamKey.CHAT_MODE, this.v);
-            bundle.putBoolean("isSingle", this.w);
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
             int i = this.b;
-            g2(i, i);
+            f2(i, i);
             this.h.v();
             g gVar = this.c;
             if (gVar != null) {
@@ -862,6 +707,163 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             this.h.v();
+        }
+    }
+
+    public final int d2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedHashMap linkedHashMap = this.a;
+            if (linkedHashMap != null && linkedHashMap.size() > 0) {
+                int size = this.a.size();
+                if (this.b >= size) {
+                    this.b = size - 1;
+                }
+                if (this.b < 0) {
+                    this.b = 0;
+                }
+            } else {
+                this.b = 0;
+            }
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void f2(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            synchronized (this.u) {
+                if (System.nanoTime() - this.t > 300000000 && this.a != null && i < this.a.size()) {
+                    HashMap hashMap = this.u;
+                    LinkedHashMap linkedHashMap = this.a;
+                    hashMap.put(linkedHashMap.get("" + i), Boolean.TRUE);
+                }
+                this.t = System.nanoTime();
+            }
+        }
+    }
+
+    public final void g2(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                this.p = intent.getStringExtra(AbsMsgImageActivityConfig.CURRENT_URL);
+                this.q = intent.getStringExtra(AbsMsgImageActivityConfig.ASSIST_URL);
+                this.r = intent.getStringExtra("id");
+                this.s = intent.getStringExtra(AbsMsgImageActivityConfig.ID_UNIQUE);
+                this.w = intent.getBooleanExtra("isSingle", false);
+                if (this.s == null) {
+                    this.s = "";
+                }
+                if (this.r == null) {
+                    this.r = "";
+                }
+                if (this.p == null) {
+                    this.p = "";
+                }
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                this.a = linkedHashMap;
+                linkedHashMap.put(this.s, this.p);
+                this.v = intent.getIntExtra(TbEnum.ParamKey.CHAT_MODE, 0);
+                this.b = 0;
+            } else if (bundle != null) {
+                this.a = (LinkedHashMap) bundle.getSerializable("url");
+                this.b = bundle.getInt("index", -1);
+                this.r = bundle.getString("id");
+                this.s = bundle.getString(AbsMsgImageActivityConfig.ID_UNIQUE);
+                this.v = bundle.getInt(TbEnum.ParamKey.CHAT_MODE, 0);
+                this.w = bundle.getBoolean("isSingle", false);
+                if (this.s == null) {
+                    this.s = "";
+                }
+                if (this.r == null) {
+                    this.r = "";
+                }
+            }
+            this.u = new HashMap();
+        }
+    }
+
+    public final void h2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.i = new a(this);
+            this.k = new b(this);
+            this.j = new c(this);
+            e eVar = new e(this, new d(this));
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091649);
+            this.g = navigationBar;
+            FrameLayout frameLayout = (FrameLayout) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03c2, this.i);
+            this.e = frameLayout;
+            if (this.w) {
+                frameLayout.setVisibility(8);
+            }
+            this.d = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.i);
+            SkinManager.setImageResource(this.g.getBackImageView(), R.drawable.icon_return_bg);
+            this.f = this.g.setTitleText("");
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            this.h = multiImageView;
+            multiImageView.setPageMargin(fj.d(getPageContext().getContext(), 8.0f));
+            this.h.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+            this.h.setOnPageChangeListener(this.k);
+            this.h.setItemOnclickListener(this.i);
+            this.h.setCurrentItem(d2(), false);
+            this.h.setOnScrollOutListener(this.j);
+            this.h.setItemOnLongClickListener(eVar);
+            this.h.setHasNext(false);
+            this.h.setNextTitle("mNextTitle");
+            this.h.setIsFromCDN(true);
+            this.h.setAllowLocalUrl(true);
+            int i = this.b;
+            f2(i, i);
+            this.f.setVisibility(4);
+        }
+    }
+
+    public final void j2() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a != null) {
+            String valueOf = String.valueOf(this.b + 1);
+            if (this.o > 0) {
+                valueOf = (valueOf + "/") + this.o;
+            }
+            if (this.h.getHasNext() && this.b == this.h.getItemNum() - 1) {
+                this.f.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f8));
+                this.e.setClickable(false);
+                return;
+            }
+            this.f.setText(valueOf);
+            this.e.setClickable(true);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            super.onChangeSkinType(i);
+            SkinManager.setBackgroundColor(this.h, R.color.black_alpha100);
+            SkinManager.setBackgroundColor(this.g, R.color.common_color_10222);
+            getLayoutMode().k(this.d);
+            getLayoutMode().k(this.f);
+            getLayoutMode().k(this.e);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putSerializable("url", this.a);
+            bundle.putInt("index", this.b);
+            bundle.putString("id", this.r);
+            bundle.putString(AbsMsgImageActivityConfig.ID_UNIQUE, this.s);
+            bundle.putInt(TbEnum.ParamKey.CHAT_MODE, this.v);
+            bundle.putBoolean("isSingle", this.w);
         }
     }
 }

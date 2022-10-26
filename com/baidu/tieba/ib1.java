@@ -1,48 +1,127 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.ImageView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes4.dex */
-public class ib1 extends Handler {
+public class ib1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ib1() {
-        super(Looper.getMainLooper());
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        ?? r3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
+                try {
+                    try {
+                        bitmap = BitmapFactory.decodeStream(r3);
+                        jc1.a(new Closeable[]{r3});
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        jc1.a(new Closeable[]{r3});
+                        return bitmap;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bitmap = r3;
+                    jc1.a(new Closeable[]{bitmap});
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                r3 = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                jc1.a(new Closeable[]{bitmap});
+                throw th;
             }
+            return bitmap;
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public static boolean b(String str, OutputStream outputStream) {
+        InterceptResult invokeLL;
+        Throwable th;
+        BufferedOutputStream bufferedOutputStream;
+        IOException e;
+        BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            jb1 jb1Var = (jb1) message.obj;
-            ImageView imageView = jb1Var.a;
-            if (((String) imageView.getTag()).equals(jb1Var.b)) {
-                imageView.setImageBitmap(jb1Var.c);
-            } else {
-                kc1.g("不是最新数据");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
+            try {
+                bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(outputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream = null;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
             }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read != -1) {
+                        bufferedOutputStream.write(bArr, 0, read);
+                    } else {
+                        jc1.a(bufferedInputStream, bufferedOutputStream);
+                        return true;
+                    }
+                }
+            } catch (IOException e4) {
+                e = e4;
+                bufferedInputStream2 = bufferedInputStream;
+                try {
+                    e.printStackTrace();
+                    jc1.a(bufferedInputStream2, bufferedOutputStream);
+                    return false;
+                } catch (Throwable th4) {
+                    th = th4;
+                    jc1.a(bufferedInputStream2, bufferedOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedInputStream2 = bufferedInputStream;
+                jc1.a(bufferedInputStream2, bufferedOutputStream);
+                throw th;
+            }
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

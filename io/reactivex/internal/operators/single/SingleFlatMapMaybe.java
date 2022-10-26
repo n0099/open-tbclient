@@ -18,20 +18,20 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleFlatMapMaybe<T, R> extends Maybe<R> {
+public final class SingleFlatMapMaybe extends Maybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
-    public final SingleSource<? extends T> source;
+    public final Function mapper;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapMaybeObserver<R> implements MaybeObserver<R> {
+    public final class FlatMapMaybeObserver implements MaybeObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super R> actual;
-        public final AtomicReference<Disposable> parent;
+        public final MaybeObserver actual;
+        public final AtomicReference parent;
 
-        public FlatMapMaybeObserver(AtomicReference<Disposable> atomicReference, MaybeObserver<? super R> maybeObserver) {
+        public FlatMapMaybeObserver(AtomicReference atomicReference, MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,23 +75,23 @@ public final class SingleFlatMapMaybe<T, R> extends Maybe<R> {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(R r) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
-                this.actual.onSuccess(r);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onSuccess(obj);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapSingleObserver<T, R> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
+    public final class FlatMapSingleObserver extends AtomicReference implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5843758257109742742L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super R> actual;
-        public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
+        public final MaybeObserver actual;
+        public final Function mapper;
 
-        public FlatMapSingleObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends MaybeSource<? extends R>> function) {
+        public FlatMapSingleObserver(MaybeObserver maybeObserver, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,10 @@ public final class SingleFlatMapMaybe<T, R> extends Maybe<R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -142,15 +145,14 @@ public final class SingleFlatMapMaybe<T, R> extends Maybe<R> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 try {
-                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null MaybeSource");
-                    if (isDisposed()) {
-                        return;
+                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null MaybeSource");
+                    if (!isDisposed()) {
+                        maybeSource.subscribe(new FlatMapMaybeObserver(this, this.actual));
                     }
-                    maybeSource.subscribe(new FlatMapMaybeObserver(this, this.actual));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     onError(th);
@@ -159,7 +161,7 @@ public final class SingleFlatMapMaybe<T, R> extends Maybe<R> {
         }
     }
 
-    public SingleFlatMapMaybe(SingleSource<? extends T> singleSource, Function<? super T, ? extends MaybeSource<? extends R>> function) {
+    public SingleFlatMapMaybe(SingleSource singleSource, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,7 +181,7 @@ public final class SingleFlatMapMaybe<T, R> extends Maybe<R> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new FlatMapSingleObserver(maybeObserver, this.mapper));

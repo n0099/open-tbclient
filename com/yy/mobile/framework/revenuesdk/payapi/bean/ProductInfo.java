@@ -17,8 +17,8 @@ public class ProductInfo {
     public long destAmount;
     public String expand;
     public long firstRushAmount;
-    public List<GiftBagTagInfo> giftBagTagInfos;
-    public List<GiftBagsInfo> giftbags;
+    public List giftBagTagInfos;
+    public List giftbags;
     public boolean hasAct;
     public boolean hasCurrencyAct;
     public boolean hasDestCurrencyAct;
@@ -33,14 +33,14 @@ public class ProductInfo {
     public String offers_currency_name;
     public boolean offers_currency_same;
     public int offers_currency_type;
-    public List<CurrencyInfo> otherCurrencies;
+    public List otherCurrencies;
     public int otherCurrenciesSum;
     public String otherPrice;
     public String payChannel;
     public String payMethod;
     public String payType;
     public String productId;
-    public List<PropsInfo> props;
+    public List props;
     public int propsSum;
     public long spAmount;
     public long spSumAmount;

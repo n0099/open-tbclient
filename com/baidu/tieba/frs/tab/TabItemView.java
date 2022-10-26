@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.tab;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -10,34 +9,32 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj6;
-import com.baidu.tieba.bj6;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.is6;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ij6;
+import com.baidu.tieba.os6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
 public class TabItemView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public is6 a;
+    public os6 a;
     public int b;
     public boolean c;
     public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabItemView(Context context, is6 is6Var, int i, boolean z) {
+    public TabItemView(Context context, os6 os6Var, int i, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, is6Var, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {context, os6Var, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -50,7 +47,7 @@ public class TabItemView extends TextView {
         }
         this.b = 0;
         this.d = 0;
-        this.a = is6Var;
+        this.a = os6Var;
         this.c = z;
         b(context, i);
     }
@@ -61,11 +58,11 @@ public class TabItemView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Drawable[] compoundDrawables = getCompoundDrawables();
-            if (compoundDrawables == null || (drawable = compoundDrawables[2]) == null) {
-                return -1;
+            if (compoundDrawables != null && (drawable = compoundDrawables[2]) != null) {
+                float measureText = getPaint().measureText(getText().toString());
+                return getWidth() - ((((int) measureText) + drawable.getIntrinsicWidth()) + getCompoundDrawablePadding());
             }
-            float measureText = getPaint().measureText(getText().toString());
-            return getWidth() - ((((int) measureText) + drawable.getIntrinsicWidth()) + getCompoundDrawablePadding());
+            return -1;
         }
         return invokeV.intValue;
     }
@@ -77,35 +74,16 @@ public class TabItemView extends TextView {
         }
     }
 
-    public final void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            if (this.c) {
-                setPadding(0, ej.f(getContext(), R.dimen.tbds20), 0, 0);
-                setTextSize(0, ej.f(context, R.dimen.tbds42));
-            } else {
-                setGravity(17);
-            }
-            setSingleLine();
-            setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-            is6 is6Var = this.a;
-            if (is6Var != null) {
-                setText(is6Var.a);
-            }
-            a();
-        }
-    }
-
     public int getDrawableWidth() {
         InterceptResult invokeV;
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Drawable[] compoundDrawables = getCompoundDrawables();
-            if (compoundDrawables == null || compoundDrawables.length < 3 || (drawable = compoundDrawables[2]) == null) {
-                return 0;
+            if (compoundDrawables != null && compoundDrawables.length >= 3 && (drawable = compoundDrawables[2]) != null) {
+                return drawable.getIntrinsicWidth() + getCompoundDrawablePadding();
             }
-            return drawable.getIntrinsicWidth() + getCompoundDrawablePadding();
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -113,18 +91,21 @@ public class TabItemView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
     public int getTabId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            is6 is6Var = this.a;
-            if (is6Var == null) {
+            os6 os6Var = this.a;
+            if (os6Var == null) {
                 return -1;
             }
-            return is6Var.b;
+            return os6Var.b;
         }
         return invokeV.intValue;
     }
@@ -133,13 +114,32 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            is6 is6Var = this.a;
-            if (is6Var == null) {
+            os6 os6Var = this.a;
+            if (os6Var == null) {
                 return null;
             }
-            return is6Var.d;
+            return os6Var.d;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final void b(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+            if (this.c) {
+                setPadding(0, fj.f(getContext(), R.dimen.tbds20), 0, 0);
+                setTextSize(0, fj.f(context, R.dimen.tbds42));
+            } else {
+                setGravity(17);
+            }
+            setSingleLine();
+            setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
+            os6 os6Var = this.a;
+            if (os6Var != null) {
+                setText(os6Var.a);
+            }
+            a();
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -151,22 +151,6 @@ public class TabItemView extends TextView {
                 canvas.translate(spaceWidth / 2.0f, 0.0f);
             }
             super.onDraw(canvas);
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int spaceWidth = getSpaceWidth();
-            if (spaceWidth >= 0) {
-                if (this.c) {
-                    setPadding(0, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701be), spaceWidth, 0);
-                } else {
-                    setPadding(0, 0, spaceWidth, 0);
-                }
-            }
-            super.onLayout(z, i, i2, i3, i4);
         }
     }
 
@@ -184,14 +168,30 @@ public class TabItemView extends TextView {
         }
     }
 
+    @Override // android.widget.TextView, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int spaceWidth = getSpaceWidth();
+            if (spaceWidth >= 0) {
+                if (this.c) {
+                    setPadding(0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701be), spaceWidth, 0);
+                } else {
+                    setPadding(0, 0, spaceWidth, 0);
+                }
+            }
+            super.onLayout(z, i, i2, i3, i4);
+        }
+    }
+
     public void setState(int i) {
-        bj6 bj6Var;
-        List<aj6> list;
+        ij6 ij6Var;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            is6 is6Var = this.a;
-            if (is6Var != null && (bj6Var = is6Var.c) != null && (list = bj6Var.b) != null && list.size() > 0) {
-                int i2 = -ej.f(getContext(), R.dimen.tbds20);
+            os6 os6Var = this.a;
+            if (os6Var != null && (ij6Var = os6Var.c) != null && (list = ij6Var.b) != null && list.size() > 0) {
+                int i2 = -fj.f(getContext(), R.dimen.tbds20);
                 if (!this.c) {
                     i2 = 0;
                 }

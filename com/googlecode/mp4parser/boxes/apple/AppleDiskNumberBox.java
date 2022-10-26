@@ -24,6 +24,16 @@ public class AppleDiskNumberBox extends AppleDataBox {
     public int a;
     public short b;
 
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public int getDataLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 6;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -38,6 +48,39 @@ public class AppleDiskNumberBox extends AppleDataBox {
             }
         }
         ajc$preClinit();
+    }
+
+    public int getA() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public short getB() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.b;
+        }
+        return invokeV.shortValue;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public byte[] writeData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(6);
+            allocate.putInt(this.a);
+            allocate.putShort(this.b);
+            return allocate.array();
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,36 +110,6 @@ public class AppleDiskNumberBox extends AppleDataBox {
         ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setB", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "short", "b", "", "void"), 28);
     }
 
-    public int getA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public short getB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.b;
-        }
-        return invokeV.shortValue;
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    public int getDataLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 6;
-        }
-        return invokeV.intValue;
-    }
-
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     public void parseData(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -120,18 +133,5 @@ public class AppleDiskNumberBox extends AppleDataBox {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.shortObject(s)));
             this.b = s;
         }
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    public byte[] writeData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(6);
-            allocate.putInt(this.a);
-            allocate.putShort(this.b);
-            return allocate.array();
-        }
-        return (byte[]) invokeV.objValue;
     }
 }

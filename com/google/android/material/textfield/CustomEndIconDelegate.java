@@ -1,6 +1,5 @@
 package com.google.android.material.textfield;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +10,7 @@ public class CustomEndIconDelegate extends EndIconDelegate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomEndIconDelegate(@NonNull TextInputLayout textInputLayout) {
+    public CustomEndIconDelegate(TextInputLayout textInputLayout) {
         super(textInputLayout);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

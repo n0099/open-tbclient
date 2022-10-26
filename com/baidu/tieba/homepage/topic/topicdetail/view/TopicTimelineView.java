@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.f57;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.homepage.topic.topicdetail.adapter.TopicTimelineAdapter;
+import com.baidu.tieba.n57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -113,41 +113,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         a(context);
     }
 
-    public final void a(Context context) {
+    public void setData(n57 n57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089c, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092312);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092311);
-            TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
-            this.d = topicTimelineAdapter;
-            this.c.setAdapter(topicTimelineAdapter);
-            this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.c.setItemAnimator(new DefaultItemAnimator());
-            this.c.addItemDecoration(new a(this, ej.f(context, R.dimen.tbds44), ej.f(context, R.dimen.tbds20), ej.f(context, R.dimen.tbds44)));
-            b();
-        }
-    }
-
-    public void b() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-        this.d.notifyDataSetChanged();
-    }
-
-    public void setData(f57 f57Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f57Var) == null) {
-            if (f57Var != null && !ListUtils.isEmpty(f57Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n57Var) == null) {
+            if (n57Var != null && !ListUtils.isEmpty(n57Var.b)) {
                 setVisibility(0);
-                this.b.setText(f57Var.a);
-                this.d.setData(f57Var.b);
+                this.b.setText(n57Var.a);
+                this.d.setData(n57Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }
@@ -199,5 +171,33 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         }
         this.a = 3;
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setOrientation(1);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089d, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0922fd);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0922fc);
+            TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
+            this.d = topicTimelineAdapter;
+            this.c.setAdapter(topicTimelineAdapter);
+            this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.c.setItemAnimator(new DefaultItemAnimator());
+            this.c.addItemDecoration(new a(this, fj.f(context, R.dimen.tbds44), fj.f(context, R.dimen.tbds20), fj.f(context, R.dimen.tbds44)));
+            b();
+        }
+    }
+
+    public void b() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+        this.d.notifyDataSetChanged();
     }
 }

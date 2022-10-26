@@ -13,6 +13,13 @@ public class DredgeNormalExecutorCell extends BaseDredgeExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeNormalCell" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DredgeNormalExecutorCell(int i) {
         super(i);
@@ -35,12 +42,5 @@ public class DredgeNormalExecutorCell extends BaseDredgeExecutorCell {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 100L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
         this.mExecutor = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeNormalCell" : (String) invokeV.objValue;
     }
 }

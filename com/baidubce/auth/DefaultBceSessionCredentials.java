@@ -40,6 +40,9 @@ public class DefaultBceSessionCredentials extends DefaultBceCredentials implemen
     public String getSessionToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sessionToken : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sessionToken;
+        }
+        return (String) invokeV.objValue;
     }
 }

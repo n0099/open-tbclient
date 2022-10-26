@@ -30,11 +30,27 @@ public class ForgetPwdActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+            } else {
+                finish();
+            }
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CoreViewRouter.getInstance().getWebLoginDTO() : (SapiWebDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CoreViewRouter.getInstance().getWebLoginDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -63,13 +79,25 @@ public class ForgetPwdActivity extends BaseActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
+            a();
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -80,23 +108,12 @@ public class ForgetPwdActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
             setBtnVisibility(4, 0, 4);
-            setTitleText(R.string.obfuscated_res_0x7f0f1092);
+            setTitleText(R.string.obfuscated_res_0x7f0f10a4);
             this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback(this) { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -191,19 +208,6 @@ public class ForgetPwdActivity extends BaseActivity {
                 }
             });
             this.sapiWebView.loadForgetPwd();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-            } else {
-                finish();
-            }
         }
     }
 }

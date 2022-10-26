@@ -35,8 +35,18 @@ public class SelectForumData implements Parcelable {
     public PostPrefixData postPrefix;
     public List<FrsTabItemData> tabInfoList;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<SelectForumData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +70,10 @@ public class SelectForumData implements Parcelable {
         public SelectForumData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SelectForumData(parcel) : (SelectForumData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new SelectForumData(parcel);
+            }
+            return (SelectForumData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +82,10 @@ public class SelectForumData implements Parcelable {
         public SelectForumData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SelectForumData[i] : (SelectForumData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new SelectForumData[i];
+            }
+            return (SelectForumData[]) invokeI.objValue;
         }
     }
 
@@ -103,34 +119,97 @@ public class SelectForumData implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public SelectForumData(Parcel parcel) {
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.forumId = parcel.readString();
+        this.avatarUrl = parcel.readString();
+        this.forumName = parcel.readString();
+        this.level = parcel.readInt();
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isLately = z;
+        if (parcel.readByte() != 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.isCanPost = z2;
+        this.blockInfo = parcel.readString();
+        ArrayList arrayList = new ArrayList();
+        this.tabInfoList = arrayList;
+        parcel.readList(arrayList, FrsTabItemData.class.getClassLoader());
+        this.postPrefix = (PostPrefixData) parcel.readSerializable();
+        if (parcel.readByte() != 0) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        this.isForumBusinessAccount = z3;
+        this.forumTagInfo = (ForumTagInfo) parcel.readSerializable();
+        this.firstCategory = parcel.readString();
+        this.isInterestForumSelected = parcel.readByte() != 0;
+        this.index = parcel.readInt();
     }
 
     public void readFromParcel(Parcel parcel) {
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel) == null) {
             this.forumId = parcel.readString();
             this.avatarUrl = parcel.readString();
             this.forumName = parcel.readString();
             this.level = parcel.readInt();
-            this.isLately = parcel.readByte() != 0;
-            this.isCanPost = parcel.readByte() != 0;
+            boolean z4 = true;
+            if (parcel.readByte() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.isLately = z;
+            if (parcel.readByte() != 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.isCanPost = z2;
             this.blockInfo = parcel.readString();
             ArrayList arrayList = new ArrayList();
             this.tabInfoList = arrayList;
             parcel.readList(arrayList, FrsTabItemData.class.getClassLoader());
             this.postPrefix = (PostPrefixData) parcel.readSerializable();
-            this.isForumBusinessAccount = parcel.readByte() != 0;
+            if (parcel.readByte() != 0) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            this.isForumBusinessAccount = z3;
             this.forumTagInfo = (ForumTagInfo) parcel.readSerializable();
             this.firstCategory = parcel.readString();
-            this.isInterestForumSelected = parcel.readByte() != 0;
+            if (parcel.readByte() == 0) {
+                z4 = false;
+            }
+            this.isInterestForumSelected = z4;
             this.index = parcel.readInt();
         }
     }
@@ -154,38 +233,5 @@ public class SelectForumData implements Parcelable {
             parcel.writeByte(this.isInterestForumSelected ? (byte) 1 : (byte) 0);
             parcel.writeInt(this.index);
         }
-    }
-
-    public SelectForumData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.forumId = parcel.readString();
-        this.avatarUrl = parcel.readString();
-        this.forumName = parcel.readString();
-        this.level = parcel.readInt();
-        this.isLately = parcel.readByte() != 0;
-        this.isCanPost = parcel.readByte() != 0;
-        this.blockInfo = parcel.readString();
-        ArrayList arrayList = new ArrayList();
-        this.tabInfoList = arrayList;
-        parcel.readList(arrayList, FrsTabItemData.class.getClassLoader());
-        this.postPrefix = (PostPrefixData) parcel.readSerializable();
-        this.isForumBusinessAccount = parcel.readByte() != 0;
-        this.forumTagInfo = (ForumTagInfo) parcel.readSerializable();
-        this.firstCategory = parcel.readString();
-        this.isInterestForumSelected = parcel.readByte() != 0;
-        this.index = parcel.readInt();
     }
 }

@@ -1,15 +1,14 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,10 +22,8 @@ import tbclient.UserPost.UserPostReqIdl;
 public class UserPostPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public Long beginThreadId;
     public int from;
-    @Nullable
     public Integer fromType;
     public boolean isHost;
     public boolean isReset;
@@ -42,13 +39,10 @@ public class UserPostPageRequestMessage extends NetMessage {
     public int scr_h;
     public int scr_w;
     public int sub_type;
-    @Nullable
     public MetaData threadAuthor;
     public User threadUser;
-    @Nullable
     public Integer type;
     public String uid;
-    @Nullable
     public Integer workTabId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,68 +64,52 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public PersonPostModel.c getCallback() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Message encode(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCallback : (PersonPostModel.c) invokeV.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.uid = Long.valueOf(eh.g(this.uid, 0L));
+            builder.portrait = this.portrait;
+            builder.pn = Integer.valueOf(this.pn);
+            builder.rn = Integer.valueOf(this.rn);
+            builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
+            builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
+            builder.scr_dip = Double.valueOf(this.scr_dip);
+            builder.q_type = Integer.valueOf(this.q_type);
+            builder.scr_h = Integer.valueOf(this.scr_h);
+            builder.scr_w = Integer.valueOf(this.scr_w);
+            builder.subtype = Integer.valueOf(this.sub_type);
+            builder.is_view_card = Integer.valueOf(this.is_view_card);
+            Integer num = this.workTabId;
+            if (num != null) {
+                builder.work_tab_id = num;
+            }
+            Integer num2 = this.type;
+            if (num2 != null) {
+                builder.type = num2;
+            }
+            Integer num3 = this.fromType;
+            if (num3 != null) {
+                builder.from_type = num3;
+            }
+            Long l = this.beginThreadId;
+            if (l != null) {
+                builder.begin_thread_id = l;
+            }
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                yh5.a(builder, true);
+            }
+            UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return (Message) invokeZ.objValue;
     }
 
-    public int getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.from : invokeV.intValue;
-    }
-
-    public int getPn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pn : invokeV.intValue;
-    }
-
-    public String getPortrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.portrait : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public MetaData getThreadAuthor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.threadAuthor : (MetaData) invokeV.objValue;
-    }
-
-    public User getThreadUser() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadUser : (User) invokeV.objValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.uid : (String) invokeV.objValue;
-    }
-
-    public boolean isHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isHost : invokeV.booleanValue;
-    }
-
-    public boolean isReset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isReset : invokeV.booleanValue;
-    }
-
-    public boolean isThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.isThread : invokeV.booleanValue;
-    }
-
-    public void setBeginThreadId(@Nullable Long l) {
+    public void setBeginThreadId(Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, l) == null) {
             this.beginThreadId = l;
@@ -152,7 +130,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setFromType(@Nullable Integer num) {
+    public void setFromType(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, num) == null) {
             this.fromType = num;
@@ -208,7 +186,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setThreadAuthor(@Nullable MetaData metaData) {
+    public void setThreadAuthor(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, metaData) == null) {
             this.threadAuthor = metaData;
@@ -222,7 +200,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setType(@Nullable Integer num) {
+    public void setType(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, num) == null) {
             this.type = num;
@@ -236,7 +214,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setWorkTabId(@Nullable Integer num) {
+    public void setWorkTabId(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, num) == null) {
             this.workTabId = num;
@@ -285,48 +263,93 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.NetMessage
-    public Message encode(boolean z) {
-        InterceptResult invokeZ;
+    public PersonPostModel.c getCallback() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.uid = Long.valueOf(dh.g(this.uid, 0L));
-            builder.portrait = this.portrait;
-            builder.pn = Integer.valueOf(this.pn);
-            builder.rn = Integer.valueOf(this.rn);
-            builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
-            builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
-            builder.scr_dip = Double.valueOf(this.scr_dip);
-            builder.q_type = Integer.valueOf(this.q_type);
-            builder.scr_h = Integer.valueOf(this.scr_h);
-            builder.scr_w = Integer.valueOf(this.scr_w);
-            builder.subtype = Integer.valueOf(this.sub_type);
-            builder.is_view_card = Integer.valueOf(this.is_view_card);
-            Integer num = this.workTabId;
-            if (num != null) {
-                builder.work_tab_id = num;
-            }
-            Integer num2 = this.type;
-            if (num2 != null) {
-                builder.type = num2;
-            }
-            Integer num3 = this.fromType;
-            if (num3 != null) {
-                builder.from_type = num3;
-            }
-            Long l = this.beginThreadId;
-            if (l != null) {
-                builder.begin_thread_id = l;
-            }
-            if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
-            }
-            UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCallback;
         }
-        return (Message) invokeZ.objValue;
+        return (PersonPostModel.c) invokeV.objValue;
+    }
+
+    public int getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.from;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.pn;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getPortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.portrait;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public MetaData getThreadAuthor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.threadAuthor;
+        }
+        return (MetaData) invokeV.objValue;
+    }
+
+    public User getThreadUser() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.threadUser;
+        }
+        return (User) invokeV.objValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.uid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.isHost;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isReset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.isReset;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.isThread;
+        }
+        return invokeV.booleanValue;
     }
 }

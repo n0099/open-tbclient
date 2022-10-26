@@ -12,11 +12,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a74;
-import com.baidu.tieba.d74;
-import com.baidu.tieba.h74;
-import com.baidu.tieba.u64;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.b74;
+import com.baidu.tieba.e74;
+import com.baidu.tieba.i74;
+import com.baidu.tieba.v64;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,113 +46,15 @@ public class GameCloseGuidePopView extends RelativeLayout {
     public RecyclerView e;
     public e f;
     public RecommendItemModel g;
-    public u64 h;
+    public v64 h;
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameCloseGuidePopView a;
+    public interface e {
+        void a();
 
-        public a(GameCloseGuidePopView gameCloseGuidePopView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gameCloseGuidePopView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameCloseGuidePopView;
-        }
+        void b();
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null) {
-                return;
-            }
-            this.a.f.a();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameCloseGuidePopView a;
-
-        public b(GameCloseGuidePopView gameCloseGuidePopView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gameCloseGuidePopView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameCloseGuidePopView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null) {
-                return;
-            }
-            this.a.f.b();
-            if (this.a.g == null || TextUtils.isEmpty(this.a.g.getScheme()) || TextUtils.isEmpty(this.a.g.getAppKey())) {
-                return;
-            }
-            SchemeRouter.invokeSchemeForInner(this.a.a, Uri.parse(this.a.g.getScheme()));
-            this.a.h.b(3, "popview", this.a.g.getAppKey(), "");
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameCloseGuidePopView a;
-
-        public c(GameCloseGuidePopView gameCloseGuidePopView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gameCloseGuidePopView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameCloseGuidePopView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null) {
-                return;
-            }
-            this.a.f.c();
-        }
+        void c();
     }
 
     /* loaded from: classes3.dex */
@@ -166,15 +68,15 @@ public class GameCloseGuidePopView extends RelativeLayout {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
-            public final /* synthetic */ a74 b;
+            public final /* synthetic */ b74 b;
             public final /* synthetic */ d c;
 
-            public a(d dVar, List list, a74 a74Var) {
+            public a(d dVar, List list, b74 b74Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, list, a74Var};
+                    Object[] objArr = {dVar, list, b74Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -186,7 +88,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                 }
                 this.c = dVar;
                 this.a = list;
-                this.b = a74Var;
+                this.b = b74Var;
             }
 
             @Override // java.lang.Runnable
@@ -228,47 +130,140 @@ public class GameCloseGuidePopView extends RelativeLayout {
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) || response == null || response.body() == null) {
-                return;
-            }
-            try {
-                JSONObject optJSONObject = new JSONObject(response.body().string()).optJSONObject("data");
-                if (optJSONObject == null) {
-                    return;
-                }
-                String optString = optJSONObject.optString("game_center");
-                if (TextUtils.isEmpty(optString)) {
-                    return;
-                }
-                Gson gson = new Gson();
-                this.a.g = (RecommendItemModel) gson.fromJson(optString, (Class<Object>) RecommendItemModel.class);
-                JSONArray optJSONArray = optJSONObject.optJSONArray("app_list");
-                if (optJSONArray == null) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    if (optJSONArray.opt(i) != null) {
-                        arrayList.add((RecommendItemModel) gson.fromJson(optJSONArray.opt(i).toString(), (Class<Object>) RecommendItemModel.class));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) && response != null && response.body() != null) {
+                try {
+                    JSONObject optJSONObject = new JSONObject(response.body().string()).optJSONObject("data");
+                    if (optJSONObject == null) {
+                        return;
                     }
-                }
-                this.a.post(new a(this, arrayList, new a74(this.a.g, arrayList)));
-            } catch (JSONException e) {
-                if (GameCloseGuidePopView.i) {
-                    e.printStackTrace();
+                    String optString = optJSONObject.optString("game_center");
+                    if (TextUtils.isEmpty(optString)) {
+                        return;
+                    }
+                    Gson gson = new Gson();
+                    this.a.g = (RecommendItemModel) gson.fromJson(optString, (Class<Object>) RecommendItemModel.class);
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("app_list");
+                    if (optJSONArray == null) {
+                        return;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        if (optJSONArray.opt(i) != null) {
+                            arrayList.add((RecommendItemModel) gson.fromJson(optJSONArray.opt(i).toString(), (Class<Object>) RecommendItemModel.class));
+                        }
+                    }
+                    this.a.post(new a(this, arrayList, new b74(this.a.g, arrayList)));
+                } catch (JSONException e) {
+                    if (GameCloseGuidePopView.i) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public interface e {
-        void a();
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameCloseGuidePopView a;
 
-        void b();
+        public a(GameCloseGuidePopView gameCloseGuidePopView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameCloseGuidePopView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gameCloseGuidePopView;
+        }
 
-        void c();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null) {
+                this.a.f.a();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameCloseGuidePopView a;
+
+        public b(GameCloseGuidePopView gameCloseGuidePopView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameCloseGuidePopView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gameCloseGuidePopView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null) {
+                this.a.f.b();
+                if (this.a.g != null && !TextUtils.isEmpty(this.a.g.getScheme()) && !TextUtils.isEmpty(this.a.g.getAppKey())) {
+                    SchemeRouter.invokeSchemeForInner(this.a.a, Uri.parse(this.a.g.getScheme()));
+                    this.a.h.b(3, "popview", this.a.g.getAppKey(), "");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameCloseGuidePopView a;
+
+        public c(GameCloseGuidePopView gameCloseGuidePopView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gameCloseGuidePopView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gameCloseGuidePopView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null) {
+                this.a.f.c();
+            }
+        }
     }
 
     static {
@@ -284,7 +279,15 @@ public class GameCloseGuidePopView extends RelativeLayout {
                 return;
             }
         }
-        i = vj1.a;
+        i = wj1.a;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = new v64();
+            e74.a(new d(this));
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -310,35 +313,27 @@ public class GameCloseGuidePopView extends RelativeLayout {
         h();
     }
 
-    public final void h() {
+    public void setOnClickListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = new u64();
-            d74.a(new d(this));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
+            this.f = eVar;
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083d, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f092397);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0923c8);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c59);
-            this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9e);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083e, this);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092382);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091c55);
+            this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9a);
             this.b.setOnClickListener(new a(this));
             this.c.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));
-            h74.a(this.b);
-            h74.a(this.c);
+            i74.a(this.b);
+            i74.a(this.c);
             this.e.setLayoutManager(new GridLayoutManager(this.a, 3));
-        }
-    }
-
-    public void setOnClickListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f = eVar;
         }
     }
 }

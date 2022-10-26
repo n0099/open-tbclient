@@ -39,36 +39,43 @@ public class WbResponseBody {
     public InputStream byteStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.inputStream : (InputStream) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.inputStream;
+        }
+        return (InputStream) invokeV.objValue;
     }
 
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.length : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.length;
+        }
+        return invokeV.longValue;
     }
 
     public String string() throws RequestException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
-            return (String) invokeV.objValue;
-        }
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = this.inputStream.read(bArr);
-                if (read != -1) {
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } else {
-                    this.inputStream.close();
-                    byteArrayOutputStream.close();
-                    return new String(byteArrayOutputStream.toByteArray());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = this.inputStream.read(bArr);
+                    if (read != -1) {
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    } else {
+                        this.inputStream.close();
+                        byteArrayOutputStream.close();
+                        return new String(byteArrayOutputStream.toByteArray());
+                    }
                 }
+            } catch (IOException e) {
+                throw new RequestException(e.toString());
             }
-        } catch (IOException e) {
-            throw new RequestException(e.toString());
+        } else {
+            return (String) invokeV.objValue;
         }
     }
 }

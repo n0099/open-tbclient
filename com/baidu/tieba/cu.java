@@ -1,86 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.TypeCastException;
 /* loaded from: classes3.dex */
 public final class cu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final TaskUIData b;
+    public Map a;
 
-    public cu(int i, TaskUIData taskUIData) {
+    public cu() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), taskUIData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = taskUIData;
+        this.a = new HashMap();
+        ju juVar = new ju(this);
+        this.a.put(juVar.b(), juVar);
+        fu fuVar = new fu(this);
+        this.a.put(fuVar.b(), fuVar);
+        ku kuVar = new ku(this);
+        this.a.put(kuVar.c(), kuVar);
+        hu huVar = new hu(this);
+        this.a.put(huVar.b(), huVar);
+        gu guVar = new gu(this);
+        this.a.put(guVar.c(), guVar);
+        iu iuVar = new iu(this);
+        this.a.put(iuVar.b(), iuVar);
+        bu buVar = new bu(this);
+        this.a.put(buVar.b(), buVar);
+        zt ztVar = new zt(this);
+        this.a.put(ztVar.c(), ztVar);
     }
 
-    public final TaskUIData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (TaskUIData) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
+    public final au a(String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof cu) {
-                    cu cuVar = (cu) obj;
-                    if (!(this.a == cuVar.a) || !Intrinsics.areEqual(this.b, cuVar.b)) {
-                    }
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a.get(str) != null) {
+                z = true;
+            } else {
+                z = false;
             }
-            return true;
+            if (z) {
+                Object obj = this.a.get(str);
+                if (obj != null) {
+                    return (au) obj;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type com.baidu.bdtask.model.ITaskModelCreator<out T>");
+            }
+            throw new IllegalArgumentException(("can not find " + str + " model creator!").toString());
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.a * 31;
-            TaskUIData taskUIData = this.b;
-            return i + (taskUIData != null ? taskUIData.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "CurUIData(uiType=" + this.a + ", UIData=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
+        return (au) invokeL.objValue;
     }
 }

@@ -52,7 +52,10 @@ public final class s2 extends r2 {
         public SurfaceHolder getHolder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.y() : (SurfaceHolder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.e.y();
+            }
+            return (SurfaceHolder) invokeV.objValue;
         }
     }
 
@@ -107,6 +110,35 @@ public final class s2 extends r2 {
         }
     }
 
+    public SurfaceHolder y() {
+        InterceptResult invokeV;
+        SurfaceHolder surfaceHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (((u2) this.d).a.sync) {
+                surfaceHolder = ((u2) this.d).a.getSurfaceHolder();
+            }
+            return surfaceHolder;
+        }
+        return (SurfaceHolder) invokeV.objValue;
+    }
+
+    public void z() {
+        GLSurfaceView20 gLSurfaceView20;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gLSurfaceView20 = this.a) != null) {
+            try {
+                gLSurfaceView20.onDetachedFromWindow();
+                if (AndroidLiveWallpaperService.DEBUG) {
+                    Log.d(AndroidLiveWallpaperService.TAG, " > AndroidLiveWallpaper - onDestroy() stopped GLThread managed by GLSurfaceView");
+                }
+            } catch (Throwable th) {
+                Log.e(AndroidLiveWallpaperService.TAG, "failed to destroy GLSurfaceView's thread! GLSurfaceView.onDetachedFromWindow impl changed since API lvl 16!");
+                th.printStackTrace();
+            }
+        }
+    }
+
     @Override // com.baidu.tieba.r2, android.opengl.GLSurfaceView.Renderer
     public void onDrawFrame(GL10 gl10) {
         boolean z;
@@ -150,7 +182,7 @@ public final class s2 extends r2 {
                     this.d.getExecutedRunnables().b(this.d.getRunnables());
                     this.d.getRunnables().clear();
                     for (int i = 0; i < this.d.getExecutedRunnables().b; i++) {
-                        this.d.getExecutedRunnables().get(i).run();
+                        ((Runnable) this.d.getExecutedRunnables().get(i)).run();
                     }
                 }
                 this.d.getInput().Q0();
@@ -189,36 +221,6 @@ public final class s2 extends r2 {
                     }
                 }
             }
-        }
-    }
-
-    public SurfaceHolder y() {
-        InterceptResult invokeV;
-        SurfaceHolder surfaceHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (((u2) this.d).a.sync) {
-                surfaceHolder = ((u2) this.d).a.getSurfaceHolder();
-            }
-            return surfaceHolder;
-        }
-        return (SurfaceHolder) invokeV.objValue;
-    }
-
-    public void z() {
-        GLSurfaceView20 gLSurfaceView20;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gLSurfaceView20 = this.a) == null) {
-            return;
-        }
-        try {
-            gLSurfaceView20.onDetachedFromWindow();
-            if (AndroidLiveWallpaperService.DEBUG) {
-                Log.d(AndroidLiveWallpaperService.TAG, " > AndroidLiveWallpaper - onDestroy() stopped GLThread managed by GLSurfaceView");
-            }
-        } catch (Throwable th) {
-            Log.e(AndroidLiveWallpaperService.TAG, "failed to destroy GLSurfaceView's thread! GLSurfaceView.onDetachedFromWindow impl changed since API lvl 16!");
-            th.printStackTrace();
         }
     }
 }

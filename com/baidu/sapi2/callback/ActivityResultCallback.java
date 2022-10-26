@@ -10,6 +10,8 @@ public abstract class ActivityResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onActivityResult(int i, int i2, Intent intent);
+
     public ActivityResultCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,6 +25,4 @@ public abstract class ActivityResultCallback {
             }
         }
     }
-
-    public abstract void onActivityResult(int i, int i2, Intent intent);
 }

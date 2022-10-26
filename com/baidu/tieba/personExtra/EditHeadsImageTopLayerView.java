@@ -48,20 +48,6 @@ public class EditHeadsImageTopLayerView extends View {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Paint paint = new Paint();
-            this.a = paint;
-            paint.setColor(-16777216);
-            this.a.setAlpha(153);
-            Paint paint2 = new Paint();
-            this.b = paint2;
-            paint2.setStyle(Paint.Style.STROKE);
-            this.b.setColor(-1);
-        }
-    }
-
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
@@ -72,51 +58,6 @@ public class EditHeadsImageTopLayerView extends View {
             canvas.drawRect(0.0f, 0.0f, getWidth(), this.c, this.a);
             canvas.drawRect(0.0f, getHeight() - this.d, getWidth(), getHeight(), this.a);
             canvas.drawRect(1.0f, this.c, getWidth() - 1, getHeight() - this.d, this.b);
-        }
-    }
-
-    @Override // android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            float width = this.f * getWidth();
-            if (width > getHeight()) {
-                width = getHeight();
-            }
-            float f = (i4 - i2) - width;
-            float f2 = this.e;
-            this.c = (int) (f * f2);
-            this.d = (int) (f * (1.0f - f2));
-        }
-    }
-
-    public void setLinePaintColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            Paint paint = this.b;
-            if (paint != null) {
-                paint.setColor(i);
-            }
-            invalidate();
-        }
-    }
-
-    public void setLineWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            Paint paint = this.b;
-            if (paint != null) {
-                paint.setStrokeWidth(i);
-            }
-            invalidate();
-        }
-    }
-
-    public void setmCutHeightScale(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.f = f;
         }
     }
 
@@ -174,5 +115,64 @@ public class EditHeadsImageTopLayerView extends View {
         this.e = 0.42857143f;
         this.f = 1.0f;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Paint paint = new Paint();
+            this.a = paint;
+            paint.setColor(-16777216);
+            this.a.setAlpha(153);
+            Paint paint2 = new Paint();
+            this.b = paint2;
+            paint2.setStyle(Paint.Style.STROKE);
+            this.b.setColor(-1);
+        }
+    }
+
+    @Override // android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            float width = this.f * getWidth();
+            if (width > getHeight()) {
+                width = getHeight();
+            }
+            float f = (i4 - i2) - width;
+            float f2 = this.e;
+            this.c = (int) (f * f2);
+            this.d = (int) (f * (1.0f - f2));
+        }
+    }
+
+    public void setLinePaintColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Paint paint = this.b;
+            if (paint != null) {
+                paint.setColor(i);
+            }
+            invalidate();
+        }
+    }
+
+    public void setLineWidth(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            Paint paint = this.b;
+            if (paint != null) {
+                paint.setStrokeWidth(i);
+            }
+            invalidate();
+        }
+    }
+
+    public void setmCutHeightScale(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            this.f = f;
+        }
     }
 }

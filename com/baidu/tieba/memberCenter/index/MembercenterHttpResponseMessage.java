@@ -4,9 +4,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.an7;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ln7;
+import com.baidu.tieba.ou4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public an7 mMembercenter;
+    public ln7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterHttpResponseMessage() {
@@ -41,18 +41,22 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public an7 getMembercenterData() {
+    public ln7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMembercenter : (an7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMembercenter;
+        }
+        return (ln7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetVipInfoResIdl getVipInfoResIdl;
+        String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getVipInfoResIdl = (GetVipInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVipInfoResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getVipInfoResIdl = (GetVipInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVipInfoResIdl.class)) == null) {
             return;
         }
         Error error = getVipInfoResIdl.error;
@@ -62,16 +66,19 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
         DataRes dataRes = getVipInfoResIdl.data;
         if (dataRes != null) {
-            this.mMembercenter = new an7(dataRes);
+            this.mMembercenter = new ln7(dataRes);
         }
         if (getError() == 0) {
-            String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-            mu4.f();
-            jf<byte[]> e = mu4.e("tb_member_center", currentAccount);
-            if (e == null || bArr == null) {
-                return;
+            if (TbadkCoreApplication.isLogin()) {
+                str = TbadkCoreApplication.getCurrentAccount();
+            } else {
+                str = SevenZipUtils.FILE_NAME_TEMP;
             }
-            e.g("member_center_cache_key", bArr);
+            ou4.f();
+            kf e = ou4.e("tb_member_center", str);
+            if (e != null && bArr != null) {
+                e.g("member_center_cache_key", bArr);
+            }
         }
     }
 }

@@ -4,5 +4,5 @@ import com.baidu.android.imsdk.IMListener;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface IFetchNotificationDataListener extends IMListener {
-    void onFetchResult(List<NotificationMsgData> list, boolean z);
+    void onFetchResult(List list, boolean z);
 }

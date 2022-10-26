@@ -33,23 +33,25 @@ public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public ForumBroadcastMajorResidueData getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.majorHistoryData;
+        }
+        return (ForumBroadcastMajorResidueData) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null || jSONObject.optInt("error_code", -1) != 0 || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && jSONObject.optInt("error_code", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            ForumBroadcastMajorResidueData forumBroadcastMajorResidueData = new ForumBroadcastMajorResidueData();
+            this.majorHistoryData = forumBroadcastMajorResidueData;
+            forumBroadcastMajorResidueData.D(optJSONObject.optInt("used_cnt"));
+            this.majorHistoryData.B(optJSONObject.optInt("has_cnt"));
+            this.majorHistoryData.C(optJSONObject.optInt("predict_push_usercnt"));
         }
-        ForumBroadcastMajorResidueData forumBroadcastMajorResidueData = new ForumBroadcastMajorResidueData();
-        this.majorHistoryData = forumBroadcastMajorResidueData;
-        forumBroadcastMajorResidueData.D(optJSONObject.optInt("used_cnt"));
-        this.majorHistoryData.B(optJSONObject.optInt("has_cnt"));
-        this.majorHistoryData.C(optJSONObject.optInt("predict_push_usercnt"));
-    }
-
-    public ForumBroadcastMajorResidueData getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.majorHistoryData : (ForumBroadcastMajorResidueData) invokeV.objValue;
     }
 }

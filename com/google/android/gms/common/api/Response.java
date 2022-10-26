@@ -1,18 +1,16 @@
 package com.google.android.gms.common.api;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.api.Result;
 /* loaded from: classes7.dex */
-public class Response<T extends Result> {
+public class Response {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T zza;
+    public Result zza;
 
     public Response() {
         Interceptable interceptable = $ic;
@@ -28,12 +26,12 @@ public class Response<T extends Result> {
         }
     }
 
-    public Response(@NonNull T t) {
+    public Response(Result result) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {result};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,20 +41,19 @@ public class Response<T extends Result> {
                 return;
             }
         }
-        this.zza = t;
+        this.zza = result;
     }
 
-    @NonNull
-    public T getResult() {
+    public Result getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zza : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zza : (Result) invokeV.objValue;
     }
 
-    public void setResult(@NonNull T t) {
+    public void setResult(Result result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.zza = t;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
+            this.zza = result;
         }
     }
 }

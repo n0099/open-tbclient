@@ -1,6 +1,5 @@
 package com.kwad.components.core.page.kwai;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -80,7 +79,6 @@ public final class b extends Presenter {
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -120,7 +118,7 @@ public final class b extends Presenter {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.aq();
             this.mAdTemplate = ((com.kwad.components.core.page.recycle.e) xR()).adTemplate;
-            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09123a);
+            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09122e);
             this.Gg = nestedScrollWebView;
             this.Gg.setClientConfig(nestedScrollWebView.getClientConfig().R(this.mAdTemplate));
             this.Gg.setNestedScrollingEnabled(true);

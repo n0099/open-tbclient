@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class HybridADSetting implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<HybridADSetting> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int TYPE_REWARD_VIDEO = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,7 +41,7 @@ public class HybridADSetting implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<HybridADSetting>() { // from class: com.qq.e.ads.hybrid.HybridADSetting.1
+        CREATOR = new Parcelable.Creator() { // from class: com.qq.e.ads.hybrid.HybridADSetting.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +60,6 @@ public class HybridADSetting implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public HybridADSetting createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -69,7 +68,6 @@ public class HybridADSetting implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public HybridADSetting[] newArray(int i) {
                 InterceptResult invokeI;

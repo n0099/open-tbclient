@@ -5,9 +5,6 @@ import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.transition.Transition;
 import androidx.transition.TransitionValues;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class TextScale extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,7 +34,7 @@ public class TextScale extends Transition {
         }
     }
 
-    private void captureValues(@NonNull TransitionValues transitionValues) {
+    private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, transitionValues) == null) {
             View view2 = transitionValues.f1028view;
@@ -49,7 +45,7 @@ public class TextScale extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
+    public void captureEndValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -57,7 +53,7 @@ public class TextScale extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
+    public void captureStartValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -65,62 +61,70 @@ public class TextScale extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
+    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
             if (transitionValues == null || transitionValues2 == null || !(transitionValues.f1028view instanceof TextView)) {
                 return null;
             }
             View view2 = transitionValues2.f1028view;
-            if (view2 instanceof TextView) {
-                TextView textView = (TextView) view2;
-                Map<String, Object> map = transitionValues.values;
-                Map<String, Object> map2 = transitionValues2.values;
-                float floatValue = map.get(PROPNAME_SCALE) != null ? ((Float) map.get(PROPNAME_SCALE)).floatValue() : 1.0f;
-                float floatValue2 = map2.get(PROPNAME_SCALE) != null ? ((Float) map2.get(PROPNAME_SCALE)).floatValue() : 1.0f;
-                if (floatValue == floatValue2) {
-                    return null;
-                }
-                ValueAnimator ofFloat = ValueAnimator.ofFloat(floatValue, floatValue2);
-                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, textView) { // from class: com.google.android.material.internal.TextScale.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ TextScale this$0;
-                    public final /* synthetic */ TextView val$view;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, textView};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$view = textView;
-                    }
-
-                    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                    public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                            float floatValue3 = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                            this.val$view.setScaleX(floatValue3);
-                            this.val$view.setScaleY(floatValue3);
-                        }
-                    }
-                });
-                return ofFloat;
+            if (!(view2 instanceof TextView)) {
+                return null;
             }
-            return null;
+            TextView textView = (TextView) view2;
+            Map<String, Object> map = transitionValues.values;
+            Map<String, Object> map2 = transitionValues2.values;
+            float f2 = 1.0f;
+            if (map.get(PROPNAME_SCALE) != null) {
+                f = ((Float) map.get(PROPNAME_SCALE)).floatValue();
+            } else {
+                f = 1.0f;
+            }
+            if (map2.get(PROPNAME_SCALE) != null) {
+                f2 = ((Float) map2.get(PROPNAME_SCALE)).floatValue();
+            }
+            if (f == f2) {
+                return null;
+            }
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, textView) { // from class: com.google.android.material.internal.TextScale.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TextScale this$0;
+                public final /* synthetic */ TextView val$view;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, textView};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$view = textView;
+                }
+
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
+                        float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                        this.val$view.setScaleX(floatValue);
+                        this.val$view.setScaleY(floatValue);
+                    }
+                }
+            });
+            return ofFloat;
         }
         return (Animator) invokeLLL.objValue;
     }

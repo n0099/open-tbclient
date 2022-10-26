@@ -14,6 +14,16 @@ public class HelperReferences extends WidgetRun {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
+    public boolean supportsWrapComputation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HelperReferences(ConstraintWidget constraintWidget) {
         super(constraintWidget);
@@ -53,60 +63,66 @@ public class HelperReferences extends WidgetRun {
                 int barrierType = barrier.getBarrierType();
                 boolean allowsGoneWidget = barrier.allowsGoneWidget();
                 int i = 0;
-                if (barrierType == 0) {
-                    this.start.type = DependencyNode.Type.LEFT;
-                    while (i < barrier.mWidgetsCount) {
-                        ConstraintWidget constraintWidget2 = barrier.mWidgets[i];
-                        if (allowsGoneWidget || constraintWidget2.getVisibility() != 8) {
-                            DependencyNode dependencyNode = constraintWidget2.horizontalRun.start;
-                            dependencyNode.dependencies.add(this.start);
-                            this.start.targets.add(dependencyNode);
+                if (barrierType != 0) {
+                    if (barrierType != 1) {
+                        if (barrierType != 2) {
+                            if (barrierType == 3) {
+                                this.start.type = DependencyNode.Type.BOTTOM;
+                                while (i < barrier.mWidgetsCount) {
+                                    ConstraintWidget constraintWidget2 = barrier.mWidgets[i];
+                                    if (allowsGoneWidget || constraintWidget2.getVisibility() != 8) {
+                                        DependencyNode dependencyNode = constraintWidget2.verticalRun.end;
+                                        dependencyNode.dependencies.add(this.start);
+                                        this.start.targets.add(dependencyNode);
+                                    }
+                                    i++;
+                                }
+                                addDependency(this.widget.verticalRun.start);
+                                addDependency(this.widget.verticalRun.end);
+                                return;
+                            }
+                            return;
                         }
-                        i++;
+                        this.start.type = DependencyNode.Type.TOP;
+                        while (i < barrier.mWidgetsCount) {
+                            ConstraintWidget constraintWidget3 = barrier.mWidgets[i];
+                            if (allowsGoneWidget || constraintWidget3.getVisibility() != 8) {
+                                DependencyNode dependencyNode2 = constraintWidget3.verticalRun.start;
+                                dependencyNode2.dependencies.add(this.start);
+                                this.start.targets.add(dependencyNode2);
+                            }
+                            i++;
+                        }
+                        addDependency(this.widget.verticalRun.start);
+                        addDependency(this.widget.verticalRun.end);
+                        return;
                     }
-                    addDependency(this.widget.horizontalRun.start);
-                    addDependency(this.widget.horizontalRun.end);
-                } else if (barrierType == 1) {
                     this.start.type = DependencyNode.Type.RIGHT;
-                    while (i < barrier.mWidgetsCount) {
-                        ConstraintWidget constraintWidget3 = barrier.mWidgets[i];
-                        if (allowsGoneWidget || constraintWidget3.getVisibility() != 8) {
-                            DependencyNode dependencyNode2 = constraintWidget3.horizontalRun.end;
-                            dependencyNode2.dependencies.add(this.start);
-                            this.start.targets.add(dependencyNode2);
-                        }
-                        i++;
-                    }
-                    addDependency(this.widget.horizontalRun.start);
-                    addDependency(this.widget.horizontalRun.end);
-                } else if (barrierType == 2) {
-                    this.start.type = DependencyNode.Type.TOP;
                     while (i < barrier.mWidgetsCount) {
                         ConstraintWidget constraintWidget4 = barrier.mWidgets[i];
                         if (allowsGoneWidget || constraintWidget4.getVisibility() != 8) {
-                            DependencyNode dependencyNode3 = constraintWidget4.verticalRun.start;
+                            DependencyNode dependencyNode3 = constraintWidget4.horizontalRun.end;
                             dependencyNode3.dependencies.add(this.start);
                             this.start.targets.add(dependencyNode3);
                         }
                         i++;
                     }
-                    addDependency(this.widget.verticalRun.start);
-                    addDependency(this.widget.verticalRun.end);
-                } else if (barrierType != 3) {
-                } else {
-                    this.start.type = DependencyNode.Type.BOTTOM;
-                    while (i < barrier.mWidgetsCount) {
-                        ConstraintWidget constraintWidget5 = barrier.mWidgets[i];
-                        if (allowsGoneWidget || constraintWidget5.getVisibility() != 8) {
-                            DependencyNode dependencyNode4 = constraintWidget5.verticalRun.end;
-                            dependencyNode4.dependencies.add(this.start);
-                            this.start.targets.add(dependencyNode4);
-                        }
-                        i++;
-                    }
-                    addDependency(this.widget.verticalRun.start);
-                    addDependency(this.widget.verticalRun.end);
+                    addDependency(this.widget.horizontalRun.start);
+                    addDependency(this.widget.horizontalRun.end);
+                    return;
                 }
+                this.start.type = DependencyNode.Type.LEFT;
+                while (i < barrier.mWidgetsCount) {
+                    ConstraintWidget constraintWidget5 = barrier.mWidgets[i];
+                    if (allowsGoneWidget || constraintWidget5.getVisibility() != 8) {
+                        DependencyNode dependencyNode4 = constraintWidget5.horizontalRun.start;
+                        dependencyNode4.dependencies.add(this.start);
+                        this.start.targets.add(dependencyNode4);
+                    }
+                    i++;
+                }
+                addDependency(this.widget.horizontalRun.start);
+                addDependency(this.widget.horizontalRun.end);
             }
         }
     }
@@ -142,16 +158,6 @@ public class HelperReferences extends WidgetRun {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.start.resolved = false;
         }
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
-    public boolean supportsWrapComputation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun, androidx.constraintlayout.solver.widgets.analyzer.Dependency

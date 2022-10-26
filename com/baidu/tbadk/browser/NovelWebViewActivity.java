@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.atomData.NovelWebViewActivityConfig;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fp4;
-import com.baidu.tieba.kc5;
-import com.baidu.tieba.lc5;
+import com.baidu.tieba.gp4;
+import com.baidu.tieba.pc5;
+import com.baidu.tieba.qc5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,6 +38,21 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     public String c;
     public String d;
     public final CustomMessageListener e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1500810213, "Lcom/baidu/tbadk/browser/NovelWebViewActivity;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1500810213, "Lcom/baidu/tbadk/browser/NovelWebViewActivity;");
+        }
+    }
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -68,17 +83,18 @@ public class NovelWebViewActivity extends TbWebViewActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921697) {
                 int error = customResponsedMessage.getError();
-                if (customResponsedMessage.getData() instanceof Boolean) {
-                    this.a.a = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                    if (error == 0) {
-                        NovelWebViewActivity novelWebViewActivity = this.a;
-                        if (novelWebViewActivity.a) {
-                            novelWebViewActivity.E1();
-                        }
+                if (!(customResponsedMessage.getData() instanceof Boolean)) {
+                    return;
+                }
+                this.a.a = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                if (error == 0) {
+                    NovelWebViewActivity novelWebViewActivity = this.a;
+                    if (novelWebViewActivity.a) {
+                        novelWebViewActivity.D1();
                     }
                 }
             }
@@ -112,36 +128,27 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             this.c = novelWebViewActivity;
         }
 
-        @Override // com.baidu.tbadk.browser.TbWebViewActivity.t, android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                super.onPageFinished(webView, str);
-                String unused = NovelWebViewActivity.g = kc5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
-                if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
-                    this.c.E1();
-                }
-                lc5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, this.c.b ? 2 : 1, NovelWebViewActivity.f, this.c.c, this.c.d);
-            }
-        }
-
         public /* synthetic */ b(NovelWebViewActivity novelWebViewActivity, a aVar) {
             this(novelWebViewActivity);
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1500810213, "Lcom/baidu/tbadk/browser/NovelWebViewActivity;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1500810213, "Lcom/baidu/tbadk/browser/NovelWebViewActivity;");
+        @Override // com.baidu.tbadk.browser.TbWebViewActivity.t, android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                super.onPageFinished(webView, str);
+                String unused = NovelWebViewActivity.g = pc5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
+                if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
+                    this.c.D1();
+                }
+                if (this.c.b) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                qc5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, i, NovelWebViewActivity.f, this.c.c, this.c.d);
+            }
         }
     }
 
@@ -163,13 +170,37 @@ public class NovelWebViewActivity extends TbWebViewActivity {
         this.e = new a(this, 2921697);
     }
 
-    public final void E1() {
+    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            MessageManager.getInstance().unRegisterListener(this.e);
+        }
+    }
+
+    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity
+    public boolean webViewGoBack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a) {
+                this.a = false;
+                finish();
+                return true;
+            }
+            return super.webViewGoBack();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kc5.e(f, new ReadRecordsData(f));
+            pc5.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
             bdTopToast.h(true);
-            bdTopToast.g(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cd7));
+            bdTopToast.g(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ce8));
             bdTopToast.i((ViewGroup) getPageContext().getPageActivity().findViewById(16908290));
         }
     }
@@ -187,20 +218,11 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                 this.d = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_FID);
             }
             this.mWebView.setWebViewClient(new b(this, null));
-            fp4 fp4Var = this.mView;
-            if (fp4Var != null && (imageView = fp4Var.j) != null) {
+            gp4 gp4Var = this.mView;
+            if (gp4Var != null && (imageView = gp4Var.j) != null) {
                 imageView.setVisibility(8);
             }
             registerListener(this.e);
-        }
-    }
-
-    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 
@@ -215,20 +237,5 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity
-    public boolean webViewGoBack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a) {
-                this.a = false;
-                finish();
-                return true;
-            }
-            return super.webViewGoBack();
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -7,8 +7,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesCompat;
@@ -42,6 +40,12 @@ public class AudioFocusRequestCompat {
         public AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener;
         public boolean mPauseOnDuck;
 
+        public static boolean isValidFocusGain(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
+        }
+
         public Builder(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -61,39 +65,6 @@ public class AudioFocusRequestCompat {
             setFocusGain(i);
         }
 
-        public static boolean isValidFocusGain(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
-        }
-
-        public AudioFocusRequestCompat build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.mOnAudioFocusChangeListener != null) {
-                    return new AudioFocusRequestCompat(this.mFocusGain, this.mOnAudioFocusChangeListener, this.mFocusChangeHandler, this.mAudioAttributesCompat, this.mPauseOnDuck);
-                }
-                throw new IllegalStateException("Can't build an AudioFocusRequestCompat instance without a listener");
-            }
-            return (AudioFocusRequestCompat) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder setAudioAttributes(@NonNull AudioAttributesCompat audioAttributesCompat) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, audioAttributesCompat)) == null) {
-                if (audioAttributesCompat != null) {
-                    this.mAudioAttributesCompat = audioAttributesCompat;
-                    return this;
-                }
-                throw new NullPointerException("Illegal null AudioAttributes");
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @NonNull
         public Builder setFocusGain(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -110,43 +81,7 @@ public class AudioFocusRequestCompat {
             return (Builder) invokeI.objValue;
         }
 
-        @NonNull
-        public Builder setOnAudioFocusChangeListener(@NonNull AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onAudioFocusChangeListener)) == null) ? setOnAudioFocusChangeListener(onAudioFocusChangeListener, new Handler(Looper.getMainLooper())) : (Builder) invokeL.objValue;
-        }
-
-        @NonNull
-        public Builder setWillPauseWhenDucked(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.mPauseOnDuck = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        @NonNull
-        public Builder setOnAudioFocusChangeListener(@NonNull AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, @NonNull Handler handler) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, onAudioFocusChangeListener, handler)) == null) {
-                if (onAudioFocusChangeListener != null) {
-                    if (handler != null) {
-                        this.mOnAudioFocusChangeListener = onAudioFocusChangeListener;
-                        this.mFocusChangeHandler = handler;
-                        return this;
-                    }
-                    throw new IllegalArgumentException("Handler must not be null");
-                }
-                throw new IllegalArgumentException("OnAudioFocusChangeListener must not be null");
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder(@NonNull AudioFocusRequestCompat audioFocusRequestCompat) {
+        public Builder(AudioFocusRequestCompat audioFocusRequestCompat) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,6 +107,67 @@ public class AudioFocusRequestCompat {
             }
             throw new IllegalArgumentException("AudioFocusRequestCompat to copy must not be null");
         }
+
+        public AudioFocusRequestCompat build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.mOnAudioFocusChangeListener != null) {
+                    return new AudioFocusRequestCompat(this.mFocusGain, this.mOnAudioFocusChangeListener, this.mFocusChangeHandler, this.mAudioAttributesCompat, this.mPauseOnDuck);
+                }
+                throw new IllegalStateException("Can't build an AudioFocusRequestCompat instance without a listener");
+            }
+            return (AudioFocusRequestCompat) invokeV.objValue;
+        }
+
+        public Builder setAudioAttributes(AudioAttributesCompat audioAttributesCompat) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, audioAttributesCompat)) == null) {
+                if (audioAttributesCompat != null) {
+                    this.mAudioAttributesCompat = audioAttributesCompat;
+                    return this;
+                }
+                throw new NullPointerException("Illegal null AudioAttributes");
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setOnAudioFocusChangeListener(AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onAudioFocusChangeListener)) == null) {
+                return setOnAudioFocusChangeListener(onAudioFocusChangeListener, new Handler(Looper.getMainLooper()));
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setWillPauseWhenDucked(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.mPauseOnDuck = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setOnAudioFocusChangeListener(AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, Handler handler) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, onAudioFocusChangeListener, handler)) == null) {
+                if (onAudioFocusChangeListener != null) {
+                    if (handler != null) {
+                        this.mOnAudioFocusChangeListener = onAudioFocusChangeListener;
+                        this.mFocusChangeHandler = handler;
+                        return this;
+                    }
+                    throw new IllegalArgumentException("Handler must not be null");
+                }
+                throw new IllegalArgumentException("OnAudioFocusChangeListener must not be null");
+            }
+            return (Builder) invokeLL.objValue;
+        }
     }
 
     /* loaded from: classes.dex */
@@ -182,7 +178,7 @@ public class AudioFocusRequestCompat {
         public final Handler mHandler;
         public final AudioManager.OnAudioFocusChangeListener mListener;
 
-        public OnAudioFocusChangeListenerHandlerCompat(@NonNull AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, @NonNull Handler handler) {
+        public OnAudioFocusChangeListenerHandlerCompat(AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -241,6 +237,73 @@ public class AudioFocusRequestCompat {
         FOCUS_DEFAULT_ATTR = new AudioAttributesCompat.Builder().setUsage(1).build();
     }
 
+    public AudioAttributes getAudioAttributes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AudioAttributesCompat audioAttributesCompat = this.mAudioAttributesCompat;
+            if (audioAttributesCompat != null) {
+                return (AudioAttributes) audioAttributesCompat.unwrap();
+            }
+            return null;
+        }
+        return (AudioAttributes) invokeV.objValue;
+    }
+
+    public AudioAttributesCompat getAudioAttributesCompat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAudioAttributesCompat;
+        }
+        return (AudioAttributesCompat) invokeV.objValue;
+    }
+
+    public AudioFocusRequest getAudioFocusRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (AudioFocusRequest) this.mFrameworkAudioFocusRequest;
+        }
+        return (AudioFocusRequest) invokeV.objValue;
+    }
+
+    public Handler getFocusChangeHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mFocusChangeHandler;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public int getFocusGain() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mFocusGain;
+        }
+        return invokeV.intValue;
+    }
+
+    public AudioManager.OnAudioFocusChangeListener getOnAudioFocusChangeListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mOnAudioFocusChangeListener;
+        }
+        return (AudioManager.OnAudioFocusChangeListener) invokeV.objValue;
+    }
+
+    public boolean willPauseWhenDucked() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mPauseOnDuck;
+        }
+        return invokeV.booleanValue;
+    }
+
     public AudioFocusRequestCompat(int i, AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, Handler handler, AudioAttributesCompat audioAttributesCompat, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -279,72 +342,24 @@ public class AudioFocusRequestCompat {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof AudioFocusRequestCompat) {
-                AudioFocusRequestCompat audioFocusRequestCompat = (AudioFocusRequestCompat) obj;
-                return this.mFocusGain == audioFocusRequestCompat.mFocusGain && this.mPauseOnDuck == audioFocusRequestCompat.mPauseOnDuck && ObjectsCompat.equals(this.mOnAudioFocusChangeListener, audioFocusRequestCompat.mOnAudioFocusChangeListener) && ObjectsCompat.equals(this.mFocusChangeHandler, audioFocusRequestCompat.mFocusChangeHandler) && ObjectsCompat.equals(this.mAudioAttributesCompat, audioFocusRequestCompat.mAudioAttributesCompat);
+            if (!(obj instanceof AudioFocusRequestCompat)) {
+                return false;
+            }
+            AudioFocusRequestCompat audioFocusRequestCompat = (AudioFocusRequestCompat) obj;
+            if (this.mFocusGain == audioFocusRequestCompat.mFocusGain && this.mPauseOnDuck == audioFocusRequestCompat.mPauseOnDuck && ObjectsCompat.equals(this.mOnAudioFocusChangeListener, audioFocusRequestCompat.mOnAudioFocusChangeListener) && ObjectsCompat.equals(this.mFocusChangeHandler, audioFocusRequestCompat.mFocusChangeHandler) && ObjectsCompat.equals(this.mAudioAttributesCompat, audioFocusRequestCompat.mAudioAttributesCompat)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @RequiresApi(21)
-    public AudioAttributes getAudioAttributes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AudioAttributesCompat audioAttributesCompat = this.mAudioAttributesCompat;
-            if (audioAttributesCompat != null) {
-                return (AudioAttributes) audioAttributesCompat.unwrap();
-            }
-            return null;
-        }
-        return (AudioAttributes) invokeV.objValue;
-    }
-
-    @NonNull
-    public AudioAttributesCompat getAudioAttributesCompat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAudioAttributesCompat : (AudioAttributesCompat) invokeV.objValue;
-    }
-
-    @RequiresApi(26)
-    public AudioFocusRequest getAudioFocusRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (AudioFocusRequest) this.mFrameworkAudioFocusRequest : (AudioFocusRequest) invokeV.objValue;
-    }
-
-    @NonNull
-    public Handler getFocusChangeHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFocusChangeHandler : (Handler) invokeV.objValue;
-    }
-
-    public int getFocusGain() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFocusGain : invokeV.intValue;
-    }
-
-    @NonNull
-    public AudioManager.OnAudioFocusChangeListener getOnAudioFocusChangeListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOnAudioFocusChangeListener : (AudioManager.OnAudioFocusChangeListener) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ObjectsCompat.hash(Integer.valueOf(this.mFocusGain), this.mOnAudioFocusChangeListener, this.mFocusChangeHandler, this.mAudioAttributesCompat, Boolean.valueOf(this.mPauseOnDuck)) : invokeV.intValue;
-    }
-
-    public boolean willPauseWhenDucked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPauseOnDuck : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return ObjectsCompat.hash(Integer.valueOf(this.mFocusGain), this.mOnAudioFocusChangeListener, this.mFocusChangeHandler, this.mAudioAttributesCompat, Boolean.valueOf(this.mPauseOnDuck));
+        }
+        return invokeV.intValue;
     }
 }

@@ -28,33 +28,6 @@ public final class RoomEnterParams extends MixBaseParams {
     public final String query;
     public final String source;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoomEnterParams(String str, String str2, String str3, String str4, String str5, boolean z) {
-        super(null, null, 3, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.id = str;
-        this.source = str2;
-        this.query = str3;
-        this.nid = str4;
-        this.ext = str5;
-        this.preFetch = z;
-    }
-
     public static /* synthetic */ RoomEnterParams copy$default(RoomEnterParams roomEnterParams, String str, String str2, String str3, String str4, String str5, boolean z, int i, Object obj) {
         if ((i & 1) != 0) {
             str = roomEnterParams.id;
@@ -139,42 +112,6 @@ public final class RoomEnterParams extends MixBaseParams {
         return invokeL.booleanValue;
     }
 
-    public final String getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.ext : (String) invokeV.objValue;
-    }
-
-    public final String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.id : (String) invokeV.objValue;
-    }
-
-    public final String getNid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.nid : (String) invokeV.objValue;
-    }
-
-    public final boolean getPreFetch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.preFetch : invokeV.booleanValue;
-    }
-
-    public final String getQuery() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.query : (String) invokeV.objValue;
-    }
-
-    public final String getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.source : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
@@ -201,10 +138,129 @@ public final class RoomEnterParams extends MixBaseParams {
         return invokeV.intValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return "RoomEnterParams(id=" + this.id + ", source=" + this.source + ", query=" + this.query + ", nid=" + this.nid + ", ext=" + this.ext + ", preFetch=" + this.preFetch + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RoomEnterParams(String str, String str2, String str3, String str4, String str5, boolean z) {
+        super(null, null, 3, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, str5, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.id = str;
+        this.source = str2;
+        this.query = str3;
+        this.nid = str4;
+        this.ext = str5;
+        this.preFetch = z;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ RoomEnterParams(String str, String str2, String str3, String str4, String str5, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, r5, r6, str5, r8);
+        String str6;
+        String str7;
+        boolean z2;
+        if ((i & 4) != 0) {
+            str6 = null;
+        } else {
+            str6 = str3;
+        }
+        if ((i & 8) != 0) {
+            str7 = null;
+        } else {
+            str7 = str4;
+        }
+        if ((i & 32) != 0) {
+            z2 = false;
+        } else {
+            z2 = z;
+        }
+    }
+
+    public final String getExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.ext;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getNid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.nid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean getPreFetch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.preFetch;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String getQuery() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.query;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.source;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public final Boolean isAudio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.isAudio : (Boolean) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.isAudio;
+        }
+        return (Boolean) invokeV.objValue;
     }
 
     public final void setAudio(Boolean bool) {
@@ -215,15 +271,21 @@ public final class RoomEnterParams extends MixBaseParams {
     }
 
     @Override // com.baidu.searchbox.live.data.req.MixBaseParams
-    public Map<String, String> toMap() {
+    public Map toMap() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             addExtParams("room_id", this.id);
             addExtParams(AlaLiveTabMyConcernActivityConfig.ALA_LIVE_SOURCE, this.source);
             String str = this.query;
-            boolean z = false;
-            if (!(str == null || str.length() == 0)) {
+            boolean z2 = false;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
                 addExtParams("query_content", this.query);
             }
             String str2 = this.nid;
@@ -235,18 +297,5 @@ public final class RoomEnterParams extends MixBaseParams {
             return super.toMap();
         }
         return (Map) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return "RoomEnterParams(id=" + this.id + ", source=" + this.source + ", query=" + this.query + ", nid=" + this.nid + ", ext=" + this.ext + ", preFetch=" + this.preFetch + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ RoomEnterParams(String str, String str2, String str3, String str4, String str5, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, str2, (i & 4) != 0 ? null : str3, (i & 8) != 0 ? null : str4, str5, (i & 32) != 0 ? false : z);
     }
 }

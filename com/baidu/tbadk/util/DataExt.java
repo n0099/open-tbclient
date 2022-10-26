@@ -2,8 +2,6 @@ package com.baidu.tbadk.util;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -42,21 +40,20 @@ public final class DataExt {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class GsonWidget {
+    public class GsonWidget {
         public static /* synthetic */ Interceptable $ic;
         public static final Type a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public static final class BadNumberFix implements JsonDeserializer<Number> {
+        public final class BadNumberFix implements JsonDeserializer {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            @NonNull
-            public final List<String> a;
+            public final List a;
 
             /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
             /* loaded from: classes3.dex */
-            public static final class NumberType {
+            public final class NumberType {
                 public static final /* synthetic */ NumberType[] $VALUES;
                 public static /* synthetic */ Interceptable $ic;
                 public static final NumberType DOUBLE;
@@ -64,7 +61,7 @@ public final class DataExt {
                 public static final NumberType INTEGER;
                 public static final NumberType LONG;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final List<Class<?>> typeList;
+                public final List typeList;
 
                 static {
                     InterceptResult invokeClinit;
@@ -111,11 +108,13 @@ public final class DataExt {
                 public static NumberType valueOf(String str) {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (NumberType) Enum.valueOf(NumberType.class, str) : (NumberType) invokeL.objValue;
+                    if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                        return (NumberType) Enum.valueOf(NumberType.class, str);
+                    }
+                    return (NumberType) invokeL.objValue;
                 }
 
-                @Nullable
-                public static NumberType valueOfByType(@NonNull Type type) {
+                public static NumberType valueOfByType(Type type) {
                     InterceptResult invokeL;
                     NumberType[] values;
                     Interceptable interceptable = $ic;
@@ -137,7 +136,10 @@ public final class DataExt {
                 public static NumberType[] values() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (NumberType[]) $VALUES.clone() : (NumberType[]) invokeV.objValue;
+                    if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                        return (NumberType[]) $VALUES.clone();
+                    }
+                    return (NumberType[]) invokeV.objValue;
                 }
             }
 
@@ -161,8 +163,7 @@ public final class DataExt {
                 this.a.add("NULL");
             }
 
-            @NonNull
-            public static GsonBuilder c(@NonNull GsonBuilder gsonBuilder) {
+            public static GsonBuilder c(GsonBuilder gsonBuilder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gsonBuilder)) == null) {
@@ -187,38 +188,41 @@ public final class DataExt {
                 if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, jsonElement, type, jsonDeserializationContext)) == null) {
                     if (jsonElement.isJsonPrimitive()) {
                         Number asNumber = jsonElement.getAsJsonPrimitive().getAsNumber();
-                        if (b(asNumber.toString()) || (valueOfByType = NumberType.valueOfByType(type)) == null) {
-                            return null;
-                        }
-                        int i = c.a[valueOfByType.ordinal()];
-                        if (i != 1) {
-                            if (i != 2) {
-                                if (i != 3) {
-                                    if (i == 4) {
-                                        return Double.valueOf(asNumber.doubleValue());
+                        if (!b(asNumber.toString()) && (valueOfByType = NumberType.valueOfByType(type)) != null) {
+                            int i = c.a[valueOfByType.ordinal()];
+                            if (i != 1) {
+                                if (i != 2) {
+                                    if (i != 3) {
+                                        if (i == 4) {
+                                            return Double.valueOf(asNumber.doubleValue());
+                                        }
+                                        throw new IllegalStateException("要处理的类型出错");
                                     }
-                                    throw new IllegalStateException("要处理的类型出错");
+                                    return Float.valueOf(asNumber.floatValue());
                                 }
-                                return Float.valueOf(asNumber.floatValue());
+                                return Long.valueOf(Long.parseLong(asNumber.toString()));
                             }
-                            return Long.valueOf(Long.parseLong(asNumber.toString()));
+                            return Integer.valueOf(Integer.parseInt(asNumber.toString()));
                         }
-                        return Integer.valueOf(Integer.parseInt(asNumber.toString()));
+                        return null;
                     }
                     return null;
                 }
                 return (Number) invokeLLL.objValue;
             }
 
-            public final boolean b(@NonNull String str) {
+            public final boolean b(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.contains(str) : invokeL.booleanValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                    return this.a.contains(str);
+                }
+                return invokeL.booleanValue;
             }
         }
 
         /* loaded from: classes3.dex */
-        public static final class MapDeserializerDoubleAsIntFix implements JsonDeserializer<Map<String, Object>> {
+        public final class MapDeserializerDoubleAsIntFix implements JsonDeserializer {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,13 +240,20 @@ public final class DataExt {
                 }
             }
 
+            public /* synthetic */ MapDeserializerDoubleAsIntFix(a aVar) {
+                this();
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.JsonDeserializer
             /* renamed from: a */
-            public Map<String, Object> deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+            public Map deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, jsonElement, type, jsonDeserializationContext)) == null) ? (Map) b(jsonElement) : (Map) invokeLLL.objValue;
+                if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, jsonElement, type, jsonDeserializationContext)) == null) {
+                    return (Map) b(jsonElement);
+                }
+                return (Map) invokeLLL.objValue;
             }
 
             public final Object b(JsonElement jsonElement) {
@@ -284,10 +295,6 @@ public final class DataExt {
                 }
                 return invokeL.objValue;
             }
-
-            public /* synthetic */ MapDeserializerDoubleAsIntFix(a aVar) {
-                this();
-            }
         }
 
         /* loaded from: classes3.dex */
@@ -328,10 +335,20 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static class a implements ParameterizedType {
+    public final class a implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Class a;
+
+        @Override // java.lang.reflect.ParameterizedType
+        public Type getOwnerType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (Type) invokeV.objValue;
+        }
 
         public a(Class cls) {
             Interceptable interceptable = $ic;
@@ -352,7 +369,6 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
-        @NonNull
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -360,7 +376,22 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
-        @Nullable
+        public Type getRawType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return List.class;
+            }
+            return (Type) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public final class b implements ParameterizedType {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // java.lang.reflect.ParameterizedType
         public Type getOwnerType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -369,20 +400,6 @@ public final class DataExt {
             }
             return (Type) invokeV.objValue;
         }
-
-        @Override // java.lang.reflect.ParameterizedType
-        @NonNull
-        public Type getRawType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? List.class : (Type) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements ParameterizedType {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -399,7 +416,6 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
-        @NonNull
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -407,27 +423,18 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
-        @Nullable
-        public Type getOwnerType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (Type) invokeV.objValue;
-        }
-
-        @Override // java.lang.reflect.ParameterizedType
-        @NonNull
         public Type getRawType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? List.class : (Type) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return List.class;
+            }
+            return (Type) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class c {
+    public /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -498,22 +505,34 @@ public final class DataExt {
         }
     }
 
-    @NonNull
-    public static <T> T toEntity(@NonNull String str, @NonNull Class<T> cls) {
+    public static <T> T toEntity(String str, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) ? (T) GSON.fromJson(str, (Class<Object>) cls) : (T) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) {
+            return (T) GSON.fromJson(str, (Class<Object>) cls);
+        }
+        return (T) invokeLL.objValue;
     }
 
-    @NonNull
-    public static <T> List<T> toEntityList(@NonNull String str, @NonNull Class<T> cls) {
+    public static <T> List<T> toEntityList(String str, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, cls)) == null) ? (List) Objects.requireNonNull(GSON.fromJson(str, new a(cls))) : (List) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, cls)) == null) {
+            return (List) Objects.requireNonNull(GSON.fromJson(str, new a(cls)));
+        }
+        return (List) invokeLL.objValue;
     }
 
-    @NonNull
-    public static JSONObject toJSONObject(@NonNull Bundle bundle) {
+    public static <T> T toEntity(Map<String, Object> map, Class<T> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, cls)) == null) {
+            return (T) toEntity(toJson(map), cls);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static JSONObject toJSONObject(Bundle bundle) {
         InterceptResult invokeL;
         Object obj;
         Object wrap;
@@ -543,52 +562,57 @@ public final class DataExt {
         return (JSONObject) invokeL.objValue;
     }
 
-    @NonNull
-    public static String toJson(@NonNull Object obj) {
+    public static String toJson(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? GSON.toJson(obj) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) {
+            return toJSONObject(bundle).toString();
+        }
+        return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static Map<String, Object> toMap(@NonNull String str) {
+    public static Map<String, Object> toMap(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? (Map) GSON.fromJson(str, GsonWidget.a) : (Map) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bundle)) == null) {
+            return toMap(toJson(bundle));
+        }
+        return (Map) invokeL.objValue;
     }
 
-    @NonNull
-    public static List<Map<String, Object>> toMapList(@NonNull String str) {
+    public static List<Map<String, Object>> toMapList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? (List) Objects.requireNonNull(GSON.fromJson(str, new b())) : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            return (List) Objects.requireNonNull(GSON.fromJson(str, new b()));
+        }
+        return (List) invokeL.objValue;
     }
 
-    @NonNull
-    public static <T> T toEntity(@NonNull Map<String, Object> map, @NonNull Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, cls)) == null) ? (T) toEntity(toJson(map), cls) : (T) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static String toJson(@NonNull Bundle bundle) {
+    public static String toJson(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) ? toJSONObject(bundle).toString() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
+            return GSON.toJson(obj);
+        }
+        return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static Map<String, Object> toMap(@NonNull Object obj) {
+    public static Map<String, Object> toMap(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? toMap(toJson(obj)) : (Map) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
+            return toMap(toJson(obj));
+        }
+        return (Map) invokeL.objValue;
     }
 
-    @NonNull
-    public static Map<String, Object> toMap(@NonNull Bundle bundle) {
+    public static Map<String, Object> toMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bundle)) == null) ? toMap(toJson(bundle)) : (Map) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            return (Map) GSON.fromJson(str, GsonWidget.a);
+        }
+        return (Map) invokeL.objValue;
     }
 }

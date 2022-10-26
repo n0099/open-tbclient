@@ -19,8 +19,8 @@ public class ByteArrayInfoMng {
     public static int mMaxByteSize = 100;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAllocateMemory;
-    public Queue<ByteArrayInfo> mByteArrayGetList;
-    public Queue<ByteArrayInfo> mByteArrayRecycleList;
+    public Queue mByteArrayGetList;
+    public Queue mByteArrayRecycleList;
     public int mCurDataCount;
 
     static {
@@ -71,8 +71,8 @@ public class ByteArrayInfoMng {
                         this.mByteArrayRecycleList.clear();
                     }
                 }
-                ByteArrayInfo poll = this.mByteArrayGetList.poll();
-                if (poll == null) {
+                ByteArrayInfo byteArrayInfo = (ByteArrayInfo) this.mByteArrayGetList.poll();
+                if (byteArrayInfo == null) {
                     if (this.mCurDataCount >= mMaxByteSize * 2) {
                         try {
                             Thread.sleep(200L);
@@ -81,11 +81,11 @@ public class ByteArrayInfoMng {
                         }
                         return getByteArray();
                     }
-                    poll = new ByteArrayInfo();
+                    byteArrayInfo = new ByteArrayInfo();
                     this.mCurDataCount++;
                 }
-                poll.mRecycled = false;
-                return poll;
+                byteArrayInfo.mRecycled = false;
+                return byteArrayInfo;
             }
         }
         return (ByteArrayInfo) invokeV.objValue;
@@ -93,7 +93,7 @@ public class ByteArrayInfoMng {
 
     public void initByteArray(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.mAllocateMemory) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.mAllocateMemory) {
             return;
         }
         for (int i2 = 0; i2 < i; i2++) {
@@ -104,18 +104,17 @@ public class ByteArrayInfoMng {
     }
 
     public void recycle(ByteArrayInfo byteArrayInfo) {
-        Queue<ByteArrayInfo> queue;
+        Queue queue;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteArrayInfo) == null) || byteArrayInfo == null || (queue = this.mByteArrayRecycleList) == null) {
-            return;
-        }
-        synchronized (queue) {
-            if (byteArrayInfo.mRecycled) {
-                Log.w(TAG, "### ByteArrayInfo duplicated recycled!");
-            } else {
-                byteArrayInfo.mRecycled = true;
-                if (this.mByteArrayRecycleList != null) {
-                    this.mByteArrayRecycleList.offer(byteArrayInfo);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteArrayInfo) == null) && byteArrayInfo != null && (queue = this.mByteArrayRecycleList) != null) {
+            synchronized (queue) {
+                if (byteArrayInfo.mRecycled) {
+                    Log.w(TAG, "### ByteArrayInfo duplicated recycled!");
+                } else {
+                    byteArrayInfo.mRecycled = true;
+                    if (this.mByteArrayRecycleList != null) {
+                        this.mByteArrayRecycleList.offer(byteArrayInfo);
+                    }
                 }
             }
         }

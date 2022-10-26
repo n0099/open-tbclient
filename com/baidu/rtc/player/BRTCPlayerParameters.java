@@ -64,84 +64,6 @@ public class BRTCPlayerParameters {
         }
     }
 
-    public int getAudioBufferMaintainableLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAudioBufferMaintainableLevel : invokeV.intValue;
-    }
-
-    public int getAudioBufferUnderLoadLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAudioBufferUnderLoadLevel : invokeV.intValue;
-    }
-
-    public int getAudioDecodeFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAudioDecodeFormat : invokeV.intValue;
-    }
-
-    public int getBufferingDetectIntervalMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBufferingDetectIntervalMs : invokeV.intValue;
-    }
-
-    public String getCpuType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCpuType : (String) invokeV.objValue;
-    }
-
-    public boolean getEnableDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mEnableDebug : invokeV.booleanValue;
-    }
-
-    public String getPullUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPullUrl : (String) invokeV.objValue;
-    }
-
-    public String getSoLaterLoadUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSoLaterLoadUrl : (String) invokeV.objValue;
-    }
-
-    public int getStatsReportIntervalMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStatsReportIntervalMs : invokeV.intValue;
-    }
-
-    public int getStreamingInterruptDetectInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mStreamingInterruptDetectIntervalMs : invokeV.intValue;
-    }
-
-    public long getUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mUserId : invokeV.longValue;
-    }
-
-    public double getVolume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mVolume : invokeV.doubleValue;
-    }
-
-    public boolean isEnableSoLaterLoad() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsEnableSoLaterLoad : invokeV.booleanValue;
-    }
-
     public void setAudioBufferMaintainableLevel(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -224,5 +146,122 @@ public class BRTCPlayerParameters {
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Double.valueOf(d)}) == null) {
             this.mVolume = d;
         }
+    }
+
+    public int getAudioBufferMaintainableLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAudioBufferMaintainableLevel;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getAudioBufferUnderLoadLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAudioBufferUnderLoadLevel;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getAudioDecodeFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAudioDecodeFormat;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBufferingDetectIntervalMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mBufferingDetectIntervalMs;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getCpuType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mCpuType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean getEnableDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mEnableDebug;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String getPullUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mPullUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSoLaterLoadUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSoLaterLoadUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getStatsReportIntervalMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mStatsReportIntervalMs;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getStreamingInterruptDetectInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mStreamingInterruptDetectIntervalMs;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getUserId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mUserId;
+        }
+        return invokeV.longValue;
+    }
+
+    public double getVolume() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mVolume;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public boolean isEnableSoLaterLoad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mIsEnableSoLaterLoad;
+        }
+        return invokeV.booleanValue;
     }
 }

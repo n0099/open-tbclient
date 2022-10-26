@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.no5;
+import com.baidu.tieba.uo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,6 +32,16 @@ public class AsInstallService extends BdBaseService {
     public b mReceiver;
     public Runnable mStopReceivingRunnable;
     public VersionData mVersionData;
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -90,21 +100,20 @@ public class AsInstallService extends BdBaseService {
             this.this$0 = asInstallService;
         }
 
+        public /* synthetic */ b(AsInstallService asInstallService, a aVar) {
+            this(asInstallService);
+        }
+
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent.getAction().equals(PackageChangedReceiver.ACTION_INSTALL)) {
                 String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-                if (TextUtils.isEmpty(schemeSpecificPart) || !"com.baidu.appsearch".equals(schemeSpecificPart) || this.this$0.mVersionData == null) {
-                    return;
+                if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart) && this.this$0.mVersionData != null) {
+                    uo5.b(context, this.this$0.mVersionData);
+                    TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
                 }
-                no5.b(context, this.this$0.mVersionData);
-                TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
             }
-        }
-
-        public /* synthetic */ b(AsInstallService asInstallService, a aVar) {
-            this(asInstallService);
         }
     }
 
@@ -120,16 +129,6 @@ public class AsInstallService extends BdBaseService {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service

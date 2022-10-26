@@ -1,121 +1,70 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fx9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes4.dex */
-public final class gy9<T, R> implements fx9.a<R> {
+public class gy9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final gy9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fx9<T> a;
-    public final xx9<? super T, ? extends R> b;
 
-    /* loaded from: classes4.dex */
-    public static final class a<T, R> extends lx9<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final lx9<? super R> e;
-        public final xx9<? super T, ? extends R> f;
-        public boolean g;
-
-        public a(lx9<? super R> lx9Var, xx9<? super T, ? extends R> xx9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lx9Var, xx9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = lx9Var;
-            this.f = xx9Var;
+    public ay9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.lx9
-        public void f(hx9 hx9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hx9Var) == null) {
-                this.e.f(hx9Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
-                return;
-            }
-            this.e.onCompleted();
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (this.g) {
-                    m1a.j(th);
-                    return;
-                }
-                this.g = true;
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    this.e.onNext(this.f.call(t));
-                } catch (Throwable th) {
-                    rx9.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
-            }
-        }
+        return (ay9) invokeV.objValue;
     }
 
-    public gy9(fx9<T> fx9Var, xx9<? super T, ? extends R> xx9Var) {
+    public ky9 c(ky9 ky9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ky9Var)) == null) ? ky9Var : (ky9) invokeL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810402, "Lcom/baidu/tieba/gy9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947810402, "Lcom/baidu/tieba/gy9;");
+                return;
+            }
+        }
+        a = new gy9();
+    }
+
+    public gy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fx9Var, xx9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = fx9Var;
-        this.b = xx9Var;
     }
 
-    @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((lx9) ((lx9) obj));
-    }
-
-    public void call(lx9<? super R> lx9Var) {
+    public static gy9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
-            a aVar = new a(lx9Var, this.b);
-            lx9Var.b(aVar);
-            this.a.B(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (gy9) invokeV.objValue;
     }
 }

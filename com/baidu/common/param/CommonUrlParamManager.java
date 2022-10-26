@@ -6,14 +6,14 @@ import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
 import com.baidu.tieba.a20;
-import com.baidu.tieba.n10;
-import com.baidu.tieba.r10;
+import com.baidu.tieba.b20;
+import com.baidu.tieba.o10;
 import com.baidu.tieba.s10;
 import com.baidu.tieba.t10;
 import com.baidu.tieba.u10;
 import com.baidu.tieba.v10;
-import com.baidu.tieba.x10;
-import com.baidu.tieba.z10;
+import com.baidu.tieba.w10;
+import com.baidu.tieba.y10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,11 +47,11 @@ public final class CommonUrlParamManager {
     public static final int PRIVACY_VERSION_V1 = 1;
     public static CommonUrlParamManager sCommonUrlParamManager;
     public transient /* synthetic */ FieldHolder $fh;
-    public s10 customOSParam;
+    public t10 customOSParam;
     public volatile String mC3Aid;
-    public t10 mDeviceInfoParam;
+    public u10 mDeviceInfoParam;
     public String mEnuid;
-    public z10 mUaParam;
+    public a20 mUaParam;
 
     public CommonUrlParamManager() {
         Interceptable interceptable = $ic;
@@ -70,10 +70,53 @@ public final class CommonUrlParamManager {
         init();
     }
 
+    private String getC3Aid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (TextUtils.isEmpty(this.mC3Aid)) {
+                this.mC3Aid = s10.a().getC3Aid();
+            }
+            return this.mC3Aid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static CommonUrlParamManager getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (sCommonUrlParamManager == null) {
+                synchronized (CommonUrlParamManager.class) {
+                    if (sCommonUrlParamManager == null) {
+                        sCommonUrlParamManager = new CommonUrlParamManager();
+                    }
+                }
+            }
+            return sCommonUrlParamManager;
+        }
+        return (CommonUrlParamManager) invokeV.objValue;
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.mDeviceInfoParam = new u10();
+            this.mUaParam = new a20();
+            this.customOSParam = new t10();
+        }
+    }
+
     private String addParam(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) ? !TextUtils.isEmpty(str3) ? UrlUtil.addParam(str, str2, a20.a(str3)) : str : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str3)) {
+                return UrlUtil.addParam(str, str2, b20.a(str3));
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
     }
 
     public static String crcSign(String str, String str2) {
@@ -101,24 +144,12 @@ public final class CommonUrlParamManager {
         return (String) invokeLL.objValue;
     }
 
-    private String getC3Aid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (TextUtils.isEmpty(this.mC3Aid)) {
-                this.mC3Aid = r10.a().getC3Aid();
-            }
-            return this.mC3Aid;
-        }
-        return (String) invokeV.objValue;
-    }
-
     private String getEnuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (TextUtils.isEmpty(this.mEnuid)) {
-                String deviceId = r10.a().getDeviceId();
+                String deviceId = s10.a().getDeviceId();
                 if (!TextUtils.isEmpty(deviceId)) {
                     this.mEnuid = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
                 }
@@ -126,73 +157,6 @@ public final class CommonUrlParamManager {
             return this.mEnuid;
         }
         return (String) invokeV.objValue;
-    }
-
-    public static CommonUrlParamManager getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (sCommonUrlParamManager == null) {
-                synchronized (CommonUrlParamManager.class) {
-                    if (sCommonUrlParamManager == null) {
-                        sCommonUrlParamManager = new CommonUrlParamManager();
-                    }
-                }
-            }
-            return sCommonUrlParamManager;
-        }
-        return (CommonUrlParamManager) invokeV.objValue;
-    }
-
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mDeviceInfoParam = new t10();
-            this.mUaParam = new z10();
-            this.customOSParam = new s10();
-        }
-    }
-
-    private String urlAppendParam(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, str, i)) == null) {
-            u10 a = r10.a();
-            String enuid = getEnuid();
-            String c3Aid = getC3Aid();
-            String zid = a.getZid();
-            v10 b = r10.b();
-            String b2 = b.b();
-            if (b.d()) {
-                return processUrl(enuid, zid, c3Aid, null, str, i);
-            }
-            return processUrl(null, null, null, b2, str, i);
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public String appendParam(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (r10.b().h()) {
-                return urlAppendParam(str, i);
-            }
-            return processUrl(str);
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public String processUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? urlAppendParam(str, 0) : (String) invokeL.objValue;
-    }
-
-    public String spliceNoPrivacyParams(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? processUrl(null, null, null, r10.b().b(), str, 0) : (String) invokeL.objValue;
     }
 
     private String processUrl(String str, String str2, String str3, String str4, String str5, int i) {
@@ -213,13 +177,13 @@ public final class CommonUrlParamManager {
         String str15;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{str, str2, str3, str4, str5, Integer.valueOf(i)})) == null) {
-            u10 a2 = r10.a();
+            v10 a2 = s10.a();
             String a3 = this.mUaParam.a();
             String appName = AppIdentityManager.getInstance().getAppName();
             String sid = a2.getSid();
             String bDVCInfo = a2.getBDVCInfo();
-            x10 x10Var = new x10();
-            x10Var.g(true);
+            y10 y10Var = new y10();
+            y10Var.g(true);
             String str16 = null;
             if (i == 1) {
                 boolean z2 = false;
@@ -231,14 +195,14 @@ public final class CommonUrlParamManager {
                     f = this.mDeviceInfoParam.f();
                     z2 = true;
                 }
-                if (x10Var.e()) {
-                    b = x10Var.c();
+                if (y10Var.e()) {
+                    b = y10Var.c();
                     str8 = null;
                     z = z2;
                     str11 = b;
                 } else {
-                    String valueOf = String.valueOf(x10Var.d());
-                    b = x10Var.b();
+                    String valueOf = String.valueOf(y10Var.d());
+                    b = y10Var.b();
                     str8 = valueOf;
                     z = true;
                     str11 = null;
@@ -250,7 +214,7 @@ public final class CommonUrlParamManager {
                     str12 = null;
                     str13 = null;
                 }
-                if (r10.b().e()) {
+                if (s10.b().e()) {
                     if (this.customOSParam.b()) {
                         str14 = null;
                         str15 = String.valueOf(i);
@@ -274,8 +238,8 @@ public final class CommonUrlParamManager {
                 str10 = str172;
             } else {
                 a = this.mDeviceInfoParam.a();
-                String c = x10Var.c();
-                if (r10.b().e()) {
+                String c = y10Var.c();
+                if (s10.b().e()) {
                     str7 = null;
                     str8 = null;
                     str9 = c;
@@ -292,14 +256,14 @@ public final class CommonUrlParamManager {
             String from = a2.getFrom();
             String cfrom = a2.getCfrom();
             String schemeHeader = a2.getSchemeHeader();
-            String c2 = r10.b().c();
+            String c2 = s10.b().c();
             String str18 = str10;
-            String a4 = r10.b().a();
+            String a4 = s10.b().a();
             if (TextUtils.isEmpty(from)) {
-                from = n10.b().a();
+                from = o10.b().a();
             }
             if (TextUtils.isEmpty(cfrom)) {
-                cfrom = n10.b().c();
+                cfrom = o10.b().c();
             }
             String addParam = addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str5, "appname", appName), "sid", sid), "ut", a), "ua", a3), "bdvc", bDVCInfo), "zid", str2), "uid", str), "iid", str4), "cfrom", cfrom), "from", from), "scheme", schemeHeader), "network", str9), "p_sv", str16), "mps", str7), "mpv", str6), "p_nw", str8), "c3_aid", str3), "matrixstyle", c2);
             if (!TextUtils.isEmpty(a4)) {
@@ -310,5 +274,53 @@ public final class CommonUrlParamManager {
             return addParam2;
         }
         return (String) invokeCommon.objValue;
+    }
+
+    private String urlAppendParam(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, str, i)) == null) {
+            v10 a = s10.a();
+            String enuid = getEnuid();
+            String c3Aid = getC3Aid();
+            String zid = a.getZid();
+            w10 b = s10.b();
+            String b2 = b.b();
+            if (b.d()) {
+                return processUrl(enuid, zid, c3Aid, null, str, i);
+            }
+            return processUrl(null, null, null, b2, str, i);
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public String appendParam(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (s10.b().h()) {
+                return urlAppendParam(str, i);
+            }
+            return processUrl(str);
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public String processUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return urlAppendParam(str, 0);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String spliceNoPrivacyParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return processUrl(null, null, null, s10.b().b(), str, 0);
+        }
+        return (String) invokeL.objValue;
     }
 }

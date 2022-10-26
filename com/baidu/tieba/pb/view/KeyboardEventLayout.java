@@ -42,33 +42,6 @@ public class KeyboardEventLayout extends RelativeLayout {
         this.b = null;
     }
 
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            int max = Math.max(Math.max(i4, i2), this.a);
-            this.a = max;
-            if (i4 == 0 || (aVar = this.b) == null) {
-                return;
-            }
-            if (i4 > i2) {
-                aVar.a(0);
-            } else if (i4 >= i2 || i2 < max) {
-            } else {
-                aVar.a(1);
-            }
-        }
-    }
-
-    public void setOnKeyStateChangedListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KeyboardEventLayout(Context context, AttributeSet attributeSet) {
         super(context);
@@ -112,5 +85,30 @@ public class KeyboardEventLayout extends RelativeLayout {
         }
         this.a = 0;
         this.b = null;
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            int max = Math.max(Math.max(i4, i2), this.a);
+            this.a = max;
+            if (i4 != 0 && (aVar = this.b) != null) {
+                if (i4 > i2) {
+                    aVar.a(0);
+                } else if (i4 < i2 && i2 >= max) {
+                    aVar.a(1);
+                }
+            }
+        }
+    }
+
+    public void setOnKeyStateChangedListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+        }
     }
 }

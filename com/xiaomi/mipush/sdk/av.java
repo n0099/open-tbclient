@@ -41,21 +41,21 @@ public class av {
     public static void a(Context context, ii iiVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, iiVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m90a("need to update local info with: " + iiVar.m482a());
-            String str = iiVar.m482a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
+            com.xiaomi.channel.commonutils.logger.b.m89a("need to update local info with: " + iiVar.m481a());
+            String str = (String) iiVar.m481a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
             if (str != null) {
                 MiPushClient.removeAcceptTime(context);
                 String[] split = str.split("-");
                 if (split.length == 2) {
                     MiPushClient.addAcceptTime(context, split[0], split[1]);
                     if (BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[0]) && BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(split[1])) {
-                        b.m132a(context).a(true);
+                        b.m131a(context).a(true);
                     } else {
-                        b.m132a(context).a(false);
+                        b.m131a(context).a(false);
                     }
                 }
             }
-            String str2 = iiVar.m482a().get(Constants.EXTRA_KEY_ALIASES);
+            String str2 = (String) iiVar.m481a().get(Constants.EXTRA_KEY_ALIASES);
             if (str2 != null) {
                 MiPushClient.removeAllAliases(context);
                 if (!"".equals(str2)) {
@@ -64,7 +64,7 @@ public class av {
                     }
                 }
             }
-            String str4 = iiVar.m482a().get(Constants.EXTRA_KEY_TOPICS);
+            String str4 = (String) iiVar.m481a().get(Constants.EXTRA_KEY_TOPICS);
             if (str4 != null) {
                 MiPushClient.removeAllTopics(context);
                 if (!"".equals(str4)) {
@@ -73,7 +73,7 @@ public class av {
                     }
                 }
             }
-            String str6 = iiVar.m482a().get(Constants.EXTRA_KEY_ACCOUNTS);
+            String str6 = (String) iiVar.m481a().get(Constants.EXTRA_KEY_ACCOUNTS);
             if (str6 != null) {
                 MiPushClient.removeAllAccounts(context);
                 if ("".equals(str6)) {
@@ -93,7 +93,7 @@ public class av {
         }
     }
 
-    public static String c(List<String> list) {
+    public static String c(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
@@ -103,7 +103,7 @@ public class av {
         return (String) invokeL.objValue;
     }
 
-    public static String d(List<String> list) {
+    public static String d(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {

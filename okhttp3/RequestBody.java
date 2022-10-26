@@ -21,6 +21,20 @@ public abstract class RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public long contentLength() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Nullable
+    public abstract MediaType contentType();
+
+    public abstract void writeTo(BufferedSink bufferedSink) throws IOException;
+
     public RequestBody() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,6 +47,77 @@ public abstract class RequestBody {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static RequestBody create(@Nullable MediaType mediaType, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, mediaType, file)) == null) {
+            if (file != null) {
+                return new RequestBody(mediaType, file) { // from class: okhttp3.RequestBody.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ MediaType val$contentType;
+                    public final /* synthetic */ File val$file;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {mediaType, file};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$contentType = mediaType;
+                        this.val$file = file;
+                    }
+
+                    @Override // okhttp3.RequestBody
+                    public long contentLength() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return this.val$file.length();
+                        }
+                        return invokeV.longValue;
+                    }
+
+                    @Override // okhttp3.RequestBody
+                    @Nullable
+                    public MediaType contentType() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return this.val$contentType;
+                        }
+                        return (MediaType) invokeV.objValue;
+                    }
+
+                    @Override // okhttp3.RequestBody
+                    public void writeTo(BufferedSink bufferedSink) throws IOException {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                            Source source = null;
+                            try {
+                                source = Okio.source(this.val$file);
+                                bufferedSink.writeAll(source);
+                            } finally {
+                                Util.closeQuietly(source);
+                            }
+                        }
+                    }
+                };
+            }
+            throw new NullPointerException("content == null");
+        }
+        return (RequestBody) invokeLL.objValue;
     }
 
     public static RequestBody create(@Nullable MediaType mediaType, String str) {
@@ -49,77 +134,75 @@ public abstract class RequestBody {
         return (RequestBody) invokeLL.objValue;
     }
 
-    public long contentLength() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Nullable
-    public abstract MediaType contentType();
-
-    public abstract void writeTo(BufferedSink bufferedSink) throws IOException;
-
     public static RequestBody create(@Nullable MediaType mediaType, ByteString byteString) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, mediaType, byteString)) == null) ? new RequestBody(mediaType, byteString) { // from class: okhttp3.RequestBody.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ByteString val$content;
-            public final /* synthetic */ MediaType val$contentType;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, mediaType, byteString)) == null) {
+            return new RequestBody(mediaType, byteString) { // from class: okhttp3.RequestBody.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ByteString val$content;
+                public final /* synthetic */ MediaType val$contentType;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {mediaType, byteString};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {mediaType, byteString};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$contentType = mediaType;
+                    this.val$content = byteString;
+                }
+
+                @Override // okhttp3.RequestBody
+                public long contentLength() throws IOException {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.val$content.size();
+                    }
+                    return invokeV.longValue;
+                }
+
+                @Override // okhttp3.RequestBody
+                @Nullable
+                public MediaType contentType() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return this.val$contentType;
+                    }
+                    return (MediaType) invokeV.objValue;
+                }
+
+                @Override // okhttp3.RequestBody
+                public void writeTo(BufferedSink bufferedSink) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                        bufferedSink.write(this.val$content);
                     }
                 }
-                this.val$contentType = mediaType;
-                this.val$content = byteString;
-            }
-
-            @Override // okhttp3.RequestBody
-            public long contentLength() throws IOException {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$content.size() : invokeV.longValue;
-            }
-
-            @Override // okhttp3.RequestBody
-            @Nullable
-            public MediaType contentType() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$contentType : (MediaType) invokeV.objValue;
-            }
-
-            @Override // okhttp3.RequestBody
-            public void writeTo(BufferedSink bufferedSink) throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                    bufferedSink.write(this.val$content);
-                }
-            }
-        } : (RequestBody) invokeLL.objValue;
+            };
+        }
+        return (RequestBody) invokeLL.objValue;
     }
 
     public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) ? create(mediaType, bArr, 0, bArr.length) : (RequestBody) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) {
+            return create(mediaType, bArr, 0, bArr.length);
+        }
+        return (RequestBody) invokeLL.objValue;
     }
 
     public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr, int i, int i2) {
@@ -161,7 +244,10 @@ public abstract class RequestBody {
                     public long contentLength() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$byteCount : invokeV.longValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return this.val$byteCount;
+                        }
+                        return invokeV.longValue;
                     }
 
                     @Override // okhttp3.RequestBody
@@ -169,7 +255,10 @@ public abstract class RequestBody {
                     public MediaType contentType() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$contentType : (MediaType) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return this.val$contentType;
+                        }
+                        return (MediaType) invokeV.objValue;
                     }
 
                     @Override // okhttp3.RequestBody
@@ -184,70 +273,5 @@ public abstract class RequestBody {
             throw new NullPointerException("content == null");
         }
         return (RequestBody) invokeLLII.objValue;
-    }
-
-    public static RequestBody create(@Nullable MediaType mediaType, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, mediaType, file)) == null) {
-            if (file != null) {
-                return new RequestBody(mediaType, file) { // from class: okhttp3.RequestBody.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaType val$contentType;
-                    public final /* synthetic */ File val$file;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {mediaType, file};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$contentType = mediaType;
-                        this.val$file = file;
-                    }
-
-                    @Override // okhttp3.RequestBody
-                    public long contentLength() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$file.length() : invokeV.longValue;
-                    }
-
-                    @Override // okhttp3.RequestBody
-                    @Nullable
-                    public MediaType contentType() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$contentType : (MediaType) invokeV.objValue;
-                    }
-
-                    @Override // okhttp3.RequestBody
-                    public void writeTo(BufferedSink bufferedSink) throws IOException {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                            Source source = null;
-                            try {
-                                source = Okio.source(this.val$file);
-                                bufferedSink.writeAll(source);
-                            } finally {
-                                Util.closeQuietly(source);
-                            }
-                        }
-                    }
-                };
-            }
-            throw new NullPointerException("content == null");
-        }
-        return (RequestBody) invokeLL.objValue;
     }
 }

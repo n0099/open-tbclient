@@ -1,235 +1,139 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class mt2 {
+public final class mt2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
-    public boolean d;
+    public String d;
     public String e;
     public String f;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public mt2 a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new mt2();
-        }
-
-        public mt2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (mt2) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.d = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.a.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.a.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.a.f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984126, "Lcom/baidu/tieba/mt2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947984126, "Lcom/baidu/tieba/mt2;");
-                return;
-            }
-        }
-        g = vj1.a;
-        h = "SwanAppParam";
-    }
 
     public mt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static mt2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                mt2 mt2Var = new mt2();
-                JSONObject jSONObject = new JSONObject(str);
-                mt2Var.a = jSONObject.optString("page");
-                mt2Var.c = jSONObject.optString("params");
-                mt2Var.b = jSONObject.optString("baseUrl");
-                mt2Var.d = jSONObject.optBoolean("isFirstPage");
-                mt2Var.e = jSONObject.optString("routeType");
-                mt2Var.f = jSONObject.optString("routeId");
-                return mt2Var;
-            } catch (JSONException e) {
-                if (g) {
-                    String str2 = h;
-                    Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e));
-                }
-                return null;
-            }
-        }
-        return (mt2) invokeL.objValue;
-    }
-
-    public String h() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("page", this.a);
-                jSONObject.put("params", this.c);
-                jSONObject.put("baseUrl", this.b);
-                jSONObject.put("isFirstPage", this.d);
-                jSONObject.put("routeType", this.e);
-                jSONObject.put("routeId", this.f);
-            } catch (JSONException e) {
-                if (g) {
-                    String str = h;
-                    Log.e(str, "toJSONString error: " + Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b(this);
         }
         return (String) invokeV.objValue;
     }
 
-    public void n() {
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.clone();
         }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(mt2 mt2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mt2Var)) == null) {
+            if (mt2Var == null || TextUtils.isEmpty(mt2Var.a)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(mt2Var.b)) {
+                return mt2Var.a;
+            }
+            return mt2Var.a + "?" + mt2Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(mt2 mt2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mt2Var)) == null) {
+            if (mt2Var == null || TextUtils.isEmpty(mt2Var.d)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(mt2Var.b)) {
+                return mt2Var.d;
+            }
+            return mt2Var.d + "?" + mt2Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static mt2 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            mt2 mt2Var = new mt2();
+            mt2Var.a = eh3.f(str);
+            mt2Var.b = eh3.o(str);
+            mt2Var.c = str2;
+            mt2Var.d = e73.b(mt2Var.a);
+            return mt2Var;
+        }
+        return (mt2) invokeLL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

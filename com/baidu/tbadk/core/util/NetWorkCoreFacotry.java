@@ -54,19 +54,19 @@ public class NetWorkCoreFacotry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    if (BdNetTypeUtil.isWifiNet()) {
-                        return "wifi";
-                    }
-                    String curMobileProxyHost = BdNetTypeUtil.curMobileProxyHost();
-                    if (curMobileProxyHost != null) {
-                        if (curMobileProxyHost.length() > 0) {
-                            return "wap";
-                        }
-                    }
-                    return "net";
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    return null;
                 }
-                return null;
+                if (BdNetTypeUtil.isWifiNet()) {
+                    return "wifi";
+                }
+                String curMobileProxyHost = BdNetTypeUtil.curMobileProxyHost();
+                if (curMobileProxyHost != null) {
+                    if (curMobileProxyHost.length() > 0) {
+                        return "wap";
+                    }
+                }
+                return "net";
             } catch (Exception unused) {
                 return null;
             }
@@ -84,6 +84,9 @@ public class NetWorkCoreFacotry {
     public INetWorkCore createINetWorkCore(HttpNetContext httpNetContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpNetContext)) == null) ? new NetWorkCoreByBdHttp(httpNetContext) : (INetWorkCore) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpNetContext)) == null) {
+            return new NetWorkCoreByBdHttp(httpNetContext);
+        }
+        return (INetWorkCore) invokeL.objValue;
     }
 }

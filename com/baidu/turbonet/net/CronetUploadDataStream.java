@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
-import javax.annotation.concurrent.GuardedBy;
 @JNINamespace
 /* loaded from: classes6.dex */
 public final class CronetUploadDataStream implements UploadDataSink {
@@ -30,17 +28,29 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public final Runnable f;
     public ByteBuffer g;
     public final Object h;
-    @GuardedBy("mLock")
     public long i;
-    @GuardedBy("mLock")
     public UserCallback j;
-    @GuardedBy("mLock")
     public boolean k;
     public Runnable l;
 
+    private native long nativeAttachUploadDataToRequest(long j, long j2);
+
+    private native long nativeCreateAdapterForTesting();
+
+    private native long nativeCreateUploadDataStreamForTesting(long j, long j2);
+
+    @NativeClassQualifiedName
+    public static native void nativeDestroy(long j);
+
+    @NativeClassQualifiedName
+    private native void nativeOnReadSucceeded(long j, int i, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeOnRewindSucceeded(long j);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class UserCallback {
+    public final class UserCallback {
         public static final /* synthetic */ UserCallback[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserCallback GET_LENGTH;
@@ -92,13 +102,19 @@ public final class CronetUploadDataStream implements UploadDataSink {
         public static UserCallback valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (UserCallback) Enum.valueOf(UserCallback.class, str) : (UserCallback) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (UserCallback) Enum.valueOf(UserCallback.class, str);
+            }
+            return (UserCallback) invokeL.objValue;
         }
 
         public static UserCallback[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (UserCallback[]) $VALUES.clone() : (UserCallback[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (UserCallback[]) $VALUES.clone();
+            }
+            return (UserCallback[]) invokeV.objValue;
         }
     }
 
@@ -258,20 +274,44 @@ public final class CronetUploadDataStream implements UploadDataSink {
         this.c = cronetUrlRequest;
     }
 
-    private native long nativeAttachUploadDataToRequest(long j, long j2);
+    @Override // com.baidu.turbonet.net.UploadDataSink
+    public void b(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            synchronized (this.h) {
+                l(UserCallback.REWIND);
+                p(exc);
+            }
+        }
+    }
 
-    private native long nativeCreateAdapterForTesting();
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            synchronized (this.h) {
+                this.i = nativeAttachUploadDataToRequest(j, this.d);
+            }
+        }
+    }
 
-    private native long nativeCreateUploadDataStreamForTesting(long j, long j2);
+    public void q(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, runnable) == null) {
+            try {
+                this.a.execute(runnable);
+            } catch (Throwable th) {
+                this.c.E(th);
+            }
+        }
+    }
 
-    @NativeClassQualifiedName
-    public static native void nativeDestroy(long j);
-
-    @NativeClassQualifiedName
-    private native void nativeOnReadSucceeded(long j, int i, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeOnRewindSucceeded(long j);
+    public void readData(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, byteBuffer) == null) {
+            this.g = byteBuffer;
+            q(this.f);
+        }
+    }
 
     @Override // com.baidu.turbonet.net.UploadDataSink
     public void a() {
@@ -289,14 +329,32 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    @Override // com.baidu.turbonet.net.UploadDataSink
-    public void b(Exception exc) {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this.h) {
-                l(UserCallback.REWIND);
-                p(exc);
+                if (this.j != UserCallback.READ) {
+                    if (this.k) {
+                        m();
+                    }
+                } else {
+                    throw new IllegalStateException("Method should not be called when read has not completed.");
+                }
             }
+        }
+    }
+
+    public void onUploadDataStreamDestroyed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            m();
+        }
+    }
+
+    public void rewind() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            q(new b(this));
         }
     }
 
@@ -326,22 +384,28 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            synchronized (this.h) {
-                this.i = nativeAttachUploadDataToRequest(j, this.d);
-            }
-        }
-    }
-
-    @GuardedBy("mLock")
     public final void l(UserCallback userCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, userCallback) == null) || this.j == userCallback) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, userCallback) != null) || this.j == userCallback) {
             return;
         }
         throw new IllegalStateException("Expected " + userCallback + ", but was " + this.j);
+    }
+
+    public final void p(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, th) == null) {
+            synchronized (this.h) {
+                if (this.j != UserCallback.NOT_IN_CALLBACK) {
+                    this.j = UserCallback.NOT_IN_CALLBACK;
+                    this.g = null;
+                    n();
+                } else {
+                    throw new IllegalStateException("There is no read or rewind or length check in progress.");
+                }
+            }
+            this.c.E(th);
+        }
     }
 
     public final void m() {
@@ -363,21 +427,6 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.h) {
-                if (this.j != UserCallback.READ) {
-                    if (this.k) {
-                        m();
-                    }
-                } else {
-                    throw new IllegalStateException("Method should not be called when read has not completed.");
-                }
-            }
-        }
-    }
-
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -394,58 +443,6 @@ public final class CronetUploadDataStream implements UploadDataSink {
             synchronized (this.h) {
                 this.j = UserCallback.NOT_IN_CALLBACK;
             }
-        }
-    }
-
-    @CalledByNative
-    public void onUploadDataStreamDestroyed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            m();
-        }
-    }
-
-    public final void p(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, th) == null) {
-            synchronized (this.h) {
-                if (this.j != UserCallback.NOT_IN_CALLBACK) {
-                    this.j = UserCallback.NOT_IN_CALLBACK;
-                    this.g = null;
-                    n();
-                } else {
-                    throw new IllegalStateException("There is no read or rewind or length check in progress.");
-                }
-            }
-            this.c.E(th);
-        }
-    }
-
-    public void q(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, runnable) == null) {
-            try {
-                this.a.execute(runnable);
-            } catch (Throwable th) {
-                this.c.E(th);
-            }
-        }
-    }
-
-    @CalledByNative
-    public void readData(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, byteBuffer) == null) {
-            this.g = byteBuffer;
-            q(this.f);
-        }
-    }
-
-    @CalledByNative
-    public void rewind() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            q(new b(this));
         }
     }
 }

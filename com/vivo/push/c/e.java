@@ -74,87 +74,6 @@ public final class e implements b {
         }
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                if (c == null) {
-                    b();
-                }
-                return c.containsAlias(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                p.a("RsaSecurity", "getPrivateKeySigin error" + e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.vivo.push.c.b
-    public final String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                if (TextUtils.isEmpty(str) || b(this.e) == null) {
-                    return null;
-                }
-                byte[] bytes = str.getBytes("UTF-8");
-                PrivateKey b2 = b(this.e);
-                Signature signature = Signature.getInstance("SHA256withRSA");
-                signature.initSign(b2);
-                signature.update(bytes);
-                String encodeToString = Base64.encodeToString(signature.sign(), 2);
-                p.d("RsaSecurity", str.hashCode() + " = " + encodeToString);
-                return encodeToString;
-            } catch (Exception e) {
-                e.printStackTrace();
-                p.a("RsaSecurity", "signClientSDK error" + e.getMessage());
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
-                c = keyStore;
-                keyStore.load(null);
-                d = new X500Principal("CN=Push SDK, OU=VIVO, O=VIVO PUSH, C=CN");
-            } catch (Exception e) {
-                e.printStackTrace();
-                p.a("RsaSecurity", "initKeyStore error" + e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.vivo.push.c.b
-    public final boolean a(byte[] bArr, PublicKey publicKey, byte[] bArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bArr, publicKey, bArr2)) == null) {
-            try {
-                Signature signature = Signature.getInstance("SHA256withRSA");
-                signature.initVerify(publicKey);
-                signature.update(bArr);
-                return signature.verify(bArr2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                p.a("RsaSecurity", "verifyClientSDK error" + e.getMessage());
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
     public static PrivateKey b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -211,6 +130,68 @@ public final class e implements b {
         }
     }
 
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            try {
+                KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+                c = keyStore;
+                keyStore.load(null);
+                d = new X500Principal("CN=Push SDK, OU=VIVO, O=VIVO PUSH, C=CN");
+            } catch (Exception e) {
+                e.printStackTrace();
+                p.a("RsaSecurity", "initKeyStore error" + e.getMessage());
+            }
+        }
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                if (c == null) {
+                    b();
+                }
+                return c.containsAlias(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                p.a("RsaSecurity", "getPrivateKeySigin error" + e.getMessage());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.vivo.push.c.b
+    public final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                if (!TextUtils.isEmpty(str) && b(this.e) != null) {
+                    byte[] bytes = str.getBytes("UTF-8");
+                    PrivateKey b2 = b(this.e);
+                    Signature signature = Signature.getInstance("SHA256withRSA");
+                    signature.initSign(b2);
+                    signature.update(bytes);
+                    String encodeToString = Base64.encodeToString(signature.sign(), 2);
+                    p.d("RsaSecurity", str.hashCode() + " = " + encodeToString);
+                    return encodeToString;
+                }
+                return null;
+            } catch (Exception e) {
+                e.printStackTrace();
+                p.a("RsaSecurity", "signClientSDK error" + e.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     @Override // com.vivo.push.c.b
     public final PublicKey a() {
         InterceptResult invokeV;
@@ -236,5 +217,24 @@ public final class e implements b {
             return null;
         }
         return (PublicKey) invokeV.objValue;
+    }
+
+    @Override // com.vivo.push.c.b
+    public final boolean a(byte[] bArr, PublicKey publicKey, byte[] bArr2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bArr, publicKey, bArr2)) == null) {
+            try {
+                Signature signature = Signature.getInstance("SHA256withRSA");
+                signature.initVerify(publicKey);
+                signature.update(bArr);
+                return signature.verify(bArr2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                p.a("RsaSecurity", "verifyClientSDK error" + e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

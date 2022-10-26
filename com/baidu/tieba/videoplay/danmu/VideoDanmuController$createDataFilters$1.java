@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\t\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, ""}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class VideoDanmuController$createDataFilters$1 extends Lambda implements Function1<Long, Boolean> {
+public final class VideoDanmuController$createDataFilters$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public static final VideoDanmuController$createDataFilters$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +56,15 @@ public final class VideoDanmuController$createDataFilters$1 extends Lambda imple
     @Override // kotlin.jvm.functions.Function1
     public final Boolean invoke(Long l) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
-            return Boolean.valueOf(l != null && l.longValue() == 0);
+            if (l != null && l.longValue() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return Boolean.valueOf(z);
         }
         return (Boolean) invokeL.objValue;
     }

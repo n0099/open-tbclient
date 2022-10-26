@@ -14,19 +14,22 @@ public class m extends a {
         super(context, aVar, str);
     }
 
-    public static String a(Map<String, String> map) {
+    public static String a(Map map) {
         if (map == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            stringBuffer.append(entry.getKey());
+        for (Map.Entry entry : map.entrySet()) {
+            stringBuffer.append((String) entry.getKey());
             stringBuffer.append("=");
-            stringBuffer.append(URLEncoder.encode(entry.getValue()));
+            stringBuffer.append(URLEncoder.encode((String) entry.getValue()));
             stringBuffer.append("&");
         }
         String stringBuffer2 = stringBuffer.toString();
-        return stringBuffer2.endsWith("&") ? stringBuffer2.substring(0, stringBuffer2.length() - 1) : stringBuffer2;
+        if (stringBuffer2.endsWith("&")) {
+            return stringBuffer2.substring(0, stringBuffer2.length() - 1);
+        }
+        return stringBuffer2;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.a.e

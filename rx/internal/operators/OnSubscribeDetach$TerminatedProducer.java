@@ -1,6 +1,6 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.hx9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class OnSubscribeDetach$TerminatedProducer implements hx9 {
+public final class OnSubscribeDetach$TerminatedProducer implements zx9 {
     public static final /* synthetic */ OnSubscribeDetach$TerminatedProducer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final OnSubscribeDetach$TerminatedProducer INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.zx9
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,6 +39,15 @@ public final class OnSubscribeDetach$TerminatedProducer implements hx9 {
         OnSubscribeDetach$TerminatedProducer onSubscribeDetach$TerminatedProducer = new OnSubscribeDetach$TerminatedProducer("INSTANCE", 0);
         INSTANCE = onSubscribeDetach$TerminatedProducer;
         $VALUES = new OnSubscribeDetach$TerminatedProducer[]{onSubscribeDetach$TerminatedProducer};
+    }
+
+    public static OnSubscribeDetach$TerminatedProducer[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (OnSubscribeDetach$TerminatedProducer[]) $VALUES.clone();
+        }
+        return (OnSubscribeDetach$TerminatedProducer[]) invokeV.objValue;
     }
 
     public OnSubscribeDetach$TerminatedProducer(String str, int i) {
@@ -56,19 +72,9 @@ public final class OnSubscribeDetach$TerminatedProducer implements hx9 {
     public static OnSubscribeDetach$TerminatedProducer valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OnSubscribeDetach$TerminatedProducer) Enum.valueOf(OnSubscribeDetach$TerminatedProducer.class, str) : (OnSubscribeDetach$TerminatedProducer) invokeL.objValue;
-    }
-
-    public static OnSubscribeDetach$TerminatedProducer[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OnSubscribeDetach$TerminatedProducer[]) $VALUES.clone() : (OnSubscribeDetach$TerminatedProducer[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hx9
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (OnSubscribeDetach$TerminatedProducer) Enum.valueOf(OnSubscribeDetach$TerminatedProducer.class, str);
         }
+        return (OnSubscribeDetach$TerminatedProducer) invokeL.objValue;
     }
 }

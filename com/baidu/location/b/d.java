@@ -60,7 +60,7 @@ public class d {
     public byte[] J;
     public byte[] K;
     public int L;
-    public List<Byte> M;
+    public List M;
     public boolean N;
     public long a;
     public Location b;
@@ -147,7 +147,7 @@ public class d {
                     } catch (Exception unused) {
                     }
                 }
-                Map<String, Object> map = this.k;
+                Map map = this.k;
                 if (map != null) {
                     map.clear();
                 }
@@ -840,7 +840,7 @@ public class d {
                 g();
                 return;
             }
-            List<Byte> list = this.M;
+            List list = this.M;
             if (list != null) {
                 int size = list.size();
                 this.M.set(0, Byte.valueOf((byte) (size & 255)));
@@ -848,7 +848,7 @@ public class d {
                 this.M.set(3, Byte.valueOf((byte) (this.L & 255)));
                 byte[] bArr = new byte[size];
                 for (int i = 0; i < size; i++) {
-                    bArr[i] = this.M.get(i).byteValue();
+                    bArr[i] = ((Byte) this.M.get(i)).byteValue();
                 }
                 File file = new File(com.baidu.location.e.k.k(), "baidu/tempdata");
                 if (!file.exists()) {
@@ -875,7 +875,7 @@ public class d {
     }
 
     private void i() {
-        List<Byte> list;
+        List list;
         byte b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {

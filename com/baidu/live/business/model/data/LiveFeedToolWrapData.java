@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class LiveFeedToolWrapData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveFeedToolInfo> infos;
+    public List infos;
 
     public LiveFeedToolWrapData() {
         Interceptable interceptable = $ic;

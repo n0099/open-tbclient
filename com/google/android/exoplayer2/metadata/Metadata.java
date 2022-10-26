@@ -15,12 +15,22 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class Metadata implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<Metadata> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final Entry[] entries;
 
     /* loaded from: classes7.dex */
     public interface Entry extends Parcelable {
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     static {
@@ -36,9 +46,17 @@ public final class Metadata implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<Metadata>() { // from class: com.google.android.exoplayer2.metadata.Metadata.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.Metadata.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            public Metadata[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Metadata[0] : (Metadata[]) invokeI.objValue;
+            }
 
             {
                 Interceptable interceptable2 = $ic;
@@ -55,98 +73,65 @@ public final class Metadata implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public Metadata[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Metadata[0] : (Metadata[]) invokeI.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public Metadata createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new Metadata(parcel) : (Metadata) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new Metadata(parcel);
+                }
+                return (Metadata) invokeL.objValue;
             }
         };
-    }
-
-    public Metadata(Entry... entryArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {entryArr};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.entries = entryArr == null ? new Entry[0] : entryArr;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || Metadata.class != obj.getClass()) {
-                return false;
-            }
-            return Arrays.equals(this.entries, ((Metadata) obj).entries);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Entry get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.entries[i] : (Entry) invokeI.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.hashCode(this.entries) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Arrays.hashCode(this.entries);
+        }
+        return invokeV.intValue;
     }
 
     public int length() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.entries.length : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.entries.length;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public Metadata(Parcel parcel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            parcel.writeInt(this.entries.length);
-            for (Entry entry : this.entries) {
-                parcel.writeParcelable(entry, 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.entries = new Entry[parcel.readInt()];
+        int i3 = 0;
+        while (true) {
+            Entry[] entryArr = this.entries;
+            if (i3 < entryArr.length) {
+                entryArr[i3] = (Entry) parcel.readParcelable(Entry.class.getClassLoader());
+                i3++;
+            } else {
+                return;
             }
         }
     }
 
-    public Metadata(List<? extends Entry> list) {
+    public Metadata(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,30 +155,56 @@ public final class Metadata implements Parcelable {
         this.entries = new Entry[0];
     }
 
-    public Metadata(Parcel parcel) {
+    public Metadata(Entry... entryArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {entryArr};
+            interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        this.entries = new Entry[parcel.readInt()];
-        int i3 = 0;
-        while (true) {
-            Entry[] entryArr = this.entries;
-            if (i3 >= entryArr.length) {
-                return;
+        this.entries = entryArr == null ? new Entry[0] : entryArr;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            entryArr[i3] = (Entry) parcel.readParcelable(Entry.class.getClassLoader());
-            i3++;
+            if (obj != null && Metadata.class == obj.getClass()) {
+                return Arrays.equals(this.entries, ((Metadata) obj).entries);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Entry get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.entries[i];
+        }
+        return (Entry) invokeI.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
+            parcel.writeInt(this.entries.length);
+            for (Entry entry : this.entries) {
+                parcel.writeParcelable(entry, 0);
+            }
         }
     }
 }

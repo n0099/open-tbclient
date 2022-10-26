@@ -15,7 +15,7 @@ import io.reactivex.internal.schedulers.TrampolineScheduler;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableInterval extends Observable<Long> {
+public final class ObservableInterval extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long initialDelay;
@@ -24,14 +24,14 @@ public final class ObservableInterval extends Observable<Long> {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class IntervalObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
+    public final class IntervalObserver extends AtomicReference implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 346773832286157679L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super Long> actual;
+        public final Observer actual;
         public long count;
 
-        public IntervalObserver(Observer<? super Long> observer) {
+        public IntervalObserver(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,6 +49,13 @@ public final class ObservableInterval extends Observable<Long> {
             this.actual = observer;
         }
 
+        public void setResource(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                DisposableHelper.setOnce(this, disposable);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -61,25 +68,23 @@ public final class ObservableInterval extends Observable<Long> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (get() == DisposableHelper.DISPOSED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || get() == DisposableHelper.DISPOSED) {
-                return;
-            }
-            Observer<? super Long> observer = this.actual;
-            long j = this.count;
-            this.count = 1 + j;
-            observer.onNext(Long.valueOf(j));
-        }
-
-        public void setResource(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
-                DisposableHelper.setOnce(this, disposable);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && get() != DisposableHelper.DISPOSED) {
+                Observer observer = this.actual;
+                long j = this.count;
+                this.count = 1 + j;
+                observer.onNext(Long.valueOf(j));
             }
         }
     }
@@ -106,7 +111,7 @@ public final class ObservableInterval extends Observable<Long> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super Long> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             IntervalObserver intervalObserver = new IntervalObserver(observer);

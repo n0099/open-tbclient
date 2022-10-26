@@ -3,16 +3,15 @@ package com.baidu.swan.pms.node;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bg4;
-import com.baidu.tieba.cf4;
 import com.baidu.tieba.cg4;
 import com.baidu.tieba.df4;
-import com.baidu.tieba.gf4;
-import com.baidu.tieba.gg4;
+import com.baidu.tieba.dg4;
+import com.baidu.tieba.ef4;
 import com.baidu.tieba.hf4;
 import com.baidu.tieba.hg4;
-import com.baidu.tieba.we4;
-import com.baidu.tieba.xe4;
+import com.baidu.tieba.if4;
+import com.baidu.tieba.ig4;
+import com.baidu.tieba.ye4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,8 +32,8 @@ public final class Node {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends xe4> mParamsProvider;
-    public Class<? extends we4> mProcessor;
+    public Class mParamsProvider;
+    public Class mProcessor;
 
     static {
         InterceptResult invokeClinit;
@@ -49,12 +48,36 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", bg4.class, cg4.class);
-        PACKAGE = new Node("PACKAGE", 1, "package", gg4.class, hg4.class, true);
-        CERES = new Node("CERES", 2, "ceres", cf4.class, df4.class);
-        Node node = new Node("COMMON", 3, "common", gf4.class, hf4.class);
+        HOST = new Node("HOST", 0, "host", cg4.class, dg4.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", hg4.class, ig4.class, true);
+        CERES = new Node("CERES", 2, "ceres", df4.class, ef4.class);
+        Node node = new Node("COMMON", 3, "common", hf4.class, if4.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
+    }
+
+    public Node(String str, int i, String str2, Class cls, Class cls2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, cls, cls2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mName = str2;
+        this.mParamsProvider = cls;
+        this.mProcessor = cls2;
+        this.mIsDataArray = false;
     }
 
     public Node(String str, int i, String str2, Class cls, Class cls2, boolean z) {
@@ -96,80 +119,74 @@ public final class Node {
         return (Node) invokeL.objValue;
     }
 
-    public static xe4 getProvider(Node node) {
+    public static ye4 getProvider(Node node) {
         InterceptResult invokeL;
-        Class<? extends xe4> paramsProvider;
+        Class paramsProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, node)) == null) {
             if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
                 return null;
             }
             try {
-                return paramsProvider.newInstance();
+                return (ye4) paramsProvider.newInstance();
             } catch (IllegalAccessException | InstantiationException unused) {
                 return null;
             }
         }
-        return (xe4) invokeL.objValue;
+        return (ye4) invokeL.objValue;
     }
 
     public static Node valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (Node) Enum.valueOf(Node.class, str) : (Node) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return (Node) Enum.valueOf(Node.class, str);
+        }
+        return (Node) invokeL.objValue;
     }
 
     public static Node[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (Node[]) $VALUES.clone() : (Node[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return (Node[]) $VALUES.clone();
+        }
+        return (Node[]) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public Class<? extends xe4> getParamsProvider() {
+    public Class getParamsProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mParamsProvider : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mParamsProvider;
+        }
+        return (Class) invokeV.objValue;
     }
 
-    public Class<? extends we4> getProcessor() {
+    public Class getProcessor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProcessor : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mProcessor;
+        }
+        return (Class) invokeV.objValue;
     }
 
     public boolean isDataArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsDataArray : invokeV.booleanValue;
-    }
-
-    public Node(String str, int i, String str2, Class cls, Class cls2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2, cls, cls2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str3 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsDataArray;
         }
-        this.mName = str2;
-        this.mParamsProvider = cls;
-        this.mProcessor = cls2;
-        this.mIsDataArray = false;
+        return invokeV.booleanValue;
     }
 }

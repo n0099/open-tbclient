@@ -62,12 +62,18 @@ public final class LogInterceptor$Level {
     public static LogInterceptor$Level valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LogInterceptor$Level) Enum.valueOf(LogInterceptor$Level.class, str) : (LogInterceptor$Level) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LogInterceptor$Level) Enum.valueOf(LogInterceptor$Level.class, str);
+        }
+        return (LogInterceptor$Level) invokeL.objValue;
     }
 
     public static LogInterceptor$Level[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogInterceptor$Level[]) $VALUES.clone() : (LogInterceptor$Level[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LogInterceptor$Level[]) $VALUES.clone();
+        }
+        return (LogInterceptor$Level[]) invokeV.objValue;
     }
 }

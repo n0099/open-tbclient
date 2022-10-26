@@ -21,11 +21,11 @@ public class d implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class a implements ServiceConnection {
+    public final class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-        public final LinkedBlockingQueue<IBinder> b;
+        public final LinkedBlockingQueue b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class d implements f {
                 }
             }
             this.a = false;
-            this.b = new LinkedBlockingQueue<>();
+            this.b = new LinkedBlockingQueue();
         }
 
         public IBinder a() {
@@ -52,7 +52,7 @@ public class d implements f {
                     throw new IllegalStateException();
                 }
                 this.a = true;
-                return this.b.poll(5L, TimeUnit.SECONDS);
+                return (IBinder) this.b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -99,31 +99,31 @@ public class d implements f {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
             try {
-                if (!context.bindService(intent, aVar2, 1)) {
-                    aVar.a(false, null);
+                if (context.bindService(intent, aVar2, 1)) {
+                    try {
+                        IBinder a2 = aVar2.a();
+                        Parcel obtain = Parcel.obtain();
+                        Parcel obtain2 = Parcel.obtain();
+                        try {
+                            obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                            a2.transact(1, obtain, obtain2, 0);
+                            obtain2.readException();
+                            String readString = obtain2.readString();
+                            obtain2.recycle();
+                            obtain.recycle();
+                            aVar.a(true, readString);
+                        } catch (Throwable th) {
+                            obtain2.recycle();
+                            obtain.recycle();
+                            throw th;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        aVar.a(true, null);
+                    }
                     return;
                 }
-                try {
-                    IBinder a2 = aVar2.a();
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                        a2.transact(1, obtain, obtain2, 0);
-                        obtain2.readException();
-                        String readString = obtain2.readString();
-                        obtain2.recycle();
-                        obtain.recycle();
-                        aVar.a(true, readString);
-                    } catch (Throwable th) {
-                        obtain2.recycle();
-                        obtain.recycle();
-                        throw th;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    aVar.a(true, null);
-                }
+                aVar.a(false, null);
             } finally {
                 context.unbindService(aVar2);
             }

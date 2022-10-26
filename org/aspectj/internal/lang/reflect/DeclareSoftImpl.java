@@ -15,12 +15,12 @@ import org.aspectj.lang.reflect.PointcutExpression;
 public class DeclareSoftImpl implements DeclareSoft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AjType<?> declaringType;
-    public AjType<?> exceptionType;
+    public AjType declaringType;
+    public AjType exceptionType;
     public String missingTypeName;
     public PointcutExpression pointcut;
 
-    public DeclareSoftImpl(AjType<?> ajType, String str, String str2) {
+    public DeclareSoftImpl(AjType ajType, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,14 +48,20 @@ public class DeclareSoftImpl implements DeclareSoft {
     public AjType getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.declaringType : (AjType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.declaringType;
+        }
+        return (AjType) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareSoft
     public PointcutExpression getPointcutExpression() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pointcut : (PointcutExpression) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.pointcut;
+        }
+        return (PointcutExpression) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareSoft

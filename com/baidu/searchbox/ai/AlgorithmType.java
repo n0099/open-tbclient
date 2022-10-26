@@ -64,18 +64,27 @@ public final class AlgorithmType {
     public static AlgorithmType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AlgorithmType) Enum.valueOf(AlgorithmType.class, str) : (AlgorithmType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AlgorithmType) Enum.valueOf(AlgorithmType.class, str);
+        }
+        return (AlgorithmType) invokeL.objValue;
     }
 
     public static AlgorithmType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AlgorithmType[]) $VALUES.clone() : (AlgorithmType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AlgorithmType[]) $VALUES.clone();
+        }
+        return (AlgorithmType[]) invokeV.objValue;
     }
 
     public int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 }

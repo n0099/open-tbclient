@@ -45,10 +45,9 @@ public class o implements Runnable {
         public void run() {
             RecordCallback recordCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (recordCallback = this.a.a.d) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (recordCallback = this.a.a.d) != null) {
+                recordCallback.onBegin();
             }
-            recordCallback.onBegin();
         }
     }
 
@@ -82,10 +81,9 @@ public class o implements Runnable {
         public void run() {
             RecordCallback recordCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (recordCallback = this.b.a.d) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (recordCallback = this.b.a.d) != null) {
+                recordCallback.onDeviceCheckResult(this.a);
             }
-            recordCallback.onDeviceCheckResult(this.a);
         }
     }
 
@@ -118,7 +116,7 @@ public class o implements Runnable {
     public void run() {
         q qVar;
         int i;
-        Pair<Integer, Object> callSync;
+        Pair callSync;
         char c;
         q qVar2;
         int i2;
@@ -128,96 +126,95 @@ public class o implements Runnable {
         int i3;
         Activity activity2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        try {
-            q qVar5 = this.a;
-            if (qVar5.m) {
-                return;
-            }
-            qVar5.l = com.baidu.sofire.face.b.b.a("3");
-            q qVar6 = this.a;
-            com.baidu.sofire.face.b.b.a(qVar6.a, qVar6.l, 101, 0, null);
-            q qVar7 = this.a;
-            if (qVar7.d != null && (activity2 = qVar7.b) != null) {
-                activity2.runOnUiThread(new a(this));
-            }
-            if (!FH.isInitSuc(1) && this.a.i.a()) {
-                this.a.a(-15);
-                return;
-            }
-            q qVar8 = this.a;
-            if (qVar8.m) {
-                return;
-            }
-            if (qVar8.i.b() && (i3 = (qVar4 = this.a).k) == 0) {
-                FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, qVar4.l, Integer.valueOf(i3));
-            } else if (this.a.i.b() && (i = (qVar = this.a).k) > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, qVar.l, Integer.valueOf(i))) != null && ((Integer) callSync.first).intValue() == 0) {
-                int intValue = ((Integer) callSync.second).intValue();
-                if (intValue == 1) {
-                    c = 1;
-                } else if (intValue == 2) {
-                    c = 65534;
-                }
-                qVar2 = this.a;
-                if (!qVar2.m) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                q qVar5 = this.a;
+                if (qVar5.m) {
                     return;
                 }
-                if (c != 65534) {
-                    if (c == 65535 && qVar2.i.e()) {
+                qVar5.l = com.baidu.sofire.face.b.b.a("3");
+                q qVar6 = this.a;
+                com.baidu.sofire.face.b.b.a(qVar6.a, qVar6.l, 101, 0, null);
+                q qVar7 = this.a;
+                if (qVar7.d != null && (activity2 = qVar7.b) != null) {
+                    activity2.runOnUiThread(new a(this));
+                }
+                if (!FH.isInitSuc(1) && this.a.i.a()) {
+                    this.a.a(-15);
+                    return;
+                }
+                q qVar8 = this.a;
+                if (qVar8.m) {
+                    return;
+                }
+                if (qVar8.i.b() && (i3 = (qVar4 = this.a).k) == 0) {
+                    FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, qVar4.l, Integer.valueOf(i3));
+                } else if (this.a.i.b() && (i = (qVar = this.a).k) > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, qVar.l, Integer.valueOf(i))) != null && ((Integer) callSync.first).intValue() == 0) {
+                    int intValue = ((Integer) callSync.second).intValue();
+                    if (intValue == 1) {
+                        c = 1;
+                    } else if (intValue == 2) {
+                        c = 65534;
                     }
-                    i2 = 1;
+                    qVar2 = this.a;
+                    if (!qVar2.m) {
+                        return;
+                    }
+                    if (c != 65534) {
+                        if (c == 65535 && qVar2.i.e()) {
+                        }
+                        i2 = 1;
+                        qVar3 = this.a;
+                        if (qVar3.d != null && (activity = qVar3.b) != null) {
+                            activity.runOnUiThread(new b(this, i2));
+                        }
+                        if (c != 65534) {
+                            this.a.a(-3);
+                            return;
+                        } else if (i2 == -1) {
+                            this.a.a(-3);
+                            return;
+                        } else {
+                            q qVar9 = this.a;
+                            if (qVar9.m) {
+                                return;
+                            }
+                            ((AudioManager) qVar9.a.getSystemService("audio")).getStreamVolume(3);
+                            DisplayMetrics displayMetrics = new DisplayMetrics();
+                            qVar9.b.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                            qVar9.w = displayMetrics.widthPixels;
+                            try {
+                                TextureView textureView = qVar9.c;
+                                if (textureView != null) {
+                                    textureView.setSurfaceTextureListener(qVar9);
+                                }
+                            } catch (Throwable unused) {
+                            }
+                            q qVar10 = this.a;
+                            if (qVar10.m) {
+                                return;
+                            }
+                            qVar10.a();
+                            return;
+                        }
+                    }
+                    i2 = -1;
                     qVar3 = this.a;
-                    if (qVar3.d != null && (activity = qVar3.b) != null) {
+                    if (qVar3.d != null) {
                         activity.runOnUiThread(new b(this, i2));
                     }
                     if (c != 65534) {
-                        this.a.a(-3);
-                        return;
-                    } else if (i2 == -1) {
-                        this.a.a(-3);
-                        return;
-                    } else {
-                        q qVar9 = this.a;
-                        if (qVar9.m) {
-                            return;
-                        }
-                        ((AudioManager) qVar9.a.getSystemService("audio")).getStreamVolume(3);
-                        DisplayMetrics displayMetrics = new DisplayMetrics();
-                        qVar9.b.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                        qVar9.w = displayMetrics.widthPixels;
-                        try {
-                            TextureView textureView = qVar9.c;
-                            if (textureView != null) {
-                                textureView.setSurfaceTextureListener(qVar9);
-                            }
-                        } catch (Throwable unused) {
-                        }
-                        q qVar10 = this.a;
-                        if (qVar10.m) {
-                            return;
-                        }
-                        qVar10.a();
-                        return;
                     }
                 }
-                i2 = -1;
-                qVar3 = this.a;
-                if (qVar3.d != null) {
-                    activity.runOnUiThread(new b(this, i2));
+                c = 65535;
+                qVar2 = this.a;
+                if (!qVar2.m) {
                 }
-                if (c != 65534) {
-                }
+            } catch (Throwable th) {
+                q qVar11 = this.a;
+                com.baidu.sofire.face.b.b.a(qVar11.a, qVar11.l, 1, th);
+                this.a.a(-9);
             }
-            c = 65535;
-            qVar2 = this.a;
-            if (!qVar2.m) {
-            }
-        } catch (Throwable th) {
-            q qVar11 = this.a;
-            com.baidu.sofire.face.b.b.a(qVar11.a, qVar11.l, 1, th);
-            this.a.a(-9);
         }
     }
 }

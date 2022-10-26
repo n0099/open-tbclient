@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SoftwareVideoEncoderFactory implements VideoEncoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,6 +27,16 @@ public class SoftwareVideoEncoderFactory implements VideoEncoderFactory {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // org.webrtc.VideoEncoderFactory
+    public VideoCodecInfo[] getSupportedCodecs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return supportedCodecs();
+        }
+        return (VideoCodecInfo[]) invokeV.objValue;
     }
 
     public static VideoCodecInfo[] supportedCodecs() {
@@ -58,12 +68,5 @@ public class SoftwareVideoEncoderFactory implements VideoEncoderFactory {
             return null;
         }
         return (VideoEncoder) invokeL.objValue;
-    }
-
-    @Override // org.webrtc.VideoEncoderFactory
-    public VideoCodecInfo[] getSupportedCodecs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? supportedCodecs() : (VideoCodecInfo[]) invokeV.objValue;
     }
 }

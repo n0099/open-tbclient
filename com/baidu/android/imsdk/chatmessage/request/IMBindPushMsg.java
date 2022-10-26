@@ -63,6 +63,35 @@ public class IMBindPushMsg extends Message {
         setType(90);
     }
 
+    @Override // com.baidu.android.imsdk.request.Message
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
+            LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i);
+            if (i != 0) {
+                if (i != 1004 && i != 1001) {
+                    int i2 = this.mReSendCount;
+                    if (i2 >= 3) {
+                        String str2 = LogUtils.TAG;
+                        LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i);
+                        setNeedReSend(false);
+                    } else {
+                        this.mReSendCount = i2 + 1;
+                        setNeedReSend(true);
+                    }
+                } else {
+                    setNeedReSend(false);
+                    LoginManager.getInstance(context).triggleLogoutListener(i, str);
+                }
+            } else {
+                setNeedReSend(false);
+            }
+            super.handleMessageResult(context, jSONObject, i, str);
+            Utility.updateBindPushCUIDStatus(this.mContext, 1);
+            BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i, str, this.mChannelIdIsEmpty);
+        }
+    }
+
     public static IMBindPushMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -108,33 +137,6 @@ public class IMBindPushMsg extends Message {
                 LogUtils.e(IMBindPushMsg.class.getSimpleName(), "Exception ", e);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
-            LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i);
-            if (i == 0) {
-                setNeedReSend(false);
-            } else if (i != 1004 && i != 1001) {
-                int i2 = this.mReSendCount;
-                if (i2 >= 3) {
-                    String str2 = LogUtils.TAG;
-                    LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i);
-                    setNeedReSend(false);
-                } else {
-                    this.mReSendCount = i2 + 1;
-                    setNeedReSend(true);
-                }
-            } else {
-                setNeedReSend(false);
-                LoginManager.getInstance(context).triggleLogoutListener(i, str);
-            }
-            super.handleMessageResult(context, jSONObject, i, str);
-            Utility.updateBindPushCUIDStatus(this.mContext, 1);
-            BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i, str, this.mChannelIdIsEmpty);
         }
     }
 

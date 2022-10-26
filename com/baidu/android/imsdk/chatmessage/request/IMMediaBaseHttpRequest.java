@@ -25,6 +25,13 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     public static final String TAG = "IMMediaBaseHttpRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
     public IMMediaBaseHttpRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,6 +44,19 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (AccountManager.getMediaRole(this.mContext) && !AccountManager.isCuidLogin(this.mContext)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public String generateSign(JSONObject jSONObject) throws NoSuchAlgorithmException {
@@ -63,7 +83,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -97,13 +117,6 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
     public JSONObject putCommonParams(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -118,12 +131,5 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? !AccountManager.getMediaRole(this.mContext) || AccountManager.isCuidLogin(this.mContext) : invokeV.booleanValue;
     }
 }

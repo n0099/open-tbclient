@@ -14,22 +14,6 @@ public class ShapeTrimPath implements ContentModel {
     public final AnimatableFloatValue start;
     public final Type type;
 
-    /* loaded from: classes.dex */
-    public enum Type {
-        SIMULTANEOUSLY,
-        INDIVIDUALLY;
-
-        public static Type forId(int i) {
-            if (i != 1) {
-                if (i == 2) {
-                    return INDIVIDUALLY;
-                }
-                throw new IllegalArgumentException("Unknown trim path type " + i);
-            }
-            return SIMULTANEOUSLY;
-        }
-    }
-
     public ShapeTrimPath(String str, Type type, AnimatableFloatValue animatableFloatValue, AnimatableFloatValue animatableFloatValue2, AnimatableFloatValue animatableFloatValue3, boolean z) {
         this.name = str;
         this.type = type;
@@ -63,12 +47,28 @@ public class ShapeTrimPath implements ContentModel {
         return this.hidden;
     }
 
+    public String toString() {
+        return "Trim Path: {start: " + this.start + ", end: " + this.end + ", offset: " + this.offset + "}";
+    }
+
+    /* loaded from: classes.dex */
+    public enum Type {
+        SIMULTANEOUSLY,
+        INDIVIDUALLY;
+
+        public static Type forId(int i) {
+            if (i != 1) {
+                if (i == 2) {
+                    return INDIVIDUALLY;
+                }
+                throw new IllegalArgumentException("Unknown trim path type " + i);
+            }
+            return SIMULTANEOUSLY;
+        }
+    }
+
     @Override // com.airbnb.lottie.model.content.ContentModel
     public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
         return new TrimPathContent(baseLayer, this);
-    }
-
-    public String toString() {
-        return "Trim Path: {start: " + this.start + ", end: " + this.end + ", offset: " + this.offset + "}";
     }
 }

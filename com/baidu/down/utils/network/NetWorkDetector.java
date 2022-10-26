@@ -23,12 +23,12 @@ public final class NetWorkDetector {
     public static final String TAG = "NetWorkDetector";
     public static NetWorkDetector sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, HostStatusCache> mDetectCacheMap;
+    public HashMap mDetectCacheMap;
     public boolean sNeedDetect;
 
     /* renamed from: com.baidu.down.utils.network.NetWorkDetector$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,78 +48,8 @@ public final class NetWorkDetector {
         }
     }
 
-    public NetWorkDetector() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.sNeedDetect = true;
-        this.mDetectCacheMap = null;
-        this.mDetectCacheMap = new HashMap<>();
-    }
-
-    public static int getHostReachable(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                Process exec = Runtime.getRuntime().exec(new String[]{"ping", "-c", "1", str});
-                exec.waitFor();
-                return exec.exitValue();
-            } catch (IOException | InterruptedException unused) {
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static NetWorkDetector getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (sInstance == null) {
-                sInstance = new NetWorkDetector();
-            }
-            return sInstance;
-        }
-        return (NetWorkDetector) invokeV.objValue;
-    }
-
-    public synchronized boolean isHostReachableCached(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                if (this.mDetectCacheMap.containsKey(str)) {
-                    HostStatusCache hostStatusCache = this.mDetectCacheMap.get(str);
-                    if (SystemClock.elapsedRealtime() - hostStatusCache.cacheTime < j) {
-                        return hostStatusCache.lastStatus == 0;
-                    }
-                }
-                int hostReachable = getHostReachable(str);
-                HostStatusCache hostStatusCache2 = new HostStatusCache(null);
-                hostStatusCache2.cacheTime = SystemClock.elapsedRealtime();
-                hostStatusCache2.lastStatus = hostReachable;
-                this.mDetectCacheMap.put(str, hostStatusCache2);
-                return hostReachable == 0;
-            }
-        }
-        return invokeLJ.booleanValue;
-    }
-
     /* loaded from: classes2.dex */
-    public static final class HostStatusCache {
+    public final class HostStatusCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long cacheTime;
@@ -145,5 +75,82 @@ public final class NetWorkDetector {
         public /* synthetic */ HostStatusCache(AnonymousClass1 anonymousClass1) {
             this();
         }
+    }
+
+    public NetWorkDetector() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.sNeedDetect = true;
+        this.mDetectCacheMap = null;
+        this.mDetectCacheMap = new HashMap();
+    }
+
+    public static NetWorkDetector getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (sInstance == null) {
+                sInstance = new NetWorkDetector();
+            }
+            return sInstance;
+        }
+        return (NetWorkDetector) invokeV.objValue;
+    }
+
+    public static int getHostReachable(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                Process exec = Runtime.getRuntime().exec(new String[]{"ping", "-c", "1", str});
+                exec.waitFor();
+                return exec.exitValue();
+            } catch (IOException | InterruptedException unused) {
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized boolean isHostReachableCached(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                if (this.mDetectCacheMap.containsKey(str)) {
+                    HostStatusCache hostStatusCache = (HostStatusCache) this.mDetectCacheMap.get(str);
+                    if (SystemClock.elapsedRealtime() - hostStatusCache.cacheTime < j) {
+                        if (hostStatusCache.lastStatus == 0) {
+                            z = true;
+                        }
+                        return z;
+                    }
+                }
+                int hostReachable = getHostReachable(str);
+                HostStatusCache hostStatusCache2 = new HostStatusCache(null);
+                hostStatusCache2.cacheTime = SystemClock.elapsedRealtime();
+                hostStatusCache2.lastStatus = hostReachable;
+                this.mDetectCacheMap.put(str, hostStatusCache2);
+                if (hostReachable == 0) {
+                    z = true;
+                }
+                return z;
+            }
+        }
+        return invokeLJ.booleanValue;
     }
 }

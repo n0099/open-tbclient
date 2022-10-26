@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.homepage.HomePageStatic;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,46 +48,6 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
             }
         }
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f0, (ViewGroup) this, true);
-            this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ffb);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092381);
-            this.c = textView;
-            textView.setTextSize(0, ej.f(context, R.dimen.T_X06));
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092380);
-            my4 my4Var = new my4();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f042c));
-            this.d.setTextSize(R.dimen.T_X05);
-            this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(my4Var);
-            this.d.setOnClickListener(this);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setImageResource(this.b, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092380) {
-            ViewHelper.checkUpIsLogin(this.a);
-            HomePageStatic.a = true;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,5 +92,45 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ef, (ViewGroup) this, true);
+            this.a = context;
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fef);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09236c);
+            this.c = textView;
+            textView.setTextSize(0, fj.f(context, R.dimen.T_X06));
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09236b);
+            sy4 sy4Var = new sy4();
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0433));
+            this.d.setTextSize(R.dimen.T_X05);
+            this.d.setTextHorizontalCenter(true);
+            this.d.setConfig(sy4Var);
+            this.d.setOnClickListener(this);
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setImageResource(this.b, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09236b) {
+            ViewHelper.checkUpIsLogin(this.a);
+            HomePageStatic.a = true;
+        }
     }
 }

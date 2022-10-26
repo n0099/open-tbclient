@@ -34,6 +34,14 @@ public class I extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onReceivedTitle(webView, str);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
@@ -46,14 +54,6 @@ public class I extends WebChromeClient {
                 }
             }
             super.onProgressChanged(webView, i);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onReceivedTitle(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-            super.onReceivedTitle(webView, str);
         }
     }
 }

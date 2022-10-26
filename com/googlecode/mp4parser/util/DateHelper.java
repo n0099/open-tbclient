@@ -25,15 +25,21 @@ public class DateHelper {
         }
     }
 
-    public static Date convert(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new Date((j - 2082844800) * 1000) : (Date) invokeJ.objValue;
-    }
-
     public static long convert(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, date)) == null) ? (date.getTime() / 1000) + 2082844800 : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, date)) == null) {
+            return (date.getTime() / 1000) + 2082844800;
+        }
+        return invokeL.longValue;
+    }
+
+    public static Date convert(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return new Date((j - 2082844800) * 1000);
+        }
+        return (Date) invokeJ.objValue;
     }
 }

@@ -1,31 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class np5 extends yk0 {
+public class np5 {
     public static /* synthetic */ Interceptable $ic;
+    public static np5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile HashMap a;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ op5 a;
-        public final /* synthetic */ np5 b;
+        public String a;
+        public HashMap b;
 
-        public a(np5 np5Var, op5 op5Var) {
+        public a(String str, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {np5Var, op5Var};
+                Object[] objArr = {str, hashMap};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,60 +38,71 @@ public class np5 extends yk0 {
                     return;
                 }
             }
-            this.b = np5Var;
-            this.a = op5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a(view2)) {
-                return;
-            }
-            this.b.m();
+            this.a = str;
+            this.b = hashMap;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    /* JADX WARN: Type inference failed for: r9v4, types: [android.view.View] */
-    public np5(@NonNull op5 op5Var, @NonNull lk0 lk0Var) {
-        super(lk0Var, op5Var);
+    public np5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {op5Var, lk0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((lk0) objArr2[0], (el0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ?? realView = this.e.get().getRealView();
-        if (realView != 0) {
-            realView.setOnClickListener(new a(this, op5Var));
+        this.a = new HashMap();
+    }
+
+    public static np5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (np5.class) {
+                    if (b == null) {
+                        b = new np5();
+                    }
+                }
+            }
+            return b;
+        }
+        return (np5) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
+            List list = (List) this.a.get(str);
+            if (list == null) {
+                list = new ArrayList();
+                this.a.put(str, list);
+            }
+            list.add(new a(str2, hashMap));
         }
     }
 
-    @Override // com.baidu.tieba.yk0, com.baidu.tieba.vk0, com.baidu.tieba.dl0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, lk0Var) == null) {
-            super.a(adDownloadAction, lk0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.remove(str);
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v5, types: [android.view.View] */
-    public void v() {
+    public List d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.get().getRealView().setVisibility(0);
-            m();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.containsKey(str)) {
+                return (List) this.a.get(str);
+            }
+            return new ArrayList();
         }
+        return (List) invokeL.objValue;
     }
 }

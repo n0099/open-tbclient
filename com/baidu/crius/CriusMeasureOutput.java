@@ -28,24 +28,36 @@ public class CriusMeasureOutput {
     public static float getHeight(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? Float.intBitsToFloat((int) (j & (-1))) : invokeJ.floatValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            return Float.intBitsToFloat((int) (j & (-1)));
+        }
+        return invokeJ.floatValue;
     }
 
     public static float getWidth(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? Float.intBitsToFloat((int) ((j >> 32) & (-1))) : invokeJ.floatValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return Float.intBitsToFloat((int) ((j >> 32) & (-1)));
+        }
+        return invokeJ.floatValue;
     }
 
     public static long make(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? Float.floatToRawIntBits(f2) | (Float.floatToRawIntBits(f) << 32) : invokeCommon.longValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return Float.floatToRawIntBits(f2) | (Float.floatToRawIntBits(f) << 32);
+        }
+        return invokeCommon.longValue;
     }
 
     public static long make(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? make(i, i2) : invokeII.longValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            return make(i, i2);
+        }
+        return invokeII.longValue;
     }
 }

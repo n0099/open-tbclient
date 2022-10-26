@@ -3,7 +3,6 @@ package com.google.android.material.shape;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -87,14 +86,14 @@ public class InterpolateOnScrollPositionChangeHelper {
         }
     }
 
-    public void startListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
+    public void startListeningForScrollChanges(ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewTreeObserver) == null) {
             viewTreeObserver.addOnScrollChangedListener(this.scrollChangedListener);
         }
     }
 
-    public void stopListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
+    public void stopListeningForScrollChanges(ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, viewTreeObserver) == null) {
             viewTreeObserver.removeOnScrollChangedListener(this.scrollChangedListener);
@@ -104,7 +103,7 @@ public class InterpolateOnScrollPositionChangeHelper {
     public void updateInterpolationForScreenPosition() {
         ScrollView scrollView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (scrollView = this.containingScrollView) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (scrollView = this.containingScrollView) == null) {
             return;
         }
         if (scrollView.getChildCount() != 0) {

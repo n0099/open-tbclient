@@ -17,8 +17,8 @@ public class UriQuery {
     public transient /* synthetic */ FieldHolder $fh;
     public String mBackupQuery;
     public boolean mBackupQueryDirty;
-    public HashMap<String, String> mEncodedValuesCache;
-    public HashMap<String, String> mParams;
+    public HashMap mEncodedValuesCache;
+    public HashMap mParams;
     public String mQuery;
 
     static {
@@ -52,10 +52,10 @@ public class UriQuery {
             }
         }
         this.mQuery = "";
-        this.mParams = new HashMap<>();
+        this.mParams = new HashMap();
         this.mBackupQueryDirty = false;
         this.mBackupQuery = null;
-        this.mEncodedValuesCache = new HashMap<>();
+        this.mEncodedValuesCache = new HashMap();
         this.mQuery = str;
         parseQuery();
     }
@@ -64,7 +64,7 @@ public class UriQuery {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            String str2 = this.mEncodedValuesCache.get(str);
+            String str2 = (String) this.mEncodedValuesCache.get(str);
             if (str2 == null) {
                 String encodedValue = Utils.getEncodedValue(str);
                 this.mEncodedValuesCache.put(str, encodedValue);
@@ -75,9 +75,27 @@ public class UriQuery {
         return (String) invokeL.objValue;
     }
 
+    public String getParameter(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return (String) this.mParams.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void removeParam(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.mParams.remove(str);
+        this.mBackupQueryDirty = true;
+    }
+
     private void parseQuery() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || TextUtils.isEmpty(this.mQuery)) {
+        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || TextUtils.isEmpty(this.mQuery)) {
             return;
         }
         String[] split = this.mQuery.split("&");
@@ -92,21 +110,6 @@ public class UriQuery {
         this.mBackupQueryDirty = true;
     }
 
-    public void addParam(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.mParams.put(str, str2);
-        this.mBackupQueryDirty = true;
-    }
-
-    public String getParameter(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.mParams.get(str) : (String) invokeL.objValue;
-    }
-
     public String getQuery() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,7 +121,7 @@ public class UriQuery {
             for (String str : this.mParams.keySet()) {
                 stringBuffer.append(str);
                 stringBuffer.append("=");
-                stringBuffer.append(getEncodedValue(this.mParams.get(str)));
+                stringBuffer.append(getEncodedValue((String) this.mParams.get(str)));
                 stringBuffer.append("&");
             }
             String stringBuffer2 = stringBuffer.toString();
@@ -129,12 +132,12 @@ public class UriQuery {
         return (String) invokeV.objValue;
     }
 
-    public void removeParam(String str) {
+    public void addParam(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.mParams.remove(str);
+        this.mParams.put(str, str2);
         this.mBackupQueryDirty = true;
     }
 }

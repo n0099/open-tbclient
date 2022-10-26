@@ -82,7 +82,447 @@ public class AuthAgent extends BaseApi {
     public transient /* synthetic */ FieldHolder $fh;
     public IUiListener a;
     public String d;
-    public WeakReference<Activity> e;
+    public WeakReference e;
+
+    private void a(Bundle bundle, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, this, bundle, map) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends DefaultUiListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference a;
+        public final /* synthetic */ AuthAgent b;
+        public final String c;
+        public final String d;
+        public final String e;
+
+        /* loaded from: classes8.dex */
+        public abstract class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public Dialog d;
+            public final /* synthetic */ b e;
+
+            public a(b bVar, Dialog dialog) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, dialog};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.e = bVar;
+                this.d = dialog;
+            }
+        }
+
+        public b(AuthAgent authAgent, IUiListener iUiListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {authAgent, iUiListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = authAgent;
+            this.c = "sendinstall";
+            this.d = "installwording";
+            this.e = "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
+            this.a = new WeakReference(iUiListener);
+        }
+
+        private Drawable a(String str, Context context) {
+            InterceptResult invokeLL;
+            InputStream open;
+            Bitmap bitmap;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, context)) == null) {
+                Drawable drawable = null;
+                try {
+                    open = context.getApplicationContext().getAssets().open(str);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (open == null) {
+                    return null;
+                }
+                if (str.endsWith(".9.png")) {
+                    try {
+                        bitmap = BitmapFactory.decodeStream(open);
+                    } catch (OutOfMemoryError e2) {
+                        e2.printStackTrace();
+                        bitmap = null;
+                    }
+                    if (bitmap == null) {
+                        return null;
+                    }
+                    byte[] ninePatchChunk = bitmap.getNinePatchChunk();
+                    NinePatch.isNinePatchChunk(ninePatchChunk);
+                    return new NinePatchDrawable(bitmap, ninePatchChunk, new Rect(), null);
+                }
+                drawable = Drawable.createFromStream(open, str);
+                open.close();
+                return drawable;
+            }
+            return (Drawable) invokeLL.objValue;
+        }
+
+        private View a(Context context, Drawable drawable, String str, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, this, context, drawable, str, onClickListener, onClickListener2)) == null) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                float f = displayMetrics.density;
+                RelativeLayout relativeLayout = new RelativeLayout(context);
+                ImageView imageView = new ImageView(context);
+                imageView.setImageDrawable(drawable);
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                imageView.setId(1);
+                int i = (int) (60.0f * f);
+                int i2 = (int) (f * 14.0f);
+                int i3 = (int) (18.0f * f);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
+                layoutParams.addRule(9);
+                layoutParams.setMargins(0, i3, (int) (6.0f * f), i3);
+                relativeLayout.addView(imageView, layoutParams);
+                TextView textView = new TextView(context);
+                textView.setText(str);
+                textView.setTextSize(14.0f);
+                textView.setGravity(3);
+                textView.setIncludeFontPadding(false);
+                textView.setPadding(0, 0, 0, 0);
+                textView.setLines(2);
+                textView.setId(5);
+                textView.setMinWidth((int) (185.0f * f));
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams2.addRule(1, 1);
+                layoutParams2.addRule(6, 1);
+                float f2 = 5.0f * f;
+                layoutParams2.setMargins(0, 0, (int) f2, 0);
+                relativeLayout.addView(textView, layoutParams2);
+                View view2 = new View(context);
+                view2.setBackgroundColor(Color.rgb(214, 214, 214));
+                view2.setId(3);
+                RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, 2);
+                layoutParams3.addRule(3, 1);
+                layoutParams3.addRule(5, 1);
+                layoutParams3.addRule(7, 5);
+                int i4 = (int) (12.0f * f);
+                layoutParams3.setMargins(0, 0, 0, i4);
+                relativeLayout.addView(view2, layoutParams3);
+                LinearLayout linearLayout = new LinearLayout(context);
+                RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams4.addRule(5, 1);
+                layoutParams4.addRule(7, 5);
+                layoutParams4.addRule(3, 3);
+                Button button = new Button(context);
+                button.setText("跳过");
+                button.setBackgroundDrawable(a("buttonNegt.png", context));
+                button.setTextColor(Color.rgb(36, 97, 131));
+                button.setTextSize(20.0f);
+                button.setOnClickListener(onClickListener2);
+                button.setId(4);
+                int i5 = (int) (45.0f * f);
+                LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, i5);
+                layoutParams5.rightMargin = i2;
+                int i6 = (int) (4.0f * f);
+                layoutParams5.leftMargin = i6;
+                layoutParams5.weight = 1.0f;
+                linearLayout.addView(button, layoutParams5);
+                Button button2 = new Button(context);
+                button2.setText("确定");
+                button2.setTextSize(20.0f);
+                button2.setTextColor(Color.rgb(255, 255, 255));
+                button2.setBackgroundDrawable(a("buttonPost.png", context));
+                button2.setOnClickListener(onClickListener);
+                LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(0, i5);
+                layoutParams6.weight = 1.0f;
+                layoutParams6.rightMargin = i6;
+                linearLayout.addView(button2, layoutParams6);
+                relativeLayout.addView(linearLayout, layoutParams4);
+                ViewGroup.LayoutParams layoutParams7 = new FrameLayout.LayoutParams((int) (279.0f * f), (int) (f * 163.0f));
+                relativeLayout.setPadding(i2, 0, i4, i4);
+                relativeLayout.setLayoutParams(layoutParams7);
+                relativeLayout.setBackgroundColor(Color.rgb((int) GDiffPatcher.DATA_USHORT, 251, (int) GDiffPatcher.DATA_USHORT));
+                PaintDrawable paintDrawable = new PaintDrawable(Color.rgb((int) GDiffPatcher.DATA_USHORT, 251, (int) GDiffPatcher.DATA_USHORT));
+                paintDrawable.setCornerRadius(f2);
+                relativeLayout.setBackgroundDrawable(paintDrawable);
+                return relativeLayout;
+            }
+            return (View) invokeLLLLL.objValue;
+        }
+
+        private void a(String str, IUiListener iUiListener, Object obj) {
+            PackageInfo packageInfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65539, this, str, iUiListener, obj) == null) {
+                if (this.b.e == null) {
+                    SLog.i("openSDK_LOG.AuthAgent", "showFeedConfrimDialog mActivity null and return");
+                    return;
+                }
+                Activity activity = (Activity) this.b.e.get();
+                if (activity == null) {
+                    SLog.i("openSDK_LOG.AuthAgent", "showFeedConfrimDialog mActivity.get() null and return");
+                    return;
+                }
+                Dialog dialog = new Dialog(activity);
+                dialog.requestWindowFeature(1);
+                PackageManager packageManager = activity.getPackageManager();
+                Drawable drawable = null;
+                try {
+                    packageInfo = packageManager.getPackageInfo(activity.getPackageName(), 0);
+                } catch (PackageManager.NameNotFoundException e) {
+                    SLog.e("openSDK_LOG.AuthAgent", "showFeedConfrimDialog exception:" + e.getStackTrace().toString());
+                    packageInfo = null;
+                }
+                if (packageInfo != null) {
+                    drawable = packageInfo.applicationInfo.loadIcon(packageManager);
+                }
+                View.OnClickListener onClickListener = new a(this, dialog, iUiListener, obj) { // from class: com.tencent.connect.auth.AuthAgent.b.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ IUiListener a;
+                    public final /* synthetic */ Object b;
+                    public final /* synthetic */ b c;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(this, dialog);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, dialog, iUiListener, obj};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                Object[] objArr2 = newInitContext.callArgs;
+                                super((b) objArr2[0], (Dialog) objArr2[1]);
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.c = this;
+                        this.a = iUiListener;
+                        this.b = obj;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                            this.c.a();
+                            Dialog dialog2 = this.d;
+                            if (dialog2 != null && dialog2.isShowing()) {
+                                this.d.dismiss();
+                            }
+                            IUiListener iUiListener2 = this.a;
+                            if (iUiListener2 != null) {
+                                iUiListener2.onComplete(this.b);
+                            }
+                        }
+                    }
+                };
+                View.OnClickListener onClickListener2 = new a(this, dialog, iUiListener, obj) { // from class: com.tencent.connect.auth.AuthAgent.b.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ IUiListener a;
+                    public final /* synthetic */ Object b;
+                    public final /* synthetic */ b c;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(this, dialog);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, dialog, iUiListener, obj};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                Object[] objArr2 = newInitContext.callArgs;
+                                super((b) objArr2[0], (Dialog) objArr2[1]);
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.c = this;
+                        this.a = iUiListener;
+                        this.b = obj;
+                    }
+
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                            Dialog dialog2 = this.d;
+                            if (dialog2 != null && dialog2.isShowing()) {
+                                this.d.dismiss();
+                            }
+                            IUiListener iUiListener2 = this.a;
+                            if (iUiListener2 != null) {
+                                iUiListener2.onComplete(this.b);
+                            }
+                        }
+                    }
+                };
+                ColorDrawable colorDrawable = new ColorDrawable();
+                colorDrawable.setAlpha(0);
+                dialog.getWindow().setBackgroundDrawable(colorDrawable);
+                dialog.setContentView(a(activity, drawable, str, onClickListener, onClickListener2));
+                dialog.setOnCancelListener(new DialogInterface.OnCancelListener(this, iUiListener, obj) { // from class: com.tencent.connect.auth.AuthAgent.b.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ IUiListener a;
+                    public final /* synthetic */ Object b;
+                    public final /* synthetic */ b c;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, iUiListener, obj};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.c = this;
+                        this.a = iUiListener;
+                        this.b = obj;
+                    }
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public void onCancel(DialogInterface dialogInterface) {
+                        IUiListener iUiListener2;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) && (iUiListener2 = this.a) != null) {
+                            iUiListener2.onComplete(this.b);
+                        }
+                    }
+                });
+                if (activity != null && !activity.isFinishing()) {
+                    dialog.show();
+                }
+            }
+        }
+
+        public void a() {
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bundle b = this.b.b();
+                if (this.b.e != null && (activity = (Activity) this.b.e.get()) != null) {
+                    HttpUtils.requestAsync(this.b.c, activity, "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi", b, "POST", null);
+                }
+            }
+        }
+
+        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.get() != null) {
+                ((IUiListener) this.a.get()).onCancel();
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:26:0x006b  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x00a4  */
+        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onComplete(Object obj) {
+            JSONObject jSONObject;
+            boolean z;
+            String str;
+            IUiListener iUiListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && obj != null && (jSONObject = (JSONObject) obj) != null) {
+                boolean z2 = false;
+                try {
+                    z = true;
+                    if (jSONObject.getInt("sendinstall") != 1) {
+                        z = false;
+                    }
+                    try {
+                        str = jSONObject.getString("installwording");
+                    } catch (JSONException unused) {
+                        SLog.w("openSDK_LOG.AuthAgent", "FeedConfirmListener onComplete There is no value for sendinstall.");
+                        str = "";
+                        String decode = URLDecoder.decode(str);
+                        SLog.i("openSDK_LOG.AuthAgent", " WORDING = " + decode + "xx,showConfirmDialog=" + z);
+                        if (!z) {
+                        }
+                        iUiListener = (IUiListener) this.a.get();
+                        if (iUiListener == null) {
+                        }
+                    }
+                } catch (JSONException unused2) {
+                    z = false;
+                }
+                String decode2 = URLDecoder.decode(str);
+                SLog.i("openSDK_LOG.AuthAgent", " WORDING = " + decode2 + "xx,showConfirmDialog=" + z);
+                if (!z && !TextUtils.isEmpty(decode2)) {
+                    a(decode2, (IUiListener) this.a.get(), obj);
+                    SLog.i("openSDK_LOG.AuthAgent", " WORDING is not empty and return");
+                    return;
+                }
+                iUiListener = (IUiListener) this.a.get();
+                if (iUiListener == null) {
+                    if (this.b.c != null) {
+                        z2 = this.b.c.saveSession(jSONObject);
+                        SLog.i("openSDK_LOG.AuthAgent", " saveSession saveSuccess=" + z2);
+                    }
+                    if (z2) {
+                        iUiListener.onComplete(obj);
+                        return;
+                    } else {
+                        iUiListener.onError(new UiError(-6, com.tencent.connect.common.Constants.MSG_PERSISTENCE_FAIL, null));
+                        return;
+                    }
+                }
+                SLog.i("openSDK_LOG.AuthAgent", " userListener is null");
+            }
+        }
+
+        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+        public void onError(UiError uiError) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, uiError) == null) && this.a.get() != null) {
+                ((IUiListener) this.a.get()).onError(uiError);
+            }
+        }
+    }
 
     /* loaded from: classes8.dex */
     public class a extends DefaultUiListener {
@@ -114,14 +554,14 @@ public class AuthAgent extends BaseApi {
         public void onCancel() {
             IUiListener iUiListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.a) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iUiListener = this.a) != null) {
+                iUiListener.onCancel();
             }
-            iUiListener.onCancel();
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
+            String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 if (obj == null) {
@@ -131,7 +571,11 @@ public class AuthAgent extends BaseApi {
                 JSONObject jSONObject = (JSONObject) obj;
                 try {
                     int i = jSONObject.getInt(Constants.KEYS.RET);
-                    String string = i == 0 ? "success" : jSONObject.getString("msg");
+                    if (i == 0) {
+                        string = "success";
+                    } else {
+                        string = jSONObject.getString("msg");
+                    }
                     if (this.a != null) {
                         this.a.onComplete(new JSONObject().put(Constants.KEYS.RET, i).put("msg", string));
                     }
@@ -146,10 +590,9 @@ public class AuthAgent extends BaseApi {
         public void onError(UiError uiError) {
             IUiListener iUiListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) || (iUiListener = this.a) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) && (iUiListener = this.a) != null) {
+                iUiListener.onError(uiError);
             }
-            iUiListener.onError(uiError);
         }
     }
 
@@ -305,57 +748,6 @@ public class AuthAgent extends BaseApi {
         }
     }
 
-    private void a(Bundle bundle, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, this, bundle, map) == null) {
-        }
-    }
-
-    public int doLogin(Activity activity, String str, IUiListener iUiListener, boolean z, Fragment fragment, boolean z2, Map<String, Object> map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z), fragment, Boolean.valueOf(z2), map})) == null) {
-            this.d = str;
-            this.e = new WeakReference<>(activity);
-            this.a = iUiListener;
-            Object[] objArr = new Object[2];
-            if (!activity.getIntent().getBooleanExtra(KEY_FORCE_QR_LOGIN, false) && !g.a(activity, this.c.getAppId()).b("C_LoginWeb") && a(activity, fragment, map, z, objArr)) {
-                SLog.i("openSDK_LOG.AuthAgent", "OpenUi, showUi, return Constants.UI_ACTIVITY");
-                d.a().a(this.c.getOpenId(), this.c.getAppId(), "2", "1", "5", (String) objArr[0], "0", "0");
-                return ((Integer) objArr[1]).intValue();
-            }
-            d.a().a(this.c.getOpenId(), this.c.getAppId(), "2", "1", "5", "1", "0", "0");
-            SLog.w("openSDK_LOG.AuthAgent", "doLogin startActivity fail show dialog.");
-            b bVar = new b(this, this.a);
-            this.a = bVar;
-            return a(z, bVar, z2);
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Override // com.tencent.connect.common.BaseApi
-    public void releaseResource() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void b(IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, iUiListener) == null) {
-            Bundle a2 = a();
-            a2.putString("reqType", "checkLogin");
-            HttpUtils.requestAsync(this.c, f.a(), "https://openmobile.qq.com/v3/user/get_info", a2, "GET", new BaseApi.TempRequestListener(this, new a(this, iUiListener)));
-        }
-    }
-
-    public int a(Activity activity, String str, IUiListener iUiListener, boolean z, Fragment fragment, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z), fragment, Boolean.valueOf(z2)})) == null) ? doLogin(activity, str, iUiListener, z, fragment, z2, null) : invokeCommon.intValue;
-    }
-
     private int a(boolean z, IUiListener iUiListener, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -421,60 +813,58 @@ public class AuthAgent extends BaseApi {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         i.a(AuthAgent.SECURE_LIB_FILE_NAME, AuthAgent.SECURE_LIB_NAME, 5);
                         JniInterface.loadSo();
-                        if (this.c.e == null || (activity = (Activity) this.c.e.get()) == null) {
-                            return;
-                        }
-                        activity.runOnUiThread(new Runnable(this, activity) { // from class: com.tencent.connect.auth.AuthAgent.1.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ Activity a;
-                            public final /* synthetic */ AnonymousClass1 b;
+                        if (this.c.e != null && (activity = (Activity) this.c.e.get()) != null) {
+                            activity.runOnUiThread(new Runnable(this, activity) { // from class: com.tencent.connect.auth.AuthAgent.1.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ Activity a;
+                                public final /* synthetic */ AnonymousClass1 b;
 
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, activity};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.b = this;
-                                this.a = activity;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    if (JniInterface.isJniOk) {
-                                        Activity activity2 = this.a;
-                                        AnonymousClass1 anonymousClass1 = this.b;
-                                        com.tencent.connect.auth.a aVar = new com.tencent.connect.auth.a(activity2, "action_login", anonymousClass1.a, anonymousClass1.b, anonymousClass1.c.c);
-                                        if (this.a.isFinishing()) {
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, activity};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
                                         }
-                                        aVar.show();
-                                        return;
                                     }
-                                    SLog.w("openSDK_LOG.AuthAgent", "OpenUi, secure so load failed, goto download QQ.");
-                                    Activity activity3 = this.a;
-                                    String a3 = this.b.c.a("");
-                                    AnonymousClass1 anonymousClass12 = this.b;
-                                    TDialog tDialog = new TDialog(activity3, "", a3, anonymousClass12.b, anonymousClass12.c.c);
-                                    if (this.a.isFinishing()) {
-                                        return;
-                                    }
-                                    tDialog.show();
+                                    this.b = this;
+                                    this.a = activity;
                                 }
-                            }
-                        });
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        if (JniInterface.isJniOk) {
+                                            Activity activity2 = this.a;
+                                            AnonymousClass1 anonymousClass1 = this.b;
+                                            com.tencent.connect.auth.a aVar = new com.tencent.connect.auth.a(activity2, "action_login", anonymousClass1.a, anonymousClass1.b, anonymousClass1.c.c);
+                                            if (!this.a.isFinishing()) {
+                                                aVar.show();
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                        SLog.w("openSDK_LOG.AuthAgent", "OpenUi, secure so load failed, goto download QQ.");
+                                        Activity activity3 = this.a;
+                                        String a3 = this.b.c.a("");
+                                        AnonymousClass1 anonymousClass12 = this.b;
+                                        TDialog tDialog = new TDialog(activity3, "", a3, anonymousClass12.b, anonymousClass12.c.c);
+                                        if (!this.a.isFinishing()) {
+                                            tDialog.show();
+                                        }
+                                    }
+                                }
+                            });
+                        }
                     }
                 }
             });
@@ -482,489 +872,6 @@ public class AuthAgent extends BaseApi {
             return 2;
         }
         return invokeCommon.intValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends DefaultUiListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<IUiListener> a;
-        public final /* synthetic */ AuthAgent b;
-        public final String c;
-        public final String d;
-        public final String e;
-
-        /* loaded from: classes8.dex */
-        public abstract class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public Dialog d;
-            public final /* synthetic */ b e;
-
-            public a(b bVar, Dialog dialog) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, dialog};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = bVar;
-                this.d = dialog;
-            }
-        }
-
-        public b(AuthAgent authAgent, IUiListener iUiListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {authAgent, iUiListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = authAgent;
-            this.c = "sendinstall";
-            this.d = "installwording";
-            this.e = "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
-            this.a = new WeakReference<>(iUiListener);
-        }
-
-        private void a(String str, IUiListener iUiListener, Object obj) {
-            PackageInfo packageInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65539, this, str, iUiListener, obj) == null) {
-                if (this.b.e != null) {
-                    Activity activity = (Activity) this.b.e.get();
-                    if (activity == null) {
-                        SLog.i("openSDK_LOG.AuthAgent", "showFeedConfrimDialog mActivity.get() null and return");
-                        return;
-                    }
-                    Dialog dialog = new Dialog(activity);
-                    dialog.requestWindowFeature(1);
-                    PackageManager packageManager = activity.getPackageManager();
-                    try {
-                        packageInfo = packageManager.getPackageInfo(activity.getPackageName(), 0);
-                    } catch (PackageManager.NameNotFoundException e) {
-                        SLog.e("openSDK_LOG.AuthAgent", "showFeedConfrimDialog exception:" + e.getStackTrace().toString());
-                        packageInfo = null;
-                    }
-                    Drawable loadIcon = packageInfo != null ? packageInfo.applicationInfo.loadIcon(packageManager) : null;
-                    View.OnClickListener onClickListener = new a(this, dialog, iUiListener, obj) { // from class: com.tencent.connect.auth.AuthAgent.b.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ IUiListener a;
-                        public final /* synthetic */ Object b;
-                        public final /* synthetic */ b c;
-
-                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        {
-                            super(this, dialog);
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, dialog, iUiListener, obj};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    Object[] objArr2 = newInitContext.callArgs;
-                                    super((b) objArr2[0], (Dialog) objArr2[1]);
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.c = this;
-                            this.a = iUiListener;
-                            this.b = obj;
-                        }
-
-                        @Override // android.view.View.OnClickListener
-                        public void onClick(View view2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                this.c.a();
-                                Dialog dialog2 = this.d;
-                                if (dialog2 != null && dialog2.isShowing()) {
-                                    this.d.dismiss();
-                                }
-                                IUiListener iUiListener2 = this.a;
-                                if (iUiListener2 != null) {
-                                    iUiListener2.onComplete(this.b);
-                                }
-                            }
-                        }
-                    };
-                    View.OnClickListener onClickListener2 = new a(this, dialog, iUiListener, obj) { // from class: com.tencent.connect.auth.AuthAgent.b.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ IUiListener a;
-                        public final /* synthetic */ Object b;
-                        public final /* synthetic */ b c;
-
-                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        {
-                            super(this, dialog);
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, dialog, iUiListener, obj};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    Object[] objArr2 = newInitContext.callArgs;
-                                    super((b) objArr2[0], (Dialog) objArr2[1]);
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.c = this;
-                            this.a = iUiListener;
-                            this.b = obj;
-                        }
-
-                        @Override // android.view.View.OnClickListener
-                        public void onClick(View view2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                Dialog dialog2 = this.d;
-                                if (dialog2 != null && dialog2.isShowing()) {
-                                    this.d.dismiss();
-                                }
-                                IUiListener iUiListener2 = this.a;
-                                if (iUiListener2 != null) {
-                                    iUiListener2.onComplete(this.b);
-                                }
-                            }
-                        }
-                    };
-                    ColorDrawable colorDrawable = new ColorDrawable();
-                    colorDrawable.setAlpha(0);
-                    dialog.getWindow().setBackgroundDrawable(colorDrawable);
-                    dialog.setContentView(a(activity, loadIcon, str, onClickListener, onClickListener2));
-                    dialog.setOnCancelListener(new DialogInterface.OnCancelListener(this, iUiListener, obj) { // from class: com.tencent.connect.auth.AuthAgent.b.3
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ IUiListener a;
-                        public final /* synthetic */ Object b;
-                        public final /* synthetic */ b c;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, iUiListener, obj};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.c = this;
-                            this.a = iUiListener;
-                            this.b = obj;
-                        }
-
-                        @Override // android.content.DialogInterface.OnCancelListener
-                        public void onCancel(DialogInterface dialogInterface) {
-                            IUiListener iUiListener2;
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (iUiListener2 = this.a) == null) {
-                                return;
-                            }
-                            iUiListener2.onComplete(this.b);
-                        }
-                    });
-                    if (activity == null || activity.isFinishing()) {
-                        return;
-                    }
-                    dialog.show();
-                    return;
-                }
-                SLog.i("openSDK_LOG.AuthAgent", "showFeedConfrimDialog mActivity null and return");
-            }
-        }
-
-        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.get() == null) {
-                return;
-            }
-            this.a.get().onCancel();
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:26:0x006b  */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x00a4  */
-        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onComplete(Object obj) {
-            JSONObject jSONObject;
-            boolean z;
-            String str;
-            IUiListener iUiListener;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, obj) == null) || obj == null || (jSONObject = (JSONObject) obj) == null) {
-                return;
-            }
-            boolean z2 = false;
-            try {
-                z = jSONObject.getInt("sendinstall") == 1;
-                try {
-                    str = jSONObject.getString("installwording");
-                } catch (JSONException unused) {
-                    SLog.w("openSDK_LOG.AuthAgent", "FeedConfirmListener onComplete There is no value for sendinstall.");
-                    str = "";
-                    String decode = URLDecoder.decode(str);
-                    SLog.i("openSDK_LOG.AuthAgent", " WORDING = " + decode + "xx,showConfirmDialog=" + z);
-                    if (!z) {
-                    }
-                    iUiListener = this.a.get();
-                    if (iUiListener == null) {
-                    }
-                }
-            } catch (JSONException unused2) {
-                z = false;
-            }
-            String decode2 = URLDecoder.decode(str);
-            SLog.i("openSDK_LOG.AuthAgent", " WORDING = " + decode2 + "xx,showConfirmDialog=" + z);
-            if (!z && !TextUtils.isEmpty(decode2)) {
-                a(decode2, this.a.get(), obj);
-                SLog.i("openSDK_LOG.AuthAgent", " WORDING is not empty and return");
-                return;
-            }
-            iUiListener = this.a.get();
-            if (iUiListener == null) {
-                if (this.b.c != null) {
-                    z2 = this.b.c.saveSession(jSONObject);
-                    SLog.i("openSDK_LOG.AuthAgent", " saveSession saveSuccess=" + z2);
-                }
-                if (z2) {
-                    iUiListener.onComplete(obj);
-                    return;
-                } else {
-                    iUiListener.onError(new UiError(-6, com.tencent.connect.common.Constants.MSG_PERSISTENCE_FAIL, null));
-                    return;
-                }
-            }
-            SLog.i("openSDK_LOG.AuthAgent", " userListener is null");
-        }
-
-        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-        public void onError(UiError uiError) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, uiError) == null) || this.a.get() == null) {
-                return;
-            }
-            this.a.get().onError(uiError);
-        }
-
-        private Drawable a(String str, Context context) {
-            InterceptResult invokeLL;
-            InputStream open;
-            Bitmap bitmap;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, context)) == null) {
-                Drawable drawable = null;
-                try {
-                    open = context.getApplicationContext().getAssets().open(str);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (open == null) {
-                    return null;
-                }
-                if (str.endsWith(".9.png")) {
-                    try {
-                        bitmap = BitmapFactory.decodeStream(open);
-                    } catch (OutOfMemoryError e2) {
-                        e2.printStackTrace();
-                        bitmap = null;
-                    }
-                    if (bitmap != null) {
-                        byte[] ninePatchChunk = bitmap.getNinePatchChunk();
-                        NinePatch.isNinePatchChunk(ninePatchChunk);
-                        return new NinePatchDrawable(bitmap, ninePatchChunk, new Rect(), null);
-                    }
-                    return null;
-                }
-                drawable = Drawable.createFromStream(open, str);
-                open.close();
-                return drawable;
-            }
-            return (Drawable) invokeLL.objValue;
-        }
-
-        private View a(Context context, Drawable drawable, String str, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-            InterceptResult invokeLLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, this, context, drawable, str, onClickListener, onClickListener2)) == null) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-                float f = displayMetrics.density;
-                RelativeLayout relativeLayout = new RelativeLayout(context);
-                ImageView imageView = new ImageView(context);
-                imageView.setImageDrawable(drawable);
-                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                imageView.setId(1);
-                int i = (int) (60.0f * f);
-                int i2 = (int) (f * 14.0f);
-                int i3 = (int) (18.0f * f);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
-                layoutParams.addRule(9);
-                layoutParams.setMargins(0, i3, (int) (6.0f * f), i3);
-                relativeLayout.addView(imageView, layoutParams);
-                TextView textView = new TextView(context);
-                textView.setText(str);
-                textView.setTextSize(14.0f);
-                textView.setGravity(3);
-                textView.setIncludeFontPadding(false);
-                textView.setPadding(0, 0, 0, 0);
-                textView.setLines(2);
-                textView.setId(5);
-                textView.setMinWidth((int) (185.0f * f));
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams2.addRule(1, 1);
-                layoutParams2.addRule(6, 1);
-                float f2 = 5.0f * f;
-                layoutParams2.setMargins(0, 0, (int) f2, 0);
-                relativeLayout.addView(textView, layoutParams2);
-                View view2 = new View(context);
-                view2.setBackgroundColor(Color.rgb(214, 214, 214));
-                view2.setId(3);
-                RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, 2);
-                layoutParams3.addRule(3, 1);
-                layoutParams3.addRule(5, 1);
-                layoutParams3.addRule(7, 5);
-                int i4 = (int) (12.0f * f);
-                layoutParams3.setMargins(0, 0, 0, i4);
-                relativeLayout.addView(view2, layoutParams3);
-                LinearLayout linearLayout = new LinearLayout(context);
-                RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams4.addRule(5, 1);
-                layoutParams4.addRule(7, 5);
-                layoutParams4.addRule(3, 3);
-                Button button = new Button(context);
-                button.setText("跳过");
-                button.setBackgroundDrawable(a("buttonNegt.png", context));
-                button.setTextColor(Color.rgb(36, 97, 131));
-                button.setTextSize(20.0f);
-                button.setOnClickListener(onClickListener2);
-                button.setId(4);
-                int i5 = (int) (45.0f * f);
-                LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, i5);
-                layoutParams5.rightMargin = i2;
-                int i6 = (int) (4.0f * f);
-                layoutParams5.leftMargin = i6;
-                layoutParams5.weight = 1.0f;
-                linearLayout.addView(button, layoutParams5);
-                Button button2 = new Button(context);
-                button2.setText("确定");
-                button2.setTextSize(20.0f);
-                button2.setTextColor(Color.rgb(255, 255, 255));
-                button2.setBackgroundDrawable(a("buttonPost.png", context));
-                button2.setOnClickListener(onClickListener);
-                LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(0, i5);
-                layoutParams6.weight = 1.0f;
-                layoutParams6.rightMargin = i6;
-                linearLayout.addView(button2, layoutParams6);
-                relativeLayout.addView(linearLayout, layoutParams4);
-                ViewGroup.LayoutParams layoutParams7 = new FrameLayout.LayoutParams((int) (279.0f * f), (int) (f * 163.0f));
-                relativeLayout.setPadding(i2, 0, i4, i4);
-                relativeLayout.setLayoutParams(layoutParams7);
-                relativeLayout.setBackgroundColor(Color.rgb((int) GDiffPatcher.DATA_USHORT, 251, (int) GDiffPatcher.DATA_USHORT));
-                PaintDrawable paintDrawable = new PaintDrawable(Color.rgb((int) GDiffPatcher.DATA_USHORT, 251, (int) GDiffPatcher.DATA_USHORT));
-                paintDrawable.setCornerRadius(f2);
-                relativeLayout.setBackgroundDrawable(paintDrawable);
-                return relativeLayout;
-            }
-            return (View) invokeLLLLL.objValue;
-        }
-
-        public void a() {
-            Activity activity;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle b = this.b.b();
-                if (this.b.e == null || (activity = (Activity) this.b.e.get()) == null) {
-                    return;
-                }
-                HttpUtils.requestAsync(this.b.c, activity, "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi", b, "POST", null);
-            }
-        }
-    }
-
-    private boolean a(Activity activity, Fragment fragment, Map<String, Object> map, boolean z, Object[] objArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{activity, fragment, map, Boolean.valueOf(z), objArr})) == null) {
-            SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- start");
-            Intent b2 = b("com.tencent.open.agent.AgentActivity");
-            if (b2 != null) {
-                Bundle a2 = a();
-                if (z) {
-                    a2.putString("isadd", "1");
-                }
-                a2.putString("scope", this.d);
-                a2.putString("client_id", this.c.getAppId());
-                if (BaseApi.isOEM) {
-                    a2.putString("pf", "desktop_m_qq-" + BaseApi.installChannel + "-android-" + BaseApi.registerChannel + "-" + BaseApi.businessId);
-                } else {
-                    a2.putString("pf", com.tencent.connect.common.Constants.DEFAULT_PF);
-                }
-                a2.putString("need_pay", "1");
-                a(a2, map);
-                a2.putString(com.tencent.connect.common.Constants.KEY_APP_NAME, i.a(f.a()));
-                b2.putExtra(com.tencent.connect.common.Constants.KEY_ACTION, "action_login");
-                b2.putExtra(com.tencent.connect.common.Constants.KEY_PARAMS, a2);
-                b2.putExtra("appid", this.c.getAppId());
-                a2.putString(com.tencent.connect.common.Constants.KEY_PPSTS, i.a(activity, a(a2)));
-                if (a(b2)) {
-                    this.a = new b(this, this.a);
-                    UIListenerManager.getInstance().setListenerWithRequestcode(com.tencent.connect.common.Constants.REQUEST_LOGIN, this.a);
-                    if (fragment != null) {
-                        SLog.d("openSDK_LOG.AuthAgent", "startAssitActivity fragment");
-                        a(fragment, b2, com.tencent.connect.common.Constants.REQUEST_LOGIN, map);
-                    } else {
-                        SLog.d("openSDK_LOG.AuthAgent", "startAssitActivity activity");
-                        a(activity, b2, com.tencent.connect.common.Constants.REQUEST_LOGIN, map);
-                    }
-                    SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, found activity for loginIntent");
-                    d.a().a(0, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
-                    objArr[0] = "0";
-                    objArr[1] = 1;
-                    return true;
-                }
-            }
-            d.a().a(1, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
-            SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, no target activity for loginIntent");
-            return false;
-        }
-        return invokeCommon.booleanValue;
     }
 
     private String a(Bundle bundle) {
@@ -1013,6 +920,64 @@ public class AuthAgent extends BaseApi {
         return (String) invokeL.objValue;
     }
 
+    private boolean a(Activity activity, Fragment fragment, Map map, boolean z, Object[] objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{activity, fragment, map, Boolean.valueOf(z), objArr})) == null) {
+            SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- start");
+            Intent b2 = b("com.tencent.open.agent.AgentActivity");
+            if (b2 != null) {
+                Bundle a2 = a();
+                if (z) {
+                    a2.putString("isadd", "1");
+                }
+                a2.putString("scope", this.d);
+                a2.putString("client_id", this.c.getAppId());
+                if (BaseApi.isOEM) {
+                    a2.putString("pf", "desktop_m_qq-" + BaseApi.installChannel + "-android-" + BaseApi.registerChannel + "-" + BaseApi.businessId);
+                } else {
+                    a2.putString("pf", com.tencent.connect.common.Constants.DEFAULT_PF);
+                }
+                a2.putString("need_pay", "1");
+                a(a2, map);
+                a2.putString(com.tencent.connect.common.Constants.KEY_APP_NAME, i.a(f.a()));
+                b2.putExtra(com.tencent.connect.common.Constants.KEY_ACTION, "action_login");
+                b2.putExtra(com.tencent.connect.common.Constants.KEY_PARAMS, a2);
+                b2.putExtra("appid", this.c.getAppId());
+                a2.putString(com.tencent.connect.common.Constants.KEY_PPSTS, i.a(activity, a(a2)));
+                if (a(b2)) {
+                    this.a = new b(this, this.a);
+                    UIListenerManager.getInstance().setListenerWithRequestcode(com.tencent.connect.common.Constants.REQUEST_LOGIN, this.a);
+                    if (fragment != null) {
+                        SLog.d("openSDK_LOG.AuthAgent", "startAssitActivity fragment");
+                        a(fragment, b2, com.tencent.connect.common.Constants.REQUEST_LOGIN, map);
+                    } else {
+                        SLog.d("openSDK_LOG.AuthAgent", "startAssitActivity activity");
+                        a(activity, b2, com.tencent.connect.common.Constants.REQUEST_LOGIN, map);
+                    }
+                    SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, found activity for loginIntent");
+                    d.a().a(0, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
+                    objArr[0] = "0";
+                    objArr[1] = 1;
+                    return true;
+                }
+            }
+            d.a().a(1, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
+            SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, no target activity for loginIntent");
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public int a(Activity activity, String str, IUiListener iUiListener, boolean z, Fragment fragment, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z), fragment, Boolean.valueOf(z2)})) == null) {
+            return doLogin(activity, str, iUiListener, z, fragment, z2, null);
+        }
+        return invokeCommon.intValue;
+    }
+
     public void a(IUiListener iUiListener) {
         String str;
         Interceptable interceptable = $ic;
@@ -1021,10 +986,10 @@ public class AuthAgent extends BaseApi {
             String accessToken = this.c.getAccessToken();
             String openId = this.c.getOpenId();
             String appId = this.c.getAppId();
-            if (TextUtils.isEmpty(accessToken) || TextUtils.isEmpty(openId) || TextUtils.isEmpty(appId)) {
-                str = "";
-            } else {
+            if (!TextUtils.isEmpty(accessToken) && !TextUtils.isEmpty(openId) && !TextUtils.isEmpty(appId)) {
                 str = l.f("tencent&sdk&qazxc***14969%%" + accessToken + appId + openId + "qzone3.4");
+            } else {
+                str = "";
             }
             if (TextUtils.isEmpty(str)) {
                 SLog.e("openSDK_LOG.AuthAgent", "reportDAU -- encrytoken is null");
@@ -1034,6 +999,45 @@ public class AuthAgent extends BaseApi {
             a2.putString("encrytoken", str);
             HttpUtils.requestAsync(this.c, f.a(), "https://openmobile.qq.com/user/user_login_statis", a2, "POST", null);
             SLog.i("openSDK_LOG.AuthAgent", "reportDAU() -- end");
+        }
+    }
+
+    public void b(IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, iUiListener) == null) {
+            Bundle a2 = a();
+            a2.putString("reqType", "checkLogin");
+            HttpUtils.requestAsync(this.c, f.a(), "https://openmobile.qq.com/v3/user/get_info", a2, "GET", new BaseApi.TempRequestListener(this, new a(this, iUiListener)));
+        }
+    }
+
+    public int doLogin(Activity activity, String str, IUiListener iUiListener, boolean z, Fragment fragment, boolean z2, Map map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z), fragment, Boolean.valueOf(z2), map})) == null) {
+            this.d = str;
+            this.e = new WeakReference(activity);
+            this.a = iUiListener;
+            Object[] objArr = new Object[2];
+            if (!activity.getIntent().getBooleanExtra(KEY_FORCE_QR_LOGIN, false) && !g.a(activity, this.c.getAppId()).b("C_LoginWeb") && a(activity, fragment, map, z, objArr)) {
+                SLog.i("openSDK_LOG.AuthAgent", "OpenUi, showUi, return Constants.UI_ACTIVITY");
+                d.a().a(this.c.getOpenId(), this.c.getAppId(), "2", "1", "5", (String) objArr[0], "0", "0");
+                return ((Integer) objArr[1]).intValue();
+            }
+            d.a().a(this.c.getOpenId(), this.c.getAppId(), "2", "1", "5", "1", "0", "0");
+            SLog.w("openSDK_LOG.AuthAgent", "doLogin startActivity fail show dialog.");
+            b bVar = new b(this, this.a);
+            this.a = bVar;
+            return a(z, bVar, z2);
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // com.tencent.connect.common.BaseApi
+    public void releaseResource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = null;
         }
     }
 }

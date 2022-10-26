@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/bdtask/TaskState;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class BDPTask$INSTANCE$getCurActiveTaskState$1 extends Lambda implements Function0<TaskState> {
+public final class BDPTask$INSTANCE$getCurActiveTaskState$1 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public static final BDPTask$INSTANCE$getCurActiveTaskState$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,18 +52,17 @@ public final class BDPTask$INSTANCE$getCurActiveTaskState$1 extends Lambda imple
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final TaskState invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BDPTask u = BDPTask.m.u();
-            if (u != null) {
-                return u.P();
-            }
-            return null;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+            return (TaskState) invokeV.objValue;
         }
-        return (TaskState) invokeV.objValue;
+        BDPTask u = BDPTask.m.u();
+        if (u != null) {
+            return u.P();
+        }
+        return null;
     }
 }

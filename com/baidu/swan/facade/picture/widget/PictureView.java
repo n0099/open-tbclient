@@ -10,29 +10,26 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouch;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
 import com.baidu.tieba.dh3;
-import com.baidu.tieba.jg3;
-import com.baidu.tieba.sm2;
+import com.baidu.tieba.eh3;
+import com.baidu.tieba.kg3;
+import com.baidu.tieba.tm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -48,6 +45,13 @@ public class PictureView extends FrameLayout {
     public View g;
     public boolean h;
     public c i;
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a();
+
+        void b();
+    }
 
     /* loaded from: classes3.dex */
     public class a implements BdImageViewTouch.c {
@@ -77,12 +81,12 @@ public class PictureView extends FrameLayout {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a.f()) {
-                    if (this.a.h) {
-                        this.a.h();
+                if (this.a.f()) {
+                    if (this.a.getContext() instanceof View.OnClickListener) {
+                        ((View.OnClickListener) this.a.getContext()).onClick(this.a.d);
                     }
-                } else if (this.a.getContext() instanceof View.OnClickListener) {
-                    ((View.OnClickListener) this.a.getContext()).onClick(this.a.d);
+                } else if (this.a.h) {
+                    this.a.h();
                 }
             }
         }
@@ -113,7 +117,7 @@ public class PictureView extends FrameLayout {
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        public void onCancellation(DataSource dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
                 super.onCancellation(dataSource);
@@ -121,15 +125,16 @@ public class PictureView extends FrameLayout {
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        public void onFailureImpl(DataSource dataSource) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.a.i();
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) != null) {
+                return;
             }
+            this.a.i();
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(@Nullable Bitmap bitmap) {
+        public void onNewResultImpl(Bitmap bitmap) {
             Bitmap copy;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
@@ -159,13 +164,6 @@ public class PictureView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface c {
-        void a();
-
-        void b();
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PictureView(Context context) {
         this(context, null);
@@ -184,120 +182,6 @@ public class PictureView extends FrameLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ZoomImageView zoomImageView = this.d;
-            return zoomImageView != null && zoomImageView.M();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0817, this);
-            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092705);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0919d2);
-            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091bce);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0919d3);
-            this.d.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
-            this.d.setZoomRange(1.0f, 3.0f);
-            this.d.setDoubleTapEnabled(true);
-            this.d.setSingleTapListener(new a(this));
-        }
-    }
-
-    public View getImageView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    public Bitmap getImageViewBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ZoomImageView zoomImageView = this.d;
-            if (zoomImageView != null) {
-                Drawable drawable = zoomImageView.getDrawable();
-                if (drawable instanceof BitmapDrawable) {
-                    return ((BitmapDrawable) drawable).getBitmap();
-                }
-                return jg3.g(drawable);
-            }
-            return null;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.a;
-            String str2 = this.b;
-            String str3 = this.c;
-            Uri p = dh3.p(str);
-            boolean z = p == null;
-            this.e.setVisibility(z ? 4 : 0);
-            this.f.setVisibility(z ? 0 : 4);
-            this.g.setVisibility(0);
-            if (!z) {
-                this.h = false;
-                HashMap hashMap = new HashMap();
-                if (!TextUtils.isEmpty(str2)) {
-                    hashMap.put(Config.LAUNCH_REFERER, str2);
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    hashMap.put("User-Agent", str3);
-                }
-                ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(ch3.o(getContext()), ch3.o(getContext())));
-                sm2.C().e(resizeOptions, hashMap);
-                Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(this), UiThreadImmediateExecutorService.getInstance());
-            }
-            return !z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f.setVisibility(0);
-            this.e.setVisibility(4);
-            this.g.setVisibility(0);
-            this.h = true;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f.setVisibility(4);
-            this.e.setVisibility(4);
-            this.g.setVisibility(4);
-            this.h = false;
-        }
-    }
-
-    public void setData(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-            this.b = null;
-            h();
-        }
-    }
-
-    public void setUA(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.c = str;
         }
     }
 
@@ -358,6 +242,143 @@ public class PictureView extends FrameLayout {
         this.g = null;
         this.h = false;
         g(context);
+    }
+
+    public void setData(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.a = str;
+            this.b = null;
+            h();
+        }
+    }
+
+    public void setUA(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ZoomImageView zoomImageView = this.d;
+            if (zoomImageView != null && zoomImageView.M()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public View getImageView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public Bitmap getImageViewBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ZoomImageView zoomImageView = this.d;
+            if (zoomImageView != null) {
+                Drawable drawable = zoomImageView.getDrawable();
+                if (drawable instanceof BitmapDrawable) {
+                    return ((BitmapDrawable) drawable).getBitmap();
+                }
+                return kg3.g(drawable);
+            }
+            return null;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f.setVisibility(0);
+            this.e.setVisibility(4);
+            this.g.setVisibility(0);
+            this.h = true;
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f.setVisibility(4);
+            this.e.setVisibility(4);
+            this.g.setVisibility(4);
+            this.h = false;
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0818, this);
+            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0926e9);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0919ce);
+            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091bca);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0919cf);
+            this.d.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
+            this.d.setZoomRange(1.0f, 3.0f);
+            this.d.setDoubleTapEnabled(true);
+            this.d.setSingleTapListener(new a(this));
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            String str2 = this.b;
+            String str3 = this.c;
+            Uri p = eh3.p(str);
+            if (p == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            View view2 = this.e;
+            int i2 = 4;
+            if (z) {
+                i = 4;
+            } else {
+                i = 0;
+            }
+            view2.setVisibility(i);
+            View view3 = this.f;
+            if (z) {
+                i2 = 0;
+            }
+            view3.setVisibility(i2);
+            this.g.setVisibility(0);
+            if (!z) {
+                this.h = false;
+                HashMap hashMap = new HashMap();
+                if (!TextUtils.isEmpty(str2)) {
+                    hashMap.put(Config.LAUNCH_REFERER, str2);
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    hashMap.put("User-Agent", str3);
+                }
+                ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(dh3.o(getContext()), dh3.o(getContext())));
+                tm2.C().e(resizeOptions, hashMap);
+                Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(this), UiThreadImmediateExecutorService.getInstance());
+            }
+            return !z;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setData(String str, String str2, c cVar) {

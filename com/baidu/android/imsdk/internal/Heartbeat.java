@@ -10,7 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,6 +29,21 @@ public class Heartbeat {
     public Context mContext;
     public Handler mHandler;
     public HeartbeatOpearation mOperator;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1329831542, "Lcom/baidu/android/imsdk/internal/Heartbeat;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1329831542, "Lcom/baidu/android/imsdk/internal/Heartbeat;");
+        }
+    }
 
     /* loaded from: classes.dex */
     public class BoxHeartbeat implements HeartbeatOpearation {
@@ -108,10 +123,10 @@ public class Heartbeat {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, b80.class);
+                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, c80.class);
                                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                                         intent.setPackage(this.this$2.this$1.this$0.mContext.getPackageName());
-                                        b80.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
+                                        c80.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
                                         this.this$2.this$1.this$0.mHandler.postDelayed(this.this$2.this$1.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
                                     }
                                 }
@@ -182,7 +197,7 @@ public class Heartbeat {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, b80.class);
+                intent.setClass(this.this$0.mContext, c80.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, LaunchTaskConstants.OTHER_PROCESS));
             }
@@ -195,26 +210,11 @@ public class Heartbeat {
                 cancelHearbeat();
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, b80.class);
+                intent.setClass(this.this$0.mContext, c80.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, LaunchTaskConstants.OTHER_PROCESS);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1329831542, "Lcom/baidu/android/imsdk/internal/Heartbeat;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1329831542, "Lcom/baidu/android/imsdk/internal/Heartbeat;");
         }
     }
 

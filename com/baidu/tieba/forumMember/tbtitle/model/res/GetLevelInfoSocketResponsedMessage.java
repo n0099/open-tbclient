@@ -1,10 +1,9 @@
 package com.baidu.tieba.forumMember.tbtitle.model.res;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
-import com.baidu.tieba.qf6;
+import com.baidu.tieba.xf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,11 +37,36 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
         }
     }
 
+    public DataRes getmResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mResult;
+        }
+        return (DataRes) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        GetLevelInfoRequestMessage getLevelInfoRequestMessage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
+                getLevelInfoRequestMessage = (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
+            } else {
+                getLevelInfoRequestMessage = null;
+            }
+            if (getLevelInfoRequestMessage != null) {
+                xf6 xf6Var = new xf6();
+                xf6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+            }
+        }
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
             GetLevelInfoResIdl getLevelInfoResIdl = (GetLevelInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLevelInfoResIdl.class);
@@ -51,30 +75,15 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
                 setError(error.errorno.intValue());
                 setErrorString(getLevelInfoResIdl.error.usermsg);
             }
-            if (getError() == 0 && (dataRes = getLevelInfoResIdl.data) != null) {
+            if (getError() != 0) {
+                return getLevelInfoResIdl;
+            }
+            DataRes dataRes = getLevelInfoResIdl.data;
+            if (dataRes != null) {
                 this.mResult = dataRes;
             }
             return getLevelInfoResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public DataRes getmResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResult : (DataRes) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            GetLevelInfoRequestMessage getLevelInfoRequestMessage = (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) ? null : (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
-            if (getLevelInfoRequestMessage != null) {
-                qf6 qf6Var = new qf6();
-                qf6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
-            }
-        }
     }
 }

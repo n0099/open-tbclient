@@ -13,9 +13,9 @@ import com.baidu.sofire.b.d;
 import com.baidu.sofire.b.j;
 import com.baidu.sofire.b.k;
 import com.baidu.sofire.b.l;
+import com.baidu.sofire.c.a;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.jni.Asc;
-import com.baidu.sofire.k.a;
 import com.baidu.sofire.k.c;
 import com.baidu.sofire.k.e;
 import com.baidu.sofire.k.m;
@@ -36,6 +36,23 @@ public class F implements FI {
     public static F instance;
     public static Asc sAsc;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.sofire.ac.FI
+    public boolean chh(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public String gta(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) ? "" : (String) invokeL.objValue;
+    }
 
     public F() {
         Interceptable interceptable = $ic;
@@ -65,6 +82,48 @@ public class F implements FI {
             return f;
         }
         return (F) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public Context gct() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (d.d == null) {
+                return null;
+            }
+            return d.e;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public Pair getDeviceInfoCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return new Pair(Boolean.FALSE, m.a);
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public Map gpd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            try {
+                a aVar = a.d;
+                if (aVar != null) {
+                    return aVar.c();
+                }
+                return null;
+            } catch (Throwable unused) {
+                int i = b.a;
+                return null;
+            }
+        }
+        return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.sofire.ac.FI
@@ -116,13 +175,20 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public boolean chh(Context context, String str) {
-        InterceptResult invokeLL;
+    public void sp(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeLZ(1048598, this, str, z) == null) {
+            try {
+                a aVar = a.d;
+                if (aVar != null) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("s", Integer.valueOf(z ? 1 : 0));
+                    aVar.b.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                }
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
         }
-        return invokeLL.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0072, code lost:
@@ -135,7 +201,7 @@ public class F implements FI {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr) {
+    public void cm(String str, String str2, String str3, Callback callback, Class[] clsArr, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, callback, clsArr, objArr}) == null) {
             try {
@@ -149,17 +215,14 @@ public class F implements FI {
                         return;
                     }
                     ApkInfo b = kVar.b(str2);
-                    if (kVar.b(str) == null || b == null) {
+                    if (kVar.b(str) != null && b != null) {
+                        Class a = ((j) b.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                        Object a2 = com.baidu.sofire.k.a.a(a.getDeclaredMethod("getInstance", Context.class).invoke(a, null), str3, clsArr, objArr);
                         if (callback != null) {
-                            callback.onEnd(new Object[0]);
-                            return;
+                            callback.onEnd(a2);
                         }
-                        return;
-                    }
-                    Class<?> a = ((j) b.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                    Object a2 = a.a(a.getDeclaredMethod("getInstance", Context.class).invoke(a, null), str3, clsArr, objArr);
-                    if (callback != null) {
-                        callback.onEnd(a2);
+                    } else if (callback != null) {
+                        callback.onEnd(new Object[0]);
                     }
                 }
             } catch (Throwable unused) {
@@ -169,19 +232,19 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr) {
+    public Pair cmsi(int i, String str, Class[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, clsArr, objArr})) == null) {
             try {
                 d dVar = d.d;
                 if (dVar == null) {
-                    return new Pair<>(4, null);
+                    return new Pair(4, null);
                 }
                 return dVar.a(i, str, clsArr, objArr);
             } catch (Throwable unused) {
                 int i2 = b.a;
-                return new Pair<>(3, null);
+                return new Pair(3, null);
             }
         }
         return (Pair) invokeCommon.objValue;
@@ -198,39 +261,6 @@ public class F implements FI {
             return n.a(context);
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public Context gct() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (d.d == null) {
-                return null;
-            }
-            return d.e;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public SharedPreferences getCustomMutiProcessSharedPreferences(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, str)) == null) {
-            if (context == null) {
-                return null;
-            }
-            return com.baidu.sofire.j.a.a(context).a(str);
-        }
-        return (SharedPreferences) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public Pair<Boolean, DeviceInfoCallback> getDeviceInfoCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new Pair<>(Boolean.FALSE, m.a) : (Pair) invokeV.objValue;
     }
 
     @Override // com.baidu.sofire.ac.FI
@@ -260,6 +290,111 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
+    public String gs(String str) {
+        InterceptResult invokeL;
+        ApkInfo b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            try {
+                k kVar = k.f;
+                if (kVar == null || (b = kVar.b(str)) == null) {
+                    return "";
+                }
+                return b.libPath;
+            } catch (Throwable unused) {
+                int i = b.a;
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public String gzd(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            if (context == null) {
+                return "";
+            }
+            return c.a(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public String p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            try {
+                ApkInfo apkInfo = (ApkInfo) k.f.d.get(str);
+                if (apkInfo == null) {
+                    return null;
+                }
+                return apkInfo.pkgPath;
+            } catch (Throwable unused) {
+                int i = b.a;
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void rf(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048596, this, context) != null) || context == null) {
+            return;
+        }
+        try {
+            p.a(context).b(new U(context.getApplicationContext(), 5, true));
+        } catch (Throwable unused) {
+            int i = b.a;
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            try {
+                d.d.b(str);
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public SharedPreferences getCustomMutiProcessSharedPreferences(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, str)) == null) {
+            if (context == null) {
+                return null;
+            }
+            return com.baidu.sofire.j.a.a(context).a(str);
+        }
+        return (SharedPreferences) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void s(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            try {
+                a aVar = a.d;
+                if (aVar != null) {
+                    aVar.a(i, z ? 1 : 0);
+                }
+            } catch (Throwable unused) {
+                int i2 = b.a;
+            }
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
     public String gm(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -274,15 +409,18 @@ public class F implements FI {
                     if (b == null) {
                         return "-3";
                     }
-                    if (str2.equals(b.versionName)) {
-                        String str3 = b.apkMD5;
-                        if (U.sRealtimeMd5Map != null) {
-                            String str4 = U.sRealtimeMd5Map.get(b.key + b.versionName);
-                            return !TextUtils.isEmpty(str4) ? str4 : str3;
+                    if (!str2.equals(b.versionName)) {
+                        return EventType.PayEventID.QUERY_PRODUCT_LIST_FAIL;
+                    }
+                    String str3 = b.apkMD5;
+                    if (U.sRealtimeMd5Map != null) {
+                        String str4 = (String) U.sRealtimeMd5Map.get(b.key + b.versionName);
+                        if (!TextUtils.isEmpty(str4)) {
+                            return str4;
                         }
                         return str3;
                     }
-                    return EventType.PayEventID.QUERY_PRODUCT_LIST_FAIL;
+                    return str3;
                 }
                 return "-1";
             } catch (Throwable unused) {
@@ -294,84 +432,29 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public Map<Integer, String> gpd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            try {
-                com.baidu.sofire.c.a aVar = com.baidu.sofire.c.a.d;
-                if (aVar != null) {
-                    return aVar.c();
-                }
-                return null;
-            } catch (Throwable unused) {
-                int i = b.a;
-                return null;
-            }
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public String gs(String str) {
-        InterceptResult invokeL;
-        ApkInfo b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            try {
-                k kVar = k.f;
-                return (kVar == null || (b = kVar.b(str)) == null) ? "" : b.libPath;
-            } catch (Throwable unused) {
-                int i = b.a;
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public String gta(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public String gzd(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) ? context == null ? "" : c.a(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public String p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            try {
-                ApkInfo apkInfo = k.f.d.get(str);
-                if (apkInfo == null) {
-                    return null;
-                }
-                return apkInfo.pkgPath;
-            } catch (Throwable unused) {
-                int i = b.a;
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
     public void r(String str, IntentFilter intentFilter, String str2, String str3) {
         k kVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048593, this, str, intentFilter, str2, str3) == null) {
             try {
-                if (TextUtils.isEmpty(str) || intentFilter == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (kVar = k.f) == null) {
-                    return;
+                if (!TextUtils.isEmpty(str) && intentFilter != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (kVar = k.f) != null) {
+                    kVar.a(new l(str, intentFilter, str2, str3));
                 }
-                kVar.a(new l(str, intentFilter, str2, str3));
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
+        k kVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048602, this, str, intentFilter, str2, str3) == null) {
+            try {
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (kVar = k.f) != null) {
+                    kVar.b(new l(str, intentFilter, str2, str3));
+                }
             } catch (Throwable unused) {
                 int i = b.a;
             }
@@ -485,113 +568,45 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public void rf(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, context) == null) || context == null) {
-            return;
-        }
-        try {
-            p.a(context).b(new U(context.getApplicationContext(), 5, true));
-        } catch (Throwable unused) {
-            int i = b.a;
-        }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void s(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            try {
-                com.baidu.sofire.c.a aVar = com.baidu.sofire.c.a.d;
-                if (aVar != null) {
-                    aVar.a(i, z ? 1 : 0);
-                }
-            } catch (Throwable unused) {
-                int i2 = b.a;
-            }
-        }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void sp(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048598, this, str, z) == null) {
-            try {
-                com.baidu.sofire.c.a aVar = com.baidu.sofire.c.a.d;
-                if (aVar != null) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("s", Integer.valueOf(z ? 1 : 0));
-                    aVar.b.update("pgn", contentValues, "p=? and n=1", new String[]{str});
-                }
-            } catch (Throwable unused) {
-                int i = b.a;
-            }
-        }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void sse(Context context, String str, Map<String, Object> map, boolean z) {
+    public void sse(Context context, String str, Map map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) {
-            a.a(context, str, map, z);
+            com.baidu.sofire.k.a.a(context, str, map, z);
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public void sser(Context context, String str, Map<String, Object> map) {
+    public void sser(Context context, String str, Map map) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048600, this, context, str, map) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("0", System.currentTimeMillis());
-            jSONObject2.put("1", "");
-            jSONObject2.put("2", "");
-            String[] p = a.p(context);
-            jSONObject2.put("3", (p.length != 2 || TextUtils.isEmpty(p[0]) || TextUtils.isEmpty(p[1])) ? "3" : p[0]);
-            jSONObject2.put("4", 0);
-            jSONObject2.put("5", 0);
-            jSONObject2.put("6", 1);
-            jSONObject2.put("7", 0);
-            jSONObject2.put("8", "sofire");
-            jSONObject2.put("9", "3.5.9.6");
-            jSONObject2.put("10", str);
-            jSONObject.put("Common_section", jSONObject2);
-            if (map != null && map.size() > 0) {
-                jSONObject.put("Module_section", new JSONObject(map));
-            } else {
-                jSONObject.put("Module_section", new JSONObject());
-            }
-            Report.getInstance(context).sr(jSONObject.toString());
-        } catch (Throwable unused) {
-            int i = b.a;
-        }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if ((interceptable == null || interceptable.invokeLLL(1048600, this, context, str, map) == null) && !TextUtils.isEmpty(str)) {
             try {
-                d.d.b(str);
-            } catch (Throwable unused) {
-                int i = b.a;
-            }
-        }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
-        k kVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048602, this, str, intentFilter, str2, str3) == null) {
-            try {
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (kVar = k.f) == null) {
-                    return;
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("0", System.currentTimeMillis());
+                jSONObject2.put("1", "");
+                jSONObject2.put("2", "");
+                String[] p = com.baidu.sofire.k.a.p(context);
+                if (p.length != 2 || TextUtils.isEmpty(p[0]) || TextUtils.isEmpty(p[1])) {
+                    str2 = "3";
+                } else {
+                    str2 = p[0];
                 }
-                kVar.b(new l(str, intentFilter, str2, str3));
+                jSONObject2.put("3", str2);
+                jSONObject2.put("4", 0);
+                jSONObject2.put("5", 0);
+                jSONObject2.put("6", 1);
+                jSONObject2.put("7", 0);
+                jSONObject2.put("8", "sofire");
+                jSONObject2.put("9", "3.5.9.6");
+                jSONObject2.put("10", str);
+                jSONObject.put("Common_section", jSONObject2);
+                if (map != null && map.size() > 0) {
+                    jSONObject.put("Module_section", new JSONObject(map));
+                } else {
+                    jSONObject.put("Module_section", new JSONObject());
+                }
+                Report.getInstance(context).sr(jSONObject.toString());
             } catch (Throwable unused) {
                 int i = b.a;
             }

@@ -123,7 +123,7 @@ public class bb implements au {
     }
 
     /* loaded from: classes8.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -194,7 +194,7 @@ public class bb implements au {
         if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f131a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f135a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m90a("oppo's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m89a("oppo's " + str + " wait...");
                     this.f135a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -245,7 +245,7 @@ public class bb implements au {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b  reason: collision with other method in class */
-    public void m193b() {
+    public void m192b() {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (serviceConnection = this.f133a) == null) {

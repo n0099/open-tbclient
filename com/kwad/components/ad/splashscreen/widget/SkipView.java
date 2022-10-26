@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -43,7 +41,7 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String Bu;
@@ -207,7 +205,7 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SkipView(Context context, @Nullable AttributeSet attributeSet) {
+    public SkipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -275,7 +273,7 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SkipView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SkipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -343,7 +341,6 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @RequiresApi(api = 21)
     public SkipView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
@@ -460,11 +457,11 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d046a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0467, this);
             this.mContext = context;
-            this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f0911eb);
-            this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ec);
-            this.Bo = findViewById(R.id.obfuscated_res_0x7f0911ea);
+            this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f0911df);
+            this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e0);
+            this.Bo = findViewById(R.id.obfuscated_res_0x7f0911de);
             setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

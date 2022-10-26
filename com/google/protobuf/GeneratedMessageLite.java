@@ -20,7 +20,6 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public abstract class GeneratedMessageLite extends AbstractMessageLite implements Serializable {
@@ -28,9 +27,249 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes7.dex */
+    public interface ExtendableMessageOrBuilder extends MessageLiteOrBuilder {
+        Object getExtension(GeneratedExtension generatedExtension);
+
+        Object getExtension(GeneratedExtension generatedExtension, int i);
+
+        int getExtensionCount(GeneratedExtension generatedExtension);
+
+        boolean hasExtension(GeneratedExtension generatedExtension);
+    }
+
+    public void makeExtensionsImmutable() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public abstract class ExtendableMessage extends GeneratedMessageLite implements ExtendableMessageOrBuilder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final FieldSet extensions;
+
+        /* loaded from: classes7.dex */
+        public class ExtensionWriter {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final Iterator iter;
+            public final boolean messageSetWireFormat;
+            public Map.Entry next;
+            public final /* synthetic */ ExtendableMessage this$0;
+
+            public ExtensionWriter(ExtendableMessage extendableMessage, boolean z) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {extendableMessage, Boolean.valueOf(z)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = extendableMessage;
+                Iterator it = this.this$0.extensions.iterator();
+                this.iter = it;
+                if (it.hasNext()) {
+                    this.next = (Map.Entry) this.iter.next();
+                }
+                this.messageSetWireFormat = z;
+            }
+
+            public /* synthetic */ ExtensionWriter(ExtendableMessage extendableMessage, boolean z, AnonymousClass1 anonymousClass1) {
+                this(extendableMessage, z);
+            }
+
+            public void writeUntil(int i, CodedOutputStream codedOutputStream) throws IOException {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeIL(1048576, this, i, codedOutputStream) != null) {
+                    return;
+                }
+                while (true) {
+                    Map.Entry entry = this.next;
+                    if (entry != null && ((ExtensionDescriptor) entry.getKey()).getNumber() < i) {
+                        ExtensionDescriptor extensionDescriptor = (ExtensionDescriptor) this.next.getKey();
+                        if (this.messageSetWireFormat && extensionDescriptor.getLiteJavaType() == WireFormat.JavaType.MESSAGE && !extensionDescriptor.isRepeated()) {
+                            codedOutputStream.writeMessageSetExtension(extensionDescriptor.getNumber(), (MessageLite) this.next.getValue());
+                        } else {
+                            FieldSet.writeField(extensionDescriptor, this.next.getValue(), codedOutputStream);
+                        }
+                        if (this.iter.hasNext()) {
+                            this.next = (Map.Entry) this.iter.next();
+                        } else {
+                            this.next = null;
+                        }
+                    } else {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public ExtendableMessage() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.extensions = FieldSet.newFieldSet();
+        }
+
+        public boolean extensionsAreInitialized() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.extensions.isInitialized();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public int extensionsSerializedSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.extensions.getSerializedSize();
+            }
+            return invokeV.intValue;
+        }
+
+        public int extensionsSerializedSizeAsMessageSet() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.extensions.getMessageSetSerializedSize();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public void makeExtensionsImmutable() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.extensions.makeImmutable();
+            }
+        }
+
+        public ExtensionWriter newExtensionWriter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return new ExtensionWriter(this, false, null);
+            }
+            return (ExtensionWriter) invokeV.objValue;
+        }
+
+        public ExtensionWriter newMessageSetExtensionWriter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return new ExtensionWriter(this, true, null);
+            }
+            return (ExtensionWriter) invokeV.objValue;
+        }
+
+        public ExtendableMessage(ExtendableBuilder extendableBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {extendableBuilder};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.extensions = extendableBuilder.buildExtensions();
+        }
+
+        private void verifyExtensionContainingType(GeneratedExtension generatedExtension) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(65539, this, generatedExtension) != null) || generatedExtension.getContainingTypeDefaultInstance() == getDefaultInstanceForType()) {
+                return;
+            }
+            throw new IllegalArgumentException("This extension is for a different message type.  Please make sure that you are not suppressing any generics type warnings.");
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final Object getExtension(GeneratedExtension generatedExtension) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, generatedExtension)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                Object field = this.extensions.getField(generatedExtension.descriptor);
+                if (field == null) {
+                    return generatedExtension.defaultValue;
+                }
+                return field;
+            }
+            return invokeL.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final int getExtensionCount(GeneratedExtension generatedExtension) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, generatedExtension)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                return this.extensions.getRepeatedFieldCount(generatedExtension.descriptor);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final boolean hasExtension(GeneratedExtension generatedExtension) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, generatedExtension)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                return this.extensions.hasField(generatedExtension.descriptor);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final Object getExtension(GeneratedExtension generatedExtension, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, generatedExtension, i)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                return this.extensions.getRepeatedField(generatedExtension.descriptor, i);
+            }
+            return invokeLI.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, codedInputStream, extensionRegistryLite, i)) == null) {
+                return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i);
+            }
+            return invokeLLI.booleanValue;
+        }
+    }
+
     /* renamed from: com.google.protobuf.GeneratedMessageLite$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,80 +301,270 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     }
 
     /* loaded from: classes7.dex */
-    public interface ExtendableMessageOrBuilder<MessageType extends ExtendableMessage> extends MessageLiteOrBuilder {
-        <Type> Type getExtension(GeneratedExtension<MessageType, Type> generatedExtension);
+    public abstract class Builder extends AbstractMessageLite.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder clear() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Builder) invokeV.objValue;
+        }
 
-        <Type> int getExtensionCount(GeneratedExtension<MessageType, List<Type>> generatedExtension);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public abstract GeneratedMessageLite getDefaultInstanceForType();
 
-        <Type> boolean hasExtension(GeneratedExtension<MessageType, Type> generatedExtension);
+        public abstract Builder mergeFrom(GeneratedMessageLite generatedMessageLite);
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public Builder clone() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, codedInputStream, extensionRegistryLite, i)) == null) {
+                return codedInputStream.skipField(i);
+            }
+            return invokeLLI.booleanValue;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class ExtensionDescriptor implements FieldSet.FieldDescriptorLite<ExtensionDescriptor> {
+    public abstract class ExtendableBuilder extends Builder implements ExtendableMessageOrBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Internal.EnumLiteMap<?> enumTypeMap;
+        public FieldSet extensions;
+        public boolean extensionsIsMutable;
+
+        public ExtendableBuilder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.extensions = FieldSet.emptySet();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public FieldSet buildExtensions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                this.extensions.makeImmutable();
+                this.extensionsIsMutable = false;
+                return this.extensions;
+            }
+            return (FieldSet) invokeV.objValue;
+        }
+
+        private void ensureExtensionsIsMutable() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !this.extensionsIsMutable) {
+                this.extensions = this.extensions.m78clone();
+                this.extensionsIsMutable = true;
+            }
+        }
+
+        public boolean extensionsAreInitialized() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.extensions.isInitialized();
+            }
+            return invokeV.booleanValue;
+        }
+
+        private void verifyExtensionContainingType(GeneratedExtension generatedExtension) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, generatedExtension) != null) || generatedExtension.getContainingTypeDefaultInstance() == getDefaultInstanceForType()) {
+                return;
+            }
+            throw new IllegalArgumentException("This extension is for a different message type.  Please make sure that you are not suppressing any generics type warnings.");
+        }
+
+        public final ExtendableBuilder clearExtension(GeneratedExtension generatedExtension) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, generatedExtension)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                ensureExtensionsIsMutable();
+                this.extensions.clearField(generatedExtension.descriptor);
+                return this;
+            }
+            return (ExtendableBuilder) invokeL.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final Object getExtension(GeneratedExtension generatedExtension) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, generatedExtension)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                Object field = this.extensions.getField(generatedExtension.descriptor);
+                if (field != null) {
+                    return field;
+                }
+                return generatedExtension.defaultValue;
+            }
+            return invokeL.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final int getExtensionCount(GeneratedExtension generatedExtension) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, generatedExtension)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                return this.extensions.getRepeatedFieldCount(generatedExtension.descriptor);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final boolean hasExtension(GeneratedExtension generatedExtension) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, generatedExtension)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                return this.extensions.hasField(generatedExtension.descriptor);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public final void mergeExtensionFields(ExtendableMessage extendableMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048591, this, extendableMessage) == null) {
+                ensureExtensionsIsMutable();
+                this.extensions.mergeFrom(extendableMessage.extensions);
+            }
+        }
+
+        public final ExtendableBuilder addExtension(GeneratedExtension generatedExtension, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, generatedExtension, obj)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                ensureExtensionsIsMutable();
+                this.extensions.addRepeatedField(generatedExtension.descriptor, obj);
+                return this;
+            }
+            return (ExtendableBuilder) invokeLL.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
+        public final Object getExtension(GeneratedExtension generatedExtension, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, generatedExtension, i)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                return this.extensions.getRepeatedField(generatedExtension.descriptor, i);
+            }
+            return invokeLI.objValue;
+        }
+
+        public final ExtendableBuilder setExtension(GeneratedExtension generatedExtension, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, generatedExtension, obj)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                ensureExtensionsIsMutable();
+                this.extensions.setField(generatedExtension.descriptor, obj);
+                return this;
+            }
+            return (ExtendableBuilder) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public ExtendableBuilder clear() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                this.extensions.clear();
+                this.extensionsIsMutable = false;
+                return (ExtendableBuilder) super.clear();
+            }
+            return (ExtendableBuilder) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public ExtendableBuilder clone() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
+            }
+            return (ExtendableBuilder) invokeV.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, codedInputStream, extensionRegistryLite, i)) == null) {
+                ensureExtensionsIsMutable();
+                return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i);
+            }
+            return invokeLLI.booleanValue;
+        }
+
+        public final ExtendableBuilder setExtension(GeneratedExtension generatedExtension, int i, Object obj) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048593, this, generatedExtension, i, obj)) == null) {
+                verifyExtensionContainingType(generatedExtension);
+                ensureExtensionsIsMutable();
+                this.extensions.setRepeatedField(generatedExtension.descriptor, i, obj);
+                return this;
+            }
+            return (ExtendableBuilder) invokeLIL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class ExtensionDescriptor implements FieldSet.FieldDescriptorLite {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Internal.EnumLiteMap enumTypeMap;
         public final boolean isPacked;
         public final boolean isRepeated;
         public final int number;
         public final WireFormat.FieldType type;
 
-        public /* synthetic */ ExtensionDescriptor(Internal.EnumLiteMap enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
-            this(enumLiteMap, i, fieldType, z, z2);
-        }
-
-        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public Internal.EnumLiteMap<?> getEnumType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enumTypeMap : (Internal.EnumLiteMap) invokeV.objValue;
-        }
-
-        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public WireFormat.JavaType getLiteJavaType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type.getJavaType() : (WireFormat.JavaType) invokeV.objValue;
-        }
-
-        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public WireFormat.FieldType getLiteType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.type : (WireFormat.FieldType) invokeV.objValue;
-        }
-
-        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public int getNumber() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.number : invokeV.intValue;
-        }
-
-        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public MessageLite.Builder internalMergeFrom(MessageLite.Builder builder, MessageLite messageLite) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, builder, messageLite)) == null) ? ((Builder) builder).mergeFrom((Builder) ((GeneratedMessageLite) messageLite)) : (MessageLite.Builder) invokeLL.objValue;
-        }
-
-        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public boolean isPacked() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isPacked : invokeV.booleanValue;
-        }
-
-        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public boolean isRepeated() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isRepeated : invokeV.booleanValue;
-        }
-
-        public ExtensionDescriptor(Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2) {
+        public ExtensionDescriptor(Internal.EnumLiteMap enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -157,52 +586,107 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             this.isPacked = z2;
         }
 
+        public /* synthetic */ ExtensionDescriptor(Internal.EnumLiteMap enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
+            this(enumLiteMap, i, fieldType, z, z2);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         public int compareTo(ExtensionDescriptor extensionDescriptor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, extensionDescriptor)) == null) ? this.number - extensionDescriptor.number : invokeL.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, extensionDescriptor)) == null) {
+                return this.number - extensionDescriptor.number;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
+        public Internal.EnumLiteMap getEnumType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.enumTypeMap;
+            }
+            return (Internal.EnumLiteMap) invokeV.objValue;
+        }
+
+        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
+        public WireFormat.JavaType getLiteJavaType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.type.getJavaType();
+            }
+            return (WireFormat.JavaType) invokeV.objValue;
+        }
+
+        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
+        public WireFormat.FieldType getLiteType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.type;
+            }
+            return (WireFormat.FieldType) invokeV.objValue;
+        }
+
+        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
+        public int getNumber() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.number;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
+        public boolean isPacked() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.isPacked;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
+        public boolean isRepeated() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.isRepeated;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
+        public MessageLite.Builder internalMergeFrom(MessageLite.Builder builder, MessageLite messageLite) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, builder, messageLite)) == null) {
+                return ((Builder) builder).mergeFrom((GeneratedMessageLite) messageLite);
+            }
+            return (MessageLite.Builder) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class GeneratedExtension<ContainingType extends MessageLite, Type> {
+    public final class GeneratedExtension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ContainingType containingTypeDefaultInstance;
-        public final Type defaultValue;
+        public final MessageLite containingTypeDefaultInstance;
+        public final Object defaultValue;
         public final ExtensionDescriptor descriptor;
         public final MessageLite messageDefaultInstance;
 
-        public /* synthetic */ GeneratedExtension(MessageLite messageLite, Object obj, MessageLite messageLite2, ExtensionDescriptor extensionDescriptor, AnonymousClass1 anonymousClass1) {
-            this(messageLite, obj, messageLite2, extensionDescriptor);
-        }
-
-        public ContainingType getContainingTypeDefaultInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.containingTypeDefaultInstance : (ContainingType) invokeV.objValue;
-        }
-
-        public MessageLite getMessageDefaultInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.messageDefaultInstance : (MessageLite) invokeV.objValue;
-        }
-
-        public int getNumber() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.descriptor.getNumber() : invokeV.intValue;
-        }
-
-        public GeneratedExtension(ContainingType containingtype, Type type, MessageLite messageLite, ExtensionDescriptor extensionDescriptor) {
+        public GeneratedExtension(MessageLite messageLite, Object obj, MessageLite messageLite2, ExtensionDescriptor extensionDescriptor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {containingtype, type, messageLite, extensionDescriptor};
+                Object[] objArr = {messageLite, obj, messageLite2, extensionDescriptor};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -212,22 +696,53 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                     return;
                 }
             }
-            if (containingtype != null) {
-                if (extensionDescriptor.getLiteType() == WireFormat.FieldType.MESSAGE && messageLite == null) {
+            if (messageLite != null) {
+                if (extensionDescriptor.getLiteType() == WireFormat.FieldType.MESSAGE && messageLite2 == null) {
                     throw new IllegalArgumentException("Null messageDefaultInstance");
                 }
-                this.containingTypeDefaultInstance = containingtype;
-                this.defaultValue = type;
-                this.messageDefaultInstance = messageLite;
+                this.containingTypeDefaultInstance = messageLite;
+                this.defaultValue = obj;
+                this.messageDefaultInstance = messageLite2;
                 this.descriptor = extensionDescriptor;
                 return;
             }
             throw new IllegalArgumentException("Null containingTypeDefaultInstance");
         }
+
+        public /* synthetic */ GeneratedExtension(MessageLite messageLite, Object obj, MessageLite messageLite2, ExtensionDescriptor extensionDescriptor, AnonymousClass1 anonymousClass1) {
+            this(messageLite, obj, messageLite2, extensionDescriptor);
+        }
+
+        public MessageLite getContainingTypeDefaultInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.containingTypeDefaultInstance;
+            }
+            return (MessageLite) invokeV.objValue;
+        }
+
+        public MessageLite getMessageDefaultInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.messageDefaultInstance;
+            }
+            return (MessageLite) invokeV.objValue;
+        }
+
+        public int getNumber() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.descriptor.getNumber();
+            }
+            return invokeV.intValue;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class SerializedForm implements Serializable {
+    public final class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
@@ -291,20 +806,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newRepeatedGeneratedExtension(ContainingType containingtype, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{containingtype, messageLite, enumLiteMap, Integer.valueOf(i), fieldType, Boolean.valueOf(z)})) == null) ? new GeneratedExtension<>(containingtype, Collections.emptyList(), messageLite, new ExtensionDescriptor(enumLiteMap, i, fieldType, true, z, null), null) : (GeneratedExtension) invokeCommon.objValue;
-    }
-
-    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newSingularGeneratedExtension(ContainingType containingtype, Type type, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{containingtype, type, messageLite, enumLiteMap, Integer.valueOf(i), fieldType})) == null) ? new GeneratedExtension<>(containingtype, type, messageLite, new ExtensionDescriptor(enumLiteMap, i, fieldType, false, false, null), null) : (GeneratedExtension) invokeCommon.objValue;
-    }
-
     @Override // com.google.protobuf.MessageLite
-    public Parser<? extends MessageLite> getParserForType() {
+    public Parser getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -313,427 +816,13 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         return (Parser) invokeV.objValue;
     }
 
-    public void makeExtensionsImmutable() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, codedInputStream, extensionRegistryLite, i)) == null) ? codedInputStream.skipField(i) : invokeLLI.booleanValue;
-    }
-
     public Object writeReplace() throws ObjectStreamException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new SerializedForm(this) : invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class ExtendableBuilder<MessageType extends ExtendableMessage<MessageType>, BuilderType extends ExtendableBuilder<MessageType, BuilderType>> extends Builder<MessageType, BuilderType> implements ExtendableMessageOrBuilder<MessageType> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public FieldSet<ExtensionDescriptor> extensions;
-        public boolean extensionsIsMutable;
-
-        public ExtendableBuilder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.extensions = FieldSet.emptySet();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new SerializedForm(this);
         }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public FieldSet<ExtensionDescriptor> buildExtensions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                this.extensions.makeImmutable();
-                this.extensionsIsMutable = false;
-                return this.extensions;
-            }
-            return (FieldSet) invokeV.objValue;
-        }
-
-        private void ensureExtensionsIsMutable() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.extensionsIsMutable) {
-                return;
-            }
-            this.extensions = this.extensions.m79clone();
-            this.extensionsIsMutable = true;
-        }
-
-        private void verifyExtensionContainingType(GeneratedExtension<MessageType, ?> generatedExtension) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, generatedExtension) == null) && generatedExtension.getContainingTypeDefaultInstance() != getDefaultInstanceForType()) {
-                throw new IllegalArgumentException("This extension is for a different message type.  Please make sure that you are not suppressing any generics type warnings.");
-            }
-        }
-
-        public final <Type> BuilderType addExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, Type type) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, generatedExtension, type)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                ensureExtensionsIsMutable();
-                this.extensions.addRepeatedField(generatedExtension.descriptor, type);
-                return this;
-            }
-            return (BuilderType) invokeLL.objValue;
-        }
-
-        public final <Type> BuilderType clearExtension(GeneratedExtension<MessageType, ?> generatedExtension) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, generatedExtension)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                ensureExtensionsIsMutable();
-                this.extensions.clearField(generatedExtension.descriptor);
-                return this;
-            }
-            return (BuilderType) invokeL.objValue;
-        }
-
-        public boolean extensionsAreInitialized() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.extensions.isInitialized() : invokeV.booleanValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.google.protobuf.GeneratedMessageLite$GeneratedExtension<MessageType extends com.google.protobuf.GeneratedMessageLite$ExtendableMessage<MessageType>, Type> */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, Type> generatedExtension) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, generatedExtension)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                Type type = (Type) this.extensions.getField(generatedExtension.descriptor);
-                return type == null ? (Type) generatedExtension.defaultValue : type;
-            }
-            return (Type) invokeL.objValue;
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> int getExtensionCount(GeneratedExtension<MessageType, List<Type>> generatedExtension) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, generatedExtension)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                return this.extensions.getRepeatedFieldCount(generatedExtension.descriptor);
-            }
-            return invokeL.intValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.google.protobuf.GeneratedMessageLite$GeneratedExtension<MessageType extends com.google.protobuf.GeneratedMessageLite$ExtendableMessage<MessageType>, Type> */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> boolean hasExtension(GeneratedExtension<MessageType, Type> generatedExtension) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, generatedExtension)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                return this.extensions.hasField(generatedExtension.descriptor);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public final void mergeExtensionFields(MessageType messagetype) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, messagetype) == null) {
-                ensureExtensionsIsMutable();
-                this.extensions.mergeFrom(messagetype.extensions);
-            }
-        }
-
-        /* JADX WARN: Type inference failed for: r1v1, types: [com.google.protobuf.MessageLite, com.google.protobuf.GeneratedMessageLite] */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, codedInputStream, extensionRegistryLite, i)) == null) {
-                ensureExtensionsIsMutable();
-                return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i);
-            }
-            return invokeLLI.booleanValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.google.protobuf.GeneratedMessageLite$GeneratedExtension<MessageType extends com.google.protobuf.GeneratedMessageLite$ExtendableMessage<MessageType>, Type> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public final <Type> BuilderType setExtension(GeneratedExtension<MessageType, Type> generatedExtension, Type type) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, generatedExtension, type)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                ensureExtensionsIsMutable();
-                this.extensions.setField(generatedExtension.descriptor, type);
-                return this;
-            }
-            return (BuilderType) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public BuilderType clear() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.extensions.clear();
-                this.extensionsIsMutable = false;
-                return (BuilderType) super.clear();
-            }
-            return (BuilderType) invokeV.objValue;
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, generatedExtension, i)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i);
-            }
-            return (Type) invokeLI.objValue;
-        }
-
-        public final <Type> BuilderType setExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i, Type type) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048593, this, generatedExtension, i, type)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                ensureExtensionsIsMutable();
-                this.extensions.setRepeatedField(generatedExtension.descriptor, i, type);
-                return this;
-            }
-            return (BuilderType) invokeLIL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public BuilderType clone() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
-            }
-            return (BuilderType) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class ExtendableMessage<MessageType extends ExtendableMessage<MessageType>> extends GeneratedMessageLite implements ExtendableMessageOrBuilder<MessageType> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final FieldSet<ExtensionDescriptor> extensions;
-
-        /* loaded from: classes7.dex */
-        public class ExtensionWriter {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final Iterator<Map.Entry<ExtensionDescriptor, Object>> iter;
-            public final boolean messageSetWireFormat;
-            public Map.Entry<ExtensionDescriptor, Object> next;
-            public final /* synthetic */ ExtendableMessage this$0;
-
-            public /* synthetic */ ExtensionWriter(ExtendableMessage extendableMessage, boolean z, AnonymousClass1 anonymousClass1) {
-                this(extendableMessage, z);
-            }
-
-            public void writeUntil(int i, CodedOutputStream codedOutputStream) throws IOException {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeIL(1048576, this, i, codedOutputStream) != null) {
-                    return;
-                }
-                while (true) {
-                    Map.Entry<ExtensionDescriptor, Object> entry = this.next;
-                    if (entry == null || entry.getKey().getNumber() >= i) {
-                        return;
-                    }
-                    ExtensionDescriptor key = this.next.getKey();
-                    if (this.messageSetWireFormat && key.getLiteJavaType() == WireFormat.JavaType.MESSAGE && !key.isRepeated()) {
-                        codedOutputStream.writeMessageSetExtension(key.getNumber(), (MessageLite) this.next.getValue());
-                    } else {
-                        FieldSet.writeField(key, this.next.getValue(), codedOutputStream);
-                    }
-                    if (this.iter.hasNext()) {
-                        this.next = this.iter.next();
-                    } else {
-                        this.next = null;
-                    }
-                }
-            }
-
-            public ExtensionWriter(ExtendableMessage extendableMessage, boolean z) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {extendableMessage, Boolean.valueOf(z)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = extendableMessage;
-                Iterator<Map.Entry<ExtensionDescriptor, Object>> it = this.this$0.extensions.iterator();
-                this.iter = it;
-                if (it.hasNext()) {
-                    this.next = this.iter.next();
-                }
-                this.messageSetWireFormat = z;
-            }
-        }
-
-        public ExtendableMessage() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.extensions = FieldSet.newFieldSet();
-        }
-
-        private void verifyExtensionContainingType(GeneratedExtension<MessageType, ?> generatedExtension) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65539, this, generatedExtension) == null) && generatedExtension.getContainingTypeDefaultInstance() != getDefaultInstanceForType()) {
-                throw new IllegalArgumentException("This extension is for a different message type.  Please make sure that you are not suppressing any generics type warnings.");
-            }
-        }
-
-        public boolean extensionsAreInitialized() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.extensions.isInitialized() : invokeV.booleanValue;
-        }
-
-        public int extensionsSerializedSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.extensions.getSerializedSize() : invokeV.intValue;
-        }
-
-        public int extensionsSerializedSizeAsMessageSet() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extensions.getMessageSetSerializedSize() : invokeV.intValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.google.protobuf.GeneratedMessageLite$GeneratedExtension<MessageType extends com.google.protobuf.GeneratedMessageLite$ExtendableMessage<MessageType>, Type> */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, Type> generatedExtension) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, generatedExtension)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                Type type = (Type) this.extensions.getField(generatedExtension.descriptor);
-                return type == null ? (Type) generatedExtension.defaultValue : type;
-            }
-            return (Type) invokeL.objValue;
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> int getExtensionCount(GeneratedExtension<MessageType, List<Type>> generatedExtension) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, generatedExtension)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                return this.extensions.getRepeatedFieldCount(generatedExtension.descriptor);
-            }
-            return invokeL.intValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.google.protobuf.GeneratedMessageLite$GeneratedExtension<MessageType extends com.google.protobuf.GeneratedMessageLite$ExtendableMessage<MessageType>, Type> */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> boolean hasExtension(GeneratedExtension<MessageType, Type> generatedExtension) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, generatedExtension)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                return this.extensions.hasField(generatedExtension.descriptor);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite
-        public void makeExtensionsImmutable() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.extensions.makeImmutable();
-            }
-        }
-
-        public ExtendableMessage<MessageType>.ExtensionWriter newExtensionWriter() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new ExtensionWriter(this, false, null) : (ExtensionWriter) invokeV.objValue;
-        }
-
-        public ExtendableMessage<MessageType>.ExtensionWriter newMessageSetExtensionWriter() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new ExtensionWriter(this, true, null) : (ExtensionWriter) invokeV.objValue;
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, codedInputStream, extensionRegistryLite, i)) == null) ? GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i) : invokeLLI.booleanValue;
-        }
-
-        public ExtendableMessage(ExtendableBuilder<MessageType, ?> extendableBuilder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {extendableBuilder};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.extensions = extendableBuilder.buildExtensions();
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, generatedExtension, i)) == null) {
-                verifyExtensionContainingType(generatedExtension);
-                return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i);
-            }
-            return (Type) invokeLI.objValue;
-        }
+        return invokeV.objValue;
     }
 
     public GeneratedMessageLite(Builder builder) {
@@ -752,64 +841,53 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
+    public static GeneratedExtension newRepeatedGeneratedExtension(MessageLite messageLite, MessageLite messageLite2, Internal.EnumLiteMap enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{messageLite, messageLite2, enumLiteMap, Integer.valueOf(i), fieldType, Boolean.valueOf(z)})) == null) {
+            return new GeneratedExtension(messageLite, Collections.emptyList(), messageLite2, new ExtensionDescriptor(enumLiteMap, i, fieldType, true, z, null), null);
+        }
+        return (GeneratedExtension) invokeCommon.objValue;
+    }
+
+    public static GeneratedExtension newSingularGeneratedExtension(MessageLite messageLite, Object obj, MessageLite messageLite2, Internal.EnumLiteMap enumLiteMap, int i, WireFormat.FieldType fieldType) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{messageLite, obj, messageLite2, enumLiteMap, Integer.valueOf(i), fieldType})) == null) {
+            return new GeneratedExtension(messageLite, obj, messageLite2, new ExtensionDescriptor(enumLiteMap, i, fieldType, false, false, null), null);
+        }
+        return (GeneratedExtension) invokeCommon.objValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:18:0x0050  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0055  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static <MessageType extends MessageLite> boolean parseUnknownField(FieldSet<ExtensionDescriptor> fieldSet, MessageType messagetype, CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
+    public static boolean parseUnknownField(FieldSet fieldSet, MessageLite messageLite, CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
         InterceptResult invokeCommon;
         boolean z;
         Object build;
-        MessageLite messageLite;
+        MessageLite messageLite2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{fieldSet, messagetype, codedInputStream, extensionRegistryLite, Integer.valueOf(i)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        int tagWireType = WireFormat.getTagWireType(i);
-        GeneratedExtension findLiteExtensionByNumber = extensionRegistryLite.findLiteExtensionByNumber(messagetype, WireFormat.getTagFieldNumber(i));
-        boolean z2 = false;
-        if (findLiteExtensionByNumber != null) {
-            if (tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), false)) {
-                z = false;
-            } else if (findLiteExtensionByNumber.descriptor.isRepeated && findLiteExtensionByNumber.descriptor.type.isPackable() && tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), true)) {
-                z = true;
-            }
-            if (z2) {
-                if (!z) {
-                    int i2 = AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$JavaType[findLiteExtensionByNumber.descriptor.getLiteJavaType().ordinal()];
-                    if (i2 == 1) {
-                        MessageLite.Builder builder = null;
-                        if (!findLiteExtensionByNumber.descriptor.isRepeated() && (messageLite = (MessageLite) fieldSet.getField(findLiteExtensionByNumber.descriptor)) != null) {
-                            builder = messageLite.toBuilder();
-                        }
-                        if (builder == null) {
-                            builder = findLiteExtensionByNumber.messageDefaultInstance.newBuilderForType();
-                        }
-                        if (findLiteExtensionByNumber.descriptor.getLiteType() == WireFormat.FieldType.GROUP) {
-                            codedInputStream.readGroup(findLiteExtensionByNumber.getNumber(), builder, extensionRegistryLite);
-                        } else {
-                            codedInputStream.readMessage(builder, extensionRegistryLite);
-                        }
-                        build = builder.build();
-                    } else if (i2 != 2) {
-                        build = FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType());
-                    } else {
-                        build = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
-                        if (build == null) {
-                            return true;
-                        }
-                    }
-                    if (findLiteExtensionByNumber.descriptor.isRepeated()) {
-                        fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, build);
-                    } else {
-                        fieldSet.setField(findLiteExtensionByNumber.descriptor, build);
-                    }
-                } else {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{fieldSet, messageLite, codedInputStream, extensionRegistryLite, Integer.valueOf(i)})) == null) {
+            int tagWireType = WireFormat.getTagWireType(i);
+            GeneratedExtension findLiteExtensionByNumber = extensionRegistryLite.findLiteExtensionByNumber(messageLite, WireFormat.getTagFieldNumber(i));
+            boolean z2 = false;
+            if (findLiteExtensionByNumber != null) {
+                if (tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), false)) {
+                    z = false;
+                } else if (findLiteExtensionByNumber.descriptor.isRepeated && findLiteExtensionByNumber.descriptor.type.isPackable() && tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), true)) {
+                    z = true;
+                }
+                if (!z2) {
+                    return codedInputStream.skipField(i);
+                }
+                if (z) {
                     int pushLimit = codedInputStream.pushLimit(codedInputStream.readRawVarint32());
                     if (findLiteExtensionByNumber.descriptor.getLiteType() == WireFormat.FieldType.ENUM) {
                         while (codedInputStream.getBytesUntilLimit() > 0) {
-                            Object findValueByNumber = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
+                            Internal.EnumLite findValueByNumber = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
                             if (findValueByNumber == null) {
                                 return true;
                             }
@@ -821,65 +899,55 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                         }
                     }
                     codedInputStream.popLimit(pushLimit);
+                } else {
+                    int i2 = AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$JavaType[findLiteExtensionByNumber.descriptor.getLiteJavaType().ordinal()];
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            build = FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType());
+                        } else {
+                            build = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
+                            if (build == null) {
+                                return true;
+                            }
+                        }
+                    } else {
+                        MessageLite.Builder builder = null;
+                        if (!findLiteExtensionByNumber.descriptor.isRepeated() && (messageLite2 = (MessageLite) fieldSet.getField(findLiteExtensionByNumber.descriptor)) != null) {
+                            builder = messageLite2.toBuilder();
+                        }
+                        if (builder == null) {
+                            builder = findLiteExtensionByNumber.messageDefaultInstance.newBuilderForType();
+                        }
+                        if (findLiteExtensionByNumber.descriptor.getLiteType() == WireFormat.FieldType.GROUP) {
+                            codedInputStream.readGroup(findLiteExtensionByNumber.getNumber(), builder, extensionRegistryLite);
+                        } else {
+                            codedInputStream.readMessage(builder, extensionRegistryLite);
+                        }
+                        build = builder.build();
+                    }
+                    if (findLiteExtensionByNumber.descriptor.isRepeated()) {
+                        fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, build);
+                    } else {
+                        fieldSet.setField(findLiteExtensionByNumber.descriptor, build);
+                    }
                 }
                 return true;
             }
-            return codedInputStream.skipField(i);
-        }
-        z = false;
-        z2 = true;
-        if (z2) {
+            z = false;
+            z2 = true;
+            if (!z2) {
+            }
+        } else {
+            return invokeCommon.booleanValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static abstract class Builder<MessageType extends GeneratedMessageLite, BuilderType extends Builder> extends AbstractMessageLite.Builder<BuilderType> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, codedInputStream, extensionRegistryLite, i)) == null) {
+            return codedInputStream.skipField(i);
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType clear() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (BuilderType) invokeV.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public abstract MessageType getDefaultInstanceForType();
-
-        public abstract BuilderType mergeFrom(MessageType messagetype);
-
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, codedInputStream, extensionRegistryLite, i)) == null) ? codedInputStream.skipField(i) : invokeLLI.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public BuilderType clone() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                throw new UnsupportedOperationException("This is supposed to be overridden by subclasses.");
-            }
-            return (BuilderType) invokeV.objValue;
-        }
+        return invokeLLI.booleanValue;
     }
 }

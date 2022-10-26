@@ -1,36 +1,37 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fx9;
+import com.baidu.tieba.ay9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleDelayedProducer;
+import java.util.concurrent.TimeUnit;
+import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes4.dex */
-public final class iy9<T> implements fx9.b<Boolean, T> {
+public class iy9 extends ay9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xx9<? super T, Boolean> a;
-    public final boolean b;
+    public final Handler a;
 
     /* loaded from: classes4.dex */
-    public class a extends lx9<T> {
+    public class a extends ay9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public boolean f;
-        public final /* synthetic */ SingleDelayedProducer g;
-        public final /* synthetic */ lx9 h;
-        public final /* synthetic */ iy9 i;
+        public final Handler a;
+        public final gy9 b;
+        public volatile boolean c;
 
-        public a(iy9 iy9Var, SingleDelayedProducer singleDelayedProducer, lx9 lx9Var) {
+        public a(Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iy9Var, singleDelayedProducer, lx9Var};
+                Object[] objArr = {handler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,63 +41,135 @@ public final class iy9<T> implements fx9.b<Boolean, T> {
                     return;
                 }
             }
-            this.i = iy9Var;
-            this.g = singleDelayedProducer;
-            this.h = lx9Var;
+            this.a = handler;
+            this.b = fy9.a().b();
         }
 
-        @Override // com.baidu.tieba.gx9
-        public void onCompleted() {
+        @Override // com.baidu.tieba.ay9.a
+        public ey9 b(ky9 ky9Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ky9Var)) == null) {
+                return c(ky9Var, 0L, TimeUnit.MILLISECONDS);
             }
-            this.f = true;
-            if (this.e) {
-                this.g.setValue(Boolean.FALSE);
-            } else {
-                this.g.setValue(Boolean.valueOf(this.i.b));
-            }
+            return (ey9) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.gx9
-        public void onError(Throwable th) {
+        @Override // com.baidu.tieba.ay9.a
+        public ey9 c(ky9 ky9Var, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f) {
-                    this.f = true;
-                    this.h.onError(th);
-                    return;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{ky9Var, Long.valueOf(j), timeUnit})) == null) {
+                if (this.c) {
+                    return u2a.c();
                 }
-                m1a.j(th);
+                this.b.c(ky9Var);
+                b bVar = new b(ky9Var, this.a);
+                Message obtain = Message.obtain(this.a, bVar);
+                obtain.obj = this;
+                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
+                if (this.c) {
+                    this.a.removeCallbacks(bVar);
+                    return u2a.c();
+                }
+                return bVar;
             }
+            return (ey9) invokeCommon.objValue;
         }
 
-        @Override // com.baidu.tieba.gx9
-        public void onNext(T t) {
+        @Override // com.baidu.tieba.ey9
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
             }
-            this.e = true;
-            try {
-                if (this.i.a.call(t).booleanValue()) {
-                    this.f = true;
-                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
-                    unsubscribe();
-                }
-            } catch (Throwable th) {
-                rx9.g(th, this, t);
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ey9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c = true;
+                this.a.removeCallbacksAndMessages(this);
             }
         }
     }
 
-    public iy9(xx9<? super T, Boolean> xx9Var, boolean z) {
+    /* loaded from: classes4.dex */
+    public final class b implements Runnable, ey9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ky9 a;
+        public final Handler b;
+        public volatile boolean c;
+
+        public b(ky9 ky9Var, Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky9Var, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky9Var;
+            this.b = handler;
+        }
+
+        @Override // com.baidu.tieba.ey9
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ey9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c = true;
+                this.b.removeCallbacks(this);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            IllegalStateException illegalStateException;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a.call();
+                } catch (Throwable th) {
+                    if (th instanceof OnErrorNotImplementedException) {
+                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
+                    } else {
+                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
+                    }
+                    h2a.c().b().a(illegalStateException);
+                    Thread currentThread = Thread.currentThread();
+                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
+                }
+            }
+        }
+    }
+
+    public iy9(Looper looper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xx9Var, Boolean.valueOf(z)};
+            Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -106,22 +179,16 @@ public final class iy9<T> implements fx9.b<Boolean, T> {
                 return;
             }
         }
-        this.a = xx9Var;
-        this.b = z;
+        this.a = new Handler(looper);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fx9.b, com.baidu.tieba.xx9
-    public lx9<? super T> call(lx9<? super Boolean> lx9Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ay9
+    public ay9.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lx9Var)) == null) {
-            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(lx9Var);
-            a aVar = new a(this, singleDelayedProducer, lx9Var);
-            lx9Var.b(aVar);
-            lx9Var.f(singleDelayedProducer);
-            return aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this.a);
         }
-        return (lx9) invokeL.objValue;
+        return (ay9.a) invokeV.objValue;
     }
 }

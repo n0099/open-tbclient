@@ -43,18 +43,16 @@ public class VideoCoverSelectActivityConfig extends IntentConfig {
     public void setImagePath(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_VIDEO_COVER_IMAGE_PATH, str);
         }
-        intent.putExtra(KEY_VIDEO_COVER_IMAGE_PATH, str);
     }
 
     public void setVideoType(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_VIDEO_COVER_TYPE, i);
         }
-        intent.putExtra(KEY_VIDEO_COVER_TYPE, i);
     }
 }

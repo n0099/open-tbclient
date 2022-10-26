@@ -22,7 +22,7 @@ public class ByteUnitConverter {
 
     /* renamed from: com.baidu.android.util.io.ByteUnitConverter$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class ByteUnitConverter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class UNITS {
+    public final class UNITS {
         public static final /* synthetic */ UNITS[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UNITS B;
@@ -115,13 +115,19 @@ public class ByteUnitConverter {
         public static UNITS valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (UNITS) Enum.valueOf(UNITS.class, str) : (UNITS) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (UNITS) Enum.valueOf(UNITS.class, str);
+            }
+            return (UNITS) invokeL.objValue;
         }
 
         public static UNITS[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (UNITS[]) $VALUES.clone() : (UNITS[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (UNITS[]) $VALUES.clone();
+            }
+            return (UNITS[]) invokeV.objValue;
         }
     }
 
@@ -144,6 +150,40 @@ public class ByteUnitConverter {
                 return;
             }
         }
+    }
+
+    public ByteUnitConverter(double d, UNITS units) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Double.valueOf(d), units};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        int i3 = AnonymousClass1.$SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[units.ordinal()];
+        if (i3 != 1) {
+            if (i3 != 2) {
+                if (i3 != 3) {
+                    if (i3 == 4) {
+                        convertGigaByte(d);
+                        return;
+                    }
+                    return;
+                }
+                convertMegaByte(d);
+                return;
+            }
+            convertKiloByte(d);
+            return;
+        }
+        convertByte(d);
     }
 
     private void convertByte(double d) {
@@ -193,34 +233,9 @@ public class ByteUnitConverter {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.convertStr : (String) invokeV.objValue;
-    }
-
-    public ByteUnitConverter(double d, UNITS units) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d), units};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.convertStr;
         }
-        int i3 = AnonymousClass1.$SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[units.ordinal()];
-        if (i3 == 1) {
-            convertByte(d);
-        } else if (i3 == 2) {
-            convertKiloByte(d);
-        } else if (i3 == 3) {
-            convertMegaByte(d);
-        } else if (i3 != 4) {
-        } else {
-            convertGigaByte(d);
-        }
+        return (String) invokeV.objValue;
     }
 }

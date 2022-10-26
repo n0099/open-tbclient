@@ -61,7 +61,10 @@ public class PureJavaCrc32 implements Checksum {
     public long getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (~this.crc) & 4294967295L : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (~this.crc) & 4294967295L;
+        }
+        return invokeV.longValue;
     }
 
     @Override // java.util.zip.Checksum
@@ -69,6 +72,15 @@ public class PureJavaCrc32 implements Checksum {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             _reset();
+        }
+    }
+
+    @Override // java.util.zip.Checksum
+    public final void update(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int i2 = this.crc;
+            this.crc = T[((i ^ i2) << 24) >>> 24] ^ (i2 >>> 8);
         }
     }
 
@@ -109,15 +121,6 @@ public class PureJavaCrc32 implements Checksum {
                     break;
             }
             this.crc = i3;
-        }
-    }
-
-    @Override // java.util.zip.Checksum
-    public final void update(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = this.crc;
-            this.crc = T[((i ^ i2) << 24) >>> 24] ^ (i2 >>> 8);
         }
     }
 }

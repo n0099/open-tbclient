@@ -7,7 +7,7 @@ import android.os.Parcel;
 public interface b extends IInterface {
 
     /* loaded from: classes7.dex */
-    public static final class a implements b {
+    public final class a implements b {
         public IBinder Zy;
 
         public a(IBinder iBinder) {

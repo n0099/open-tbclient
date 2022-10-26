@@ -26,6 +26,12 @@ public class PointPageIndicator extends View {
     public int f;
     public int g;
 
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PointPageIndicator(Context context) {
         super(context);
@@ -52,114 +58,6 @@ public class PointPageIndicator extends View {
         this.f = 0;
         this.g = 0;
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-        }
-    }
-
-    public PointPageIndicator b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.f = i;
-            invalidate();
-            return this;
-        }
-        return (PointPageIndicator) invokeI.objValue;
-    }
-
-    public PointPageIndicator c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (this.g != i) {
-                this.g = i;
-                invalidate();
-            }
-            return this;
-        }
-        return (PointPageIndicator) invokeI.objValue;
-    }
-
-    public PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, drawable, drawable2)) == null) {
-            this.a = drawable;
-            this.b = drawable2;
-            if (drawable instanceof BitmapDrawable) {
-                this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            }
-            if (drawable2 instanceof BitmapDrawable) {
-                this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-            }
-            return this;
-        }
-        return (PointPageIndicator) invokeLL.objValue;
-    }
-
-    public PointPageIndicator e(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-            Resources resources = getResources();
-            return d(resources.getDrawable(i), resources.getDrawable(i2));
-        }
-        return (PointPageIndicator) invokeII.objValue;
-    }
-
-    public PointPageIndicator f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.e = i;
-            return this;
-        }
-        return (PointPageIndicator) invokeI.objValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        int width;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            super.onDraw(canvas);
-            int i = this.g;
-            if (i <= 0) {
-                return;
-            }
-            int i2 = this.e;
-            int height = getHeight();
-            int width2 = getWidth();
-            int i3 = this.f;
-            Rect rect = this.c;
-            Rect rect2 = this.d;
-            Drawable drawable = this.a;
-            Drawable drawable2 = this.b;
-            int i4 = i - 1;
-            int width3 = (width2 - (((i2 * i4) + (rect.width() * i4)) + rect2.width())) / 2;
-            for (int i5 = 0; i5 < i; i5++) {
-                if (i5 == i3) {
-                    if (drawable2 != null) {
-                        rect2.offsetTo(width3, (height - rect2.height()) / 2);
-                        drawable2.setBounds(rect2);
-                        drawable2.draw(canvas);
-                    }
-                    width = rect2.width();
-                } else {
-                    if (drawable != null) {
-                        rect.offsetTo(width3, (height - rect.height()) / 2);
-                        drawable.setBounds(rect);
-                        drawable.draw(canvas);
-                    }
-                    width = rect.width();
-                }
-                width3 += width + i2;
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -218,5 +116,107 @@ public class PointPageIndicator extends View {
         this.f = 0;
         this.g = 0;
         a(context);
+    }
+
+    public PointPageIndicator b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.f = i;
+            invalidate();
+            return this;
+        }
+        return (PointPageIndicator) invokeI.objValue;
+    }
+
+    public PointPageIndicator c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (this.g != i) {
+                this.g = i;
+                invalidate();
+            }
+            return this;
+        }
+        return (PointPageIndicator) invokeI.objValue;
+    }
+
+    public PointPageIndicator f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.e = i;
+            return this;
+        }
+        return (PointPageIndicator) invokeI.objValue;
+    }
+
+    public PointPageIndicator d(Drawable drawable, Drawable drawable2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, drawable, drawable2)) == null) {
+            this.a = drawable;
+            this.b = drawable2;
+            if (drawable instanceof BitmapDrawable) {
+                this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            }
+            if (drawable2 instanceof BitmapDrawable) {
+                this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            }
+            return this;
+        }
+        return (PointPageIndicator) invokeLL.objValue;
+    }
+
+    public PointPageIndicator e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+            Resources resources = getResources();
+            return d(resources.getDrawable(i), resources.getDrawable(i2));
+        }
+        return (PointPageIndicator) invokeII.objValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        int width;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            super.onDraw(canvas);
+            int i = this.g;
+            if (i <= 0) {
+                return;
+            }
+            int i2 = this.e;
+            int height = getHeight();
+            int width2 = getWidth();
+            int i3 = this.f;
+            Rect rect = this.c;
+            Rect rect2 = this.d;
+            Drawable drawable = this.a;
+            Drawable drawable2 = this.b;
+            int i4 = i - 1;
+            int width3 = (width2 - (((i2 * i4) + (rect.width() * i4)) + rect2.width())) / 2;
+            for (int i5 = 0; i5 < i; i5++) {
+                if (i5 == i3) {
+                    if (drawable2 != null) {
+                        rect2.offsetTo(width3, (height - rect2.height()) / 2);
+                        drawable2.setBounds(rect2);
+                        drawable2.draw(canvas);
+                    }
+                    width = rect2.width();
+                } else {
+                    if (drawable != null) {
+                        rect.offsetTo(width3, (height - rect.height()) / 2);
+                        drawable.setBounds(rect);
+                        drawable.draw(canvas);
+                    }
+                    width = rect.width();
+                }
+                width3 += width + i2;
+            }
+        }
     }
 }

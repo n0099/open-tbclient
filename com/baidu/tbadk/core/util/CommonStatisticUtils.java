@@ -47,7 +47,7 @@ public class CommonStatisticUtils {
 
     public static void staticTbMemberNotify(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, str, str2, str3) != null) || StringUtils.isNull(str)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(str);

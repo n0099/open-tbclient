@@ -9,8 +9,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
-import com.baidu.tieba.c41;
-import com.baidu.tieba.p61;
+import com.baidu.tieba.d41;
+import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,9 +45,9 @@ public class BdTextProgressView extends View {
                 return;
             }
         }
-        h = c41.a(120.0f);
-        i = c41.a(15.0f);
-        c41.a(2.0f);
+        h = d41.a(120.0f);
+        i = d41.a(15.0f);
+        d41.a(2.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,22 +71,6 @@ public class BdTextProgressView extends View {
         }
     }
 
-    public final int a(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            int i4 = this.f;
-            if (i4 != 0) {
-                if (i4 == 1 || i4 != 2) {
-                    return 0;
-                }
-                return getMeasuredWidth() - i3;
-            }
-            return (getMeasuredWidth() - i3) / 2;
-        }
-        return invokeII.intValue;
-    }
-
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -107,110 +91,28 @@ public class BdTextProgressView extends View {
         }
     }
 
-    public final int d(int i2) {
+    public final int e(int i2) {
         InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            if (this.g == 1) {
+                str = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
+            } else {
+                str = BdPlayerProgressView.DEFAULT_TIME_TEXT;
+            }
+            int measureText = (int) this.e.measureText(str);
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             if (mode == 1073741824) {
-                return i;
+                return size;
             }
-            if (mode == Integer.MIN_VALUE) {
-                return Math.min(i, size);
+            if (mode != Integer.MIN_VALUE) {
+                return h;
             }
-            return i;
+            return measureText;
         }
         return invokeI.intValue;
-    }
-
-    public final int e(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            int measureText = (int) this.e.measureText(this.g == 1 ? BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT : BdPlayerProgressView.DEFAULT_TIME_TEXT);
-            int mode = View.MeasureSpec.getMode(i2);
-            return mode == 1073741824 ? View.MeasureSpec.getSize(i2) : mode == Integer.MIN_VALUE ? measureText : h;
-        }
-        return invokeI.intValue;
-    }
-
-    public String getPositionText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int getTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public float getTextSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    public String getTimeText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
-            super.onDraw(canvas);
-            int i2 = this.g;
-            if (i2 == 1) {
-                b(canvas);
-            } else if (i2 == 2) {
-                c(canvas);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
-            setMeasuredDimension(e(i2), d(i3));
-        }
-    }
-
-    public void setPositionText(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && this.g == 1) {
-            this.c = str;
-            postInvalidate();
-        }
-    }
-
-    public void setTextColor(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.b = i2;
-        }
-    }
-
-    public void setTextSize(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            this.a = f;
-            this.e.setTextSize(f);
-            invalidate();
-        }
-    }
-
-    public void setTimeText(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && this.g == 2) {
-            this.d = str;
-            postInvalidate();
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -256,7 +158,7 @@ public class BdTextProgressView extends View {
         this.c = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, p61.NadTextProgressView);
+            typedArray = context.obtainStyledAttributes(attributeSet, q61.NadTextProgressView);
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);
@@ -274,5 +176,128 @@ public class BdTextProgressView extends View {
                 typedArray.recycle();
             }
         }
+    }
+
+    public final int a(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+            int i4 = this.f;
+            if (i4 != 0) {
+                if (i4 == 1 || i4 != 2) {
+                    return 0;
+                }
+                return getMeasuredWidth() - i3;
+            }
+            return (getMeasuredWidth() - i3) / 2;
+        }
+        return invokeII.intValue;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
+            setMeasuredDimension(e(i2), d(i3));
+        }
+    }
+
+    public final int d(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            int mode = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i2);
+            if (mode == 1073741824) {
+                return i;
+            }
+            if (mode == Integer.MIN_VALUE) {
+                return Math.min(i, size);
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
+            super.onDraw(canvas);
+            int i2 = this.g;
+            if (i2 == 1) {
+                b(canvas);
+            } else if (i2 == 2) {
+                c(canvas);
+            }
+        }
+    }
+
+    public void setPositionText(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && this.g == 1) {
+            this.c = str;
+            postInvalidate();
+        }
+    }
+
+    public void setTextColor(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.b = i2;
+        }
+    }
+
+    public void setTextSize(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            this.a = f;
+            this.e.setTextSize(f);
+            invalidate();
+        }
+    }
+
+    public void setTimeText(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && this.g == 2) {
+            this.d = str;
+            postInvalidate();
+        }
+    }
+
+    public String getPositionText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getTextColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getTextSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public String getTimeText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -56,35 +56,50 @@ public final class PackageInstallUtil {
     public static final boolean isInstallAlipay(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? isInstalled(context, "com.eg.android.AlipayGphone") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return isInstalled(context, "com.eg.android.AlipayGphone");
+        }
+        return invokeL.booleanValue;
     }
 
     @JvmStatic
     public static final boolean isInstallQQ(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? isInstalled(context, "com.tencent.mobileqq") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return isInstalled(context, "com.tencent.mobileqq");
+        }
+        return invokeL.booleanValue;
     }
 
     @JvmStatic
     public static final boolean isInstallQQLite(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? isInstalled(context, Constants.PACKAGE_QQ_SPEED) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return isInstalled(context, Constants.PACKAGE_QQ_SPEED);
+        }
+        return invokeL.booleanValue;
     }
 
     @JvmStatic
     public static final boolean isInstallQZone(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? isInstalled(context, Constants.PACKAGE_QZONE) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return isInstalled(context, Constants.PACKAGE_QZONE);
+        }
+        return invokeL.booleanValue;
     }
 
     @JvmStatic
     public static final boolean isInstallWechat(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? isInstalled(context, "com.tencent.mm") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return isInstalled(context, "com.tencent.mm");
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0039 A[ORIG_RETURN, RETURN] */
@@ -97,23 +112,27 @@ public final class PackageInstallUtil {
         InterceptResult invokeLL;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65543, null, context, str)) != null) {
-            return invokeLL.booleanValue;
-        }
-        if (context != null) {
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                if (packageManager != null) {
-                    packageInfo = packageManager.getPackageInfo(str, 256);
-                    return packageInfo == null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            if (context != null) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    if (packageManager != null) {
+                        packageInfo = packageManager.getPackageInfo(str, 256);
+                        if (packageInfo != null) {
+                            return false;
+                        }
+                        return true;
+                    }
+                } catch (Exception e) {
+                    RLog.error("PackageInstallUtil", "pkg: " + str + ", get packageInfo is null, e=" + e, new Object[0]);
+                    return false;
                 }
-            } catch (Exception e) {
-                RLog.error("PackageInstallUtil", "pkg: " + str + ", get packageInfo is null, e=" + e, new Object[0]);
-                return false;
             }
-        }
-        packageInfo = null;
-        if (packageInfo == null) {
+            packageInfo = null;
+            if (packageInfo != null) {
+            }
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

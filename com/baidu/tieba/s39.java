@@ -1,255 +1,213 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.GridView;
-import android.widget.ListAdapter;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.r39;
-import com.baidu.tieba.write.write.WriteImageGridView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class s39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public WriteImageGridView b;
-    public WriteImagesInfo c;
-    public r39 d;
-    public k85 e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public PostPrefixData k;
-    public int l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public b p;
-    public r39.f q;
+    public ArrayList a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public class a implements r39.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s39 a;
-
-        public a(s39 s39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s39Var;
-        }
-
-        @Override // com.baidu.tieba.r39.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null) {
-                return;
-            }
-            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.a.getPageActivity(), this.a.c.toJsonString(), true, true);
-            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.a.g);
-            albumFloatActivityConfig.getIntent().putExtra("from", this.a.f);
-            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            albumFloatActivityConfig.setCanSelectVideo(false);
-            albumFloatActivityConfig.setCanSelectOnlyVideo(false);
-            albumFloatActivityConfig.setCanEditImage(false);
-            AntiData antiData = new AntiData();
-            antiData.voice_message = this.a.h;
-            antiData.setIfVoice(this.a.m);
-            albumFloatActivityConfig.setStatisticFrom(this.a.l);
-            albumFloatActivityConfig.setExtraData(antiData, this.a.k, this.a.i, this.a.j);
-            albumFloatActivityConfig.setFromWrite(3);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
-        }
-
-        @Override // com.baidu.tieba.r39.f
-        public void b(int i) {
-            int count;
-            ImageFileInfo imageInfoAt;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a.c == null || (count = ListUtils.getCount(this.a.c.getChosedFiles())) == 0 || i < 0 || i >= count || (imageInfoAt = this.a.c.getImageInfoAt(i)) == null || imageInfoAt.getImageType() == 1) {
-                return;
-            }
-            this.a.a.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.a.getPageActivity(), 12012, this.a.c, i)));
-        }
-
-        @Override // com.baidu.tieba.r39.f
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.a.c == null || this.a.c.getChosedFiles() == null || i < 0 || i >= this.a.c.getChosedFiles().size()) {
-                return;
-            }
-            ImageFileInfo remove = this.a.c.getChosedFiles().remove(i);
-            if (remove.isTempFile()) {
-                kc.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
-            }
-            s39 s39Var = this.a;
-            s39Var.d.g(s39Var.c);
-            this.a.d.notifyDataSetChanged();
-            if (ListUtils.isEmpty(this.a.c.getChosedFiles()) && this.a.a.getOrignalPage() != null) {
-                if (this.a.p != null) {
-                    this.a.p.b();
-                }
-                if (!this.a.n) {
-                    this.a.b.setVisibility(8);
-                }
-            }
-            if (this.a.p != null) {
-                this.a.p.a();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    public s39(TbPageContext<?> tbPageContext, View view2) {
+    public s39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new k85();
-        this.f = AlbumActivityConfig.FROM_WRITE;
-        this.g = "";
-        this.h = null;
-        this.n = false;
-        this.q = new a(this);
-        this.a = tbPageContext;
-        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f0926b5);
-        r39 r39Var = new r39(view2.getContext(), this.e, null, this.q);
-        this.d = r39Var;
-        this.b.setAdapter((ListAdapter) r39Var);
     }
 
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.b();
-        }
-    }
-
-    public GridView o() {
+    public ArrayList c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (GridView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void p(boolean z) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.n = z;
-            this.d.f(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean a(EditText editText) {
+        InterceptResult invokeL;
+        Editable text;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
+            if (editText == null || (text = editText.getText()) == null) {
+                return false;
+            }
+            int d = d(text);
+            if (d > 0) {
+                editText.requestFocus();
+                editText.setSelection(d);
+                return true;
+            }
+            editText.setSelection(editText.getSelectionEnd());
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int d(Spanned spanned) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
+            if (spanned == null) {
+                return 0;
+            }
+            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
+            int length = spanned.length();
+            if (backgroundColorSpanArr != null && backgroundColorSpanArr.length > 0) {
+                return spanned.getSpanEnd(backgroundColorSpanArr[0]);
+            }
+            return length;
+        }
+        return invokeL.intValue;
+    }
+
+    public void m(ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
+            this.a = arrayList;
         }
     }
 
-    public void q(String str, String str2, String str3, PostPrefixData postPrefixData, int i, boolean z) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, postPrefixData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.h = str;
-            this.i = str2;
-            this.j = str3;
-            this.k = postPrefixData;
-            this.l = i;
-            this.m = z;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void r(b bVar) {
+    public boolean b(EditText editText, EditText editText2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.p = bVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
+            if (ListUtils.isEmpty(c())) {
+                return false;
+            }
+            if (!a(editText) && !a(editText2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void h(EditText editText, EditText editText2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
+            i(editText, true);
+            i(editText2, false);
+            b(editText, editText2);
         }
     }
 
-    public void s(boolean z) {
+    public void i(EditText editText, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.o = z;
-            w();
+        if ((interceptable != null && interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) != null) || editText == null) {
+            return;
+        }
+        f(editText, z);
+    }
+
+    public void l(EditText editText, EditText editText2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
+            h(editText, editText2);
         }
     }
 
-    public void t(boolean z) {
+    public void f(EditText editText, boolean z) {
+        Editable text;
+        Object[] spans;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d.h(z);
+        if ((interceptable != null && interceptable.invokeLZ(1048581, this, editText, z) != null) || editText == null || (text = editText.getText()) == null) {
+            return;
+        }
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        nh5.j(text);
+        j(text);
+    }
+
+    public void g(SpanGroupEditText spanGroupEditText) {
+        Editable text;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, spanGroupEditText) != null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
+            return;
+        }
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        nh5.k(spanGroupEditText);
+    }
+
+    public final void j(Spannable spannable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) && spannable != null && !ListUtils.isEmpty(this.a)) {
+            String obj = spannable.toString();
+            if (TextUtils.isEmpty(obj)) {
+                return;
+            }
+            Iterator it = this.a.iterator();
+            while (it.hasNext()) {
+                k(spannable, obj, (String) it.next());
+            }
         }
     }
 
-    public void u(boolean z) {
+    public final void k(Spannable spannable, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.d.i(z);
-        }
-    }
-
-    public void v(WriteImagesInfo writeImagesInfo, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, writeImagesInfo, str, str2) == null) {
-            this.f = str;
-            this.g = str2;
-            this.c = writeImagesInfo;
-            this.d.g(writeImagesInfo);
-            this.d.notifyDataSetChanged();
-            w();
-        }
-    }
-
-    public final void w() {
-        WriteImagesInfo writeImagesInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.n) {
-                this.b.setVisibility(0);
-            } else if (!this.o && (writeImagesInfo = this.c) != null && writeImagesInfo.getChosedFiles() != null) {
-                this.b.setVisibility(0);
-            } else {
-                this.b.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) && spannable != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            int indexOf = str.indexOf(str2);
+            int length = str2.length();
+            while (indexOf >= 0) {
+                int i = indexOf + length;
+                int color = SkinManager.getColor(R.color.CAM_X0101);
+                int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
+                BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
+                spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
+                spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
+                indexOf = str.indexOf(str2, i);
             }
         }
     }

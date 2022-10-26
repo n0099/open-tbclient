@@ -40,18 +40,6 @@ public class GuildActivityConfig extends IntentConfig {
         }
     }
 
-    public GuildActivityConfig createNormalCfg(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            if (z) {
-                return createNormalCfg(str, 2);
-            }
-            return createNormalCfg(str, 1);
-        }
-        return (GuildActivityConfig) invokeLZ.objValue;
-    }
-
     public GuildActivityConfig createNormalCfg(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -62,5 +50,17 @@ public class GuildActivityConfig extends IntentConfig {
             return this;
         }
         return (GuildActivityConfig) invokeLI.objValue;
+    }
+
+    public GuildActivityConfig createNormalCfg(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            if (z) {
+                return createNormalCfg(str, 2);
+            }
+            return createNormalCfg(str, 1);
+        }
+        return (GuildActivityConfig) invokeLZ.objValue;
     }
 }

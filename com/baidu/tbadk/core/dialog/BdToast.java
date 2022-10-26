@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.dialog;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -14,8 +13,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.oj;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.pj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,11 +23,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class BdToast {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<Toast> j;
+    public static SoftReference j;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public Toast b;
@@ -42,7 +40,7 @@ public class BdToast {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class ToastIcon {
+    public final class ToastIcon {
         public static final /* synthetic */ ToastIcon[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ToastIcon FAILURE;
@@ -65,8 +63,8 @@ public class BdToast {
                     return;
                 }
             }
-            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f080a02, true);
-            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f080a00, true);
+            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f080a03, true);
+            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f080a01, true);
             ToastIcon toastIcon = new ToastIcon("NOT", 2, 0, false);
             NOT = toastIcon;
             $VALUES = new ToastIcon[]{SUCCESS, FAILURE, toastIcon};
@@ -97,13 +95,19 @@ public class BdToast {
         public static ToastIcon valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ToastIcon) Enum.valueOf(ToastIcon.class, str) : (ToastIcon) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (ToastIcon) Enum.valueOf(ToastIcon.class, str);
+            }
+            return (ToastIcon) invokeL.objValue;
         }
 
         public static ToastIcon[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ToastIcon[]) $VALUES.clone() : (ToastIcon[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (ToastIcon[]) $VALUES.clone();
+            }
+            return (ToastIcon[]) invokeV.objValue;
         }
     }
 
@@ -126,10 +130,10 @@ public class BdToast {
         this.h = false;
         this.i = 0;
         this.a = context;
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0226, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0225, (ViewGroup) null);
         this.c = viewGroup;
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092277);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09227a);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092261);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092264);
     }
 
     public static BdToast b(Context context, CharSequence charSequence) {
@@ -149,7 +153,7 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Toast toast = new Toast(this.a);
             this.b = toast;
-            oj.a(toast);
+            pj.a(toast);
             j();
             int i = this.g;
             if (i != -1) {
@@ -162,7 +166,7 @@ public class BdToast {
             } else {
                 this.d.setVisibility(8);
             }
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(fj.f(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
             this.e.setText(this.f);
             this.b.setView(this.c);
@@ -214,6 +218,17 @@ public class BdToast {
         return (BdToast) invokeL.objValue;
     }
 
+    public BdToast h(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charSequence)) == null) {
+            this.f = charSequence;
+            this.e.setText(charSequence);
+            return this;
+        }
+        return (BdToast) invokeL.objValue;
+    }
+
     public BdToast g(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
@@ -240,17 +255,6 @@ public class BdToast {
         return (BdToast) invokeIII.objValue;
     }
 
-    public BdToast h(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charSequence)) == null) {
-            this.f = charSequence;
-            this.e.setText(charSequence);
-            return this;
-        }
-        return (BdToast) invokeL.objValue;
-    }
-
     public BdToast i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -270,11 +274,11 @@ public class BdToast {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SoftReference<Toast> softReference = j;
+            SoftReference softReference = j;
             if (softReference != null && softReference.get() != null) {
-                j.get().cancel();
+                ((Toast) j.get()).cancel();
             }
-            j = new SoftReference<>(this.b);
+            j = new SoftReference(this.b);
         }
     }
 }

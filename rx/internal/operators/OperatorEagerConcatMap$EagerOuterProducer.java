@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ay9;
-import com.baidu.tieba.hx9;
-import com.baidu.tieba.jy9;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.sy9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements hx9 {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements zx9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -657299606803478389L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jy9<?, ?> parent;
+    public final bz9 parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(jy9<?, ?> jy9Var) {
+    public OperatorEagerConcatMap$EagerOuterProducer(bz9 bz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jy9Var};
+            Object[] objArr = {bz9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,20 +30,23 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
                 return;
             }
         }
-        this.parent = jy9Var;
+        this.parent = bz9Var;
     }
 
-    @Override // com.baidu.tieba.hx9
+    @Override // com.baidu.tieba.zx9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i < 0) {
-                throw new IllegalStateException("n >= 0 required but it was " + j);
-            } else if (i > 0) {
-                ay9.b(this, j);
-                this.parent.g();
+            if (i >= 0) {
+                if (i > 0) {
+                    sy9.b(this, j);
+                    this.parent.g();
+                    return;
+                }
+                return;
             }
+            throw new IllegalStateException("n >= 0 required but it was " + j);
         }
     }
 }

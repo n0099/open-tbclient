@@ -1,71 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes5.dex */
-public final class sb9 {
+public class sb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public rb9 a;
 
-    public sb9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948145791, "Lcom/baidu/tieba/sb9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948145791, "Lcom/baidu/tieba/sb9;");
                 return;
             }
         }
-        this.a = new rb9();
+        a = pa9.m();
     }
 
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.a(str);
-        }
-    }
-
-    public final boolean b(String str) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.b(str) : invokeL.booleanValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a.a(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return bArr2;
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                    return bArr2;
+                }
+                return bArr2;
+            }
         }
-    }
-
-    public final List<com.baidu.ubs.analytics.a.n> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (List) invokeV.objValue;
-    }
-
-    public final void e(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            this.a.e(nVar);
-        }
-    }
-
-    public final void f(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nVar) == null) {
-            this.a.d(nVar);
-        }
+        return (byte[]) invokeL.objValue;
     }
 }

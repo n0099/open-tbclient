@@ -1,10 +1,9 @@
 package com.kwad.sdk.utils;
 
-import androidx.annotation.Nullable;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class af {
-    public static boolean C(@Nullable List<?> list) {
+    public static boolean C(List list) {
         return (list == null || list.isEmpty()) ? false : true;
     }
 

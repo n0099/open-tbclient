@@ -93,7 +93,10 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
                     if (externalCacheDir == null) {
                         return null;
                     }
-                    return this.val$diskCacheName != null ? new File(externalCacheDir, this.val$diskCacheName) : externalCacheDir;
+                    if (this.val$diskCacheName != null) {
+                        return new File(externalCacheDir, this.val$diskCacheName);
+                    }
+                    return externalCacheDir;
                 }
                 return (File) invokeV.objValue;
             }

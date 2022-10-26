@@ -1,83 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaIMConfig;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class hi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public static final BdAsyncTaskParallel b;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public di5<T> a;
-        public ih5<T> b;
-
-        public a(di5<T> di5Var, ih5<T> ih5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {di5Var, ih5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-            this.a = di5Var;
-            this.b = ih5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public T doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                try {
-                    if (this.a != null) {
-                        return this.a.doInBackground();
-                    }
-                    return null;
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    return null;
-                }
-            }
-            return (T) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(T t) {
-            ih5<T> ih5Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || (ih5Var = this.b) == null) {
-                return;
-            }
-            ih5Var.onReturnDataInUI(t);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -92,38 +31,71 @@ public class hi5 {
                 return;
             }
         }
-        a = BdUniqueId.gen();
-        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
+        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    public static void a() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            BdAsyncTask.removeAllTask(a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!UbsABTestHelper.isSearchLoginTestA()) {
+                return false;
+            }
+            Date date = new Date(ux4.k().m("show_login_dialog_strategy_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date2 = new Date(currentTimeMillis);
+            ux4.k().x("show_login_dialog_strategy_key", currentTimeMillis);
+            return !TimeHelper.isSameDay(date, date2);
         }
+        return invokeV.booleanValue;
     }
 
-    public static <T> void b(di5<T> di5Var, ih5<T> ih5Var) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, di5Var, ih5Var) == null) || di5Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (ej.isEmpty(str)) {
+                return false;
+            }
+            return a.matcher(str.toLowerCase()).find();
         }
-        a aVar = new a(di5Var, ih5Var);
-        aVar.setParallel(b);
-        aVar.setTag(a);
-        aVar.setPriority(4);
-        aVar.execute(new String[0]);
+        return invokeL.booleanValue;
     }
 
-    public static <T> void c(di5<T> di5Var, ih5<T> ih5Var) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, di5Var, ih5Var) == null) || di5Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (ej.isEmpty(str)) {
+                return false;
+            }
+            return b.matcher(str.toLowerCase()).find();
         }
-        a aVar = new a(di5Var, ih5Var);
-        aVar.setParallel(TiebaIMConfig.getParallel());
-        aVar.setTag(a);
-        aVar.setPriority(4);
-        aVar.execute(new String[0]);
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (ej.isEmpty(str)) {
+                return false;
+            }
+            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!b(str) && !c(str) && !d(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

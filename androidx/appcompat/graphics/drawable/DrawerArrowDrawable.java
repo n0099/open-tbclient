@@ -8,9 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -47,9 +44,24 @@ public class DrawerArrowDrawable extends Drawable {
     public boolean mVerticalMirror;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ArrowDirection {
+    }
+
+    public static float lerp(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + ((f2 - f) * f3) : invokeCommon.floatValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
     }
 
     static {
@@ -66,6 +78,116 @@ public class DrawerArrowDrawable extends Drawable {
             }
         }
         ARROW_HEAD_ANGLE = (float) Math.toRadians(45.0d);
+    }
+
+    public float getArrowHeadLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mArrowHeadLength;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getArrowShaftLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mArrowShaftLength;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getBarLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mBarLength;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getBarThickness() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPaint.getStrokeWidth();
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPaint.getColor();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDirection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mDirection;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getGapSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mBarGap;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSize;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Paint getPaint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mPaint;
+        }
+        return (Paint) invokeV.objValue;
+    }
+
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mProgress;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean isSpinEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mSpin;
+        }
+        return invokeV.booleanValue;
     }
 
     public DrawerArrowDrawable(Context context) {
@@ -103,29 +225,36 @@ public class DrawerArrowDrawable extends Drawable {
         obtainStyledAttributes.recycle();
     }
 
-    public static float lerp(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + ((f2 - f) * f3) : invokeCommon.floatValue;
-    }
-
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         float f;
+        float f2;
+        float f3;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             Rect bounds = getBounds();
-            int i = this.mDirection;
+            int i2 = this.mDirection;
             boolean z = false;
-            if (i != 0 && (i == 1 || (i == 3 ? DrawableCompat.getLayoutDirection(this) == 0 : DrawableCompat.getLayoutDirection(this) == 1))) {
+            if (i2 != 0 && (i2 == 1 || (i2 == 3 ? DrawableCompat.getLayoutDirection(this) == 0 : DrawableCompat.getLayoutDirection(this) == 1))) {
                 z = true;
             }
-            float f2 = this.mArrowHeadLength;
-            float lerp = lerp(this.mBarLength, (float) Math.sqrt(f2 * f2 * 2.0f), this.mProgress);
+            float f4 = this.mArrowHeadLength;
+            float lerp = lerp(this.mBarLength, (float) Math.sqrt(f4 * f4 * 2.0f), this.mProgress);
             float lerp2 = lerp(this.mBarLength, this.mArrowShaftLength, this.mProgress);
             float round = Math.round(lerp(0.0f, this.mMaxCutForBarSize, this.mProgress));
             float lerp3 = lerp(0.0f, ARROW_HEAD_ANGLE, this.mProgress);
-            float lerp4 = lerp(z ? 0.0f : -180.0f, z ? 180.0f : 0.0f, this.mProgress);
+            if (z) {
+                f = 0.0f;
+            } else {
+                f = -180.0f;
+            }
+            if (z) {
+                f2 = 180.0f;
+            } else {
+                f2 = 0.0f;
+            }
+            float lerp4 = lerp(f, f2, this.mProgress);
             double d = lerp;
             double d2 = lerp3;
             boolean z2 = z;
@@ -133,20 +262,25 @@ public class DrawerArrowDrawable extends Drawable {
             float round3 = (float) Math.round(d * Math.sin(d2));
             this.mPath.rewind();
             float lerp5 = lerp(this.mBarGap + this.mPaint.getStrokeWidth(), -this.mMaxCutForBarSize, this.mProgress);
-            float f3 = (-lerp2) / 2.0f;
-            this.mPath.moveTo(f3 + round, 0.0f);
+            float f5 = (-lerp2) / 2.0f;
+            this.mPath.moveTo(f5 + round, 0.0f);
             this.mPath.rLineTo(lerp2 - (round * 2.0f), 0.0f);
-            this.mPath.moveTo(f3, lerp5);
+            this.mPath.moveTo(f5, lerp5);
             this.mPath.rLineTo(round2, round3);
-            this.mPath.moveTo(f3, -lerp5);
+            this.mPath.moveTo(f5, -lerp5);
             this.mPath.rLineTo(round2, -round3);
             this.mPath.close();
             canvas.save();
             float strokeWidth = this.mPaint.getStrokeWidth();
             float height = bounds.height() - (3.0f * strokeWidth);
-            canvas.translate(bounds.centerX(), ((((int) (height - (2.0f * f))) / 4) * 2) + (strokeWidth * 1.5f) + this.mBarGap);
+            canvas.translate(bounds.centerX(), ((((int) (height - (2.0f * f3))) / 4) * 2) + (strokeWidth * 1.5f) + this.mBarGap);
             if (this.mSpin) {
-                canvas.rotate(lerp4 * (this.mVerticalMirror ^ z2 ? -1 : 1));
+                if (this.mVerticalMirror ^ z2) {
+                    i = -1;
+                } else {
+                    i = 1;
+                }
+                canvas.rotate(lerp4 * i);
             } else if (z2) {
                 canvas.rotate(180.0f);
             }
@@ -155,146 +289,54 @@ public class DrawerArrowDrawable extends Drawable {
         }
     }
 
-    public float getArrowHeadLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mArrowHeadLength : invokeV.floatValue;
-    }
-
-    public float getArrowShaftLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mArrowShaftLength : invokeV.floatValue;
-    }
-
-    public float getBarLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBarLength : invokeV.floatValue;
-    }
-
-    public float getBarThickness() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPaint.getStrokeWidth() : invokeV.floatValue;
-    }
-
-    @ColorInt
-    public int getColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPaint.getColor() : invokeV.intValue;
-    }
-
-    public int getDirection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDirection : invokeV.intValue;
-    }
-
-    public float getGapSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mBarGap : invokeV.floatValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSize : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSize : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Paint getPaint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPaint : (Paint) invokeV.objValue;
-    }
-
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mProgress : invokeV.floatValue;
-    }
-
-    public boolean isSpinEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mSpin : invokeV.booleanValue;
-    }
-
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || i == this.mPaint.getAlpha()) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && i != this.mPaint.getAlpha()) {
+            this.mPaint.setAlpha(i);
+            invalidateSelf();
         }
-        this.mPaint.setAlpha(i);
-        invalidateSelf();
     }
 
     public void setArrowHeadLength(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048591, this, f) == null) || this.mArrowHeadLength == f) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048591, this, f) == null) && this.mArrowHeadLength != f) {
+            this.mArrowHeadLength = f;
+            invalidateSelf();
         }
-        this.mArrowHeadLength = f;
-        invalidateSelf();
     }
 
     public void setArrowShaftLength(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048592, this, f) == null) || this.mArrowShaftLength == f) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048592, this, f) == null) && this.mArrowShaftLength != f) {
+            this.mArrowShaftLength = f;
+            invalidateSelf();
         }
-        this.mArrowShaftLength = f;
-        invalidateSelf();
     }
 
     public void setBarLength(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048593, this, f) == null) || this.mBarLength == f) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048593, this, f) == null) && this.mBarLength != f) {
+            this.mBarLength = f;
+            invalidateSelf();
         }
-        this.mBarLength = f;
-        invalidateSelf();
     }
 
     public void setBarThickness(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048594, this, f) == null) || this.mPaint.getStrokeWidth() == f) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048594, this, f) == null) && this.mPaint.getStrokeWidth() != f) {
+            this.mPaint.setStrokeWidth(f);
+            this.mMaxCutForBarSize = (float) ((f / 2.0f) * Math.cos(ARROW_HEAD_ANGLE));
+            invalidateSelf();
         }
-        this.mPaint.setStrokeWidth(f);
-        this.mMaxCutForBarSize = (float) ((f / 2.0f) * Math.cos(ARROW_HEAD_ANGLE));
-        invalidateSelf();
     }
 
-    public void setColor(@ColorInt int i) {
+    public void setColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || i == this.mPaint.getColor()) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i != this.mPaint.getColor()) {
+            this.mPaint.setColor(i);
+            invalidateSelf();
         }
-        this.mPaint.setColor(i);
-        invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -308,46 +350,41 @@ public class DrawerArrowDrawable extends Drawable {
 
     public void setDirection(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || i == this.mDirection) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && i != this.mDirection) {
+            this.mDirection = i;
+            invalidateSelf();
         }
-        this.mDirection = i;
-        invalidateSelf();
     }
 
     public void setGapSize(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048598, this, f) == null) || f == this.mBarGap) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048598, this, f) == null) && f != this.mBarGap) {
+            this.mBarGap = f;
+            invalidateSelf();
         }
-        this.mBarGap = f;
-        invalidateSelf();
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+    public void setProgress(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048599, this, f) == null) || this.mProgress == f) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048599, this, f) == null) && this.mProgress != f) {
+            this.mProgress = f;
+            invalidateSelf();
         }
-        this.mProgress = f;
-        invalidateSelf();
     }
 
     public void setSpinEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || this.mSpin == z) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048600, this, z) == null) && this.mSpin != z) {
+            this.mSpin = z;
+            invalidateSelf();
         }
-        this.mSpin = z;
-        invalidateSelf();
     }
 
     public void setVerticalMirror(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || this.mVerticalMirror == z) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048601, this, z) == null) && this.mVerticalMirror != z) {
+            this.mVerticalMirror = z;
+            invalidateSelf();
         }
-        this.mVerticalMirror = z;
-        invalidateSelf();
     }
 }

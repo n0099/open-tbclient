@@ -35,22 +35,31 @@ public class DiskStorageCacheFactory implements FileCacheFactory {
         this.mDiskStorageFactory = diskStorageFactory;
     }
 
-    public static DiskStorageCache buildDiskStorageCache(DiskCacheConfig diskCacheConfig, DiskStorage diskStorage) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, diskCacheConfig, diskStorage)) == null) ? buildDiskStorageCache(diskCacheConfig, diskStorage, Executors.newSingleThreadExecutor()) : (DiskStorageCache) invokeLL.objValue;
-    }
-
     @Override // com.facebook.imagepipeline.core.FileCacheFactory
     public FileCache get(DiskCacheConfig diskCacheConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskCacheConfig)) == null) ? buildDiskStorageCache(diskCacheConfig, this.mDiskStorageFactory.get(diskCacheConfig)) : (FileCache) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskCacheConfig)) == null) {
+            return buildDiskStorageCache(diskCacheConfig, this.mDiskStorageFactory.get(diskCacheConfig));
+        }
+        return (FileCache) invokeL.objValue;
+    }
+
+    public static DiskStorageCache buildDiskStorageCache(DiskCacheConfig diskCacheConfig, DiskStorage diskStorage) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, diskCacheConfig, diskStorage)) == null) {
+            return buildDiskStorageCache(diskCacheConfig, diskStorage, Executors.newSingleThreadExecutor());
+        }
+        return (DiskStorageCache) invokeLL.objValue;
     }
 
     public static DiskStorageCache buildDiskStorageCache(DiskCacheConfig diskCacheConfig, DiskStorage diskStorage, Executor executor) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, diskCacheConfig, diskStorage, executor)) == null) ? new DiskStorageCache(diskStorage, diskCacheConfig.getEntryEvictionComparatorSupplier(), new DiskStorageCache.Params(diskCacheConfig.getMinimumSizeLimit(), diskCacheConfig.getLowDiskSpaceSizeLimit(), diskCacheConfig.getDefaultSizeLimit()), diskCacheConfig.getCacheEventListener(), diskCacheConfig.getCacheErrorLogger(), diskCacheConfig.getDiskTrimmableRegistry(), executor, diskCacheConfig.getIndexPopulateAtStartupEnabled()) : (DiskStorageCache) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, diskCacheConfig, diskStorage, executor)) == null) {
+            return new DiskStorageCache(diskStorage, diskCacheConfig.getEntryEvictionComparatorSupplier(), new DiskStorageCache.Params(diskCacheConfig.getMinimumSizeLimit(), diskCacheConfig.getLowDiskSpaceSizeLimit(), diskCacheConfig.getDefaultSizeLimit()), diskCacheConfig.getCacheEventListener(), diskCacheConfig.getCacheErrorLogger(), diskCacheConfig.getDiskTrimmableRegistry(), executor, diskCacheConfig.getIndexPopulateAtStartupEnabled());
+        }
+        return (DiskStorageCache) invokeLLL.objValue;
     }
 }

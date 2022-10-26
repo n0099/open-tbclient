@@ -39,7 +39,10 @@ public class WebMessageCallbackAdapter implements WebMessageCallbackBoundaryInte
     public String[] getSupportedFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[]{"WEB_MESSAGE_CALLBACK_ON_MESSAGE"} : (String[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new String[]{"WEB_MESSAGE_CALLBACK_ON_MESSAGE"};
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Override // org.chromium.support_lib_boundary.WebMessageCallbackBoundaryInterface

@@ -22,6 +22,10 @@ public class e extends a {
     public static volatile e a;
     public final Context b;
 
+    public static boolean a(IDownloadButtonClickListener iDownloadButtonClickListener) {
+        return iDownloadButtonClickListener != null;
+    }
+
     public e(Context context) {
         this.b = context;
     }
@@ -35,10 +39,6 @@ public class e extends a {
             }
         }
         return a;
-    }
-
-    public static boolean a(IDownloadButtonClickListener iDownloadButtonClickListener) {
-        return iDownloadButtonClickListener != null;
     }
 
     private DownloadModel b(Object obj) {
@@ -91,17 +91,30 @@ public class e extends a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.a, com.bytedance.sdk.openadsdk.TTAdBridge
-    public <T> T callMethod(Class<T> cls, int i, Map<String, Object> map) {
+    public void init(Bundle bundle) {
+        super.init(bundle);
+        d.a(this.b);
+    }
+
+    private DownloadStatusChangeListener a(Object obj) {
+        if (obj instanceof DownloadStatusChangeListener) {
+            return (DownloadStatusChangeListener) obj;
+        }
+        return null;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.downloadnew.a, com.bytedance.sdk.openadsdk.TTAdBridge
+    public Object callMethod(Class cls, int i, Map map) {
         switch (i) {
             case 0:
-                return (T) Boolean.valueOf(d.a(getActivity(map.get("activity")), e(map.get(TTDownloadField.TT_EXIT_INSTALL_LISTENER))));
+                return Boolean.valueOf(d.a(getActivity(map.get("activity")), e(map.get(TTDownloadField.TT_EXIT_INSTALL_LISTENER))));
             case 1:
-                return (T) d.a().f();
+                return d.a().f();
             case 2:
                 try {
-                    return (T) Boolean.valueOf(d.a((String) map.get(TTDownloadField.TT_TAG_INTERCEPT), (String) map.get("label"), new JSONObject((String) map.get("meta")), new HashMap()));
+                    return Boolean.valueOf(d.a((String) map.get(TTDownloadField.TT_TAG_INTERCEPT), (String) map.get("label"), new JSONObject((String) map.get("meta")), new HashMap()));
                 } catch (JSONException unused) {
-                    return (T) Boolean.FALSE;
+                    return Boolean.FALSE;
                 }
             case 3:
                 d.a(((Integer) map.get("hid")).intValue());
@@ -116,7 +129,7 @@ public class e extends a {
                 d.a().a(this.b, intValue2, a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), b);
                 return null;
             case 6:
-                return (T) Boolean.valueOf(d.a(this.b, (String) map.get(TTDownloadField.TT_DOWNLOAD_URL)));
+                return Boolean.valueOf(d.a(this.b, (String) map.get(TTDownloadField.TT_DOWNLOAD_URL)));
             case 7:
                 d.b();
                 return null;
@@ -132,7 +145,7 @@ public class e extends a {
                 return null;
             case 11:
             default:
-                return (T) super.callMethod(cls, i, map);
+                return super.callMethod(cls, i, map);
             case 12:
                 Uri uri = (Uri) map.get("uri");
                 DownloadModel b2 = b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL));
@@ -140,9 +153,9 @@ public class e extends a {
                 DownloadController d = d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER));
                 IDownloadButtonClickListener g = g(map.get(TTDownloadField.TT_DOWNLOAD_BUTTON_CLICK_LISTENER));
                 if (a(g)) {
-                    return (T) Boolean.valueOf(d.a(this.b, uri, b2, c, d, g));
+                    return Boolean.valueOf(d.a(this.b, uri, b2, c, d, g));
                 }
-                return (T) Boolean.valueOf(d.a(this.b, uri, b2, c, d));
+                return Boolean.valueOf(d.a(this.b, uri, b2, c, d));
             case 13:
                 int intValue3 = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();
                 boolean booleanValue2 = ((Boolean) map.get(TTDownloadField.TT_IS_DISABLE_DIALOG)).booleanValue();
@@ -160,9 +173,9 @@ public class e extends a {
                 return null;
             case 14:
                 int intValue4 = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();
-                return (T) Boolean.valueOf(d.a().e().a(this.b, ((Long) map.get("id")).longValue(), (String) map.get("logExtra"), (DownloadStatusChangeListener) null, intValue4));
+                return Boolean.valueOf(d.a().e().a(this.b, ((Long) map.get("id")).longValue(), (String) map.get("logExtra"), (DownloadStatusChangeListener) null, intValue4));
             case 15:
-                return (T) Boolean.valueOf(d.a((Uri) map.get("uri")));
+                return Boolean.valueOf(d.a((Uri) map.get("uri")));
             case 16:
                 d.a().a((String) map.get(TTDownloadField.TT_DOWNLOAD_URL), ((Long) map.get("id")).longValue(), ((Integer) map.get(TTDownloadField.TT_ACTION_TYPE_BUTTON)).intValue(), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER)));
                 return null;
@@ -173,26 +186,13 @@ public class e extends a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.a, com.bytedance.sdk.openadsdk.TTAdBridge
-    public <T> T getObj(Class<T> cls, int i, Map<String, Object> map) {
+    public Object getObj(Class cls, int i, Map map) {
         if (i != 0) {
             if (i != 1) {
-                return (T) super.getObj(cls);
+                return super.getObj(cls);
             }
-            return (T) Boolean.valueOf(d.b);
+            return Boolean.valueOf(d.b);
         }
-        return (T) d.a;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.downloadnew.a, com.bytedance.sdk.openadsdk.TTAdBridge
-    public void init(Bundle bundle) {
-        super.init(bundle);
-        d.a(this.b);
-    }
-
-    private DownloadStatusChangeListener a(Object obj) {
-        if (obj instanceof DownloadStatusChangeListener) {
-            return (DownloadStatusChangeListener) obj;
-        }
-        return null;
+        return d.a;
     }
 }

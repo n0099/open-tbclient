@@ -76,163 +76,250 @@ public class AntiData implements Serializable {
     public String getBlock_forum_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.block_forum_id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.block_forum_id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getBlock_forum_name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.block_forum_name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.block_forum_name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getBlock_stat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.block_stat : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.block_stat;
+        }
+        return invokeV.intValue;
     }
 
     public boolean getCanGoods() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.canGoods : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.canGoods;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getDays_tofree() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.days_tofree : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.days_tofree;
+        }
+        return invokeV.intValue;
     }
 
     public List<DeleteThreadInfo> getDelThreadInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.delThreadInfoList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.delThreadInfoList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getForbid_flag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.forbid_flag : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.forbid_flag;
+        }
+        return invokeV.intValue;
     }
 
     public String getForbid_info() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.forbid_info : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.forbid_info;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getHide_stat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.hide_stat : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.hide_stat;
+        }
+        return invokeV.intValue;
     }
 
     public int getIfpost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.ifpost : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.ifpost;
+        }
+        return invokeV.intValue;
     }
 
     public int getIfposta() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.ifposta : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.ifposta;
+        }
+        return invokeV.intValue;
     }
 
     public int getNeed_vcode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.need_vcode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.need_vcode;
+        }
+        return invokeV.intValue;
     }
 
     public int getPollLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.pollLevel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.pollLevel;
+        }
+        return invokeV.intValue;
     }
 
     public String getPollMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.poll_message : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.poll_message;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.tbs : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.tbs;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTeenModeInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.teenModeInterval : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.teenModeInterval;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUser_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.user_id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.user_id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUser_name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.user_name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.user_name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getVcode_md5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.vcode_md5 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.vcode_md5;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getVcode_pic_url() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.vcode_pic_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.vcode_pic_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getVcode_stat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.vcode_stat : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.vcode_stat;
+        }
+        return invokeV.intValue;
     }
 
     public String getVideo_message() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.video_message : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.video_message;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getVoice_message() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.voice_message : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.voice_message;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isHas_chance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.has_chance : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.has_chance;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isIfAddition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.ifaddition == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (this.ifaddition == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isIfvoice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.ifvoice == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (this.ifvoice == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSexyForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.isSexyForum : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.isSexyForum;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parserJson(String str) {
@@ -244,59 +331,6 @@ public class AntiData implements Serializable {
                 BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public void parserProtobuf(Anti anti) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, anti) == null) || anti == null) {
-            return;
-        }
-        this.ifpost = anti.ifpost.intValue();
-        this.ifposta = anti.ifposta.intValue();
-        this.forbid_flag = anti.forbid_flag.intValue();
-        this.tbs = anti.tbs;
-        if (TbadkCoreApplication.getInst() != null && (str = this.tbs) != null && str.length() > 0) {
-            TbadkCoreApplication.getInst().setTbs(this.tbs);
-        }
-        this.need_vcode = anti.need_vcode.intValue();
-        this.vcode_md5 = anti.vcode_md5;
-        this.vcode_pic_url = anti.vcode_pic_url;
-        this.forbid_info = anti.forbid_info;
-        this.ifvoice = anti.ifvoice.intValue();
-        this.voice_message = anti.voice_message;
-        this.block_stat = anti.block_stat.intValue();
-        this.hide_stat = anti.hide_stat.intValue();
-        this.vcode_stat = anti.vcode_stat.intValue();
-        this.days_tofree = anti.days_tofree.intValue();
-        this.has_chance = anti.has_chance.intValue() == 1;
-        this.ifaddition = anti.ifaddition.intValue();
-        this.delThreadInfoList = new ArrayList();
-        for (int i = 0; i < anti.del_thread_text.size(); i++) {
-            DeleteThreadInfo deleteThreadInfo = new DeleteThreadInfo();
-            deleteThreadInfo.text_id = anti.del_thread_text.get(i).text_id.intValue();
-            deleteThreadInfo.text_info = anti.del_thread_text.get(i).text_info;
-            this.delThreadInfoList.add(deleteThreadInfo);
-        }
-        this.poll_message = anti.poll_message;
-        this.video_message = anti.video_message;
-        if (anti.block_pop_info != null) {
-            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-            this.mFrsForbidenDialogInfo = blockPopInfoData;
-            BlockPopInfo blockPopInfo = anti.block_pop_info;
-            blockPopInfoData.ahead_info = blockPopInfo.ahead_info;
-            blockPopInfoData.ahead_url = blockPopInfo.ahead_url;
-            blockPopInfoData.ok_info = blockPopInfo.ok_info;
-            blockPopInfoData.can_post = blockPopInfo.can_post;
-            blockPopInfoData.block_info = blockPopInfo.block_info;
-            blockPopInfoData.sub_block_info = blockPopInfo.sub_block_info;
-            blockPopInfoData.ahead_type = blockPopInfo.ahead_type;
-        }
-        this.replyPrivateFlag = anti.reply_private_flag.intValue();
-        this.pollLevel = anti.poll_level.intValue();
-        this.isSexyForum = anti.is_sexyforum.booleanValue();
-        this.teenModeInterval = anti.teenmode_interval;
-        this.canGoods = anti.can_goods.intValue() == 1;
     }
 
     public void setBlock_forum_id(String str) {
@@ -397,8 +431,126 @@ public class AntiData implements Serializable {
         }
     }
 
+    public void parserJson(JSONObject jSONObject) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048604, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.ifpost = jSONObject.optInt("ifpost", 0);
+            this.ifposta = jSONObject.optInt("ifposta", 0);
+            this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
+            this.tbs = jSONObject.optString(HttpRequest.TBS);
+            if (TbadkCoreApplication.getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                TbadkCoreApplication.getInst().setTbs(this.tbs);
+            }
+            this.need_vcode = jSONObject.optInt("need_vcode", 0);
+            this.vcode_md5 = jSONObject.optString("vcode_md5");
+            this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
+            this.forbid_info = jSONObject.optString("forbid_info");
+            this.ifvoice = jSONObject.optInt("ifvoice", 1);
+            this.voice_message = jSONObject.optString("voice_message");
+            this.block_stat = jSONObject.optInt("block_stat", 0);
+            this.hide_stat = jSONObject.optInt("hide_stat", 0);
+            this.vcode_stat = jSONObject.optInt("vcode_stat", 0);
+            this.days_tofree = jSONObject.optInt("days_tofree", 1);
+            if (jSONObject.optInt("has_chance", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.has_chance = z;
+            this.ifaddition = jSONObject.optInt("ifaddition", 0);
+            this.poll_message = jSONObject.optString("poll_message");
+            this.video_message = jSONObject.optString("video_message");
+            JSONObject optJSONObject = jSONObject.optJSONObject("block_pop_info");
+            if (optJSONObject != null) {
+                BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+                this.mFrsForbidenDialogInfo = blockPopInfoData;
+                blockPopInfoData.ahead_info = optJSONObject.optString("ahead_info");
+                this.mFrsForbidenDialogInfo.ahead_url = optJSONObject.optString("ahead_url");
+                this.mFrsForbidenDialogInfo.ok_info = optJSONObject.optString("ok_info");
+                this.mFrsForbidenDialogInfo.can_post = Integer.valueOf(optJSONObject.optInt("can_post"));
+                this.mFrsForbidenDialogInfo.block_info = optJSONObject.optString("block_info");
+                this.mFrsForbidenDialogInfo.sub_block_info = optJSONObject.optString("sub_block_info");
+                this.mFrsForbidenDialogInfo.ahead_type = Integer.valueOf(optJSONObject.optInt("ahead_type"));
+            }
+            this.replyPrivateFlag = jSONObject.optInt("reply_private_flag", 1);
+            this.pollLevel = jSONObject.optInt("poll_level", 0);
+            this.isSexyForum = jSONObject.optBoolean("is_sexyforum", false);
+            this.teenModeInterval = jSONObject.optString("teenmode_interval", "");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void parserProtobuf(Anti anti) {
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048605, this, anti) != null) || anti == null) {
+            return;
+        }
+        this.ifpost = anti.ifpost.intValue();
+        this.ifposta = anti.ifposta.intValue();
+        this.forbid_flag = anti.forbid_flag.intValue();
+        this.tbs = anti.tbs;
+        if (TbadkCoreApplication.getInst() != null && (str = this.tbs) != null && str.length() > 0) {
+            TbadkCoreApplication.getInst().setTbs(this.tbs);
+        }
+        this.need_vcode = anti.need_vcode.intValue();
+        this.vcode_md5 = anti.vcode_md5;
+        this.vcode_pic_url = anti.vcode_pic_url;
+        this.forbid_info = anti.forbid_info;
+        this.ifvoice = anti.ifvoice.intValue();
+        this.voice_message = anti.voice_message;
+        this.block_stat = anti.block_stat.intValue();
+        this.hide_stat = anti.hide_stat.intValue();
+        this.vcode_stat = anti.vcode_stat.intValue();
+        this.days_tofree = anti.days_tofree.intValue();
+        boolean z2 = false;
+        if (anti.has_chance.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.has_chance = z;
+        this.ifaddition = anti.ifaddition.intValue();
+        this.delThreadInfoList = new ArrayList();
+        for (int i = 0; i < anti.del_thread_text.size(); i++) {
+            DeleteThreadInfo deleteThreadInfo = new DeleteThreadInfo();
+            deleteThreadInfo.text_id = anti.del_thread_text.get(i).text_id.intValue();
+            deleteThreadInfo.text_info = anti.del_thread_text.get(i).text_info;
+            this.delThreadInfoList.add(deleteThreadInfo);
+        }
+        this.poll_message = anti.poll_message;
+        this.video_message = anti.video_message;
+        if (anti.block_pop_info != null) {
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            this.mFrsForbidenDialogInfo = blockPopInfoData;
+            BlockPopInfo blockPopInfo = anti.block_pop_info;
+            blockPopInfoData.ahead_info = blockPopInfo.ahead_info;
+            blockPopInfoData.ahead_url = blockPopInfo.ahead_url;
+            blockPopInfoData.ok_info = blockPopInfo.ok_info;
+            blockPopInfoData.can_post = blockPopInfo.can_post;
+            blockPopInfoData.block_info = blockPopInfo.block_info;
+            blockPopInfoData.sub_block_info = blockPopInfo.sub_block_info;
+            blockPopInfoData.ahead_type = blockPopInfo.ahead_type;
+        }
+        this.replyPrivateFlag = anti.reply_private_flag.intValue();
+        this.pollLevel = anti.poll_level.intValue();
+        this.isSexyForum = anti.is_sexyforum.booleanValue();
+        this.teenModeInterval = anti.teenmode_interval;
+        if (anti.can_goods.intValue() == 1) {
+            z2 = true;
+        }
+        this.canGoods = z2;
+    }
+
     public String toJsonString() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -417,7 +569,12 @@ public class AntiData implements Serializable {
                 jSONObject.put("hide_stat", this.hide_stat);
                 jSONObject.put("vcode_stat", this.vcode_stat);
                 jSONObject.put("days_tofree", this.days_tofree);
-                jSONObject.put("has_chance", this.has_chance ? 1 : 0);
+                if (this.has_chance) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("has_chance", i);
                 jSONObject.put("ifaddition", this.ifaddition);
                 jSONObject.put("poll_message", this.poll_message);
                 jSONObject.put("video_message", this.video_message);
@@ -443,53 +600,5 @@ public class AntiData implements Serializable {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.ifpost = jSONObject.optInt("ifpost", 0);
-            this.ifposta = jSONObject.optInt("ifposta", 0);
-            this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
-            this.tbs = jSONObject.optString(HttpRequest.TBS);
-            if (TbadkCoreApplication.getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                TbadkCoreApplication.getInst().setTbs(this.tbs);
-            }
-            this.need_vcode = jSONObject.optInt("need_vcode", 0);
-            this.vcode_md5 = jSONObject.optString("vcode_md5");
-            this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-            this.forbid_info = jSONObject.optString("forbid_info");
-            this.ifvoice = jSONObject.optInt("ifvoice", 1);
-            this.voice_message = jSONObject.optString("voice_message");
-            this.block_stat = jSONObject.optInt("block_stat", 0);
-            this.hide_stat = jSONObject.optInt("hide_stat", 0);
-            this.vcode_stat = jSONObject.optInt("vcode_stat", 0);
-            this.days_tofree = jSONObject.optInt("days_tofree", 1);
-            this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
-            this.ifaddition = jSONObject.optInt("ifaddition", 0);
-            this.poll_message = jSONObject.optString("poll_message");
-            this.video_message = jSONObject.optString("video_message");
-            JSONObject optJSONObject = jSONObject.optJSONObject("block_pop_info");
-            if (optJSONObject != null) {
-                BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                this.mFrsForbidenDialogInfo = blockPopInfoData;
-                blockPopInfoData.ahead_info = optJSONObject.optString("ahead_info");
-                this.mFrsForbidenDialogInfo.ahead_url = optJSONObject.optString("ahead_url");
-                this.mFrsForbidenDialogInfo.ok_info = optJSONObject.optString("ok_info");
-                this.mFrsForbidenDialogInfo.can_post = Integer.valueOf(optJSONObject.optInt("can_post"));
-                this.mFrsForbidenDialogInfo.block_info = optJSONObject.optString("block_info");
-                this.mFrsForbidenDialogInfo.sub_block_info = optJSONObject.optString("sub_block_info");
-                this.mFrsForbidenDialogInfo.ahead_type = Integer.valueOf(optJSONObject.optInt("ahead_type"));
-            }
-            this.replyPrivateFlag = jSONObject.optInt("reply_private_flag", 1);
-            this.pollLevel = jSONObject.optInt("poll_level", 0);
-            this.isSexyForum = jSONObject.optBoolean("is_sexyforum", false);
-            this.teenModeInterval = jSONObject.optString("teenmode_interval", "");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
     }
 }

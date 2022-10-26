@@ -1,6 +1,5 @@
 package com.baidu.searchbox.v8engine.net;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,28 +28,22 @@ public final class HttpUrl {
     public final int c;
     public final String e;
     public final String f;
-    @Nullable
-    public final List<String> g;
-    @Nullable
+    public final List g;
     public final String h;
     public final String i;
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
         public String encodedFragment;
         public String encodedPassword;
-        public final List<String> encodedPathSegments;
-        @Nullable
-        public List<String> encodedQueryNamesAndValues;
+        public final List encodedPathSegments;
+        public List encodedQueryNamesAndValues;
         public String encodedUsername;
-        @Nullable
         public String host;
         public int port;
-        @Nullable
         public String scheme;
 
         public Builder() {
@@ -74,22 +67,26 @@ public final class HttpUrl {
             arrayList.add("");
         }
 
+        private void pop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+                List list = this.encodedPathSegments;
+                if (((String) list.remove(list.size() - 1)).isEmpty() && !this.encodedPathSegments.isEmpty()) {
+                    List list2 = this.encodedPathSegments;
+                    list2.set(list2.size() - 1, "");
+                    return;
+                }
+                this.encodedPathSegments.add("");
+            }
+        }
+
         public static String canonicalizeHost(String str, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) ? b.a(HttpUrl.a(str, i, i2, false)) : (String) invokeLII.objValue;
-        }
-
-        private boolean isDot(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? str.equals(".") || str.equalsIgnoreCase("%2e") : invokeL.booleanValue;
-        }
-
-        private boolean isDotDot(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? str.equals(IStringUtil.TOP_PATH) || str.equalsIgnoreCase("%2e.") || str.equalsIgnoreCase(".%2e") || str.equalsIgnoreCase("%2e%2e") : invokeL.booleanValue;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
+                return b.a(HttpUrl.a(str, i, i2, false));
+            }
+            return (String) invokeLII.objValue;
         }
 
         public static int parsePort(String str, int i, int i2) {
@@ -109,17 +106,111 @@ public final class HttpUrl {
             return invokeLII.intValue;
         }
 
-        private void pop() {
+        public static int slashCount(String str, int i, int i2) {
+            InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-                List<String> list = this.encodedPathSegments;
-                if (list.remove(list.size() - 1).isEmpty() && !this.encodedPathSegments.isEmpty()) {
-                    List<String> list2 = this.encodedPathSegments;
-                    list2.set(list2.size() - 1, "");
-                    return;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
+                int i3 = 0;
+                while (i < i2) {
+                    char charAt = str.charAt(i);
+                    if (charAt != '\\' && charAt != '/') {
+                        break;
+                    }
+                    i3++;
+                    i++;
                 }
-                this.encodedPathSegments.add("");
+                return i3;
             }
+            return invokeLII.intValue;
+        }
+
+        private boolean isDot(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+                if (!str.equals(".") && !str.equalsIgnoreCase("%2e")) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public Builder encodedQuery(String str) {
+            InterceptResult invokeL;
+            List list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                if (str != null) {
+                    list = HttpUrl.b(HttpUrl.a(str, " \"'<>#", true, false, true, true));
+                } else {
+                    list = null;
+                }
+                this.encodedQueryNamesAndValues = list;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder fragment(String str) {
+            InterceptResult invokeL;
+            String str2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                if (str != null) {
+                    str2 = HttpUrl.a(str, "", false, false, false, false);
+                } else {
+                    str2 = null;
+                }
+                this.encodedFragment = str2;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder query(String str) {
+            InterceptResult invokeL;
+            List list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                if (str != null) {
+                    list = HttpUrl.b(HttpUrl.a(str, " \"'<>#", false, false, true, true));
+                } else {
+                    list = null;
+                }
+                this.encodedQueryNamesAndValues = list;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        private boolean isDotDot(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+                if (!str.equals(IStringUtil.TOP_PATH) && !str.equalsIgnoreCase("%2e.") && !str.equalsIgnoreCase(".%2e") && !str.equalsIgnoreCase("%2e%2e")) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public Builder host(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                if (str != null) {
+                    String canonicalizeHost = canonicalizeHost(str, 0, str.length());
+                    if (canonicalizeHost != null) {
+                        this.host = canonicalizeHost;
+                        return this;
+                    }
+                    throw new IllegalArgumentException("unexpected host: " + str);
+                }
+                throw new NullPointerException("host == null");
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public static int portColonOffset(String str, int i, int i2) {
@@ -128,17 +219,18 @@ public final class HttpUrl {
             if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, str, i, i2)) == null) {
                 while (i < i2) {
                     char charAt = str.charAt(i);
-                    if (charAt == ':') {
+                    if (charAt != ':') {
+                        if (charAt == '[') {
+                            do {
+                                i++;
+                                if (i < i2) {
+                                }
+                            } while (str.charAt(i) != ']');
+                        }
+                        i++;
+                    } else {
                         return i;
                     }
-                    if (charAt == '[') {
-                        do {
-                            i++;
-                            if (i < i2) {
-                            }
-                        } while (str.charAt(i) != ']');
-                    }
-                    i++;
                 }
                 return i2;
             }
@@ -156,9 +248,9 @@ public final class HttpUrl {
                     pop();
                     return;
                 }
-                List<String> list = this.encodedPathSegments;
-                if (list.get(list.size() - 1).isEmpty()) {
-                    List<String> list2 = this.encodedPathSegments;
+                List list = this.encodedPathSegments;
+                if (((String) list.get(list.size() - 1)).isEmpty()) {
+                    List list2 = this.encodedPathSegments;
                     list2.set(list2.size() - 1, a);
                 } else {
                     this.encodedPathSegments.add(a);
@@ -199,15 +291,15 @@ public final class HttpUrl {
                 if (r0 != r1) goto L17
                 goto L22
             L17:
-                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
+                java.util.List r0 = r10.encodedPathSegments
                 int r1 = r0.size()
                 int r1 = r1 - r3
                 r0.set(r1, r2)
                 goto L2d
             L22:
-                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
+                java.util.List r0 = r10.encodedPathSegments
                 r0.clear()
-                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
+                java.util.List r0 = r10.encodedPathSegments
                 r0.add(r2)
                 goto L45
             L2d:
@@ -276,26 +368,9 @@ public final class HttpUrl {
             return invokeLII.intValue;
         }
 
-        public static int slashCount(String str, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
-                int i3 = 0;
-                while (i < i2) {
-                    char charAt = str.charAt(i);
-                    if (charAt != '\\' && charAt != '/') {
-                        break;
-                    }
-                    i3++;
-                    i++;
-                }
-                return i3;
-            }
-            return invokeLII.intValue;
-        }
-
-        public Builder addQueryParameter(String str, @Nullable String str2) {
+        public Builder addQueryParameter(String str, String str2) {
             InterceptResult invokeLL;
+            String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
                 if (str != null) {
@@ -303,7 +378,13 @@ public final class HttpUrl {
                         this.encodedQueryNamesAndValues = new ArrayList();
                     }
                     this.encodedQueryNamesAndValues.add(HttpUrl.a(str, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true));
-                    this.encodedQueryNamesAndValues.add(str2 != null ? HttpUrl.a(str2, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true) : null);
+                    List list = this.encodedQueryNamesAndValues;
+                    if (str2 != null) {
+                        str3 = HttpUrl.a(str2, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true);
+                    } else {
+                        str3 = null;
+                    }
+                    list.add(str3);
                     return this;
                 }
                 throw new NullPointerException("name == null");
@@ -331,52 +412,19 @@ public final class HttpUrl {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 int i = this.port;
-                return i != -1 ? i : HttpUrl.a(this.scheme);
+                if (i == -1) {
+                    return HttpUrl.a(this.scheme);
+                }
+                return i;
             }
             return invokeV.intValue;
         }
 
-        public Builder encodedQuery(@Nullable String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.encodedQueryNamesAndValues = str != null ? HttpUrl.b(HttpUrl.a(str, " \"'<>#", true, false, true, true)) : null;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder fragment(@Nullable String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.encodedFragment = str != null ? HttpUrl.a(str, "", false, false, false, false) : null;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder host(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                if (str != null) {
-                    String canonicalizeHost = canonicalizeHost(str, 0, str.length());
-                    if (canonicalizeHost != null) {
-                        this.host = canonicalizeHost;
-                        return this;
-                    }
-                    throw new IllegalArgumentException("unexpected host: " + str);
-                }
-                throw new NullPointerException("host == null");
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder parse(@Nullable HttpUrl httpUrl, String str) {
+        public Builder parse(HttpUrl httpUrl, String str) {
             InterceptResult invokeLL;
             int schemeDelimiterOffset;
             int a;
+            char c;
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, httpUrl, str)) == null) {
@@ -398,8 +446,8 @@ public final class HttpUrl {
                     throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but no colon was found");
                 }
                 int slashCount = slashCount(str, a2, b);
-                char c = '?';
-                char c2 = '#';
+                char c2 = '?';
+                char c3 = '#';
                 if (slashCount < 2 && httpUrl != null && httpUrl.a.equals(this.scheme)) {
                     this.encodedUsername = httpUrl.a();
                     this.encodedPassword = httpUrl.b();
@@ -416,11 +464,15 @@ public final class HttpUrl {
                     boolean z2 = false;
                     while (true) {
                         a = b.a(str, i2, b, "@/\\?#");
-                        char charAt = a != b ? str.charAt(a) : (char) 65535;
-                        if (charAt == 65535 || charAt == c2 || charAt == '/' || charAt == '\\' || charAt == c) {
+                        if (a != b) {
+                            c = str.charAt(a);
+                        } else {
+                            c = 65535;
+                        }
+                        if (c == 65535 || c == c3 || c == '/' || c == '\\' || c == c2) {
                             break;
                         }
-                        if (charAt == '@') {
+                        if (c == '@') {
                             if (!z) {
                                 int a3 = b.a(str, i2, a, ':');
                                 i = a;
@@ -440,8 +492,8 @@ public final class HttpUrl {
                             }
                             i2 = i + 1;
                         }
-                        c = '?';
-                        c2 = '#';
+                        c2 = '?';
+                        c3 = '#';
                     }
                     int portColonOffset = portColonOffset(str, i2, a);
                     int i3 = portColonOffset + 1;
@@ -456,10 +508,11 @@ public final class HttpUrl {
                         this.host = canonicalizeHost(str, i2, portColonOffset);
                         this.port = HttpUrl.a(this.scheme);
                     }
-                    if (this.host == null) {
+                    if (this.host != null) {
+                        a2 = a;
+                    } else {
                         throw new IllegalArgumentException("Invalid URL host: \"" + str.substring(i2, portColonOffset) + Typography.quote);
                     }
-                    a2 = a;
                 }
                 int a5 = b.a(str, a2, b, "?#");
                 resolvePath(str, a2, a5);
@@ -474,16 +527,6 @@ public final class HttpUrl {
                 return this;
             }
             return (Builder) invokeLL.objValue;
-        }
-
-        public Builder query(@Nullable String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.encodedQueryNamesAndValues = str != null ? HttpUrl.b(HttpUrl.a(str, " \"'<>#", false, false, true, true)) : null;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
         }
 
         public Builder scheme(String str) {
@@ -563,33 +606,6 @@ public final class HttpUrl {
         d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public HttpUrl(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = builder.scheme;
-        this.e = a(builder.encodedUsername, false);
-        this.f = a(builder.encodedPassword, false);
-        this.b = builder.host;
-        this.c = builder.effectivePort();
-        List<String> list = builder.encodedQueryNamesAndValues;
-        this.g = list != null ? a(list, true) : null;
-        String str = builder.encodedFragment;
-        this.h = str != null ? a(str, false) : null;
-        this.i = builder.toString();
-    }
-
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -616,26 +632,6 @@ public final class HttpUrl {
         return (String) invokeV.objValue;
     }
 
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int indexOf = this.i.indexOf(47, this.a.length() + 3);
-            String str = this.i;
-            int a = b.a(str, indexOf, str.length(), "?#");
-            ArrayList arrayList = new ArrayList();
-            while (indexOf < a) {
-                int i = indexOf + 1;
-                int a2 = b.a(this.i, i, a, (char) WebvttCueParser.CHAR_SLASH);
-                arrayList.add(this.i.substring(i, a2));
-                indexOf = a2;
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Nullable
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -650,54 +646,37 @@ public final class HttpUrl {
         return (String) invokeV.objValue;
     }
 
-    @Nullable
-    public String e() {
-        InterceptResult invokeV;
+    public HttpUrl(Builder builder) {
+        List list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.h == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return this.i.substring(this.i.indexOf(35) + 1);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? (obj instanceof HttpUrl) && ((HttpUrl) obj).i.equals(this.i) : invokeL.booleanValue;
-    }
-
-    public Builder f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Builder builder = new Builder();
-            builder.scheme = this.a;
-            builder.encodedUsername = a();
-            builder.encodedPassword = b();
-            builder.host = this.b;
-            builder.port = this.c != a(this.a) ? this.c : -1;
-            builder.encodedPathSegments.clear();
-            builder.encodedPathSegments.addAll(c());
-            builder.encodedQuery(d());
-            builder.encodedFragment = e();
-            return builder;
+        this.a = builder.scheme;
+        this.e = a(builder.encodedUsername, false);
+        this.f = a(builder.encodedPassword, false);
+        this.b = builder.host;
+        this.c = builder.effectivePort();
+        List list2 = builder.encodedQueryNamesAndValues;
+        if (list2 != null) {
+            list = a(list2, true);
+        } else {
+            list = null;
         }
-        return (Builder) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : (String) invokeV.objValue;
+        this.g = list;
+        String str = builder.encodedFragment;
+        this.h = str != null ? a(str, false) : null;
+        this.i = builder.toString();
     }
 
     public static int a(String str) {
@@ -707,37 +686,14 @@ public final class HttpUrl {
             if (str.equals("http")) {
                 return 80;
             }
-            return str.equals("https") ? 443 : -1;
+            if (str.equals("https")) {
+                return 443;
+            }
+            return -1;
         }
         return invokeL.intValue;
     }
 
-    public static void b(StringBuilder sb, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, sb, list) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i += 2) {
-                String str = list.get(i);
-                String str2 = list.get(i + 1);
-                if (i > 0) {
-                    sb.append('&');
-                }
-                sb.append(str);
-                if (str2 != null) {
-                    sb.append('=');
-                    sb.append(str2);
-                }
-            }
-        }
-    }
-
-    public static HttpUrl d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) ? new Builder().parse(null, str).build() : (HttpUrl) invokeL.objValue;
-    }
-
-    @Nullable
     public static HttpUrl c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -751,62 +707,47 @@ public final class HttpUrl {
         return (HttpUrl) invokeL.objValue;
     }
 
-    public static void a(StringBuilder sb, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, sb, list) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(WebvttCueParser.CHAR_SLASH);
-                sb.append(list.get(i));
-            }
-        }
-    }
-
-    public static String a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) ? a(str, 0, str.length(), z) : (String) invokeLZ.objValue;
-    }
-
-    private List<String> a(List<String> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, this, list, z)) == null) {
-            int size = list.size();
-            ArrayList arrayList = new ArrayList(size);
-            for (int i = 0; i < size; i++) {
-                String str = list.get(i);
-                arrayList.add(str != null ? a(str, z) : null);
-            }
-            return Collections.unmodifiableList(arrayList);
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public static List<String> b(String str) {
+    public static HttpUrl d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (i <= str.length()) {
-                int indexOf = str.indexOf(38, i);
-                if (indexOf == -1) {
-                    indexOf = str.length();
-                }
-                int indexOf2 = str.indexOf(61, i);
-                if (indexOf2 != -1 && indexOf2 <= indexOf) {
-                    arrayList.add(str.substring(i, indexOf2));
-                    arrayList.add(str.substring(indexOf2 + 1, indexOf));
-                } else {
-                    arrayList.add(str.substring(i, indexOf));
-                    arrayList.add(null);
-                }
-                i = indexOf + 1;
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            return new Builder().parse(null, str).build();
         }
-        return (List) invokeL.objValue;
+        return (HttpUrl) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if ((obj instanceof HttpUrl) && ((HttpUrl) obj).i.equals(this.i)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String a(String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset})) == null) {
+            int i3 = i;
+            while (i3 < i2) {
+                int codePointAt = str.codePointAt(i3);
+                if (codePointAt >= 32 && codePointAt != 127 && (codePointAt < 128 || !z4)) {
+                    if (str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || a(str, i3, i2)))) && (codePointAt != 43 || !z3))) {
+                        i3 += Character.charCount(codePointAt);
+                    }
+                }
+                com.baidu.searchbox.v8engine.net.io.a aVar = new com.baidu.searchbox.v8engine.net.io.a();
+                aVar.a(str, i, i3);
+                a(aVar, str, i3, i2, str2, z, z2, z3, z4, charset);
+                return aVar.c();
+            }
+            return str.substring(i, i2);
+        }
+        return (String) invokeCommon.objValue;
     }
 
     public static String a(String str, int i, int i2, boolean z) {
@@ -825,6 +766,103 @@ public final class HttpUrl {
             return str.substring(i, i2);
         }
         return (String) invokeCommon.objValue;
+    }
+
+    public static String a(String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            return a(str, 0, str.length(), str2, z, z2, z3, z4, null);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) {
+            return a(str, 0, str.length(), z);
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    private List a(List list, boolean z) {
+        InterceptResult invokeLZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, this, list, z)) == null) {
+            int size = list.size();
+            ArrayList arrayList = new ArrayList(size);
+            for (int i = 0; i < size; i++) {
+                String str2 = (String) list.get(i);
+                if (str2 != null) {
+                    str = a(str2, z);
+                } else {
+                    str = null;
+                }
+                arrayList.add(str);
+            }
+            return Collections.unmodifiableList(arrayList);
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    public static void b(StringBuilder sb, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, sb, list) == null) {
+            int size = list.size();
+            for (int i = 0; i < size; i += 2) {
+                String str = (String) list.get(i);
+                String str2 = (String) list.get(i + 1);
+                if (i > 0) {
+                    sb.append('&');
+                }
+                sb.append(str);
+                if (str2 != null) {
+                    sb.append('=');
+                    sb.append(str2);
+                }
+            }
+        }
+    }
+
+    public static void a(com.baidu.searchbox.v8engine.net.io.a aVar, String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{aVar, str, Integer.valueOf(i), Integer.valueOf(i2), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset}) == null) {
+            com.baidu.searchbox.v8engine.net.io.a aVar2 = null;
+            while (i < i2) {
+                int codePointAt = str.codePointAt(i);
+                if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
+                    if (codePointAt == 43 && z3) {
+                        if (z) {
+                            str3 = BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX;
+                        } else {
+                            str3 = "%2B";
+                        }
+                        aVar.a(str3);
+                    } else if (codePointAt >= 32 && codePointAt != 127 && ((codePointAt < 128 || !z4) && str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || a(str, i, i2)))))) {
+                        aVar.a(codePointAt);
+                    } else {
+                        if (aVar2 == null) {
+                            aVar2 = new com.baidu.searchbox.v8engine.net.io.a();
+                        }
+                        if (charset != null && !charset.equals(b.a)) {
+                            aVar2.a(str, i, Character.charCount(codePointAt) + i, charset);
+                        } else {
+                            aVar2.a(codePointAt);
+                        }
+                        while (!aVar2.a()) {
+                            int b = aVar2.b() & 255;
+                            aVar.b(37);
+                            aVar.b((int) d[(b >> 4) & 15]);
+                            aVar.b((int) d[b & 15]);
+                        }
+                    }
+                }
+                i += Character.charCount(codePointAt);
+            }
+        }
     }
 
     public static void a(com.baidu.searchbox.v8engine.net.io.a aVar, String str, int i, int i2, boolean z) {
@@ -852,74 +890,127 @@ public final class HttpUrl {
         }
     }
 
+    public static void a(StringBuilder sb, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, sb, list) == null) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(WebvttCueParser.CHAR_SLASH);
+                sb.append((String) list.get(i));
+            }
+        }
+    }
+
     public static boolean a(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65547, null, str, i, i2)) == null) {
             int i3 = i + 2;
-            return i3 < i2 && str.charAt(i) == '%' && b.a(str.charAt(i + 1)) != -1 && b.a(str.charAt(i3)) != -1;
+            if (i3 < i2 && str.charAt(i) == '%' && b.a(str.charAt(i + 1)) != -1 && b.a(str.charAt(i3)) != -1) {
+                return true;
+            }
+            return false;
         }
         return invokeLII.booleanValue;
     }
 
-    public static String a(String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
-        InterceptResult invokeCommon;
+    public static List b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset})) == null) {
-            int i3 = i;
-            while (i3 < i2) {
-                int codePointAt = str.codePointAt(i3);
-                if (codePointAt >= 32 && codePointAt != 127 && (codePointAt < 128 || !z4)) {
-                    if (str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || a(str, i3, i2)))) && (codePointAt != 43 || !z3))) {
-                        i3 += Character.charCount(codePointAt);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (i <= str.length()) {
+                int indexOf = str.indexOf(38, i);
+                if (indexOf == -1) {
+                    indexOf = str.length();
                 }
-                com.baidu.searchbox.v8engine.net.io.a aVar = new com.baidu.searchbox.v8engine.net.io.a();
-                aVar.a(str, i, i3);
-                a(aVar, str, i3, i2, str2, z, z2, z3, z4, charset);
-                return aVar.c();
+                int indexOf2 = str.indexOf(61, i);
+                if (indexOf2 != -1 && indexOf2 <= indexOf) {
+                    arrayList.add(str.substring(i, indexOf2));
+                    arrayList.add(str.substring(indexOf2 + 1, indexOf));
+                } else {
+                    arrayList.add(str.substring(i, indexOf));
+                    arrayList.add(null);
+                }
+                i = indexOf + 1;
             }
-            return str.substring(i, i2);
+            return arrayList;
         }
-        return (String) invokeCommon.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static void a(com.baidu.searchbox.v8engine.net.io.a aVar, String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
+    public List c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{aVar, str, Integer.valueOf(i), Integer.valueOf(i2), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset}) == null) {
-            com.baidu.searchbox.v8engine.net.io.a aVar2 = null;
-            while (i < i2) {
-                int codePointAt = str.codePointAt(i);
-                if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
-                    if (codePointAt == 43 && z3) {
-                        aVar.a(z ? BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX : "%2B");
-                    } else if (codePointAt >= 32 && codePointAt != 127 && ((codePointAt < 128 || !z4) && str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || a(str, i, i2)))))) {
-                        aVar.a(codePointAt);
-                    } else {
-                        if (aVar2 == null) {
-                            aVar2 = new com.baidu.searchbox.v8engine.net.io.a();
-                        }
-                        if (charset != null && !charset.equals(b.a)) {
-                            aVar2.a(str, i, Character.charCount(codePointAt) + i, charset);
-                        } else {
-                            aVar2.a(codePointAt);
-                        }
-                        while (!aVar2.a()) {
-                            int b = aVar2.b() & 255;
-                            aVar.b(37);
-                            aVar.b((int) d[(b >> 4) & 15]);
-                            aVar.b((int) d[b & 15]);
-                        }
-                    }
-                }
-                i += Character.charCount(codePointAt);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int indexOf = this.i.indexOf(47, this.a.length() + 3);
+            String str = this.i;
+            int a = b.a(str, indexOf, str.length(), "?#");
+            ArrayList arrayList = new ArrayList();
+            while (indexOf < a) {
+                int i = indexOf + 1;
+                int a2 = b.a(this.i, i, a, (char) WebvttCueParser.CHAR_SLASH);
+                arrayList.add(this.i.substring(i, a2));
+                indexOf = a2;
             }
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public static String a(String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
+    public Builder f() {
+        InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) ? a(str, 0, str.length(), str2, z, z2, z3, z4, null) : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Builder builder = new Builder();
+            builder.scheme = this.a;
+            builder.encodedUsername = a();
+            builder.encodedPassword = b();
+            builder.host = this.b;
+            if (this.c != a(this.a)) {
+                i = this.c;
+            } else {
+                i = -1;
+            }
+            builder.port = i;
+            builder.encodedPathSegments.clear();
+            builder.encodedPathSegments.addAll(c());
+            builder.encodedQuery(d());
+            builder.encodedFragment = e();
+            return builder;
+        }
+        return (Builder) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.h == null) {
+                return null;
+            }
+            return this.i.substring(this.i.indexOf(35) + 1);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
     }
 }

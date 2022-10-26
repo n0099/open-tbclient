@@ -30,7 +30,7 @@ public class WorkCreateAutherData implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.authDesc = jSONObject.optString("auth_desc");
@@ -38,7 +38,7 @@ public class WorkCreateAutherData implements Serializable {
 
     public void parseProto(WorkCreatorInfo workCreatorInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, workCreatorInfo) == null) || workCreatorInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, workCreatorInfo) != null) || workCreatorInfo == null) {
             return;
         }
         this.authDesc = workCreatorInfo.auth_desc;

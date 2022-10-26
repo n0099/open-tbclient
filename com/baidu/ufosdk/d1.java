@@ -22,8 +22,15 @@ public class d1 extends BaseAdapter {
     public LayoutInflater c;
     public boolean d;
 
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -68,21 +75,20 @@ public class d1 extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.length : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.length;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b[i] : invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b[i];
+        }
+        return invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -90,12 +96,20 @@ public class d1 extends BaseAdapter {
         InterceptResult invokeILL;
         View view3;
         a aVar;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 aVar = new a();
                 view3 = this.c.inflate(com.baidu.tieba.R.layout.ufo_problem_type_item, (ViewGroup) null);
-                view3.setBackgroundDrawable(p1.a(this.a, this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1, "ufo_list_press.png"));
+                Context context = this.a;
+                if (this.d) {
+                    i3 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+                } else {
+                    i3 = -1;
+                }
+                view3.setBackgroundDrawable(p1.a(context, i3, "ufo_list_press.png"));
                 aVar.a = (TextView) view3.findViewById(com.baidu.tieba.R.id.problem_text);
                 view3.setTag(aVar);
             } else {
@@ -103,7 +117,13 @@ public class d1 extends BaseAdapter {
                 aVar = (a) view2.getTag();
             }
             aVar.a.setText(this.b[i]);
-            aVar.a.setTextColor(this.d ? -5131855 : -16777216);
+            TextView textView = aVar.a;
+            if (this.d) {
+                i2 = -5131855;
+            } else {
+                i2 = -16777216;
+            }
+            textView.setTextColor(i2);
             return view3;
         }
         return (View) invokeILL.objValue;

@@ -9,7 +9,6 @@ import android.content.pm.ServiceInfo;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -73,53 +72,24 @@ public final class c {
         }
     }
 
-    public final synchronized boolean a(String str) {
-        InterceptResult invokeL;
+    public static void a(String str, int i, String str2, int i2, long j, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this) {
-                Plugin plugin = PluginManager.getInstance().getPlugin(str);
-                if (plugin == null) {
-                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, plugin == null, pkg = ".concat(String.valueOf(str)));
-                    return false;
-                } else if (!plugin.isInstalled()) {
-                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, UN_INSTALLED, ".concat(String.valueOf(str)));
-                    return false;
-                } else if (plugin.isLoaded()) {
-                    return true;
-                } else {
-                    a.a(2000, 0, plugin.mPkgName, plugin.getVersion(), null);
-                    com.bytedance.pangle.log.b a2 = com.bytedance.pangle.log.b.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
-                    a(com.bytedance.pangle.b.b.g, b.a.x, plugin.mPkgName, plugin.getVersion(), -1L, null);
-                    ZeusPluginStateListener.postStateChange(str, 8, new Object[0]);
-                    StringBuilder sb = new StringBuilder();
-                    boolean a3 = a(str, plugin, sb);
-                    a2.b("loadPluginInternal:".concat(String.valueOf(a3)));
-                    if (a3) {
-                        plugin.setLifeCycle(3);
-                        a(com.bytedance.pangle.b.b.h, b.a.y, plugin.mPkgName, plugin.getVersion(), a2.a(), sb.toString());
-                        ZeusPluginStateListener.postStateChange(str, 9, new Object[0]);
-                        a.a(2100, 0, plugin.mPkgName, plugin.getVersion(), null);
-                    } else {
-                        sb.append("plugin:");
-                        sb.append(plugin.mPkgName);
-                        sb.append(" versionCode:");
-                        sb.append(plugin.getVersion());
-                        sb.append("load failed;");
-                        a(com.bytedance.pangle.b.b.h, b.a.z, plugin.mPkgName, plugin.getVersion(), -1L, sb.toString());
-                        ZeusPluginStateListener.postStateChange(str, 10, new Object[0]);
-                        a.a(2100, -1, plugin.mPkgName, plugin.getVersion(), null);
-                    }
-                    ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin)));
-                    if (plugin.isLoaded()) {
-                        ZeusLogger.d(ZeusLogger.TAG_LOAD, "PluginLoader postResult, LOADED " + plugin.mPkgName);
-                        return true;
-                    }
-                    return false;
-                }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Long.valueOf(j), str3}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject.putOpt("status_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i)));
+                jSONObject.putOpt("plugin_package_name", com.bytedance.pangle.log.c.a(str2));
+                jSONObject.putOpt("version_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i2)));
+                jSONObject3.putOpt("duration", Integer.valueOf(com.bytedance.pangle.log.c.b(Long.valueOf(j))));
+                jSONObject2.putOpt("message", com.bytedance.pangle.log.c.a(str3));
+                jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.c.a(Long.valueOf(System.currentTimeMillis())));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            com.bytedance.pangle.b.b.a().a(str, jSONObject, jSONObject3, jSONObject2);
         }
-        return invokeL.booleanValue;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(62:27|(1:186)|31|(1:185)|35|(1:37)|38|(1:184)|42|(43:49|50|(2:52|53)(1:182)|54|(1:56)|57|(1:181)|61|(1:180)|65|(1:67)|68|(1:70)|71|(1:179)|75|(1:178)|79|(3:81|(5:83|(3:88|89|90)|91|92|90)|93)|94|(3:96|(5:98|(3:103|104|105)|106|107|105)|108)|109|(1:177)|113|(3:115|(5:117|(3:122|123|124)|125|126|124)|127)|128|(1:176)|132|(3:134|(5:136|(3:141|142|143)|144|145|143)|146)|147|(1:175)|151|(1:155)|156|(1:174)|160|(1:162)|163|(1:173)|167|168|169|170)|183|50|(0)(0)|54|(0)|57|(1:59)|181|61|(1:63)|180|65|(0)|68|(0)|71|(1:73)|179|75|(1:77)|178|79|(0)|94|(0)|109|(1:111)|177|113|(0)|128|(1:130)|176|132|(0)|147|(1:149)|175|151|(2:153|155)|156|(1:158)|174|160|(0)|163|(1:165)|173|167|168|169|170) */
@@ -291,6 +261,13 @@ public final class c {
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ Plugin a;
 
+                                @Override // android.content.ComponentCallbacks
+                                public final void onLowMemory() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                                    }
+                                }
+
                                 {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 != null) {
@@ -314,13 +291,6 @@ public final class c {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
                                         this.a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
-                                    }
-                                }
-
-                                @Override // android.content.ComponentCallbacks
-                                public final void onLowMemory() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                                     }
                                 }
                             });
@@ -455,6 +425,13 @@ public final class c {
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Plugin a;
 
+                            @Override // android.content.ComponentCallbacks
+                            public final void onLowMemory() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                                }
+                            }
+
                             {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 != null) {
@@ -478,13 +455,6 @@ public final class c {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
                                     this.a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
-                                }
-                            }
-
-                            @Override // android.content.ComponentCallbacks
-                            public final void onLowMemory() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                                 }
                             }
                         });
@@ -550,23 +520,52 @@ public final class c {
         return invokeLLL.booleanValue;
     }
 
-    public static void a(String str, int i, @NonNull String str2, int i2, long j, String str3) {
+    public final synchronized boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Long.valueOf(j), str3}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject.putOpt("status_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i)));
-                jSONObject.putOpt("plugin_package_name", com.bytedance.pangle.log.c.a(str2));
-                jSONObject.putOpt("version_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i2)));
-                jSONObject3.putOpt("duration", Integer.valueOf(com.bytedance.pangle.log.c.b(Long.valueOf(j))));
-                jSONObject2.putOpt("message", com.bytedance.pangle.log.c.a(str3));
-                jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.c.a(Long.valueOf(System.currentTimeMillis())));
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                Plugin plugin = PluginManager.getInstance().getPlugin(str);
+                if (plugin == null) {
+                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, plugin == null, pkg = ".concat(String.valueOf(str)));
+                    return false;
+                } else if (!plugin.isInstalled()) {
+                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, UN_INSTALLED, ".concat(String.valueOf(str)));
+                    return false;
+                } else if (plugin.isLoaded()) {
+                    return true;
+                } else {
+                    a.a(2000, 0, plugin.mPkgName, plugin.getVersion(), null);
+                    com.bytedance.pangle.log.b a2 = com.bytedance.pangle.log.b.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
+                    a(com.bytedance.pangle.b.b.g, b.a.x, plugin.mPkgName, plugin.getVersion(), -1L, null);
+                    ZeusPluginStateListener.postStateChange(str, 8, new Object[0]);
+                    StringBuilder sb = new StringBuilder();
+                    boolean a3 = a(str, plugin, sb);
+                    a2.b("loadPluginInternal:".concat(String.valueOf(a3)));
+                    if (a3) {
+                        plugin.setLifeCycle(3);
+                        a(com.bytedance.pangle.b.b.h, b.a.y, plugin.mPkgName, plugin.getVersion(), a2.a(), sb.toString());
+                        ZeusPluginStateListener.postStateChange(str, 9, new Object[0]);
+                        a.a(2100, 0, plugin.mPkgName, plugin.getVersion(), null);
+                    } else {
+                        sb.append("plugin:");
+                        sb.append(plugin.mPkgName);
+                        sb.append(" versionCode:");
+                        sb.append(plugin.getVersion());
+                        sb.append("load failed;");
+                        a(com.bytedance.pangle.b.b.h, b.a.z, plugin.mPkgName, plugin.getVersion(), -1L, sb.toString());
+                        ZeusPluginStateListener.postStateChange(str, 10, new Object[0]);
+                        a.a(2100, -1, plugin.mPkgName, plugin.getVersion(), null);
+                    }
+                    ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin)));
+                    if (!plugin.isLoaded()) {
+                        return false;
+                    }
+                    ZeusLogger.d(ZeusLogger.TAG_LOAD, "PluginLoader postResult, LOADED " + plugin.mPkgName);
+                    return true;
+                }
             }
-            com.bytedance.pangle.b.b.a().a(str, jSONObject, jSONObject3, jSONObject2);
         }
+        return invokeL.booleanValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.res.ui;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -11,9 +10,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.d23;
-import com.baidu.tieba.z13;
+import com.baidu.tieba.a23;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.e23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +42,17 @@ public class BdTimePicker extends LinearLayout {
     public Paint o;
 
     /* loaded from: classes2.dex */
-    public class a implements d23 {
+    public interface c {
+    }
+
+    public void setOnTimeChangeListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class a implements e23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTimePicker a;
@@ -66,7 +75,7 @@ public class BdTimePicker extends LinearLayout {
             this.a = bdTimePicker;
         }
 
-        @Override // com.baidu.tieba.d23
+        @Override // com.baidu.tieba.e23
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -78,7 +87,7 @@ public class BdTimePicker extends LinearLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements d23 {
+    public class b implements e23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTimePicker a;
@@ -101,7 +110,7 @@ public class BdTimePicker extends LinearLayout {
             this.a = bdTimePicker;
         }
 
-        @Override // com.baidu.tieba.d23
+        @Override // com.baidu.tieba.e23
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -109,10 +118,6 @@ public class BdTimePicker extends LinearLayout {
                 bdTimePicker.b = i + bdTimePicker.h;
             }
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -139,161 +144,62 @@ public class BdTimePicker extends LinearLayout {
         f(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BdTimePicker(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.b = 0;
+        this.l = 15;
+        f(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BdTimePicker(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.b = 0;
+        this.l = 15;
+        f(context);
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
             canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.c.getCenterContentOffset() * 2.0f), this.o);
-        }
-    }
-
-    public final void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d6, this);
-            this.l = ch3.f(context, this.l);
-            this.m = ch3.f(context, 16.0f);
-            this.n = ch3.f(context, 14.0f);
-            j();
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921ef);
-            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092674);
-            this.c = wheelView3d;
-            wheelView3d.setLineSpacingMultiplier(3.0f);
-            this.c.setCenterTextSize(this.m);
-            this.c.setOuterTextSize(this.n);
-            this.c.setTextColorCenter(-16777216);
-            this.c.setTextColorOut(-16777216);
-            this.c.setVisibleItem(7);
-            this.c.setGravityOffset(this.l);
-            this.c.setGravity(5);
-            this.c.setDividerType(WheelView3d.DividerType.FILL);
-            this.c.setDividerColor(0);
-            this.c.setOnItemSelectedListener(new a(this));
-            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092675);
-            this.d = wheelView3d2;
-            wheelView3d2.setLineSpacingMultiplier(3.0f);
-            this.d.setCenterTextSize(this.m);
-            this.d.setOuterTextSize(this.n);
-            this.d.setTextColorCenter(-16777216);
-            this.d.setTextColorOut(-16777216);
-            this.d.setGravityOffset(this.l);
-            this.d.setGravity(3);
-            this.d.setDividerType(WheelView3d.DividerType.FILL);
-            this.d.setDividerColor(0);
-            this.d.setVisibleItem(7);
-            this.d.setOnItemSelectedListener(new b(this));
-            g();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Calendar calendar = Calendar.getInstance();
-            this.a = calendar.get(11);
-            this.b = calendar.get(12);
-            l();
-        }
-    }
-
-    public int getHour() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int getMinute() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048581, this) != null) {
-            return;
-        }
-        this.f = 0;
-        this.g = 23;
-        Date date = this.j;
-        if (date != null) {
-            this.f = date.getHours();
-        }
-        Date date2 = this.k;
-        if (date2 != null) {
-            this.g = date2.getHours();
-        }
-        ArrayList arrayList = new ArrayList((this.g - this.f) + 1);
-        int i = this.f;
-        while (true) {
-            int i2 = this.g;
-            if (i > i2) {
-                this.c.setAdapter(new z13(this.f, i2));
-                k(this.c, this.f, this.g);
-                setHour(this.a);
-                return;
-            }
-            arrayList.add(String.format("%02d", Integer.valueOf(i)));
-            i++;
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048582, this) != null) {
-            return;
-        }
-        this.h = 0;
-        this.i = 59;
-        Date date = this.j;
-        if (date != null && this.a == this.f) {
-            this.h = date.getMinutes();
-        }
-        Date date2 = this.k;
-        if (date2 != null && this.a == this.g) {
-            this.i = date2.getMinutes();
-        }
-        ArrayList arrayList = new ArrayList((this.i - this.h) + 1);
-        int i = this.h;
-        while (true) {
-            int i2 = this.i;
-            if (i > i2) {
-                this.d.setAdapter(new z13(this.h, i2));
-                k(this.d, this.h, this.i);
-                setMinute(this.b);
-                return;
-            }
-            arrayList.add(String.format("%02d", Integer.valueOf(i)));
-            i++;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Paint paint = new Paint();
-            this.o = paint;
-            paint.setColor(-16777216);
-            this.o.setAntiAlias(true);
-            this.o.setTextSize(this.m);
-        }
-    }
-
-    public final void k(WheelView3d wheelView3d, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, wheelView3d, i, i2) == null) || (i2 - i) + 1 > 3) {
-            return;
-        }
-        wheelView3d.setCyclic(false);
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h();
-            i();
         }
     }
 
@@ -329,12 +235,6 @@ public class BdTimePicker extends LinearLayout {
         }
     }
 
-    public void setOnTimeChangeListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
-        }
-    }
-
     public void setScrollCycle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
@@ -357,54 +257,157 @@ public class BdTimePicker extends LinearLayout {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdTimePicker(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            setOrientation(0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d6, this);
+            this.l = dh3.f(context, this.l);
+            this.m = dh3.f(context, 16.0f);
+            this.n = dh3.f(context, 14.0f);
+            j();
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921d9);
+            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09265c);
+            this.c = wheelView3d;
+            wheelView3d.setLineSpacingMultiplier(3.0f);
+            this.c.setCenterTextSize(this.m);
+            this.c.setOuterTextSize(this.n);
+            this.c.setTextColorCenter(-16777216);
+            this.c.setTextColorOut(-16777216);
+            this.c.setVisibleItem(7);
+            this.c.setGravityOffset(this.l);
+            this.c.setGravity(5);
+            this.c.setDividerType(WheelView3d.DividerType.FILL);
+            this.c.setDividerColor(0);
+            this.c.setOnItemSelectedListener(new a(this));
+            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09265d);
+            this.d = wheelView3d2;
+            wheelView3d2.setLineSpacingMultiplier(3.0f);
+            this.d.setCenterTextSize(this.m);
+            this.d.setOuterTextSize(this.n);
+            this.d.setTextColorCenter(-16777216);
+            this.d.setTextColorOut(-16777216);
+            this.d.setGravityOffset(this.l);
+            this.d.setGravity(3);
+            this.d.setDividerType(WheelView3d.DividerType.FILL);
+            this.d.setDividerColor(0);
+            this.d.setVisibleItem(7);
+            this.d.setOnItemSelectedListener(new b(this));
+            g();
         }
-        this.a = 0;
-        this.b = 0;
-        this.l = 15;
-        f(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @TargetApi(11)
-    public BdTimePicker(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Calendar calendar = Calendar.getInstance();
+            this.a = calendar.get(11);
+            this.b = calendar.get(12);
+            l();
+        }
+    }
+
+    public int getHour() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getMinute() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Paint paint = new Paint();
+            this.o = paint;
+            paint.setColor(-16777216);
+            this.o.setAntiAlias(true);
+            this.o.setTextSize(this.m);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            h();
+            i();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f = 0;
+            this.g = 23;
+            Date date = this.j;
+            if (date != null) {
+                this.f = date.getHours();
+            }
+            Date date2 = this.k;
+            if (date2 != null) {
+                this.g = date2.getHours();
+            }
+            ArrayList arrayList = new ArrayList((this.g - this.f) + 1);
+            int i = this.f;
+            while (true) {
+                int i2 = this.g;
+                if (i <= i2) {
+                    arrayList.add(String.format("%02d", Integer.valueOf(i)));
+                    i++;
+                } else {
+                    this.c.setAdapter(new a23(this.f, i2));
+                    k(this.c, this.f, this.g);
+                    setHour(this.a);
+                    return;
+                }
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.l = 15;
-        f(context);
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = 0;
+            this.i = 59;
+            Date date = this.j;
+            if (date != null && this.a == this.f) {
+                this.h = date.getMinutes();
+            }
+            Date date2 = this.k;
+            if (date2 != null && this.a == this.g) {
+                this.i = date2.getMinutes();
+            }
+            ArrayList arrayList = new ArrayList((this.i - this.h) + 1);
+            int i = this.h;
+            while (true) {
+                int i2 = this.i;
+                if (i <= i2) {
+                    arrayList.add(String.format("%02d", Integer.valueOf(i)));
+                    i++;
+                } else {
+                    this.d.setAdapter(new a23(this.h, i2));
+                    k(this.d, this.h, this.i);
+                    setMinute(this.b);
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void k(WheelView3d wheelView3d, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, wheelView3d, i, i2) == null) && (i2 - i) + 1 <= 3) {
+            wheelView3d.setCyclic(false);
+        }
     }
 }

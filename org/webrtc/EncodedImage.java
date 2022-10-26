@@ -27,13 +27,13 @@ public class EncodedImage {
 
     /* renamed from: org.webrtc.EncodedImage$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ByteBuffer buffer;
@@ -45,14 +45,31 @@ public class EncodedImage {
         public Integer qp;
         public int rotation;
 
-        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
-            this();
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public EncodedImage createEncodedImage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new EncodedImage(this.buffer, this.encodedWidth, this.encodedHeight, this.captureTimeNs, this.frameType, this.rotation, this.completeFrame, this.qp, null) : (EncodedImage) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new EncodedImage(this.buffer, this.encodedWidth, this.encodedHeight, this.captureTimeNs, this.frameType, this.rotation, this.completeFrame, this.qp, null);
+            }
+            return (EncodedImage) invokeV.objValue;
+        }
+
+        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
+            this();
         }
 
         public Builder setBuffer(ByteBuffer byteBuffer) {
@@ -145,25 +162,11 @@ public class EncodedImage {
             }
             return (Builder) invokeI.objValue;
         }
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class FrameType {
+    public final class FrameType {
         public static final /* synthetic */ FrameType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FrameType EmptyFrame;
@@ -213,7 +216,6 @@ public class EncodedImage {
             this.nativeIndex = i2;
         }
 
-        @CalledByNative("FrameType")
         public static FrameType fromNativeIndex(int i) {
             InterceptResult invokeI;
             FrameType[] values;
@@ -232,33 +234,31 @@ public class EncodedImage {
         public static FrameType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (FrameType) Enum.valueOf(FrameType.class, str) : (FrameType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (FrameType) Enum.valueOf(FrameType.class, str);
+            }
+            return (FrameType) invokeL.objValue;
         }
 
         public static FrameType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FrameType[]) $VALUES.clone() : (FrameType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (FrameType[]) $VALUES.clone();
+            }
+            return (FrameType[]) invokeV.objValue;
         }
 
         public int getNative() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.nativeIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.nativeIndex;
+            }
+            return invokeV.intValue;
         }
     }
 
-    public /* synthetic */ EncodedImage(ByteBuffer byteBuffer, int i, int i2, long j, FrameType frameType, int i3, boolean z, Integer num, AnonymousClass1 anonymousClass1) {
-        this(byteBuffer, i, i2, j, frameType, i3, z, num);
-    }
-
-    public static Builder builder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new Builder(null) : (Builder) invokeV.objValue;
-    }
-
-    @CalledByNative
     public EncodedImage(ByteBuffer byteBuffer, int i, int i2, long j, FrameType frameType, int i3, boolean z, Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -283,5 +283,18 @@ public class EncodedImage {
         this.rotation = i3;
         this.completeFrame = z;
         this.qp = num;
+    }
+
+    public /* synthetic */ EncodedImage(ByteBuffer byteBuffer, int i, int i2, long j, FrameType frameType, int i3, boolean z, Integer num, AnonymousClass1 anonymousClass1) {
+        this(byteBuffer, i, i2, j, frameType, i3, z, num);
+    }
+
+    public static Builder builder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new Builder(null);
+        }
+        return (Builder) invokeV.objValue;
     }
 }

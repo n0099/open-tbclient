@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,26 +35,6 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.c) {
-                setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this, R.color.CAM_X0109, 1, i);
-                setBackgroundDrawable(null);
-                return;
-            }
-            int f = ej.f(getContext(), R.dimen.tbds32);
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_add_follow_blue_s);
-            drawable.setBounds(0, 0, f, f);
-            setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            setTextSize(0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
-            setTextColor(ContextCompat.getColor(getContext(), R.color.CAM_X0111));
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c1);
         }
     }
 
@@ -97,6 +77,26 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.c) {
+                setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                SkinManager.setViewTextColor(this, R.color.CAM_X0109, 1, i);
+                setBackgroundDrawable(null);
+                return;
+            }
+            int f = fj.f(getContext(), R.dimen.tbds32);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_add_follow_blue_s);
+            drawable.setBounds(0, 0, f, f);
+            setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            setTextSize(0, fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
+            setTextColor(ContextCompat.getColor(getContext(), R.color.CAM_X0111));
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d2);
         }
     }
 }

@@ -16,19 +16,19 @@ public class SharedPrefsUtil {
 
     /* renamed from: com.baidu.searchbox.fluency.utils.SharedPrefsUtil$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class FpsPreferences extends SharedPrefsWrapper {
+    public class FpsPreferences extends SharedPrefsWrapper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FLUENCY_FPS_PREF_NAME = "com.baidu.searchbox.fluency.fps.pref";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public static final class Holder {
+        public final class Holder {
             public static /* synthetic */ Interceptable $ic;
             public static final FpsPreferences INSTANCE;
             public transient /* synthetic */ FieldHolder $fh;
@@ -64,16 +64,6 @@ public class SharedPrefsUtil {
             }
         }
 
-        public /* synthetic */ FpsPreferences(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-
-        public static FpsPreferences getInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.INSTANCE : (FpsPreferences) invokeV.objValue;
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FpsPreferences() {
             super(FLUENCY_FPS_PREF_NAME);
@@ -91,6 +81,19 @@ public class SharedPrefsUtil {
                 }
             }
         }
+
+        public static FpsPreferences getInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return Holder.INSTANCE;
+            }
+            return (FpsPreferences) invokeV.objValue;
+        }
+
+        public /* synthetic */ FpsPreferences(AnonymousClass1 anonymousClass1) {
+            this();
+        }
     }
 
     public SharedPrefsUtil() {
@@ -107,40 +110,58 @@ public class SharedPrefsUtil {
         }
     }
 
+    public static SharedPrefsWrapper getFpsPreference() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return FpsPreferences.getInstance();
+        }
+        return (SharedPrefsWrapper) invokeV.objValue;
+    }
+
     public static boolean containsKey(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? getFpsPreference().contains(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return getFpsPreference().contains(str);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean getBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) ? getFpsPreference().getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    public static SharedPrefsWrapper getFpsPreference() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FpsPreferences.getInstance() : (SharedPrefsWrapper) invokeV.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            return getFpsPreference().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
     }
 
     public static int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) ? getFpsPreference().getInt(str, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            return getFpsPreference().getInt(str, i);
+        }
+        return invokeLI.intValue;
     }
 
     public static long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j)) == null) ? getFpsPreference().getLong(str, j) : invokeLJ.longValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j)) == null) {
+            return getFpsPreference().getLong(str, j);
+        }
+        return invokeLJ.longValue;
     }
 
     public static String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? getFpsPreference().getString(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            return getFpsPreference().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static void putBoolean(String str, boolean z) {

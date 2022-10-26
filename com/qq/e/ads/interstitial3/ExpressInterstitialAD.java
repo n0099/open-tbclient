@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 @Deprecated
 /* loaded from: classes8.dex */
-public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
+public class ExpressInterstitialAD extends LiteAbstractAD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean g;
@@ -38,7 +38,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public ServerSideVerificationOptions l;
 
     /* loaded from: classes8.dex */
-    public static class AdListenerAdapter implements ADListener {
+    public class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ExpressInterstitialAdListener a;
@@ -216,40 +216,12 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         expressInterstitialAdListener.onError(AdErrorConvertor.formatErrorCode(i));
     }
 
-    public VideoAdValidity checkValidity() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (hasShown()) {
-                return VideoAdValidity.SHOWED;
-            }
-            if (SystemClock.elapsedRealtime() > getExpireTimestamp()) {
-                return VideoAdValidity.OVERDUE;
-            }
-            if (isVideoAd()) {
-                T t = this.a;
-                if (t != 0) {
-                    z = ((UIADI2) t).isVideoCached();
-                } else {
-                    a("isVideoCached");
-                    z = false;
-                }
-                if (!z) {
-                    return VideoAdValidity.NONE_CACHE;
-                }
-            }
-            return VideoAdValidity.VALID;
-        }
-        return (VideoAdValidity) invokeV.objValue;
-    }
-
     public void closeHalfScreenAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).closeHalfScreenAD();
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).closeHalfScreenAD();
             } else {
                 a("closeHalfScreenAD");
             }
@@ -275,9 +247,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).destroy();
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).destroy();
             } else {
                 a("destroy");
             }
@@ -288,9 +260,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((UIADI2) t).getExpireTimestamp();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((UIADI2) obj).getExpireTimestamp();
             }
             a("getExpireTimestamp");
             return 0L;
@@ -302,9 +274,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((UIADI2) t).getVideoDuration();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((UIADI2) obj).getVideoDuration();
             }
             a("getVideoDuration");
             return 0;
@@ -316,9 +288,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((UIADI2) t).hasShown();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((UIADI2) obj).hasShown();
             }
             a("hasShown");
             return false;
@@ -330,9 +302,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((UIADI2) t).isVideoAd();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((UIADI2) obj).isVideoAd();
             }
             a("isVideoAd");
             return false;
@@ -347,9 +319,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                 this.h = true;
                 return;
             }
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).loadFullScreenAD();
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).loadFullScreenAD();
             } else {
                 a("loadFullScreenAD");
             }
@@ -363,9 +335,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                 this.g = true;
                 return;
             }
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).loadHalfScreenAD();
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).loadHalfScreenAD();
             } else {
                 a("loadHalfScreenAD");
             }
@@ -384,9 +356,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, serverSideVerificationOptions) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).setServerSideVerificationOptions(serverSideVerificationOptions);
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).setServerSideVerificationOptions(serverSideVerificationOptions);
             } else {
                 this.l = serverSideVerificationOptions;
             }
@@ -396,9 +368,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void setVideoOption(VideoOption2 videoOption2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, videoOption2) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).setVideoOption(videoOption2);
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).setVideoOption(videoOption2);
             } else {
                 this.i = videoOption2;
             }
@@ -408,9 +380,9 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void showFullScreenAD(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, activity) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).showFullScreenAD(activity);
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).showFullScreenAD(activity);
             } else {
                 a("showFullScreenAD");
             }
@@ -420,12 +392,40 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public void showHalfScreenAD(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, activity) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((UIADI2) t).showHalfScreenAD(activity);
+            Object obj = this.a;
+            if (obj != null) {
+                ((UIADI2) obj).showHalfScreenAD(activity);
             } else {
                 a("showHalfScreenAD");
             }
         }
+    }
+
+    public VideoAdValidity checkValidity() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (hasShown()) {
+                return VideoAdValidity.SHOWED;
+            }
+            if (SystemClock.elapsedRealtime() > getExpireTimestamp()) {
+                return VideoAdValidity.OVERDUE;
+            }
+            if (isVideoAd()) {
+                Object obj = this.a;
+                if (obj != null) {
+                    z = ((UIADI2) obj).isVideoCached();
+                } else {
+                    a("isVideoCached");
+                    z = false;
+                }
+                if (!z) {
+                    return VideoAdValidity.NONE_CACHE;
+                }
+            }
+            return VideoAdValidity.VALID;
+        }
+        return (VideoAdValidity) invokeV.objValue;
     }
 }

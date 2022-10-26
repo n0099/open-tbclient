@@ -1,7 +1,6 @@
 package com.google.android.exoplayer2.util;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +23,7 @@ public final class AtomicFile {
     public final File baseName;
 
     /* loaded from: classes7.dex */
-    public static final class AtomicFileOutputStream extends OutputStream {
+    public final class AtomicFileOutputStream extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean closed;
@@ -52,7 +51,7 @@ public final class AtomicFile {
         @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.closed) {
                 return;
             }
             this.closed = true;
@@ -82,7 +81,7 @@ public final class AtomicFile {
         }
 
         @Override // java.io.OutputStream
-        public void write(@NonNull byte[] bArr) throws IOException {
+        public void write(byte[] bArr) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
                 this.fileOutputStream.write(bArr);
@@ -90,7 +89,7 @@ public final class AtomicFile {
         }
 
         @Override // java.io.OutputStream
-        public void write(@NonNull byte[] bArr, int i, int i2) throws IOException {
+        public void write(byte[] bArr, int i, int i2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
                 this.fileOutputStream.write(bArr, i, i2);
@@ -133,14 +132,6 @@ public final class AtomicFile {
         }
     }
 
-    public void endWrite(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
-            outputStream.close();
-            this.backupName.delete();
-        }
-    }
-
     public InputStream openRead() throws FileNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,6 +140,14 @@ public final class AtomicFile {
             return new FileInputStream(this.baseName);
         }
         return (InputStream) invokeV.objValue;
+    }
+
+    public void endWrite(OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
+            outputStream.close();
+            this.backupName.delete();
+        }
     }
 
     public OutputStream startWrite() throws IOException {

@@ -14,10 +14,20 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class EmptyCompletableObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable, LambdaConsumerIntrospection {
+public final class EmptyCompletableObserver extends AtomicReference implements CompletableObserver, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7545121636549663526L;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // io.reactivex.observers.LambdaConsumerIntrospection
+    public boolean hasCustomOnError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public EmptyCompletableObserver() {
         Interceptable interceptable = $ic;
@@ -41,21 +51,17 @@ public final class EmptyCompletableObserver extends AtomicReference<Disposable> 
         }
     }
 
-    @Override // io.reactivex.observers.LambdaConsumerIntrospection
-    public boolean hasCustomOnError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (get() == DisposableHelper.DISPOSED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver

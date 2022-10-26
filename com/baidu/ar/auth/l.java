@@ -16,7 +16,7 @@ import java.util.List;
 public class l implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> kc;
+    public final List kc;
     public long kd;
 
     public l(f fVar) {
@@ -37,7 +37,7 @@ public class l implements k {
         ArrayList arrayList = new ArrayList();
         this.kc = arrayList;
         if (fVar != null) {
-            List<String> list = fVar.jK;
+            List list = fVar.jK;
             if (list != null) {
                 arrayList.addAll(list);
             }
@@ -75,9 +75,9 @@ public class l implements k {
                             strArr[0] = "license已经过期";
                         } else if (!z2) {
                             StringBuilder sb = new StringBuilder();
-                            Iterator<String> it = this.kc.iterator();
+                            Iterator it = this.kc.iterator();
                             while (it.hasNext()) {
-                                sb.append(it.next() + ",");
+                                sb.append(((String) it.next()) + ",");
                             }
                             strArr[0] = String.format("包名不符，MD5正确值：%s 现为：%s", sb.toString(), aT);
                         }

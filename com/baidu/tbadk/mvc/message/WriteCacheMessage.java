@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class WriteCacheMessage<T> extends CustomMessage<T> {
+public class WriteCacheMessage extends CustomMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isClear;
@@ -36,7 +36,10 @@ public class WriteCacheMessage<T> extends CustomMessage<T> {
     public boolean isClear() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isClear : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isClear;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setClear(boolean z) {

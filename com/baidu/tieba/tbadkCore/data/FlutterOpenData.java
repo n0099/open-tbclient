@@ -14,9 +14,9 @@ public class FlutterOpenData {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public String pageName;
-    public Map<String, Object> params;
+    public Map params;
 
-    public FlutterOpenData(Context context, String str, Map<String, Object> map) {
+    public FlutterOpenData(Context context, String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,18 +42,27 @@ public class FlutterOpenData {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public String getPageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.pageName;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public Map<String, Object> getParams() {
+    public Map getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.params : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.params;
+        }
+        return (Map) invokeV.objValue;
     }
 }

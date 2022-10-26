@@ -6,8 +6,6 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,9 +15,60 @@ import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.internal.common.zzc;
 /* loaded from: classes7.dex */
 public interface IFragmentWrapper extends IInterface {
+    boolean zzA() throws RemoteException;
+
+    int zzb() throws RemoteException;
+
+    int zzc() throws RemoteException;
+
+    Bundle zzd() throws RemoteException;
+
+    IFragmentWrapper zze() throws RemoteException;
+
+    IFragmentWrapper zzf() throws RemoteException;
+
+    IObjectWrapper zzg() throws RemoteException;
+
+    IObjectWrapper zzh() throws RemoteException;
+
+    IObjectWrapper zzi() throws RemoteException;
+
+    String zzj() throws RemoteException;
+
+    void zzk(IObjectWrapper iObjectWrapper) throws RemoteException;
+
+    void zzl(boolean z) throws RemoteException;
+
+    void zzm(boolean z) throws RemoteException;
+
+    void zzn(boolean z) throws RemoteException;
+
+    void zzo(boolean z) throws RemoteException;
+
+    void zzp(Intent intent) throws RemoteException;
+
+    void zzq(Intent intent, int i) throws RemoteException;
+
+    void zzr(IObjectWrapper iObjectWrapper) throws RemoteException;
+
+    boolean zzs() throws RemoteException;
+
+    boolean zzt() throws RemoteException;
+
+    boolean zzu() throws RemoteException;
+
+    boolean zzv() throws RemoteException;
+
+    boolean zzw() throws RemoteException;
+
+    boolean zzx() throws RemoteException;
+
+    boolean zzy() throws RemoteException;
+
+    boolean zzz() throws RemoteException;
 
     /* loaded from: classes7.dex */
-    public static abstract class Stub extends com.google.android.gms.internal.common.zzb implements IFragmentWrapper {
+    public abstract class Stub extends com.google.android.gms.internal.common.zzb implements IFragmentWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,8 +90,7 @@ public interface IFragmentWrapper extends IInterface {
             }
         }
 
-        @NonNull
-        public static IFragmentWrapper asInterface(@NonNull IBinder iBinder) {
+        public static IFragmentWrapper asInterface(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -50,13 +98,16 @@ public interface IFragmentWrapper extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.dynamic.IFragmentWrapper");
-                return queryLocalInterface instanceof IFragmentWrapper ? (IFragmentWrapper) queryLocalInterface : new zza(iBinder);
+                if (queryLocalInterface instanceof IFragmentWrapper) {
+                    return (IFragmentWrapper) queryLocalInterface;
+                }
+                return new zza(iBinder);
             }
             return (IFragmentWrapper) invokeL.objValue;
         }
 
         @Override // com.google.android.gms.internal.common.zzb
-        public final boolean zza(int i, @NonNull Parcel parcel, @NonNull Parcel parcel2, int i2) throws RemoteException {
+        public final boolean zza(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
@@ -190,63 +241,4 @@ public interface IFragmentWrapper extends IInterface {
             return invokeCommon.booleanValue;
         }
     }
-
-    boolean zzA() throws RemoteException;
-
-    int zzb() throws RemoteException;
-
-    int zzc() throws RemoteException;
-
-    @Nullable
-    Bundle zzd() throws RemoteException;
-
-    @Nullable
-    IFragmentWrapper zze() throws RemoteException;
-
-    @Nullable
-    IFragmentWrapper zzf() throws RemoteException;
-
-    @NonNull
-    IObjectWrapper zzg() throws RemoteException;
-
-    @NonNull
-    IObjectWrapper zzh() throws RemoteException;
-
-    @NonNull
-    IObjectWrapper zzi() throws RemoteException;
-
-    @Nullable
-    String zzj() throws RemoteException;
-
-    void zzk(@NonNull IObjectWrapper iObjectWrapper) throws RemoteException;
-
-    void zzl(boolean z) throws RemoteException;
-
-    void zzm(boolean z) throws RemoteException;
-
-    void zzn(boolean z) throws RemoteException;
-
-    void zzo(boolean z) throws RemoteException;
-
-    void zzp(@NonNull Intent intent) throws RemoteException;
-
-    void zzq(@NonNull Intent intent, int i) throws RemoteException;
-
-    void zzr(@NonNull IObjectWrapper iObjectWrapper) throws RemoteException;
-
-    boolean zzs() throws RemoteException;
-
-    boolean zzt() throws RemoteException;
-
-    boolean zzu() throws RemoteException;
-
-    boolean zzv() throws RemoteException;
-
-    boolean zzw() throws RemoteException;
-
-    boolean zzx() throws RemoteException;
-
-    boolean zzy() throws RemoteException;
-
-    boolean zzz() throws RemoteException;
 }

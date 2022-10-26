@@ -26,17 +26,44 @@ public abstract class Buffer {
         }
     }
 
-    public final void addFlag(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.flags = i | this.flags;
-        }
-    }
-
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.flags = 0;
+        }
+    }
+
+    public final boolean isDecodeOnly() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return getFlag(Integer.MIN_VALUE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isEndOfStream() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getFlag(4);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isKeyFrame() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return getFlag(1);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void addFlag(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.flags = i | this.flags;
         }
     }
 
@@ -50,25 +77,13 @@ public abstract class Buffer {
     public final boolean getFlag(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? (this.flags & i) == i : invokeI.booleanValue;
-    }
-
-    public final boolean isDecodeOnly() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getFlag(Integer.MIN_VALUE) : invokeV.booleanValue;
-    }
-
-    public final boolean isEndOfStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getFlag(4) : invokeV.booleanValue;
-    }
-
-    public final boolean isKeyFrame() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getFlag(1) : invokeV.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if ((this.flags & i) == i) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 
     public final void setFlags(int i) {

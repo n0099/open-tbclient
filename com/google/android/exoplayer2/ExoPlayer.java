@@ -34,8 +34,18 @@ public interface ExoPlayer extends Player {
         void handleMessage(int i, Object obj) throws ExoPlaybackException;
     }
 
+    void blockingSendMessages(ExoPlayerMessage... exoPlayerMessageArr);
+
+    Looper getPlaybackLooper();
+
+    void prepare(MediaSource mediaSource);
+
+    void prepare(MediaSource mediaSource, boolean z, boolean z2);
+
+    void sendMessages(ExoPlayerMessage... exoPlayerMessageArr);
+
     /* loaded from: classes7.dex */
-    public static final class ExoPlayerMessage {
+    public final class ExoPlayerMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object message;
@@ -62,14 +72,4 @@ public interface ExoPlayer extends Player {
             this.message = obj;
         }
     }
-
-    void blockingSendMessages(ExoPlayerMessage... exoPlayerMessageArr);
-
-    Looper getPlaybackLooper();
-
-    void prepare(MediaSource mediaSource);
-
-    void prepare(MediaSource mediaSource, boolean z, boolean z2);
-
-    void sendMessages(ExoPlayerMessage... exoPlayerMessageArr);
 }

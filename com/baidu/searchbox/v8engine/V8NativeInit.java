@@ -10,11 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public class V8NativeInit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native void initAppContext(Context context);
+
+    public static native void initClassLoader(Object obj);
+
+    public static void initEnv() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+        }
+    }
+
+    public static native synchronized void initialize(long j, AssetManager assetManager, AssetManager assetManager2, V8Timer v8Timer, Object obj, long j2);
 
     static {
         InterceptResult invokeClinit;
@@ -46,16 +57,4 @@ public class V8NativeInit {
             }
         }
     }
-
-    public static native void initAppContext(Context context);
-
-    public static native void initClassLoader(Object obj);
-
-    public static void initEnv() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
-    }
-
-    public static native synchronized void initialize(long j, AssetManager assetManager, AssetManager assetManager2, V8Timer v8Timer, Object obj, long j2);
 }

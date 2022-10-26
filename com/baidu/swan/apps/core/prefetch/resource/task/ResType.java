@@ -3,7 +3,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,7 +86,7 @@ public final class ResType {
                 }
                 i++;
             }
-            if (vj1.a) {
+            if (wj1.a) {
                 Log.d("ResType", "res type - " + resType.name());
             }
             return resType;
@@ -97,12 +97,18 @@ public final class ResType {
     public static ResType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ResType) Enum.valueOf(ResType.class, str) : (ResType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (ResType) Enum.valueOf(ResType.class, str);
+        }
+        return (ResType) invokeL.objValue;
     }
 
     public static ResType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ResType[]) $VALUES.clone() : (ResType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (ResType[]) $VALUES.clone();
+        }
+        return (ResType[]) invokeV.objValue;
     }
 }

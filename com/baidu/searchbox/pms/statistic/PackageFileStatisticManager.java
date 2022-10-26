@@ -19,7 +19,7 @@ public class PackageFileStatisticManager {
     public Context mContext;
 
     /* loaded from: classes2.dex */
-    public static class Code {
+    public class Code {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOWNLOAD_RESULT_CODE_CANCEL = 4;
         public static final int DOWNLOAD_RESULT_CODE_FRONT_FAILED = 21;
@@ -82,17 +82,15 @@ public class PackageFileStatisticManager {
 
     public void addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addDownloadStatistic2(i, str, str2, str3, j, str4, str5, i2, i3)) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && !StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addDownloadStatistic2(i, str, str2, str3, j, str4, str5, i2, i3)) {
+            DebugUtils.log("Host Cannot Handle the addDownloadStatistic2 Callback");
         }
-        DebugUtils.log("Host Cannot Handle the addDownloadStatistic2 Callback");
     }
 
     public void addFetchStatistic2(int i, String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject}) == null) || StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addFetchStatistic2InHost(i, str, str2, jSONObject)) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject}) == null) && !StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addFetchStatistic2InHost(i, str, str2, jSONObject)) {
+            DebugUtils.log("Host Cannot Handle the addFetchStatistic2 Callback");
         }
-        DebugUtils.log("Host Cannot Handle the addFetchStatistic2 Callback");
     }
 }

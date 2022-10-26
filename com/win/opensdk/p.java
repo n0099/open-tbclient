@@ -39,10 +39,9 @@ public class p extends Handler {
         PBDrawVideo pBDrawVideo;
         PBDrawVideoListener pBDrawVideoListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBDrawVideoListener = (pBDrawVideo = this.a).d) == null || pBDrawVideo.e) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && (pBDrawVideoListener = (pBDrawVideo = this.a).d) != null && !pBDrawVideo.e) {
+            pBDrawVideoListener.onFail(PBError.LOAD_TIME_OUT);
+            this.a.f = true;
         }
-        pBDrawVideoListener.onFail(PBError.LOAD_TIME_OUT);
-        this.a.f = true;
     }
 }

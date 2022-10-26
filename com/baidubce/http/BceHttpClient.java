@@ -1,6 +1,5 @@
 package com.baidubce.http;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,7 +40,6 @@ import okhttp3.Response;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
-@SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
 public class BceHttpClient {
     public static /* synthetic */ Interceptable $ic;
@@ -51,6 +49,127 @@ public class BceHttpClient {
     public long diffMillis;
     public OkHttpClient httpClient;
     public final Signer signer;
+
+    /* loaded from: classes7.dex */
+    public class BceServiceRequestBody extends RequestBody {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public BceProgressCallback callback;
+        public long length;
+        public MediaType mediaType;
+        public AbstractBceRequest request;
+        public InputStream restartableInputStream;
+        public final /* synthetic */ BceHttpClient this$0;
+
+        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest internalRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bceHttpClient, internalRequest};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = bceHttpClient;
+            if (internalRequest.getContent() != null) {
+                this.mediaType = MediaType.parse((String) internalRequest.getHeaders().get("Content-Type"));
+                this.restartableInputStream = internalRequest.getContent();
+                this.length = getContentLength(internalRequest);
+                this.callback = null;
+                this.request = internalRequest.getRequest();
+            }
+        }
+
+        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest internalRequest, BceProgressCallback bceProgressCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bceHttpClient, internalRequest, bceProgressCallback};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = bceHttpClient;
+            if (internalRequest.getContent() != null) {
+                this.mediaType = MediaType.parse((String) internalRequest.getHeaders().get("Content-Type"));
+                this.restartableInputStream = internalRequest.getContent();
+                this.length = getContentLength(internalRequest);
+                this.callback = bceProgressCallback;
+                this.request = internalRequest.getRequest();
+            }
+        }
+
+        private long getContentLength(InternalRequest internalRequest) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, internalRequest)) == null) {
+                String str = (String) internalRequest.getHeaders().get("Content-Length");
+                if (str != null) {
+                    return Long.parseLong(str);
+                }
+                return 0L;
+            }
+            return invokeL.longValue;
+        }
+
+        @Override // okhttp3.RequestBody
+        public long contentLength() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.length;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // okhttp3.RequestBody
+        public MediaType contentType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mediaType;
+            }
+            return (MediaType) invokeV.objValue;
+        }
+
+        @Override // okhttp3.RequestBody
+        public void writeTo(BufferedSink bufferedSink) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                long contentLength = contentLength();
+                Source source = Okio.source(this.restartableInputStream);
+                long j = 0;
+                while (j < contentLength) {
+                    long read = source.read(bufferedSink.buffer(), Math.min(contentLength - j, this.this$0.config.getUploadSegmentPart()));
+                    if (read == -1) {
+                        break;
+                    }
+                    long j2 = j + read;
+                    bufferedSink.flush();
+                    BceProgressCallback bceProgressCallback = this.callback;
+                    if (bceProgressCallback != null) {
+                        bceProgressCallback.onProgress(this.request, j2, contentLength);
+                    }
+                    j = j2;
+                }
+                if (source != null) {
+                    source.close();
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -89,50 +208,76 @@ public class BceHttpClient {
         }
     }
 
-    public <T extends AbstractBceRequest> OkHttpClient addResponseProgressCallback(T t, BceProgressCallback<T> bceProgressCallback) {
-        InterceptResult invokeLL;
+    public BceHttpClient(BceClientConfiguration bceClientConfiguration, OkHttpClient okHttpClient, Signer signer) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t, bceProgressCallback)) == null) ? this.httpClient.newBuilder().addNetworkInterceptor(new Interceptor(this, t, bceProgressCallback) { // from class: com.baidubce.http.BceHttpClient.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ BceHttpClient this$0;
-            public final /* synthetic */ BceProgressCallback val$callback;
-            public final /* synthetic */ AbstractBceRequest val$request;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, t, bceProgressCallback};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$request = t;
-                this.val$callback = bceProgressCallback;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bceClientConfiguration, okHttpClient, signer};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-
-            @Override // okhttp3.Interceptor
-            public Response intercept(Interceptor.Chain chain) throws IOException {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, chain)) == null) {
-                    Response proceed = chain.proceed(chain.request());
-                    return proceed.newBuilder().body(new BceServiceResponseBody(proceed.body(), this.val$request, this.val$callback)).build();
-                }
-                return (Response) invokeL.objValue;
-            }
-        }).build() : (OkHttpClient) invokeLL.objValue;
+        }
+        this.diffMillis = 0L;
+        CheckUtils.isNotNull(bceClientConfiguration, "config should not be null.");
+        CheckUtils.isNotNull(signer, "signer should not be null.");
+        this.config = bceClientConfiguration;
+        this.httpClient = okHttpClient;
+        this.signer = signer;
     }
 
-    public <T extends AbstractBceRequest> Request createHttpRequest(InternalRequest<T> internalRequest, BceProgressCallback<T> bceProgressCallback) {
+    public OkHttpClient addResponseProgressCallback(AbstractBceRequest abstractBceRequest, BceProgressCallback bceProgressCallback) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, abstractBceRequest, bceProgressCallback)) == null) {
+            return this.httpClient.newBuilder().addNetworkInterceptor(new Interceptor(this, abstractBceRequest, bceProgressCallback) { // from class: com.baidubce.http.BceHttpClient.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BceHttpClient this$0;
+                public final /* synthetic */ BceProgressCallback val$callback;
+                public final /* synthetic */ AbstractBceRequest val$request;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, abstractBceRequest, bceProgressCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$request = abstractBceRequest;
+                    this.val$callback = bceProgressCallback;
+                }
+
+                @Override // okhttp3.Interceptor
+                public Response intercept(Interceptor.Chain chain) throws IOException {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, chain)) == null) {
+                        Response proceed = chain.proceed(chain.request());
+                        return proceed.newBuilder().body(new BceServiceResponseBody(proceed.body(), this.val$request, this.val$callback)).build();
+                    }
+                    return (Response) invokeL.objValue;
+                }
+            }).build();
+        }
+        return (OkHttpClient) invokeLL.objValue;
+    }
+
+    public Request createHttpRequest(InternalRequest internalRequest, BceProgressCallback bceProgressCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, internalRequest, bceProgressCallback)) == null) {
@@ -163,9 +308,9 @@ public class BceHttpClient {
             } else {
                 throw new BceClientException("Unknown HTTP method name: " + internalRequest.getHttpMethod());
             }
-            for (Map.Entry<String, String> entry : internalRequest.getHeaders().entrySet()) {
-                if (!entry.getKey().equalsIgnoreCase("Content-Length") && !entry.getKey().equalsIgnoreCase("Host")) {
-                    url.addHeader(entry.getKey(), entry.getValue());
+            for (Map.Entry entry : internalRequest.getHeaders().entrySet()) {
+                if (!((String) entry.getKey()).equalsIgnoreCase("Content-Length") && !((String) entry.getKey()).equalsIgnoreCase("Host")) {
+                    url.addHeader((String) entry.getKey(), (String) entry.getValue());
                 }
             }
             return url.build();
@@ -173,10 +318,138 @@ public class BceHttpClient {
         return (Request) invokeLL.objValue;
     }
 
-    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T execute(InternalRequest<M> internalRequest, Class<T> cls, HttpResponseHandler[] httpResponseHandlerArr) {
+    public AbstractBceResponse execute(InternalRequest internalRequest, Class cls, HttpResponseHandler[] httpResponseHandlerArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, internalRequest, cls, httpResponseHandlerArr)) == null) ? (T) execute(internalRequest, cls, httpResponseHandlerArr, null) : (T) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, internalRequest, cls, httpResponseHandlerArr)) == null) {
+            return execute(internalRequest, cls, httpResponseHandlerArr, null);
+        }
+        return (AbstractBceResponse) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0150  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x018a A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public AbstractBceResponse execute(InternalRequest internalRequest, Class cls, HttpResponseHandler[] httpResponseHandlerArr, BceProgressCallback bceProgressCallback) {
+        InterceptResult invokeLLLL;
+        BceServiceException bceServiceException;
+        long delayBeforeNextRetryInMillis;
+        SignOptions signOptions;
+        OkHttpClient okHttpClient;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, internalRequest, cls, httpResponseHandlerArr, bceProgressCallback)) == null) {
+            internalRequest.addHeader("User-Agent", this.config.getUserAgent());
+            internalRequest.addHeader("Accept-Encoding", this.config.getAcceptEncoding());
+            BceCredentials credentials = this.config.getCredentials();
+            if (internalRequest.getCredentials() != null) {
+                credentials = internalRequest.getCredentials();
+            }
+            BceCredentials bceCredentials = credentials;
+            long j = 0;
+            int i = 1;
+            while (true) {
+                try {
+                    j = Calendar.getInstance().getTimeInMillis();
+                    Date date = new Date(this.diffMillis + j);
+                    if (internalRequest.getSignOptions() == null) {
+                        signOptions = SignOptions.DEFAULT;
+                    } else {
+                        signOptions = internalRequest.getSignOptions();
+                    }
+                    signOptions.setTimestamp(date);
+                    internalRequest.setSignOptions(signOptions);
+                    if (this.diffMillis != 0) {
+                        internalRequest.addHeader(Headers.BCE_DATE, DateUtils.alternateIso8601DateFormat(date));
+                    }
+                    if (bceCredentials != null) {
+                        this.signer.sign(internalRequest, bceCredentials);
+                    }
+                    okHttpClient = this.httpClient;
+                } catch (BceServiceException e) {
+                    e = e;
+                } catch (BceClientException e2) {
+                    e = e2;
+                } catch (Exception e3) {
+                    e = e3;
+                }
+                try {
+                    Request createHttpRequest = createHttpRequest(internalRequest, bceProgressCallback);
+                    if (internalRequest.getRequest() instanceof GetObjectRequest) {
+                        okHttpClient = addResponseProgressCallback(internalRequest.getRequest(), ((GetObjectRequest) internalRequest.getRequest()).getProgressCallback());
+                        BLog.debug("getObject");
+                    }
+                    Call newCall = okHttpClient.newCall(createHttpRequest);
+                    if (internalRequest.getRequest() != null) {
+                        internalRequest.getRequest().setCall(newCall);
+                        if (internalRequest.getRequest().getCanceled()) {
+                            throw new BceClientException("Request is canceled!");
+                        }
+                    }
+                    BceHttpResponse bceHttpResponse = new BceHttpResponse(newCall.execute());
+                    bceHttpResponse.getHeader("Date");
+                    AbstractBceResponse abstractBceResponse = (AbstractBceResponse) cls.newInstance();
+                    int length = httpResponseHandlerArr.length;
+                    for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, abstractBceResponse); i2++) {
+                    }
+                    return abstractBceResponse;
+                } catch (BceServiceException e4) {
+                    e = e4;
+                    BceServiceException bceServiceException2 = e;
+                    boolean equals = ErrorCode.REQUEST_TIME_TOO_SKEWED.equals(bceServiceException2.getErrorCode());
+                    bceServiceException = bceServiceException2;
+                    if (equals) {
+                        Date parseRfc822Date = DateUtils.parseRfc822Date("");
+                        bceServiceException = bceServiceException2;
+                        bceServiceException = bceServiceException2;
+                        if (!"".equals("") && parseRfc822Date != null) {
+                            synchronized (this) {
+                                this.diffMillis = parseRfc822Date.getTime() - j;
+                            }
+                            bceServiceException = bceServiceException2;
+                        }
+                    }
+                    BLog.warn("Unable to execute HTTP request");
+                    delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                    if (delayBeforeNextRetryInMillis >= 0) {
+                        BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i);
+                        try {
+                            Thread.sleep(delayBeforeNextRetryInMillis);
+                            if (internalRequest.getContent() != null) {
+                                internalRequest.getContent().restart();
+                            }
+                            i++;
+                        } catch (InterruptedException e5) {
+                            throw new BceClientException("Delay interrupted", e5);
+                        }
+                    } else {
+                        throw bceServiceException;
+                    }
+                } catch (BceClientException e6) {
+                    e = e6;
+                    bceServiceException = e;
+                    BLog.warn("Unable to execute HTTP request");
+                    delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                    if (delayBeforeNextRetryInMillis >= 0) {
+                    }
+                } catch (Exception e7) {
+                    e = e7;
+                    if (internalRequest.getRequest() != null && internalRequest.getRequest().isCanceled()) {
+                        bceServiceException = new BceClientException("Request is canceled!", e);
+                    } else {
+                        bceServiceException = new BceClientException("Unable to execute HTTP request", e);
+                    }
+                    BLog.warn("Unable to execute HTTP request");
+                    delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
+                    if (delayBeforeNextRetryInMillis >= 0) {
+                    }
+                }
+                i++;
+            }
+        } else {
+            return (AbstractBceResponse) invokeLLLL.objValue;
+        }
     }
 
     public long getDelayBeforeNextRetryInMillis(InternalRequest internalRequest, BceClientException bceClientException, int i, RetryPolicy retryPolicy) {
@@ -190,262 +463,5 @@ public class BceHttpClient {
             return Math.min(retryPolicy.getMaxDelayInMillis(), retryPolicy.getDelayBeforeNextRetryInMillis(bceClientException, i2));
         }
         return invokeLLIL.longValue;
-    }
-
-    public BceHttpClient(BceClientConfiguration bceClientConfiguration, OkHttpClient okHttpClient, Signer signer) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bceClientConfiguration, okHttpClient, signer};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.diffMillis = 0L;
-        CheckUtils.isNotNull(bceClientConfiguration, "config should not be null.");
-        CheckUtils.isNotNull(signer, "signer should not be null.");
-        this.config = bceClientConfiguration;
-        this.httpClient = okHttpClient;
-        this.signer = signer;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0150  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x018a A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T execute(InternalRequest<M> internalRequest, Class<T> cls, HttpResponseHandler[] httpResponseHandlerArr, BceProgressCallback<M> bceProgressCallback) {
-        InterceptResult invokeLLLL;
-        BceServiceException bceServiceException;
-        long delayBeforeNextRetryInMillis;
-        OkHttpClient okHttpClient;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(1048579, this, internalRequest, cls, httpResponseHandlerArr, bceProgressCallback)) != null) {
-            return (T) invokeLLLL.objValue;
-        }
-        internalRequest.addHeader("User-Agent", this.config.getUserAgent());
-        internalRequest.addHeader("Accept-Encoding", this.config.getAcceptEncoding());
-        BceCredentials credentials = this.config.getCredentials();
-        if (internalRequest.getCredentials() != null) {
-            credentials = internalRequest.getCredentials();
-        }
-        BceCredentials bceCredentials = credentials;
-        long j = 0;
-        int i = 1;
-        while (true) {
-            try {
-                j = Calendar.getInstance().getTimeInMillis();
-                Date date = new Date(this.diffMillis + j);
-                SignOptions signOptions = internalRequest.getSignOptions() == null ? SignOptions.DEFAULT : internalRequest.getSignOptions();
-                signOptions.setTimestamp(date);
-                internalRequest.setSignOptions(signOptions);
-                if (this.diffMillis != 0) {
-                    internalRequest.addHeader(Headers.BCE_DATE, DateUtils.alternateIso8601DateFormat(date));
-                }
-                if (bceCredentials != null) {
-                    this.signer.sign(internalRequest, bceCredentials);
-                }
-                okHttpClient = this.httpClient;
-            } catch (BceServiceException e) {
-                e = e;
-            } catch (BceClientException e2) {
-                e = e2;
-            } catch (Exception e3) {
-                e = e3;
-            }
-            try {
-                Request createHttpRequest = createHttpRequest(internalRequest, bceProgressCallback);
-                if (internalRequest.getRequest() instanceof GetObjectRequest) {
-                    okHttpClient = addResponseProgressCallback(internalRequest.getRequest(), ((GetObjectRequest) internalRequest.getRequest()).getProgressCallback());
-                    BLog.debug("getObject");
-                }
-                Call newCall = okHttpClient.newCall(createHttpRequest);
-                if (internalRequest.getRequest() != null) {
-                    internalRequest.getRequest().setCall(newCall);
-                    if (internalRequest.getRequest().getCanceled()) {
-                        throw new BceClientException("Request is canceled!");
-                    }
-                }
-                BceHttpResponse bceHttpResponse = new BceHttpResponse(newCall.execute());
-                bceHttpResponse.getHeader("Date");
-                T newInstance = cls.newInstance();
-                int length = httpResponseHandlerArr.length;
-                for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, newInstance); i2++) {
-                }
-                return newInstance;
-            } catch (BceServiceException e4) {
-                e = e4;
-                BceServiceException bceServiceException2 = e;
-                boolean equals = ErrorCode.REQUEST_TIME_TOO_SKEWED.equals(bceServiceException2.getErrorCode());
-                bceServiceException = bceServiceException2;
-                if (equals) {
-                    Date parseRfc822Date = DateUtils.parseRfc822Date("");
-                    bceServiceException = bceServiceException2;
-                    bceServiceException = bceServiceException2;
-                    if (!"".equals("") && parseRfc822Date != null) {
-                        synchronized (this) {
-                            this.diffMillis = parseRfc822Date.getTime() - j;
-                        }
-                        bceServiceException = bceServiceException2;
-                    }
-                }
-                BLog.warn("Unable to execute HTTP request");
-                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                if (delayBeforeNextRetryInMillis >= 0) {
-                    BLog.warn("Retriable error detected, will retry in " + delayBeforeNextRetryInMillis + " ms, attempt number: " + i);
-                    try {
-                        Thread.sleep(delayBeforeNextRetryInMillis);
-                        if (internalRequest.getContent() != null) {
-                            internalRequest.getContent().restart();
-                        }
-                        i++;
-                    } catch (InterruptedException e5) {
-                        throw new BceClientException("Delay interrupted", e5);
-                    }
-                } else {
-                    throw bceServiceException;
-                }
-            } catch (BceClientException e6) {
-                e = e6;
-                bceServiceException = e;
-                BLog.warn("Unable to execute HTTP request");
-                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                if (delayBeforeNextRetryInMillis >= 0) {
-                }
-            } catch (Exception e7) {
-                e = e7;
-                if (internalRequest.getRequest() != null && internalRequest.getRequest().isCanceled()) {
-                    bceServiceException = new BceClientException("Request is canceled!", e);
-                } else {
-                    bceServiceException = new BceClientException("Unable to execute HTTP request", e);
-                }
-                BLog.warn("Unable to execute HTTP request");
-                delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
-                if (delayBeforeNextRetryInMillis >= 0) {
-                }
-            }
-            i++;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public BceProgressCallback<T> callback;
-        public long length;
-        public MediaType mediaType;
-        public T request;
-        public InputStream restartableInputStream;
-        public final /* synthetic */ BceHttpClient this$0;
-
-        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest<T> internalRequest, BceProgressCallback<T> bceProgressCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bceHttpClient, internalRequest, bceProgressCallback};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = bceHttpClient;
-            if (internalRequest.getContent() != null) {
-                this.mediaType = MediaType.parse(internalRequest.getHeaders().get("Content-Type"));
-                this.restartableInputStream = internalRequest.getContent();
-                this.length = getContentLength(internalRequest);
-                this.callback = bceProgressCallback;
-                this.request = internalRequest.getRequest();
-            }
-        }
-
-        private long getContentLength(InternalRequest<T> internalRequest) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, internalRequest)) == null) {
-                String str = internalRequest.getHeaders().get("Content-Length");
-                if (str != null) {
-                    return Long.parseLong(str);
-                }
-                return 0L;
-            }
-            return invokeL.longValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public long contentLength() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.length : invokeV.longValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mediaType : (MediaType) invokeV.objValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public void writeTo(BufferedSink bufferedSink) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                long contentLength = contentLength();
-                Source source = Okio.source(this.restartableInputStream);
-                long j = 0;
-                while (j < contentLength) {
-                    long read = source.read(bufferedSink.buffer(), Math.min(contentLength - j, this.this$0.config.getUploadSegmentPart()));
-                    if (read == -1) {
-                        break;
-                    }
-                    long j2 = j + read;
-                    bufferedSink.flush();
-                    BceProgressCallback<T> bceProgressCallback = this.callback;
-                    if (bceProgressCallback != null) {
-                        bceProgressCallback.onProgress(this.request, j2, contentLength);
-                    }
-                    j = j2;
-                }
-                if (source != null) {
-                    source.close();
-                }
-            }
-        }
-
-        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest<T> internalRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bceHttpClient, internalRequest};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = bceHttpClient;
-            if (internalRequest.getContent() != null) {
-                this.mediaType = MediaType.parse(internalRequest.getHeaders().get("Content-Type"));
-                this.restartableInputStream = internalRequest.getContent();
-                this.length = getContentLength(internalRequest);
-                this.callback = null;
-                this.request = internalRequest.getRequest();
-            }
-        }
     }
 }

@@ -58,15 +58,15 @@ public class OauthManager extends SDKManager {
         return (OauthManager) invokeL.objValue;
     }
 
-    public <T> void getAuthoriseCode(int i, CallBack<T> callBack) {
+    public void getAuthoriseCode(int i, CallBack callBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, callBack) == null) {
             new d(this.mContext, i, callBack).a(1);
         }
     }
 
-    public <T> void getMobileForCode(String str, int i, CallBack<T> callBack) {
-        e<T> a;
+    public void getMobileForCode(String str, int i, CallBack callBack) {
+        e a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, callBack) == null) {
             if (a.a(str).booleanValue()) {
@@ -90,8 +90,8 @@ public class OauthManager extends SDKManager {
         }
     }
 
-    public <T> void getMobileForCode(String str, String str2, int i, CallBack<T> callBack) {
-        e<T> a;
+    public void getMobileForCode(String str, String str2, int i, CallBack callBack) {
+        e a;
         int i2;
         String str3;
         Interceptable interceptable = $ic;
@@ -99,7 +99,10 @@ public class OauthManager extends SDKManager {
             if (a.a(str).booleanValue()) {
                 i2 = 101001;
                 str3 = "授权码不能为空";
-            } else if (!a.a(str2).booleanValue()) {
+            } else if (a.a(str2).booleanValue()) {
+                i2 = 101002;
+                str3 = "认证的手机号不能为空";
+            } else {
                 d dVar = new d(this.mContext, i, callBack);
                 Context context = dVar.d;
                 a.b(com.sdk.b.a.a, "oauth cache clear", com.sdk.b.a.b);
@@ -117,9 +120,6 @@ public class OauthManager extends SDKManager {
                 }
                 dVar.f = a;
                 return;
-            } else {
-                i2 = 101002;
-                str3 = "认证的手机号不能为空";
             }
             SDKManager.toFailed(callBack, i2, str3);
         }

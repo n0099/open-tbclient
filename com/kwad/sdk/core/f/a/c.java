@@ -8,7 +8,7 @@ import com.zui.deviceidservice.IDeviceidInterface;
 public interface c extends IInterface {
 
     /* loaded from: classes7.dex */
-    public static final class a implements c {
+    public final class a implements c {
         public IBinder Zy;
 
         public a(IBinder iBinder) {

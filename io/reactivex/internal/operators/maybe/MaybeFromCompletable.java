@@ -14,19 +14,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamCompletableSource;
 /* loaded from: classes8.dex */
-public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstreamCompletableSource {
+public final class MaybeFromCompletable extends Maybe implements HasUpstreamCompletableSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class FromCompletableObserver<T> implements CompletableObserver, Disposable {
+    public final class FromCompletableObserver implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
 
-        public FromCompletableObserver(MaybeObserver<? super T> maybeObserver) {
+        public FromCompletableObserver(MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,31 +44,6 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
             this.actual = maybeObserver;
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.d = DisposableHelper.DISPOSED;
-                this.actual.onComplete();
-            }
-        }
-
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -84,6 +59,34 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
             if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
                 this.d = disposable;
                 this.actual.onSubscribe(this);
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.d = DisposableHelper.DISPOSED;
+                this.actual.onComplete();
             }
         }
     }
@@ -106,18 +109,21 @@ public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstre
         this.source = completableSource;
     }
 
-    @Override // io.reactivex.internal.fuseable.HasUpstreamCompletableSource
-    public CompletableSource source() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source : (CompletableSource) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             this.source.subscribe(new FromCompletableObserver(maybeObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.HasUpstreamCompletableSource
+    public CompletableSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source;
+        }
+        return (CompletableSource) invokeV.objValue;
     }
 }

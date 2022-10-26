@@ -109,13 +109,10 @@ public final class PreHandleDnsExecutor {
     public static PreHandleDnsExecutor valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PreHandleDnsExecutor) Enum.valueOf(PreHandleDnsExecutor.class, str) : (PreHandleDnsExecutor) invokeL.objValue;
-    }
-
-    public static PreHandleDnsExecutor[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PreHandleDnsExecutor[]) $VALUES.clone() : (PreHandleDnsExecutor[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PreHandleDnsExecutor) Enum.valueOf(PreHandleDnsExecutor.class, str);
+        }
+        return (PreHandleDnsExecutor) invokeL.objValue;
     }
 
     public boolean addTask(ThreadInfo threadInfo) {
@@ -131,5 +128,14 @@ public final class PreHandleDnsExecutor {
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public static PreHandleDnsExecutor[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PreHandleDnsExecutor[]) $VALUES.clone();
+        }
+        return (PreHandleDnsExecutor[]) invokeV.objValue;
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class a implements ParamBuilder<a> {
+public class a implements ParamBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
+    public Map a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class a implements ParamBuilder<a> {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, String> map = this.a;
+            Map map = this.a;
             if (map == null || map.isEmpty()) {
                 return null;
             }
             String str = new String();
             int i = 0;
             for (String str2 : this.a.keySet()) {
-                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.a.get(str2));
+                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue((String) this.a.get(str2));
                 if (i == 0) {
                     sb = new StringBuilder();
                 } else {

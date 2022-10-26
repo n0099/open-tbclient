@@ -31,7 +31,7 @@ public class ThreadPoolService implements NoProguard {
     public ThreadPoolExecutor poolService;
 
     /* loaded from: classes2.dex */
-    public static class SingletonContainer {
+    public class SingletonContainer {
         public static /* synthetic */ Interceptable $ic;
         public static ThreadPoolService mSingleInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,11 @@ public class ThreadPoolService implements NoProguard {
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         CPU_COUNT = availableProcessors;
-        CORE_POOL_SIZE = availableProcessors > 4 ? availableProcessors / 2 : 2;
+        int i = 2;
+        if (availableProcessors > 4) {
+            i = availableProcessors / 2;
+        }
+        CORE_POOL_SIZE = i;
         THREAD_FACTORY = new ThreadFactory() { // from class: com.baidu.sapi2.utils.ThreadPoolService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -93,9 +97,9 @@ public class ThreadPoolService implements NoProguard {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -114,26 +118,6 @@ public class ThreadPoolService implements NoProguard {
                 return (Thread) invokeL.objValue;
             }
         };
-    }
-
-    public static ThreadPoolService getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? SingletonContainer.mSingleInstance : (ThreadPoolService) invokeV.objValue;
-    }
-
-    public void run(TPRunnable tPRunnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tPRunnable) == null) {
-            this.poolService.submit(tPRunnable);
-        }
-    }
-
-    public void runInUiThread(TPRunnable tPRunnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
-            this.mHandler.sendMessage(this.mHandler.obtainMessage(0, tPRunnable));
-        }
     }
 
     public ThreadPoolService() {
@@ -180,12 +164,14 @@ public class ThreadPoolService implements NoProguard {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     int i3 = message.what;
-                    if (i3 == 0) {
-                        ((TPRunnable) message.obj).run();
-                    } else if (i3 != 1) {
-                    } else {
-                        this.this$0.poolService.submit(((TPRunnable) message.obj).runable);
+                    if (i3 != 0) {
+                        if (i3 == 1) {
+                            this.this$0.poolService.submit(((TPRunnable) message.obj).runable);
+                            return;
+                        }
+                        return;
                     }
+                    ((TPRunnable) message.obj).run();
                 }
             }
         };
@@ -195,5 +181,28 @@ public class ThreadPoolService implements NoProguard {
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);
         }
+    }
+
+    public void run(TPRunnable tPRunnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tPRunnable) == null) {
+            this.poolService.submit(tPRunnable);
+        }
+    }
+
+    public void runInUiThread(TPRunnable tPRunnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
+            this.mHandler.sendMessage(this.mHandler.obtainMessage(0, tPRunnable));
+        }
+    }
+
+    public static ThreadPoolService getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return SingletonContainer.mSingleInstance;
+        }
+        return (ThreadPoolService) invokeV.objValue;
     }
 }

@@ -4,8 +4,8 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f50;
-import com.baidu.tieba.k60;
+import com.baidu.tieba.g50;
+import com.baidu.tieba.l60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,40 @@ public class ZipSignatureSchemeV2Verifier {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class SignatureNotFoundException extends Exception {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void feedIntoMessageDigests(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
+
+        long size();
+    }
+
+    public static boolean r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
+            if (i == 513 || i == 514 || i == 769) {
+                return true;
+            }
+            switch (i) {
+                case 257:
+                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
+                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
+                case 260:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    /* loaded from: classes2.dex */
+    public class SignatureNotFoundException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +138,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public static class VerbatimX509Certificate extends WrappedX509Certificate {
+    public class VerbatimX509Certificate extends WrappedX509Certificate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] encodedVerbatim;
@@ -135,12 +168,15 @@ public class ZipSignatureSchemeV2Verifier {
         public byte[] getEncoded() throws CertificateEncodingException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.encodedVerbatim : (byte[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.encodedVerbatim;
+            }
+            return (byte[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class WrappedX509Certificate extends X509Certificate {
+    public class WrappedX509Certificate extends X509Certificate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate wrapped;
@@ -164,165 +200,21 @@ public class ZipSignatureSchemeV2Verifier {
         }
 
         @Override // java.security.cert.X509Certificate
-        public void checkValidity() throws CertificateExpiredException, CertificateNotYetValidException {
+        public void checkValidity(Date date) throws CertificateExpiredException, CertificateNotYetValidException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.wrapped.checkValidity();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date) == null) {
+                this.wrapped.checkValidity(date);
             }
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public int getBasicConstraints() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.wrapped.getBasicConstraints() : invokeV.intValue;
-        }
-
-        @Override // java.security.cert.X509Extension
-        public Set<String> getCriticalExtensionOIDs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.wrapped.getCriticalExtensionOIDs() : (Set) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.Certificate
-        public byte[] getEncoded() throws CertificateEncodingException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.wrapped.getEncoded() : (byte[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Extension
         public byte[] getExtensionValue(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.wrapped.getExtensionValue(str) : (byte[]) invokeL.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public Principal getIssuerDN() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.wrapped.getIssuerDN() : (Principal) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public boolean[] getIssuerUniqueID() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.wrapped.getIssuerUniqueID() : (boolean[]) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public boolean[] getKeyUsage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.wrapped.getKeyUsage() : (boolean[]) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Extension
-        public Set<String> getNonCriticalExtensionOIDs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.wrapped.getNonCriticalExtensionOIDs() : (Set) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public Date getNotAfter() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.wrapped.getNotAfter() : (Date) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public Date getNotBefore() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.wrapped.getNotBefore() : (Date) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.Certificate
-        public PublicKey getPublicKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.wrapped.getPublicKey() : (PublicKey) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public BigInteger getSerialNumber() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.wrapped.getSerialNumber() : (BigInteger) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public String getSigAlgName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.wrapped.getSigAlgName() : (String) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public String getSigAlgOID() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.wrapped.getSigAlgOID() : (String) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public byte[] getSigAlgParams() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.wrapped.getSigAlgParams() : (byte[]) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public byte[] getSignature() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.wrapped.getSignature() : (byte[]) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public Principal getSubjectDN() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.wrapped.getSubjectDN() : (Principal) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public boolean[] getSubjectUniqueID() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.wrapped.getSubjectUniqueID() : (boolean[]) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public byte[] getTBSCertificate() throws CertificateEncodingException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.wrapped.getTBSCertificate() : (byte[]) invokeV.objValue;
-        }
-
-        @Override // java.security.cert.X509Certificate
-        public int getVersion() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.wrapped.getVersion() : invokeV.intValue;
-        }
-
-        @Override // java.security.cert.X509Extension
-        public boolean hasUnsupportedCriticalExtension() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.wrapped.hasUnsupportedCriticalExtension() : invokeV.booleanValue;
-        }
-
-        @Override // java.security.cert.Certificate
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.wrapped.toString() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                return this.wrapped.getExtensionValue(str);
+            }
+            return (byte[]) invokeL.objValue;
         }
 
         @Override // java.security.cert.Certificate
@@ -334,11 +226,221 @@ public class ZipSignatureSchemeV2Verifier {
         }
 
         @Override // java.security.cert.X509Certificate
-        public void checkValidity(Date date) throws CertificateExpiredException, CertificateNotYetValidException {
+        public void checkValidity() throws CertificateExpiredException, CertificateNotYetValidException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date) == null) {
-                this.wrapped.checkValidity(date);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.wrapped.checkValidity();
             }
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public int getBasicConstraints() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.wrapped.getBasicConstraints();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.security.cert.X509Extension
+        public Set getCriticalExtensionOIDs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.wrapped.getCriticalExtensionOIDs();
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.Certificate
+        public byte[] getEncoded() throws CertificateEncodingException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.wrapped.getEncoded();
+            }
+            return (byte[]) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public Principal getIssuerDN() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.wrapped.getIssuerDN();
+            }
+            return (Principal) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public boolean[] getIssuerUniqueID() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.wrapped.getIssuerUniqueID();
+            }
+            return (boolean[]) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public boolean[] getKeyUsage() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.wrapped.getKeyUsage();
+            }
+            return (boolean[]) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Extension
+        public Set getNonCriticalExtensionOIDs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.wrapped.getNonCriticalExtensionOIDs();
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public Date getNotAfter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.wrapped.getNotAfter();
+            }
+            return (Date) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public Date getNotBefore() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.wrapped.getNotBefore();
+            }
+            return (Date) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.Certificate
+        public PublicKey getPublicKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.wrapped.getPublicKey();
+            }
+            return (PublicKey) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public BigInteger getSerialNumber() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.wrapped.getSerialNumber();
+            }
+            return (BigInteger) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public String getSigAlgName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.wrapped.getSigAlgName();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public String getSigAlgOID() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.wrapped.getSigAlgOID();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public byte[] getSigAlgParams() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return this.wrapped.getSigAlgParams();
+            }
+            return (byte[]) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public byte[] getSignature() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.wrapped.getSignature();
+            }
+            return (byte[]) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public Principal getSubjectDN() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.wrapped.getSubjectDN();
+            }
+            return (Principal) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public boolean[] getSubjectUniqueID() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return this.wrapped.getSubjectUniqueID();
+            }
+            return (boolean[]) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public byte[] getTBSCertificate() throws CertificateEncodingException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                return this.wrapped.getTBSCertificate();
+            }
+            return (byte[]) invokeV.objValue;
+        }
+
+        @Override // java.security.cert.X509Certificate
+        public int getVersion() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                return this.wrapped.getVersion();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.security.cert.X509Extension
+        public boolean hasUnsupportedCriticalExtension() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                return this.wrapped.hasUnsupportedCriticalExtension();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.security.cert.Certificate
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                return this.wrapped.toString();
+            }
+            return (String) invokeV.objValue;
         }
 
         @Override // java.security.cert.Certificate
@@ -351,13 +453,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class b implements c {
+    public final class b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
@@ -402,19 +498,15 @@ public class ZipSignatureSchemeV2Verifier {
         public long size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.capacity() : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.capacity();
+            }
+            return invokeV.longValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public interface c {
-        void feedIntoMessageDigests(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
-
-        long size();
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class d implements c {
+    public final class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FileChannel a;
@@ -457,12 +549,15 @@ public class ZipSignatureSchemeV2Verifier {
         public long size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return invokeV.longValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class e {
+    public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
@@ -470,10 +565,6 @@ public class ZipSignatureSchemeV2Verifier {
         public final long c;
         public final long d;
         public final ByteBuffer e;
-
-        public /* synthetic */ e(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2, a aVar) {
-            this(byteBuffer, j, j2, j3, byteBuffer2);
-        }
 
         public e(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2) {
             Interceptable interceptable = $ic;
@@ -496,36 +587,87 @@ public class ZipSignatureSchemeV2Verifier {
             this.d = j3;
             this.e = byteBuffer2;
         }
+
+        public /* synthetic */ e(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2, a aVar) {
+            this(byteBuffer, j, j2, j3, byteBuffer2);
+        }
     }
 
     public static void a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
-            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
+        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.order() == ByteOrder.LITTLE_ENDIAN) {
+            return;
         }
+        throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
+    }
+
+    public static final long j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
+            return ((j + 1048576) - 1) / 1048576;
+        }
+        return invokeJ.longValue;
+    }
+
+    public static Pair m(RandomAccessFile randomAccessFile) throws IOException, SignatureNotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, randomAccessFile)) == null) {
+            Pair c2 = l60.c(randomAccessFile);
+            if (c2 != null) {
+                return c2;
+            }
+            throw new SignatureNotFoundException("Not an APK file: ZIP End of Central Directory record not found");
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static X509Certificate[][] v(File file) throws SignatureNotFoundException, SecurityException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, file)) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
+            try {
+                return w(randomAccessFile);
+            } finally {
+                g50.c(randomAccessFile);
+            }
+        }
+        return (X509Certificate[][]) invokeL.objValue;
+    }
+
+    public static X509Certificate[][] w(RandomAccessFile randomAccessFile) throws SignatureNotFoundException, SecurityException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, randomAccessFile)) == null) {
+            return x(randomAccessFile, randomAccessFile.getFD(), g(randomAccessFile));
+        }
+        return (X509Certificate[][]) invokeL.objValue;
     }
 
     public static int b(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            if (i == 1) {
-                if (i2 != 1) {
+            if (i != 1) {
+                if (i == 2) {
+                    if (i2 == 1) {
+                        return 1;
+                    }
                     if (i2 == 2) {
-                        return -1;
+                        return 0;
                     }
                     throw new IllegalArgumentException("Unknown digestAlgorithm2: " + i2);
                 }
-                return 0;
-            } else if (i != 2) {
                 throw new IllegalArgumentException("Unknown digestAlgorithm1: " + i);
-            } else if (i2 != 1) {
+            } else if (i2 == 1) {
+                return 0;
+            } else {
                 if (i2 == 2) {
-                    return 0;
+                    return -1;
                 }
                 throw new IllegalArgumentException("Unknown digestAlgorithm2: " + i2);
-            } else {
-                return 1;
             }
         }
         return invokeII.intValue;
@@ -534,7 +676,10 @@ public class ZipSignatureSchemeV2Verifier {
     public static int c(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? b(o(i), o(i2)) : invokeII.intValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            return b(o(i), o(i2));
+        }
+        return invokeII.intValue;
     }
 
     public static byte[][] d(int[] iArr, c[] cVarArr) throws DigestException {
@@ -596,13 +741,14 @@ public class ZipSignatureSchemeV2Verifier {
                                 c cVar3 = cVar2;
                                 int i12 = length;
                                 int digest = messageDigestArr[i10].digest(bArr5, (i5 * l) + 5, l);
-                                if (digest != l) {
+                                if (digest == l) {
+                                    i10++;
+                                    bArr3 = bArr4;
+                                    cVar2 = cVar3;
+                                    length = i12;
+                                } else {
                                     throw new RuntimeException("Unexpected output size of " + messageDigest.getAlgorithm() + " digest: " + digest);
                                 }
-                                i10++;
-                                bArr3 = bArr4;
-                                cVar2 = cVar3;
-                                length = i12;
                             }
                             long j4 = min;
                             j3 += j4;
@@ -672,7 +818,7 @@ public class ZipSignatureSchemeV2Verifier {
         return (ByteBuffer) invokeL.objValue;
     }
 
-    public static Pair<ByteBuffer, Long> f(RandomAccessFile randomAccessFile, long j) throws IOException, SignatureNotFoundException {
+    public static Pair f(RandomAccessFile randomAccessFile, long j) throws IOException, SignatureNotFoundException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, randomAccessFile, j)) == null) {
@@ -683,23 +829,23 @@ public class ZipSignatureSchemeV2Verifier {
                 randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
                 if (allocate.getLong(8) == ApkSignatureSchemeV2Verifier.APK_SIG_BLOCK_MAGIC_LO && allocate.getLong(16) == ApkSignatureSchemeV2Verifier.APK_SIG_BLOCK_MAGIC_HI) {
                     long j2 = allocate.getLong(0);
-                    if (j2 < allocate.capacity() || j2 > 2147483639) {
-                        throw new SignatureNotFoundException("APK Signing Block size out of range: " + j2);
-                    }
-                    int i = (int) (8 + j2);
-                    long j3 = j - i;
-                    if (j3 >= 0) {
-                        ByteBuffer allocate2 = ByteBuffer.allocate(i);
-                        allocate2.order(ByteOrder.LITTLE_ENDIAN);
-                        randomAccessFile.seek(j3);
-                        randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                        long j4 = allocate2.getLong(0);
-                        if (j4 == j2) {
-                            return Pair.create(allocate2, Long.valueOf(j3));
+                    if (j2 >= allocate.capacity() && j2 <= 2147483639) {
+                        int i = (int) (8 + j2);
+                        long j3 = j - i;
+                        if (j3 >= 0) {
+                            ByteBuffer allocate2 = ByteBuffer.allocate(i);
+                            allocate2.order(ByteOrder.LITTLE_ENDIAN);
+                            randomAccessFile.seek(j3);
+                            randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
+                            long j4 = allocate2.getLong(0);
+                            if (j4 == j2) {
+                                return Pair.create(allocate2, Long.valueOf(j3));
+                            }
+                            throw new SignatureNotFoundException("APK Signing Block sizes in header and footer do not match: " + j4 + " vs " + j2);
                         }
-                        throw new SignatureNotFoundException("APK Signing Block sizes in header and footer do not match: " + j4 + " vs " + j2);
+                        throw new SignatureNotFoundException("APK Signing Block offset out of range: " + j3);
                     }
-                    throw new SignatureNotFoundException("APK Signing Block offset out of range: " + j3);
+                    throw new SignatureNotFoundException("APK Signing Block size out of range: " + j2);
                 }
                 throw new SignatureNotFoundException("No APK Signing Block before ZIP Central Directory");
             }
@@ -712,127 +858,17 @@ public class ZipSignatureSchemeV2Verifier {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, randomAccessFile)) == null) {
-            Pair<ByteBuffer, Long> m = m(randomAccessFile);
+            Pair m = m(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) m.first;
             long longValue = ((Long) m.second).longValue();
-            if (!k60.i(randomAccessFile, longValue)) {
+            if (!l60.i(randomAccessFile, longValue)) {
                 long i = i(byteBuffer, longValue);
-                Pair<ByteBuffer, Long> f = f(randomAccessFile, i);
+                Pair f = f(randomAccessFile, i);
                 return new e(e((ByteBuffer) f.first), ((Long) f.second).longValue(), i, longValue, byteBuffer, null);
             }
             throw new SignatureNotFoundException("ZIP64 APK not supported");
         }
         return (e) invokeL.objValue;
-    }
-
-    public static ByteBuffer h(ByteBuffer byteBuffer, int i) throws BufferUnderflowException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, byteBuffer, i)) == null) {
-            if (i >= 0) {
-                int limit = byteBuffer.limit();
-                int position = byteBuffer.position();
-                int i2 = i + position;
-                if (i2 >= position && i2 <= limit) {
-                    byteBuffer.limit(i2);
-                    try {
-                        ByteBuffer slice = byteBuffer.slice();
-                        slice.order(byteBuffer.order());
-                        byteBuffer.position(i2);
-                        return slice;
-                    } finally {
-                        byteBuffer.limit(limit);
-                    }
-                }
-                throw new BufferUnderflowException();
-            }
-            throw new IllegalArgumentException("size: " + i);
-        }
-        return (ByteBuffer) invokeLI.objValue;
-    }
-
-    public static long i(ByteBuffer byteBuffer, long j) throws SignatureNotFoundException {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65544, null, byteBuffer, j)) == null) {
-            long g = k60.g(byteBuffer);
-            if (g < j) {
-                if (k60.h(byteBuffer) + g == j) {
-                    return g;
-                }
-                throw new SignatureNotFoundException("ZIP Central Directory is not immediately followed by End of Central Directory");
-            }
-            throw new SignatureNotFoundException("ZIP Central Directory offset out of range: " + g + ". ZIP End of Central Directory offset: " + j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static final long j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? ((j + 1048576) - 1) / 1048576 : invokeJ.longValue;
-    }
-
-    public static String k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            if (i != 1) {
-                if (i == 2) {
-                    return "SHA-512";
-                }
-                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
-            }
-            return "SHA-256";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static int l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
-            if (i != 1) {
-                if (i == 2) {
-                    return 64;
-                }
-                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
-            }
-            return 32;
-        }
-        return invokeI.intValue;
-    }
-
-    public static Pair<ByteBuffer, Long> m(RandomAccessFile randomAccessFile) throws IOException, SignatureNotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, randomAccessFile)) == null) {
-            Pair<ByteBuffer, Long> c2 = k60.c(randomAccessFile);
-            if (c2 != null) {
-                return c2;
-            }
-            throw new SignatureNotFoundException("Not an APK file: ZIP End of Central Directory record not found");
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static ByteBuffer n(ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, byteBuffer)) == null) {
-            if (byteBuffer.remaining() >= 4) {
-                int i = byteBuffer.getInt();
-                if (i >= 0) {
-                    if (i <= byteBuffer.remaining()) {
-                        return h(byteBuffer, i);
-                    }
-                    throw new IOException("Length-prefixed field longer than remaining buffer. Field length: " + i + ", remaining: " + byteBuffer.remaining());
-                }
-                throw new IllegalArgumentException("Negative length");
-            }
-            throw new IOException("Remaining buffer too short to contain length of length-prefixed field. Remaining: " + byteBuffer.remaining());
-        }
-        return (ByteBuffer) invokeL.objValue;
     }
 
     public static int o(int i) {
@@ -866,26 +902,135 @@ public class ZipSignatureSchemeV2Verifier {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
-            if (i == 513 || i == 514) {
-                return "EC";
-            }
-            if (i != 769) {
-                switch (i) {
-                    case 257:
-                    case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
-                    case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
-                    case 260:
-                        return RSAUtil.ALGORITHM_RSA;
-                    default:
-                        throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
+            if (i != 513 && i != 514) {
+                if (i != 769) {
+                    switch (i) {
+                        case 257:
+                        case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
+                        case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
+                        case 260:
+                            return RSAUtil.ALGORITHM_RSA;
+                        default:
+                            throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
+                    }
                 }
+                return "DSA";
             }
-            return "DSA";
+            return "EC";
         }
         return (String) invokeI.objValue;
     }
 
-    public static Pair<String, ? extends AlgorithmParameterSpec> q(int i) {
+    public static byte[] s(ByteBuffer byteBuffer) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, byteBuffer)) == null) {
+            int i = byteBuffer.getInt();
+            if (i >= 0) {
+                if (i <= byteBuffer.remaining()) {
+                    byte[] bArr = new byte[i];
+                    byteBuffer.get(bArr);
+                    return bArr;
+                }
+                throw new IOException("Underflow while reading length-prefixed value. Length: " + i + ", available: " + byteBuffer.remaining());
+            }
+            throw new IOException("Negative length");
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static ByteBuffer h(ByteBuffer byteBuffer, int i) throws BufferUnderflowException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, byteBuffer, i)) == null) {
+            if (i >= 0) {
+                int limit = byteBuffer.limit();
+                int position = byteBuffer.position();
+                int i2 = i + position;
+                if (i2 >= position && i2 <= limit) {
+                    byteBuffer.limit(i2);
+                    try {
+                        ByteBuffer slice = byteBuffer.slice();
+                        slice.order(byteBuffer.order());
+                        byteBuffer.position(i2);
+                        return slice;
+                    } finally {
+                        byteBuffer.limit(limit);
+                    }
+                }
+                throw new BufferUnderflowException();
+            }
+            throw new IllegalArgumentException("size: " + i);
+        }
+        return (ByteBuffer) invokeLI.objValue;
+    }
+
+    public static long i(ByteBuffer byteBuffer, long j) throws SignatureNotFoundException {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65544, null, byteBuffer, j)) == null) {
+            long g = l60.g(byteBuffer);
+            if (g < j) {
+                if (l60.h(byteBuffer) + g == j) {
+                    return g;
+                }
+                throw new SignatureNotFoundException("ZIP Central Directory is not immediately followed by End of Central Directory");
+            }
+            throw new SignatureNotFoundException("ZIP Central Directory offset out of range: " + g + ". ZIP End of Central Directory offset: " + j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static String k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            if (i != 1) {
+                if (i == 2) {
+                    return "SHA-512";
+                }
+                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
+            }
+            return "SHA-256";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static int l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            if (i != 1) {
+                if (i == 2) {
+                    return 64;
+                }
+                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
+            }
+            return 32;
+        }
+        return invokeI.intValue;
+    }
+
+    public static ByteBuffer n(ByteBuffer byteBuffer) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, byteBuffer)) == null) {
+            if (byteBuffer.remaining() >= 4) {
+                int i = byteBuffer.getInt();
+                if (i >= 0) {
+                    if (i <= byteBuffer.remaining()) {
+                        return h(byteBuffer, i);
+                    }
+                    throw new IOException("Length-prefixed field longer than remaining buffer. Field length: " + i + ", remaining: " + byteBuffer.remaining());
+                }
+                throw new IllegalArgumentException("Negative length");
+            }
+            throw new IOException("Remaining buffer too short to contain length of length-prefixed field. Remaining: " + byteBuffer.remaining());
+        }
+        return (ByteBuffer) invokeL.objValue;
+    }
+
+    public static Pair q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
@@ -914,44 +1059,6 @@ public class ZipSignatureSchemeV2Verifier {
         return (Pair) invokeI.objValue;
     }
 
-    public static boolean r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
-            if (i == 513 || i == 514 || i == 769) {
-                return true;
-            }
-            switch (i) {
-                case 257:
-                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
-                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
-                case 260:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static byte[] s(ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, byteBuffer)) == null) {
-            int i = byteBuffer.getInt();
-            if (i >= 0) {
-                if (i <= byteBuffer.remaining()) {
-                    byte[] bArr = new byte[i];
-                    byteBuffer.get(bArr);
-                    return bArr;
-                }
-                throw new IOException("Underflow while reading length-prefixed value. Length: " + i + ", available: " + byteBuffer.remaining());
-            }
-            throw new IOException("Negative length");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
     public static void t(int i, byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2)}) == null) {
@@ -966,52 +1073,32 @@ public class ZipSignatureSchemeV2Verifier {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65556, null, byteBuffer, i, i2)) == null) {
-            if (i < 0) {
-                throw new IllegalArgumentException("start: " + i);
-            } else if (i2 >= i) {
-                int capacity = byteBuffer.capacity();
-                if (i2 <= byteBuffer.capacity()) {
-                    int limit = byteBuffer.limit();
-                    int position = byteBuffer.position();
-                    try {
-                        byteBuffer.position(0);
-                        byteBuffer.limit(i2);
-                        byteBuffer.position(i);
-                        ByteBuffer slice = byteBuffer.slice();
-                        slice.order(byteBuffer.order());
-                        return slice;
-                    } finally {
-                        byteBuffer.position(0);
-                        byteBuffer.limit(limit);
-                        byteBuffer.position(position);
+            if (i >= 0) {
+                if (i2 >= i) {
+                    int capacity = byteBuffer.capacity();
+                    if (i2 <= byteBuffer.capacity()) {
+                        int limit = byteBuffer.limit();
+                        int position = byteBuffer.position();
+                        try {
+                            byteBuffer.position(0);
+                            byteBuffer.limit(i2);
+                            byteBuffer.position(i);
+                            ByteBuffer slice = byteBuffer.slice();
+                            slice.order(byteBuffer.order());
+                            return slice;
+                        } finally {
+                            byteBuffer.position(0);
+                            byteBuffer.limit(limit);
+                            byteBuffer.position(position);
+                        }
                     }
+                    throw new IllegalArgumentException("end > capacity: " + i2 + " > " + capacity);
                 }
-                throw new IllegalArgumentException("end > capacity: " + i2 + " > " + capacity);
-            } else {
                 throw new IllegalArgumentException("end < start: " + i2 + " < " + i);
             }
+            throw new IllegalArgumentException("start: " + i);
         }
         return (ByteBuffer) invokeLII.objValue;
-    }
-
-    public static X509Certificate[][] v(File file) throws SignatureNotFoundException, SecurityException, IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, file)) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
-            try {
-                return w(randomAccessFile);
-            } finally {
-                f50.c(randomAccessFile);
-            }
-        }
-        return (X509Certificate[][]) invokeL.objValue;
-    }
-
-    public static X509Certificate[][] w(RandomAccessFile randomAccessFile) throws SignatureNotFoundException, SecurityException, IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, randomAccessFile)) == null) ? x(randomAccessFile, randomAccessFile.getFD(), g(randomAccessFile)) : (X509Certificate[][]) invokeL.objValue;
     }
 
     public static X509Certificate[][] x(RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, e eVar) throws SecurityException {
@@ -1051,7 +1138,7 @@ public class ZipSignatureSchemeV2Verifier {
         return (X509Certificate[][]) invokeLLL.objValue;
     }
 
-    public static void y(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
+    public static void y(Map map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
         c bVar;
         c bVar2;
         Interceptable interceptable = $ic;
@@ -1082,7 +1169,7 @@ public class ZipSignatureSchemeV2Verifier {
                 }
                 ByteBuffer duplicate = byteBuffer.duplicate();
                 duplicate.order(ByteOrder.LITTLE_ENDIAN);
-                k60.k(duplicate, j);
+                l60.k(duplicate, j);
                 b bVar3 = new b(duplicate);
                 int size = map.size();
                 int[] iArr = new int[size];
@@ -1095,7 +1182,7 @@ public class ZipSignatureSchemeV2Verifier {
                     byte[][] d2 = d(iArr, new c[]{bVar, bVar2, bVar3});
                     for (int i2 = 0; i2 < size; i2++) {
                         int i3 = iArr[i2];
-                        if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), d2[i2])) {
+                        if (!MessageDigest.isEqual((byte[]) map.get(Integer.valueOf(i3)), d2[i2])) {
                             throw new SecurityException(k(i3) + " digest of contents did not verify");
                         }
                     }
@@ -1108,7 +1195,7 @@ public class ZipSignatureSchemeV2Verifier {
         }
     }
 
-    public static X509Certificate[] z(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) throws SecurityException, IOException {
+    public static X509Certificate[] z(ByteBuffer byteBuffer, Map map, CertificateFactory certificateFactory) throws SecurityException, IOException {
         InterceptResult invokeLLL;
         int o;
         Interceptable interceptable = $ic;
@@ -1146,7 +1233,7 @@ public class ZipSignatureSchemeV2Verifier {
                 throw new SecurityException("No supported signatures found");
             }
             String p = p(i);
-            Pair<String, ? extends AlgorithmParameterSpec> q = q(i);
+            Pair q = q(i);
             String str = (String) q.first;
             AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) q.second;
             try {
@@ -1180,8 +1267,8 @@ public class ZipSignatureSchemeV2Verifier {
                         }
                     }
                     if (arrayList.equals(arrayList2)) {
-                        byte[] put = map.put(Integer.valueOf(o(i)), bArr);
-                        if (put != null && !MessageDigest.isEqual(put, bArr)) {
+                        byte[] bArr3 = (byte[]) map.put(Integer.valueOf(o(i)), bArr);
+                        if (bArr3 != null && !MessageDigest.isEqual(bArr3, bArr)) {
                             throw new SecurityException(k(o) + " contents digest does not match the digest specified by a preceding signer");
                         }
                         ByteBuffer n6 = n(n);

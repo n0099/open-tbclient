@@ -7,8 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -42,7 +40,6 @@ public class OpenAppIntentUtil {
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0033, code lost:
         r0.setPackage(r2);
      */
-    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -86,20 +83,34 @@ public class OpenAppIntentUtil {
         return (Intent) invokeCommon.objValue;
     }
 
-    @Nullable
-    public static Intent createIntent(@NonNull Context context, String str, String str2, boolean z) {
+    public static Intent createIntent(Context context, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) ? createIntent(context, str, str2, z, null) : (Intent) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+            return createIntent(context, str, str2, z, null);
+        }
+        return (Intent) invokeCommon.objValue;
     }
 
-    @Nullable
+    public static Intent createIntent(Context context, String str, String str2, boolean z, OpenAppCallback openAppCallback) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z), openAppCallback})) == null) {
+            if (!isAndroidApp(str) && !isIntentScheme(str)) {
+                return createDefaultIntent(context, str, str2, z, openAppCallback);
+            }
+            return createSchemeIntent(context, str, str2, openAppCallback);
+        }
+        return (Intent) invokeCommon.objValue;
+    }
+
     public static Intent createSchemeIntent(Context context, String str, String str2, OpenAppCallback openAppCallback) {
         InterceptResult invokeLLLL;
         List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, openAppCallback)) == null) {
             PackageManager packageManager = context.getPackageManager();
+            Intent intent = null;
             try {
                 Intent parseUri = Intent.parseUri(str, 1);
                 if (parseUri == null) {
@@ -122,11 +133,13 @@ public class OpenAppIntentUtil {
                 }
                 return packageManager.getLaunchIntentForPackage(str2);
             } catch (URISyntaxException unused) {
-                Intent launchIntentForPackage = TextUtils.isEmpty(str2) ? null : packageManager.getLaunchIntentForPackage(str2);
-                if (launchIntentForPackage == null && openAppCallback != null) {
+                if (!TextUtils.isEmpty(str2)) {
+                    intent = packageManager.getLaunchIntentForPackage(str2);
+                }
+                if (intent == null && openAppCallback != null) {
                     openAppCallback.onFailed(-102);
                 }
-                return launchIntentForPackage;
+                return intent;
             }
         }
         return (Intent) invokeLLLL.objValue;
@@ -180,7 +193,10 @@ public class OpenAppIntentUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return str.startsWith("intent:") || str.startsWith("#Intent;");
+            if (!str.startsWith("intent:") && !str.startsWith("#Intent;")) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -202,17 +218,5 @@ public class OpenAppIntentUtil {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public static Intent createIntent(@NonNull Context context, String str, String str2, boolean z, @Nullable OpenAppCallback openAppCallback) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z), openAppCallback})) == null) {
-            if (!isAndroidApp(str) && !isIntentScheme(str)) {
-                return createDefaultIntent(context, str, str2, z, openAppCallback);
-            }
-            return createSchemeIntent(context, str, str2, openAppCallback);
-        }
-        return (Intent) invokeCommon.objValue;
     }
 }

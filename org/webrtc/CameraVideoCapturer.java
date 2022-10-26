@@ -25,7 +25,30 @@ public interface CameraVideoCapturer extends VideoCapturer {
     }
 
     /* loaded from: classes8.dex */
-    public static class CameraStatistics {
+    public interface CameraSwitchHandler {
+        void onCameraSwitchDone(boolean z);
+
+        void onCameraSwitchError(String str);
+    }
+
+    @Deprecated
+    /* loaded from: classes8.dex */
+    public interface MediaRecorderHandler {
+        void onMediaRecorderError(String str);
+
+        void onMediaRecorderSuccess();
+    }
+
+    @Deprecated
+    void addMediaRecorderToCamera(MediaRecorder mediaRecorder, MediaRecorderHandler mediaRecorderHandler);
+
+    @Deprecated
+    void removeMediaRecorderFromCamera(MediaRecorderHandler mediaRecorderHandler);
+
+    void switchCamera(CameraSwitchHandler cameraSwitchHandler);
+
+    /* loaded from: classes8.dex */
+    public class CameraStatistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CAMERA_FREEZE_REPORT_TIMOUT_MS = 4000;
         public static final int CAMERA_OBSERVER_PERIOD_MS = 2000;
@@ -81,9 +104,7 @@ public interface CameraVideoCapturer extends VideoCapturer {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int round = Math.round((this.this$0.frameCount * 1000.0f) / 2000.0f);
                         Logging.d(CameraStatistics.TAG, "Camera fps: " + round + ".");
-                        if (this.this$0.frameCount != 0) {
-                            this.this$0.freezePeriodCount = 0;
-                        } else {
+                        if (this.this$0.frameCount == 0) {
                             CameraStatistics.access$104(this.this$0);
                             if (this.this$0.freezePeriodCount * 2000 >= 4000 && this.this$0.eventsHandler != null) {
                                 Logging.e(CameraStatistics.TAG, "Camera freezed.");
@@ -95,6 +116,8 @@ public interface CameraVideoCapturer extends VideoCapturer {
                                     return;
                                 }
                             }
+                        } else {
+                            this.this$0.freezePeriodCount = 0;
                         }
                         this.this$0.frameCount = 0;
                         this.this$0.surfaceTextureHelper.getHandler().postDelayed(this, 2000L);
@@ -120,9 +143,10 @@ public interface CameraVideoCapturer extends VideoCapturer {
 
         private void checkThread() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65544, this) == null) && Thread.currentThread() != this.surfaceTextureHelper.getHandler().getLooper().getThread()) {
-                throw new IllegalStateException("Wrong thread");
+            if ((interceptable != null && interceptable.invokeV(65544, this) != null) || Thread.currentThread() == this.surfaceTextureHelper.getHandler().getLooper().getThread()) {
+                return;
             }
+            throw new IllegalStateException("Wrong thread");
         }
 
         public void addFrame() {
@@ -140,27 +164,4 @@ public interface CameraVideoCapturer extends VideoCapturer {
             }
         }
     }
-
-    /* loaded from: classes8.dex */
-    public interface CameraSwitchHandler {
-        void onCameraSwitchDone(boolean z);
-
-        void onCameraSwitchError(String str);
-    }
-
-    @Deprecated
-    /* loaded from: classes8.dex */
-    public interface MediaRecorderHandler {
-        void onMediaRecorderError(String str);
-
-        void onMediaRecorderSuccess();
-    }
-
-    @Deprecated
-    void addMediaRecorderToCamera(MediaRecorder mediaRecorder, MediaRecorderHandler mediaRecorderHandler);
-
-    @Deprecated
-    void removeMediaRecorderFromCamera(MediaRecorderHandler mediaRecorderHandler);
-
-    void switchCamera(CameraSwitchHandler cameraSwitchHandler);
 }

@@ -1,6 +1,5 @@
 package androidx.core.app;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.RemoteInput;
@@ -12,6 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.media.AudioAttributes;
 import android.net.Uri;
 import android.os.Build;
@@ -23,13 +23,6 @@ import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
 import android.util.SparseArray;
 import android.widget.RemoteViews;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DimenRes;
-import androidx.annotation.Dimension;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.app.Person;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.text.BidiFormatter;
@@ -72,7 +65,6 @@ public class NotificationCompat {
     public static final String CATEGORY_STATUS = "status";
     public static final String CATEGORY_SYSTEM = "sys";
     public static final String CATEGORY_TRANSPORT = "transport";
-    @ColorInt
     public static final int COLOR_DEFAULT = 0;
     public static final int DEFAULT_ALL = -1;
     public static final int DEFAULT_LIGHTS = 4;
@@ -138,9 +130,464 @@ public class NotificationCompat {
 
     /* renamed from: androidx.core.app.NotificationCompat$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface BadgeIconType {
+    }
+
+    /* loaded from: classes.dex */
+    public interface Extender {
+        Builder extend(Builder builder);
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface GroupAlertBehavior {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface NotificationVisibility {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface StreamType {
+    }
+
+    /* loaded from: classes.dex */
+    public static final class CarExtender implements Extender {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String EXTRA_CAR_EXTENDER = "android.car.EXTENSIONS";
+        public static final String EXTRA_COLOR = "app_color";
+        public static final String EXTRA_CONVERSATION = "car_conversation";
+        public static final String EXTRA_INVISIBLE_ACTIONS = "invisible_actions";
+        public static final String EXTRA_LARGE_ICON = "large_icon";
+        public static final String KEY_AUTHOR = "author";
+        public static final String KEY_MESSAGES = "messages";
+        public static final String KEY_ON_READ = "on_read";
+        public static final String KEY_ON_REPLY = "on_reply";
+        public static final String KEY_PARTICIPANTS = "participants";
+        public static final String KEY_REMOTE_INPUT = "remote_input";
+        public static final String KEY_TEXT = "text";
+        public static final String KEY_TIMESTAMP = "timestamp";
+        public transient /* synthetic */ FieldHolder $fh;
+        public int mColor;
+        public Bitmap mLargeIcon;
+        public UnreadConversation mUnreadConversation;
+
+        @Deprecated
+        /* loaded from: classes.dex */
+        public static class UnreadConversation {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final long mLatestTimestamp;
+            public final String[] mMessages;
+            public final String[] mParticipants;
+            public final PendingIntent mReadPendingIntent;
+            public final RemoteInput mRemoteInput;
+            public final PendingIntent mReplyPendingIntent;
+
+            /* loaded from: classes.dex */
+            public static class Builder {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public long mLatestTimestamp;
+                public final List<String> mMessages;
+                public final String mParticipant;
+                public PendingIntent mReadPendingIntent;
+                public RemoteInput mRemoteInput;
+                public PendingIntent mReplyPendingIntent;
+
+                public Builder(String str) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {str};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.mMessages = new ArrayList();
+                    this.mParticipant = str;
+                }
+
+                public Builder addMessage(String str) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                        this.mMessages.add(str);
+                        return this;
+                    }
+                    return (Builder) invokeL.objValue;
+                }
+
+                public Builder setLatestTimestamp(long j) {
+                    InterceptResult invokeJ;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                        this.mLatestTimestamp = j;
+                        return this;
+                    }
+                    return (Builder) invokeJ.objValue;
+                }
+
+                public Builder setReadPendingIntent(PendingIntent pendingIntent) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pendingIntent)) == null) {
+                        this.mReadPendingIntent = pendingIntent;
+                        return this;
+                    }
+                    return (Builder) invokeL.objValue;
+                }
+
+                public UnreadConversation build() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        List<String> list = this.mMessages;
+                        return new UnreadConversation((String[]) list.toArray(new String[list.size()]), this.mRemoteInput, this.mReplyPendingIntent, this.mReadPendingIntent, new String[]{this.mParticipant}, this.mLatestTimestamp);
+                    }
+                    return (UnreadConversation) invokeV.objValue;
+                }
+
+                public Builder setReplyAction(PendingIntent pendingIntent, RemoteInput remoteInput) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, pendingIntent, remoteInput)) == null) {
+                        this.mRemoteInput = remoteInput;
+                        this.mReplyPendingIntent = pendingIntent;
+                        return this;
+                    }
+                    return (Builder) invokeLL.objValue;
+                }
+            }
+
+            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.mMessages = strArr;
+                this.mRemoteInput = remoteInput;
+                this.mReadPendingIntent = pendingIntent2;
+                this.mReplyPendingIntent = pendingIntent;
+                this.mParticipants = strArr2;
+                this.mLatestTimestamp = j;
+            }
+
+            public long getLatestTimestamp() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.mLatestTimestamp;
+                }
+                return invokeV.longValue;
+            }
+
+            public String[] getMessages() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.mMessages;
+                }
+                return (String[]) invokeV.objValue;
+            }
+
+            public String getParticipant() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    String[] strArr = this.mParticipants;
+                    if (strArr.length > 0) {
+                        return strArr[0];
+                    }
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            public String[] getParticipants() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.mParticipants;
+                }
+                return (String[]) invokeV.objValue;
+            }
+
+            public PendingIntent getReadPendingIntent() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    return this.mReadPendingIntent;
+                }
+                return (PendingIntent) invokeV.objValue;
+            }
+
+            public RemoteInput getRemoteInput() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                    return this.mRemoteInput;
+                }
+                return (RemoteInput) invokeV.objValue;
+            }
+
+            public PendingIntent getReplyPendingIntent() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                    return this.mReplyPendingIntent;
+                }
+                return (PendingIntent) invokeV.objValue;
+            }
+        }
+
+        public CarExtender() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mColor = 0;
+        }
+
+        public int getColor() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mColor;
+            }
+            return invokeV.intValue;
+        }
+
+        public Bitmap getLargeIcon() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mLargeIcon;
+            }
+            return (Bitmap) invokeV.objValue;
+        }
+
+        @Deprecated
+        public UnreadConversation getUnreadConversation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mUnreadConversation;
+            }
+            return (UnreadConversation) invokeV.objValue;
+        }
+
+        public CarExtender(Notification notification) {
+            Bundle bundle;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {notification};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mColor = 0;
+            if (Build.VERSION.SDK_INT < 21) {
+                return;
+            }
+            if (NotificationCompat.getExtras(notification) == null) {
+                bundle = null;
+            } else {
+                bundle = NotificationCompat.getExtras(notification).getBundle(EXTRA_CAR_EXTENDER);
+            }
+            if (bundle != null) {
+                this.mLargeIcon = (Bitmap) bundle.getParcelable(EXTRA_LARGE_ICON);
+                this.mColor = bundle.getInt(EXTRA_COLOR, 0);
+                this.mUnreadConversation = getUnreadConversationFromBundle(bundle.getBundle(EXTRA_CONVERSATION));
+            }
+        }
+
+        public static Bundle getBundleForUnreadConversation(UnreadConversation unreadConversation) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unreadConversation)) == null) {
+                Bundle bundle = new Bundle();
+                if (unreadConversation.getParticipants() != null && unreadConversation.getParticipants().length > 1) {
+                    str = unreadConversation.getParticipants()[0];
+                } else {
+                    str = null;
+                }
+                int length = unreadConversation.getMessages().length;
+                Parcelable[] parcelableArr = new Parcelable[length];
+                for (int i = 0; i < length; i++) {
+                    Bundle bundle2 = new Bundle();
+                    bundle2.putString("text", unreadConversation.getMessages()[i]);
+                    bundle2.putString(KEY_AUTHOR, str);
+                    parcelableArr[i] = bundle2;
+                }
+                bundle.putParcelableArray(KEY_MESSAGES, parcelableArr);
+                RemoteInput remoteInput = unreadConversation.getRemoteInput();
+                if (remoteInput != null) {
+                    bundle.putParcelable(KEY_REMOTE_INPUT, new RemoteInput.Builder(remoteInput.getResultKey()).setLabel(remoteInput.getLabel()).setChoices(remoteInput.getChoices()).setAllowFreeFormInput(remoteInput.getAllowFreeFormInput()).addExtras(remoteInput.getExtras()).build());
+                }
+                bundle.putParcelable(KEY_ON_REPLY, unreadConversation.getReplyPendingIntent());
+                bundle.putParcelable(KEY_ON_READ, unreadConversation.getReadPendingIntent());
+                bundle.putStringArray(KEY_PARTICIPANTS, unreadConversation.getParticipants());
+                bundle.putLong("timestamp", unreadConversation.getLatestTimestamp());
+                return bundle;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+
+        public static UnreadConversation getUnreadConversationFromBundle(Bundle bundle) {
+            InterceptResult invokeL;
+            String[] strArr;
+            int i;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+                RemoteInput remoteInput = null;
+                if (bundle == null) {
+                    return null;
+                }
+                Parcelable[] parcelableArray = bundle.getParcelableArray(KEY_MESSAGES);
+                if (parcelableArray != null) {
+                    int length = parcelableArray.length;
+                    String[] strArr2 = new String[length];
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (parcelableArray[i2] instanceof Bundle) {
+                            strArr2[i2] = ((Bundle) parcelableArray[i2]).getString("text");
+                            if (strArr2[i2] != null) {
+                            }
+                        }
+                        z = false;
+                        break;
+                    }
+                    z = true;
+                    if (!z) {
+                        return null;
+                    }
+                    strArr = strArr2;
+                } else {
+                    strArr = null;
+                }
+                PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable(KEY_ON_READ);
+                PendingIntent pendingIntent2 = (PendingIntent) bundle.getParcelable(KEY_ON_REPLY);
+                android.app.RemoteInput remoteInput2 = (android.app.RemoteInput) bundle.getParcelable(KEY_REMOTE_INPUT);
+                String[] stringArray = bundle.getStringArray(KEY_PARTICIPANTS);
+                if (stringArray == null || stringArray.length != 1) {
+                    return null;
+                }
+                if (remoteInput2 != null) {
+                    String resultKey = remoteInput2.getResultKey();
+                    CharSequence label = remoteInput2.getLabel();
+                    CharSequence[] choices = remoteInput2.getChoices();
+                    boolean allowFreeFormInput = remoteInput2.getAllowFreeFormInput();
+                    if (Build.VERSION.SDK_INT >= 29) {
+                        i = remoteInput2.getEditChoicesBeforeSending();
+                    } else {
+                        i = 0;
+                    }
+                    remoteInput = new RemoteInput(resultKey, label, choices, allowFreeFormInput, i, remoteInput2.getExtras(), null);
+                }
+                return new UnreadConversation(strArr, remoteInput, pendingIntent2, pendingIntent, stringArray, bundle.getLong("timestamp"));
+            }
+            return (UnreadConversation) invokeL.objValue;
+        }
+
+        @Override // androidx.core.app.NotificationCompat.Extender
+        public Builder extend(Builder builder) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, builder)) == null) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    return builder;
+                }
+                Bundle bundle = new Bundle();
+                Bitmap bitmap = this.mLargeIcon;
+                if (bitmap != null) {
+                    bundle.putParcelable(EXTRA_LARGE_ICON, bitmap);
+                }
+                int i = this.mColor;
+                if (i != 0) {
+                    bundle.putInt(EXTRA_COLOR, i);
+                }
+                UnreadConversation unreadConversation = this.mUnreadConversation;
+                if (unreadConversation != null) {
+                    bundle.putBundle(EXTRA_CONVERSATION, getBundleForUnreadConversation(unreadConversation));
+                }
+                builder.getExtras().putBundle(EXTRA_CAR_EXTENDER, bundle);
+                return builder;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public CarExtender setColor(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.mColor = i;
+                return this;
+            }
+            return (CarExtender) invokeI.objValue;
+        }
+
+        public CarExtender setLargeIcon(Bitmap bitmap) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
+                this.mLargeIcon = bitmap;
+                return this;
+            }
+            return (CarExtender) invokeL.objValue;
+        }
+
+        @Deprecated
+        public CarExtender setUnreadConversation(UnreadConversation unreadConversation) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, unreadConversation)) == null) {
+                this.mUnreadConversation = unreadConversation;
+                return this;
+            }
+            return (CarExtender) invokeL.objValue;
+        }
     }
 
     /* loaded from: classes.dex */
@@ -166,13 +613,22 @@ public class NotificationCompat {
         public boolean mAllowGeneratedReplies;
         public final RemoteInput[] mDataOnlyRemoteInputs;
         public final Bundle mExtras;
-        @Nullable
         public IconCompat mIcon;
         public final boolean mIsContextual;
         public final RemoteInput[] mRemoteInputs;
         public final int mSemanticAction;
         public boolean mShowsUserInterface;
         public CharSequence title;
+
+        /* loaded from: classes.dex */
+        public interface Extender {
+            Builder extend(Builder builder);
+        }
+
+        @Retention(RetentionPolicy.SOURCE)
+        /* loaded from: classes.dex */
+        public @interface SemanticAction {
+        }
 
         /* loaded from: classes.dex */
         public static final class Builder {
@@ -187,140 +643,6 @@ public class NotificationCompat {
             public int mSemanticAction;
             public boolean mShowsUserInterface;
             public final CharSequence mTitle;
-
-            /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-            public Builder(@Nullable IconCompat iconCompat, @Nullable CharSequence charSequence, @Nullable PendingIntent pendingIntent) {
-                this(iconCompat, charSequence, pendingIntent, new Bundle(), null, true, 0, true, false);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iconCompat, charSequence, pendingIntent};
-                    interceptable.invokeUnInit(65538, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Integer) objArr2[6]).intValue(), ((Boolean) objArr2[7]).booleanValue(), ((Boolean) objArr2[8]).booleanValue());
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65538, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            private void checkContextualActionNullFields() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.mIsContextual && this.mIntent == null) {
-                    throw new NullPointerException("Contextual Actions must contain a valid PendingIntent");
-                }
-            }
-
-            public Builder addExtras(Bundle bundle) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                    if (bundle != null) {
-                        this.mExtras.putAll(bundle);
-                    }
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Builder addRemoteInput(RemoteInput remoteInput) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteInput)) == null) {
-                    if (this.mRemoteInputs == null) {
-                        this.mRemoteInputs = new ArrayList<>();
-                    }
-                    this.mRemoteInputs.add(remoteInput);
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Action build() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    checkContextualActionNullFields();
-                    ArrayList arrayList = new ArrayList();
-                    ArrayList arrayList2 = new ArrayList();
-                    ArrayList<RemoteInput> arrayList3 = this.mRemoteInputs;
-                    if (arrayList3 != null) {
-                        Iterator<RemoteInput> it = arrayList3.iterator();
-                        while (it.hasNext()) {
-                            RemoteInput next = it.next();
-                            if (next.isDataOnly()) {
-                                arrayList.add(next);
-                            } else {
-                                arrayList2.add(next);
-                            }
-                        }
-                    }
-                    return new Action(this.mIcon, this.mTitle, this.mIntent, this.mExtras, arrayList2.isEmpty() ? null : (RemoteInput[]) arrayList2.toArray(new RemoteInput[arrayList2.size()]), arrayList.isEmpty() ? null : (RemoteInput[]) arrayList.toArray(new RemoteInput[arrayList.size()]), this.mAllowGeneratedReplies, this.mSemanticAction, this.mShowsUserInterface, this.mIsContextual);
-                }
-                return (Action) invokeV.objValue;
-            }
-
-            public Builder extend(Extender extender) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, extender)) == null) {
-                    extender.extend(this);
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            public Bundle getExtras() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
-            }
-
-            public Builder setAllowGeneratedReplies(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                    this.mAllowGeneratedReplies = z;
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
-            }
-
-            @NonNull
-            public Builder setContextual(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                    this.mIsContextual = z;
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
-            }
-
-            public Builder setSemanticAction(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-                    this.mSemanticAction = i;
-                    return this;
-                }
-                return (Builder) invokeI.objValue;
-            }
-
-            public Builder setShowsUserInterface(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                    this.mShowsUserInterface = z;
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
-            }
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
             public Builder(int i, CharSequence charSequence, PendingIntent pendingIntent) {
@@ -364,7 +686,29 @@ public class NotificationCompat {
                 }
             }
 
-            public Builder(@Nullable IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, boolean z, int i, boolean z2, boolean z3) {
+            /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+            public Builder(IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent) {
+                this(iconCompat, charSequence, pendingIntent, new Bundle(), null, true, 0, true, false);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {iconCompat, charSequence, pendingIntent};
+                    interceptable.invokeUnInit(65538, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Integer) objArr2[6]).intValue(), ((Boolean) objArr2[7]).booleanValue(), ((Boolean) objArr2[8]).booleanValue());
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65538, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            public Builder(IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, boolean z, int i, boolean z2, boolean z3) {
+                ArrayList<RemoteInput> arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -385,22 +729,143 @@ public class NotificationCompat {
                 this.mTitle = Builder.limitCharSequenceLength(charSequence);
                 this.mIntent = pendingIntent;
                 this.mExtras = bundle;
-                this.mRemoteInputs = remoteInputArr == null ? null : new ArrayList<>(Arrays.asList(remoteInputArr));
+                if (remoteInputArr == null) {
+                    arrayList = null;
+                } else {
+                    arrayList = new ArrayList<>(Arrays.asList(remoteInputArr));
+                }
+                this.mRemoteInputs = arrayList;
                 this.mAllowGeneratedReplies = z;
                 this.mSemanticAction = i;
                 this.mShowsUserInterface = z2;
                 this.mIsContextual = z3;
             }
-        }
 
-        /* loaded from: classes.dex */
-        public interface Extender {
-            Builder extend(Builder builder);
-        }
+            private void checkContextualActionNullFields() {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || !this.mIsContextual || this.mIntent != null) {
+                    return;
+                }
+                throw new NullPointerException("Contextual Actions must contain a valid PendingIntent");
+            }
 
-        @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes.dex */
-        public @interface SemanticAction {
+            public Bundle getExtras() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    return this.mExtras;
+                }
+                return (Bundle) invokeV.objValue;
+            }
+
+            public Builder addExtras(Bundle bundle) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                    if (bundle != null) {
+                        this.mExtras.putAll(bundle);
+                    }
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder addRemoteInput(RemoteInput remoteInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteInput)) == null) {
+                    if (this.mRemoteInputs == null) {
+                        this.mRemoteInputs = new ArrayList<>();
+                    }
+                    this.mRemoteInputs.add(remoteInput);
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder extend(Extender extender) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, extender)) == null) {
+                    extender.extend(this);
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setAllowGeneratedReplies(boolean z) {
+                InterceptResult invokeZ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                    this.mAllowGeneratedReplies = z;
+                    return this;
+                }
+                return (Builder) invokeZ.objValue;
+            }
+
+            public Builder setContextual(boolean z) {
+                InterceptResult invokeZ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                    this.mIsContextual = z;
+                    return this;
+                }
+                return (Builder) invokeZ.objValue;
+            }
+
+            public Builder setSemanticAction(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                    this.mSemanticAction = i;
+                    return this;
+                }
+                return (Builder) invokeI.objValue;
+            }
+
+            public Builder setShowsUserInterface(boolean z) {
+                InterceptResult invokeZ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+                    this.mShowsUserInterface = z;
+                    return this;
+                }
+                return (Builder) invokeZ.objValue;
+            }
+
+            public Action build() {
+                InterceptResult invokeV;
+                RemoteInput[] remoteInputArr;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    checkContextualActionNullFields();
+                    ArrayList arrayList = new ArrayList();
+                    ArrayList arrayList2 = new ArrayList();
+                    ArrayList<RemoteInput> arrayList3 = this.mRemoteInputs;
+                    if (arrayList3 != null) {
+                        Iterator<RemoteInput> it = arrayList3.iterator();
+                        while (it.hasNext()) {
+                            RemoteInput next = it.next();
+                            if (next.isDataOnly()) {
+                                arrayList.add(next);
+                            } else {
+                                arrayList2.add(next);
+                            }
+                        }
+                    }
+                    RemoteInput[] remoteInputArr2 = null;
+                    if (arrayList.isEmpty()) {
+                        remoteInputArr = null;
+                    } else {
+                        remoteInputArr = (RemoteInput[]) arrayList.toArray(new RemoteInput[arrayList.size()]);
+                    }
+                    if (!arrayList2.isEmpty()) {
+                        remoteInputArr2 = (RemoteInput[]) arrayList2.toArray(new RemoteInput[arrayList2.size()]);
+                    }
+                    return new Action(this.mIcon, this.mTitle, this.mIntent, this.mExtras, remoteInputArr2, remoteInputArr, this.mAllowGeneratedReplies, this.mSemanticAction, this.mShowsUserInterface, this.mIsContextual);
+                }
+                return (Action) invokeV.objValue;
+            }
         }
 
         /* loaded from: classes.dex */
@@ -437,14 +902,110 @@ public class NotificationCompat {
                 this.mFlags = 1;
             }
 
-            private void setFlag(int i, boolean z) {
+            /* JADX DEBUG: Method merged with bridge method */
+            /* renamed from: clone */
+            public WearableExtender m3clone() {
+                InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                    if (z) {
-                        this.mFlags = i | this.mFlags;
-                    } else {
-                        this.mFlags = (~i) & this.mFlags;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    WearableExtender wearableExtender = new WearableExtender();
+                    wearableExtender.mFlags = this.mFlags;
+                    wearableExtender.mInProgressLabel = this.mInProgressLabel;
+                    wearableExtender.mConfirmLabel = this.mConfirmLabel;
+                    wearableExtender.mCancelLabel = this.mCancelLabel;
+                    return wearableExtender;
+                }
+                return (WearableExtender) invokeV.objValue;
+            }
+
+            @Deprecated
+            public CharSequence getCancelLabel() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.mCancelLabel;
+                }
+                return (CharSequence) invokeV.objValue;
+            }
+
+            @Deprecated
+            public CharSequence getConfirmLabel() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    return this.mConfirmLabel;
+                }
+                return (CharSequence) invokeV.objValue;
+            }
+
+            public boolean getHintDisplayActionInline() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                    if ((this.mFlags & 4) != 0) {
+                        return true;
                     }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            public boolean getHintLaunchesActivity() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                    if ((this.mFlags & 2) != 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Deprecated
+            public CharSequence getInProgressLabel() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                    return this.mInProgressLabel;
+                }
+                return (CharSequence) invokeV.objValue;
+            }
+
+            public boolean isAvailableOffline() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                    if ((this.mFlags & 1) != 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            public WearableExtender(Action action) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {action};
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                        return;
+                    }
+                }
+                this.mFlags = 1;
+                Bundle bundle = action.getExtras().getBundle("android.wearable.EXTENSIONS");
+                if (bundle != null) {
+                    this.mFlags = bundle.getInt("flags", 1);
+                    this.mInProgressLabel = bundle.getCharSequence(KEY_IN_PROGRESS_LABEL);
+                    this.mConfirmLabel = bundle.getCharSequence(KEY_CONFIRM_LABEL);
+                    this.mCancelLabel = bundle.getCharSequence(KEY_CANCEL_LABEL);
                 }
             }
 
@@ -476,43 +1037,15 @@ public class NotificationCompat {
                 return (Builder) invokeL.objValue;
             }
 
-            @Deprecated
-            public CharSequence getCancelLabel() {
-                InterceptResult invokeV;
+            private void setFlag(int i, boolean z) {
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCancelLabel : (CharSequence) invokeV.objValue;
-            }
-
-            @Deprecated
-            public CharSequence getConfirmLabel() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mConfirmLabel : (CharSequence) invokeV.objValue;
-            }
-
-            public boolean getHintDisplayActionInline() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.mFlags & 4) != 0 : invokeV.booleanValue;
-            }
-
-            public boolean getHintLaunchesActivity() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.mFlags & 2) != 0 : invokeV.booleanValue;
-            }
-
-            @Deprecated
-            public CharSequence getInProgressLabel() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mInProgressLabel : (CharSequence) invokeV.objValue;
-            }
-
-            public boolean isAvailableOffline() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.mFlags & 1) != 0 : invokeV.booleanValue;
+                if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                    if (z) {
+                        this.mFlags = i | this.mFlags;
+                    } else {
+                        this.mFlags = (~i) & this.mFlags;
+                    }
+                }
             }
 
             public WearableExtender setAvailableOffline(boolean z) {
@@ -577,47 +1110,6 @@ public class NotificationCompat {
                 }
                 return (WearableExtender) invokeL.objValue;
             }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* renamed from: clone */
-            public WearableExtender m3clone() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    WearableExtender wearableExtender = new WearableExtender();
-                    wearableExtender.mFlags = this.mFlags;
-                    wearableExtender.mInProgressLabel = this.mInProgressLabel;
-                    wearableExtender.mConfirmLabel = this.mConfirmLabel;
-                    wearableExtender.mCancelLabel = this.mCancelLabel;
-                    return wearableExtender;
-                }
-                return (WearableExtender) invokeV.objValue;
-            }
-
-            public WearableExtender(Action action) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {action};
-                    interceptable.invokeUnInit(65537, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65537, newInitContext);
-                        return;
-                    }
-                }
-                this.mFlags = 1;
-                Bundle bundle = action.getExtras().getBundle("android.wearable.EXTENSIONS");
-                if (bundle != null) {
-                    this.mFlags = bundle.getInt("flags", 1);
-                    this.mInProgressLabel = bundle.getCharSequence(KEY_IN_PROGRESS_LABEL);
-                    this.mConfirmLabel = bundle.getCharSequence(KEY_CONFIRM_LABEL);
-                    this.mCancelLabel = bundle.getCharSequence(KEY_CANCEL_LABEL);
-                }
-            }
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -636,102 +1128,6 @@ public class NotificationCompat {
                     this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public PendingIntent getActionIntent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.actionIntent : (PendingIntent) invokeV.objValue;
-        }
-
-        public boolean getAllowGeneratedReplies() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAllowGeneratedReplies : invokeV.booleanValue;
-        }
-
-        public RemoteInput[] getDataOnlyRemoteInputs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDataOnlyRemoteInputs : (RemoteInput[]) invokeV.objValue;
-        }
-
-        public Bundle getExtras() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
-        }
-
-        @Deprecated
-        public int getIcon() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.icon : invokeV.intValue;
-        }
-
-        @Nullable
-        public IconCompat getIconCompat() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.mIcon == null && (i = this.icon) != 0) {
-                    this.mIcon = IconCompat.createWithResource(null, "", i);
-                }
-                return this.mIcon;
-            }
-            return (IconCompat) invokeV.objValue;
-        }
-
-        public RemoteInput[] getRemoteInputs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRemoteInputs : (RemoteInput[]) invokeV.objValue;
-        }
-
-        public int getSemanticAction() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSemanticAction : invokeV.intValue;
-        }
-
-        public boolean getShowsUserInterface() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mShowsUserInterface : invokeV.booleanValue;
-        }
-
-        public CharSequence getTitle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.title : (CharSequence) invokeV.objValue;
-        }
-
-        public boolean isContextual() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIsContextual : invokeV.booleanValue;
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Action(@Nullable IconCompat iconCompat, @Nullable CharSequence charSequence, @Nullable PendingIntent pendingIntent) {
-            this(iconCompat, charSequence, pendingIntent, new Bundle(), (RemoteInput[]) null, (RemoteInput[]) null, true, 0, true, false);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {iconCompat, charSequence, pendingIntent};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], (RemoteInput[]) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue(), ((Boolean) objArr2[8]).booleanValue(), ((Boolean) objArr2[9]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
@@ -758,7 +1154,28 @@ public class NotificationCompat {
             }
         }
 
-        public Action(@Nullable IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i, boolean z2, boolean z3) {
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public Action(IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent) {
+            this(iconCompat, charSequence, pendingIntent, new Bundle(), (RemoteInput[]) null, (RemoteInput[]) null, true, 0, true, false);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {iconCompat, charSequence, pendingIntent};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], (RemoteInput[]) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue(), ((Boolean) objArr2[8]).booleanValue(), ((Boolean) objArr2[9]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public Action(IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -788,12 +1205,1065 @@ public class NotificationCompat {
             this.mShowsUserInterface = z2;
             this.mIsContextual = z3;
         }
+
+        public PendingIntent getActionIntent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.actionIntent;
+            }
+            return (PendingIntent) invokeV.objValue;
+        }
+
+        public boolean getAllowGeneratedReplies() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mAllowGeneratedReplies;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public RemoteInput[] getDataOnlyRemoteInputs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mDataOnlyRemoteInputs;
+            }
+            return (RemoteInput[]) invokeV.objValue;
+        }
+
+        public Bundle getExtras() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mExtras;
+            }
+            return (Bundle) invokeV.objValue;
+        }
+
+        @Deprecated
+        public int getIcon() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.icon;
+            }
+            return invokeV.intValue;
+        }
+
+        public IconCompat getIconCompat() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.mIcon == null && (i = this.icon) != 0) {
+                    this.mIcon = IconCompat.createWithResource(null, "", i);
+                }
+                return this.mIcon;
+            }
+            return (IconCompat) invokeV.objValue;
+        }
+
+        public RemoteInput[] getRemoteInputs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.mRemoteInputs;
+            }
+            return (RemoteInput[]) invokeV.objValue;
+        }
+
+        public int getSemanticAction() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.mSemanticAction;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean getShowsUserInterface() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.mShowsUserInterface;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public CharSequence getTitle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.title;
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        public boolean isContextual() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.mIsContextual;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
-    public @interface BadgeIconType {
+    public static final class BubbleMetadata {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int FLAG_AUTO_EXPAND_BUBBLE = 1;
+        public static final int FLAG_SUPPRESS_NOTIFICATION = 2;
+        public transient /* synthetic */ FieldHolder $fh;
+        public PendingIntent mDeleteIntent;
+        public int mDesiredHeight;
+        public int mDesiredHeightResId;
+        public int mFlags;
+        public IconCompat mIcon;
+        public PendingIntent mPendingIntent;
+
+        /* loaded from: classes.dex */
+        public static final class Builder {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public PendingIntent mDeleteIntent;
+            public int mDesiredHeight;
+            public int mDesiredHeightResId;
+            public int mFlags;
+            public IconCompat mIcon;
+            public PendingIntent mPendingIntent;
+
+            public Builder() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            private Builder setFlag(int i, boolean z) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+                    if (z) {
+                        this.mFlags = i | this.mFlags;
+                    } else {
+                        this.mFlags = (~i) & this.mFlags;
+                    }
+                    return this;
+                }
+                return (Builder) invokeCommon.objValue;
+            }
+
+            public BubbleMetadata build() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    PendingIntent pendingIntent = this.mPendingIntent;
+                    if (pendingIntent != null) {
+                        IconCompat iconCompat = this.mIcon;
+                        if (iconCompat != null) {
+                            return new BubbleMetadata(pendingIntent, this.mDeleteIntent, iconCompat, this.mDesiredHeight, this.mDesiredHeightResId, this.mFlags, null);
+                        }
+                        throw new IllegalStateException("Must supply an icon for the bubble");
+                    }
+                    throw new IllegalStateException("Must supply pending intent to bubble");
+                }
+                return (BubbleMetadata) invokeV.objValue;
+            }
+
+            public Builder setAutoExpandBubble(boolean z) {
+                InterceptResult invokeZ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                    setFlag(1, z);
+                    return this;
+                }
+                return (Builder) invokeZ.objValue;
+            }
+
+            public Builder setDeleteIntent(PendingIntent pendingIntent) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pendingIntent)) == null) {
+                    this.mDeleteIntent = pendingIntent;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setDesiredHeight(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                    this.mDesiredHeight = Math.max(i, 0);
+                    this.mDesiredHeightResId = 0;
+                    return this;
+                }
+                return (Builder) invokeI.objValue;
+            }
+
+            public Builder setDesiredHeightResId(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                    this.mDesiredHeightResId = i;
+                    this.mDesiredHeight = 0;
+                    return this;
+                }
+                return (Builder) invokeI.objValue;
+            }
+
+            public Builder setIcon(IconCompat iconCompat) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iconCompat)) == null) {
+                    if (iconCompat != null) {
+                        if (iconCompat.getType() != 1) {
+                            this.mIcon = iconCompat;
+                            return this;
+                        }
+                        throw new IllegalArgumentException("When using bitmap based icons, Bubbles require TYPE_ADAPTIVE_BITMAP, please use IconCompat#createWithAdaptiveBitmap instead");
+                    }
+                    throw new IllegalArgumentException("Bubbles require non-null icon");
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setIntent(PendingIntent pendingIntent) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pendingIntent)) == null) {
+                    if (pendingIntent != null) {
+                        this.mPendingIntent = pendingIntent;
+                        return this;
+                    }
+                    throw new IllegalArgumentException("Bubble requires non-null pending intent");
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setSuppressNotification(boolean z) {
+                InterceptResult invokeZ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                    setFlag(2, z);
+                    return this;
+                }
+                return (Builder) invokeZ.objValue;
+            }
+        }
+
+        public BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pendingIntent, pendingIntent2, iconCompat, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mPendingIntent = pendingIntent;
+            this.mIcon = iconCompat;
+            this.mDesiredHeight = i;
+            this.mDesiredHeightResId = i2;
+            this.mDeleteIntent = pendingIntent2;
+            this.mFlags = i3;
+        }
+
+        public /* synthetic */ BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i, int i2, int i3, AnonymousClass1 anonymousClass1) {
+            this(pendingIntent, pendingIntent2, iconCompat, i, i2, i3);
+        }
+
+        public static BubbleMetadata fromPlatform(Notification.BubbleMetadata bubbleMetadata) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bubbleMetadata)) == null) {
+                if (bubbleMetadata == null) {
+                    return null;
+                }
+                Builder suppressNotification = new Builder().setAutoExpandBubble(bubbleMetadata.getAutoExpandBubble()).setDeleteIntent(bubbleMetadata.getDeleteIntent()).setIcon(IconCompat.createFromIcon(bubbleMetadata.getIcon())).setIntent(bubbleMetadata.getIntent()).setSuppressNotification(bubbleMetadata.isNotificationSuppressed());
+                if (bubbleMetadata.getDesiredHeight() != 0) {
+                    suppressNotification.setDesiredHeight(bubbleMetadata.getDesiredHeight());
+                }
+                if (bubbleMetadata.getDesiredHeightResId() != 0) {
+                    suppressNotification.setDesiredHeightResId(bubbleMetadata.getDesiredHeightResId());
+                }
+                return suppressNotification.build();
+            }
+            return (BubbleMetadata) invokeL.objValue;
+        }
+
+        public static Notification.BubbleMetadata toPlatform(BubbleMetadata bubbleMetadata) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bubbleMetadata)) == null) {
+                if (bubbleMetadata == null) {
+                    return null;
+                }
+                Notification.BubbleMetadata.Builder suppressNotification = new Notification.BubbleMetadata.Builder().setAutoExpandBubble(bubbleMetadata.getAutoExpandBubble()).setDeleteIntent(bubbleMetadata.getDeleteIntent()).setIcon(bubbleMetadata.getIcon().toIcon()).setIntent(bubbleMetadata.getIntent()).setSuppressNotification(bubbleMetadata.isNotificationSuppressed());
+                if (bubbleMetadata.getDesiredHeight() != 0) {
+                    suppressNotification.setDesiredHeight(bubbleMetadata.getDesiredHeight());
+                }
+                if (bubbleMetadata.getDesiredHeightResId() != 0) {
+                    suppressNotification.setDesiredHeightResId(bubbleMetadata.getDesiredHeightResId());
+                }
+                return suppressNotification.build();
+            }
+            return (Notification.BubbleMetadata) invokeL.objValue;
+        }
+
+        public boolean getAutoExpandBubble() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if ((this.mFlags & 1) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public PendingIntent getDeleteIntent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mDeleteIntent;
+            }
+            return (PendingIntent) invokeV.objValue;
+        }
+
+        public int getDesiredHeight() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mDesiredHeight;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getDesiredHeightResId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mDesiredHeightResId;
+            }
+            return invokeV.intValue;
+        }
+
+        public IconCompat getIcon() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mIcon;
+            }
+            return (IconCompat) invokeV.objValue;
+        }
+
+        public PendingIntent getIntent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.mPendingIntent;
+            }
+            return (PendingIntent) invokeV.objValue;
+        }
+
+        public boolean isNotificationSuppressed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                if ((this.mFlags & 2) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class MessagingStyle extends Style {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int MAXIMUM_RETAINED_MESSAGES = 25;
+        public transient /* synthetic */ FieldHolder $fh;
+        public CharSequence mConversationTitle;
+        public Boolean mIsGroupConversation;
+        public final List<Message> mMessages;
+        public Person mUser;
+
+        /* loaded from: classes.dex */
+        public static final class Message {
+            public static /* synthetic */ Interceptable $ic = null;
+            public static final String KEY_DATA_MIME_TYPE = "type";
+            public static final String KEY_DATA_URI = "uri";
+            public static final String KEY_EXTRAS_BUNDLE = "extras";
+            public static final String KEY_NOTIFICATION_PERSON = "sender_person";
+            public static final String KEY_PERSON = "person";
+            public static final String KEY_SENDER = "sender";
+            public static final String KEY_TEXT = "text";
+            public static final String KEY_TIMESTAMP = "time";
+            public transient /* synthetic */ FieldHolder $fh;
+            public String mDataMimeType;
+            public Uri mDataUri;
+            public Bundle mExtras;
+            public final Person mPerson;
+            public final CharSequence mText;
+            public final long mTimestamp;
+
+            public Message(CharSequence charSequence, long j, Person person) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {charSequence, Long.valueOf(j), person};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.mExtras = new Bundle();
+                this.mText = charSequence;
+                this.mTimestamp = j;
+                this.mPerson = person;
+            }
+
+            /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+            @Deprecated
+            public Message(CharSequence charSequence, long j, CharSequence charSequence2) {
+                this(charSequence, j, new Person.Builder().setName(charSequence2).build());
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {charSequence, Long.valueOf(j), charSequence2};
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        this((CharSequence) objArr2[0], ((Long) objArr2[1]).longValue(), (Person) objArr2[2]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                        return;
+                    }
+                }
+            }
+
+            public static Bundle[] getBundleArrayForMessages(List<Message> list) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+                    Bundle[] bundleArr = new Bundle[list.size()];
+                    int size = list.size();
+                    for (int i = 0; i < size; i++) {
+                        bundleArr[i] = list.get(i).toBundle();
+                    }
+                    return bundleArr;
+                }
+                return (Bundle[]) invokeL.objValue;
+            }
+
+            public static Message getMessageFromBundle(Bundle bundle) {
+                InterceptResult invokeL;
+                Person person;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+                    try {
+                        if (bundle.containsKey("text") && bundle.containsKey("time")) {
+                            if (bundle.containsKey("person")) {
+                                person = Person.fromBundle(bundle.getBundle("person"));
+                            } else if (bundle.containsKey(KEY_NOTIFICATION_PERSON) && Build.VERSION.SDK_INT >= 28) {
+                                person = Person.fromAndroidPerson((android.app.Person) bundle.getParcelable(KEY_NOTIFICATION_PERSON));
+                            } else if (bundle.containsKey("sender")) {
+                                person = new Person.Builder().setName(bundle.getCharSequence("sender")).build();
+                            } else {
+                                person = null;
+                            }
+                            Message message = new Message(bundle.getCharSequence("text"), bundle.getLong("time"), person);
+                            if (bundle.containsKey("type") && bundle.containsKey("uri")) {
+                                message.setData(bundle.getString("type"), (Uri) bundle.getParcelable("uri"));
+                            }
+                            if (bundle.containsKey("extras")) {
+                                message.getExtras().putAll(bundle.getBundle("extras"));
+                            }
+                            return message;
+                        }
+                    } catch (ClassCastException unused) {
+                    }
+                    return null;
+                }
+                return (Message) invokeL.objValue;
+            }
+
+            public static List<Message> getMessagesFromBundleArray(Parcelable[] parcelableArr) {
+                InterceptResult invokeL;
+                Message messageFromBundle;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcelableArr)) == null) {
+                    ArrayList arrayList = new ArrayList(parcelableArr.length);
+                    for (int i = 0; i < parcelableArr.length; i++) {
+                        if ((parcelableArr[i] instanceof Bundle) && (messageFromBundle = getMessageFromBundle((Bundle) parcelableArr[i])) != null) {
+                            arrayList.add(messageFromBundle);
+                        }
+                    }
+                    return arrayList;
+                }
+                return (List) invokeL.objValue;
+            }
+
+            private Bundle toBundle() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+                    Bundle bundle = new Bundle();
+                    CharSequence charSequence = this.mText;
+                    if (charSequence != null) {
+                        bundle.putCharSequence("text", charSequence);
+                    }
+                    bundle.putLong("time", this.mTimestamp);
+                    Person person = this.mPerson;
+                    if (person != null) {
+                        bundle.putCharSequence("sender", person.getName());
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            bundle.putParcelable(KEY_NOTIFICATION_PERSON, this.mPerson.toAndroidPerson());
+                        } else {
+                            bundle.putBundle("person", this.mPerson.toBundle());
+                        }
+                    }
+                    String str = this.mDataMimeType;
+                    if (str != null) {
+                        bundle.putString("type", str);
+                    }
+                    Uri uri = this.mDataUri;
+                    if (uri != null) {
+                        bundle.putParcelable("uri", uri);
+                    }
+                    Bundle bundle2 = this.mExtras;
+                    if (bundle2 != null) {
+                        bundle.putBundle("extras", bundle2);
+                    }
+                    return bundle;
+                }
+                return (Bundle) invokeV.objValue;
+            }
+
+            public String getDataMimeType() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.mDataMimeType;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            public Uri getDataUri() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.mDataUri;
+                }
+                return (Uri) invokeV.objValue;
+            }
+
+            public Bundle getExtras() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.mExtras;
+                }
+                return (Bundle) invokeV.objValue;
+            }
+
+            public Person getPerson() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.mPerson;
+                }
+                return (Person) invokeV.objValue;
+            }
+
+            @Deprecated
+            public CharSequence getSender() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    Person person = this.mPerson;
+                    if (person == null) {
+                        return null;
+                    }
+                    return person.getName();
+                }
+                return (CharSequence) invokeV.objValue;
+            }
+
+            public CharSequence getText() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                    return this.mText;
+                }
+                return (CharSequence) invokeV.objValue;
+            }
+
+            public long getTimestamp() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                    return this.mTimestamp;
+                }
+                return invokeV.longValue;
+            }
+
+            public Message setData(String str, Uri uri) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, uri)) == null) {
+                    this.mDataMimeType = str;
+                    this.mDataUri = uri;
+                    return this;
+                }
+                return (Message) invokeLL.objValue;
+            }
+        }
+
+        public MessagingStyle() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mMessages = new ArrayList();
+        }
+
+        public CharSequence getConversationTitle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.mConversationTitle;
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        public List<Message> getMessages() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.mMessages;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public Person getUser() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.mUser;
+            }
+            return (Person) invokeV.objValue;
+        }
+
+        @Deprecated
+        public CharSequence getUserDisplayName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.mUser.getName();
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        public MessagingStyle(Person person) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {person};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mMessages = new ArrayList();
+            if (!TextUtils.isEmpty(person.getName())) {
+                this.mUser = person;
+                return;
+            }
+            throw new IllegalArgumentException("User's name must not be empty.");
+        }
+
+        @Override // androidx.core.app.NotificationCompat.Style
+        public void addCompatExtras(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+                super.addCompatExtras(bundle);
+                bundle.putCharSequence(NotificationCompat.EXTRA_SELF_DISPLAY_NAME, this.mUser.getName());
+                bundle.putBundle(NotificationCompat.EXTRA_MESSAGING_STYLE_USER, this.mUser.toBundle());
+                bundle.putCharSequence(NotificationCompat.EXTRA_HIDDEN_CONVERSATION_TITLE, this.mConversationTitle);
+                if (this.mConversationTitle != null && this.mIsGroupConversation.booleanValue()) {
+                    bundle.putCharSequence(NotificationCompat.EXTRA_CONVERSATION_TITLE, this.mConversationTitle);
+                }
+                if (!this.mMessages.isEmpty()) {
+                    bundle.putParcelableArray(NotificationCompat.EXTRA_MESSAGES, Message.getBundleArrayForMessages(this.mMessages));
+                }
+                Boolean bool = this.mIsGroupConversation;
+                if (bool != null) {
+                    bundle.putBoolean(NotificationCompat.EXTRA_IS_GROUP_CONVERSATION, bool.booleanValue());
+                }
+            }
+        }
+
+        @Deprecated
+        public MessagingStyle(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {charSequence};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.mMessages = new ArrayList();
+            this.mUser = new Person.Builder().setName(charSequence).build();
+        }
+
+        public static MessagingStyle extractMessagingStyleFromNotification(Notification notification) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, notification)) == null) {
+                Bundle extras = NotificationCompat.getExtras(notification);
+                if (extras != null && !extras.containsKey(NotificationCompat.EXTRA_SELF_DISPLAY_NAME) && !extras.containsKey(NotificationCompat.EXTRA_MESSAGING_STYLE_USER)) {
+                    return null;
+                }
+                try {
+                    MessagingStyle messagingStyle = new MessagingStyle();
+                    messagingStyle.restoreFromCompatExtras(extras);
+                    return messagingStyle;
+                } catch (ClassCastException unused) {
+                    return null;
+                }
+            }
+            return (MessagingStyle) invokeL.objValue;
+        }
+
+        private Message findLatestIncomingMessage() {
+            InterceptResult invokeV;
+            List<Message> list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+                for (int size = this.mMessages.size() - 1; size >= 0; size--) {
+                    Message message = this.mMessages.get(size);
+                    if (message.getPerson() != null && !TextUtils.isEmpty(message.getPerson().getName())) {
+                        return message;
+                    }
+                }
+                if (!this.mMessages.isEmpty()) {
+                    return this.mMessages.get(list.size() - 1);
+                }
+                return null;
+            }
+            return (Message) invokeV.objValue;
+        }
+
+        private boolean hasMessagesWithoutSender() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+                for (int size = this.mMessages.size() - 1; size >= 0; size--) {
+                    Message message = this.mMessages.get(size);
+                    if (message.getPerson() != null && message.getPerson().getName() == null) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isGroupConversation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                Builder builder = this.mBuilder;
+                if (builder != null && builder.mContext.getApplicationInfo().targetSdkVersion < 28 && this.mIsGroupConversation == null) {
+                    if (this.mConversationTitle == null) {
+                        return false;
+                    }
+                    return true;
+                }
+                Boolean bool = this.mIsGroupConversation;
+                if (bool == null) {
+                    return false;
+                }
+                return bool.booleanValue();
+            }
+            return invokeV.booleanValue;
+        }
+
+        private TextAppearanceSpan makeFontColorSpan(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+                return new TextAppearanceSpan(null, 0, 0, ColorStateList.valueOf(i), null);
+            }
+            return (TextAppearanceSpan) invokeI.objValue;
+        }
+
+        public MessagingStyle addMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message)) == null) {
+                this.mMessages.add(message);
+                if (this.mMessages.size() > 25) {
+                    this.mMessages.remove(0);
+                }
+                return this;
+            }
+            return (MessagingStyle) invokeL.objValue;
+        }
+
+        public MessagingStyle setConversationTitle(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, charSequence)) == null) {
+                this.mConversationTitle = charSequence;
+                return this;
+            }
+            return (MessagingStyle) invokeL.objValue;
+        }
+
+        public MessagingStyle setGroupConversation(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+                this.mIsGroupConversation = Boolean.valueOf(z);
+                return this;
+            }
+            return (MessagingStyle) invokeZ.objValue;
+        }
+
+        private CharSequence makeMessageLine(Message message) {
+            InterceptResult invokeL;
+            boolean z;
+            int i;
+            CharSequence name;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, message)) == null) {
+                BidiFormatter bidiFormatter = BidiFormatter.getInstance();
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                if (Build.VERSION.SDK_INT >= 21) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    i = -16777216;
+                } else {
+                    i = -1;
+                }
+                CharSequence charSequence = "";
+                if (message.getPerson() == null) {
+                    name = "";
+                } else {
+                    name = message.getPerson().getName();
+                }
+                if (TextUtils.isEmpty(name)) {
+                    name = this.mUser.getName();
+                    if (z && this.mBuilder.getColor() != 0) {
+                        i = this.mBuilder.getColor();
+                    }
+                }
+                CharSequence unicodeWrap = bidiFormatter.unicodeWrap(name);
+                spannableStringBuilder.append(unicodeWrap);
+                spannableStringBuilder.setSpan(makeFontColorSpan(i), spannableStringBuilder.length() - unicodeWrap.length(), spannableStringBuilder.length(), 33);
+                if (message.getText() != null) {
+                    charSequence = message.getText();
+                }
+                spannableStringBuilder.append((CharSequence) GlideException.IndentedAppendable.INDENT).append(bidiFormatter.unicodeWrap(charSequence));
+                return spannableStringBuilder;
+            }
+            return (CharSequence) invokeL.objValue;
+        }
+
+        @Override // androidx.core.app.NotificationCompat.Style
+        public void restoreFromCompatExtras(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+                this.mMessages.clear();
+                if (bundle.containsKey(NotificationCompat.EXTRA_MESSAGING_STYLE_USER)) {
+                    this.mUser = Person.fromBundle(bundle.getBundle(NotificationCompat.EXTRA_MESSAGING_STYLE_USER));
+                } else {
+                    this.mUser = new Person.Builder().setName(bundle.getString(NotificationCompat.EXTRA_SELF_DISPLAY_NAME)).build();
+                }
+                CharSequence charSequence = bundle.getCharSequence(NotificationCompat.EXTRA_CONVERSATION_TITLE);
+                this.mConversationTitle = charSequence;
+                if (charSequence == null) {
+                    this.mConversationTitle = bundle.getCharSequence(NotificationCompat.EXTRA_HIDDEN_CONVERSATION_TITLE);
+                }
+                Parcelable[] parcelableArray = bundle.getParcelableArray(NotificationCompat.EXTRA_MESSAGES);
+                if (parcelableArray != null) {
+                    this.mMessages.addAll(Message.getMessagesFromBundleArray(parcelableArray));
+                }
+                if (bundle.containsKey(NotificationCompat.EXTRA_IS_GROUP_CONVERSATION)) {
+                    this.mIsGroupConversation = Boolean.valueOf(bundle.getBoolean(NotificationCompat.EXTRA_IS_GROUP_CONVERSATION));
+                }
+            }
+        }
+
+        public MessagingStyle addMessage(CharSequence charSequence, long j, Person person) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j), person})) == null) {
+                addMessage(new Message(charSequence, j, person));
+                return this;
+            }
+            return (MessagingStyle) invokeCommon.objValue;
+        }
+
+        @Deprecated
+        public MessagingStyle addMessage(CharSequence charSequence, long j, CharSequence charSequence2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j), charSequence2})) == null) {
+                this.mMessages.add(new Message(charSequence, j, new Person.Builder().setName(charSequence2).build()));
+                if (this.mMessages.size() > 25) {
+                    this.mMessages.remove(0);
+                }
+                return this;
+            }
+            return (MessagingStyle) invokeCommon.objValue;
+        }
+
+        @Override // androidx.core.app.NotificationCompat.Style
+        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            boolean z;
+            CharSequence text;
+            CharSequence text2;
+            Notification.MessagingStyle messagingStyle;
+            CharSequence charSequence;
+            Notification.MessagingStyle.Message message;
+            android.app.Person androidPerson;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, notificationBuilderWithBuilderAccessor) == null) {
+                setGroupConversation(isGroupConversation());
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 24) {
+                    if (i >= 28) {
+                        messagingStyle = new Notification.MessagingStyle(this.mUser.toAndroidPerson());
+                    } else {
+                        messagingStyle = new Notification.MessagingStyle(this.mUser.getName());
+                    }
+                    if (this.mIsGroupConversation.booleanValue() || Build.VERSION.SDK_INT >= 28) {
+                        messagingStyle.setConversationTitle(this.mConversationTitle);
+                    }
+                    if (Build.VERSION.SDK_INT >= 28) {
+                        messagingStyle.setGroupConversation(this.mIsGroupConversation.booleanValue());
+                    }
+                    for (Message message2 : this.mMessages) {
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            Person person = message2.getPerson();
+                            CharSequence text3 = message2.getText();
+                            long timestamp = message2.getTimestamp();
+                            if (person == null) {
+                                androidPerson = null;
+                            } else {
+                                androidPerson = person.toAndroidPerson();
+                            }
+                            message = new Notification.MessagingStyle.Message(text3, timestamp, androidPerson);
+                        } else {
+                            if (message2.getPerson() != null) {
+                                charSequence = message2.getPerson().getName();
+                            } else {
+                                charSequence = null;
+                            }
+                            message = new Notification.MessagingStyle.Message(message2.getText(), message2.getTimestamp(), charSequence);
+                        }
+                        if (message2.getDataMimeType() != null) {
+                            message.setData(message2.getDataMimeType(), message2.getDataUri());
+                        }
+                        messagingStyle.addMessage(message);
+                    }
+                    messagingStyle.setBuilder(notificationBuilderWithBuilderAccessor.getBuilder());
+                    return;
+                }
+                Message findLatestIncomingMessage = findLatestIncomingMessage();
+                if (this.mConversationTitle != null && this.mIsGroupConversation.booleanValue()) {
+                    notificationBuilderWithBuilderAccessor.getBuilder().setContentTitle(this.mConversationTitle);
+                } else if (findLatestIncomingMessage != null) {
+                    notificationBuilderWithBuilderAccessor.getBuilder().setContentTitle("");
+                    if (findLatestIncomingMessage.getPerson() != null) {
+                        notificationBuilderWithBuilderAccessor.getBuilder().setContentTitle(findLatestIncomingMessage.getPerson().getName());
+                    }
+                }
+                if (findLatestIncomingMessage != null) {
+                    Notification.Builder builder = notificationBuilderWithBuilderAccessor.getBuilder();
+                    if (this.mConversationTitle != null) {
+                        text2 = makeMessageLine(findLatestIncomingMessage);
+                    } else {
+                        text2 = findLatestIncomingMessage.getText();
+                    }
+                    builder.setContentText(text2);
+                }
+                if (Build.VERSION.SDK_INT >= 16) {
+                    SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                    if (this.mConversationTitle == null && !hasMessagesWithoutSender()) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    for (int size = this.mMessages.size() - 1; size >= 0; size--) {
+                        Message message3 = this.mMessages.get(size);
+                        if (z) {
+                            text = makeMessageLine(message3);
+                        } else {
+                            text = message3.getText();
+                        }
+                        if (size != this.mMessages.size() - 1) {
+                            spannableStringBuilder.insert(0, (CharSequence) "\n");
+                        }
+                        spannableStringBuilder.insert(0, text);
+                    }
+                    new Notification.BigTextStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(null).bigText(spannableStringBuilder);
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
@@ -818,20 +2288,22 @@ public class NotificationCompat {
             }
         }
 
-        @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+        public BigPictureStyle(Builder builder) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) || Build.VERSION.SDK_INT < 16) {
-                return;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {builder};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
-            Notification.BigPictureStyle bigPicture = new Notification.BigPictureStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(this.mBigContentTitle).bigPicture(this.mPicture);
-            if (this.mBigLargeIconSet) {
-                bigPicture.bigLargeIcon(this.mBigLargeIcon);
-            }
-            if (this.mSummaryTextSet) {
-                bigPicture.setSummaryText(this.mSummaryText);
-            }
+            setBuilder(builder);
         }
 
         public BigPictureStyle bigLargeIcon(Bitmap bitmap) {
@@ -876,22 +2348,18 @@ public class NotificationCompat {
             return (BigPictureStyle) invokeL.objValue;
         }
 
-        public BigPictureStyle(Builder builder) {
+        @Override // androidx.core.app.NotificationCompat.Style
+        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {builder};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) && Build.VERSION.SDK_INT >= 16) {
+                Notification.BigPictureStyle bigPicture = new Notification.BigPictureStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(this.mBigContentTitle).bigPicture(this.mPicture);
+                if (this.mBigLargeIconSet) {
+                    bigPicture.bigLargeIcon(this.mBigLargeIcon);
+                }
+                if (this.mSummaryTextSet) {
+                    bigPicture.setSummaryText(this.mSummaryText);
                 }
             }
-            setBuilder(builder);
         }
     }
 
@@ -915,17 +2383,22 @@ public class NotificationCompat {
             }
         }
 
-        @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+        public BigTextStyle(Builder builder) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) || Build.VERSION.SDK_INT < 16) {
-                return;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {builder};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
-            Notification.BigTextStyle bigText = new Notification.BigTextStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(this.mBigContentTitle).bigText(this.mBigText);
-            if (this.mSummaryTextSet) {
-                bigText.setSummaryText(this.mSummaryText);
-            }
+            setBuilder(builder);
         }
 
         public BigTextStyle bigText(CharSequence charSequence) {
@@ -959,301 +2432,15 @@ public class NotificationCompat {
             return (BigTextStyle) invokeL.objValue;
         }
 
-        public BigTextStyle(Builder builder) {
+        @Override // androidx.core.app.NotificationCompat.Style
+        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {builder};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) && Build.VERSION.SDK_INT >= 16) {
+                Notification.BigTextStyle bigText = new Notification.BigTextStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(this.mBigContentTitle).bigText(this.mBigText);
+                if (this.mSummaryTextSet) {
+                    bigText.setSummaryText(this.mSummaryText);
                 }
             }
-            setBuilder(builder);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static final class BubbleMetadata {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int FLAG_AUTO_EXPAND_BUBBLE = 1;
-        public static final int FLAG_SUPPRESS_NOTIFICATION = 2;
-        public transient /* synthetic */ FieldHolder $fh;
-        public PendingIntent mDeleteIntent;
-        public int mDesiredHeight;
-        @DimenRes
-        public int mDesiredHeightResId;
-        public int mFlags;
-        public IconCompat mIcon;
-        public PendingIntent mPendingIntent;
-
-        /* loaded from: classes.dex */
-        public static final class Builder {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public PendingIntent mDeleteIntent;
-            public int mDesiredHeight;
-            @DimenRes
-            public int mDesiredHeightResId;
-            public int mFlags;
-            public IconCompat mIcon;
-            public PendingIntent mPendingIntent;
-
-            public Builder() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            private Builder setFlag(int i, boolean z) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-                    if (z) {
-                        this.mFlags = i | this.mFlags;
-                    } else {
-                        this.mFlags = (~i) & this.mFlags;
-                    }
-                    return this;
-                }
-                return (Builder) invokeCommon.objValue;
-            }
-
-            @NonNull
-            @SuppressLint({"SyntheticAccessor"})
-            public BubbleMetadata build() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    PendingIntent pendingIntent = this.mPendingIntent;
-                    if (pendingIntent != null) {
-                        IconCompat iconCompat = this.mIcon;
-                        if (iconCompat != null) {
-                            return new BubbleMetadata(pendingIntent, this.mDeleteIntent, iconCompat, this.mDesiredHeight, this.mDesiredHeightResId, this.mFlags, null);
-                        }
-                        throw new IllegalStateException("Must supply an icon for the bubble");
-                    }
-                    throw new IllegalStateException("Must supply pending intent to bubble");
-                }
-                return (BubbleMetadata) invokeV.objValue;
-            }
-
-            @NonNull
-            public Builder setAutoExpandBubble(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                    setFlag(1, z);
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
-            }
-
-            @NonNull
-            public Builder setDeleteIntent(@Nullable PendingIntent pendingIntent) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pendingIntent)) == null) {
-                    this.mDeleteIntent = pendingIntent;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            @NonNull
-            public Builder setDesiredHeight(@Dimension(unit = 0) int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                    this.mDesiredHeight = Math.max(i, 0);
-                    this.mDesiredHeightResId = 0;
-                    return this;
-                }
-                return (Builder) invokeI.objValue;
-            }
-
-            @NonNull
-            public Builder setDesiredHeightResId(@DimenRes int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                    this.mDesiredHeightResId = i;
-                    this.mDesiredHeight = 0;
-                    return this;
-                }
-                return (Builder) invokeI.objValue;
-            }
-
-            @NonNull
-            public Builder setIcon(@NonNull IconCompat iconCompat) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iconCompat)) == null) {
-                    if (iconCompat != null) {
-                        if (iconCompat.getType() != 1) {
-                            this.mIcon = iconCompat;
-                            return this;
-                        }
-                        throw new IllegalArgumentException("When using bitmap based icons, Bubbles require TYPE_ADAPTIVE_BITMAP, please use IconCompat#createWithAdaptiveBitmap instead");
-                    }
-                    throw new IllegalArgumentException("Bubbles require non-null icon");
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            @NonNull
-            public Builder setIntent(@NonNull PendingIntent pendingIntent) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pendingIntent)) == null) {
-                    if (pendingIntent != null) {
-                        this.mPendingIntent = pendingIntent;
-                        return this;
-                    }
-                    throw new IllegalArgumentException("Bubble requires non-null pending intent");
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            @NonNull
-            public Builder setSuppressNotification(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                    setFlag(2, z);
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
-            }
-        }
-
-        public /* synthetic */ BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i, int i2, int i3, AnonymousClass1 anonymousClass1) {
-            this(pendingIntent, pendingIntent2, iconCompat, i, i2, i3);
-        }
-
-        @Nullable
-        @RequiresApi(29)
-        public static BubbleMetadata fromPlatform(@Nullable Notification.BubbleMetadata bubbleMetadata) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bubbleMetadata)) == null) {
-                if (bubbleMetadata == null) {
-                    return null;
-                }
-                Builder suppressNotification = new Builder().setAutoExpandBubble(bubbleMetadata.getAutoExpandBubble()).setDeleteIntent(bubbleMetadata.getDeleteIntent()).setIcon(IconCompat.createFromIcon(bubbleMetadata.getIcon())).setIntent(bubbleMetadata.getIntent()).setSuppressNotification(bubbleMetadata.isNotificationSuppressed());
-                if (bubbleMetadata.getDesiredHeight() != 0) {
-                    suppressNotification.setDesiredHeight(bubbleMetadata.getDesiredHeight());
-                }
-                if (bubbleMetadata.getDesiredHeightResId() != 0) {
-                    suppressNotification.setDesiredHeightResId(bubbleMetadata.getDesiredHeightResId());
-                }
-                return suppressNotification.build();
-            }
-            return (BubbleMetadata) invokeL.objValue;
-        }
-
-        @Nullable
-        @RequiresApi(29)
-        public static Notification.BubbleMetadata toPlatform(@Nullable BubbleMetadata bubbleMetadata) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bubbleMetadata)) == null) {
-                if (bubbleMetadata == null) {
-                    return null;
-                }
-                Notification.BubbleMetadata.Builder suppressNotification = new Notification.BubbleMetadata.Builder().setAutoExpandBubble(bubbleMetadata.getAutoExpandBubble()).setDeleteIntent(bubbleMetadata.getDeleteIntent()).setIcon(bubbleMetadata.getIcon().toIcon()).setIntent(bubbleMetadata.getIntent()).setSuppressNotification(bubbleMetadata.isNotificationSuppressed());
-                if (bubbleMetadata.getDesiredHeight() != 0) {
-                    suppressNotification.setDesiredHeight(bubbleMetadata.getDesiredHeight());
-                }
-                if (bubbleMetadata.getDesiredHeightResId() != 0) {
-                    suppressNotification.setDesiredHeightResId(bubbleMetadata.getDesiredHeightResId());
-                }
-                return suppressNotification.build();
-            }
-            return (Notification.BubbleMetadata) invokeL.objValue;
-        }
-
-        public boolean getAutoExpandBubble() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.mFlags & 1) != 0 : invokeV.booleanValue;
-        }
-
-        @Nullable
-        public PendingIntent getDeleteIntent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDeleteIntent : (PendingIntent) invokeV.objValue;
-        }
-
-        @Dimension(unit = 0)
-        public int getDesiredHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDesiredHeight : invokeV.intValue;
-        }
-
-        @DimenRes
-        public int getDesiredHeightResId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDesiredHeightResId : invokeV.intValue;
-        }
-
-        @NonNull
-        public IconCompat getIcon() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIcon : (IconCompat) invokeV.objValue;
-        }
-
-        @NonNull
-        public PendingIntent getIntent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPendingIntent : (PendingIntent) invokeV.objValue;
-        }
-
-        public boolean isNotificationSuppressed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.mFlags & 2) != 0 : invokeV.booleanValue;
-        }
-
-        public BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i, @DimenRes int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pendingIntent, pendingIntent2, iconCompat, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mPendingIntent = pendingIntent;
-            this.mIcon = iconCompat;
-            this.mDesiredHeight = i;
-            this.mDesiredHeightResId = i2;
-            this.mDeleteIntent = pendingIntent2;
-            this.mFlags = i3;
         }
     }
 
@@ -1262,7 +2449,6 @@ public class NotificationCompat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_CHARSEQUENCE_LENGTH = 5120;
         public transient /* synthetic */ FieldHolder $fh;
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public ArrayList<Action> mActions;
         public boolean mAllowSystemGeneratedContextualActions;
         public int mBadgeIcon;
@@ -1279,7 +2465,6 @@ public class NotificationCompat {
         public CharSequence mContentText;
         public CharSequence mContentTitle;
         public RemoteViews mContentView;
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public Context mContext;
         public Bundle mExtras;
         public PendingIntent mFullScreenIntent;
@@ -1311,7 +2496,44 @@ public class NotificationCompat {
         public boolean mUseChronometer;
         public int mVisibility;
 
-        public Builder(@NonNull Context context, @NonNull String str) {
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        @Deprecated
+        public Builder(Context context) {
+            this(context, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((Context) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public Builder setSound(Uri uri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, uri)) == null) {
+                Notification notification = this.mNotification;
+                notification.sound = uri;
+                notification.audioStreamType = -1;
+                if (Build.VERSION.SDK_INT >= 21) {
+                    notification.audioAttributes = new AudioAttributes.Builder().setContentType(4).setUsage(5).build();
+                }
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1348,49 +2570,26 @@ public class NotificationCompat {
         public static CharSequence limitCharSequenceLength(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) ? (charSequence != null && charSequence.length() > 5120) ? charSequence.subSequence(0, 5120) : charSequence : (CharSequence) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
+                if (charSequence == null) {
+                    return charSequence;
+                }
+                if (charSequence.length() > 5120) {
+                    return charSequence.subSequence(0, 5120);
+                }
+                return charSequence;
+            }
+            return (CharSequence) invokeL.objValue;
         }
 
-        private Bitmap reduceLargeIconSize(Bitmap bitmap) {
+        public Builder addAction(Action action) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bitmap)) == null) {
-                if (bitmap == null || Build.VERSION.SDK_INT >= 27) {
-                    return bitmap;
-                }
-                Resources resources = this.mContext.getResources();
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d0);
-                int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701cf);
-                if (bitmap.getWidth() > dimensionPixelSize || bitmap.getHeight() > dimensionPixelSize2) {
-                    double min = Math.min(dimensionPixelSize / Math.max(1, bitmap.getWidth()), dimensionPixelSize2 / Math.max(1, bitmap.getHeight()));
-                    return Bitmap.createScaledBitmap(bitmap, (int) Math.ceil(bitmap.getWidth() * min), (int) Math.ceil(bitmap.getHeight() * min), true);
-                }
-                return bitmap;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-
-        private void setFlag(int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                if (z) {
-                    Notification notification = this.mNotification;
-                    notification.flags = i | notification.flags;
-                    return;
-                }
-                Notification notification2 = this.mNotification;
-                notification2.flags = (~i) & notification2.flags;
-            }
-        }
-
-        public Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, charSequence, pendingIntent)) == null) {
-                this.mActions.add(new Action(i, charSequence, pendingIntent));
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action)) == null) {
+                this.mActions.add(action);
                 return this;
             }
-            return (Builder) invokeILL.objValue;
+            return (Builder) invokeL.objValue;
         }
 
         public Builder addExtras(Bundle bundle) {
@@ -1410,11 +2609,14 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        @RequiresApi(21)
-        public Builder addInvisibleAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
-            InterceptResult invokeILL;
+        public Builder addInvisibleAction(Action action) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, charSequence, pendingIntent)) == null) ? addInvisibleAction(new Action(i, charSequence, pendingIntent)) : (Builder) invokeILL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, action)) == null) {
+                this.mInvisibleActions.add(action);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder addPerson(String str) {
@@ -1427,12 +2629,6 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Notification build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new NotificationCompatBuilder(this).build() : (Notification) invokeV.objValue;
-        }
-
         public Builder extend(Extender extender) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1443,82 +2639,6 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public RemoteViews getBigContentView() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mBigContentView : (RemoteViews) invokeV.objValue;
-        }
-
-        @Nullable
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public BubbleMetadata getBubbleMetadata() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mBubbleMetadata : (BubbleMetadata) invokeV.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public int getColor() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mColor : invokeV.intValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public RemoteViews getContentView() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mContentView : (RemoteViews) invokeV.objValue;
-        }
-
-        public Bundle getExtras() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                if (this.mExtras == null) {
-                    this.mExtras = new Bundle();
-                }
-                return this.mExtras;
-            }
-            return (Bundle) invokeV.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public RemoteViews getHeadsUpContentView() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mHeadsUpContentView : (RemoteViews) invokeV.objValue;
-        }
-
-        @Deprecated
-        public Notification getNotification() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? build() : (Notification) invokeV.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public int getPriority() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mPriority : invokeV.intValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public long getWhenIfShowing() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                if (this.mShowWhen) {
-                    return this.mNotification.when;
-                }
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @NonNull
         public Builder setAllowSystemGeneratedContextualActions(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -1549,8 +2669,7 @@ public class NotificationCompat {
             return (Builder) invokeI.objValue;
         }
 
-        @NonNull
-        public Builder setBubbleMetadata(@Nullable BubbleMetadata bubbleMetadata) {
+        public Builder setBubbleMetadata(BubbleMetadata bubbleMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, bubbleMetadata)) == null) {
@@ -1570,7 +2689,7 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setChannelId(@NonNull String str) {
+        public Builder setChannelId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
@@ -1580,8 +2699,6 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        @NonNull
-        @RequiresApi(24)
         public Builder setChronometerCountDown(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -1593,7 +2710,7 @@ public class NotificationCompat {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setColor(@ColorInt int i) {
+        public Builder setColor(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
@@ -1728,17 +2845,6 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setFullScreenIntent(PendingIntent pendingIntent, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048613, this, pendingIntent, z)) == null) {
-                this.mFullScreenIntent = pendingIntent;
-                setFlag(128, z);
-                return this;
-            }
-            return (Builder) invokeLZ.objValue;
-        }
-
         public Builder setGroup(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1779,22 +2885,6 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setLights(@ColorInt int i, int i2, int i3) {
-            InterceptResult invokeIII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIII = interceptable.invokeIII(1048618, this, i, i2, i3)) == null) {
-                Notification notification = this.mNotification;
-                notification.ledARGB = i;
-                notification.ledOnMS = i2;
-                notification.ledOffMS = i3;
-                int i4 = (i2 == 0 || i3 == 0) ? 0 : 1;
-                Notification notification2 = this.mNotification;
-                notification2.flags = i4 | (notification2.flags & (-2));
-                return this;
-            }
-            return (Builder) invokeIII.objValue;
-        }
-
         public Builder setLocalOnly(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -1803,17 +2893,6 @@ public class NotificationCompat {
                 return this;
             }
             return (Builder) invokeZ.objValue;
-        }
-
-        @NonNull
-        public Builder setNotificationSilent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-                this.mSilent = true;
-                return this;
-            }
-            return (Builder) invokeV.objValue;
         }
 
         public Builder setNumber(int i) {
@@ -1854,18 +2933,6 @@ public class NotificationCompat {
                 return this;
             }
             return (Builder) invokeI.objValue;
-        }
-
-        public Builder setProgress(int i, int i2, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                this.mProgressMax = i;
-                this.mProgress = i2;
-                this.mProgressIndeterminate = z;
-                return this;
-            }
-            return (Builder) invokeCommon.objValue;
         }
 
         public Builder setPublicVersion(Notification notification) {
@@ -1923,21 +2990,6 @@ public class NotificationCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) {
                 this.mSortKey = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder setSound(Uri uri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, uri)) == null) {
-                Notification notification = this.mNotification;
-                notification.sound = uri;
-                notification.audioStreamType = -1;
-                if (Build.VERSION.SDK_INT >= 21) {
-                    notification.audioAttributes = new AudioAttributes.Builder().setContentType(4).setUsage(5).build();
-                }
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -2028,25 +3080,209 @@ public class NotificationCompat {
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder addAction(Action action) {
+        private Bitmap reduceLargeIconSize(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action)) == null) {
-                this.mActions.add(action);
-                return this;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bitmap)) == null) {
+                if (bitmap != null && Build.VERSION.SDK_INT < 27) {
+                    Resources resources = this.mContext.getResources();
+                    int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d0);
+                    int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701cf);
+                    if (bitmap.getWidth() <= dimensionPixelSize && bitmap.getHeight() <= dimensionPixelSize2) {
+                        return bitmap;
+                    }
+                    double min = Math.min(dimensionPixelSize / Math.max(1, bitmap.getWidth()), dimensionPixelSize2 / Math.max(1, bitmap.getHeight()));
+                    return Bitmap.createScaledBitmap(bitmap, (int) Math.ceil(bitmap.getWidth() * min), (int) Math.ceil(bitmap.getHeight() * min), true);
+                }
+                return bitmap;
             }
-            return (Builder) invokeL.objValue;
+            return (Bitmap) invokeL.objValue;
         }
 
-        @RequiresApi(21)
-        public Builder addInvisibleAction(Action action) {
-            InterceptResult invokeL;
+        private void setFlag(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, action)) == null) {
-                this.mInvisibleActions.add(action);
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                if (z) {
+                    Notification notification = this.mNotification;
+                    notification.flags = i | notification.flags;
+                    return;
+                }
+                Notification notification2 = this.mNotification;
+                notification2.flags = (~i) & notification2.flags;
+            }
+        }
+
+        public Builder setSound(Uri uri, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048634, this, uri, i)) == null) {
+                Notification notification = this.mNotification;
+                notification.sound = uri;
+                notification.audioStreamType = i;
+                if (Build.VERSION.SDK_INT >= 21) {
+                    notification.audioAttributes = new AudioAttributes.Builder().setContentType(4).setLegacyStreamType(i).build();
+                }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (Builder) invokeLI.objValue;
+        }
+
+        public Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, charSequence, pendingIntent)) == null) {
+                this.mActions.add(new Action(i, charSequence, pendingIntent));
+                return this;
+            }
+            return (Builder) invokeILL.objValue;
+        }
+
+        public Builder addInvisibleAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, charSequence, pendingIntent)) == null) {
+                return addInvisibleAction(new Action(i, charSequence, pendingIntent));
+            }
+            return (Builder) invokeILL.objValue;
+        }
+
+        public Builder setLights(int i, int i2, int i3) {
+            InterceptResult invokeIII;
+            int i4;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIII = interceptable.invokeIII(1048618, this, i, i2, i3)) == null) {
+                Notification notification = this.mNotification;
+                notification.ledARGB = i;
+                notification.ledOnMS = i2;
+                notification.ledOffMS = i3;
+                if (i2 != 0 && i3 != 0) {
+                    i4 = 1;
+                } else {
+                    i4 = 0;
+                }
+                Notification notification2 = this.mNotification;
+                notification2.flags = i4 | (notification2.flags & (-2));
+                return this;
+            }
+            return (Builder) invokeIII.objValue;
+        }
+
+        public Notification build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new NotificationCompatBuilder(this).build();
+            }
+            return (Notification) invokeV.objValue;
+        }
+
+        public RemoteViews getBigContentView() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.mBigContentView;
+            }
+            return (RemoteViews) invokeV.objValue;
+        }
+
+        public BubbleMetadata getBubbleMetadata() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.mBubbleMetadata;
+            }
+            return (BubbleMetadata) invokeV.objValue;
+        }
+
+        public int getColor() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.mColor;
+            }
+            return invokeV.intValue;
+        }
+
+        public RemoteViews getContentView() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.mContentView;
+            }
+            return (RemoteViews) invokeV.objValue;
+        }
+
+        public Bundle getExtras() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                if (this.mExtras == null) {
+                    this.mExtras = new Bundle();
+                }
+                return this.mExtras;
+            }
+            return (Bundle) invokeV.objValue;
+        }
+
+        public RemoteViews getHeadsUpContentView() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.mHeadsUpContentView;
+            }
+            return (RemoteViews) invokeV.objValue;
+        }
+
+        @Deprecated
+        public Notification getNotification() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return build();
+            }
+            return (Notification) invokeV.objValue;
+        }
+
+        public int getPriority() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.mPriority;
+            }
+            return invokeV.intValue;
+        }
+
+        public long getWhenIfShowing() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                if (this.mShowWhen) {
+                    return this.mNotification.when;
+                }
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        public Builder setNotificationSilent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+                this.mSilent = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        public Builder setFullScreenIntent(PendingIntent pendingIntent, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048613, this, pendingIntent, z)) == null) {
+                this.mFullScreenIntent = pendingIntent;
+                setFlag(128, z);
+                return this;
+            }
+            return (Builder) invokeLZ.objValue;
         }
 
         public Builder setSmallIcon(int i, int i2) {
@@ -2072,41 +3308,16 @@ public class NotificationCompat {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setSound(Uri uri, int i) {
-            InterceptResult invokeLI;
+        public Builder setProgress(int i, int i2, boolean z) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048634, this, uri, i)) == null) {
-                Notification notification = this.mNotification;
-                notification.sound = uri;
-                notification.audioStreamType = i;
-                if (Build.VERSION.SDK_INT >= 21) {
-                    notification.audioAttributes = new AudioAttributes.Builder().setContentType(4).setLegacyStreamType(i).build();
-                }
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                this.mProgressMax = i;
+                this.mProgress = i2;
+                this.mProgressIndeterminate = z;
                 return this;
             }
-            return (Builder) invokeLI.objValue;
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        @Deprecated
-        public Builder(Context context) {
-            this(context, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((Context) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+            return (Builder) invokeCommon.objValue;
         }
     }
 
@@ -2136,19 +3347,22 @@ public class NotificationCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, this, remoteViews, z)) == null) {
                 boolean z2 = true;
+                int i = 0;
                 RemoteViews applyStandardTemplate = applyStandardTemplate(true, R.layout.obfuscated_res_0x7f0d0671, false);
                 applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f090070);
                 List<Action> nonContextualActions = getNonContextualActions(this.mBuilder.mActions);
-                if (!z || nonContextualActions == null || (min = Math.min(nonContextualActions.size(), 3)) <= 0) {
-                    z2 = false;
-                } else {
-                    for (int i = 0; i < min; i++) {
-                        applyStandardTemplate.addView(R.id.obfuscated_res_0x7f090070, generateActionButton(nonContextualActions.get(i)));
+                if (z && nonContextualActions != null && (min = Math.min(nonContextualActions.size(), 3)) > 0) {
+                    for (int i2 = 0; i2 < min; i2++) {
+                        applyStandardTemplate.addView(R.id.obfuscated_res_0x7f090070, generateActionButton(nonContextualActions.get(i2)));
                     }
+                } else {
+                    z2 = false;
                 }
-                int i2 = z2 ? 0 : 8;
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f090070, i2);
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f090065, i2);
+                if (!z2) {
+                    i = 8;
+                }
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f090070, i);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f090065, i);
                 buildIntoRemoteViews(applyStandardTemplate, remoteViews);
                 return applyStandardTemplate;
             }
@@ -2157,10 +3371,22 @@ public class NotificationCompat {
 
         private RemoteViews generateActionButton(Action action) {
             InterceptResult invokeL;
+            boolean z;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, action)) == null) {
-                boolean z = action.actionIntent == null;
-                RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), z ? R.layout.obfuscated_res_0x7f0d066a : R.layout.obfuscated_res_0x7f0d0669);
+                if (action.actionIntent == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                String packageName = this.mBuilder.mContext.getPackageName();
+                if (z) {
+                    i = R.layout.obfuscated_res_0x7f0d066a;
+                } else {
+                    i = R.layout.obfuscated_res_0x7f0d0669;
+                }
+                RemoteViews remoteViews = new RemoteViews(packageName, i);
                 remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f090067, createColoredBitmap(action.getIconCompat(), this.mBuilder.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608b4)));
                 remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09006f, action.title);
                 if (!z) {
@@ -2193,17 +3419,6 @@ public class NotificationCompat {
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) || Build.VERSION.SDK_INT < 24) {
-                return;
-            }
-            notificationBuilderWithBuilderAccessor.getBuilder().setStyle(new Notification.DecoratedCustomViewStyle());
-        }
-
-        @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public RemoteViews makeBigContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -2224,30 +3439,20 @@ public class NotificationCompat {
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, notificationBuilderWithBuilderAccessor)) == null) {
-                if (Build.VERSION.SDK_INT < 24 && this.mBuilder.getContentView() != null) {
-                    return createRemoteViews(this.mBuilder.getContentView(), false);
-                }
-                return null;
-            }
-            return (RemoteViews) invokeL.objValue;
-        }
-
-        @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public RemoteViews makeHeadsUpContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
             InterceptResult invokeL;
+            RemoteViews contentView;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, notificationBuilderWithBuilderAccessor)) == null) {
                 if (Build.VERSION.SDK_INT >= 24) {
                     return null;
                 }
                 RemoteViews headsUpContentView = this.mBuilder.getHeadsUpContentView();
-                RemoteViews contentView = headsUpContentView != null ? headsUpContentView : this.mBuilder.getContentView();
+                if (headsUpContentView != null) {
+                    contentView = headsUpContentView;
+                } else {
+                    contentView = this.mBuilder.getContentView();
+                }
                 if (headsUpContentView == null) {
                     return null;
                 }
@@ -2255,29 +3460,115 @@ public class NotificationCompat {
             }
             return (RemoteViews) invokeL.objValue;
         }
+
+        @Override // androidx.core.app.NotificationCompat.Style
+        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) && Build.VERSION.SDK_INT >= 24) {
+                notificationBuilderWithBuilderAccessor.getBuilder().setStyle(new Notification.DecoratedCustomViewStyle());
+            }
+        }
+
+        @Override // androidx.core.app.NotificationCompat.Style
+        public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, notificationBuilderWithBuilderAccessor)) == null) {
+                if (Build.VERSION.SDK_INT >= 24 || this.mBuilder.getContentView() == null) {
+                    return null;
+                }
+                return createRemoteViews(this.mBuilder.getContentView(), false);
+            }
+            return (RemoteViews) invokeL.objValue;
+        }
     }
 
     /* loaded from: classes.dex */
-    public interface Extender {
-        Builder extend(Builder builder);
-    }
+    public static class InboxStyle extends Style {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ArrayList<CharSequence> mTexts;
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface GroupAlertBehavior {
-    }
+        public InboxStyle() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mTexts = new ArrayList<>();
+        }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface NotificationVisibility {
-    }
+        public InboxStyle(Builder builder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {builder};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mTexts = new ArrayList<>();
+            setBuilder(builder);
+        }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface StreamType {
+        @Override // androidx.core.app.NotificationCompat.Style
+        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notificationBuilderWithBuilderAccessor) == null) && Build.VERSION.SDK_INT >= 16) {
+                Notification.InboxStyle bigContentTitle = new Notification.InboxStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(this.mBigContentTitle);
+                if (this.mSummaryTextSet) {
+                    bigContentTitle.setSummaryText(this.mSummaryText);
+                }
+                Iterator<CharSequence> it = this.mTexts.iterator();
+                while (it.hasNext()) {
+                    bigContentTitle.addLine(it.next());
+                }
+            }
+        }
+
+        public InboxStyle addLine(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
+                this.mTexts.add(Builder.limitCharSequenceLength(charSequence));
+                return this;
+            }
+            return (InboxStyle) invokeL.objValue;
+        }
+
+        public InboxStyle setBigContentTitle(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
+                this.mBigContentTitle = Builder.limitCharSequenceLength(charSequence);
+                return this;
+            }
+            return (InboxStyle) invokeL.objValue;
+        }
+
+        public InboxStyle setSummaryText(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
+                this.mSummaryText = Builder.limitCharSequenceLength(charSequence);
+                this.mSummaryTextSet = true;
+                return this;
+            }
+            return (InboxStyle) invokeL.objValue;
+        }
     }
 
     /* loaded from: classes.dex */
@@ -2285,10 +3576,60 @@ public class NotificationCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CharSequence mBigContentTitle;
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public Builder mBuilder;
         public CharSequence mSummaryText;
         public boolean mSummaryTextSet;
+
+        public static float constrain(float f, float f2, float f3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f < f2 ? f2 : f > f3 ? f3 : f : invokeCommon.floatValue;
+        }
+
+        public void addCompatExtras(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            }
+        }
+
+        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notificationBuilderWithBuilderAccessor) == null) {
+            }
+        }
+
+        public RemoteViews makeBigContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, notificationBuilderWithBuilderAccessor)) == null) {
+                return null;
+            }
+            return (RemoteViews) invokeL.objValue;
+        }
+
+        public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, notificationBuilderWithBuilderAccessor)) == null) {
+                return null;
+            }
+            return (RemoteViews) invokeL.objValue;
+        }
+
+        public RemoteViews makeHeadsUpContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, notificationBuilderWithBuilderAccessor)) == null) {
+                return null;
+            }
+            return (RemoteViews) invokeL.objValue;
+        }
+
+        public void restoreFromCompatExtras(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            }
+        }
 
         public Style() {
             Interceptable interceptable = $ic;
@@ -2306,6 +3647,19 @@ public class NotificationCompat {
             this.mSummaryTextSet = false;
         }
 
+        public Notification build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                Builder builder = this.mBuilder;
+                if (builder != null) {
+                    return builder.build();
+                }
+                return null;
+            }
+            return (Notification) invokeV.objValue;
+        }
+
         private int calculateTopPadding() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2319,10 +3673,38 @@ public class NotificationCompat {
             return invokeV.intValue;
         }
 
-        public static float constrain(float f, float f2, float f3) {
-            InterceptResult invokeCommon;
+        private Bitmap createColoredBitmap(int i, int i2, int i3) {
+            InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f < f2 ? f2 : f > f3 ? f3 : f : invokeCommon.floatValue;
+            if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, this, i, i2, i3)) == null) {
+                return createColoredBitmap(IconCompat.createWithResource(this.mBuilder.mContext, i), i2, i3);
+            }
+            return (Bitmap) invokeIII.objValue;
+        }
+
+        private Bitmap createColoredBitmap(IconCompat iconCompat, int i, int i2) {
+            InterceptResult invokeLII;
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, iconCompat, i, i2)) == null) {
+                Drawable loadDrawable = iconCompat.loadDrawable(this.mBuilder.mContext);
+                if (i2 == 0) {
+                    i3 = loadDrawable.getIntrinsicWidth();
+                } else {
+                    i3 = i2;
+                }
+                if (i2 == 0) {
+                    i2 = loadDrawable.getIntrinsicHeight();
+                }
+                Bitmap createBitmap = Bitmap.createBitmap(i3, i2, Bitmap.Config.ARGB_8888);
+                loadDrawable.setBounds(0, 0, i3, i2);
+                if (i != 0) {
+                    loadDrawable.mutate().setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
+                }
+                loadDrawable.draw(new Canvas(createBitmap));
+                return createBitmap;
+            }
+            return (Bitmap) invokeLII.objValue;
         }
 
         private Bitmap createIconWithBackground(int i, int i2, int i3, int i4) {
@@ -2332,7 +3714,7 @@ public class NotificationCompat {
                 if (i4 == 0) {
                     i4 = 0;
                 }
-                Bitmap createColoredBitmap = createColoredBitmap(R.drawable.obfuscated_res_0x7f080e74, i4, i2);
+                Bitmap createColoredBitmap = createColoredBitmap(R.drawable.obfuscated_res_0x7f080e85, i4, i2);
                 Canvas canvas = new Canvas(createColoredBitmap);
                 Drawable mutate = this.mBuilder.mContext.getResources().getDrawable(i).mutate();
                 mutate.setFilterBitmap(true);
@@ -2349,23 +3731,19 @@ public class NotificationCompat {
         private void hideNormalContent(RemoteViews remoteViews) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65542, this, remoteViews) == null) {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092219, 8);
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092101, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092203, 8);
                 remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092100, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0920ff, 8);
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void addCompatExtras(Bundle bundle) {
+        public void setBuilder(Builder builder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            }
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notificationBuilderWithBuilderAccessor) == null) {
+            if ((interceptable == null || interceptable.invokeL(1048587, this, builder) == null) && this.mBuilder != builder) {
+                this.mBuilder = builder;
+                if (builder != null) {
+                    builder.setStyle(this);
+                }
             }
         }
 
@@ -2378,7 +3756,6 @@ public class NotificationCompat {
         /* JADX WARN: Removed duplicated region for block: B:91:0x0208  */
         /* JADX WARN: Removed duplicated region for block: B:92:0x020a  */
         /* JADX WARN: Removed duplicated region for block: B:96:0x0215  */
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -2387,262 +3764,209 @@ public class NotificationCompat {
             boolean z3;
             boolean z4;
             boolean z5;
-            CharSequence charSequence;
             boolean z6;
+            boolean z7;
+            CharSequence charSequence;
+            boolean z8;
+            int i2;
             CharSequence charSequence2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)})) == null) {
                 Resources resources = this.mBuilder.mContext.getResources();
                 RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), i);
-                boolean z7 = true;
-                boolean z8 = this.mBuilder.getPriority() < -1;
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 16 && i2 < 21) {
-                    if (z8) {
-                        remoteViews.setInt(R.id.obfuscated_res_0x7f091704, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e6f);
-                        remoteViews.setInt(R.id.obfuscated_res_0x7f090e20, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e76);
+                boolean z9 = true;
+                int i3 = 0;
+                if (this.mBuilder.getPriority() < -1) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                int i4 = Build.VERSION.SDK_INT;
+                if (i4 >= 16 && i4 < 21) {
+                    if (z3) {
+                        remoteViews.setInt(R.id.obfuscated_res_0x7f0916f6, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e80);
+                        remoteViews.setInt(R.id.obfuscated_res_0x7f090e14, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e87);
                     } else {
-                        remoteViews.setInt(R.id.obfuscated_res_0x7f091704, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e6e);
-                        remoteViews.setInt(R.id.obfuscated_res_0x7f090e20, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e75);
+                        remoteViews.setInt(R.id.obfuscated_res_0x7f0916f6, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e7f);
+                        remoteViews.setInt(R.id.obfuscated_res_0x7f090e14, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e86);
                     }
                 }
                 Builder builder = this.mBuilder;
                 if (builder.mLargeIcon != null) {
                     if (Build.VERSION.SDK_INT >= 16) {
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090e20, 0);
-                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f090e20, this.mBuilder.mLargeIcon);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090e14, 0);
+                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f090e14, this.mBuilder.mLargeIcon);
                     } else {
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090e20, 8);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090e14, 8);
                     }
                     if (z && this.mBuilder.mNotification.icon != 0) {
                         int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e4);
                         int dimensionPixelSize2 = dimensionPixelSize - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e7) * 2);
                         if (Build.VERSION.SDK_INT >= 21) {
                             Builder builder2 = this.mBuilder;
-                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c3c, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
+                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c38, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
                         } else {
-                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c3c, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c38, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
                         }
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c3c, 0);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c38, 0);
                     }
                 } else if (z && builder.mNotification.icon != 0) {
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090e20, 0);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090e14, 0);
                     if (Build.VERSION.SDK_INT >= 21) {
                         int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e1) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705de);
                         int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e8);
                         Builder builder3 = this.mBuilder;
-                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f090e20, createIconWithBackground(builder3.mNotification.icon, dimensionPixelSize3, dimensionPixelSize4, builder3.getColor()));
+                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f090e14, createIconWithBackground(builder3.mNotification.icon, dimensionPixelSize3, dimensionPixelSize4, builder3.getColor()));
                     } else {
-                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f090e20, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f090e14, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
                     }
                 }
                 CharSequence charSequence3 = this.mBuilder.mContentTitle;
                 if (charSequence3 != null) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092219, charSequence3);
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092203, charSequence3);
                 }
                 CharSequence charSequence4 = this.mBuilder.mContentText;
                 if (charSequence4 != null) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence4);
-                    z3 = true;
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0920ff, charSequence4);
+                    z4 = true;
                 } else {
-                    z3 = false;
+                    z4 = false;
                 }
-                boolean z9 = Build.VERSION.SDK_INT < 21 && this.mBuilder.mLargeIcon != null;
+                if (Build.VERSION.SDK_INT < 21 && this.mBuilder.mLargeIcon != null) {
+                    z5 = true;
+                } else {
+                    z5 = false;
+                }
                 Builder builder4 = this.mBuilder;
                 CharSequence charSequence5 = builder4.mContentInfo;
                 if (charSequence5 != null) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f25, charSequence5);
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090f25, 0);
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f19, charSequence5);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090f19, 0);
                 } else if (builder4.mNumber > 0) {
                     if (this.mBuilder.mNumber > resources.getInteger(R.integer.obfuscated_res_0x7f0a0027)) {
-                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f25, resources.getString(R.string.obfuscated_res_0x7f0f1212));
+                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f19, resources.getString(R.string.obfuscated_res_0x7f0f1226));
                     } else {
-                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f25, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
+                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f19, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
                     }
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090f25, 0);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090f19, 0);
                 } else {
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090f25, 8);
-                    z4 = z3;
-                    z5 = z9;
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090f19, 8);
+                    z6 = z4;
+                    z7 = z5;
                     charSequence = this.mBuilder.mSubText;
                     if (charSequence != null && Build.VERSION.SDK_INT >= 16) {
-                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence);
+                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0920ff, charSequence);
                         charSequence2 = this.mBuilder.mContentText;
                         if (charSequence2 == null) {
-                            remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092101, charSequence2);
-                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092101, 0);
-                            z6 = true;
-                            if (z6 && Build.VERSION.SDK_INT >= 16) {
+                            remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence2);
+                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092100, 0);
+                            z8 = true;
+                            if (z8 && Build.VERSION.SDK_INT >= 16) {
                                 if (z2) {
-                                    remoteViews.setTextViewTextSize(R.id.obfuscated_res_0x7f092100, 0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e9));
+                                    remoteViews.setTextViewTextSize(R.id.obfuscated_res_0x7f0920ff, 0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e9));
                                 }
-                                remoteViews.setViewPadding(R.id.obfuscated_res_0x7f091308, 0, 0, 0, 0);
+                                remoteViews.setViewPadding(R.id.obfuscated_res_0x7f0912fe, 0, 0, 0, 0);
                             }
-                            if (this.mBuilder.getWhenIfShowing() == 0) {
-                                z7 = z5;
-                            } else if (this.mBuilder.mUseChronometer && Build.VERSION.SDK_INT >= 16) {
-                                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09063e, 0);
-                                remoteViews.setLong(R.id.obfuscated_res_0x7f09063e, "setBase", this.mBuilder.getWhenIfShowing() + (SystemClock.elapsedRealtime() - System.currentTimeMillis()));
-                                remoteViews.setBoolean(R.id.obfuscated_res_0x7f09063e, "setStarted", true);
-                                boolean z10 = this.mBuilder.mChronometerCountDown;
-                                if (z10 && Build.VERSION.SDK_INT >= 24) {
-                                    remoteViews.setChronometerCountDown(R.id.obfuscated_res_0x7f09063e, z10);
+                            if (this.mBuilder.getWhenIfShowing() != 0) {
+                                if (this.mBuilder.mUseChronometer && Build.VERSION.SDK_INT >= 16) {
+                                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090647, 0);
+                                    remoteViews.setLong(R.id.obfuscated_res_0x7f090647, "setBase", this.mBuilder.getWhenIfShowing() + (SystemClock.elapsedRealtime() - System.currentTimeMillis()));
+                                    remoteViews.setBoolean(R.id.obfuscated_res_0x7f090647, "setStarted", true);
+                                    boolean z10 = this.mBuilder.mChronometerCountDown;
+                                    if (z10 && Build.VERSION.SDK_INT >= 24) {
+                                        remoteViews.setChronometerCountDown(R.id.obfuscated_res_0x7f090647, z10);
+                                    }
+                                } else {
+                                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0921d2, 0);
+                                    remoteViews.setLong(R.id.obfuscated_res_0x7f0921d2, "setTime", this.mBuilder.getWhenIfShowing());
                                 }
                             } else {
-                                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0921e8, 0);
-                                remoteViews.setLong(R.id.obfuscated_res_0x7f0921e8, "setTime", this.mBuilder.getWhenIfShowing());
+                                z9 = z7;
                             }
-                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c42, z7 ? 0 : 8);
-                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09130a, z4 ? 0 : 8);
+                            if (z9) {
+                                i2 = 0;
+                            } else {
+                                i2 = 8;
+                            }
+                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c3e, i2);
+                            if (!z6) {
+                                i3 = 8;
+                            }
+                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091300, i3);
                             return remoteViews;
                         }
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092101, 8);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092100, 8);
                     }
-                    z6 = false;
-                    if (z6) {
+                    z8 = false;
+                    if (z8) {
                         if (z2) {
                         }
-                        remoteViews.setViewPadding(R.id.obfuscated_res_0x7f091308, 0, 0, 0, 0);
+                        remoteViews.setViewPadding(R.id.obfuscated_res_0x7f0912fe, 0, 0, 0, 0);
                     }
-                    if (this.mBuilder.getWhenIfShowing() == 0) {
+                    if (this.mBuilder.getWhenIfShowing() != 0) {
                     }
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c42, z7 ? 0 : 8);
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09130a, z4 ? 0 : 8);
+                    if (z9) {
+                    }
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c3e, i2);
+                    if (!z6) {
+                    }
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091300, i3);
                     return remoteViews;
                 }
-                z4 = true;
-                z5 = true;
+                z6 = true;
+                z7 = true;
                 charSequence = this.mBuilder.mSubText;
                 if (charSequence != null) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence);
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0920ff, charSequence);
                     charSequence2 = this.mBuilder.mContentText;
                     if (charSequence2 == null) {
                     }
                 }
-                z6 = false;
-                if (z6) {
+                z8 = false;
+                if (z8) {
                 }
-                if (this.mBuilder.getWhenIfShowing() == 0) {
+                if (this.mBuilder.getWhenIfShowing() != 0) {
                 }
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c42, z7 ? 0 : 8);
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09130a, z4 ? 0 : 8);
+                if (z9) {
+                }
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c3e, i2);
+                if (!z6) {
+                }
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091300, i3);
                 return remoteViews;
             }
             return (RemoteViews) invokeCommon.objValue;
         }
 
-        public Notification build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Builder builder = this.mBuilder;
-                if (builder != null) {
-                    return builder.build();
-                }
-                return null;
-            }
-            return (Notification) invokeV.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public void buildIntoRemoteViews(RemoteViews remoteViews, RemoteViews remoteViews2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, remoteViews, remoteViews2) == null) {
                 hideNormalContent(remoteViews);
-                remoteViews.removeAllViews(R.id.obfuscated_res_0x7f091706);
-                remoteViews.addView(R.id.obfuscated_res_0x7f091706, remoteViews2.clone());
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091706, 0);
+                remoteViews.removeAllViews(R.id.obfuscated_res_0x7f0916f8);
+                remoteViews.addView(R.id.obfuscated_res_0x7f0916f8, remoteViews2.clone());
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0916f8, 0);
                 if (Build.VERSION.SDK_INT >= 21) {
-                    remoteViews.setViewPadding(R.id.obfuscated_res_0x7f091707, 0, calculateTopPadding(), 0, 0);
+                    remoteViews.setViewPadding(R.id.obfuscated_res_0x7f0916f9, 0, calculateTopPadding(), 0, 0);
                 }
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public Bitmap createColoredBitmap(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) ? createColoredBitmap(i, i2, 0) : (Bitmap) invokeII.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public RemoteViews makeBigContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, notificationBuilderWithBuilderAccessor)) == null) {
-                return null;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
+                return createColoredBitmap(i, i2, 0);
             }
-            return (RemoteViews) invokeL.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, notificationBuilderWithBuilderAccessor)) == null) {
-                return null;
-            }
-            return (RemoteViews) invokeL.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public RemoteViews makeHeadsUpContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, notificationBuilderWithBuilderAccessor)) == null) {
-                return null;
-            }
-            return (RemoteViews) invokeL.objValue;
-        }
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void restoreFromCompatExtras(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            }
-        }
-
-        public void setBuilder(Builder builder) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048587, this, builder) == null) || this.mBuilder == builder) {
-                return;
-            }
-            this.mBuilder = builder;
-            if (builder != null) {
-                builder.setStyle(this);
-            }
+            return (Bitmap) invokeII.objValue;
         }
 
         public Bitmap createColoredBitmap(IconCompat iconCompat, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iconCompat, i)) == null) ? createColoredBitmap(iconCompat, i, 0) : (Bitmap) invokeLI.objValue;
-        }
-
-        private Bitmap createColoredBitmap(int i, int i2, int i3) {
-            InterceptResult invokeIII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, this, i, i2, i3)) == null) ? createColoredBitmap(IconCompat.createWithResource(this.mBuilder.mContext, i), i2, i3) : (Bitmap) invokeIII.objValue;
-        }
-
-        private Bitmap createColoredBitmap(IconCompat iconCompat, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, iconCompat, i, i2)) == null) {
-                Drawable loadDrawable = iconCompat.loadDrawable(this.mBuilder.mContext);
-                int intrinsicWidth = i2 == 0 ? loadDrawable.getIntrinsicWidth() : i2;
-                if (i2 == 0) {
-                    i2 = loadDrawable.getIntrinsicHeight();
-                }
-                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, i2, Bitmap.Config.ARGB_8888);
-                loadDrawable.setBounds(0, 0, intrinsicWidth, i2);
-                if (i != 0) {
-                    loadDrawable.mutate().setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
-                }
-                loadDrawable.draw(new Canvas(createBitmap));
-                return createBitmap;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iconCompat, i)) == null) {
+                return createColoredBitmap(iconCompat, i, 0);
             }
-            return (Bitmap) invokeLII.objValue;
+            return (Bitmap) invokeLI.objValue;
         }
     }
 
@@ -2729,113 +4053,67 @@ public class NotificationCompat {
             this.mGravity = 80;
         }
 
-        @RequiresApi(20)
-        public static Notification.Action getActionFromActionCompat(Action action) {
-            InterceptResult invokeL;
-            Notification.Action.Builder builder;
+        public WearableExtender(Notification notification) {
             Bundle bundle;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, action)) == null) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    IconCompat iconCompat = action.getIconCompat();
-                    builder = new Notification.Action.Builder(iconCompat == null ? null : iconCompat.toIcon(), action.getTitle(), action.getActionIntent());
-                } else {
-                    IconCompat iconCompat2 = action.getIconCompat();
-                    builder = new Notification.Action.Builder((iconCompat2 == null || iconCompat2.getType() != 2) ? 0 : iconCompat2.getResId(), action.getTitle(), action.getActionIntent());
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {notification};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
-                if (action.getExtras() != null) {
-                    bundle = new Bundle(action.getExtras());
-                } else {
-                    bundle = new Bundle();
-                }
-                bundle.putBoolean(NotificationCompatJellybean.EXTRA_ALLOW_GENERATED_REPLIES, action.getAllowGeneratedReplies());
-                if (Build.VERSION.SDK_INT >= 24) {
-                    builder.setAllowGeneratedReplies(action.getAllowGeneratedReplies());
-                }
-                builder.addExtras(bundle);
-                RemoteInput[] remoteInputs = action.getRemoteInputs();
-                if (remoteInputs != null) {
-                    for (android.app.RemoteInput remoteInput : RemoteInput.fromCompat(remoteInputs)) {
-                        builder.addRemoteInput(remoteInput);
+            }
+            this.mActions = new ArrayList<>();
+            this.mFlags = 1;
+            this.mPages = new ArrayList<>();
+            this.mContentIconGravity = 8388613;
+            this.mContentActionIndex = -1;
+            this.mCustomSizePreset = 0;
+            this.mGravity = 80;
+            Bundle extras = NotificationCompat.getExtras(notification);
+            if (extras != null) {
+                bundle = extras.getBundle("android.wearable.EXTENSIONS");
+            } else {
+                bundle = null;
+            }
+            if (bundle != null) {
+                ArrayList parcelableArrayList = bundle.getParcelableArrayList(KEY_ACTIONS);
+                if (Build.VERSION.SDK_INT >= 16 && parcelableArrayList != null) {
+                    int size = parcelableArrayList.size();
+                    Action[] actionArr = new Action[size];
+                    for (int i3 = 0; i3 < size; i3++) {
+                        int i4 = Build.VERSION.SDK_INT;
+                        if (i4 >= 20) {
+                            actionArr[i3] = NotificationCompat.getActionCompatFromAction((Notification.Action) parcelableArrayList.get(i3));
+                        } else if (i4 >= 16) {
+                            actionArr[i3] = NotificationCompatJellybean.getActionFromBundle((Bundle) parcelableArrayList.get(i3));
+                        }
                     }
+                    Collections.addAll(this.mActions, actionArr);
                 }
-                return builder.build();
-            }
-            return (Notification.Action) invokeL.objValue;
-        }
-
-        private void setFlag(int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                if (z) {
-                    this.mFlags = i | this.mFlags;
-                } else {
-                    this.mFlags = (~i) & this.mFlags;
+                this.mFlags = bundle.getInt("flags", 1);
+                this.mDisplayIntent = (PendingIntent) bundle.getParcelable(KEY_DISPLAY_INTENT);
+                Notification[] notificationArrayFromBundle = NotificationCompat.getNotificationArrayFromBundle(bundle, KEY_PAGES);
+                if (notificationArrayFromBundle != null) {
+                    Collections.addAll(this.mPages, notificationArrayFromBundle);
                 }
+                this.mBackground = (Bitmap) bundle.getParcelable(KEY_BACKGROUND);
+                this.mContentIcon = bundle.getInt(KEY_CONTENT_ICON);
+                this.mContentIconGravity = bundle.getInt(KEY_CONTENT_ICON_GRAVITY, 8388613);
+                this.mContentActionIndex = bundle.getInt(KEY_CONTENT_ACTION_INDEX, -1);
+                this.mCustomSizePreset = bundle.getInt(KEY_CUSTOM_SIZE_PRESET, 0);
+                this.mCustomContentHeight = bundle.getInt(KEY_CUSTOM_CONTENT_HEIGHT);
+                this.mGravity = bundle.getInt(KEY_GRAVITY, 80);
+                this.mHintScreenTimeout = bundle.getInt(KEY_HINT_SCREEN_TIMEOUT);
+                this.mDismissalId = bundle.getString(KEY_DISMISSAL_ID);
+                this.mBridgeTag = bundle.getString(KEY_BRIDGE_TAG);
             }
-        }
-
-        public WearableExtender addAction(Action action) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, action)) == null) {
-                this.mActions.add(action);
-                return this;
-            }
-            return (WearableExtender) invokeL.objValue;
-        }
-
-        public WearableExtender addActions(List<Action> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                this.mActions.addAll(list);
-                return this;
-            }
-            return (WearableExtender) invokeL.objValue;
-        }
-
-        @Deprecated
-        public WearableExtender addPage(Notification notification) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, notification)) == null) {
-                this.mPages.add(notification);
-                return this;
-            }
-            return (WearableExtender) invokeL.objValue;
-        }
-
-        @Deprecated
-        public WearableExtender addPages(List<Notification> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-                this.mPages.addAll(list);
-                return this;
-            }
-            return (WearableExtender) invokeL.objValue;
-        }
-
-        public WearableExtender clearActions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                this.mActions.clear();
-                return this;
-            }
-            return (WearableExtender) invokeV.objValue;
-        }
-
-        @Deprecated
-        public WearableExtender clearPages() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                this.mPages.clear();
-                return this;
-            }
-            return (WearableExtender) invokeV.objValue;
         }
 
         @Override // androidx.core.app.NotificationCompat.Extender
@@ -2920,137 +4198,103 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public List<Action> getActions() {
-            InterceptResult invokeV;
+        public static Notification.Action getActionFromActionCompat(Action action) {
+            InterceptResult invokeL;
+            int i;
+            Notification.Action.Builder builder;
+            Bundle bundle;
+            Icon icon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mActions : (List) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, action)) == null) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    IconCompat iconCompat = action.getIconCompat();
+                    if (iconCompat == null) {
+                        icon = null;
+                    } else {
+                        icon = iconCompat.toIcon();
+                    }
+                    builder = new Notification.Action.Builder(icon, action.getTitle(), action.getActionIntent());
+                } else {
+                    IconCompat iconCompat2 = action.getIconCompat();
+                    if (iconCompat2 != null && iconCompat2.getType() == 2) {
+                        i = iconCompat2.getResId();
+                    } else {
+                        i = 0;
+                    }
+                    builder = new Notification.Action.Builder(i, action.getTitle(), action.getActionIntent());
+                }
+                if (action.getExtras() != null) {
+                    bundle = new Bundle(action.getExtras());
+                } else {
+                    bundle = new Bundle();
+                }
+                bundle.putBoolean(NotificationCompatJellybean.EXTRA_ALLOW_GENERATED_REPLIES, action.getAllowGeneratedReplies());
+                if (Build.VERSION.SDK_INT >= 24) {
+                    builder.setAllowGeneratedReplies(action.getAllowGeneratedReplies());
+                }
+                builder.addExtras(bundle);
+                RemoteInput[] remoteInputs = action.getRemoteInputs();
+                if (remoteInputs != null) {
+                    for (android.app.RemoteInput remoteInput : RemoteInput.fromCompat(remoteInputs)) {
+                        builder.addRemoteInput(remoteInput);
+                    }
+                }
+                return builder.build();
+            }
+            return (Notification.Action) invokeL.objValue;
+        }
+
+        private void setFlag(int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                if (z) {
+                    this.mFlags = i | this.mFlags;
+                } else {
+                    this.mFlags = (~i) & this.mFlags;
+                }
+            }
+        }
+
+        public WearableExtender addAction(Action action) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, action)) == null) {
+                this.mActions.add(action);
+                return this;
+            }
+            return (WearableExtender) invokeL.objValue;
+        }
+
+        public WearableExtender addActions(List<Action> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+                this.mActions.addAll(list);
+                return this;
+            }
+            return (WearableExtender) invokeL.objValue;
         }
 
         @Deprecated
-        public Bitmap getBackground() {
-            InterceptResult invokeV;
+        public WearableExtender addPage(Notification notification) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mBackground : (Bitmap) invokeV.objValue;
-        }
-
-        public String getBridgeTag() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mBridgeTag : (String) invokeV.objValue;
-        }
-
-        public int getContentAction() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mContentActionIndex : invokeV.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, notification)) == null) {
+                this.mPages.add(notification);
+                return this;
+            }
+            return (WearableExtender) invokeL.objValue;
         }
 
         @Deprecated
-        public int getContentIcon() {
-            InterceptResult invokeV;
+        public WearableExtender addPages(List<Notification> list) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mContentIcon : invokeV.intValue;
-        }
-
-        @Deprecated
-        public int getContentIconGravity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mContentIconGravity : invokeV.intValue;
-        }
-
-        public boolean getContentIntentAvailableOffline() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (this.mFlags & 1) != 0 : invokeV.booleanValue;
-        }
-
-        @Deprecated
-        public int getCustomContentHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mCustomContentHeight : invokeV.intValue;
-        }
-
-        @Deprecated
-        public int getCustomSizePreset() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mCustomSizePreset : invokeV.intValue;
-        }
-
-        public String getDismissalId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mDismissalId : (String) invokeV.objValue;
-        }
-
-        @Deprecated
-        public PendingIntent getDisplayIntent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mDisplayIntent : (PendingIntent) invokeV.objValue;
-        }
-
-        @Deprecated
-        public int getGravity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mGravity : invokeV.intValue;
-        }
-
-        @Deprecated
-        public boolean getHintAmbientBigPicture() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.mFlags & 32) != 0 : invokeV.booleanValue;
-        }
-
-        @Deprecated
-        public boolean getHintAvoidBackgroundClipping() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (this.mFlags & 16) != 0 : invokeV.booleanValue;
-        }
-
-        public boolean getHintContentIntentLaunchesActivity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.mFlags & 64) != 0 : invokeV.booleanValue;
-        }
-
-        @Deprecated
-        public boolean getHintHideIcon() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (this.mFlags & 2) != 0 : invokeV.booleanValue;
-        }
-
-        @Deprecated
-        public int getHintScreenTimeout() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mHintScreenTimeout : invokeV.intValue;
-        }
-
-        @Deprecated
-        public boolean getHintShowBackgroundOnly() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? (this.mFlags & 4) != 0 : invokeV.booleanValue;
-        }
-
-        @Deprecated
-        public List<Notification> getPages() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mPages : (List) invokeV.objValue;
-        }
-
-        public boolean getStartScrollBottom() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? (this.mFlags & 8) != 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+                this.mPages.addAll(list);
+                return this;
+            }
+            return (WearableExtender) invokeL.objValue;
         }
 
         @Deprecated
@@ -3245,6 +4489,241 @@ public class NotificationCompat {
             return (WearableExtender) invokeZ.objValue;
         }
 
+        public WearableExtender clearActions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                this.mActions.clear();
+                return this;
+            }
+            return (WearableExtender) invokeV.objValue;
+        }
+
+        @Deprecated
+        public WearableExtender clearPages() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                this.mPages.clear();
+                return this;
+            }
+            return (WearableExtender) invokeV.objValue;
+        }
+
+        public List<Action> getActions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.mActions;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        @Deprecated
+        public Bitmap getBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.mBackground;
+            }
+            return (Bitmap) invokeV.objValue;
+        }
+
+        public String getBridgeTag() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.mBridgeTag;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getContentAction() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.mContentActionIndex;
+            }
+            return invokeV.intValue;
+        }
+
+        @Deprecated
+        public int getContentIcon() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.mContentIcon;
+            }
+            return invokeV.intValue;
+        }
+
+        @Deprecated
+        public int getContentIconGravity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.mContentIconGravity;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean getContentIntentAvailableOffline() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                if ((this.mFlags & 1) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Deprecated
+        public int getCustomContentHeight() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return this.mCustomContentHeight;
+            }
+            return invokeV.intValue;
+        }
+
+        @Deprecated
+        public int getCustomSizePreset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.mCustomSizePreset;
+            }
+            return invokeV.intValue;
+        }
+
+        public String getDismissalId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.mDismissalId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Deprecated
+        public PendingIntent getDisplayIntent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return this.mDisplayIntent;
+            }
+            return (PendingIntent) invokeV.objValue;
+        }
+
+        @Deprecated
+        public int getGravity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                return this.mGravity;
+            }
+            return invokeV.intValue;
+        }
+
+        @Deprecated
+        public boolean getHintAmbientBigPicture() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                if ((this.mFlags & 32) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Deprecated
+        public boolean getHintAvoidBackgroundClipping() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                if ((this.mFlags & 16) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean getHintContentIntentLaunchesActivity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                if ((this.mFlags & 64) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Deprecated
+        public boolean getHintHideIcon() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                if ((this.mFlags & 2) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Deprecated
+        public int getHintScreenTimeout() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+                return this.mHintScreenTimeout;
+            }
+            return invokeV.intValue;
+        }
+
+        @Deprecated
+        public boolean getHintShowBackgroundOnly() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                if ((this.mFlags & 4) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Deprecated
+        public List<Notification> getPages() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+                return this.mPages;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public boolean getStartScrollBottom() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+                if ((this.mFlags & 8) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
         public WearableExtender m4clone() {
@@ -3269,64 +4748,6 @@ public class NotificationCompat {
                 return wearableExtender;
             }
             return (WearableExtender) invokeV.objValue;
-        }
-
-        public WearableExtender(Notification notification) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {notification};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mActions = new ArrayList<>();
-            this.mFlags = 1;
-            this.mPages = new ArrayList<>();
-            this.mContentIconGravity = 8388613;
-            this.mContentActionIndex = -1;
-            this.mCustomSizePreset = 0;
-            this.mGravity = 80;
-            Bundle extras = NotificationCompat.getExtras(notification);
-            Bundle bundle = extras != null ? extras.getBundle("android.wearable.EXTENSIONS") : null;
-            if (bundle != null) {
-                ArrayList parcelableArrayList = bundle.getParcelableArrayList(KEY_ACTIONS);
-                if (Build.VERSION.SDK_INT >= 16 && parcelableArrayList != null) {
-                    int size = parcelableArrayList.size();
-                    Action[] actionArr = new Action[size];
-                    for (int i3 = 0; i3 < size; i3++) {
-                        int i4 = Build.VERSION.SDK_INT;
-                        if (i4 >= 20) {
-                            actionArr[i3] = NotificationCompat.getActionCompatFromAction((Notification.Action) parcelableArrayList.get(i3));
-                        } else if (i4 >= 16) {
-                            actionArr[i3] = NotificationCompatJellybean.getActionFromBundle((Bundle) parcelableArrayList.get(i3));
-                        }
-                    }
-                    Collections.addAll(this.mActions, actionArr);
-                }
-                this.mFlags = bundle.getInt("flags", 1);
-                this.mDisplayIntent = (PendingIntent) bundle.getParcelable(KEY_DISPLAY_INTENT);
-                Notification[] notificationArrayFromBundle = NotificationCompat.getNotificationArrayFromBundle(bundle, KEY_PAGES);
-                if (notificationArrayFromBundle != null) {
-                    Collections.addAll(this.mPages, notificationArrayFromBundle);
-                }
-                this.mBackground = (Bitmap) bundle.getParcelable(KEY_BACKGROUND);
-                this.mContentIcon = bundle.getInt(KEY_CONTENT_ICON);
-                this.mContentIconGravity = bundle.getInt(KEY_CONTENT_ICON_GRAVITY, 8388613);
-                this.mContentActionIndex = bundle.getInt(KEY_CONTENT_ACTION_INDEX, -1);
-                this.mCustomSizePreset = bundle.getInt(KEY_CUSTOM_SIZE_PRESET, 0);
-                this.mCustomContentHeight = bundle.getInt(KEY_CUSTOM_CONTENT_HEIGHT);
-                this.mGravity = bundle.getInt(KEY_GRAVITY, 80);
-                this.mHintScreenTimeout = bundle.getInt(KEY_HINT_SCREEN_TIMEOUT);
-                this.mDismissalId = bundle.getString(KEY_DISMISSAL_ID);
-                this.mBridgeTag = bundle.getString(KEY_BRIDGE_TAG);
-            }
         }
     }
 
@@ -3353,60 +4774,86 @@ public class NotificationCompat {
             if (i2 >= 20) {
                 return getActionCompatFromAction(notification.actions[i]);
             }
+            Bundle bundle = null;
             if (i2 >= 19) {
                 Notification.Action action = notification.actions[i];
                 SparseArray sparseParcelableArray = notification.extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS);
-                return NotificationCompatJellybean.readAction(action.icon, action.title, action.actionIntent, sparseParcelableArray != null ? (Bundle) sparseParcelableArray.get(i) : null);
-            } else if (i2 >= 16) {
-                return NotificationCompatJellybean.getAction(notification, i);
-            } else {
+                if (sparseParcelableArray != null) {
+                    bundle = (Bundle) sparseParcelableArray.get(i);
+                }
+                return NotificationCompatJellybean.readAction(action.icon, action.title, action.actionIntent, bundle);
+            } else if (i2 < 16) {
                 return null;
+            } else {
+                return NotificationCompatJellybean.getAction(notification, i);
             }
         }
         return (Action) invokeLI.objValue;
     }
 
-    @RequiresApi(20)
     public static Action getActionCompatFromAction(Notification.Action action) {
         InterceptResult invokeL;
         RemoteInput[] remoteInputArr;
-        boolean z;
         int i;
+        boolean z;
         int i2;
+        boolean z2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, action)) == null) {
             android.app.RemoteInput[] remoteInputs = action.getRemoteInputs();
+            IconCompat iconCompat = null;
             if (remoteInputs == null) {
                 remoteInputArr = null;
             } else {
                 RemoteInput[] remoteInputArr2 = new RemoteInput[remoteInputs.length];
-                for (int i3 = 0; i3 < remoteInputs.length; i3++) {
-                    android.app.RemoteInput remoteInput = remoteInputs[i3];
-                    remoteInputArr2[i3] = new RemoteInput(remoteInput.getResultKey(), remoteInput.getLabel(), remoteInput.getChoices(), remoteInput.getAllowFreeFormInput(), Build.VERSION.SDK_INT >= 29 ? remoteInput.getEditChoicesBeforeSending() : 0, remoteInput.getExtras(), null);
+                for (int i4 = 0; i4 < remoteInputs.length; i4++) {
+                    android.app.RemoteInput remoteInput = remoteInputs[i4];
+                    String resultKey = remoteInput.getResultKey();
+                    CharSequence label = remoteInput.getLabel();
+                    CharSequence[] choices = remoteInput.getChoices();
+                    boolean allowFreeFormInput = remoteInput.getAllowFreeFormInput();
+                    if (Build.VERSION.SDK_INT >= 29) {
+                        i = remoteInput.getEditChoicesBeforeSending();
+                    } else {
+                        i = 0;
+                    }
+                    remoteInputArr2[i4] = new RemoteInput(resultKey, label, choices, allowFreeFormInput, i, remoteInput.getExtras(), null);
                 }
                 remoteInputArr = remoteInputArr2;
             }
             if (Build.VERSION.SDK_INT >= 24) {
-                z = action.getExtras().getBoolean(NotificationCompatJellybean.EXTRA_ALLOW_GENERATED_REPLIES) || action.getAllowGeneratedReplies();
+                if (!action.getExtras().getBoolean(NotificationCompatJellybean.EXTRA_ALLOW_GENERATED_REPLIES) && !action.getAllowGeneratedReplies()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
             } else {
                 z = action.getExtras().getBoolean(NotificationCompatJellybean.EXTRA_ALLOW_GENERATED_REPLIES);
             }
-            boolean z2 = z;
-            boolean z3 = action.getExtras().getBoolean(Action.EXTRA_SHOWS_USER_INTERFACE, true);
+            boolean z3 = z;
+            boolean z4 = action.getExtras().getBoolean(Action.EXTRA_SHOWS_USER_INTERFACE, true);
             if (Build.VERSION.SDK_INT >= 28) {
-                i = action.getSemanticAction();
+                i2 = action.getSemanticAction();
             } else {
-                i = action.getExtras().getInt(Action.EXTRA_SEMANTIC_ACTION, 0);
+                i2 = action.getExtras().getInt(Action.EXTRA_SEMANTIC_ACTION, 0);
             }
-            int i4 = i;
-            boolean isContextual = Build.VERSION.SDK_INT >= 29 ? action.isContextual() : false;
+            int i5 = i2;
+            if (Build.VERSION.SDK_INT >= 29) {
+                z2 = action.isContextual();
+            } else {
+                z2 = false;
+            }
             if (Build.VERSION.SDK_INT >= 23) {
-                if (action.getIcon() == null && (i2 = action.icon) != 0) {
-                    return new Action(i2, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i4, z3, isContextual);
+                if (action.getIcon() == null && (i3 = action.icon) != 0) {
+                    return new Action(i3, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z3, i5, z4, z2);
                 }
-                return new Action(action.getIcon() != null ? IconCompat.createFromIconOrNullIfZeroResId(action.getIcon()) : null, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i4, z3, isContextual);
+                if (action.getIcon() != null) {
+                    iconCompat = IconCompat.createFromIconOrNullIfZeroResId(action.getIcon());
+                }
+                return new Action(iconCompat, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z3, i5, z4, z2);
             }
-            return new Action(action.icon, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i4, z3, isContextual);
+            return new Action(action.icon, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z3, i5, z4, z2);
         }
         return (Action) invokeL.objValue;
     }
@@ -3416,17 +4863,17 @@ public class NotificationCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, notification)) == null) {
             int i = Build.VERSION.SDK_INT;
-            if (i < 19) {
-                if (i >= 16) {
-                    return NotificationCompatJellybean.getActionCount(notification);
+            if (i >= 19) {
+                Notification.Action[] actionArr = notification.actions;
+                if (actionArr == null) {
+                    return 0;
                 }
-                return 0;
-            }
-            Notification.Action[] actionArr = notification.actions;
-            if (actionArr != null) {
                 return actionArr.length;
+            } else if (i < 16) {
+                return 0;
+            } else {
+                return NotificationCompatJellybean.getActionCount(notification);
             }
-            return 0;
         }
         return invokeL.intValue;
     }
@@ -3455,8 +4902,7 @@ public class NotificationCompat {
         return invokeL.intValue;
     }
 
-    @Nullable
-    public static BubbleMetadata getBubbleMetadata(@NonNull Notification notification) {
+    public static BubbleMetadata getBubbleMetadata(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, notification)) == null) {
@@ -3492,14 +4938,15 @@ public class NotificationCompat {
         return (String) invokeL.objValue;
     }
 
-    @RequiresApi(19)
     public static CharSequence getContentTitle(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, notification)) == null) ? notification.extras.getCharSequence(EXTRA_TITLE) : (CharSequence) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, notification)) == null) {
+            return notification.extras.getCharSequence(EXTRA_TITLE);
+        }
+        return (CharSequence) invokeL.objValue;
     }
 
-    @Nullable
     public static Bundle getExtras(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -3514,6 +4961,42 @@ public class NotificationCompat {
             return null;
         }
         return (Bundle) invokeL.objValue;
+    }
+
+    public static int getGroupAlertBehavior(Notification notification) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, notification)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return notification.getGroupAlertBehavior();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String getShortcutId(Notification notification) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, notification)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return notification.getShortcutId();
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static long getTimeoutAfter(Notification notification) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, notification)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return notification.getTimeoutAfter();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
     }
 
     public static String getGroup(Notification notification) {
@@ -3535,83 +5018,26 @@ public class NotificationCompat {
         return (String) invokeL.objValue;
     }
 
-    public static int getGroupAlertBehavior(Notification notification) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, notification)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return notification.getGroupAlertBehavior();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @RequiresApi(21)
-    public static List<Action> getInvisibleActions(Notification notification) {
-        InterceptResult invokeL;
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, notification)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Bundle bundle2 = notification.extras.getBundle(CarExtender.EXTRA_CAR_EXTENDER);
-            if (bundle2 != null && (bundle = bundle2.getBundle(CarExtender.EXTRA_INVISIBLE_ACTIONS)) != null) {
-                for (int i = 0; i < bundle.size(); i++) {
-                    arrayList.add(NotificationCompatJellybean.getActionFromBundle(bundle.getBundle(Integer.toString(i))));
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
     public static boolean getLocalOnly(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, notification)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 20) {
-                return (notification.flags & 256) != 0;
+                if ((notification.flags & 256) == 0) {
+                    return false;
+                }
+                return true;
             } else if (i >= 19) {
                 return notification.extras.getBoolean(NotificationCompatExtras.EXTRA_LOCAL_ONLY);
             } else {
-                if (i >= 16) {
-                    return NotificationCompatJellybean.getExtras(notification).getBoolean(NotificationCompatExtras.EXTRA_LOCAL_ONLY);
+                if (i < 16) {
+                    return false;
                 }
-                return false;
+                return NotificationCompatJellybean.getExtras(notification).getBoolean(NotificationCompatExtras.EXTRA_LOCAL_ONLY);
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public static Notification[] getNotificationArrayFromBundle(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, bundle, str)) == null) {
-            Parcelable[] parcelableArray = bundle.getParcelableArray(str);
-            if (!(parcelableArray instanceof Notification[]) && parcelableArray != null) {
-                Notification[] notificationArr = new Notification[parcelableArray.length];
-                for (int i = 0; i < parcelableArray.length; i++) {
-                    notificationArr[i] = (Notification) parcelableArray[i];
-                }
-                bundle.putParcelableArray(str, notificationArr);
-                return notificationArr;
-            }
-            return (Notification[]) parcelableArray;
-        }
-        return (Notification[]) invokeLL.objValue;
-    }
-
-    public static String getShortcutId(Notification notification) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, notification)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return notification.getShortcutId();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 
     public static String getSortKey(Notification notification) {
@@ -3633,1120 +5059,63 @@ public class NotificationCompat {
         return (String) invokeL.objValue;
     }
 
-    public static long getTimeoutAfter(Notification notification) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, notification)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return notification.getTimeoutAfter();
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
     public static boolean isGroupSummary(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, notification)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 20) {
-                return (notification.flags & 512) != 0;
+                if ((notification.flags & 512) == 0) {
+                    return false;
+                }
+                return true;
             } else if (i >= 19) {
                 return notification.extras.getBoolean(NotificationCompatExtras.EXTRA_GROUP_SUMMARY);
             } else {
-                if (i >= 16) {
-                    return NotificationCompatJellybean.getExtras(notification).getBoolean(NotificationCompatExtras.EXTRA_GROUP_SUMMARY);
+                if (i < 16) {
+                    return false;
                 }
-                return false;
+                return NotificationCompatJellybean.getExtras(notification).getBoolean(NotificationCompatExtras.EXTRA_GROUP_SUMMARY);
             }
         }
         return invokeL.booleanValue;
     }
 
-    /* loaded from: classes.dex */
-    public static final class CarExtender implements Extender {
-        public static /* synthetic */ Interceptable $ic = null;
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public static final String EXTRA_CAR_EXTENDER = "android.car.EXTENSIONS";
-        public static final String EXTRA_COLOR = "app_color";
-        public static final String EXTRA_CONVERSATION = "car_conversation";
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public static final String EXTRA_INVISIBLE_ACTIONS = "invisible_actions";
-        public static final String EXTRA_LARGE_ICON = "large_icon";
-        public static final String KEY_AUTHOR = "author";
-        public static final String KEY_MESSAGES = "messages";
-        public static final String KEY_ON_READ = "on_read";
-        public static final String KEY_ON_REPLY = "on_reply";
-        public static final String KEY_PARTICIPANTS = "participants";
-        public static final String KEY_REMOTE_INPUT = "remote_input";
-        public static final String KEY_TEXT = "text";
-        public static final String KEY_TIMESTAMP = "timestamp";
-        public transient /* synthetic */ FieldHolder $fh;
-        public int mColor;
-        public Bitmap mLargeIcon;
-        public UnreadConversation mUnreadConversation;
-
-        @Deprecated
-        /* loaded from: classes.dex */
-        public static class UnreadConversation {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final long mLatestTimestamp;
-            public final String[] mMessages;
-            public final String[] mParticipants;
-            public final PendingIntent mReadPendingIntent;
-            public final RemoteInput mRemoteInput;
-            public final PendingIntent mReplyPendingIntent;
-
-            /* loaded from: classes.dex */
-            public static class Builder {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public long mLatestTimestamp;
-                public final List<String> mMessages;
-                public final String mParticipant;
-                public PendingIntent mReadPendingIntent;
-                public RemoteInput mRemoteInput;
-                public PendingIntent mReplyPendingIntent;
-
-                public Builder(String str) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {str};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.mMessages = new ArrayList();
-                    this.mParticipant = str;
-                }
-
-                public Builder addMessage(String str) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                        this.mMessages.add(str);
-                        return this;
-                    }
-                    return (Builder) invokeL.objValue;
-                }
-
-                public UnreadConversation build() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        List<String> list = this.mMessages;
-                        return new UnreadConversation((String[]) list.toArray(new String[list.size()]), this.mRemoteInput, this.mReplyPendingIntent, this.mReadPendingIntent, new String[]{this.mParticipant}, this.mLatestTimestamp);
-                    }
-                    return (UnreadConversation) invokeV.objValue;
-                }
-
-                public Builder setLatestTimestamp(long j) {
-                    InterceptResult invokeJ;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                        this.mLatestTimestamp = j;
-                        return this;
-                    }
-                    return (Builder) invokeJ.objValue;
-                }
-
-                public Builder setReadPendingIntent(PendingIntent pendingIntent) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pendingIntent)) == null) {
-                        this.mReadPendingIntent = pendingIntent;
-                        return this;
-                    }
-                    return (Builder) invokeL.objValue;
-                }
-
-                public Builder setReplyAction(PendingIntent pendingIntent, RemoteInput remoteInput) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, pendingIntent, remoteInput)) == null) {
-                        this.mRemoteInput = remoteInput;
-                        this.mReplyPendingIntent = pendingIntent;
-                        return this;
-                    }
-                    return (Builder) invokeLL.objValue;
+    public static List<Action> getInvisibleActions(Notification notification) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, notification)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Bundle bundle = notification.extras.getBundle(CarExtender.EXTRA_CAR_EXTENDER);
+            if (bundle == null) {
+                return arrayList;
+            }
+            Bundle bundle2 = bundle.getBundle(CarExtender.EXTRA_INVISIBLE_ACTIONS);
+            if (bundle2 != null) {
+                for (int i = 0; i < bundle2.size(); i++) {
+                    arrayList.add(NotificationCompatJellybean.getActionFromBundle(bundle2.getBundle(Integer.toString(i))));
                 }
             }
-
-            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.mMessages = strArr;
-                this.mRemoteInput = remoteInput;
-                this.mReadPendingIntent = pendingIntent2;
-                this.mReplyPendingIntent = pendingIntent;
-                this.mParticipants = strArr2;
-                this.mLatestTimestamp = j;
-            }
-
-            public long getLatestTimestamp() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mLatestTimestamp : invokeV.longValue;
-            }
-
-            public String[] getMessages() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMessages : (String[]) invokeV.objValue;
-            }
-
-            public String getParticipant() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    String[] strArr = this.mParticipants;
-                    if (strArr.length > 0) {
-                        return strArr[0];
-                    }
-                    return null;
-                }
-                return (String) invokeV.objValue;
-            }
-
-            public String[] getParticipants() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mParticipants : (String[]) invokeV.objValue;
-            }
-
-            public PendingIntent getReadPendingIntent() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mReadPendingIntent : (PendingIntent) invokeV.objValue;
-            }
-
-            public RemoteInput getRemoteInput() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRemoteInput : (RemoteInput) invokeV.objValue;
-            }
-
-            public PendingIntent getReplyPendingIntent() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mReplyPendingIntent : (PendingIntent) invokeV.objValue;
-            }
+            return arrayList;
         }
-
-        public CarExtender() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mColor = 0;
-        }
-
-        @RequiresApi(21)
-        public static Bundle getBundleForUnreadConversation(@NonNull UnreadConversation unreadConversation) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unreadConversation)) == null) {
-                Bundle bundle = new Bundle();
-                String str = (unreadConversation.getParticipants() == null || unreadConversation.getParticipants().length <= 1) ? null : unreadConversation.getParticipants()[0];
-                int length = unreadConversation.getMessages().length;
-                Parcelable[] parcelableArr = new Parcelable[length];
-                for (int i = 0; i < length; i++) {
-                    Bundle bundle2 = new Bundle();
-                    bundle2.putString("text", unreadConversation.getMessages()[i]);
-                    bundle2.putString(KEY_AUTHOR, str);
-                    parcelableArr[i] = bundle2;
-                }
-                bundle.putParcelableArray(KEY_MESSAGES, parcelableArr);
-                RemoteInput remoteInput = unreadConversation.getRemoteInput();
-                if (remoteInput != null) {
-                    bundle.putParcelable(KEY_REMOTE_INPUT, new RemoteInput.Builder(remoteInput.getResultKey()).setLabel(remoteInput.getLabel()).setChoices(remoteInput.getChoices()).setAllowFreeFormInput(remoteInput.getAllowFreeFormInput()).addExtras(remoteInput.getExtras()).build());
-                }
-                bundle.putParcelable(KEY_ON_REPLY, unreadConversation.getReplyPendingIntent());
-                bundle.putParcelable(KEY_ON_READ, unreadConversation.getReadPendingIntent());
-                bundle.putStringArray(KEY_PARTICIPANTS, unreadConversation.getParticipants());
-                bundle.putLong("timestamp", unreadConversation.getLatestTimestamp());
-                return bundle;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-
-        @RequiresApi(21)
-        public static UnreadConversation getUnreadConversationFromBundle(@Nullable Bundle bundle) {
-            InterceptResult invokeL;
-            String[] strArr;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-                RemoteInput remoteInput = null;
-                if (bundle == null) {
-                    return null;
-                }
-                Parcelable[] parcelableArray = bundle.getParcelableArray(KEY_MESSAGES);
-                if (parcelableArray != null) {
-                    int length = parcelableArray.length;
-                    String[] strArr2 = new String[length];
-                    for (int i = 0; i < length; i++) {
-                        if (parcelableArray[i] instanceof Bundle) {
-                            strArr2[i] = ((Bundle) parcelableArray[i]).getString("text");
-                            if (strArr2[i] != null) {
-                            }
-                        }
-                        z = false;
-                        break;
-                    }
-                    z = true;
-                    if (!z) {
-                        return null;
-                    }
-                    strArr = strArr2;
-                } else {
-                    strArr = null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable(KEY_ON_READ);
-                PendingIntent pendingIntent2 = (PendingIntent) bundle.getParcelable(KEY_ON_REPLY);
-                android.app.RemoteInput remoteInput2 = (android.app.RemoteInput) bundle.getParcelable(KEY_REMOTE_INPUT);
-                String[] stringArray = bundle.getStringArray(KEY_PARTICIPANTS);
-                if (stringArray == null || stringArray.length != 1) {
-                    return null;
-                }
-                if (remoteInput2 != null) {
-                    remoteInput = new RemoteInput(remoteInput2.getResultKey(), remoteInput2.getLabel(), remoteInput2.getChoices(), remoteInput2.getAllowFreeFormInput(), Build.VERSION.SDK_INT >= 29 ? remoteInput2.getEditChoicesBeforeSending() : 0, remoteInput2.getExtras(), null);
-                }
-                return new UnreadConversation(strArr, remoteInput, pendingIntent2, pendingIntent, stringArray, bundle.getLong("timestamp"));
-            }
-            return (UnreadConversation) invokeL.objValue;
-        }
-
-        @Override // androidx.core.app.NotificationCompat.Extender
-        public Builder extend(Builder builder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, builder)) == null) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return builder;
-                }
-                Bundle bundle = new Bundle();
-                Bitmap bitmap = this.mLargeIcon;
-                if (bitmap != null) {
-                    bundle.putParcelable(EXTRA_LARGE_ICON, bitmap);
-                }
-                int i = this.mColor;
-                if (i != 0) {
-                    bundle.putInt(EXTRA_COLOR, i);
-                }
-                UnreadConversation unreadConversation = this.mUnreadConversation;
-                if (unreadConversation != null) {
-                    bundle.putBundle(EXTRA_CONVERSATION, getBundleForUnreadConversation(unreadConversation));
-                }
-                builder.getExtras().putBundle(EXTRA_CAR_EXTENDER, bundle);
-                return builder;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @ColorInt
-        public int getColor() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mColor : invokeV.intValue;
-        }
-
-        public Bitmap getLargeIcon() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLargeIcon : (Bitmap) invokeV.objValue;
-        }
-
-        @Deprecated
-        public UnreadConversation getUnreadConversation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUnreadConversation : (UnreadConversation) invokeV.objValue;
-        }
-
-        public CarExtender setColor(@ColorInt int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.mColor = i;
-                return this;
-            }
-            return (CarExtender) invokeI.objValue;
-        }
-
-        public CarExtender setLargeIcon(Bitmap bitmap) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
-                this.mLargeIcon = bitmap;
-                return this;
-            }
-            return (CarExtender) invokeL.objValue;
-        }
-
-        @Deprecated
-        public CarExtender setUnreadConversation(UnreadConversation unreadConversation) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, unreadConversation)) == null) {
-                this.mUnreadConversation = unreadConversation;
-                return this;
-            }
-            return (CarExtender) invokeL.objValue;
-        }
-
-        public CarExtender(Notification notification) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {notification};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mColor = 0;
-            if (Build.VERSION.SDK_INT < 21) {
-                return;
-            }
-            Bundle bundle = NotificationCompat.getExtras(notification) == null ? null : NotificationCompat.getExtras(notification).getBundle(EXTRA_CAR_EXTENDER);
-            if (bundle != null) {
-                this.mLargeIcon = (Bitmap) bundle.getParcelable(EXTRA_LARGE_ICON);
-                this.mColor = bundle.getInt(EXTRA_COLOR, 0);
-                this.mUnreadConversation = getUnreadConversationFromBundle(bundle.getBundle(EXTRA_CONVERSATION));
-            }
-        }
+        return (List) invokeL.objValue;
     }
 
-    /* loaded from: classes.dex */
-    public static class InboxStyle extends Style {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<CharSequence> mTexts;
-
-        public InboxStyle() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Notification[] getNotificationArrayFromBundle(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, bundle, str)) == null) {
+            Parcelable[] parcelableArray = bundle.getParcelableArray(str);
+            if (!(parcelableArray instanceof Notification[]) && parcelableArray != null) {
+                Notification[] notificationArr = new Notification[parcelableArray.length];
+                for (int i = 0; i < parcelableArray.length; i++) {
+                    notificationArr[i] = (Notification) parcelableArray[i];
                 }
+                bundle.putParcelableArray(str, notificationArr);
+                return notificationArr;
             }
-            this.mTexts = new ArrayList<>();
+            return (Notification[]) parcelableArray;
         }
-
-        public InboxStyle addLine(CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
-                this.mTexts.add(Builder.limitCharSequenceLength(charSequence));
-                return this;
-            }
-            return (InboxStyle) invokeL.objValue;
-        }
-
-        @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notificationBuilderWithBuilderAccessor) == null) || Build.VERSION.SDK_INT < 16) {
-                return;
-            }
-            Notification.InboxStyle bigContentTitle = new Notification.InboxStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(this.mBigContentTitle);
-            if (this.mSummaryTextSet) {
-                bigContentTitle.setSummaryText(this.mSummaryText);
-            }
-            Iterator<CharSequence> it = this.mTexts.iterator();
-            while (it.hasNext()) {
-                bigContentTitle.addLine(it.next());
-            }
-        }
-
-        public InboxStyle setBigContentTitle(CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
-                this.mBigContentTitle = Builder.limitCharSequenceLength(charSequence);
-                return this;
-            }
-            return (InboxStyle) invokeL.objValue;
-        }
-
-        public InboxStyle setSummaryText(CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
-                this.mSummaryText = Builder.limitCharSequenceLength(charSequence);
-                this.mSummaryTextSet = true;
-                return this;
-            }
-            return (InboxStyle) invokeL.objValue;
-        }
-
-        public InboxStyle(Builder builder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {builder};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mTexts = new ArrayList<>();
-            setBuilder(builder);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class MessagingStyle extends Style {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int MAXIMUM_RETAINED_MESSAGES = 25;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public CharSequence mConversationTitle;
-        @Nullable
-        public Boolean mIsGroupConversation;
-        public final List<Message> mMessages;
-        public Person mUser;
-
-        public MessagingStyle() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mMessages = new ArrayList();
-        }
-
-        @Nullable
-        public static MessagingStyle extractMessagingStyleFromNotification(Notification notification) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, notification)) == null) {
-                Bundle extras = NotificationCompat.getExtras(notification);
-                if (extras == null || extras.containsKey(NotificationCompat.EXTRA_SELF_DISPLAY_NAME) || extras.containsKey(NotificationCompat.EXTRA_MESSAGING_STYLE_USER)) {
-                    try {
-                        MessagingStyle messagingStyle = new MessagingStyle();
-                        messagingStyle.restoreFromCompatExtras(extras);
-                        return messagingStyle;
-                    } catch (ClassCastException unused) {
-                        return null;
-                    }
-                }
-                return null;
-            }
-            return (MessagingStyle) invokeL.objValue;
-        }
-
-        @Nullable
-        private Message findLatestIncomingMessage() {
-            InterceptResult invokeV;
-            List<Message> list;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-                for (int size = this.mMessages.size() - 1; size >= 0; size--) {
-                    Message message = this.mMessages.get(size);
-                    if (message.getPerson() != null && !TextUtils.isEmpty(message.getPerson().getName())) {
-                        return message;
-                    }
-                }
-                if (this.mMessages.isEmpty()) {
-                    return null;
-                }
-                return this.mMessages.get(list.size() - 1);
-            }
-            return (Message) invokeV.objValue;
-        }
-
-        private boolean hasMessagesWithoutSender() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-                for (int size = this.mMessages.size() - 1; size >= 0; size--) {
-                    Message message = this.mMessages.get(size);
-                    if (message.getPerson() != null && message.getPerson().getName() == null) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @NonNull
-        private TextAppearanceSpan makeFontColorSpan(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) ? new TextAppearanceSpan(null, 0, 0, ColorStateList.valueOf(i), null) : (TextAppearanceSpan) invokeI.objValue;
-        }
-
-        private CharSequence makeMessageLine(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, message)) == null) {
-                BidiFormatter bidiFormatter = BidiFormatter.getInstance();
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                boolean z = Build.VERSION.SDK_INT >= 21;
-                int i = z ? -16777216 : -1;
-                String name = message.getPerson() == null ? "" : message.getPerson().getName();
-                if (TextUtils.isEmpty(name)) {
-                    name = this.mUser.getName();
-                    if (z && this.mBuilder.getColor() != 0) {
-                        i = this.mBuilder.getColor();
-                    }
-                }
-                CharSequence unicodeWrap = bidiFormatter.unicodeWrap(name);
-                spannableStringBuilder.append(unicodeWrap);
-                spannableStringBuilder.setSpan(makeFontColorSpan(i), spannableStringBuilder.length() - unicodeWrap.length(), spannableStringBuilder.length(), 33);
-                spannableStringBuilder.append((CharSequence) GlideException.IndentedAppendable.INDENT).append(bidiFormatter.unicodeWrap(message.getText() != null ? message.getText() : ""));
-                return spannableStringBuilder;
-            }
-            return (CharSequence) invokeL.objValue;
-        }
-
-        @Override // androidx.core.app.NotificationCompat.Style
-        public void addCompatExtras(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                super.addCompatExtras(bundle);
-                bundle.putCharSequence(NotificationCompat.EXTRA_SELF_DISPLAY_NAME, this.mUser.getName());
-                bundle.putBundle(NotificationCompat.EXTRA_MESSAGING_STYLE_USER, this.mUser.toBundle());
-                bundle.putCharSequence(NotificationCompat.EXTRA_HIDDEN_CONVERSATION_TITLE, this.mConversationTitle);
-                if (this.mConversationTitle != null && this.mIsGroupConversation.booleanValue()) {
-                    bundle.putCharSequence(NotificationCompat.EXTRA_CONVERSATION_TITLE, this.mConversationTitle);
-                }
-                if (!this.mMessages.isEmpty()) {
-                    bundle.putParcelableArray(NotificationCompat.EXTRA_MESSAGES, Message.getBundleArrayForMessages(this.mMessages));
-                }
-                Boolean bool = this.mIsGroupConversation;
-                if (bool != null) {
-                    bundle.putBoolean(NotificationCompat.EXTRA_IS_GROUP_CONVERSATION, bool.booleanValue());
-                }
-            }
-        }
-
-        @Deprecated
-        public MessagingStyle addMessage(CharSequence charSequence, long j, CharSequence charSequence2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j), charSequence2})) == null) {
-                this.mMessages.add(new Message(charSequence, j, new Person.Builder().setName(charSequence2).build()));
-                if (this.mMessages.size() > 25) {
-                    this.mMessages.remove(0);
-                }
-                return this;
-            }
-            return (MessagingStyle) invokeCommon.objValue;
-        }
-
-        @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            CharSequence text;
-            Notification.MessagingStyle messagingStyle;
-            Notification.MessagingStyle.Message message;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, notificationBuilderWithBuilderAccessor) == null) {
-                setGroupConversation(isGroupConversation());
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 24) {
-                    if (i >= 28) {
-                        messagingStyle = new Notification.MessagingStyle(this.mUser.toAndroidPerson());
-                    } else {
-                        messagingStyle = new Notification.MessagingStyle(this.mUser.getName());
-                    }
-                    if (this.mIsGroupConversation.booleanValue() || Build.VERSION.SDK_INT >= 28) {
-                        messagingStyle.setConversationTitle(this.mConversationTitle);
-                    }
-                    if (Build.VERSION.SDK_INT >= 28) {
-                        messagingStyle.setGroupConversation(this.mIsGroupConversation.booleanValue());
-                    }
-                    for (Message message2 : this.mMessages) {
-                        if (Build.VERSION.SDK_INT >= 28) {
-                            Person person = message2.getPerson();
-                            message = new Notification.MessagingStyle.Message(message2.getText(), message2.getTimestamp(), person == null ? null : person.toAndroidPerson());
-                        } else {
-                            message = new Notification.MessagingStyle.Message(message2.getText(), message2.getTimestamp(), message2.getPerson() != null ? message2.getPerson().getName() : null);
-                        }
-                        if (message2.getDataMimeType() != null) {
-                            message.setData(message2.getDataMimeType(), message2.getDataUri());
-                        }
-                        messagingStyle.addMessage(message);
-                    }
-                    messagingStyle.setBuilder(notificationBuilderWithBuilderAccessor.getBuilder());
-                    return;
-                }
-                Message findLatestIncomingMessage = findLatestIncomingMessage();
-                if (this.mConversationTitle != null && this.mIsGroupConversation.booleanValue()) {
-                    notificationBuilderWithBuilderAccessor.getBuilder().setContentTitle(this.mConversationTitle);
-                } else if (findLatestIncomingMessage != null) {
-                    notificationBuilderWithBuilderAccessor.getBuilder().setContentTitle("");
-                    if (findLatestIncomingMessage.getPerson() != null) {
-                        notificationBuilderWithBuilderAccessor.getBuilder().setContentTitle(findLatestIncomingMessage.getPerson().getName());
-                    }
-                }
-                if (findLatestIncomingMessage != null) {
-                    Notification.Builder builder = notificationBuilderWithBuilderAccessor.getBuilder();
-                    if (this.mConversationTitle != null) {
-                        text = makeMessageLine(findLatestIncomingMessage);
-                    } else {
-                        text = findLatestIncomingMessage.getText();
-                    }
-                    builder.setContentText(text);
-                }
-                if (Build.VERSION.SDK_INT >= 16) {
-                    SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    boolean z = this.mConversationTitle != null || hasMessagesWithoutSender();
-                    for (int size = this.mMessages.size() - 1; size >= 0; size--) {
-                        Message message3 = this.mMessages.get(size);
-                        CharSequence makeMessageLine = z ? makeMessageLine(message3) : message3.getText();
-                        if (size != this.mMessages.size() - 1) {
-                            spannableStringBuilder.insert(0, (CharSequence) "\n");
-                        }
-                        spannableStringBuilder.insert(0, makeMessageLine);
-                    }
-                    new Notification.BigTextStyle(notificationBuilderWithBuilderAccessor.getBuilder()).setBigContentTitle(null).bigText(spannableStringBuilder);
-                }
-            }
-        }
-
-        @Nullable
-        public CharSequence getConversationTitle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mConversationTitle : (CharSequence) invokeV.objValue;
-        }
-
-        public List<Message> getMessages() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mMessages : (List) invokeV.objValue;
-        }
-
-        public Person getUser() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mUser : (Person) invokeV.objValue;
-        }
-
-        @Deprecated
-        public CharSequence getUserDisplayName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUser.getName() : (CharSequence) invokeV.objValue;
-        }
-
-        public boolean isGroupConversation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                Builder builder = this.mBuilder;
-                if (builder != null && builder.mContext.getApplicationInfo().targetSdkVersion < 28 && this.mIsGroupConversation == null) {
-                    return this.mConversationTitle != null;
-                }
-                Boolean bool = this.mIsGroupConversation;
-                if (bool != null) {
-                    return bool.booleanValue();
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public void restoreFromCompatExtras(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-                this.mMessages.clear();
-                if (bundle.containsKey(NotificationCompat.EXTRA_MESSAGING_STYLE_USER)) {
-                    this.mUser = Person.fromBundle(bundle.getBundle(NotificationCompat.EXTRA_MESSAGING_STYLE_USER));
-                } else {
-                    this.mUser = new Person.Builder().setName(bundle.getString(NotificationCompat.EXTRA_SELF_DISPLAY_NAME)).build();
-                }
-                CharSequence charSequence = bundle.getCharSequence(NotificationCompat.EXTRA_CONVERSATION_TITLE);
-                this.mConversationTitle = charSequence;
-                if (charSequence == null) {
-                    this.mConversationTitle = bundle.getCharSequence(NotificationCompat.EXTRA_HIDDEN_CONVERSATION_TITLE);
-                }
-                Parcelable[] parcelableArray = bundle.getParcelableArray(NotificationCompat.EXTRA_MESSAGES);
-                if (parcelableArray != null) {
-                    this.mMessages.addAll(Message.getMessagesFromBundleArray(parcelableArray));
-                }
-                if (bundle.containsKey(NotificationCompat.EXTRA_IS_GROUP_CONVERSATION)) {
-                    this.mIsGroupConversation = Boolean.valueOf(bundle.getBoolean(NotificationCompat.EXTRA_IS_GROUP_CONVERSATION));
-                }
-            }
-        }
-
-        public MessagingStyle setConversationTitle(@Nullable CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, charSequence)) == null) {
-                this.mConversationTitle = charSequence;
-                return this;
-            }
-            return (MessagingStyle) invokeL.objValue;
-        }
-
-        public MessagingStyle setGroupConversation(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-                this.mIsGroupConversation = Boolean.valueOf(z);
-                return this;
-            }
-            return (MessagingStyle) invokeZ.objValue;
-        }
-
-        @Deprecated
-        public MessagingStyle(@NonNull CharSequence charSequence) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {charSequence};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.mMessages = new ArrayList();
-            this.mUser = new Person.Builder().setName(charSequence).build();
-        }
-
-        /* loaded from: classes.dex */
-        public static final class Message {
-            public static /* synthetic */ Interceptable $ic = null;
-            public static final String KEY_DATA_MIME_TYPE = "type";
-            public static final String KEY_DATA_URI = "uri";
-            public static final String KEY_EXTRAS_BUNDLE = "extras";
-            public static final String KEY_NOTIFICATION_PERSON = "sender_person";
-            public static final String KEY_PERSON = "person";
-            public static final String KEY_SENDER = "sender";
-            public static final String KEY_TEXT = "text";
-            public static final String KEY_TIMESTAMP = "time";
-            public transient /* synthetic */ FieldHolder $fh;
-            @Nullable
-            public String mDataMimeType;
-            @Nullable
-            public Uri mDataUri;
-            public Bundle mExtras;
-            @Nullable
-            public final Person mPerson;
-            public final CharSequence mText;
-            public final long mTimestamp;
-
-            public Message(CharSequence charSequence, long j, @Nullable Person person) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j), person};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.mExtras = new Bundle();
-                this.mText = charSequence;
-                this.mTimestamp = j;
-                this.mPerson = person;
-            }
-
-            @NonNull
-            public static Bundle[] getBundleArrayForMessages(List<Message> list) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-                    Bundle[] bundleArr = new Bundle[list.size()];
-                    int size = list.size();
-                    for (int i = 0; i < size; i++) {
-                        bundleArr[i] = list.get(i).toBundle();
-                    }
-                    return bundleArr;
-                }
-                return (Bundle[]) invokeL.objValue;
-            }
-
-            @Nullable
-            public static Message getMessageFromBundle(Bundle bundle) {
-                InterceptResult invokeL;
-                Person build;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-                    try {
-                        if (bundle.containsKey("text") && bundle.containsKey("time")) {
-                            if (bundle.containsKey("person")) {
-                                build = Person.fromBundle(bundle.getBundle("person"));
-                            } else if (bundle.containsKey(KEY_NOTIFICATION_PERSON) && Build.VERSION.SDK_INT >= 28) {
-                                build = Person.fromAndroidPerson((android.app.Person) bundle.getParcelable(KEY_NOTIFICATION_PERSON));
-                            } else {
-                                build = bundle.containsKey("sender") ? new Person.Builder().setName(bundle.getCharSequence("sender")).build() : null;
-                            }
-                            Message message = new Message(bundle.getCharSequence("text"), bundle.getLong("time"), build);
-                            if (bundle.containsKey("type") && bundle.containsKey("uri")) {
-                                message.setData(bundle.getString("type"), (Uri) bundle.getParcelable("uri"));
-                            }
-                            if (bundle.containsKey("extras")) {
-                                message.getExtras().putAll(bundle.getBundle("extras"));
-                            }
-                            return message;
-                        }
-                    } catch (ClassCastException unused) {
-                    }
-                    return null;
-                }
-                return (Message) invokeL.objValue;
-            }
-
-            @NonNull
-            public static List<Message> getMessagesFromBundleArray(Parcelable[] parcelableArr) {
-                InterceptResult invokeL;
-                Message messageFromBundle;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcelableArr)) == null) {
-                    ArrayList arrayList = new ArrayList(parcelableArr.length);
-                    for (int i = 0; i < parcelableArr.length; i++) {
-                        if ((parcelableArr[i] instanceof Bundle) && (messageFromBundle = getMessageFromBundle((Bundle) parcelableArr[i])) != null) {
-                            arrayList.add(messageFromBundle);
-                        }
-                    }
-                    return arrayList;
-                }
-                return (List) invokeL.objValue;
-            }
-
-            private Bundle toBundle() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-                    Bundle bundle = new Bundle();
-                    CharSequence charSequence = this.mText;
-                    if (charSequence != null) {
-                        bundle.putCharSequence("text", charSequence);
-                    }
-                    bundle.putLong("time", this.mTimestamp);
-                    Person person = this.mPerson;
-                    if (person != null) {
-                        bundle.putCharSequence("sender", person.getName());
-                        if (Build.VERSION.SDK_INT >= 28) {
-                            bundle.putParcelable(KEY_NOTIFICATION_PERSON, this.mPerson.toAndroidPerson());
-                        } else {
-                            bundle.putBundle("person", this.mPerson.toBundle());
-                        }
-                    }
-                    String str = this.mDataMimeType;
-                    if (str != null) {
-                        bundle.putString("type", str);
-                    }
-                    Uri uri = this.mDataUri;
-                    if (uri != null) {
-                        bundle.putParcelable("uri", uri);
-                    }
-                    Bundle bundle2 = this.mExtras;
-                    if (bundle2 != null) {
-                        bundle.putBundle("extras", bundle2);
-                    }
-                    return bundle;
-                }
-                return (Bundle) invokeV.objValue;
-            }
-
-            @Nullable
-            public String getDataMimeType() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDataMimeType : (String) invokeV.objValue;
-            }
-
-            @Nullable
-            public Uri getDataUri() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDataUri : (Uri) invokeV.objValue;
-            }
-
-            @NonNull
-            public Bundle getExtras() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
-            }
-
-            @Nullable
-            public Person getPerson() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPerson : (Person) invokeV.objValue;
-            }
-
-            @Nullable
-            @Deprecated
-            public CharSequence getSender() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                    Person person = this.mPerson;
-                    if (person == null) {
-                        return null;
-                    }
-                    return person.getName();
-                }
-                return (CharSequence) invokeV.objValue;
-            }
-
-            @NonNull
-            public CharSequence getText() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mText : (CharSequence) invokeV.objValue;
-            }
-
-            public long getTimestamp() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTimestamp : invokeV.longValue;
-            }
-
-            public Message setData(String str, Uri uri) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, uri)) == null) {
-                    this.mDataMimeType = str;
-                    this.mDataUri = uri;
-                    return this;
-                }
-                return (Message) invokeLL.objValue;
-            }
-
-            /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-            @Deprecated
-            public Message(CharSequence charSequence, long j, CharSequence charSequence2) {
-                this(charSequence, j, new Person.Builder().setName(charSequence2).build());
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j), charSequence2};
-                    interceptable.invokeUnInit(65537, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        this((CharSequence) objArr2[0], ((Long) objArr2[1]).longValue(), (Person) objArr2[2]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65537, newInitContext);
-                        return;
-                    }
-                }
-            }
-        }
-
-        public MessagingStyle(@NonNull Person person) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {person};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mMessages = new ArrayList();
-            if (!TextUtils.isEmpty(person.getName())) {
-                this.mUser = person;
-                return;
-            }
-            throw new IllegalArgumentException("User's name must not be empty.");
-        }
-
-        public MessagingStyle addMessage(CharSequence charSequence, long j, Person person) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j), person})) == null) {
-                addMessage(new Message(charSequence, j, person));
-                return this;
-            }
-            return (MessagingStyle) invokeCommon.objValue;
-        }
-
-        public MessagingStyle addMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message)) == null) {
-                this.mMessages.add(message);
-                if (this.mMessages.size() > 25) {
-                    this.mMessages.remove(0);
-                }
-                return this;
-            }
-            return (MessagingStyle) invokeL.objValue;
-        }
+        return (Notification[]) invokeLL.objValue;
     }
 }

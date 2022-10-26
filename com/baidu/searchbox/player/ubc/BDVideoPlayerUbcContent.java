@@ -1,8 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -32,13 +30,13 @@ public class BDVideoPlayerUbcContent {
 
     /* renamed from: com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String clarityKey;
@@ -73,16 +71,22 @@ public class BDVideoPlayerUbcContent {
         public BDVideoPlayerUbcContent build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BDVideoPlayerUbcContent(this, null) : (BDVideoPlayerUbcContent) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new BDVideoPlayerUbcContent(this, null);
+            }
+            return (BDVideoPlayerUbcContent) invokeV.objValue;
         }
 
         public BDVideoPlayerUbcContent buildEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new BDVideoPlayerUbcContent(new Builder().extLog(""), null) : (BDVideoPlayerUbcContent) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new BDVideoPlayerUbcContent(new Builder().extLog(""), null);
+            }
+            return (BDVideoPlayerUbcContent) invokeV.objValue;
         }
 
-        public Builder clarityKey(@Nullable String str) {
+        public Builder clarityKey(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -92,7 +96,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder extLog(@Nullable String str) {
+        public Builder extLog(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -102,7 +106,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder from(@Nullable String str) {
+        public Builder from(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -112,7 +116,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder id(@Nullable String str) {
+        public Builder id(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -122,7 +126,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder page(@Nullable String str) {
+        public Builder page(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -142,7 +146,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder playerStatusFetcher(@Nullable IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
+        public Builder playerStatusFetcher(IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iUbcPlayerStatusFetcher)) == null) {
@@ -152,7 +156,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder poster(@Nullable String str) {
+        public Builder poster(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -172,7 +176,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder title(@Nullable String str) {
+        public Builder title(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
@@ -182,7 +186,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder type(@Nullable String str) {
+        public Builder type(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
@@ -192,7 +196,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder url(@Nullable String str) {
+        public Builder url(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
@@ -203,138 +207,7 @@ public class BDVideoPlayerUbcContent {
         }
     }
 
-    public /* synthetic */ BDVideoPlayerUbcContent(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    @NonNull
-    private JSONObject createExtStatisticsLog(@Nullable String str, @Nullable String str2, @Nullable String str3) {
-        InterceptResult invokeLLL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, str, str2, str3)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject = new JSONObject(str);
-                } else {
-                    jSONObject = new JSONObject();
-                }
-                jSONObject.put(TiebaStatic.Params.VID, str2);
-                jSONObject.put("url", str3);
-                jSONObject.put("netType", BDVideoPlayerUbcHelper.getNetType());
-                if (TextUtils.isEmpty(jSONObject.optString("pdRec"))) {
-                    jSONObject.put("pdRec", "unKnow");
-                }
-                return jSONObject;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new JSONObject();
-            }
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    @Nullable
-    public String getClarityKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mClarityKey : (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public JSONObject getExtStatisticsLog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExtStatisticsLog : (JSONObject) invokeV.objValue;
-    }
-
-    @NonNull
-    public JSONObject getExtStatisticsLogClone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = this.mExtStatisticsLog;
-            if (jSONObject2 == null) {
-                return jSONObject;
-            }
-            Iterator<String> keys = jSONObject2.keys();
-            while (keys.hasNext()) {
-                try {
-                    String next = keys.next();
-                    jSONObject.put(next, this.mExtStatisticsLog.optString(next));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Nullable
-    public String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFrom : (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String getPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPage : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public IUbcPlayerStatusFetcher getPlayerFetcher() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPlayerStatusFetcher : (IUbcPlayerStatusFetcher) invokeV.objValue;
-    }
-
-    @Nullable
-    public long getPlayerPrepareTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPlayerPrepareTime : invokeV.longValue;
-    }
-
-    @Nullable
-    public String getPoster() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPoster : (String) invokeV.objValue;
-    }
-
-    public int getSelectType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSelectType : invokeV.intValue;
-    }
-
-    @Nullable
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTitle : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mType : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String getVid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mVid : (String) invokeV.objValue;
-    }
-
-    public BDVideoPlayerUbcContent(@NonNull Builder builder) {
+    public BDVideoPlayerUbcContent(Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -360,5 +233,157 @@ public class BDVideoPlayerUbcContent {
         this.mSelectType = builder.selectType;
         this.mType = builder.type;
         this.mClarityKey = builder.clarityKey;
+    }
+
+    public /* synthetic */ BDVideoPlayerUbcContent(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    private JSONObject createExtStatisticsLog(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, str, str2, str3)) == null) {
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject = new JSONObject(str);
+                } else {
+                    jSONObject = new JSONObject();
+                }
+                jSONObject.put(TiebaStatic.Params.VID, str2);
+                jSONObject.put("url", str3);
+                jSONObject.put("netType", BDVideoPlayerUbcHelper.getNetType());
+                if (TextUtils.isEmpty(jSONObject.optString("pdRec"))) {
+                    jSONObject.put("pdRec", "unKnow");
+                }
+                return jSONObject;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public String getClarityKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mClarityKey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject getExtStatisticsLog() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mExtStatisticsLog;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFrom;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPage;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public IUbcPlayerStatusFetcher getPlayerFetcher() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPlayerStatusFetcher;
+        }
+        return (IUbcPlayerStatusFetcher) invokeV.objValue;
+    }
+
+    public long getPlayerPrepareTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mPlayerPrepareTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getPoster() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mPoster;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getSelectType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSelectType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mVid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject getExtStatisticsLogClone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = this.mExtStatisticsLog;
+            if (jSONObject2 == null) {
+                return jSONObject;
+            }
+            Iterator<String> keys = jSONObject2.keys();
+            while (keys.hasNext()) {
+                try {
+                    String next = keys.next();
+                    jSONObject.put(next, this.mExtStatisticsLog.optString(next));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

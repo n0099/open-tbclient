@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
+    public final HashMap a;
 
     public b(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class b implements Serializable {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = new HashMap();
         if (bundle != null) {
             for (String str : bundle.keySet()) {
                 this.a.put(str, bundle.getString(str));

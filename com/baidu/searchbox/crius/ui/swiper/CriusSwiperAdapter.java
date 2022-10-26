@@ -24,6 +24,17 @@ public final class CriusSwiperAdapter extends PagerAdapter {
     public final Context context;
     public final SwiperItemHelper itemHelper;
 
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getItemPosition(Object object) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, object)) == null) {
+            Intrinsics.checkNotNullParameter(object, "object");
+            return -2;
+        }
+        return invokeL.intValue;
+    }
+
     public CriusSwiperAdapter(Context context, SwiperItemHelper itemHelper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,49 +56,6 @@ public final class CriusSwiperAdapter extends PagerAdapter {
         this.itemHelper = itemHelper;
     }
 
-    public final void appendChildAt(CriusData child, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, child, i) == null) {
-            Intrinsics.checkNotNullParameter(child, "child");
-            SwiperItemHelper swiperItemHelper = this.itemHelper;
-            if (swiperItemHelper != null) {
-                if (i < 0) {
-                    i = swiperItemHelper.getItemCount();
-                }
-                swiperItemHelper.appendChildAt(child, i);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup container, int i, Object object) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container, i, object) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(object, "object");
-            container.removeView((View) object);
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.itemHelper.getItemCount() : invokeV.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getItemPosition(Object object) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, object)) == null) {
-            Intrinsics.checkNotNullParameter(object, "object");
-            return -2;
-        }
-        return invokeL.intValue;
-    }
-
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup container, int i) {
         InterceptResult invokeLI;
@@ -106,6 +74,21 @@ public final class CriusSwiperAdapter extends PagerAdapter {
         return invokeLI.objValue;
     }
 
+    public final void appendChildAt(CriusData child, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, child, i) == null) {
+            Intrinsics.checkNotNullParameter(child, "child");
+            SwiperItemHelper swiperItemHelper = this.itemHelper;
+            if (swiperItemHelper != null) {
+                if (i < 0) {
+                    i = swiperItemHelper.getItemCount();
+                }
+                swiperItemHelper.appendChildAt(child, i);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
     @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view2, Object object) {
         InterceptResult invokeLL;
@@ -116,5 +99,25 @@ public final class CriusSwiperAdapter extends PagerAdapter {
             return Intrinsics.areEqual(view2, object);
         }
         return invokeLL.booleanValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void destroyItem(ViewGroup container, int i, Object object) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container, i, object) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            Intrinsics.checkNotNullParameter(object, "object");
+            container.removeView((View) object);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.itemHelper.getItemCount();
+        }
+        return invokeV.intValue;
     }
 }

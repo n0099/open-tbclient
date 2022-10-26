@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.widget.MediaController;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes6.dex */
-public class wa8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+public interface wa8 extends MediaController.MediaPlayerControl {
+    void a(long j, long j2, long j3);
 
-    public wa8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getCurrentPositionSync();
+
+    xa8 getMediaProgressObserver();
+
+    int getPcdnState();
+
+    void setLooping(boolean z);
+
+    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
+
+    void setOperableVideoContainer(pb8 pb8Var);
+
+    void setPlayMode(String str);
+
+    void setStageType(String str);
+
+    void setVideoPath(String str, String str2);
+
+    void setVideoStatData(kb8 kb8Var);
+
+    void setVolume(float f, float f2);
+
+    void stopPlayback();
 }

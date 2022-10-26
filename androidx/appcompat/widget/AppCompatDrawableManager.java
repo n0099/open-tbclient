@@ -6,10 +6,6 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.graphics.ColorUtils;
@@ -23,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class AppCompatDrawableManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -93,6 +88,32 @@ public final class AppCompatDrawableManager {
         return (PorterDuffColorFilter) invokeIL.objValue;
     }
 
+    public synchronized Drawable getDrawable(Context context, int i) {
+        InterceptResult invokeLI;
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            synchronized (this) {
+                drawable = this.mResourceManager.getDrawable(context, i);
+            }
+            return drawable;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public synchronized ColorStateList getTintList(Context context, int i) {
+        InterceptResult invokeLI;
+        ColorStateList tintList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
+            synchronized (this) {
+                tintList = this.mResourceManager.getTintList(context, i);
+            }
+            return tintList;
+        }
+        return (ColorStateList) invokeLI.objValue;
+    }
+
     public static synchronized void preload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
@@ -146,13 +167,47 @@ public final class AppCompatDrawableManager {
                             return invokeLI.booleanValue;
                         }
 
-                        private ColorStateList createBorderlessButtonColorStateList(@NonNull Context context) {
+                        private ColorStateList createBorderlessButtonColorStateList(Context context) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(65538, this, context)) == null) ? createButtonColorStateList(context, 0) : (ColorStateList) invokeL.objValue;
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(65538, this, context)) == null) {
+                                return createButtonColorStateList(context, 0);
+                            }
+                            return (ColorStateList) invokeL.objValue;
                         }
 
-                        private ColorStateList createButtonColorStateList(@NonNull Context context, @ColorInt int i) {
+                        private ColorStateList createColoredButtonColorStateList(Context context) {
+                            InterceptResult invokeL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
+                                return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016b));
+                            }
+                            return (ColorStateList) invokeL.objValue;
+                        }
+
+                        private ColorStateList createDefaultButtonColorStateList(Context context) {
+                            InterceptResult invokeL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(65541, this, context)) == null) {
+                                return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016d));
+                            }
+                            return (ColorStateList) invokeL.objValue;
+                        }
+
+                        @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
+                        public PorterDuff.Mode getTintModeForDrawableRes(int i) {
+                            InterceptResult invokeI;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                                if (i == R.drawable.obfuscated_res_0x7f0800a4) {
+                                    return PorterDuff.Mode.MULTIPLY;
+                                }
+                                return null;
+                            }
+                            return (PorterDuff.Mode) invokeI.objValue;
+                        }
+
+                        private ColorStateList createButtonColorStateList(Context context, int i) {
                             InterceptResult invokeLI;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(65539, this, context, i)) == null) {
@@ -160,18 +215,6 @@ public final class AppCompatDrawableManager {
                                 return new ColorStateList(new int[][]{ThemeUtils.DISABLED_STATE_SET, ThemeUtils.PRESSED_STATE_SET, ThemeUtils.FOCUSED_STATE_SET, ThemeUtils.EMPTY_STATE_SET}, new int[]{ThemeUtils.getDisabledThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016d), ColorUtils.compositeColors(themeAttrColor, i), ColorUtils.compositeColors(themeAttrColor, i), i});
                             }
                             return (ColorStateList) invokeLI.objValue;
-                        }
-
-                        private ColorStateList createColoredButtonColorStateList(@NonNull Context context) {
-                            InterceptResult invokeL;
-                            Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016b)) : (ColorStateList) invokeL.objValue;
-                        }
-
-                        private ColorStateList createDefaultButtonColorStateList(@NonNull Context context) {
-                            InterceptResult invokeL;
-                            Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(65541, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016d)) : (ColorStateList) invokeL.objValue;
                         }
 
                         private ColorStateList createSwitchThumbColorStateList(Context context) {
@@ -215,7 +258,7 @@ public final class AppCompatDrawableManager {
                         }
 
                         @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
-                        public Drawable createDrawableFor(@NonNull ResourceManagerInternal resourceManagerInternal, @NonNull Context context, int i) {
+                        public Drawable createDrawableFor(ResourceManagerInternal resourceManagerInternal, Context context, int i) {
                             InterceptResult invokeLLI;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048576, this, resourceManagerInternal, context, i)) == null) {
@@ -228,7 +271,7 @@ public final class AppCompatDrawableManager {
                         }
 
                         @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
-                        public ColorStateList getTintListForDrawableRes(@NonNull Context context, int i) {
+                        public ColorStateList getTintListForDrawableRes(Context context, int i) {
                             InterceptResult invokeLI;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i)) == null) {
@@ -271,20 +314,7 @@ public final class AppCompatDrawableManager {
                         }
 
                         @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
-                        public PorterDuff.Mode getTintModeForDrawableRes(int i) {
-                            InterceptResult invokeI;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                                if (i == R.drawable.obfuscated_res_0x7f0800a4) {
-                                    return PorterDuff.Mode.MULTIPLY;
-                                }
-                                return null;
-                            }
-                            return (PorterDuff.Mode) invokeI.objValue;
-                        }
-
-                        @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
-                        public boolean tintDrawable(@NonNull Context context, int i, @NonNull Drawable drawable) {
+                        public boolean tintDrawable(Context context, int i, Drawable drawable) {
                             InterceptResult invokeLIL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048579, this, context, i, drawable)) == null) {
@@ -294,14 +324,14 @@ public final class AppCompatDrawableManager {
                                     setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f040170), AppCompatDrawableManager.DEFAULT_MODE);
                                     setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e), AppCompatDrawableManager.DEFAULT_MODE);
                                     return true;
-                                } else if (i == R.drawable.obfuscated_res_0x7f080098 || i == R.drawable.obfuscated_res_0x7f080097 || i == R.drawable.obfuscated_res_0x7f080099) {
+                                } else if (i != R.drawable.obfuscated_res_0x7f080098 && i != R.drawable.obfuscated_res_0x7f080097 && i != R.drawable.obfuscated_res_0x7f080099) {
+                                    return false;
+                                } else {
                                     LayerDrawable layerDrawable2 = (LayerDrawable) drawable;
                                     setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908288), ThemeUtils.getDisabledThemeAttrColor(context, R.attr.obfuscated_res_0x7f040170), AppCompatDrawableManager.DEFAULT_MODE);
                                     setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e), AppCompatDrawableManager.DEFAULT_MODE);
                                     setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e), AppCompatDrawableManager.DEFAULT_MODE);
                                     return true;
-                                } else {
-                                    return false;
                                 }
                             }
                             return invokeLIL.booleanValue;
@@ -313,27 +343,27 @@ public final class AppCompatDrawableManager {
                         /*
                             Code decompiled incorrectly, please refer to instructions dump.
                         */
-                        public boolean tintDrawableUsingColorFilter(@NonNull Context context, int i, @NonNull Drawable drawable) {
+                        public boolean tintDrawableUsingColorFilter(Context context, int i, Drawable drawable) {
                             InterceptResult invokeLIL;
                             int i2;
                             boolean z;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null && (invokeLIL = interceptable2.invokeLIL(1048580, this, context, i, drawable)) != null) {
-                                return invokeLIL.booleanValue;
-                            }
-                            PorterDuff.Mode mode = AppCompatDrawableManager.DEFAULT_MODE;
-                            int i3 = 16842801;
-                            if (arrayContains(this.COLORFILTER_TINT_COLOR_CONTROL_NORMAL, i)) {
-                                i3 = R.attr.obfuscated_res_0x7f040170;
-                            } else if (arrayContains(this.COLORFILTER_COLOR_CONTROL_ACTIVATED, i)) {
-                                i3 = R.attr.obfuscated_res_0x7f04016e;
-                            } else if (arrayContains(this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY, i)) {
-                                mode = PorterDuff.Mode.MULTIPLY;
-                            } else if (i == R.drawable.obfuscated_res_0x7f08008a) {
-                                i3 = 16842800;
-                                i2 = Math.round(40.8f);
-                                z = true;
-                                if (z) {
+                            if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048580, this, context, i, drawable)) == null) {
+                                PorterDuff.Mode mode = AppCompatDrawableManager.DEFAULT_MODE;
+                                int i3 = 16842801;
+                                if (arrayContains(this.COLORFILTER_TINT_COLOR_CONTROL_NORMAL, i)) {
+                                    i3 = R.attr.obfuscated_res_0x7f040170;
+                                } else if (arrayContains(this.COLORFILTER_COLOR_CONTROL_ACTIVATED, i)) {
+                                    i3 = R.attr.obfuscated_res_0x7f04016e;
+                                } else if (arrayContains(this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY, i)) {
+                                    mode = PorterDuff.Mode.MULTIPLY;
+                                } else if (i == R.drawable.obfuscated_res_0x7f08008a) {
+                                    i3 = 16842800;
+                                    i2 = Math.round(40.8f);
+                                    z = true;
+                                    if (!z) {
+                                        return false;
+                                    }
                                     if (DrawableUtils.canSafelyMutateDrawable(drawable)) {
                                         drawable = drawable.mutate();
                                     }
@@ -342,18 +372,19 @@ public final class AppCompatDrawableManager {
                                         drawable.setAlpha(i2);
                                     }
                                     return true;
+                                } else if (i != R.drawable.obfuscated_res_0x7f080072) {
+                                    i2 = -1;
+                                    z = false;
+                                    i3 = 0;
+                                    if (!z) {
+                                    }
                                 }
-                                return false;
-                            } else if (i != R.drawable.obfuscated_res_0x7f080072) {
                                 i2 = -1;
-                                z = false;
-                                i3 = 0;
-                                if (z) {
+                                z = true;
+                                if (!z) {
                                 }
-                            }
-                            i2 = -1;
-                            z = true;
-                            if (z) {
+                            } else {
+                                return invokeLIL.booleanValue;
                             }
                         }
                     });
@@ -369,42 +400,7 @@ public final class AppCompatDrawableManager {
         }
     }
 
-    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
-        InterceptResult invokeLI;
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            synchronized (this) {
-                drawable = this.mResourceManager.getDrawable(context, i);
-            }
-            return drawable;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public synchronized ColorStateList getTintList(@NonNull Context context, @DrawableRes int i) {
-        InterceptResult invokeLI;
-        ColorStateList tintList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
-            synchronized (this) {
-                tintList = this.mResourceManager.getTintList(context, i);
-            }
-            return tintList;
-        }
-        return (ColorStateList) invokeLI.objValue;
-    }
-
-    public synchronized void onConfigurationChanged(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            synchronized (this) {
-                this.mResourceManager.onConfigurationChanged(context);
-            }
-        }
-    }
-
-    public synchronized Drawable onDrawableLoadedFromResources(@NonNull Context context, @NonNull VectorEnabledTintResources vectorEnabledTintResources, @DrawableRes int i) {
+    public synchronized Drawable onDrawableLoadedFromResources(Context context, VectorEnabledTintResources vectorEnabledTintResources, int i) {
         InterceptResult invokeLLI;
         Drawable onDrawableLoadedFromResources;
         Interceptable interceptable = $ic;
@@ -417,13 +413,16 @@ public final class AppCompatDrawableManager {
         return (Drawable) invokeLLI.objValue;
     }
 
-    public boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable) {
+    public boolean tintDrawableUsingColorFilter(Context context, int i, Drawable drawable) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, context, i, drawable)) == null) ? this.mResourceManager.tintDrawableUsingColorFilter(context, i, drawable) : invokeLIL.booleanValue;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, context, i, drawable)) == null) {
+            return this.mResourceManager.tintDrawableUsingColorFilter(context, i, drawable);
+        }
+        return invokeLIL.booleanValue;
     }
 
-    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i, boolean z) {
+    public synchronized Drawable getDrawable(Context context, int i, boolean z) {
         InterceptResult invokeCommon;
         Drawable drawable;
         Interceptable interceptable = $ic;
@@ -434,5 +433,14 @@ public final class AppCompatDrawableManager {
             return drawable;
         }
         return (Drawable) invokeCommon.objValue;
+    }
+
+    public synchronized void onConfigurationChanged(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            synchronized (this) {
+                this.mResourceManager.onConfigurationChanged(context);
+            }
+        }
     }
 }

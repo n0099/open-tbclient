@@ -1,14 +1,11 @@
 package androidx.transition;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,18 +14,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class GhostViewPort extends ViewGroup implements GhostView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public Matrix mMatrix;
     public final ViewTreeObserver.OnPreDrawListener mOnPreDrawListener;
     public int mReferences;
     public ViewGroup mStartParent;
     public View mStartView;
     public final View mView;
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GhostViewPort(View view2) {
@@ -80,14 +82,14 @@ public class GhostViewPort extends ViewGroup implements GhostView {
                     ViewCompat.postInvalidateOnAnimation(this.this$0);
                     GhostViewPort ghostViewPort = this.this$0;
                     ViewGroup viewGroup = ghostViewPort.mStartParent;
-                    if (viewGroup == null || (view3 = ghostViewPort.mStartView) == null) {
+                    if (viewGroup != null && (view3 = ghostViewPort.mStartView) != null) {
+                        viewGroup.endViewTransition(view3);
+                        ViewCompat.postInvalidateOnAnimation(this.this$0.mStartParent);
+                        GhostViewPort ghostViewPort2 = this.this$0;
+                        ghostViewPort2.mStartParent = null;
+                        ghostViewPort2.mStartView = null;
                         return true;
                     }
-                    viewGroup.endViewTransition(view3);
-                    ViewCompat.postInvalidateOnAnimation(this.this$0.mStartParent);
-                    GhostViewPort ghostViewPort2 = this.this$0;
-                    ghostViewPort2.mStartParent = null;
-                    ghostViewPort2.mStartView = null;
                     return true;
                 }
                 return invokeV.booleanValue;
@@ -157,29 +159,64 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         }
     }
 
+    public static void setGhostView(View view2, GhostViewPort ghostViewPort) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, view2, ghostViewPort) == null) {
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ca6, ghostViewPort);
+        }
+    }
+
+    @Override // androidx.transition.GhostView
+    public void reserveEndViewTransition(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, view2) == null) {
+            this.mStartParent = viewGroup;
+            this.mStartView = view2;
+        }
+    }
+
     public static GhostViewPort getGhostView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9c) : (GhostViewPort) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
+            return (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ca6);
+        }
+        return (GhostViewPort) invokeL.objValue;
     }
 
     public static void removeGhost(View view2) {
         GhostViewPort ghostView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, view2) == null) || (ghostView = getGhostView(view2)) == null) {
-            return;
-        }
-        int i = ghostView.mReferences - 1;
-        ghostView.mReferences = i;
-        if (i <= 0) {
-            ((GhostViewHolder) ghostView.getParent()).removeView(ghostView);
+        if ((interceptable == null || interceptable.invokeL(65541, null, view2) == null) && (ghostView = getGhostView(view2)) != null) {
+            int i = ghostView.mReferences - 1;
+            ghostView.mReferences = i;
+            if (i <= 0) {
+                ((GhostViewHolder) ghostView.getParent()).removeView(ghostView);
+            }
         }
     }
 
-    public static void setGhostView(@NonNull View view2, @Nullable GhostViewPort ghostViewPort) {
+    public void setMatrix(Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, view2, ghostViewPort) == null) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9c, ghostViewPort);
+        if (interceptable == null || interceptable.invokeL(1048581, this, matrix) == null) {
+            this.mMatrix = matrix;
+        }
+    }
+
+    @Override // android.view.View, androidx.transition.GhostView
+    public void setVisibility(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            super.setVisibility(i);
+            if (getGhostView(this.mView) == this) {
+                if (i == 0) {
+                    i2 = 4;
+                } else {
+                    i2 = 0;
+                }
+                ViewUtils.setTransitionVisibility(this.mView, i2);
+            }
         }
     }
 
@@ -222,40 +259,6 @@ public class GhostViewPort extends ViewGroup implements GhostView {
             ViewUtils.setTransitionVisibility(this.mView, 4);
             drawChild(canvas, this.mView, getDrawingTime());
             CanvasUtils.enableZ(canvas, false);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-        }
-    }
-
-    @Override // androidx.transition.GhostView
-    public void reserveEndViewTransition(ViewGroup viewGroup, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, view2) == null) {
-            this.mStartParent = viewGroup;
-            this.mStartView = view2;
-        }
-    }
-
-    public void setMatrix(@NonNull Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, matrix) == null) {
-            this.mMatrix = matrix;
-        }
-    }
-
-    @Override // android.view.View, androidx.transition.GhostView
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            super.setVisibility(i);
-            if (getGhostView(this.mView) == this) {
-                ViewUtils.setTransitionVisibility(this.mView, i == 0 ? 4 : 0);
-            }
         }
     }
 }

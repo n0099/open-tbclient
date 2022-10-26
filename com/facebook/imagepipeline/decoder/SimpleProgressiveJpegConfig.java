@@ -19,15 +19,32 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
 
     /* renamed from: com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class DefaultDynamicValueConfig implements DynamicValueConfig {
+    public interface DynamicValueConfig {
+        int getGoodEnoughScanNumber();
+
+        List getScansToDecode();
+    }
+
+    /* loaded from: classes7.dex */
+    public class DefaultDynamicValueConfig implements DynamicValueConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig.DynamicValueConfig
+        public int getGoodEnoughScanNumber() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         public DefaultDynamicValueConfig() {
             Interceptable interceptable = $ic;
@@ -44,32 +61,18 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
         }
 
         @Override // com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig.DynamicValueConfig
-        public int getGoodEnoughScanNumber() {
+        public List getScansToDecode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return Collections.EMPTY_LIST;
             }
-            return invokeV.intValue;
-        }
-
-        @Override // com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig.DynamicValueConfig
-        public List<Integer> getScansToDecode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Collections.EMPTY_LIST : (List) invokeV.objValue;
+            return (List) invokeV.objValue;
         }
 
         public /* synthetic */ DefaultDynamicValueConfig(AnonymousClass1 anonymousClass1) {
             this();
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface DynamicValueConfig {
-        int getGoodEnoughScanNumber();
-
-        List<Integer> getScansToDecode();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -90,35 +93,6 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
         }
     }
 
-    @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
-    public int getNextScanNumberToDecode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<Integer> scansToDecode = this.mDynamicValueConfig.getScansToDecode();
-            if (scansToDecode == null || scansToDecode.isEmpty()) {
-                return i + 1;
-            }
-            for (int i2 = 0; i2 < scansToDecode.size(); i2++) {
-                if (scansToDecode.get(i2).intValue() > i) {
-                    return scansToDecode.get(i2).intValue();
-                }
-            }
-            return Integer.MAX_VALUE;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
-    public QualityInfo getQualityInfo(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return ImmutableQualityInfo.of(i, i >= this.mDynamicValueConfig.getGoodEnoughScanNumber(), false);
-        }
-        return (QualityInfo) invokeI.objValue;
-    }
-
     public SimpleProgressiveJpegConfig(DynamicValueConfig dynamicValueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -135,5 +109,40 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
             }
         }
         this.mDynamicValueConfig = (DynamicValueConfig) Preconditions.checkNotNull(dynamicValueConfig);
+    }
+
+    @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
+    public int getNextScanNumberToDecode(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List scansToDecode = this.mDynamicValueConfig.getScansToDecode();
+            if (scansToDecode != null && !scansToDecode.isEmpty()) {
+                for (int i2 = 0; i2 < scansToDecode.size(); i2++) {
+                    if (((Integer) scansToDecode.get(i2)).intValue() > i) {
+                        return ((Integer) scansToDecode.get(i2)).intValue();
+                    }
+                }
+                return Integer.MAX_VALUE;
+            }
+            return i + 1;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
+    public QualityInfo getQualityInfo(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= this.mDynamicValueConfig.getGoodEnoughScanNumber()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return ImmutableQualityInfo.of(i, z, false);
+        }
+        return (QualityInfo) invokeI.objValue;
     }
 }

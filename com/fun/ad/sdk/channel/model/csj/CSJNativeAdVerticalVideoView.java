@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +40,7 @@ public final class CSJNativeAdVerticalVideoView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdVerticalVideoView(Context context, @Nullable AttributeSet attributeSet) {
+    public CSJNativeAdVerticalVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,7 +61,7 @@ public final class CSJNativeAdVerticalVideoView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdVerticalVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CSJNativeAdVerticalVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

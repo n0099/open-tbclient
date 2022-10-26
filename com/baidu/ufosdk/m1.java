@@ -1,6 +1,5 @@
 package com.baidu.ufosdk;
 
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,11 +16,10 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-@SuppressLint({"HandlerLeak"})
 /* loaded from: classes6.dex */
 public class m1 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, SoftReference<Bitmap>> a;
+    public static HashMap a;
     public static m1 b;
     public static ExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +61,7 @@ public class m1 {
                 try {
                     Bitmap a = this.d.a(this.a);
                     if (a != null) {
-                        m1.a.put(this.b, new SoftReference<>(a));
+                        m1.a.put(this.b, new SoftReference(a));
                         if (n1.b == null) {
                             n1.b = new n1();
                         }
@@ -96,7 +94,7 @@ public class m1 {
             }
         }
         if (a == null) {
-            a = new HashMap<>();
+            a = new HashMap();
         }
     }
 
@@ -126,21 +124,21 @@ public class m1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r1Var, str)) == null) {
             String b2 = b.b(str, false);
-            if (!a.containsKey(b2) || (bitmap2 = a.get(b2).get()) == null) {
-                try {
-                    bitmap = n1.a(b2);
-                } catch (OutOfMemoryError unused) {
-                    System.gc();
-                    bitmap = null;
-                }
-                if (bitmap != null) {
-                    a.put(b2, new SoftReference<>(bitmap));
-                    return bitmap;
-                }
-                c.execute(new a(this, str, b2, r1Var));
-                return null;
+            if (a.containsKey(b2) && (bitmap2 = (Bitmap) ((SoftReference) a.get(b2)).get()) != null) {
+                return bitmap2;
             }
-            return bitmap2;
+            try {
+                bitmap = n1.a(b2);
+            } catch (OutOfMemoryError unused) {
+                System.gc();
+                bitmap = null;
+            }
+            if (bitmap != null) {
+                a.put(b2, new SoftReference(bitmap));
+                return bitmap;
+            }
+            c.execute(new a(this, str, b2, r1Var));
+            return null;
         }
         return (Bitmap) invokeLL.objValue;
     }

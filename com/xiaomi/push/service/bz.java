@@ -80,7 +80,7 @@ public class bz {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ArrayList<ii> a(List<hn> list, String str, String str2, int i) {
+    public static ArrayList a(List list, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         int i2;
         String str3;
@@ -89,29 +89,29 @@ public class bz {
             if (list == null) {
                 str3 = "requests can not be null in TinyDataHelper.transToThriftObj().";
             } else if (list.size() != 0) {
-                ArrayList<ii> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 hm hmVar = new hm();
                 int i3 = 0;
                 for (int i4 = 0; i4 < list.size(); i4++) {
-                    hn hnVar = list.get(i4);
+                    hn hnVar = (hn) list.get(i4);
                     if (hnVar != null) {
-                        if (hnVar.m401a() == null || !hnVar.m401a().containsKey("item_size")) {
+                        if (hnVar.m400a() == null || !hnVar.m400a().containsKey("item_size")) {
                             i2 = 0;
                         } else {
-                            String str4 = hnVar.m401a().get("item_size");
+                            String str4 = (String) hnVar.m400a().get("item_size");
                             if (!TextUtils.isEmpty(str4)) {
                                 try {
                                     i2 = Integer.parseInt(str4);
                                 } catch (Exception unused) {
                                 }
-                                if (hnVar.m401a().size() != 1) {
-                                    hnVar.a((Map<String, String>) null);
+                                if (hnVar.m400a().size() != 1) {
+                                    hnVar.a((Map) null);
                                 } else {
-                                    hnVar.m401a().remove("item_size");
+                                    hnVar.m400a().remove("item_size");
                                 }
                             }
                             i2 = 0;
-                            if (hnVar.m401a().size() != 1) {
+                            if (hnVar.m400a().size() != 1) {
                             }
                         }
                         if (i2 <= 0) {
@@ -197,9 +197,9 @@ public class bz {
                 str = "item.category is null or empty, verfiy ClientUploadDataItem failed.";
             } else if (TextUtils.isEmpty(hnVar.f484c)) {
                 str = "item.name is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (!com.xiaomi.push.bp.m205a(hnVar.f485d)) {
+            } else if (!com.xiaomi.push.bp.m204a(hnVar.f485d)) {
                 str = "item.category can only contain ascii char, verfiy ClientUploadDataItem failed.";
-            } else if (com.xiaomi.push.bp.m205a(hnVar.f484c)) {
+            } else if (com.xiaomi.push.bp.m204a(hnVar.f484c)) {
                 String str2 = hnVar.f483b;
                 if (str2 == null || str2.length() <= 10240) {
                     return false;
@@ -208,7 +208,7 @@ public class bz {
             } else {
                 str = "item.name can only contain ascii char, verfiy ClientUploadDataItem failed.";
             }
-            com.xiaomi.channel.commonutils.logger.b.m90a(str);
+            com.xiaomi.channel.commonutils.logger.b.m89a(str);
             return true;
         }
         return invokeLZ.booleanValue;
@@ -217,6 +217,6 @@ public class bz {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? !com.xiaomi.push.v.m692b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? !com.xiaomi.push.v.m691b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
     }
 }

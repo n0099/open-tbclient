@@ -1,71 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.MoreTreasureTrove.DataRes;
+import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
+import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
 public class d17 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static HashMap<String, Integer> b;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947651775, "Lcom/baidu/tieba/d17;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static List a(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947651775, "Lcom/baidu/tieba/d17;");
-                return;
+            ArrayList arrayList = new ArrayList(list.size());
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf((ThreadInfo) it.next());
+                threadData.isFromLowFlowsPage = true;
+                arrayList.add(threadData);
             }
+            return pz6.a(arrayList);
         }
-        b = new HashMap<>();
+        return (List) invokeL.objValue;
     }
 
-    public static void a() {
+    public static List b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
+        InterceptResult invokeL;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            b.clear();
-        }
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.size() : invokeV.intValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        b.put(str, 0);
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : invokeV.booleanValue;
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            a = z;
-            if (z) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
+            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
+                return a(moreTreasureTroveResIdl.data.hot_thread_info);
             }
-            b.clear();
+            return null;
         }
+        return (List) invokeL.objValue;
     }
 }

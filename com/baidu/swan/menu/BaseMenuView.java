@@ -6,9 +6,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -27,8 +24,10 @@ public abstract class BaseMenuView extends FrameLayout {
     public View d;
     public final int e;
 
+    public abstract boolean a();
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseMenuView(@NonNull Context context) {
+    public BaseMenuView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,50 +47,8 @@ public abstract class BaseMenuView extends FrameLayout {
         }
     }
 
-    public abstract boolean a();
-
-    public void b(View view2, FrameLayout.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, layoutParams) == null) || view2 == null) {
-            return;
-        }
-        this.d = view2;
-        layoutParams.bottomMargin = this.e;
-        addView(view2, layoutParams);
-    }
-
-    public View getBgView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    public void setClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.c.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setMode() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Resources resources = getResources();
-            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081153));
-            this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060381));
-            this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060382));
-            this.c.setAlpha(1.0f);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public BaseMenuView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -112,7 +69,7 @@ public abstract class BaseMenuView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
+    public BaseMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +90,53 @@ public abstract class BaseMenuView extends FrameLayout {
         this.a = context;
         View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d008c, this);
         this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09031a);
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090497);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0904a0);
         this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dc);
+    }
+
+    public void b(View view2, FrameLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, layoutParams) != null) || view2 == null) {
+            return;
+        }
+        this.d = view2;
+        layoutParams.bottomMargin = this.e;
+        addView(view2, layoutParams);
+    }
+
+    public View getBgView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void setClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.c.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setMode() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Resources resources = getResources();
+            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081164));
+            this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060381));
+            this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060382));
+            this.c.setAlpha(1.0f);
+        }
     }
 }

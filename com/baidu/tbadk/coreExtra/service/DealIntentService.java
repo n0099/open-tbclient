@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.jx4;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.n9;
+import com.baidu.tieba.px4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,12 +71,43 @@ public class DealIntentService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public a mDealAsyncTask;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(227709001, "Lcom/baidu/tbadk/coreExtra/service/DealIntentService;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(227709001, "Lcom/baidu/tbadk/coreExtra/service/DealIntentService;");
+        }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public class a extends BdAsyncTask<String, Integer, String> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
         public final /* synthetic */ DealIntentService b;
+
+        public final void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
 
         public a(DealIntentService dealIntentService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -98,25 +129,25 @@ public class DealIntentService extends BdBaseService {
             this.a = intent;
         }
 
-        public final void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
         public final void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                if (i == 6) {
-                    TiebaStatic.eventStat(this.b, "notify_to_pk_before", "click");
-                } else if (i == 7) {
+                if (i != 6) {
+                    if (i != 7) {
+                        if (i != 8) {
+                            if (i == 14) {
+                                TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
+                                return;
+                            }
+                            return;
+                        }
+                        TiebaStatic.eventStat(this.b, "notify_to_vote_list", "click");
+                        return;
+                    }
                     TiebaStatic.eventStat(this.b, "notify_to_pk_end", "click");
-                } else if (i == 8) {
-                    TiebaStatic.eventStat(this.b, "notify_to_vote_list", "click");
-                } else if (i != 14) {
-                } else {
-                    TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
+                    return;
                 }
+                TiebaStatic.eventStat(this.b, "notify_to_pk_before", "click");
             }
         }
 
@@ -128,72 +159,75 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                super.onPreExecute();
-                Intent intent = this.a;
-                if (intent == null) {
-                    return;
-                }
-                Bundle extras = intent.getExtras();
-                String string = extras != null ? extras.getString("privateGid") : null;
-                if (TextUtils.isEmpty(string)) {
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2012110, string));
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
                 Intent intent = this.a;
                 if (intent == null || intent.getExtras() == null) {
                     return null;
                 }
-                int i = this.a.getExtras().getInt(DealIntentService.KEY_CLASS, -1);
+                int i2 = this.a.getExtras().getInt(DealIntentService.KEY_CLASS, -1);
                 String stringExtra = this.a.getStringExtra("link");
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!dj.isEmpty(stringExtra2) && j == 0) {
+                if (!ej.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
                     TbadkCoreApplication.getInst().setTaskId(String.valueOf(j));
                 }
-                if (i == 9) {
+                if (i2 == 9) {
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_PUSH_CLICK);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     TiebaStatic.log(statisticItem);
                 }
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("service_id", j2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, stringExtra).param("task_id", j).param("app_version", TbConfig.getVersion()).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
-                int i2 = this.a.getExtras().getInt("is_live", -1);
-                int i3 = this.a.getExtras().getInt("is_live_lcs", -1);
-                if (i2 >= 0) {
-                    param.param("is_live", i2);
-                }
+                int i3 = this.a.getExtras().getInt("is_live", -1);
+                int i4 = this.a.getExtras().getInt("is_live_lcs", -1);
                 if (i3 >= 0) {
-                    param.param("is_live_lcs", i3);
+                    param.param("is_live", i3);
                 }
-                int i4 = this.a.getExtras().getInt("KeyOfNotiId", -1);
-                int i5 = (i4 == 16 || i4 == 17) ? 3 : i4 != 19 ? i4 != 29 ? i4 != 24 ? i4 != 25 ? 0 : 12 : 10 : 11 : 2;
+                if (i4 >= 0) {
+                    param.param("is_live_lcs", i4);
+                }
+                int i5 = this.a.getExtras().getInt("KeyOfNotiId", -1);
+                if (i5 != 16 && i5 != 17) {
+                    if (i5 != 19) {
+                        if (i5 != 29) {
+                            if (i5 != 24) {
+                                if (i5 != 25) {
+                                    i = 0;
+                                } else {
+                                    i = 12;
+                                }
+                            } else {
+                                i = 10;
+                            }
+                        } else {
+                            i = 11;
+                        }
+                    } else {
+                        i = 2;
+                    }
+                } else {
+                    i = 3;
+                }
                 if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotThreadList")) {
-                    i5 = 6;
+                    i = 6;
                 } else if ((!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotInteraction")) || (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("frs?kw="))) {
-                    i5 = 7;
+                    i = 7;
                 } else if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("type=question_answer_invite")) {
-                    i5 = 15;
+                    i = 15;
                 }
-                param.param("obj_source", i5);
+                param.param("obj_source", i);
                 TiebaStatic.log(param);
                 if (this.a.getExtras().getBoolean("is_notify", false)) {
-                    c(i);
+                    c(i2);
                 }
                 String string = this.a.getExtras().getString("stat");
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -201,7 +235,7 @@ public class DealIntentService extends BdBaseService {
                 }
                 if (n9.g().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (n9.g().b().getClass().getName().equalsIgnoreCase(jx4.c())) {
+                        if (n9.g().b().getClass().getName().equalsIgnoreCase(px4.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);
@@ -211,11 +245,11 @@ public class DealIntentService extends BdBaseService {
                     }
                     return DealIntentService.ACTION_ON_POST_EXSIT;
                 }
-                if (i == 27) {
+                if (i2 == 27) {
                     TiebaStatic.eventStat(this.b, "open_push", "start", 1, new Object[0]);
                 }
                 if (this.a.getExtras().getBoolean("is_notify", false)) {
-                    b(i);
+                    b(i2);
                 }
                 return DealIntentService.ACTION_ON_POST_START;
             }
@@ -228,34 +262,37 @@ public class DealIntentService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 if (str != null) {
-                    if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
-                        if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.b, this.a)));
-                        }
-                    } else {
+                    if (str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
                         this.a.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         CustomMessage customMessage = new CustomMessage(2012000);
                         customMessage.setData(this.a);
                         MessageManager.getInstance().sendMessage(customMessage);
+                    } else if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.b, this.a)));
                     }
                 }
                 this.b.stopSelf();
             }
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(227709001, "Lcom/baidu/tbadk/coreExtra/service/DealIntentService;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(227709001, "Lcom/baidu/tbadk/coreExtra/service/DealIntentService;");
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                super.onPreExecute();
+                Intent intent = this.a;
+                if (intent == null) {
+                    return;
+                }
+                String str = null;
+                Bundle extras = intent.getExtras();
+                if (extras != null) {
+                    str = extras.getString("privateGid");
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2012110, str));
+                }
+            }
         }
     }
 
@@ -275,6 +312,14 @@ public class DealIntentService extends BdBaseService {
         this.mDealAsyncTask = null;
     }
 
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+        }
+    }
+
     private void doDeal(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent) == null) {
@@ -287,24 +332,6 @@ public class DealIntentService extends BdBaseService {
             this.mDealAsyncTask = aVar2;
             aVar2.setPriority(4);
             this.mDealAsyncTask.execute(new String[0]);
-        }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onCreate();
         }
     }
 

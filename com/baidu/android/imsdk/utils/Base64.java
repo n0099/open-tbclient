@@ -53,28 +53,79 @@ public class Base64 {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < 'A' || c > 'Z') {
-                if (c >= 'a' && c <= 'z') {
-                    i = c - 'a';
-                } else if (c < '0' || c > '9') {
-                    if (c != '+') {
-                        if (c != '/') {
-                            if (c == '=') {
-                                return 0;
-                            }
-                            throw new RuntimeException("unexpected code: " + c);
-                        }
-                        return 63;
-                    }
-                    return 62;
-                } else {
-                    i = (c - '0') + 26;
-                }
-                return i + 26;
+            if (c >= 'A' && c <= 'Z') {
+                return c - 'A';
             }
-            return c - 'A';
+            if (c >= 'a' && c <= 'z') {
+                i = c - 'a';
+            } else if (c >= '0' && c <= '9') {
+                i = (c - '0') + 26;
+            } else if (c != '+') {
+                if (c != '/') {
+                    if (c == '=') {
+                        return 0;
+                    }
+                    throw new RuntimeException("unexpected code: " + c);
+                }
+                return 63;
+            } else {
+                return 62;
+            }
+            return i + 26;
         }
         return invokeCommon.intValue;
+    }
+
+    public static void decode(String str, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, outputStream) == null) {
+            int length = str.length();
+            int i = 0;
+            while (true) {
+                if (i < length && str.charAt(i) <= ' ') {
+                    i++;
+                } else if (i != length) {
+                    int i2 = i + 2;
+                    int i3 = i + 3;
+                    int decode = (decode(str.charAt(i)) << 18) + (decode(str.charAt(i + 1)) << 12) + (decode(str.charAt(i2)) << 6) + decode(str.charAt(i3));
+                    outputStream.write((decode >> 16) & 255);
+                    if (str.charAt(i2) != '=') {
+                        outputStream.write((decode >> 8) & 255);
+                        if (str.charAt(i3) == '=') {
+                            return;
+                        }
+                        outputStream.write(decode & 255);
+                        i += 4;
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public static byte[] decode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                decode(str, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException e) {
+                    PrintStream printStream = System.err;
+                    printStream.println("Error while decoding BASE64: " + e.toString());
+                }
+                return byteArray;
+            } catch (IOException unused) {
+                throw new RuntimeException();
+            }
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static String encode(byte[] bArr) {
@@ -118,57 +169,5 @@ public class Base64 {
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static byte[] decode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                decode(str, byteArrayOutputStream);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException e) {
-                    PrintStream printStream = System.err;
-                    printStream.println("Error while decoding BASE64: " + e.toString());
-                }
-                return byteArray;
-            } catch (IOException unused) {
-                throw new RuntimeException();
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static void decode(String str, OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65539, null, str, outputStream) != null) {
-            return;
-        }
-        int length = str.length();
-        int i = 0;
-        while (true) {
-            if (i < length && str.charAt(i) <= ' ') {
-                i++;
-            } else if (i == length) {
-                return;
-            } else {
-                int i2 = i + 2;
-                int i3 = i + 3;
-                int decode = (decode(str.charAt(i)) << 18) + (decode(str.charAt(i + 1)) << 12) + (decode(str.charAt(i2)) << 6) + decode(str.charAt(i3));
-                outputStream.write((decode >> 16) & 255);
-                if (str.charAt(i2) == '=') {
-                    return;
-                }
-                outputStream.write((decode >> 8) & 255);
-                if (str.charAt(i3) == '=') {
-                    return;
-                }
-                outputStream.write(decode & 255);
-                i += 4;
-            }
-        }
     }
 }

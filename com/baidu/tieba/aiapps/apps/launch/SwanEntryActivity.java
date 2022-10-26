@@ -8,10 +8,10 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.kg3;
+import com.baidu.tieba.lg3;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.nr5;
-import com.baidu.tieba.op3;
+import com.baidu.tieba.pp3;
+import com.baidu.tieba.ur5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,18 +68,31 @@ public class SwanEntryActivity extends Activity {
         }
     }
 
+    @Override // android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onResume();
+            runOnUiThread(new a(this));
+        }
+    }
+
     public final void a() {
         Intent intent;
         String uri;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = getIntent()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (intent = getIntent()) == null) {
             return;
         }
         if (TextUtils.equals(intent.getAction(), "com.baidu.swan.launcher")) {
             uri = intent.getStringExtra("SWAN_URI");
         } else {
             Uri data = intent.getData();
-            uri = data == null ? null : data.toString();
+            if (data == null) {
+                uri = null;
+            } else {
+                uri = data.toString();
+            }
         }
         if (TextUtils.isEmpty(uri)) {
             return;
@@ -88,8 +101,8 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        nr5.a();
-        op3.a(uri);
+        ur5.a();
+        pp3.a(uri);
     }
 
     @Override // android.app.Activity
@@ -98,7 +111,7 @@ public class SwanEntryActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             m9.b(this);
             super.onCreate(bundle);
-            if (kg3.a(this)) {
+            if (lg3.a(this)) {
                 return;
             }
             a();
@@ -111,15 +124,6 @@ public class SwanEntryActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             super.onNewIntent(intent);
             a();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onResume();
-            runOnUiThread(new a(this));
         }
     }
 

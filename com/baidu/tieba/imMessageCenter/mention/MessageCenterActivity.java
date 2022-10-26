@@ -24,6 +24,23 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     public int a;
     public MessageCenterFragment b;
 
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager.i d1(VoiceData.VoiceModel voiceModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
+            return null;
+        }
+        return (VoiceManager.i) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a079" : (String) invokeV.objValue;
+    }
+
     public MessageCenterActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,14 +57,24 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         this.a = 3;
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            adjustResizeForSoftInput();
+            this.b.setUserVisibleHint(true);
         }
-        return (VoiceManager.i) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager t0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b.t0();
+        }
+        return (VoiceManager) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
@@ -59,13 +86,6 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             }
             super.finish();
         }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a079" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -83,11 +103,23 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i == this.a) {
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || i == this.a) {
             return;
         }
         this.a = i;
         this.b.onChangeSkinType(i);
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            super.onNewIntent(intent);
+            MessageCenterFragment messageCenterFragment = this.b;
+            if (messageCenterFragment != null) {
+                messageCenterFragment.y1(intent);
+            }
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -104,34 +136,5 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             beginTransaction.add(16908290, this.b);
             beginTransaction.commitAllowingStateLoss();
         }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
-            super.onNewIntent(intent);
-            MessageCenterFragment messageCenterFragment = this.b;
-            if (messageCenterFragment != null) {
-                messageCenterFragment.x1(intent);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onResume();
-            adjustResizeForSoftInput();
-            this.b.setUserVisibleHint(true);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager t0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b.t0() : (VoiceManager) invokeV.objValue;
     }
 }

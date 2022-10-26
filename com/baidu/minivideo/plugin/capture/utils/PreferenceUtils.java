@@ -30,6 +30,18 @@ public class PreferenceUtils {
         }
     }
 
+    public static boolean hasGingerbread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void clearString(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
@@ -43,7 +55,7 @@ public class PreferenceUtils {
 
     public static void commitEditor(SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, editor) == null) || editor == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, editor) != null) || editor == null) {
             return;
         }
         if (hasGingerbread()) {
@@ -56,123 +68,55 @@ public class PreferenceUtils {
     public static boolean contains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? PreferenceManager.getDefaultSharedPreferences(Application.get()).contains(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(Application.get()).contains(str);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean getBoolean(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? getBoolean(str, false) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return getBoolean(str, false);
+        }
+        return invokeL.booleanValue;
     }
 
     public static float getFloat(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? getFloat(str, 0.0f) : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return getFloat(str, 0.0f);
+        }
+        return invokeL.floatValue;
     }
 
     public static int getInt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? getInt(str, 0) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return getInt(str, 0);
+        }
+        return invokeL.intValue;
     }
 
     public static long getLong(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? getLong(str, 0L) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            return getLong(str, 0L);
+        }
+        return invokeL.longValue;
     }
 
     public static String getString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? getString(str, null) : (String) invokeL.objValue;
-    }
-
-    public static Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, set)) == null) {
-            try {
-                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getStringSet(str, set);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return set;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            return getString(str, null);
         }
-        return (Set) invokeLL.objValue;
-    }
-
-    public static boolean hasGingerbread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
-    }
-
-    public static void putBoolean(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
-            try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putBoolean(str, z));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void putFloat(String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65553, null, str, f) == null) {
-            try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putFloat(str, f));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void putInt(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65554, null, str, i) == null) {
-            try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putInt(str, i));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void putLong(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
-            try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void putString(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
-            try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putString(str, str2));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void putStringSet(String str, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, str, set) == null) {
-            try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putStringSet(str, set));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean getBoolean(String str, boolean z) {
@@ -243,5 +187,85 @@ public class PreferenceUtils {
             }
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static Set getStringSet(String str, Set set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, set)) == null) {
+            try {
+                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getStringSet(str, set);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return set;
+            }
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    public static void putBoolean(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
+            try {
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putBoolean(str, z));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void putFloat(String str, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(65553, null, str, f) == null) {
+            try {
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putFloat(str, f));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void putInt(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65554, null, str, i) == null) {
+            try {
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putInt(str, i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void putLong(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
+            try {
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void putString(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
+            try {
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putString(str, str2));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void putStringSet(String str, Set set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65557, null, str, set) == null) {
+            try {
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putStringSet(str, set));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

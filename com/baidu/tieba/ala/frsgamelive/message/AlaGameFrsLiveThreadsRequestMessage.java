@@ -41,13 +41,19 @@ public class AlaGameFrsLiveThreadsRequestMessage extends HttpMessage {
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pn : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.pn;
+        }
+        return invokeV.intValue;
     }
 
     public int getTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.tabType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.tabType;
+        }
+        return invokeV.intValue;
     }
 
     public void setForumGameLabel(String str) {
@@ -61,18 +67,6 @@ public class AlaGameFrsLiveThreadsRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.forumId = str;
-        }
-    }
-
-    public void setHttpParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            addParam("forum_id", this.forumId);
-            addParam("pn", this.pn);
-            addParam("ps", this.ps);
-            addParam("forum_game_label", this.forumGameLabel);
-            addParam("tab_type", this.tabType);
-            addParam("sort_type", this.sortType);
         }
     }
 
@@ -101,6 +95,18 @@ public class AlaGameFrsLiveThreadsRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.tabType = i;
+        }
+    }
+
+    public void setHttpParams() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            addParam("forum_id", this.forumId);
+            addParam("pn", this.pn);
+            addParam("ps", this.ps);
+            addParam("forum_game_label", this.forumGameLabel);
+            addParam("tab_type", this.tabType);
+            addParam("sort_type", this.sortType);
         }
     }
 }

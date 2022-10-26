@@ -24,13 +24,13 @@ public class a {
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C0649a {
+    public /* synthetic */ class C0645a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class a {
         this.b = z;
     }
 
-    public /* synthetic */ a(C0649a c0649a) {
+    public /* synthetic */ a(C0645a c0645a) {
         this();
     }
 
@@ -110,26 +110,26 @@ public class a {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.b) {
-                if (this.a != null) {
-                    byte[] decode = Base64.decode(str, 0);
-                    try {
-                        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                        cipher.init(2, this.a);
-                        str3 = new String(cipher.doFinal(decode), "UTF-8").trim();
-                    } catch (Throwable unused) {
-                        GDTLogger.d("ErrorWhileVerifySigNature");
-                    }
-                    boolean equals = str2.equals(str3);
-                    GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + str3);
-                    return equals;
-                }
-                str3 = null;
-                boolean equals2 = str2.equals(str3);
-                GDTLogger.d("Verify Result" + equals2 + "src=" + str2 + " & target=" + str3);
-                return equals2;
+            if (!this.b) {
+                return true;
             }
-            return true;
+            if (this.a != null) {
+                byte[] decode = Base64.decode(str, 0);
+                try {
+                    Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                    cipher.init(2, this.a);
+                    str3 = new String(cipher.doFinal(decode), "UTF-8").trim();
+                } catch (Throwable unused) {
+                    GDTLogger.d("ErrorWhileVerifySigNature");
+                }
+                boolean equals = str2.equals(str3);
+                GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + str3);
+                return equals;
+            }
+            str3 = null;
+            boolean equals2 = str2.equals(str3);
+            GDTLogger.d("Verify Result" + equals2 + "src=" + str2 + " & target=" + str3);
+            return equals2;
         }
         return invokeLL.booleanValue;
     }

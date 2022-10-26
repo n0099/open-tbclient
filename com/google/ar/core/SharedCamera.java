@@ -38,7 +38,7 @@ public class SharedCamera {
 
     private native void nativeSharedCameraOnOpened(long j, CameraDevice cameraDevice);
 
-    private native void nativeSharedCameraSetAppSurfaces(long j, String str, List<Surface> list);
+    private native void nativeSharedCameraSetAppSurfaces(long j, String str, List list);
 
     private native void nativeSharedCameraSetCaptureCallback(long j, CameraCaptureSession.CaptureCallback captureCallback, Handler handler);
 }

@@ -13,10 +13,10 @@ import java.util.LinkedList;
 public class bl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<a> a;
+    public LinkedList a;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final bl a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class bl {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.a = new LinkedList();
     }
 
     public static bl a() {
@@ -89,7 +89,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m200a() {
+    private void m199a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
             return;
@@ -98,7 +98,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m201a() {
+    public synchronized int m200a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -112,14 +112,14 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m202a() {
+    public synchronized LinkedList m201a() {
         InterceptResult invokeV;
-        LinkedList<a> linkedList;
+        LinkedList linkedList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
                 linkedList = this.a;
-                this.a = new LinkedList<>();
+                this.a = new LinkedList();
             }
             return linkedList;
         }
@@ -131,7 +131,7 @@ public class bl {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
                 this.a.add(new a(0, obj));
-                m200a();
+                m199a();
             }
         }
     }

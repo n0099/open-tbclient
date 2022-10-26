@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.tieba.aa1;
+import com.baidu.tieba.ba1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -59,51 +59,6 @@ public class RoundWebview extends SapiWebView {
         a(context, attributeSet);
     }
 
-    private void a(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, context, attributeSet) == null) {
-            Paint paint = new Paint();
-            this.i = paint;
-            paint.setColor(-1);
-            this.i.setAntiAlias(true);
-            this.i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-            Paint paint2 = new Paint();
-            this.j = paint2;
-            paint2.setXfermode(null);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aa1.sapi_sdk_RoundWebview);
-            this.a = obtainStyledAttributes.getDimension(2, 0.0f);
-            this.b = obtainStyledAttributes.getDimension(3, 0.0f);
-            this.c = obtainStyledAttributes.getDimension(0, 0.0f);
-            float dimension = obtainStyledAttributes.getDimension(1, 0.0f);
-            this.d = dimension;
-            a(this.a, this.b, dimension, this.c);
-        }
-    }
-
-    @Override // com.baidu.sapi2.SapiWebView, android.webkit.WebView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.g = getScrollX();
-            this.h = getScrollY();
-            Path path = new Path();
-            int i = this.h;
-            path.addRoundRect(new RectF(0.0f, i, this.g + this.e, i + this.f), this.k, Path.Direction.CW);
-            canvas.clipPath(path);
-            super.onDraw(canvas);
-        }
-    }
-
-    @Override // android.webkit.WebView, android.widget.AbsoluteLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            this.e = getMeasuredWidth();
-            this.f = getMeasuredHeight();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundWebview(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -131,6 +86,27 @@ public class RoundWebview extends SapiWebView {
         a(context, attributeSet);
     }
 
+    private void a(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, context, attributeSet) == null) {
+            Paint paint = new Paint();
+            this.i = paint;
+            paint.setColor(-1);
+            this.i.setAntiAlias(true);
+            this.i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            Paint paint2 = new Paint();
+            this.j = paint2;
+            paint2.setXfermode(null);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ba1.sapi_sdk_RoundWebview);
+            this.a = obtainStyledAttributes.getDimension(2, 0.0f);
+            this.b = obtainStyledAttributes.getDimension(3, 0.0f);
+            this.c = obtainStyledAttributes.getDimension(0, 0.0f);
+            float dimension = obtainStyledAttributes.getDimension(1, 0.0f);
+            this.d = dimension;
+            a(this.a, this.b, dimension, this.c);
+        }
+    }
+
     public void a(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
@@ -143,6 +119,30 @@ public class RoundWebview extends SapiWebView {
             fArr[5] = f3;
             fArr[6] = f4;
             fArr[7] = f4;
+        }
+    }
+
+    @Override // com.baidu.sapi2.SapiWebView, android.webkit.WebView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            this.g = getScrollX();
+            this.h = getScrollY();
+            Path path = new Path();
+            int i = this.h;
+            path.addRoundRect(new RectF(0.0f, i, this.g + this.e, i + this.f), this.k, Path.Direction.CW);
+            canvas.clipPath(path);
+            super.onDraw(canvas);
+        }
+    }
+
+    @Override // android.webkit.WebView, android.widget.AbsoluteLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            this.e = getMeasuredWidth();
+            this.f = getMeasuredHeight();
         }
     }
 }

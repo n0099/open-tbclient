@@ -13,10 +13,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.pu5;
+import com.baidu.tieba.wu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +28,35 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public pu5 d;
+    public wu5 d;
     public HttpMessageListener e;
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(List list, boolean z, boolean z2);
+
+        void b(boolean z);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -63,31 +88,47 @@ public class MyConcernTabModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021140 && (httpResponsedMessage instanceof AlaLiveTabMyConcernResponse)) {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
-                boolean z = ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
+                boolean z3 = false;
+                if (ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (this.a.c != null) {
-                        this.a.c.b(this.a.a == 1);
+                    if (this.a.c == null) {
                         return;
                     }
+                    b bVar = this.a.c;
+                    if (this.a.a == 1) {
+                        z3 = true;
+                    }
+                    bVar.b(z3);
                     return;
                 }
-                this.a.d.e(alaLiveTabMyConcernResponse, this.a.a == 1);
+                wu5 wu5Var = this.a.d;
+                if (this.a.a == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                wu5Var.e(alaLiveTabMyConcernResponse, z2);
                 if (this.a.c != null) {
-                    this.a.c.a(this.a.d.h(), alaLiveTabMyConcernResponse.hasMore, this.a.a == 1);
+                    b bVar2 = this.a.c;
+                    List h = this.a.d.h();
+                    boolean z4 = alaLiveTabMyConcernResponse.hasMore;
+                    if (this.a.a == 1) {
+                        z3 = true;
+                    }
+                    bVar2.a(h, z4, z3);
                 }
                 this.a.a = alaLiveTabMyConcernResponse.pn + 1;
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(List<Cdo> list, boolean z, boolean z2);
-
-        void b(boolean z);
     }
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
@@ -108,7 +149,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new pu5(this.b);
+        this.d = new wu5(this.b);
         G();
         MessageManager.getInstance().registerListener(this.e);
     }
@@ -119,6 +160,20 @@ public class MyConcernTabModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
             httpMessage.addParam("pn", i);
             MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void H(Class cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
+            this.d.j(cls);
+        }
+    }
+
+    public void I(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
@@ -138,6 +193,16 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.d.a();
+            if (this.e != null) {
+                MessageManager.getInstance().unRegisterListener(this.e);
+            }
+        }
+    }
+
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -147,50 +212,6 @@ public class MyConcernTabModel extends BdBaseModel {
             tbHttpMessageTask.setIsUseCurrentBDUSS(true);
             tbHttpMessageTask.setResponsedClass(AlaLiveTabMyConcernResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void H(Class<? extends BaseCardInfo> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            this.d.j(cls);
-        }
-    }
-
-    public void I(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.d.a();
-            if (this.e != null) {
-                MessageManager.getInstance().unRegisterListener(this.e);
-            }
         }
     }
 }

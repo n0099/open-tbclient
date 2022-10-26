@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ns8;
+import com.baidu.tieba.xs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ns8 cardData;
+    public xs8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailHttpReponse(int i) {
@@ -37,18 +37,12 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         }
     }
 
-    public ns8 getCardData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (ns8) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetCardResIdl getCardResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getCardResIdl = (GetCardResIdl) new Wire(new Class[0]).parseFrom(bArr, GetCardResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getCardResIdl = (GetCardResIdl) new Wire(new Class[0]).parseFrom(bArr, GetCardResIdl.class)) == null) {
             return;
         }
         Error error = getCardResIdl.error;
@@ -63,10 +57,10 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        ns8 ns8Var = new ns8();
-        this.cardData = ns8Var;
+        xs8 xs8Var = new xs8();
+        this.cardData = xs8Var;
         if (personalCardDetailRequest != null) {
-            ns8Var.m(personalCardDetailRequest.getCardId());
+            xs8Var.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);
@@ -78,5 +72,14 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         this.cardData.l(getCardResIdl.data.activity_url);
         this.cardData.t(getCardResIdl.data.is_finished.intValue());
         this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
+    }
+
+    public xs8 getCardData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.cardData;
+        }
+        return (xs8) invokeV.objValue;
     }
 }

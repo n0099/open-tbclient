@@ -12,9 +12,11 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
 public abstract class zzk extends zzi {
     public static /* synthetic */ Interceptable $ic;
-    public static final WeakReference<byte[]> zza;
+    public static final WeakReference zza;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<byte[]> zzb;
+    public WeakReference zzb;
+
+    public abstract byte[] zzb();
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +31,25 @@ public abstract class zzk extends zzi {
                 return;
             }
         }
-        zza = new WeakReference<>(null);
+        zza = new WeakReference(null);
+    }
+
+    @Override // com.google.android.gms.common.zzi
+    public final byte[] zzf() {
+        InterceptResult invokeV;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                bArr = (byte[]) this.zzb.get();
+                if (bArr == null) {
+                    bArr = zzb();
+                    this.zzb = new WeakReference(bArr);
+                }
+            }
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,25 +71,5 @@ public abstract class zzk extends zzi {
             }
         }
         this.zzb = zza;
-    }
-
-    public abstract byte[] zzb();
-
-    @Override // com.google.android.gms.common.zzi
-    public final byte[] zzf() {
-        InterceptResult invokeV;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                bArr = this.zzb.get();
-                if (bArr == null) {
-                    bArr = zzb();
-                    this.zzb = new WeakReference<>(bArr);
-                }
-            }
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
     }
 }

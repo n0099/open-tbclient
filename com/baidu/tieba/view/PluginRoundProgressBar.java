@@ -10,8 +10,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gi7;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ri7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,6 +58,82 @@ public class PluginRoundProgressBar extends View {
                 return;
             }
         }
+    }
+
+    public synchronized void setProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            synchronized (this) {
+                if (i >= 0) {
+                    if (i > this.g) {
+                        i = this.g;
+                    }
+                    if (i <= this.g) {
+                        this.h = i;
+                        if (this.l != null) {
+                            this.l.a(i);
+                        }
+                        postInvalidate();
+                    }
+                } else {
+                    throw new IllegalArgumentException("progress not less than 0");
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PluginRoundProgressBar(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PluginRoundProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint();
+        this.k = new RectF();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ri7.RoundProgressBar);
+        this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06091c));
+        this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.obfuscated_res_0x7f060461));
+        this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.obfuscated_res_0x7f0608fe));
+        this.e = obtainStyledAttributes.getDimension(6, fj.d(getContext(), 11.0f));
+        this.f = obtainStyledAttributes.getDimension(7, 7.0f);
+        this.g = obtainStyledAttributes.getInteger(1, 100);
+        this.i = obtainStyledAttributes.getBoolean(5, true);
+        this.j = obtainStyledAttributes.getInt(3, 0);
+        obtainStyledAttributes.recycle();
     }
 
     public synchronized int getMax() {
@@ -118,16 +194,19 @@ public class PluginRoundProgressBar extends View {
             float f3 = width + i2;
             this.k.set(f2, f2, f3, f3);
             int i4 = this.j;
-            if (i4 == 0) {
-                this.a.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.k, -90.0f, (this.h * 360) / this.g, false, this.a);
-            } else if (i4 != 1) {
-            } else {
-                this.a.setStyle(Paint.Style.FILL_AND_STROKE);
-                if (this.h != 0) {
-                    canvas.drawArc(this.k, -90.0f, (i * 360) / this.g, true, this.a);
+            if (i4 != 0) {
+                if (i4 == 1) {
+                    this.a.setStyle(Paint.Style.FILL_AND_STROKE);
+                    if (this.h != 0) {
+                        canvas.drawArc(this.k, -90.0f, (i * 360) / this.g, true, this.a);
+                        return;
+                    }
+                    return;
                 }
+                return;
             }
+            this.a.setStyle(Paint.Style.STROKE);
+            canvas.drawArc(this.k, -90.0f, (this.h * 360) / this.g, false, this.a);
         }
     }
 
@@ -151,28 +230,6 @@ public class PluginRoundProgressBar extends View {
         }
     }
 
-    public synchronized void setProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            synchronized (this) {
-                if (i >= 0) {
-                    if (i > this.g) {
-                        i = this.g;
-                    }
-                    if (i <= this.g) {
-                        this.h = i;
-                        if (this.l != null) {
-                            this.l.a(i);
-                        }
-                        postInvalidate();
-                    }
-                } else {
-                    throw new IllegalArgumentException("progress not less than 0");
-                }
-            }
-        }
-    }
-
     public void setRoundColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -192,59 +249,5 @@ public class PluginRoundProgressBar extends View {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.d = i;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PluginRoundProgressBar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PluginRoundProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint();
-        this.k = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gi7.RoundProgressBar);
-        this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06091c));
-        this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.obfuscated_res_0x7f060461));
-        this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.obfuscated_res_0x7f0608fe));
-        this.e = obtainStyledAttributes.getDimension(6, ej.d(getContext(), 11.0f));
-        this.f = obtainStyledAttributes.getDimension(7, 7.0f);
-        this.g = obtainStyledAttributes.getInteger(1, 100);
-        this.i = obtainStyledAttributes.getBoolean(5, true);
-        this.j = obtainStyledAttributes.getInt(3, 0);
-        obtainStyledAttributes.recycle();
     }
 }

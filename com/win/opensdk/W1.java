@@ -35,10 +35,9 @@ public class W1 implements OnGetOaidListener {
     public void onGetOaid(String str) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(X1.c) || TextUtils.isEmpty(str) || (context = this.a.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && TextUtils.isEmpty(X1.c) && !TextUtils.isEmpty(str) && (context = this.a.a) != null) {
+            X1.c = str;
+            Z1.g(context, str);
         }
-        X1.c = str;
-        Z1.g(context, str);
     }
 }

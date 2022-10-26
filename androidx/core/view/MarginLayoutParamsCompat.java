@@ -28,13 +28,18 @@ public final class MarginLayoutParamsCompat {
 
     public static int getLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, marginLayoutParams)) == null) {
-            int layoutDirection = Build.VERSION.SDK_INT >= 17 ? marginLayoutParams.getLayoutDirection() : 0;
-            if (layoutDirection == 0 || layoutDirection == 1) {
-                return layoutDirection;
+            if (Build.VERSION.SDK_INT >= 17) {
+                i = marginLayoutParams.getLayoutDirection();
+            } else {
+                i = 0;
             }
-            return 0;
+            if (i != 0 && i != 1) {
+                return 0;
+            }
+            return i;
         }
         return invokeL.intValue;
     }
@@ -77,18 +82,16 @@ public final class MarginLayoutParamsCompat {
 
     public static void resolveLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, marginLayoutParams, i) == null) || Build.VERSION.SDK_INT < 17) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, marginLayoutParams, i) == null) && Build.VERSION.SDK_INT >= 17) {
+            marginLayoutParams.resolveLayoutDirection(i);
         }
-        marginLayoutParams.resolveLayoutDirection(i);
     }
 
     public static void setLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65542, null, marginLayoutParams, i) == null) || Build.VERSION.SDK_INT < 17) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(65542, null, marginLayoutParams, i) == null) && Build.VERSION.SDK_INT >= 17) {
+            marginLayoutParams.setLayoutDirection(i);
         }
-        marginLayoutParams.setLayoutDirection(i);
     }
 
     public static void setMarginEnd(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {

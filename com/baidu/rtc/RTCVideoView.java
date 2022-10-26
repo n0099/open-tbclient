@@ -31,9 +31,24 @@ public class RTCVideoView extends SurfaceViewRenderer {
     public interface ExtVideoSink extends VideoSink {
     }
 
+    public void onRTCVideoFrame(RTCVideoFrame rTCVideoFrame) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rTCVideoFrame) == null) {
+        }
+    }
+
+    public boolean onlyforVideoCallbackdata() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ScalingType {
+    public final class ScalingType {
         public static final /* synthetic */ ScalingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ScalingType SCALE_ASPECT_BALANCED;
@@ -83,13 +98,19 @@ public class RTCVideoView extends SurfaceViewRenderer {
         public static ScalingType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ScalingType) Enum.valueOf(ScalingType.class, str) : (ScalingType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ScalingType) Enum.valueOf(ScalingType.class, str);
+            }
+            return (ScalingType) invokeL.objValue;
         }
 
         public static ScalingType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScalingType[]) $VALUES.clone() : (ScalingType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ScalingType[]) $VALUES.clone();
+            }
+            return (ScalingType[]) invokeV.objValue;
         }
     }
 
@@ -117,26 +138,6 @@ public class RTCVideoView extends SurfaceViewRenderer {
         this.isVideoTrackChanged = false;
         this.mOnFirstFrameEvent = null;
         this.mExtVideoSink = null;
-    }
-
-    private void updateReportEvents(VideoFrame videoFrame) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, this, videoFrame) == null) && this.isVideoTrackChanged) {
-            this.isVideoTrackChanged = false;
-            onFirstFrameRendered();
-        }
-    }
-
-    @Override // org.webrtc.SurfaceViewRenderer
-    public void clearImage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.stuckDataCalculator.reset();
-            if (this.mExtVideoSink != null) {
-                return;
-            }
-            super.clearImage();
-        }
     }
 
     @Override // org.webrtc.SurfaceViewRenderer, org.webrtc.VideoSink
@@ -167,27 +168,48 @@ public class RTCVideoView extends SurfaceViewRenderer {
         }
     }
 
-    public void onRTCVideoFrame(RTCVideoFrame rTCVideoFrame) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RTCVideoView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rTCVideoFrame) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.mExtSinkNeedRender = false;
+        this.stuckDataCalculator = new StuckDataCalculator(600);
+        this.isEnableSLIDataReport = false;
+        this.isVideoTrackChanged = false;
+        this.mOnFirstFrameEvent = null;
+        this.mExtVideoSink = null;
     }
 
-    public boolean onlyforVideoCallbackdata() {
-        InterceptResult invokeV;
+    private void updateReportEvents(VideoFrame videoFrame) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
+        if ((interceptable == null || interceptable.invokeL(65538, this, videoFrame) == null) && this.isVideoTrackChanged) {
+            this.isVideoTrackChanged = false;
+            onFirstFrameRendered();
         }
-        return invokeV.booleanValue;
     }
 
     @Override // org.webrtc.SurfaceViewRenderer
     public void setEnableHardwareScaler(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.mExtVideoSink == null) {
-            super.setEnableHardwareScaler(z);
+        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || this.mExtVideoSink != null) {
+            return;
         }
+        super.setEnableHardwareScaler(z);
     }
 
     public void setEnableSLIDataReport(boolean z) {
@@ -214,9 +236,10 @@ public class RTCVideoView extends SurfaceViewRenderer {
     @Override // org.webrtc.SurfaceViewRenderer
     public void setMirror(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && this.mExtVideoSink == null) {
-            super.setMirror(z);
+        if ((interceptable != null && interceptable.invokeZ(1048585, this, z) != null) || this.mExtVideoSink != null) {
+            return;
         }
+        super.setMirror(z);
     }
 
     public void setStuckEventListener(SLIReportInterface sLIReportInterface) {
@@ -233,38 +256,23 @@ public class RTCVideoView extends SurfaceViewRenderer {
         }
     }
 
+    @Override // org.webrtc.SurfaceViewRenderer
+    public void clearImage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.stuckDataCalculator.reset();
+            if (this.mExtVideoSink != null) {
+                return;
+            }
+            super.clearImage();
+        }
+    }
+
     public void setExtVideoSink(VideoSink videoSink, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, videoSink, z) == null) {
             this.mExtVideoSink = videoSink;
             this.mExtSinkNeedRender = z;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCVideoView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mExtSinkNeedRender = false;
-        this.stuckDataCalculator = new StuckDataCalculator(600);
-        this.isEnableSLIDataReport = false;
-        this.isVideoTrackChanged = false;
-        this.mOnFirstFrameEvent = null;
-        this.mExtVideoSink = null;
     }
 }

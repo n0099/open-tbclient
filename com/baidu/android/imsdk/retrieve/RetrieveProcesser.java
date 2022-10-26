@@ -78,6 +78,13 @@ public class RetrieveProcesser {
                                 public final /* synthetic */ Context val$context;
                                 public final /* synthetic */ JSONObject val$data;
 
+                                @Override // com.baidu.android.imsdk.retrieve.IReportListener
+                                public void onFailure() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    }
+                                }
+
                                 {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 != null) {
@@ -98,21 +105,13 @@ public class RetrieveProcesser {
                                 }
 
                                 @Override // com.baidu.android.imsdk.retrieve.IReportListener
-                                public void onFailure() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    }
-                                }
-
-                                @Override // com.baidu.android.imsdk.retrieve.IReportListener
                                 public void onSuccess(ReportResult reportResult) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reportResult) == null) {
                                         RetrieveFileJob retrieveFileJob = new RetrieveFileJob();
-                                        if (reportResult == null || !"1".equals(reportResult.getValid())) {
-                                            return;
+                                        if (reportResult != null && "1".equals(reportResult.getValid())) {
+                                            retrieveFileJob.dispatch(this.val$data, this.val$context);
                                         }
-                                        retrieveFileJob.dispatch(this.val$data, this.val$context);
                                     }
                                 }
                             });

@@ -1,9 +1,8 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s27;
+import com.baidu.tieba.a37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,8 +38,16 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
         }
     }
 
+    public DataRes getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.resultData;
+        }
+        return (DataRes) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         DataRes dataRes;
@@ -59,22 +66,16 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            s27.a = false;
-            if (s27.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-                this.resultData = s27.b();
-                s27.a = true;
-                s27.a();
+            a37.a = false;
+            if (a37.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+                this.resultData = a37.b();
+                a37.a = true;
+                a37.a();
             } else {
                 this.resultData = personalizedResIdl.data;
             }
             return personalizedResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public DataRes getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (DataRes) invokeV.objValue;
     }
 }

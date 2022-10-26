@@ -1,62 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetSugTopic.TopicList;
+import tbclient.GetSugTopic.TopicListModule;
 /* loaded from: classes6.dex */
 public class u77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public List c;
+    public List d;
 
-    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
+    public u77() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) ? (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, ma7.o().m()) : (ImMessageCenterPojo) invokeL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = -1;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
     }
 
-    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
-            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
-            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
-            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-            imMessageCenterPojo2.setBjhAvatar(imMessageCenterPojo.getBjhAvatar());
-            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
-            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
-            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
-            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
-            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
-            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
-            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
-            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
-            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
-            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            boolean z = true;
-            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
-                    if (!nb7.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
-                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
-                    } else {
-                        ob7.a().c(true);
-                        z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) && topicListModule != null) {
+            this.a = topicListModule.module_title;
+            List<TopicList> list = topicListModule.topic_list;
+            if (list == null) {
+                return;
+            }
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                v77 v77Var = new v77();
+                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
+                if (topicList != null) {
+                    v77Var.c(topicList);
+                    if (!ej.isEmptyStringAfterTrim(v77Var.b())) {
+                        this.c.add(v77Var);
+                        this.d.add(new x77(topicList));
                     }
                 }
             }
-            if (z) {
-                imMessageCenterPojo2.setUnread_count(1);
-                ob7.a().c(false);
-            }
-            return imMessageCenterPojo2;
         }
-        return (ImMessageCenterPojo) invokeLL.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+        }
     }
 }

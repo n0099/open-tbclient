@@ -28,17 +28,24 @@ import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer<EncodedImage> {
+public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Rect MICRO_THUMBNAIL_DIMENSIONS;
     public static final Rect MINI_THUMBNAIL_DIMENSIONS;
     public static final int NO_THUMBNAIL = 0;
     public static final String PRODUCER_NAME = "LocalContentUriThumbnailFetchProducer";
     public static final String[] PROJECTION;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public static final String[] THUMBNAIL_PROJECTION;
     public transient /* synthetic */ FieldHolder $fh;
     public final ContentResolver mContentResolver;
+
+    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -105,34 +112,6 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
         return (EncodedImage) invokeLL.objValue;
     }
 
-    public static int getLength(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return -1;
-            }
-            return (int) new File(str).length();
-        }
-        return invokeL.intValue;
-    }
-
-    public static int getRotationAngle(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null) {
-                try {
-                    return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt("Orientation", 1));
-                } catch (IOException e) {
-                    FLog.e(TAG, e, "Unable to retrieve thumbnail rotation for %s", str);
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
     @Nullable
     private EncodedImage getThumbnail(ResizeOptions resizeOptions, long j) throws IOException {
         InterceptResult invokeLJ;
@@ -158,14 +137,14 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
         return (EncodedImage) invokeLJ.objValue;
     }
 
-    public static int getThumbnailKind(ResizeOptions resizeOptions) {
+    public static int getLength(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resizeOptions)) == null) {
-            if (ThumbnailSizeChecker.isImageBigEnough(MICRO_THUMBNAIL_DIMENSIONS.width(), MICRO_THUMBNAIL_DIMENSIONS.height(), resizeOptions)) {
-                return 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return -1;
             }
-            return ThumbnailSizeChecker.isImageBigEnough(MINI_THUMBNAIL_DIMENSIONS.width(), MINI_THUMBNAIL_DIMENSIONS.height(), resizeOptions) ? 1 : 0;
+            return (int) new File(str).length();
         }
         return invokeL.intValue;
     }
@@ -174,7 +153,10 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     public boolean canProvideImageForSize(ResizeOptions resizeOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resizeOptions)) == null) ? ThumbnailSizeChecker.isImageBigEnough(MINI_THUMBNAIL_DIMENSIONS.width(), MINI_THUMBNAIL_DIMENSIONS.height(), resizeOptions) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resizeOptions)) == null) {
+            return ThumbnailSizeChecker.isImageBigEnough(MINI_THUMBNAIL_DIMENSIONS.width(), MINI_THUMBNAIL_DIMENSIONS.height(), resizeOptions);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
@@ -192,10 +174,34 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
         return (EncodedImage) invokeL.objValue;
     }
 
-    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
-    public String getProducerName() {
-        InterceptResult invokeV;
+    public static int getRotationAngle(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str != null) {
+                try {
+                    return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1));
+                } catch (IOException e) {
+                    FLog.e(TAG, e, "Unable to retrieve thumbnail rotation for %s", str);
+                }
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getThumbnailKind(ResizeOptions resizeOptions) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resizeOptions)) == null) {
+            if (ThumbnailSizeChecker.isImageBigEnough(MICRO_THUMBNAIL_DIMENSIONS.width(), MICRO_THUMBNAIL_DIMENSIONS.height(), resizeOptions)) {
+                return 3;
+            }
+            if (ThumbnailSizeChecker.isImageBigEnough(MINI_THUMBNAIL_DIMENSIONS.width(), MINI_THUMBNAIL_DIMENSIONS.height(), resizeOptions)) {
+                return 1;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 }

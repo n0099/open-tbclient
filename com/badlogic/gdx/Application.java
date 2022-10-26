@@ -10,10 +10,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface Application {
+    void debug(String str, String str2);
+
+    void error(String str, String str2);
+
+    void error(String str, String str2, Throwable th);
+
+    c1 getApplicationListener();
+
+    Graphics getGraphics();
+
+    ApplicationType getType();
+
+    void log(String str, String str2);
+
+    void postRunnable(Runnable runnable);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class ApplicationType {
+    public final class ApplicationType {
         public static final /* synthetic */ ApplicationType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ApplicationType Android;
@@ -69,29 +84,19 @@ public interface Application {
         public static ApplicationType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ApplicationType) Enum.valueOf(ApplicationType.class, str) : (ApplicationType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ApplicationType) Enum.valueOf(ApplicationType.class, str);
+            }
+            return (ApplicationType) invokeL.objValue;
         }
 
         public static ApplicationType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ApplicationType[]) $VALUES.clone() : (ApplicationType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ApplicationType[]) $VALUES.clone();
+            }
+            return (ApplicationType[]) invokeV.objValue;
         }
     }
-
-    void debug(String str, String str2);
-
-    void error(String str, String str2);
-
-    void error(String str, String str2, Throwable th);
-
-    c1 getApplicationListener();
-
-    Graphics getGraphics();
-
-    ApplicationType getType();
-
-    void log(String str, String str2);
-
-    void postRunnable(Runnable runnable);
 }

@@ -15,6 +15,7 @@ import com.yy.hiidostatis.inner.implementation.TaskDataSqLiteCacheManager;
 import com.yy.hiidostatis.message.MessageStore;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class MessageStoreProxy implements MessageStore {
@@ -25,7 +26,7 @@ public class MessageStoreProxy implements MessageStore {
 
     /* renamed from: com.yy.hiidostatis.message.storage.MessageStoreProxy$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$api$StatisContent$Priority;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,12 +81,14 @@ public class MessageStoreProxy implements MessageStore {
     }
 
     @Override // com.yy.hiidostatis.message.MessageStore
-    public int notSave(List<StatisContent> list) {
+    public int notSave(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (StatisContent statisContent : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                StatisContent statisContent = (StatisContent) it.next();
                 TaskData taskData = new TaskData(statisContent.getAct());
                 taskData.setContent(statisContent.getContent());
                 taskData.setDataId(statisContent.getGuid());
@@ -100,13 +103,15 @@ public class MessageStoreProxy implements MessageStore {
     }
 
     @Override // com.yy.hiidostatis.message.MessageStore
-    public int save(List<StatisContent> list) {
+    public int save(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             HashMap hashMap = new HashMap();
-            for (StatisContent statisContent : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                StatisContent statisContent = (StatisContent) it.next();
                 TaskData taskData = new TaskData(statisContent.getAct());
                 taskData.setContent(statisContent.getContent());
                 taskData.setDataId(statisContent.getGuid());
@@ -114,12 +119,16 @@ public class MessageStoreProxy implements MessageStore {
                 taskData.setAid(statisContent.getAutoId());
                 taskData.setCrepid(statisContent.getCrepid());
                 int i = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$api$StatisContent$Priority[statisContent.getPriority().ordinal()];
-                if (i == 1) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            taskData.setOrder(System.currentTimeMillis() + 86400000);
+                        }
+                    } else {
+                        taskData.setOrder(System.currentTimeMillis());
+                    }
+                } else {
                     taskData.setOrder(System.currentTimeMillis() - 3600000);
-                } else if (i == 2) {
-                    taskData.setOrder(System.currentTimeMillis());
-                } else if (i == 3) {
-                    taskData.setOrder(System.currentTimeMillis() + 86400000);
                 }
                 Integer num = (Integer) hashMap.get(statisContent.getAct());
                 if (num == null) {

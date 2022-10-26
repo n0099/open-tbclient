@@ -65,11 +65,19 @@ public class MatrixDrawable extends ForwardingDrawable {
     private void configureBoundsIfUnderlyingChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (this.mUnderlyingWidth == getCurrent().getIntrinsicWidth() && this.mUnderlyingHeight == getCurrent().getIntrinsicHeight()) {
-                return;
+            if (this.mUnderlyingWidth != getCurrent().getIntrinsicWidth() || this.mUnderlyingHeight != getCurrent().getIntrinsicHeight()) {
+                configureBounds();
             }
-            configureBounds();
         }
+    }
+
+    public Matrix getMatrix() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMatrix;
+        }
+        return (Matrix) invokeV.objValue;
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
@@ -87,12 +95,6 @@ public class MatrixDrawable extends ForwardingDrawable {
             }
             super.draw(canvas);
         }
-    }
-
-    public Matrix getMatrix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMatrix : (Matrix) invokeV.objValue;
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, com.facebook.drawee.drawable.TransformCallback

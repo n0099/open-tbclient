@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheEvent;
 import com.facebook.cache.common.CacheEventListener;
 import com.facebook.cache.common.CacheKey;
-import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
@@ -62,25 +61,6 @@ public class SettableCacheEvent implements CacheEvent {
         }
     }
 
-    @ReturnsOwnership
-    public static SettableCacheEvent obtain() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (RECYCLER_LOCK) {
-                if (sFirstRecycledEvent != null) {
-                    SettableCacheEvent settableCacheEvent = sFirstRecycledEvent;
-                    sFirstRecycledEvent = settableCacheEvent.mNextRecycledEvent;
-                    settableCacheEvent.mNextRecycledEvent = null;
-                    sRecycledCount--;
-                    return settableCacheEvent;
-                }
-                return new SettableCacheEvent();
-            }
-        }
-        return (SettableCacheEvent) invokeV.objValue;
-    }
-
     private void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -99,21 +79,30 @@ public class SettableCacheEvent implements CacheEvent {
     public CacheKey getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCacheKey : (CacheKey) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCacheKey;
+        }
+        return (CacheKey) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.common.CacheEvent
     public long getCacheLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCacheLimit : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCacheLimit;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.facebook.cache.common.CacheEvent
     public long getCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCacheSize : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCacheSize;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.facebook.cache.common.CacheEvent
@@ -121,7 +110,10 @@ public class SettableCacheEvent implements CacheEvent {
     public CacheEventListener.EvictionReason getEvictionReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mEvictionReason : (CacheEventListener.EvictionReason) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mEvictionReason;
+        }
+        return (CacheEventListener.EvictionReason) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.common.CacheEvent
@@ -129,14 +121,20 @@ public class SettableCacheEvent implements CacheEvent {
     public IOException getException() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mException : (IOException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mException;
+        }
+        return (IOException) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.common.CacheEvent
     public long getItemSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mItemSize : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mItemSize;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.facebook.cache.common.CacheEvent
@@ -144,7 +142,10 @@ public class SettableCacheEvent implements CacheEvent {
     public String getResourceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mResourceId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mResourceId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void recycle() {
@@ -161,6 +162,24 @@ public class SettableCacheEvent implements CacheEvent {
                 }
             }
         }
+    }
+
+    public static SettableCacheEvent obtain() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (RECYCLER_LOCK) {
+                if (sFirstRecycledEvent != null) {
+                    SettableCacheEvent settableCacheEvent = sFirstRecycledEvent;
+                    sFirstRecycledEvent = settableCacheEvent.mNextRecycledEvent;
+                    settableCacheEvent.mNextRecycledEvent = null;
+                    sRecycledCount--;
+                    return settableCacheEvent;
+                }
+                return new SettableCacheEvent();
+            }
+        }
+        return (SettableCacheEvent) invokeV.objValue;
     }
 
     public SettableCacheEvent setCacheKey(CacheKey cacheKey) {

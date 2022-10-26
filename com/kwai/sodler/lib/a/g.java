@@ -1,6 +1,5 @@
 package com.kwai.sodler.lib.a;
 
-import androidx.annotation.NonNull;
 import java.io.File;
 /* loaded from: classes8.dex */
 public interface g {
@@ -12,5 +11,5 @@ public interface g {
 
     g b(a aVar);
 
-    f i(@NonNull f fVar);
+    f i(f fVar);
 }

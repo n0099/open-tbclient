@@ -3,10 +3,6 @@ package androidx.recyclerview.widget;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
@@ -46,6 +42,25 @@ public class AsyncListUtil<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        public abstract void fillData(T[] tArr, int i, int i2);
+
+        public int getMaxCachedTiles() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 10;
+            }
+            return invokeV.intValue;
+        }
+
+        public void recycleData(T[] tArr, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tArr, i) == null) {
+            }
+        }
+
+        public abstract int refreshData();
+
         public DataCallback() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,29 +74,6 @@ public class AsyncListUtil<T> {
                 }
             }
         }
-
-        @WorkerThread
-        public abstract void fillData(@NonNull T[] tArr, int i, int i2);
-
-        @WorkerThread
-        public int getMaxCachedTiles() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 10;
-            }
-            return invokeV.intValue;
-        }
-
-        @WorkerThread
-        public void recycleData(@NonNull T[] tArr, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tArr, i) == null) {
-            }
-        }
-
-        @WorkerThread
-        public abstract int refreshData();
     }
 
     /* loaded from: classes.dex */
@@ -91,6 +83,12 @@ public class AsyncListUtil<T> {
         public static final int HINT_SCROLL_DESC = 1;
         public static final int HINT_SCROLL_NONE = 0;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void getItemRangeInto(int[] iArr);
+
+        public abstract void onDataRefresh();
+
+        public abstract void onItemLoaded(int i);
 
         public ViewCallback() {
             Interceptable interceptable = $ic;
@@ -106,32 +104,29 @@ public class AsyncListUtil<T> {
             }
         }
 
-        @UiThread
-        public void extendRangeInto(@NonNull int[] iArr, @NonNull int[] iArr2, int i) {
+        public void extendRangeInto(int[] iArr, int[] iArr2, int i) {
+            int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, iArr, iArr2, i) == null) {
-                int i2 = (iArr[1] - iArr[0]) + 1;
-                int i3 = i2 / 2;
-                iArr2[0] = iArr[0] - (i == 1 ? i2 : i3);
-                int i4 = iArr[1];
-                if (i != 2) {
+                int i3 = (iArr[1] - iArr[0]) + 1;
+                int i4 = i3 / 2;
+                int i5 = iArr[0];
+                if (i == 1) {
                     i2 = i3;
+                } else {
+                    i2 = i4;
                 }
-                iArr2[1] = i4 + i2;
+                iArr2[0] = i5 - i2;
+                int i6 = iArr[1];
+                if (i != 2) {
+                    i3 = i4;
+                }
+                iArr2[1] = i6 + i3;
             }
         }
-
-        @UiThread
-        public abstract void getItemRangeInto(@NonNull int[] iArr);
-
-        @UiThread
-        public abstract void onDataRefresh();
-
-        @UiThread
-        public abstract void onItemLoaded(int i);
     }
 
-    public AsyncListUtil(@NonNull Class<T> cls, int i, @NonNull DataCallback<T> dataCallback, @NonNull ViewCallback viewCallback) {
+    public AsyncListUtil(Class<T> cls, int i, DataCallback<T> dataCallback, ViewCallback viewCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -180,7 +175,13 @@ public class AsyncListUtil<T> {
             private boolean isRequestedGeneration(int i4) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(65537, this, i4)) == null) ? i4 == this.this$0.mRequestedGeneration : invokeI.booleanValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(65537, this, i4)) == null) {
+                    if (i4 == this.this$0.mRequestedGeneration) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeI.booleanValue;
             }
 
             private void recycleAllTiles() {
@@ -211,11 +212,11 @@ public class AsyncListUtil<T> {
                     int i6 = 0;
                     while (i6 < this.this$0.mMissingPositions.size()) {
                         int keyAt = this.this$0.mMissingPositions.keyAt(i6);
-                        if (tile.mStartPosition > keyAt || keyAt >= i5) {
-                            i6++;
-                        } else {
+                        if (tile.mStartPosition <= keyAt && keyAt < i5) {
                             this.this$0.mMissingPositions.removeAt(i6);
                             this.this$0.mViewCallback.onItemLoaded(keyAt);
+                        } else {
+                            i6++;
                         }
                     }
                 }
@@ -224,30 +225,32 @@ public class AsyncListUtil<T> {
             @Override // androidx.recyclerview.widget.ThreadUtil.MainThreadCallback
             public void removeTile(int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5) == null) && isRequestedGeneration(i4)) {
-                    TileList.Tile<T> removeAtPos = this.this$0.mTileList.removeAtPos(i5);
-                    if (removeAtPos == null) {
-                        Log.e(AsyncListUtil.TAG, "tile not found @" + i5);
-                        return;
-                    }
-                    this.this$0.mBackgroundProxy.recycleTile(removeAtPos);
+                if ((interceptable2 != null && interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5) != null) || !isRequestedGeneration(i4)) {
+                    return;
                 }
+                TileList.Tile<T> removeAtPos = this.this$0.mTileList.removeAtPos(i5);
+                if (removeAtPos == null) {
+                    Log.e(AsyncListUtil.TAG, "tile not found @" + i5);
+                    return;
+                }
+                this.this$0.mBackgroundProxy.recycleTile(removeAtPos);
             }
 
             @Override // androidx.recyclerview.widget.ThreadUtil.MainThreadCallback
             public void updateItemCount(int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i4, i5) == null) && isRequestedGeneration(i4)) {
-                    AsyncListUtil asyncListUtil = this.this$0;
-                    asyncListUtil.mItemCount = i5;
-                    asyncListUtil.mViewCallback.onDataRefresh();
-                    AsyncListUtil asyncListUtil2 = this.this$0;
-                    asyncListUtil2.mDisplayedGeneration = asyncListUtil2.mRequestedGeneration;
-                    recycleAllTiles();
-                    AsyncListUtil asyncListUtil3 = this.this$0;
-                    asyncListUtil3.mAllowScrollHints = false;
-                    asyncListUtil3.updateRange();
+                if ((interceptable2 != null && interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i4, i5) != null) || !isRequestedGeneration(i4)) {
+                    return;
                 }
+                AsyncListUtil asyncListUtil = this.this$0;
+                asyncListUtil.mItemCount = i5;
+                asyncListUtil.mViewCallback.onDataRefresh();
+                AsyncListUtil asyncListUtil2 = this.this$0;
+                asyncListUtil2.mDisplayedGeneration = asyncListUtil2.mRequestedGeneration;
+                recycleAllTiles();
+                AsyncListUtil asyncListUtil3 = this.this$0;
+                asyncListUtil3.mAllowScrollHints = false;
+                asyncListUtil3.updateRange();
             }
         };
         this.mBackgroundCallback = new ThreadUtil.BackgroundCallback<T>(this) { // from class: androidx.recyclerview.widget.AsyncListUtil.2
@@ -303,47 +306,22 @@ public class AsyncListUtil<T> {
                 }
             }
 
-            private void flushTileCache(int i4) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(65539, this, i4) == null) {
-                    int maxCachedTiles = this.this$0.mDataCallback.getMaxCachedTiles();
-                    while (this.mLoadedTiles.size() >= maxCachedTiles) {
-                        int keyAt = this.mLoadedTiles.keyAt(0);
-                        SparseBooleanArray sparseBooleanArray = this.mLoadedTiles;
-                        int keyAt2 = sparseBooleanArray.keyAt(sparseBooleanArray.size() - 1);
-                        int i5 = this.mFirstRequiredTileStart - keyAt;
-                        int i6 = keyAt2 - this.mLastRequiredTileStart;
-                        if (i5 > 0 && (i5 >= i6 || i4 == 2)) {
-                            removeTile(keyAt);
-                        } else if (i6 <= 0) {
-                            return;
-                        } else {
-                            if (i5 >= i6 && i4 != 1) {
-                                return;
-                            }
-                            removeTile(keyAt2);
-                        }
-                    }
-                }
-            }
-
             private int getTileStart(int i4) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i4)) == null) ? i4 - (i4 % this.this$0.mTileSize) : invokeI.intValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i4)) == null) {
+                    return i4 - (i4 % this.this$0.mTileSize);
+                }
+                return invokeI.intValue;
             }
 
             private boolean isTileLoaded(int i4) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(65541, this, i4)) == null) ? this.mLoadedTiles.get(i4) : invokeI.booleanValue;
-            }
-
-            private void log(String str, Object... objArr2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(65542, this, str, objArr2) == null) {
-                    Log.d(AsyncListUtil.TAG, "[BKGR] " + String.format(str, objArr2));
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(65541, this, i4)) == null) {
+                    return this.mLoadedTiles.get(i4);
                 }
+                return invokeI.booleanValue;
             }
 
             private void removeTile(int i4) {
@@ -352,32 +330,6 @@ public class AsyncListUtil<T> {
                     this.mLoadedTiles.delete(i4);
                     this.this$0.mMainThreadProxy.removeTile(this.mGeneration, i4);
                 }
-            }
-
-            private void requestTiles(int i4, int i5, int i6, boolean z) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(65544, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z)}) == null) {
-                    int i7 = i4;
-                    while (i7 <= i5) {
-                        this.this$0.mBackgroundProxy.loadTile(z ? (i5 + i4) - i7 : i7, i6);
-                        i7 += this.this$0.mTileSize;
-                    }
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.ThreadUtil.BackgroundCallback
-            public void loadTile(int i4, int i5) {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i4, i5) == null) || isTileLoaded(i4)) {
-                    return;
-                }
-                TileList.Tile<T> acquireTile = acquireTile();
-                acquireTile.mStartPosition = i4;
-                int min = Math.min(this.this$0.mTileSize, this.mItemCount - i4);
-                acquireTile.mItemCount = min;
-                this.this$0.mDataCallback.fillData(acquireTile.mItems, acquireTile.mStartPosition, min);
-                flushTileCache(i5);
-                addTile(acquireTile);
             }
 
             @Override // androidx.recyclerview.widget.ThreadUtil.BackgroundCallback
@@ -402,10 +354,74 @@ public class AsyncListUtil<T> {
                 }
             }
 
+            private void flushTileCache(int i4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(65539, this, i4) == null) {
+                    int maxCachedTiles = this.this$0.mDataCallback.getMaxCachedTiles();
+                    while (this.mLoadedTiles.size() >= maxCachedTiles) {
+                        int keyAt = this.mLoadedTiles.keyAt(0);
+                        SparseBooleanArray sparseBooleanArray = this.mLoadedTiles;
+                        int keyAt2 = sparseBooleanArray.keyAt(sparseBooleanArray.size() - 1);
+                        int i5 = this.mFirstRequiredTileStart - keyAt;
+                        int i6 = keyAt2 - this.mLastRequiredTileStart;
+                        if (i5 > 0 && (i5 >= i6 || i4 == 2)) {
+                            removeTile(keyAt);
+                        } else if (i6 > 0) {
+                            if (i5 < i6 || i4 == 1) {
+                                removeTile(keyAt2);
+                            } else {
+                                return;
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+                }
+            }
+
+            private void log(String str, Object... objArr2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(65542, this, str, objArr2) == null) {
+                    Log.d(AsyncListUtil.TAG, "[BKGR] " + String.format(str, objArr2));
+                }
+            }
+
+            private void requestTiles(int i4, int i5, int i6, boolean z) {
+                int i7;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(65544, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z)}) == null) {
+                    int i8 = i4;
+                    while (i8 <= i5) {
+                        if (z) {
+                            i7 = (i5 + i4) - i8;
+                        } else {
+                            i7 = i8;
+                        }
+                        this.this$0.mBackgroundProxy.loadTile(i7, i6);
+                        i8 += this.this$0.mTileSize;
+                    }
+                }
+            }
+
+            @Override // androidx.recyclerview.widget.ThreadUtil.BackgroundCallback
+            public void loadTile(int i4, int i5) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 != null && interceptable2.invokeII(1048576, this, i4, i5) != null) || isTileLoaded(i4)) {
+                    return;
+                }
+                TileList.Tile<T> acquireTile = acquireTile();
+                acquireTile.mStartPosition = i4;
+                int min = Math.min(this.this$0.mTileSize, this.mItemCount - i4);
+                acquireTile.mItemCount = min;
+                this.this$0.mDataCallback.fillData(acquireTile.mItems, acquireTile.mStartPosition, min);
+                flushTileCache(i5);
+                addTile(acquireTile);
+            }
+
             @Override // androidx.recyclerview.widget.ThreadUtil.BackgroundCallback
             public void updateRange(int i4, int i5, int i6, int i7, int i8) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) || i4 > i5) {
+                if ((interceptable2 != null && interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) != null) || i4 > i5) {
                     return;
                 }
                 int tileStart = getTileStart(i4);
@@ -436,10 +452,44 @@ public class AsyncListUtil<T> {
     private boolean isRefreshPending() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.mRequestedGeneration != this.mDisplayedGeneration : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.mRequestedGeneration != this.mDisplayedGeneration) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Nullable
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mItemCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public void onRangeChanged() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || isRefreshPending()) {
+            return;
+        }
+        updateRange();
+        this.mAllowScrollHints = true;
+    }
+
+    public void refresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mMissingPositions.clear();
+            ThreadUtil.BackgroundCallback<T> backgroundCallback = this.mBackgroundProxy;
+            int i = this.mRequestedGeneration + 1;
+            this.mRequestedGeneration = i;
+            backgroundCallback.refresh(i);
+        }
+    }
+
     public T getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -456,36 +506,10 @@ public class AsyncListUtil<T> {
         return (T) invokeI.objValue;
     }
 
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mItemCount : invokeV.intValue;
-    }
-
     public void log(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, objArr) == null) {
             Log.d(TAG, "[MAIN] " + String.format(str, objArr));
-        }
-    }
-
-    public void onRangeChanged() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || isRefreshPending()) {
-            return;
-        }
-        updateRange();
-        this.mAllowScrollHints = true;
-    }
-
-    public void refresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mMissingPositions.clear();
-            ThreadUtil.BackgroundCallback<T> backgroundCallback = this.mBackgroundProxy;
-            int i = this.mRequestedGeneration + 1;
-            this.mRequestedGeneration = i;
-            backgroundCallback.refresh(i);
         }
     }
 

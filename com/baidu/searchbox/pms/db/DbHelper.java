@@ -110,16 +110,20 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-            if (i == 1) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        alterAddAbi(sQLiteDatabase);
+                        return;
+                    }
+                    return;
+                }
                 alterAddDependencies(sQLiteDatabase);
                 alterAddAbi(sQLiteDatabase);
-            } else if (i == 2) {
-                alterAddDependencies(sQLiteDatabase);
-                alterAddAbi(sQLiteDatabase);
-            } else if (i != 3) {
-            } else {
-                alterAddAbi(sQLiteDatabase);
+                return;
             }
+            alterAddDependencies(sQLiteDatabase);
+            alterAddAbi(sQLiteDatabase);
         }
     }
 }

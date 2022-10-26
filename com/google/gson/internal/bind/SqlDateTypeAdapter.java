@@ -114,10 +114,16 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(JsonWriter jsonWriter, Date date) throws IOException {
+        String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, jsonWriter, date) == null) {
             synchronized (this) {
-                jsonWriter.value(date == null ? null : this.format.format((java.util.Date) date));
+                if (date == null) {
+                    format = null;
+                } else {
+                    format = this.format.format((java.util.Date) date);
+                }
+                jsonWriter.value(format);
             }
         }
     }

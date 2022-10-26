@@ -22,6 +22,16 @@ public class ALaKeepAliveService extends BdBaseService {
     public static final String KEY_TICKER = "ticker";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
     public ALaKeepAliveService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,9 +46,17 @@ public class ALaKeepAliveService extends BdBaseService {
         }
     }
 
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+        }
+    }
+
     public static void startService(Context context, String str, String str2, String str3, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, str3, Integer.valueOf(i)}) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, str3, Integer.valueOf(i)}) != null) || context == null) {
             return;
         }
         Intent intent = new Intent(context, ALaKeepAliveService.class);
@@ -50,24 +68,6 @@ public class ALaKeepAliveService extends BdBaseService {
             intent.putExtra(KEY_NOTIFICATION_ID, i);
         }
         context.startService(intent);
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onCreate();
-        }
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -83,7 +83,7 @@ public class ALaKeepAliveService extends BdBaseService {
                 String stringExtra3 = intent.getStringExtra(KEY_TICKER);
                 int intExtra = intent.getIntExtra(KEY_NOTIFICATION_ID, Integer.MAX_VALUE);
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
-                builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.obfuscated_res_0x7f0805ec).setTicker(stringExtra3);
+                builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.obfuscated_res_0x7f0805ed).setTicker(stringExtra3);
                 startForeground(intExtra, builder.build());
             }
             return super.onStartCommand(intent, i, i2);

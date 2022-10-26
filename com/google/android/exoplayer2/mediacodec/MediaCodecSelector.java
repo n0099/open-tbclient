@@ -28,17 +28,23 @@ public interface MediaCodecSelector {
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecSelector
-        public MediaCodecInfo getDecoderInfo(String str, boolean z) throws MediaCodecUtil.DecoderQueryException {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) ? MediaCodecUtil.getDecoderInfo(str, z) : (MediaCodecInfo) invokeLZ.objValue;
-        }
-
-        @Override // com.google.android.exoplayer2.mediacodec.MediaCodecSelector
         public MediaCodecInfo getPassthroughDecoderInfo() throws MediaCodecUtil.DecoderQueryException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaCodecUtil.getPassthroughDecoderInfo() : (MediaCodecInfo) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return MediaCodecUtil.getPassthroughDecoderInfo();
+            }
+            return (MediaCodecInfo) invokeV.objValue;
+        }
+
+        @Override // com.google.android.exoplayer2.mediacodec.MediaCodecSelector
+        public MediaCodecInfo getDecoderInfo(String str, boolean z) throws MediaCodecUtil.DecoderQueryException {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+                return MediaCodecUtil.getDecoderInfo(str, z);
+            }
+            return (MediaCodecInfo) invokeLZ.objValue;
         }
     };
 

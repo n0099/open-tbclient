@@ -3,7 +3,6 @@ package com.kwad.components.ad.reward.presenter.platdetail.kwai;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +95,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     @Override // com.kwad.components.ad.reward.d.f
-    public final void a(PlayableSource playableSource, @Nullable j jVar) {
+    public final void a(PlayableSource playableSource, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, playableSource, jVar) == null) {
         }
@@ -154,9 +153,9 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onCreate();
-            this.sl = findViewById(R.id.obfuscated_res_0x7f09111e);
-            this.sm = findViewById(R.id.obfuscated_res_0x7f09111f);
-            this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091071);
+            this.sl = findViewById(R.id.obfuscated_res_0x7f091112);
+            this.sm = findViewById(R.id.obfuscated_res_0x7f091113);
+            this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091065);
         }
     }
 

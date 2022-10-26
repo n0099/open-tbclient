@@ -19,6 +19,15 @@ public abstract class NPSActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public NPSActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,33 +42,14 @@ public abstract class NPSActivity extends Activity {
         }
     }
 
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public AssetManager getAssets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getResources().getAssets() : (AssetManager) invokeV.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public ClassLoader getClassLoader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(a())) {
-                return NPSManager.getInstance().getBundle(a()).getClassloader();
-            }
-            return super.getClassLoader();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getResources().getAssets();
         }
-        return (ClassLoader) invokeV.objValue;
+        return (AssetManager) invokeV.objValue;
     }
 
     @Override // android.app.Activity
@@ -74,6 +64,19 @@ public abstract class NPSActivity extends Activity {
             return intent;
         }
         return (Intent) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public ClassLoader getClassLoader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.isEmpty(a())) {
+                return NPSManager.getInstance().getBundle(a()).getClassloader();
+            }
+            return super.getClassLoader();
+        }
+        return (ClassLoader) invokeV.objValue;
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context

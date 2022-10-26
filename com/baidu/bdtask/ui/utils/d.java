@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.ou;
-import com.baidu.tieba.rs;
-import com.baidu.tieba.rt;
+import com.baidu.tieba.pu;
 import com.baidu.tieba.ss;
+import com.baidu.tieba.st;
+import com.baidu.tieba.ts;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rJ!\u0010\u0006\u001a\u00020\u00052\b\u0010\u0002\u001a\u0004\u0018\u00010\u00012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b\u0006\u0010\u0007J?\u0010\u0006\u001a\u00020\u00052\b\u0010\u0002\u001a\u0004\u0018\u00010\u00012\b\u0010\u0004\u001a\u0004\u0018\u00010\u00032\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00050\b2\u000e\b\u0002\u0010\n\u001a\b\u0012\u0004\u0012\u00020\u00050\b¢\u0006\u0004\b\u0006\u0010\u000b¨\u0006\u000e"}, d2 = {"Lcom/baidu/bdtask/ui/utils/ViewUtils;", "", "url", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "", "loadImageAsync", "(Ljava/lang/String;Landroid/view/View;)V", "Lkotlin/Function0;", "nextAction", "errorAction", "(Ljava/lang/String;Landroid/view/View;Lkotlin/Function0;Lkotlin/Function0;)V", "<init>", "()V", "lib-bdtask-ui-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -31,17 +30,17 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static final class a implements rs {
+    public final class a implements ss {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Function0 a;
         public final /* synthetic */ View b;
         public final /* synthetic */ Function0 c;
-        public final /* synthetic */ ou d;
+        public final /* synthetic */ pu d;
 
         /* renamed from: com.baidu.bdtask.ui.utils.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class RunnableC0081a implements Runnable {
+        public final class RunnableC0081a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -74,7 +73,7 @@ public final class d {
         }
 
         /* loaded from: classes.dex */
-        public static final class b implements Runnable {
+        public final class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -101,14 +100,20 @@ public final class d {
 
             @Override // java.lang.Runnable
             public final void run() {
+                View view2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.b.isRecycled()) {
                         this.a.a.invoke();
                         return;
                     }
-                    View view2 = this.a.b;
-                    if (Intrinsics.areEqual(view2, (ImageView) (!(view2 instanceof ImageView) ? null : view2))) {
+                    View view3 = this.a.b;
+                    if (!(view3 instanceof ImageView)) {
+                        view2 = null;
+                    } else {
+                        view2 = view3;
+                    }
+                    if (Intrinsics.areEqual(view3, (ImageView) view2)) {
                         ((ImageView) this.a.b).setImageBitmap(this.b);
                         this.a.c.invoke();
                         return;
@@ -119,12 +124,12 @@ public final class d {
             }
         }
 
-        public a(Function0 function0, View view2, Function0 function02, ou ouVar) {
+        public a(Function0 function0, View view2, Function0 function02, pu puVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {function0, view2, function02, ouVar};
+                Object[] objArr = {function0, view2, function02, puVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -137,22 +142,22 @@ public final class d {
             this.a = function0;
             this.b = view2;
             this.c = function02;
-            this.d = ouVar;
+            this.d = puVar;
         }
 
-        @Override // com.baidu.tieba.rs
+        @Override // com.baidu.tieba.ss
         public void a(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-                rt.c(new b(this, bitmap));
+                st.c(new b(this, bitmap));
             }
         }
 
-        @Override // com.baidu.tieba.rs
+        @Override // com.baidu.tieba.ss
         public void onError() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                rt.c(new RunnableC0081a(this));
+                st.c(new RunnableC0081a(this));
             }
         }
     }
@@ -194,7 +199,7 @@ public final class d {
         }
     }
 
-    public final void b(String str, View view2, Function0<Unit> function0, Function0<Unit> function02) {
+    public final void b(String str, View view2, Function0 function0, Function0 function02) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, function0, function02) == null) {
             if (TextUtils.isEmpty(str)) {
@@ -202,12 +207,12 @@ public final class d {
             } else if (view2 == null) {
                 function02.invoke();
             } else {
-                ou v = BDPTask.m.v();
+                pu v = BDPTask.m.v();
                 if (v == null) {
                     function02.invoke();
                     return;
                 }
-                ss i = v.i();
+                ts i = v.i();
                 if (str == null) {
                     Intrinsics.throwNpe();
                 }

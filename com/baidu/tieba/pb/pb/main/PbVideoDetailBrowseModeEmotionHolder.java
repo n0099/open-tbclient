@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.ny4;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ty4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,22 +47,22 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
             }
         }
         Intrinsics.checkNotNullParameter(view2, "view");
-        View findViewById = getView().findViewById(R.id.obfuscated_res_0x7f0908ac);
+        View findViewById = getView().findViewById(R.id.obfuscated_res_0x7f0908b5);
         Intrinsics.checkNotNullExpressionValue(findViewById, "getView().findViewById(R.id.emotion_img)");
         this.a = (BDImageView) findViewById;
-        View findViewById2 = getView().findViewById(R.id.obfuscated_res_0x7f0907a5);
+        View findViewById2 = getView().findViewById(R.id.obfuscated_res_0x7f0907ae);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "getView().findViewById(R.id.description_text)");
         this.b = (EMTextView) findViewById2;
         View findViewById3 = getView().findViewById(R.id.obfuscated_res_0x7f090153);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "getView().findViewById(R.id.agree_btn)");
         this.c = (TBSpecificationBtn) findViewById3;
         SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-        this.b.setText(R.string.obfuscated_res_0x7f0f0e12);
-        hv4.d(this.b).v(R.color.CAM_X0107);
-        ny4 ny4Var = new ny4();
-        ny4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
-        this.c.setConfig(ny4Var);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e11));
+        this.b.setText(R.string.obfuscated_res_0x7f0f0e23);
+        nv4.d(this.b).v(R.color.CAM_X0107);
+        ty4 ty4Var = new ty4();
+        ty4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
+        this.c.setConfig(ty4Var);
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e22));
         this.c.setTextSize(R.dimen.T_X07);
     }
 
@@ -70,7 +70,7 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-            hv4.d(this.b).v(R.color.CAM_X0107);
+            nv4.d(this.b).v(R.color.CAM_X0107);
             this.c.k();
         }
     }
@@ -79,10 +79,9 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
             this.d = onClickListener;
-            if (onClickListener == null) {
-                return;
+            if (onClickListener != null) {
+                this.c.setOnClickListener(onClickListener);
             }
-            this.c.setOnClickListener(onClickListener);
         }
     }
 }

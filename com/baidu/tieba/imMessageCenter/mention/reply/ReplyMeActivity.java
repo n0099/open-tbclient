@@ -36,11 +36,35 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     public boolean d;
     public boolean e;
 
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager.i d1(VoiceData.VoiceModel voiceModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceModel)) == null) {
+            return null;
+        }
+        return (VoiceManager.i) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a079" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes4.dex */
     public class a implements SwipeBackLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyMeActivity a;
+
+        @Override // com.baidu.adp.widget.SwipeBackLayout.b
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            }
+        }
 
         public a(ReplyMeActivity replyMeActivity) {
             Interceptable interceptable = $ic;
@@ -61,17 +85,10 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.adp.widget.SwipeBackLayout.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.R0();
+                this.a.O0();
             }
         }
     }
@@ -91,44 +108,11 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     }
 
     public final void N0() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem("c14622");
-        statisticItem.param("obj_source", getIntent().getIntExtra("from", 0));
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(statisticItem);
-    }
-
-    public final void O0() {
         SwipeBackLayout swipeBackLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (swipeBackLayout = this.mSwipeBackLayout) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (swipeBackLayout = this.mSwipeBackLayout) != null) {
+            swipeBackLayout.setOnSlidingStateChangeListener(new a(this));
         }
-        swipeBackLayout.setOnSlidingStateChangeListener(new a(this));
-    }
-
-    public final void R0() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e) {
-            return;
-        }
-        this.e = true;
-        if (getIntent() != null && getIntent().getIntExtra(ReplyMeActivityConfig.KEY_REPLY_NUMBER, 0) > 0) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921700, new int[]{getIntent().getIntExtra("last_page_unique_id", 0), 3}));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceModel)) == null) {
-            return null;
-        }
-        return (VoiceManager.i) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -156,63 +140,6 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a079" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            this.a.onActivityResult(i, i2, intent);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            ReplyMessageFragment replyMessageFragment = this.a;
-            if (replyMessageFragment != null) {
-                replyMessageFragment.onChangeSkinType(i);
-            }
-            this.b.onChangeSkinType(getPageContext(), i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            boolean z = true;
-            z = (n9.g().i("YunPushProxyActivity") && n9.g().h() == 1) ? false : false;
-            this.d = z;
-            if (z) {
-                setIsAddSwipeBackLayout(false);
-            }
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d004d);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
-            this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ffe));
-            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
-            this.a = replyMessageFragment;
-            replyMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906d3, this.a).commitAllowingStateLoss();
-            adjustResizeForSoftInput();
-            VoiceManager t0 = t0();
-            this.c = t0;
-            t0.onCreate(getPageContext());
-            N0();
-            O0();
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
@@ -221,23 +148,6 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             VoiceManager voiceManager = this.c;
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, intent) == null) {
-            super.onNewIntent(intent);
-            ReplyMessageFragment replyMessageFragment = this.a;
-            if (replyMessageFragment == null || intent == null) {
-                return;
-            }
-            replyMessageFragment.setArguments(intent.getExtras());
-            if (this.a.A1() != null) {
-                this.a.O1();
-                this.a.M1();
             }
         }
     }
@@ -252,7 +162,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
                 voiceManager.onPause(getPageContext());
             }
             if (isFinishing()) {
-                R0();
+                O0();
             }
         }
     }
@@ -304,5 +214,93 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             return this.c;
         }
         return (VoiceManager) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            ReplyMessageFragment replyMessageFragment = this.a;
+            if (replyMessageFragment != null) {
+                replyMessageFragment.onChangeSkinType(i);
+            }
+            this.b.onChangeSkinType(getPageContext(), i);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, intent) == null) {
+            super.onNewIntent(intent);
+            ReplyMessageFragment replyMessageFragment = this.a;
+            if (replyMessageFragment != null && intent != null) {
+                replyMessageFragment.setArguments(intent.getExtras());
+                if (this.a.A1() != null) {
+                    this.a.O1();
+                    this.a.M1();
+                }
+            }
+        }
+    }
+
+    public final void M0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIntent() != null) {
+            StatisticItem statisticItem = new StatisticItem("c14622");
+            statisticItem.param("obj_source", getIntent().getIntExtra("from", 0));
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void O0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e) {
+            return;
+        }
+        this.e = true;
+        if (getIntent() == null || getIntent().getIntExtra(ReplyMeActivityConfig.KEY_REPLY_NUMBER, 0) <= 0) {
+            return;
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921700, new int[]{getIntent().getIntExtra("last_page_unique_id", 0), 3}));
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            this.a.onActivityResult(i, i2, intent);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            boolean z = true;
+            z = (n9.g().i("YunPushProxyActivity") && n9.g().h() == 1) ? false : false;
+            this.d = z;
+            if (z) {
+                setIsAddSwipeBackLayout(false);
+            }
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d004d);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            this.b = navigationBar;
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1010));
+            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
+            this.a = replyMessageFragment;
+            replyMessageFragment.setArguments(getIntent().getExtras());
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906dc, this.a).commitAllowingStateLoss();
+            adjustResizeForSoftInput();
+            VoiceManager t0 = t0();
+            this.c = t0;
+            t0.onCreate(getPageContext());
+            M0();
+            N0();
+        }
     }
 }

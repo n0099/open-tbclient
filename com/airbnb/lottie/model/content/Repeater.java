@@ -1,6 +1,5 @@
 package com.airbnb.lottie.model.content;
 
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.RepeaterContent;
@@ -44,7 +43,6 @@ public class Repeater implements ContentModel {
     }
 
     @Override // com.airbnb.lottie.model.content.ContentModel
-    @Nullable
     public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
         return new RepeaterContent(lottieDrawable, baseLayer, this);
     }

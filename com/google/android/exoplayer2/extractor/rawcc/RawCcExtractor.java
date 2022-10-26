@@ -42,6 +42,13 @@ public final class RawCcExtractor implements Extractor {
     public TrackOutput trackOutput;
     public int version;
 
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -83,14 +90,14 @@ public final class RawCcExtractor implements Extractor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, extractorInput)) == null) {
             this.dataScratch.reset();
-            if (extractorInput.readFully(this.dataScratch.data, 0, 8, true)) {
-                if (this.dataScratch.readInt() == HEADER_ID) {
-                    this.version = this.dataScratch.readUnsignedByte();
-                    return true;
-                }
-                throw new IOException("Input not RawCC");
+            if (!extractorInput.readFully(this.dataScratch.data, 0, 8, true)) {
+                return false;
             }
-            return false;
+            if (this.dataScratch.readInt() == HEADER_ID) {
+                this.version = this.dataScratch.readUnsignedByte();
+                return true;
+            }
+            throw new IOException("Input not RawCC");
         }
         return invokeL.booleanValue;
     }
@@ -150,6 +157,21 @@ public final class RawCcExtractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
+    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
+            this.dataScratch.reset();
+            extractorInput.peekFully(this.dataScratch.data, 0, 8);
+            if (this.dataScratch.readInt() != HEADER_ID) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
     public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -181,29 +203,10 @@ public final class RawCcExtractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
     public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.parserState = 0;
         }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
-            this.dataScratch.reset();
-            extractorInput.peekFully(this.dataScratch.data, 0, 8);
-            return this.dataScratch.readInt() == HEADER_ID;
-        }
-        return invokeL.booleanValue;
     }
 }

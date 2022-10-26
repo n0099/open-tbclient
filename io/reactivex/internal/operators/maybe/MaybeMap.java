@@ -14,20 +14,20 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 /* loaded from: classes8.dex */
-public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
+public final class MaybeMap extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends R> mapper;
+    public final Function mapper;
 
     /* loaded from: classes8.dex */
-    public static final class MapMaybeObserver<T, R> implements MaybeObserver<T>, Disposable {
+    public final class MapMaybeObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super R> actual;
+        public final MaybeObserver actual;
         public Disposable d;
-        public final Function<? super T, ? extends R> mapper;
+        public final Function mapper;
 
-        public MapMaybeObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends R> function) {
+        public MapMaybeObserver(MaybeObserver maybeObserver, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,10 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -89,11 +92,11 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
                 try {
-                    this.actual.onSuccess(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null item"));
+                    this.actual.onSuccess(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null item"));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.actual.onError(th);
@@ -103,7 +106,7 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeMap(MaybeSource<T> maybeSource, Function<? super T, ? extends R> function) {
+    public MaybeMap(MaybeSource maybeSource, Function function) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,7 +127,7 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new MapMaybeObserver(maybeObserver, this.mapper));

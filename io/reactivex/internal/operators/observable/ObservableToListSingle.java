@@ -22,26 +22,26 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableToListSingle<T, U extends Collection<? super T>> extends Single<U> implements FuseToObservable<U> {
+public final class ObservableToListSingle extends Single implements FuseToObservable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<U> collectionSupplier;
-    public final ObservableSource<T> source;
+    public final Callable collectionSupplier;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class ToListObserver<T, U extends Collection<? super T>> implements Observer<T>, Disposable {
+    public final class ToListObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super U> actual;
-        public U collection;
+        public final SingleObserver actual;
+        public Collection collection;
         public Disposable s;
 
-        public ToListObserver(SingleObserver<? super U> singleObserver, U u) {
+        public ToListObserver(SingleObserver singleObserver, Collection collection) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, u};
+                Object[] objArr = {singleObserver, collection};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
                 }
             }
             this.actual = singleObserver;
-            this.collection = u;
+            this.collection = collection;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -67,16 +67,19 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                U u = this.collection;
+                Collection collection = this.collection;
                 this.collection = null;
-                this.actual.onSuccess(u);
+                this.actual.onSuccess(collection);
             }
         }
 
@@ -90,10 +93,10 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.collection.add(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.collection.add(obj);
             }
         }
 
@@ -107,7 +110,7 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
         }
     }
 
-    public ObservableToListSingle(ObservableSource<T> observableSource, int i) {
+    public ObservableToListSingle(ObservableSource observableSource, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,27 +129,7 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
         this.collectionSupplier = Functions.createArrayList(i);
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable<U> fuseToObservable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new ObservableToList(this.source, this.collectionSupplier)) : (Observable) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super U> singleObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
-            try {
-                this.source.subscribe(new ToListObserver(singleObserver, (Collection) ObjectHelper.requireNonNull(this.collectionSupplier.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                EmptyDisposable.error(th, singleObserver);
-            }
-        }
-    }
-
-    public ObservableToListSingle(ObservableSource<T> observableSource, Callable<U> callable) {
+    public ObservableToListSingle(ObservableSource observableSource, Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,5 +146,28 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
         }
         this.source = observableSource;
         this.collectionSupplier = callable;
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToObservable
+    public Observable fuseToObservable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new ObservableToList(this.source, this.collectionSupplier));
+        }
+        return (Observable) invokeV.objValue;
+    }
+
+    @Override // io.reactivex.Single
+    public void subscribeActual(SingleObserver singleObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
+            try {
+                this.source.subscribe(new ToListObserver(singleObserver, (Collection) ObjectHelper.requireNonNull(this.collectionSupplier.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                EmptyDisposable.error(th, singleObserver);
+            }
+        }
     }
 }

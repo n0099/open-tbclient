@@ -52,7 +52,9 @@ public final class MonochromeRectangleDetector {
             while (i8 >= i3) {
                 BitMatrix bitMatrix = this.image;
                 if (z) {
-                    if (!bitMatrix.get(i8, i)) {
+                    if (bitMatrix.get(i8, i)) {
+                        i8--;
+                    } else {
                         i6 = i8;
                         while (true) {
                             i6--;
@@ -74,8 +76,6 @@ public final class MonochromeRectangleDetector {
                             break;
                         }
                         i8 = i6;
-                    } else {
-                        i8--;
                     }
                 } else if (bitMatrix.get(i, i8)) {
                     i8--;
@@ -97,7 +97,9 @@ public final class MonochromeRectangleDetector {
             while (i7 < i4) {
                 BitMatrix bitMatrix3 = this.image;
                 if (z) {
-                    if (!bitMatrix3.get(i7, i)) {
+                    if (bitMatrix3.get(i7, i)) {
+                        i7++;
+                    } else {
                         i5 = i7;
                         while (true) {
                             i5++;
@@ -119,8 +121,6 @@ public final class MonochromeRectangleDetector {
                             break;
                         }
                         i7 = i5;
-                    } else {
-                        i7++;
                     }
                 } else if (bitMatrix3.get(i, i7)) {
                     i7++;
@@ -163,11 +163,15 @@ public final class MonochromeRectangleDetector {
                 }
                 if (blackWhiteRange == null) {
                     if (iArr != null) {
+                        char c = 1;
                         if (i2 == 0) {
                             int i12 = i11 - i6;
                             if (iArr[0] < i) {
                                 if (iArr[1] > i) {
-                                    return new ResultPoint(iArr[i6 > 0 ? (char) 0 : (char) 1], i12);
+                                    if (i6 > 0) {
+                                        c = 0;
+                                    }
+                                    return new ResultPoint(iArr[c], i12);
                                 }
                                 return new ResultPoint(iArr[0], i12);
                             }
@@ -176,7 +180,11 @@ public final class MonochromeRectangleDetector {
                         int i13 = i10 - i2;
                         if (iArr[0] < i5) {
                             if (iArr[1] > i5) {
-                                return new ResultPoint(i13, iArr[i2 < 0 ? (char) 0 : (char) 1]);
+                                float f = i13;
+                                if (i2 < 0) {
+                                    c = 0;
+                                }
+                                return new ResultPoint(f, iArr[c]);
                             }
                             return new ResultPoint(i13, iArr[0]);
                         }

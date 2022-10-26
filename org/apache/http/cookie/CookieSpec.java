@@ -5,7 +5,7 @@ import org.apache.http.Header;
 @Deprecated
 /* loaded from: classes8.dex */
 public interface CookieSpec {
-    List<Header> formatCookies(List<Cookie> list);
+    List formatCookies(List list);
 
     int getVersion();
 
@@ -13,7 +13,7 @@ public interface CookieSpec {
 
     boolean match(Cookie cookie, CookieOrigin cookieOrigin);
 
-    List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException;
+    List parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException;
 
     void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException;
 }

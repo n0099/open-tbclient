@@ -37,10 +37,9 @@ public class SetLikeForumHttpResponseMessage extends TbHttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         SetLikeForumSortResIdl setLikeForumSortResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || (setLikeForumSortResIdl = (SetLikeForumSortResIdl) new Wire(new Class[0]).parseFrom(bArr, SetLikeForumSortResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && bArr != null && (setLikeForumSortResIdl = (SetLikeForumSortResIdl) new Wire(new Class[0]).parseFrom(bArr, SetLikeForumSortResIdl.class)) != null) {
+            setError(setLikeForumSortResIdl.error.errorno.intValue());
+            setErrorString(setLikeForumSortResIdl.error.errmsg);
         }
-        setError(setLikeForumSortResIdl.error.errorno.intValue());
-        setErrorString(setLikeForumSortResIdl.error.errmsg);
     }
 }

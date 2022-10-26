@@ -26,6 +26,16 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public long sequenceNumber;
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 8L;
+        }
+        return invokeV.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,6 +70,16 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
         }
     }
 
+    public long getSequenceNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.sequenceNumber;
+        }
+        return invokeV.longValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("MovieFragmentHeaderBox.java", MovieFragmentHeaderBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSequenceNumber", "com.coremedia.iso.boxes.fragment.MovieFragmentHeaderBox", "", "", "", "long"), 59);
@@ -83,26 +103,6 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
             writeVersionAndFlags(byteBuffer);
             IsoTypeWriter.writeUInt32(byteBuffer, this.sequenceNumber);
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 8L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getSequenceNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.sequenceNumber;
-        }
-        return invokeV.longValue;
     }
 
     public void setSequenceNumber(long j) {

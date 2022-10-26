@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.data.AddGroupInfoData;
@@ -36,8 +35,16 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
         }
     }
 
+    public AddGroupInfoData getAddGroupInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.groupInfo;
+        }
+        return (AddGroupInfoData) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -71,11 +78,5 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
             return addGroupResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public AddGroupInfoData getAddGroupInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.groupInfo : (AddGroupInfoData) invokeV.objValue;
     }
 }

@@ -80,20 +80,6 @@ public abstract class AbstractHttpEntity implements HttpEntity {
         }
     }
 
-    public void setContentEncoding(Header header) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, header) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void setContentType(Header header) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, header) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public void setContentEncoding(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -104,6 +90,20 @@ public abstract class AbstractHttpEntity implements HttpEntity {
     public void setContentType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void setContentEncoding(Header header) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, header) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void setContentType(Header header) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, header) == null) {
             throw new RuntimeException("Stub!");
         }
     }

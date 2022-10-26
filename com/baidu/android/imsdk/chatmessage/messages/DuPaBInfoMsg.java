@@ -24,7 +24,7 @@ public class DuPaBInfoMsg extends ChatMsg {
     public static final String B_LATITUDE = "latitude";
     public static final String B_LONGITUDE = "longitude";
     public static final String B_TIME = "time";
-    public static final Parcelable.Creator<DuPaBInfoMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "DuPaBInfoMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public int action;
@@ -33,6 +33,23 @@ public class DuPaBInfoMsg extends ChatMsg {
     public String latitude;
     public String longitude;
     public long time;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +64,7 @@ public class DuPaBInfoMsg extends ChatMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<DuPaBInfoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,62 +83,53 @@ public class DuPaBInfoMsg extends ChatMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaBInfoMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new DuPaBInfoMsg(parcel) : (DuPaBInfoMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new DuPaBInfoMsg(parcel);
+                }
+                return (DuPaBInfoMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaBInfoMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new DuPaBInfoMsg[i] : (DuPaBInfoMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new DuPaBInfoMsg[i];
+                }
+                return (DuPaBInfoMsg[]) invokeI.objValue;
             }
         };
     }
 
-    private String getBInfoContentJson() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DuPaBInfoMsg(Parcel parcel) {
+        super(parcel);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (this.action == 1) {
-                    jSONObject.put(B_ADDR, this.addr);
-                    jSONObject.put("time", this.time);
-                    jSONObject.put("longitude", this.longitude);
-                    jSONObject.put("latitude", this.latitude);
-                    jSONObject.put("ip", this.ip);
-                }
-                jSONObject.put("action", this.action);
-            } catch (JSONException e) {
-                LogUtils.e(TAG, "getBInfoContentJson :", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        this.addr = parcel.readString();
+        this.time = parcel.readLong();
+        this.longitude = parcel.readString();
+        this.latitude = parcel.readString();
+        this.ip = parcel.readString();
+        this.action = parcel.readInt();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -165,29 +173,25 @@ public class DuPaBInfoMsg extends ChatMsg {
         setMsgContent(getBInfoContentJson());
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DuPaBInfoMsg(Parcel parcel) {
-        super(parcel);
+    private String getBInfoContentJson() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (this.action == 1) {
+                    jSONObject.put(B_ADDR, this.addr);
+                    jSONObject.put("time", this.time);
+                    jSONObject.put("longitude", this.longitude);
+                    jSONObject.put("latitude", this.latitude);
+                    jSONObject.put("ip", this.ip);
+                }
+                jSONObject.put("action", this.action);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "getBInfoContentJson :", e);
             }
+            return jSONObject.toString();
         }
-        this.addr = parcel.readString();
-        this.time = parcel.readLong();
-        this.longitude = parcel.readString();
-        this.latitude = parcel.readString();
-        this.ip = parcel.readString();
-        this.action = parcel.readInt();
+        return (String) invokeV.objValue;
     }
 }

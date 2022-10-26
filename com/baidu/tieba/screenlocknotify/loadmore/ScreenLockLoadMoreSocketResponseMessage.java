@@ -1,9 +1,8 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gg8;
+import com.baidu.tieba.qg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg8 loadMoreData;
+    public qg8 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreSocketResponseMessage() {
@@ -37,8 +36,16 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
         }
     }
 
+    public qg8 getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.loadMoreData;
+        }
+        return (qg8) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -53,19 +60,16 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
                 setErrorString(getMoreMsgResIdl.error.errmsg);
             }
             DataRes dataRes = getMoreMsgResIdl.data;
-            if (dataRes != null && dataRes != null) {
-                gg8 gg8Var = new gg8();
-                this.loadMoreData = gg8Var;
-                gg8Var.c(getMoreMsgResIdl.data);
+            if (dataRes == null) {
+                return getMoreMsgResIdl;
+            }
+            if (dataRes != null) {
+                qg8 qg8Var = new qg8();
+                this.loadMoreData = qg8Var;
+                qg8Var.c(getMoreMsgResIdl.data);
             }
             return getMoreMsgResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public gg8 getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadMoreData : (gg8) invokeV.objValue;
     }
 }

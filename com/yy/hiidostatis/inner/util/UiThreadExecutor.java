@@ -18,11 +18,11 @@ import java.util.Map;
 public class UiThreadExecutor {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler HANDLER;
-    public static final Map<String, Token> TOKENS;
+    public static final Map TOKENS;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class Token {
+    public final class Token {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String id;
@@ -117,31 +117,40 @@ public class UiThreadExecutor {
     }
 
     public static void cancelAll(String str) {
-        Token remove;
+        Token token;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             synchronized (TOKENS) {
-                remove = TOKENS.remove(str);
+                token = (Token) TOKENS.remove(str);
             }
-            if (remove == null) {
+            if (token == null) {
                 return;
             }
-            HANDLER.removeCallbacksAndMessages(remove);
+            HANDLER.removeCallbacksAndMessages(token);
         }
     }
 
     public static void decrementToken(Token token) {
-        String str;
-        Token remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, token) == null) {
             synchronized (TOKENS) {
                 int i = token.runnablesCount - 1;
                 token.runnablesCount = i;
-                if (i == 0 && (remove = TOKENS.remove((str = token.id))) != token) {
-                    TOKENS.put(str, remove);
+                if (i == 0) {
+                    String str = token.id;
+                    Token token2 = (Token) TOKENS.remove(str);
+                    if (token2 != token) {
+                        TOKENS.put(str, token2);
+                    }
                 }
             }
+        }
+    }
+
+    public static void runTask(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, runnable) == null) {
+            runTask(runnable, 0L);
         }
     }
 
@@ -151,7 +160,7 @@ public class UiThreadExecutor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             synchronized (TOKENS) {
-                token = TOKENS.get(str);
+                token = (Token) TOKENS.get(str);
                 if (token == null) {
                     token = new Token(str);
                     TOKENS.put(str, token);
@@ -161,13 +170,6 @@ public class UiThreadExecutor {
             return token;
         }
         return (Token) invokeL.objValue;
-    }
-
-    public static void runTask(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, runnable) == null) {
-            runTask(runnable, 0L);
-        }
     }
 
     public static void runTask(Runnable runnable, long j) {

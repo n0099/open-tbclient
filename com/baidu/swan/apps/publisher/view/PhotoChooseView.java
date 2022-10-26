@@ -9,12 +9,12 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c13;
-import com.baidu.tieba.fo1;
-import com.baidu.tieba.gr2;
-import com.baidu.tieba.i13;
-import com.baidu.tieba.m13;
-import com.baidu.tieba.sm2;
+import com.baidu.tieba.d13;
+import com.baidu.tieba.go1;
+import com.baidu.tieba.hr2;
+import com.baidu.tieba.j13;
+import com.baidu.tieba.n13;
+import com.baidu.tieba.tm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,9 +29,14 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public int b;
     public int c;
     public int d;
-    public gr2 e;
-    public c13 f;
+    public hr2 e;
+    public d13 f;
     public Activity g;
+
+    /* loaded from: classes2.dex */
+    public interface b {
+        void a(int i);
+    }
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -67,11 +72,6 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a(int i);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PhotoChooseView(Context context) {
         super(context);
@@ -93,94 +93,72 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         this.a = 9;
     }
 
-    public final void b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PhotoChooseView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getLeftCount() <= 0) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        m13.i(getLeftCount(), this.e);
+        this.a = 9;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PhotoChooseView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 9;
     }
 
     public final void c(int i) {
-        fo1 C;
+        go1 C;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (C = sm2.C()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (C = tm2.C()) != null) {
+            C.d(getContext(), (String[]) this.f.c().toArray(new String[0]), i);
         }
-        C.d(getContext(), (String[]) this.f.c().toArray(new String[0]), i);
     }
 
     public void d(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             this.g = activity;
-            this.f = new c13(activity.getApplicationContext(), this.b, this.d);
+            this.f = new d13(activity.getApplicationContext(), this.b, this.d);
             setOnItemClickListener(this);
             postDelayed(new a(this), 10L);
         }
     }
 
-    public List<String> getData() {
-        InterceptResult invokeV;
+    public void setCallback(hr2 hr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<String> c = this.f.c();
-            if (c == null || c.size() == 0) {
-                return null;
-            }
-            return c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int getLeftCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int size = this.f.c().size();
-            int i = this.a;
-            if (size >= i) {
-                return 0;
-            }
-            return i - size;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (this.f.e(i)) {
-                if (i == this.f.getCount() - 1) {
-                    i13.onEvent("pic_clk_content");
-                    b();
-                    return;
-                }
-                c(i);
-                return;
-            }
-            c(i);
-        }
-    }
-
-    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        int measuredHeight;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (getCount() <= 0 || getChildAt(0) == null || (measuredHeight = getChildAt(0).getMeasuredHeight()) == -1) {
-                return;
-            }
-            setMeasuredDimension(i, (measuredHeight * (((getCount() - 1) / this.d) + 1)) + (this.c * ((getCount() - 1) / this.d)));
-        }
-    }
-
-    public void setCallback(gr2 gr2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gr2Var) == null) {
-            this.e = gr2Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, hr2Var) == null) {
+            this.e = hr2Var;
         }
     }
 
@@ -226,7 +204,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         }
     }
 
-    public void update(List<String> list) {
+    public void update(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.f.f(list);
@@ -234,57 +212,79 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PhotoChooseView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getLeftCount() > 0) {
+            n13.i(getLeftCount(), this.e);
         }
-        this.a = 9;
+    }
+
+    public List getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List c = this.f.c();
+            if (c != null && c.size() != 0) {
+                return c;
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getLeftCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int size = this.f.c().size();
+            int i = this.a;
+            if (size >= i) {
+                return 0;
+            }
+            return i - size;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.c13' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.d13' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (c13) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (d13) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PhotoChooseView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (this.f.e(i)) {
+                if (i == this.f.getCount() - 1) {
+                    j13.onEvent("pic_clk_content");
+                    b();
+                    return;
+                }
+                c(i);
                 return;
             }
+            c(i);
         }
-        this.a = 9;
+    }
+
+    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
+        int measuredHeight;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (getCount() > 0 && getChildAt(0) != null && (measuredHeight = getChildAt(0).getMeasuredHeight()) != -1) {
+                setMeasuredDimension(i, (measuredHeight * (((getCount() - 1) / this.d) + 1)) + (this.c * ((getCount() - 1) / this.d)));
+            }
+        }
     }
 }

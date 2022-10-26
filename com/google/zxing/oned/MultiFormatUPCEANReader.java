@@ -21,7 +21,8 @@ public final class MultiFormatUPCEANReader extends OneDReader {
     public transient /* synthetic */ FieldHolder $fh;
     public final UPCEANReader[] readers;
 
-    public MultiFormatUPCEANReader(Map<DecodeHintType, ?> map) {
+    public MultiFormatUPCEANReader(Map map) {
+        Collection collection;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +37,11 @@ public final class MultiFormatUPCEANReader extends OneDReader {
                 return;
             }
         }
-        Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
+        if (map == null) {
+            collection = null;
+        } else {
+            collection = (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
+        }
         ArrayList arrayList = new ArrayList();
         if (collection != null) {
             if (collection.contains(BarcodeFormat.EAN_13)) {
@@ -60,19 +65,29 @@ public final class MultiFormatUPCEANReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException {
         InterceptResult invokeILL;
+        boolean z;
+        Collection collection;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
             int[] findStartGuardPattern = UPCEANReader.findStartGuardPattern(bitArray);
-            boolean z = false;
+            boolean z2 = false;
             for (UPCEANReader uPCEANReader : this.readers) {
                 try {
                     Result decodeRow = uPCEANReader.decodeRow(i, bitArray, findStartGuardPattern, map);
-                    boolean z2 = decodeRow.getBarcodeFormat() == BarcodeFormat.EAN_13 && decodeRow.getText().charAt(0) == '0';
-                    Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
-                    z = (collection == null || collection.contains(BarcodeFormat.UPC_A)) ? true : true;
-                    if (z2 && z) {
+                    if (decodeRow.getBarcodeFormat() == BarcodeFormat.EAN_13 && decodeRow.getText().charAt(0) == '0') {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (map == null) {
+                        collection = null;
+                    } else {
+                        collection = (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
+                    }
+                    z2 = (collection == null || collection.contains(BarcodeFormat.UPC_A)) ? true : true;
+                    if (z && z2) {
                         Result result = new Result(decodeRow.getText().substring(1), decodeRow.getRawBytes(), decodeRow.getResultPoints(), BarcodeFormat.UPC_A);
                         result.putAllMetadata(decodeRow.getResultMetadata());
                         return result;

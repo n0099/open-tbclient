@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity;
-import com.baidu.pass.ecommerce.common.mvp.IPresenter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ecommerce.EcommerceRouter;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpActivity<P> {
+public abstract class BaseAddressActivity extends BaseMvpActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AddressManageCallback addressManageCallback;
@@ -38,6 +37,20 @@ public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpA
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void endProcess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            AddressManageResult addressManageResult = new AddressManageResult();
+            addressManageResult.setResultCode(-301);
+            AddressManageCallback addressManageCallback = this.addressManageCallback;
+            if (addressManageCallback != null) {
+                addressManageCallback.onFinish(addressManageResult);
+                AddressManagerStat.upload();
+            }
+            EcommerceRouter.getInstance().release();
         }
     }
 
@@ -63,20 +76,6 @@ public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpA
                 AddressManagerStat.upload();
             }
             finish();
-        }
-    }
-
-    public void endProcess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            AddressManageResult addressManageResult = new AddressManageResult();
-            addressManageResult.setResultCode(-301);
-            AddressManageCallback addressManageCallback = this.addressManageCallback;
-            if (addressManageCallback != null) {
-                addressManageCallback.onFinish(addressManageResult);
-                AddressManagerStat.upload();
-            }
-            EcommerceRouter.getInstance().release();
         }
     }
 

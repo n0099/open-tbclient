@@ -31,52 +31,13 @@ public class AuthTokenData implements Serializable {
         }
     }
 
-    public static AuthTokenData parse(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            AuthTokenData authTokenData = new AuthTokenData();
-            authTokenData.parseJsonObj(jSONObject);
-            return authTokenData;
-        }
-        return (AuthTokenData) invokeL.objValue;
-    }
-
-    private void parseJsonObj(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.errorCode = jSONObject.optInt("error_code");
-        JSONObject optJSONObject = jSONObject.optJSONObject("info");
-        if (optJSONObject != null) {
-            this.authToken = optJSONObject.optString("pass_token");
-        }
-    }
-
-    private void parseJsonStr(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.errorCode = jSONObject.optInt("error_code");
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject != null) {
-                this.authToken = optJSONObject.optString("pass_token");
-            }
-        } catch (JSONException unused) {
-        }
-    }
-
     public String getAuthToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.authToken : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.authToken;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static AuthTokenData parse(String str) {
@@ -91,5 +52,47 @@ public class AuthTokenData implements Serializable {
             return authTokenData;
         }
         return (AuthTokenData) invokeL.objValue;
+    }
+
+    private void parseJsonObj(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.errorCode = jSONObject.optInt("error_code");
+        JSONObject optJSONObject = jSONObject.optJSONObject("info");
+        if (optJSONObject != null) {
+            this.authToken = optJSONObject.optString("pass_token");
+        }
+    }
+
+    public static AuthTokenData parse(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            AuthTokenData authTokenData = new AuthTokenData();
+            authTokenData.parseJsonObj(jSONObject);
+            return authTokenData;
+        }
+        return (AuthTokenData) invokeL.objValue;
+    }
+
+    private void parseJsonStr(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.errorCode = jSONObject.optInt("error_code");
+            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            if (optJSONObject != null) {
+                this.authToken = optJSONObject.optString("pass_token");
+            }
+        } catch (JSONException unused) {
+        }
     }
 }

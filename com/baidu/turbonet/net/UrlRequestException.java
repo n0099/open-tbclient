@@ -50,28 +50,6 @@ public class UrlRequestException extends IOException {
         this.mCronetInternalErrorCode = i2;
     }
 
-    public int getCronetInternalErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCronetInternalErrorCode : invokeV.intValue;
-    }
-
-    public int getErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mErrorCode : invokeV.intValue;
-    }
-
-    public boolean immediatelyRetryable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.mErrorCode;
-            return i == 3 || i == 4 || i == 5 || i == 6 || i == 8 || i == 10;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UrlRequestException(String str, Throwable th) {
         super(str, th);
@@ -93,5 +71,36 @@ public class UrlRequestException extends IOException {
         }
         this.mErrorCode = 0;
         this.mCronetInternalErrorCode = 0;
+    }
+
+    public int getCronetInternalErrorCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCronetInternalErrorCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getErrorCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mErrorCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean immediatelyRetryable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.mErrorCode;
+            if (i != 3 && i != 4 && i != 5 && i != 6 && i != 8 && i != 10) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

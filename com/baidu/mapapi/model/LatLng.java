@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class LatLng implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LatLng> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
     public final double latitude;

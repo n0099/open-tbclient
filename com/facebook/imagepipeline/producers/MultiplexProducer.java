@@ -9,10 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Sets;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.util.TriState;
 import com.facebook.imagepipeline.common.Priority;
-import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.io.Closeable;
 import java.io.IOException;
@@ -22,53 +20,46 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArraySet;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public abstract class MultiplexProducer<K, T extends Closeable> implements Producer<T> {
+public abstract class MultiplexProducer implements Producer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRAS_STARTED_AS_PREFETCH = "started_as_prefetch";
     public transient /* synthetic */ FieldHolder $fh;
     public final String mDedupedRequestsCountKey;
-    public final Producer<T> mInputProducer;
+    public final Producer mInputProducer;
     public final boolean mKeepCancelledFetchAsLowPriority;
-    @VisibleForTesting
-    @GuardedBy("this")
-    public final Map<K, MultiplexProducer<K, T>.Multiplexer> mMultiplexers;
+    public final Map mMultiplexers;
     public final String mProducerName;
 
     /* renamed from: com.facebook.imagepipeline.producers.MultiplexProducer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @VisibleForTesting
+    public abstract Closeable cloneOrNull(Closeable closeable);
+
+    public abstract Object getKey(ProducerContext producerContext);
+
     /* loaded from: classes7.dex */
     public class Multiplexer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final CopyOnWriteArraySet<Pair<Consumer<T>, ProducerContext>> mConsumerContextPairs;
-        @GuardedBy("Multiplexer.this")
+        public final CopyOnWriteArraySet mConsumerContextPairs;
         @Nullable
-        public MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer mForwardingConsumer;
-        public final K mKey;
-        @GuardedBy("Multiplexer.this")
+        public ForwardingConsumer mForwardingConsumer;
+        public final Object mKey;
         @Nullable
-        public T mLastIntermediateResult;
-        @GuardedBy("Multiplexer.this")
+        public Closeable mLastIntermediateResult;
         public float mLastProgress;
-        @GuardedBy("Multiplexer.this")
         public int mLastStatus;
-        @GuardedBy("Multiplexer.this")
         @Nullable
         public BaseProducerContext mMultiplexProducerContext;
         public final /* synthetic */ MultiplexProducer this$0;
 
         /* loaded from: classes7.dex */
-        public class ForwardingConsumer extends BaseConsumer<T> {
+        public class ForwardingConsumer extends BaseConsumer {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Multiplexer this$1;
@@ -89,6 +80,10 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                     }
                 }
                 this.this$1 = multiplexer;
+            }
+
+            public /* synthetic */ ForwardingConsumer(Multiplexer multiplexer, AnonymousClass1 anonymousClass1) {
+                this(multiplexer);
             }
 
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
@@ -125,13 +120,6 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                 }
             }
 
-            /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.facebook.imagepipeline.producers.MultiplexProducer$Multiplexer$ForwardingConsumer */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i) {
-                onNewResultImpl((ForwardingConsumer) ((Closeable) obj), i);
-            }
-
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
             public void onProgressUpdateImpl(float f) {
                 Interceptable interceptable = $ic;
@@ -149,18 +137,16 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                 }
             }
 
-            public /* synthetic */ ForwardingConsumer(Multiplexer multiplexer, AnonymousClass1 anonymousClass1) {
-                this(multiplexer);
-            }
-
-            public void onNewResultImpl(T t, int i) {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.facebook.imagepipeline.producers.BaseConsumer
+            public void onNewResultImpl(Closeable closeable, int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i) == null) {
+                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, closeable, i) == null) {
                     try {
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.beginSection("MultiplexProducer#onNewResult");
                         }
-                        this.this$1.onNextResult(this, t, i);
+                        this.this$1.onNextResult(this, closeable, i);
                     } finally {
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.endSection();
@@ -170,12 +156,12 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             }
         }
 
-        public Multiplexer(MultiplexProducer multiplexProducer, K k) {
+        public Multiplexer(MultiplexProducer multiplexProducer, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {multiplexProducer, k};
+                Object[] objArr = {multiplexProducer, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -187,10 +173,29 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             }
             this.this$0 = multiplexProducer;
             this.mConsumerContextPairs = Sets.newCopyOnWriteArraySet();
-            this.mKey = k;
+            this.mKey = obj;
         }
 
-        private void addCallbacks(Pair<Consumer<T>, ProducerContext> pair, ProducerContext producerContext) {
+        public void onProgressUpdate(ForwardingConsumer forwardingConsumer, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048580, this, forwardingConsumer, f) == null) {
+                synchronized (this) {
+                    if (this.mForwardingConsumer != forwardingConsumer) {
+                        return;
+                    }
+                    this.mLastProgress = f;
+                    Iterator it = this.mConsumerContextPairs.iterator();
+                    while (it.hasNext()) {
+                        Pair pair = (Pair) it.next();
+                        synchronized (pair) {
+                            ((Consumer) pair.first).onProgressUpdate(f);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void addCallbacks(Pair pair, ProducerContext producerContext) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65543, this, pair, producerContext) == null) {
                 producerContext.addCallbacks(new BaseProducerContextCallbacks(this, pair) { // from class: com.facebook.imagepipeline.producers.MultiplexProducer.Multiplexer.1
@@ -230,18 +235,20 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                             synchronized (this.this$1) {
                                 remove = this.this$1.mConsumerContextPairs.remove(this.val$consumerContextPair);
                                 list = null;
-                                if (!remove) {
-                                    baseProducerContext = null;
-                                    list2 = null;
-                                } else if (this.this$1.mConsumerContextPairs.isEmpty()) {
-                                    baseProducerContext = this.this$1.mMultiplexProducerContext;
-                                    list2 = null;
+                                if (remove) {
+                                    if (this.this$1.mConsumerContextPairs.isEmpty()) {
+                                        baseProducerContext = this.this$1.mMultiplexProducerContext;
+                                        list2 = null;
+                                    } else {
+                                        List updateIsPrefetch = this.this$1.updateIsPrefetch();
+                                        list2 = this.this$1.updatePriority();
+                                        list3 = this.this$1.updateIsIntermediateResultExpected();
+                                        baseProducerContext = null;
+                                        list = updateIsPrefetch;
+                                    }
                                 } else {
-                                    List updateIsPrefetch = this.this$1.updateIsPrefetch();
-                                    list2 = this.this$1.updatePriority();
-                                    list3 = this.this$1.updateIsIntermediateResultExpected();
                                     baseProducerContext = null;
-                                    list = updateIsPrefetch;
+                                    list2 = null;
                                 }
                                 list3 = list2;
                             }
@@ -290,13 +297,28 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
 
         private void closeSafely(Closeable closeable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65544, this, closeable) == null) || closeable == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(65544, this, closeable) == null) && closeable != null) {
+                try {
+                    closeable.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
-            try {
-                closeable.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        }
+
+        public void onCancelled(ForwardingConsumer forwardingConsumer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forwardingConsumer) == null) {
+                synchronized (this) {
+                    if (this.mForwardingConsumer != forwardingConsumer) {
+                        return;
+                    }
+                    this.mForwardingConsumer = null;
+                    this.mMultiplexProducerContext = null;
+                    closeSafely(this.mLastIntermediateResult);
+                    this.mLastIntermediateResult = null;
+                    startInputProducerIfHasAttachedConsumers(TriState.UNSET);
+                }
             }
         }
 
@@ -305,9 +327,9 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
                 synchronized (this) {
-                    Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
+                    Iterator it = this.mConsumerContextPairs.iterator();
                     while (it.hasNext()) {
-                        if (((ProducerContext) it.next().second).isIntermediateResultExpected()) {
+                        if (((ProducerContext) ((Pair) it.next()).second).isIntermediateResultExpected()) {
                             return true;
                         }
                     }
@@ -322,9 +344,9 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
                 synchronized (this) {
-                    Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
+                    Iterator it = this.mConsumerContextPairs.iterator();
                     while (it.hasNext()) {
-                        if (!((ProducerContext) it.next().second).isPrefetch()) {
+                        if (!((ProducerContext) ((Pair) it.next()).second).isPrefetch()) {
                             return false;
                         }
                     }
@@ -341,9 +363,9 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
                 synchronized (this) {
                     priority = Priority.LOW;
-                    Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
+                    Iterator it = this.mConsumerContextPairs.iterator();
                     while (it.hasNext()) {
-                        priority = Priority.getHigherPriority(priority, ((ProducerContext) it.next().second).getPriority());
+                        priority = Priority.getHigherPriority(priority, ((ProducerContext) ((Pair) it.next()).second).getPriority());
                     }
                 }
                 return priority;
@@ -353,27 +375,33 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
 
         /* JADX INFO: Access modifiers changed from: private */
         public void startInputProducerIfHasAttachedConsumers(TriState triState) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65548, this, triState) == null) {
                 synchronized (this) {
-                    boolean z = true;
-                    Preconditions.checkArgument(this.mMultiplexProducerContext == null);
-                    if (this.mForwardingConsumer != null) {
+                    boolean z2 = true;
+                    if (this.mMultiplexProducerContext == null) {
+                        z = true;
+                    } else {
                         z = false;
                     }
                     Preconditions.checkArgument(z);
+                    if (this.mForwardingConsumer != null) {
+                        z2 = false;
+                    }
+                    Preconditions.checkArgument(z2);
                     if (this.mConsumerContextPairs.isEmpty()) {
                         this.this$0.removeMultiplexer(this.mKey, this);
                         return;
                     }
-                    ProducerContext producerContext = (ProducerContext) this.mConsumerContextPairs.iterator().next().second;
+                    ProducerContext producerContext = (ProducerContext) ((Pair) this.mConsumerContextPairs.iterator().next()).second;
                     BaseProducerContext baseProducerContext = new BaseProducerContext(producerContext.getImageRequest(), producerContext.getId(), producerContext.getProducerListener(), producerContext.getCallerContext(), producerContext.getLowestPermittedRequestLevel(), computeIsPrefetch(), computeIsIntermediateResultExpected(), computePriority(), producerContext.getImagePipelineConfig());
                     this.mMultiplexProducerContext = baseProducerContext;
                     baseProducerContext.putExtras(producerContext.getExtras());
                     if (triState.isSet()) {
                         this.mMultiplexProducerContext.setExtra(MultiplexProducer.EXTRAS_STARTED_AS_PREFETCH, Boolean.valueOf(triState.asBoolean()));
                     }
-                    MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer = new ForwardingConsumer(this, null);
+                    ForwardingConsumer forwardingConsumer = new ForwardingConsumer(this, null);
                     this.mForwardingConsumer = forwardingConsumer;
                     this.this$0.mInputProducer.produceResults(forwardingConsumer, this.mMultiplexProducerContext);
                 }
@@ -382,7 +410,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ProducerContextCallbacks> updateIsIntermediateResultExpected() {
+        public synchronized List updateIsIntermediateResultExpected() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
@@ -398,7 +426,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ProducerContextCallbacks> updateIsPrefetch() {
+        public synchronized List updateIsPrefetch() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
@@ -414,7 +442,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ProducerContextCallbacks> updatePriority() {
+        public synchronized List updatePriority() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
@@ -428,22 +456,19 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             return (List) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: com.facebook.imagepipeline.producers.MultiplexProducer */
-        /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.facebook.imagepipeline.producers.Consumer<T extends java.io.Closeable> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public boolean addNewConsumer(Consumer<T> consumer, ProducerContext producerContext) {
+        public boolean addNewConsumer(Consumer consumer, ProducerContext producerContext) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, consumer, producerContext)) == null) {
-                Pair<Consumer<T>, ProducerContext> create = Pair.create(consumer, producerContext);
+                Pair create = Pair.create(consumer, producerContext);
                 synchronized (this) {
                     if (this.this$0.getExistingMultiplexer(this.mKey) != this) {
                         return false;
                     }
                     this.mConsumerContextPairs.add(create);
-                    List<ProducerContextCallbacks> updateIsPrefetch = updateIsPrefetch();
-                    List<ProducerContextCallbacks> updatePriority = updatePriority();
-                    List<ProducerContextCallbacks> updateIsIntermediateResultExpected = updateIsIntermediateResultExpected();
+                    List updateIsPrefetch = updateIsPrefetch();
+                    List updatePriority = updatePriority();
+                    List updateIsIntermediateResultExpected = updateIsIntermediateResultExpected();
                     Closeable closeable = this.mLastIntermediateResult;
                     float f = this.mLastProgress;
                     int i = this.mLastStatus;
@@ -473,93 +498,58 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
             return invokeLL.booleanValue;
         }
 
-        public void onCancelled(MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forwardingConsumer) == null) {
-                synchronized (this) {
-                    if (this.mForwardingConsumer != forwardingConsumer) {
-                        return;
-                    }
-                    this.mForwardingConsumer = null;
-                    this.mMultiplexProducerContext = null;
-                    closeSafely(this.mLastIntermediateResult);
-                    this.mLastIntermediateResult = null;
-                    startInputProducerIfHasAttachedConsumers(TriState.UNSET);
-                }
-            }
-        }
-
-        public void onFailure(MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer, Throwable th) {
+        public void onFailure(ForwardingConsumer forwardingConsumer, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, forwardingConsumer, th) == null) {
                 synchronized (this) {
                     if (this.mForwardingConsumer != forwardingConsumer) {
                         return;
                     }
-                    Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
+                    Iterator it = this.mConsumerContextPairs.iterator();
                     this.mConsumerContextPairs.clear();
                     this.this$0.removeMultiplexer(this.mKey, this);
                     closeSafely(this.mLastIntermediateResult);
                     this.mLastIntermediateResult = null;
                     while (it.hasNext()) {
-                        Pair<Consumer<T>, ProducerContext> next = it.next();
-                        synchronized (next) {
-                            ((ProducerContext) next.second).getProducerListener().onProducerFinishWithFailure((ProducerContext) next.second, this.this$0.mProducerName, th, null);
-                            ((Consumer) next.first).onFailure(th);
+                        Pair pair = (Pair) it.next();
+                        synchronized (pair) {
+                            ((ProducerContext) pair.second).getProducerListener().onProducerFinishWithFailure((ProducerContext) pair.second, this.this$0.mProducerName, th, null);
+                            ((Consumer) pair.first).onFailure(th);
                         }
                     }
                 }
             }
         }
 
-        public void onNextResult(MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer, T t, int i) {
+        public void onNextResult(ForwardingConsumer forwardingConsumer, Closeable closeable, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, forwardingConsumer, t, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, forwardingConsumer, closeable, i) == null) {
                 synchronized (this) {
                     if (this.mForwardingConsumer != forwardingConsumer) {
                         return;
                     }
                     closeSafely(this.mLastIntermediateResult);
                     this.mLastIntermediateResult = null;
-                    Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
+                    Iterator it = this.mConsumerContextPairs.iterator();
                     int size = this.mConsumerContextPairs.size();
                     if (BaseConsumer.isNotLast(i)) {
-                        this.mLastIntermediateResult = (T) this.this$0.cloneOrNull(t);
+                        this.mLastIntermediateResult = this.this$0.cloneOrNull(closeable);
                         this.mLastStatus = i;
                     } else {
                         this.mConsumerContextPairs.clear();
                         this.this$0.removeMultiplexer(this.mKey, this);
                     }
                     while (it.hasNext()) {
-                        Pair<Consumer<T>, ProducerContext> next = it.next();
-                        synchronized (next) {
+                        Pair pair = (Pair) it.next();
+                        synchronized (pair) {
                             if (BaseConsumer.isLast(i)) {
-                                ((ProducerContext) next.second).getProducerListener().onProducerFinishWithSuccess((ProducerContext) next.second, this.this$0.mProducerName, null);
+                                ((ProducerContext) pair.second).getProducerListener().onProducerFinishWithSuccess((ProducerContext) pair.second, this.this$0.mProducerName, null);
                                 if (this.mMultiplexProducerContext != null) {
-                                    ((ProducerContext) next.second).putExtras(this.mMultiplexProducerContext.getExtras());
+                                    ((ProducerContext) pair.second).putExtras(this.mMultiplexProducerContext.getExtras());
                                 }
-                                ((ProducerContext) next.second).setExtra(this.this$0.mDedupedRequestsCountKey, Integer.valueOf(size));
+                                ((ProducerContext) pair.second).setExtra(this.this$0.mDedupedRequestsCountKey, Integer.valueOf(size));
                             }
-                            ((Consumer) next.first).onNewResult(t, i);
-                        }
-                    }
-                }
-            }
-        }
-
-        public void onProgressUpdate(MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048580, this, forwardingConsumer, f) == null) {
-                synchronized (this) {
-                    if (this.mForwardingConsumer != forwardingConsumer) {
-                        return;
-                    }
-                    this.mLastProgress = f;
-                    Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
-                    while (it.hasNext()) {
-                        Pair<Consumer<T>, ProducerContext> next = it.next();
-                        synchronized (next) {
-                            ((Consumer) next.first).onProgressUpdate(f);
+                            ((Consumer) pair.first).onNewResult(closeable, i);
                         }
                     }
                 }
@@ -568,7 +558,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MultiplexProducer(Producer<T> producer, String str, @ProducerContext.ExtraKeys String str2) {
+    public MultiplexProducer(Producer producer, String str, String str2) {
         this(producer, str, str2, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -588,41 +578,59 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         }
     }
 
-    private synchronized MultiplexProducer<K, T>.Multiplexer createAndPutNewMultiplexer(K k) {
-        InterceptResult invokeL;
-        MultiplexProducer<K, T>.Multiplexer multiplexer;
+    public MultiplexProducer(Producer producer, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, k)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {producer, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mInputProducer = producer;
+        this.mMultiplexers = new HashMap();
+        this.mKeepCancelledFetchAsLowPriority = z;
+        this.mProducerName = str;
+        this.mDedupedRequestsCountKey = str2;
+    }
+
+    private synchronized Multiplexer createAndPutNewMultiplexer(Object obj) {
+        InterceptResult invokeL;
+        Multiplexer multiplexer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, obj)) == null) {
             synchronized (this) {
-                multiplexer = new Multiplexer(this, k);
-                this.mMultiplexers.put(k, multiplexer);
+                multiplexer = new Multiplexer(this, obj);
+                this.mMultiplexers.put(obj, multiplexer);
             }
             return multiplexer;
         }
         return (Multiplexer) invokeL.objValue;
     }
 
-    public abstract T cloneOrNull(T t);
-
-    public synchronized MultiplexProducer<K, T>.Multiplexer getExistingMultiplexer(K k) {
+    public synchronized Multiplexer getExistingMultiplexer(Object obj) {
         InterceptResult invokeL;
-        MultiplexProducer<K, T>.Multiplexer multiplexer;
+        Multiplexer multiplexer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             synchronized (this) {
-                multiplexer = this.mMultiplexers.get(k);
+                multiplexer = (Multiplexer) this.mMultiplexers.get(obj);
             }
             return multiplexer;
         }
         return (Multiplexer) invokeL.objValue;
     }
-
-    public abstract K getKey(ProducerContext producerContext);
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<T> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         boolean z;
-        MultiplexProducer<K, T>.Multiplexer existingMultiplexer;
+        Multiplexer existingMultiplexer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, consumer, producerContext) == null) {
             try {
@@ -630,7 +638,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                     FrescoSystrace.beginSection("MultiplexProducer#produceResults");
                 }
                 producerContext.getProducerListener().onProducerStart(producerContext, this.mProducerName);
-                K key = getKey(producerContext);
+                Object key = getKey(producerContext);
                 do {
                     z = false;
                     synchronized (this) {
@@ -652,36 +660,14 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         }
     }
 
-    public synchronized void removeMultiplexer(K k, MultiplexProducer<K, T>.Multiplexer multiplexer) {
+    public synchronized void removeMultiplexer(Object obj, Multiplexer multiplexer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, k, multiplexer) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, obj, multiplexer) == null) {
             synchronized (this) {
-                if (this.mMultiplexers.get(k) == multiplexer) {
-                    this.mMultiplexers.remove(k);
+                if (this.mMultiplexers.get(obj) == multiplexer) {
+                    this.mMultiplexers.remove(obj);
                 }
             }
         }
-    }
-
-    public MultiplexProducer(Producer<T> producer, String str, @ProducerContext.ExtraKeys String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {producer, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mInputProducer = producer;
-        this.mMultiplexers = new HashMap();
-        this.mKeepCancelledFetchAsLowPriority = z;
-        this.mProducerName = str;
-        this.mDedupedRequestsCountKey = str2;
     }
 }

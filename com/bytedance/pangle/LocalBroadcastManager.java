@@ -27,19 +27,19 @@ public final class LocalBroadcastManager {
     public static LocalBroadcastManager g;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public final HashMap<PluginBroadcastReceiver, ArrayList<b>> b;
-    public final HashMap<String, ArrayList<b>> c;
-    public final ArrayList<a> d;
+    public final HashMap b;
+    public final HashMap c;
+    public final ArrayList d;
     public final Handler e;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Intent a;
-        public final ArrayList<b> b;
+        public final ArrayList b;
 
-        public a(Intent intent, ArrayList<b> arrayList) {
+        public a(Intent intent, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public final class LocalBroadcastManager {
     }
 
     /* loaded from: classes7.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final IntentFilter a;
@@ -137,9 +137,9 @@ public final class LocalBroadcastManager {
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new ArrayList<>();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new ArrayList();
         this.a = context;
         this.e = new Handler(this, context.getMainLooper()) { // from class: com.bytedance.pangle.LocalBroadcastManager.1
             public static /* synthetic */ Interceptable $ic;
@@ -197,6 +197,13 @@ public final class LocalBroadcastManager {
         return (LocalBroadcastManager) invokeL.objValue;
     }
 
+    public final void sendBroadcastSync(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, intent) == null) && sendBroadcast(intent)) {
+            a();
+        }
+    }
+
     public final void a() {
         int size;
         a[] aVarArr;
@@ -218,7 +225,7 @@ public final class LocalBroadcastManager {
                 a aVar = aVarArr[i];
                 int size2 = aVar.b.size();
                 for (int i2 = 0; i2 < size2; i2++) {
-                    b bVar = aVar.b.get(i2);
+                    b bVar = (b) aVar.b.get(i2);
                     if (!bVar.d) {
                         bVar.b.onReceive(this.a, aVar.a);
                     }
@@ -232,17 +239,17 @@ public final class LocalBroadcastManager {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pluginBroadcastReceiver, intentFilter) == null) {
             synchronized (this.b) {
                 b bVar = new b(intentFilter, pluginBroadcastReceiver);
-                ArrayList<b> arrayList = this.b.get(pluginBroadcastReceiver);
+                ArrayList arrayList = (ArrayList) this.b.get(pluginBroadcastReceiver);
                 if (arrayList == null) {
-                    arrayList = new ArrayList<>(1);
+                    arrayList = new ArrayList(1);
                     this.b.put(pluginBroadcastReceiver, arrayList);
                 }
                 arrayList.add(bVar);
                 for (int i = 0; i < intentFilter.countActions(); i++) {
                     String action = intentFilter.getAction(i);
-                    ArrayList<b> arrayList2 = this.c.get(action);
+                    ArrayList arrayList2 = (ArrayList) this.c.get(action);
                     if (arrayList2 == null) {
-                        arrayList2 = new ArrayList<>(1);
+                        arrayList2 = new ArrayList(1);
                         this.c.put(action, arrayList2);
                     }
                     arrayList2.add(bVar);
@@ -253,11 +260,13 @@ public final class LocalBroadcastManager {
 
     public final boolean sendBroadcast(Intent intent) {
         InterceptResult invokeL;
+        boolean z;
         int i;
         String str;
         ArrayList arrayList;
-        ArrayList<b> arrayList2;
+        ArrayList arrayList2;
         String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
             synchronized (this.b) {
@@ -266,11 +275,15 @@ public final class LocalBroadcastManager {
                 Uri data = intent.getData();
                 String scheme = intent.getScheme();
                 Set<String> categories = intent.getCategories();
-                boolean z = (intent.getFlags() & 8) != 0;
+                if ((intent.getFlags() & 8) != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 if (z) {
                     Log.v(androidx.localbroadcastmanager.content.LocalBroadcastManager.TAG, "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
                 }
-                ArrayList<b> arrayList3 = this.c.get(intent.getAction());
+                ArrayList arrayList3 = (ArrayList) this.c.get(intent.getAction());
                 if (arrayList3 != null) {
                     if (z) {
                         Log.v(androidx.localbroadcastmanager.content.LocalBroadcastManager.TAG, "Action list: ".concat(String.valueOf(arrayList3)));
@@ -278,7 +291,7 @@ public final class LocalBroadcastManager {
                     ArrayList arrayList4 = null;
                     int i2 = 0;
                     while (i2 < arrayList3.size()) {
-                        b bVar = arrayList3.get(i2);
+                        b bVar = (b) arrayList3.get(i2);
                         if (z) {
                             Log.v(androidx.localbroadcastmanager.content.LocalBroadcastManager.TAG, "Matching against filter " + bVar.a);
                         }
@@ -302,7 +315,11 @@ public final class LocalBroadcastManager {
                                 if (z) {
                                     Log.v(androidx.localbroadcastmanager.content.LocalBroadcastManager.TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
                                 }
-                                arrayList4 = arrayList == null ? new ArrayList() : arrayList;
+                                if (arrayList == null) {
+                                    arrayList4 = new ArrayList();
+                                } else {
+                                    arrayList4 = arrayList;
+                                }
                                 arrayList4.add(bVar);
                                 bVar.c = true;
                                 i2 = i + 1;
@@ -310,7 +327,24 @@ public final class LocalBroadcastManager {
                                 arrayList3 = arrayList2;
                                 resolveTypeIfNeeded = str2;
                             } else if (z) {
-                                Log.v(androidx.localbroadcastmanager.content.LocalBroadcastManager.TAG, "  Filter did not match: ".concat(match != -4 ? match != -3 ? match != -2 ? match != -1 ? "unknown reason" : "type" : "data" : "action" : "category"));
+                                if (match != -4) {
+                                    if (match != -3) {
+                                        if (match != -2) {
+                                            if (match != -1) {
+                                                str3 = "unknown reason";
+                                            } else {
+                                                str3 = "type";
+                                            }
+                                        } else {
+                                            str3 = "data";
+                                        }
+                                    } else {
+                                        str3 = "action";
+                                    }
+                                } else {
+                                    str3 = "category";
+                                }
+                                Log.v(androidx.localbroadcastmanager.content.LocalBroadcastManager.TAG, "  Filter did not match: ".concat(str3));
                             }
                         }
                         arrayList4 = arrayList;
@@ -337,36 +371,29 @@ public final class LocalBroadcastManager {
         return invokeL.booleanValue;
     }
 
-    public final void sendBroadcastSync(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, intent) == null) && sendBroadcast(intent)) {
-            a();
-        }
-    }
-
     public final void unregisterReceiver(PluginBroadcastReceiver pluginBroadcastReceiver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pluginBroadcastReceiver) == null) {
             synchronized (this.b) {
-                ArrayList<b> remove = this.b.remove(pluginBroadcastReceiver);
-                if (remove == null) {
+                ArrayList arrayList = (ArrayList) this.b.remove(pluginBroadcastReceiver);
+                if (arrayList == null) {
                     return;
                 }
-                for (int size = remove.size() - 1; size >= 0; size--) {
-                    b bVar = remove.get(size);
+                for (int size = arrayList.size() - 1; size >= 0; size--) {
+                    b bVar = (b) arrayList.get(size);
                     bVar.d = true;
                     for (int i = 0; i < bVar.a.countActions(); i++) {
                         String action = bVar.a.getAction(i);
-                        ArrayList<b> arrayList = this.c.get(action);
-                        if (arrayList != null) {
-                            for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {
-                                b bVar2 = arrayList.get(size2);
+                        ArrayList arrayList2 = (ArrayList) this.c.get(action);
+                        if (arrayList2 != null) {
+                            for (int size2 = arrayList2.size() - 1; size2 >= 0; size2--) {
+                                b bVar2 = (b) arrayList2.get(size2);
                                 if (bVar2.b == pluginBroadcastReceiver) {
                                     bVar2.d = true;
-                                    arrayList.remove(size2);
+                                    arrayList2.remove(size2);
                                 }
                             }
-                            if (arrayList.size() <= 0) {
+                            if (arrayList2.size() <= 0) {
                                 this.c.remove(action);
                             }
                         }

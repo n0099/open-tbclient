@@ -6,15 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class u44 extends ux3 {
+public class u44 extends vx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public long currentSize;
-    @V8JavascriptField
-    public String[] keys;
-    @V8JavascriptField
-    public long limitSize;
+    public Object data;
 
     public u44() {
         Interceptable interceptable = $ic;

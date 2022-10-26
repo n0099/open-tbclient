@@ -11,15 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-@SafeParcelable.Class(creator = "ValidateAccountRequestCreator")
 @Deprecated
 /* loaded from: classes7.dex */
 public final class zzaj extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<zzaj> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    @SafeParcelable.VersionField(id = 1)
     public final int zza;
 
     static {
@@ -38,8 +35,7 @@ public final class zzaj extends AbstractSafeParcelable {
         CREATOR = new zzak();
     }
 
-    @SafeParcelable.Constructor
-    public zzaj(@SafeParcelable.Param(id = 1) int i) {
+    public zzaj(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

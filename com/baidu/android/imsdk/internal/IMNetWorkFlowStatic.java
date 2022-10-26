@@ -68,12 +68,18 @@ public class IMNetWorkFlowStatic {
     public long getMobileFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? mStatic.mMobileFlow : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return mStatic.mMobileFlow;
+        }
+        return invokeV.longValue;
     }
 
     public long getWifiFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? mStatic.mWifiFlow : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return mStatic.mWifiFlow;
+        }
+        return invokeV.longValue;
     }
 }

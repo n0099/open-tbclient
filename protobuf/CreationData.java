@@ -40,7 +40,13 @@ public final class CreationData extends Message {
     public final Integer viewCountTrend;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<CreationData> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer agreeCount;
@@ -102,14 +108,11 @@ public final class CreationData extends Message {
         public CreationData build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new CreationData(this, z, null) : (CreationData) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new CreationData(this, z, null);
+            }
+            return (CreationData) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -133,10 +136,6 @@ public final class CreationData extends Message {
         DEFAULT_COMMENTTREND = 0;
         DEFAULT_VALIDPLAYCOUNT = 0;
         DEFAULT_VALIDPLAYCOUNTTREND = 0;
-    }
-
-    public /* synthetic */ CreationData(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -217,5 +216,9 @@ public final class CreationData extends Message {
         this.commentTrend = builder.commentTrend;
         this.validPlayCount = builder.validPlayCount;
         this.validPlayCountTrend = builder.validPlayCountTrend;
+    }
+
+    public /* synthetic */ CreationData(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

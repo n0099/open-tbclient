@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class zza implements Parcelable.Creator<WakeLockEvent> {
+public final class zza implements Parcelable.Creator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,15 +27,14 @@ public final class zza implements Parcelable.Creator<WakeLockEvent> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ WakeLockEvent createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
         long j = 0;
         long j2 = 0;
         long j3 = 0;
         String str = null;
-        ArrayList<String> arrayList = null;
+        ArrayList arrayList = null;
         String str2 = null;
         String str3 = null;
         String str4 = null;
@@ -106,9 +105,8 @@ public final class zza implements Parcelable.Creator<WakeLockEvent> {
         return new WakeLockEvent(i, j, i2, str, i3, arrayList, str2, j2, i4, str3, str4, f, j3, str5, z);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ WakeLockEvent[] newArray(int i) {
+    public final /* synthetic */ Object[] newArray(int i) {
         return new WakeLockEvent[i];
     }
 }

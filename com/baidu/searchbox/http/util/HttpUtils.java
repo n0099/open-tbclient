@@ -28,6 +28,9 @@ public final class HttpUtils {
     public static String generateBdTraceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? UUID.randomUUID().toString().toLowerCase().replace("-", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return UUID.randomUUID().toString().toLowerCase().replace("-", "");
+        }
+        return (String) invokeV.objValue;
     }
 }

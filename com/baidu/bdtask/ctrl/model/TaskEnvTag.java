@@ -31,69 +31,6 @@ public final class TaskEnvTag implements ITaskModelData {
     public long timestamp;
     public long value;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static /* synthetic */ TaskEnvTag a(a aVar, String str, long j, long j2, int i, Object obj) {
-            if ((i & 4) != 0) {
-                j2 = System.currentTimeMillis();
-            }
-            return aVar.c(str, j, j2);
-        }
-
-        public final TaskEnvTag b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    String tempTag = jSONObject.getString("tag");
-                    long j = jSONObject.getLong("value");
-                    long j2 = jSONObject.getLong("timestamp");
-                    Intrinsics.checkExpressionValueIsNotNull(tempTag, "tempTag");
-                    return c(tempTag, j, j2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return (TaskEnvTag) invokeL.objValue;
-        }
-
-        public final TaskEnvTag c(String str, long j, long j2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-                if (str.length() >= 128) {
-                    str = str.substring(0, 128);
-                    Intrinsics.checkExpressionValueIsNotNull(str, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                }
-                return new TaskEnvTag(str, j, j2);
-            }
-            return (TaskEnvTag) invokeCommon.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -108,26 +45,6 @@ public final class TaskEnvTag implements ITaskModelData {
             }
         }
         Companion = new a(null);
-    }
-
-    public TaskEnvTag(String str, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.tag = str;
-        this.value = j;
-        this.timestamp = j2;
     }
 
     public static /* synthetic */ TaskEnvTag copy$default(TaskEnvTag taskEnvTag, String str, long j, long j2, int i, Object obj) {
@@ -168,55 +85,183 @@ public final class TaskEnvTag implements ITaskModelData {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new TaskEnvTag(str, j, j2) : (TaskEnvTag) invokeCommon.objValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return "TaskEnvTag(tag=" + this.tag + ", value=" + this.value + ", timestamp=" + this.timestamp + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public static /* synthetic */ TaskEnvTag a(a aVar, String str, long j, long j2, int i, Object obj) {
+            if ((i & 4) != 0) {
+                j2 = System.currentTimeMillis();
+            }
+            return aVar.c(str, j, j2);
+        }
+
+        public final TaskEnvTag b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    String tempTag = jSONObject.getString("tag");
+                    long j = jSONObject.getLong("value");
+                    long j2 = jSONObject.getLong("timestamp");
+                    Intrinsics.checkExpressionValueIsNotNull(tempTag, "tempTag");
+                    return c(tempTag, j, j2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return (TaskEnvTag) invokeL.objValue;
+        }
+
+        public final TaskEnvTag c(String str, long j, long j2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                if (str.length() >= 128) {
+                    str = str.substring(0, 128);
+                    Intrinsics.checkExpressionValueIsNotNull(str, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                }
+                return new TaskEnvTag(str, j, j2);
+            }
+            return (TaskEnvTag) invokeCommon.objValue;
+        }
+    }
+
+    public TaskEnvTag(String str, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.tag = str;
+        this.value = j;
+        this.timestamp = j2;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public ITaskModelData deepCopy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new TaskEnvTag(this.tag, this.value, this.timestamp) : (ITaskModelData) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (!(obj instanceof TaskEnvTag)) {
-                obj = null;
-            }
-            TaskEnvTag taskEnvTag = (TaskEnvTag) obj;
-            return Intrinsics.areEqual(taskEnvTag != null ? taskEnvTag.tag : null, this.tag);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new TaskEnvTag(this.tag, this.value, this.timestamp);
         }
-        return invokeL.booleanValue;
+        return (ITaskModelData) invokeV.objValue;
     }
 
     public final String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.tag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.tag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final long getTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.timestamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.timestamp;
+        }
+        return invokeV.longValue;
     }
 
     public final long getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.value : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.value;
+        }
+        return invokeV.longValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.tag.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.tag.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("tag", this.tag);
+            jSONObject.put("value", this.value);
+            jSONObject.put("timestamp", this.timestamp);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            String str = null;
+            if (!(obj instanceof TaskEnvTag)) {
+                obj = null;
+            }
+            TaskEnvTag taskEnvTag = (TaskEnvTag) obj;
+            if (taskEnvTag != null) {
+                str = taskEnvTag.tag;
+            }
+            return Intrinsics.areEqual(str, this.tag);
+        }
+        return invokeL.booleanValue;
     }
 
     public final void setTag(String str) {
@@ -238,28 +283,5 @@ public final class TaskEnvTag implements ITaskModelData {
         if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
             this.value = j;
         }
-    }
-
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("tag", this.tag);
-            jSONObject.put("value", this.value);
-            jSONObject.put("timestamp", this.timestamp);
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "TaskEnvTag(tag=" + this.tag + ", value=" + this.value + ", timestamp=" + this.timestamp + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -48,6 +48,24 @@ public class ModelHelper {
         return (ModelHelper) invokeV.objValue;
     }
 
+    public IUpdatesModel getUpdatasModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUpdatesModel;
+        }
+        return (IUpdatesModel) invokeV.objValue;
+    }
+
+    public IValidateModel getValidateModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mValidateModel;
+        }
+        return (IValidateModel) invokeV.objValue;
+    }
+
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -60,17 +78,5 @@ public class ModelHelper {
                 this.mUpdatesModel = (IUpdatesModel) runTask2.getData();
             }
         }
-    }
-
-    public IUpdatesModel getUpdatasModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUpdatesModel : (IUpdatesModel) invokeV.objValue;
-    }
-
-    public IValidateModel getValidateModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mValidateModel : (IValidateModel) invokeV.objValue;
     }
 }

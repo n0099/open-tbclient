@@ -98,22 +98,90 @@ public final class c {
         return (String) invokeL.objValue;
     }
 
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str) || !m.b(context)) {
+                return "";
+            }
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(externalStorageDirectory, a.b("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + a.b("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="))));
+                StringBuilder sb = new StringBuilder();
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    sb.append(readLine);
+                    sb.append("\r\n");
+                }
+                bufferedReader.close();
+                Object[] split = new String(com.baidu.sofire.a.a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");
+                if (split == null || split.length != 2 || !str.equals(split[0])) {
+                    return "";
+                }
+                return split[1];
+            } catch (Exception unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                StringBuilder sb = new StringBuilder();
+                for (byte b2 : digest) {
+                    String hexString = Integer.toHexString(b2 & 255);
+                    if (z) {
+                        hexString = hexString.toUpperCase();
+                    }
+                    if (hexString.length() == 1) {
+                        sb.append("0");
+                    }
+                    sb.append(hexString);
+                    sb.append("");
+                }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
+            }
+        }
+        return (String) invokeLZ.objValue;
+    }
+
     public static String b(Context context) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 try {
-                    String string = m.c(context) ? ApiReplaceUtil.getString(context.getContentResolver(), a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug=")) : "";
-                    if (TextUtils.isEmpty(string)) {
-                        string = m.h(context);
+                    if (!m.c(context)) {
+                        str = "";
+                    } else {
+                        str = ApiReplaceUtil.getString(context.getContentResolver(), a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug="));
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = m.h(context);
                     }
                     String h = m.h(context);
                     if (TextUtils.isEmpty(h)) {
                         h = "0";
                     }
                     String stringBuffer = new StringBuffer(h).reverse().toString();
-                    String a2 = a(context, string);
+                    String a2 = a(context, str);
                     if (TextUtils.isEmpty(a2)) {
                         return "";
                     }
@@ -191,77 +259,16 @@ public final class c {
                     return;
                 }
                 String b2 = a.b(d);
-                if (TextUtils.isEmpty(b2) || (split = b2.split(WebChromeClient.PARAM_SEPARATOR)) == null || split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1]) || split[1].equals("0")) {
-                    return;
+                if (!TextUtils.isEmpty(b2) && (split = b2.split(WebChromeClient.PARAM_SEPARATOR)) != null && split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1]) && !split[1].equals("0")) {
+                    String str = split[0] + "|0";
+                    a2.d.putString("xyusec", new String(Base64.encode(e.b("30212102dicudiab".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                    a2.d.commit();
+                    a2.d.putString("xyus", str);
+                    a2.d.commit();
                 }
-                String str = split[0] + "|0";
-                a2.d.putString("xyusec", new String(Base64.encode(e.b("30212102dicudiab".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                a2.d.commit();
-                a2.d.putString("xyus", str);
-                a2.d.commit();
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
             }
         }
-    }
-
-    public static String a(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                byte[] digest = messageDigest.digest();
-                StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (z) {
-                        hexString = hexString.toUpperCase();
-                    }
-                    if (hexString.length() == 1) {
-                        sb.append("0");
-                    }
-                    sb.append(hexString);
-                    sb.append("");
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
-            }
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (!TextUtils.isEmpty(str) && m.b(context)) {
-                File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(externalStorageDirectory, a.b("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + a.b("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="))));
-                    StringBuilder sb = new StringBuilder();
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                        sb.append("\r\n");
-                    }
-                    bufferedReader.close();
-                    Object[] split = new String(com.baidu.sofire.a.a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");
-                    return (split != null && split.length == 2 && str.equals(split[0])) ? split[1] : "";
-                } catch (Exception unused) {
-                    int i = com.baidu.sofire.a.b.a;
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
     }
 }

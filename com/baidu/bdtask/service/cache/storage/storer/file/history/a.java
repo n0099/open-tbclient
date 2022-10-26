@@ -4,8 +4,8 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.os;
-import com.baidu.tieba.ou;
+import com.baidu.tieba.ps;
+import com.baidu.tieba.pu;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,10 @@ public final class a {
     public final File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c("v1") : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c("v1");
+        }
+        return (File) invokeV.objValue;
     }
 
     public final String b(String str) {
@@ -83,12 +86,12 @@ public final class a {
 
     public final String d() {
         InterceptResult invokeV;
-        os h;
+        ps h;
         Context appContext;
         File filesDir;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ou v = BDPTask.m.v();
+            pu v = BDPTask.m.v();
             String str = (v == null || (h = v.h()) == null || (appContext = h.getAppContext()) == null || (filesDir = appContext.getFilesDir()) == null || (str = filesDir.getAbsolutePath()) == null) ? "" : "";
             return str + File.separator + "bdptask" + File.separator + "storage";
         }

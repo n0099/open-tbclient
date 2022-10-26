@@ -75,74 +75,73 @@ public class ActiveRefreshController {
 
     public static void refreshHostCache(ResInfo resInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, resInfo) == null) || resInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, resInfo) != null) || resInfo == null) {
             return;
         }
         NetStatusInfo cachedNetStatusInfo = DataCacheMgr.INSTANCE.getCachedNetStatusInfo();
         ArrayList arrayList = new ArrayList();
-        List<Map<String, String>> listRefresh = resInfo.getListRefresh();
-        if (listRefresh == null || listRefresh.isEmpty()) {
-            return;
-        }
-        for (int i = 0; i < listRefresh.size(); i++) {
-            try {
-                Map<String, String> map = listRefresh.get(i);
-                if (map != null && !map.isEmpty()) {
-                    String str = map.get(u.A);
-                    if (!TextUtils.isEmpty(str)) {
-                        String str2 = map.get("ut");
-                        if (!TextUtils.isEmpty(str2) && TextUtils.isDigitsOnly(str2)) {
-                            long longValue = Long.valueOf(str2).longValue() * 1000;
-                            if (longValue >= 1) {
-                                DnsInfo dnsInfo = new DnsInfo();
-                                if (IpVersionController.getInstance().getHttpDNSFromCache(GlobalTools.APP_CONTEXT, cachedNetStatusInfo, str, dnsInfo) == 0 && dnsInfo.getEndTime() - (dnsInfo.getTtl() * 1000) < longValue) {
-                                    arrayList.add(str);
+        List listRefresh = resInfo.getListRefresh();
+        if (listRefresh != null && !listRefresh.isEmpty()) {
+            for (int i = 0; i < listRefresh.size(); i++) {
+                try {
+                    Map map = (Map) listRefresh.get(i);
+                    if (map != null && !map.isEmpty()) {
+                        String str = (String) map.get(u.A);
+                        if (!TextUtils.isEmpty(str)) {
+                            String str2 = (String) map.get("ut");
+                            if (!TextUtils.isEmpty(str2) && TextUtils.isDigitsOnly(str2)) {
+                                long longValue = Long.valueOf(str2).longValue() * 1000;
+                                if (longValue >= 1) {
+                                    DnsInfo dnsInfo = new DnsInfo();
+                                    if (IpVersionController.getInstance().getHttpDNSFromCache(GlobalTools.APP_CONTEXT, cachedNetStatusInfo, str, dnsInfo) == 0 && dnsInfo.getEndTime() - (dnsInfo.getTtl() * 1000) < longValue) {
+                                        arrayList.add(str);
+                                    }
                                 }
                             }
                         }
                     }
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
-            } catch (Exception e) {
-                LogTools.printWarning(TAG, e);
             }
-        }
-        if (arrayList.isEmpty()) {
-            return;
-        }
-        ThreadInfo threadInfo = new ThreadInfo("Refresh-" + cachedNetStatusInfo + "-" + arrayList.toString());
-        threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(arrayList, cachedNetStatusInfo) { // from class: com.yy.gslbsdk.control.ActiveRefreshController.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ List val$listHost;
-            public final /* synthetic */ NetStatusInfo val$network;
+            if (arrayList.isEmpty()) {
+                return;
+            }
+            ThreadInfo threadInfo = new ThreadInfo("Refresh-" + cachedNetStatusInfo + "-" + arrayList.toString());
+            threadInfo.setThreadMainOper(new ThreadInfo.ThreadMainOper(arrayList, cachedNetStatusInfo) { // from class: com.yy.gslbsdk.control.ActiveRefreshController.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ List val$listHost;
+                public final /* synthetic */ NetStatusInfo val$network;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {arrayList, cachedNetStatusInfo};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {arrayList, cachedNetStatusInfo};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$listHost = arrayList;
+                    this.val$network = cachedNetStatusInfo;
+                }
+
+                @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
+                public void handleOper(String str3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str3) == null) {
+                        DnsResolveFlow.getInstance().handleDnsSync((String[]) this.val$listHost.toArray(new String[0]), "", this.val$network);
                     }
                 }
-                this.val$listHost = arrayList;
-                this.val$network = cachedNetStatusInfo;
-            }
-
-            @Override // com.yy.gslbsdk.thread.ThreadInfo.ThreadMainOper
-            public void handleOper(String str3) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str3) == null) {
-                    DnsResolveFlow.getInstance().handleDnsSync((String[]) this.val$listHost.toArray(new String[0]), "", this.val$network);
-                }
-            }
-        });
-        ThreadPoolMgr.getInstance().addTask(threadInfo);
+            });
+            ThreadPoolMgr.getInstance().addTask(threadInfo);
+        }
     }
 }

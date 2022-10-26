@@ -30,33 +30,6 @@ public class ScalingList {
         }
     }
 
-    public static ScalingList read(CAVLCReader cAVLCReader, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, cAVLCReader, i)) == null) {
-            ScalingList scalingList = new ScalingList();
-            scalingList.scalingList = new int[i];
-            int i2 = 8;
-            int i3 = 8;
-            int i4 = 0;
-            while (i4 < i) {
-                if (i2 != 0) {
-                    i2 = ((cAVLCReader.readSE("deltaScale") + i3) + 256) % 256;
-                    scalingList.useDefaultScalingMatrixFlag = i4 == 0 && i2 == 0;
-                }
-                int[] iArr = scalingList.scalingList;
-                if (i2 != 0) {
-                    i3 = i2;
-                }
-                iArr[i4] = i3;
-                i3 = scalingList.scalingList[i4];
-                i4++;
-            }
-            return scalingList;
-        }
-        return (ScalingList) invokeLI.objValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,25 +39,55 @@ public class ScalingList {
         return (String) invokeV.objValue;
     }
 
+    public static ScalingList read(CAVLCReader cAVLCReader, int i) throws IOException {
+        InterceptResult invokeLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, cAVLCReader, i)) == null) {
+            ScalingList scalingList = new ScalingList();
+            scalingList.scalingList = new int[i];
+            int i2 = 8;
+            int i3 = 8;
+            for (int i4 = 0; i4 < i; i4++) {
+                if (i2 != 0) {
+                    i2 = ((cAVLCReader.readSE("deltaScale") + i3) + 256) % 256;
+                    if (i4 == 0 && i2 == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    scalingList.useDefaultScalingMatrixFlag = z;
+                }
+                int[] iArr = scalingList.scalingList;
+                if (i2 != 0) {
+                    i3 = i2;
+                }
+                iArr[i4] = i3;
+                i3 = scalingList.scalingList[i4];
+            }
+            return scalingList;
+        }
+        return (ScalingList) invokeLI.objValue;
+    }
+
     public void write(CAVLCWriter cAVLCWriter) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cAVLCWriter) != null) {
-            return;
-        }
-        int i = 0;
-        if (this.useDefaultScalingMatrixFlag) {
-            cAVLCWriter.writeSE(0, "SPS: ");
-            return;
-        }
-        int i2 = 8;
-        while (true) {
-            int[] iArr = this.scalingList;
-            if (i >= iArr.length) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cAVLCWriter) == null) {
+            int i = 0;
+            if (this.useDefaultScalingMatrixFlag) {
+                cAVLCWriter.writeSE(0, "SPS: ");
                 return;
             }
-            cAVLCWriter.writeSE((iArr[i] - i2) - 256, "SPS: ");
-            i2 = this.scalingList[i];
-            i++;
+            int i2 = 8;
+            while (true) {
+                int[] iArr = this.scalingList;
+                if (i >= iArr.length) {
+                    return;
+                }
+                cAVLCWriter.writeSE((iArr[i] - i2) - 256, "SPS: ");
+                i2 = this.scalingList[i];
+                i++;
+            }
         }
     }
 }

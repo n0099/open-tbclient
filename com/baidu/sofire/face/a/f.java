@@ -82,12 +82,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     public FaceConfig Q;
     public ILivenessStrategy R;
     public IDetectStrategy S;
-    public Map<Long, String> T;
+    public Map T;
     public int U;
     public long V;
     public JSONArray W;
     public int X;
-    public Map<Long, FaceInfo> Y;
+    public Map Y;
     public long Z;
     public Context a;
     public long a0;
@@ -126,6 +126,16 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     public Rect y;
     public int z;
 
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, surfaceTexture)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
@@ -134,12 +144,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
         /* renamed from: com.baidu.sofire.face.a.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0162a implements Runnable {
+        public class RunnableC0163a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0162a(a aVar) {
+            public RunnableC0163a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,10 +171,9 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             public void run() {
                 FaceProcessCallback faceProcessCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (faceProcessCallback = this.a.a.d) == null) {
-                    return;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (faceProcessCallback = this.a.a.d) != null) {
+                    faceProcessCallback.onBegin();
                 }
-                faceProcessCallback.onBegin();
             }
         }
 
@@ -198,10 +207,9 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             public void run() {
                 FaceProcessCallback faceProcessCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (faceProcessCallback = this.b.a.d) == null) {
-                    return;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (faceProcessCallback = this.b.a.d) != null) {
+                    faceProcessCallback.onDeviceCheckResult(this.a);
                 }
-                faceProcessCallback.onDeviceCheckResult(this.a);
             }
         }
 
@@ -233,10 +241,9 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             public void run() {
                 FaceProcessCallback faceProcessCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (faceProcessCallback = this.a.a.d) == null) {
-                    return;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (faceProcessCallback = this.a.a.d) != null) {
+                    faceProcessCallback.onBeginCollectFaceInfo();
                 }
-                faceProcessCallback.onBeginCollectFaceInfo();
             }
         }
 
@@ -269,7 +276,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         public void run() {
             f fVar;
             int i;
-            Pair<Integer, Object> callSync;
+            Pair callSync;
             char c2;
             f fVar2;
             int i2;
@@ -280,139 +287,102 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             int i3;
             Activity activity3;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            try {
-                f fVar5 = this.a;
-                if (fVar5.s) {
-                    return;
-                }
-                fVar5.r = com.baidu.sofire.face.b.b.a("5");
-                f fVar6 = this.a;
-                if (fVar6.s) {
-                    return;
-                }
-                com.baidu.sofire.face.b.b.a(fVar6.a, fVar6.r, 1, 0, null);
-                f fVar7 = this.a;
-                if (fVar7.d != null && (activity3 = fVar7.b) != null) {
-                    activity3.runOnUiThread(new RunnableC0162a(this));
-                }
-                if (!FH.isInitSuc(1) && this.a.n.a()) {
-                    this.a.a(-15);
-                    return;
-                }
-                f fVar8 = this.a;
-                if (fVar8.s) {
-                    return;
-                }
-                if (fVar8.n.b() && (i3 = (fVar4 = this.a).q) == 0) {
-                    FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, fVar4.r, Integer.valueOf(i3));
-                } else if (this.a.n.b() && (i = (fVar = this.a).q) > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, fVar.r, Integer.valueOf(i))) != null && ((Integer) callSync.first).intValue() == 0) {
-                    int intValue = ((Integer) callSync.second).intValue();
-                    if (intValue == 1) {
-                        c2 = 1;
-                    } else if (intValue == 2) {
-                        c2 = 65534;
-                    }
-                    fVar2 = this.a;
-                    if (!fVar2.s) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    f fVar5 = this.a;
+                    if (fVar5.s) {
                         return;
                     }
-                    if (c2 != 65534) {
-                        if (c2 == 65535 && fVar2.n.e()) {
+                    fVar5.r = com.baidu.sofire.face.b.b.a("5");
+                    f fVar6 = this.a;
+                    if (fVar6.s) {
+                        return;
+                    }
+                    com.baidu.sofire.face.b.b.a(fVar6.a, fVar6.r, 1, 0, null);
+                    f fVar7 = this.a;
+                    if (fVar7.d != null && (activity3 = fVar7.b) != null) {
+                        activity3.runOnUiThread(new RunnableC0163a(this));
+                    }
+                    if (!FH.isInitSuc(1) && this.a.n.a()) {
+                        this.a.a(-15);
+                        return;
+                    }
+                    f fVar8 = this.a;
+                    if (fVar8.s) {
+                        return;
+                    }
+                    if (fVar8.n.b() && (i3 = (fVar4 = this.a).q) == 0) {
+                        FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, fVar4.r, Integer.valueOf(i3));
+                    } else if (this.a.n.b() && (i = (fVar = this.a).q) > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, fVar.r, Integer.valueOf(i))) != null && ((Integer) callSync.first).intValue() == 0) {
+                        int intValue = ((Integer) callSync.second).intValue();
+                        if (intValue == 1) {
+                            c2 = 1;
+                        } else if (intValue == 2) {
+                            c2 = 65534;
                         }
-                        i2 = 1;
+                        fVar2 = this.a;
+                        if (!fVar2.s) {
+                            return;
+                        }
+                        if (c2 != 65534) {
+                            if (c2 == 65535 && fVar2.n.e()) {
+                            }
+                            i2 = 1;
+                            fVar3 = this.a;
+                            if (fVar3.d != null && (activity2 = fVar3.b) != null) {
+                                activity2.runOnUiThread(new b(this, i2));
+                            }
+                            if (c2 != 65534) {
+                                this.a.a(-3);
+                                return;
+                            } else if (i2 == -1) {
+                                this.a.a(-3);
+                                return;
+                            } else {
+                                f fVar9 = this.a;
+                                if (fVar9.s) {
+                                    return;
+                                }
+                                f.e(fVar9);
+                                f fVar10 = this.a;
+                                if (fVar10.s) {
+                                    return;
+                                }
+                                if (fVar10.t && !fVar10.P) {
+                                    f.a(fVar10);
+                                }
+                                f fVar11 = this.a;
+                                if (fVar11.s) {
+                                    return;
+                                }
+                                if (fVar11.d != null && (activity = fVar11.b) != null) {
+                                    activity.runOnUiThread(new c(this));
+                                }
+                                f fVar12 = this.a;
+                                if (fVar12.s) {
+                                    return;
+                                }
+                                fVar12.f();
+                                return;
+                            }
+                        }
+                        i2 = -1;
                         fVar3 = this.a;
-                        if (fVar3.d != null && (activity2 = fVar3.b) != null) {
+                        if (fVar3.d != null) {
                             activity2.runOnUiThread(new b(this, i2));
                         }
                         if (c2 != 65534) {
-                            this.a.a(-3);
-                            return;
-                        } else if (i2 == -1) {
-                            this.a.a(-3);
-                            return;
-                        } else {
-                            f fVar9 = this.a;
-                            if (fVar9.s) {
-                                return;
-                            }
-                            f.e(fVar9);
-                            f fVar10 = this.a;
-                            if (fVar10.s) {
-                                return;
-                            }
-                            if (fVar10.t && !fVar10.P) {
-                                f.a(fVar10);
-                            }
-                            f fVar11 = this.a;
-                            if (fVar11.s) {
-                                return;
-                            }
-                            if (fVar11.d != null && (activity = fVar11.b) != null) {
-                                activity.runOnUiThread(new c(this));
-                            }
-                            f fVar12 = this.a;
-                            if (fVar12.s) {
-                                return;
-                            }
-                            fVar12.f();
-                            return;
                         }
                     }
-                    i2 = -1;
-                    fVar3 = this.a;
-                    if (fVar3.d != null) {
-                        activity2.runOnUiThread(new b(this, i2));
+                    c2 = 65535;
+                    fVar2 = this.a;
+                    if (!fVar2.s) {
                     }
-                    if (c2 != 65534) {
-                    }
+                } catch (Throwable th) {
+                    f fVar13 = this.a;
+                    com.baidu.sofire.face.b.b.a(fVar13.a, fVar13.r, 1, th);
+                    this.a.a(-9);
                 }
-                c2 = 65535;
-                fVar2 = this.a;
-                if (!fVar2.s) {
-                }
-            } catch (Throwable th) {
-                f fVar13 = this.a;
-                com.baidu.sofire.face.b.b.a(fVar13.a, fVar13.r, 1, th);
-                this.a.a(-9);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public b(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f fVar = this.a;
-                fVar.X = com.baidu.sofire.face.b.b.b(fVar.a);
-                f fVar2 = this.a;
-                fVar2.W = com.baidu.sofire.face.b.b.a(fVar2.a);
             }
         }
     }
@@ -584,16 +554,177 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                         }
                         this.a.j0.schedule(new a(this), 20000L);
                     }
-                    Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.r);
-                    if (callSync == null || ((Integer) callSync.first).intValue() != 0) {
-                        return;
+                    Pair callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.r);
+                    if (callSync != null && ((Integer) callSync.first).intValue() == 0) {
+                        this.a.v = true;
                     }
-                    this.a.v = true;
                 } catch (Throwable th) {
                     f fVar19 = this.a;
                     com.baidu.sofire.face.b.b.a(fVar19.a, fVar19.r, 2, th);
                     this.a.a(-5);
                 }
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class l implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        /* loaded from: classes2.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ l a;
+
+            public a(l lVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {lVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = lVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                FaceProcessCallback faceProcessCallback;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (faceProcessCallback = this.a.a.d) != null) {
+                    faceProcessCallback.onBeginBuildData();
+                }
+            }
+        }
+
+        public l(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Pair pair;
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    f fVar = this.a;
+                    if (fVar.s) {
+                        return;
+                    }
+                    if (fVar.t && !fVar.P) {
+                        f.a(fVar);
+                    }
+                    f fVar2 = this.a;
+                    if (fVar2.s) {
+                        return;
+                    }
+                    if (fVar2.d != null && (activity = fVar2.b) != null) {
+                        activity.runOnUiThread(new a(this));
+                    }
+                    f fVar3 = this.a;
+                    JSONObject jSONObject = null;
+                    if (fVar3.v) {
+                        pair = FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, fVar3.r, Boolean.FALSE, fVar3.b());
+                        this.a.v = false;
+                    } else {
+                        pair = null;
+                    }
+                    if (this.a.s) {
+                        return;
+                    }
+                    if (pair != null && ((Integer) pair.first).intValue() == 0) {
+                        String str = (String) pair.second;
+                        if (!TextUtils.isEmpty(str)) {
+                            try {
+                                jSONObject = new JSONObject(str).optJSONObject("s");
+                            } catch (Throwable unused) {
+                            }
+                            if (jSONObject != null) {
+                                f fVar4 = this.a;
+                                if (fVar4.V > 0 && fVar4.n.d()) {
+                                    f fVar5 = this.a;
+                                    fVar5.getClass();
+                                    try {
+                                        fVar5.a(jSONObject, "g");
+                                        fVar5.a(jSONObject, "l");
+                                        fVar5.a(jSONObject, "d");
+                                    } catch (Throwable unused2) {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    f fVar6 = this.a;
+                    if (fVar6.s) {
+                        return;
+                    }
+                    fVar6.a(fVar6.a(jSONObject));
+                } catch (Throwable th) {
+                    f fVar7 = this.a;
+                    com.baidu.sofire.face.b.b.a(fVar7.a, fVar7.r, 6, th);
+                    this.a.a(-12);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public b(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                f fVar = this.a;
+                fVar.X = com.baidu.sofire.face.b.b.b(fVar.a);
+                f fVar2 = this.a;
+                fVar2.W = com.baidu.sofire.face.b.b.a(fVar2.a);
             }
         }
     }
@@ -629,16 +760,15 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             f fVar;
             FaceProcessCallback faceProcessCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (faceProcessCallback = (fVar = this.b).d) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (faceProcessCallback = (fVar = this.b).d) != null) {
+                int i = this.a;
+                if (i == 1) {
+                    faceProcessCallback.onEnd(i, fVar.b0);
+                } else {
+                    faceProcessCallback.onEnd(i, null);
+                }
+                this.b.d = null;
             }
-            int i = this.a;
-            if (i == 1) {
-                faceProcessCallback.onEnd(i, fVar.b0);
-            } else {
-                faceProcessCallback.onEnd(i, null);
-            }
-            this.b.d = null;
         }
     }
 
@@ -741,12 +871,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
     /* renamed from: com.baidu.sofire.face.a.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0163f implements Runnable {
+    public class RunnableC0164f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public RunnableC0163f(f fVar) {
+        public RunnableC0164f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -767,23 +897,24 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.I = false;
-                    Camera camera = this.a.G;
-                    if (camera != null) {
-                        camera.setErrorCallback(null);
-                        this.a.G.setPreviewCallback(null);
-                        this.a.G.stopPreview();
-                        com.baidu.sofire.face.a.a.a(this.a.G);
-                        this.a.G = null;
-                    }
-                    TextureView textureView = this.a.c;
-                    if (textureView != null) {
-                        textureView.setSurfaceTextureListener(null);
-                    }
-                } catch (Throwable unused) {
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            try {
+                this.a.I = false;
+                Camera camera = this.a.G;
+                if (camera != null) {
+                    camera.setErrorCallback(null);
+                    this.a.G.setPreviewCallback(null);
+                    this.a.G.stopPreview();
+                    com.baidu.sofire.face.a.a.a(this.a.G);
+                    this.a.G = null;
                 }
+                TextureView textureView = this.a.c;
+                if (textureView != null) {
+                    textureView.setSurfaceTextureListener(null);
+                }
+            } catch (Throwable unused) {
             }
         }
     }
@@ -815,11 +946,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         @Override // android.hardware.Camera.ErrorCallback
         public void onError(int i, Camera camera) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, camera) == null) {
-                this.a.P = true;
-                this.a.c();
-                f.d(this.a);
+            if (interceptable != null && interceptable.invokeIL(1048576, this, i, camera) != null) {
+                return;
             }
+            this.a.P = true;
+            this.a.c();
+            f.d(this.a);
         }
 
         @Override // android.hardware.Camera.PreviewCallback
@@ -829,10 +961,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                 try {
                     f fVar = this.a;
                     int i = fVar.O;
-                    if (i == 1) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            fVar.N = bArr;
+                        }
+                    } else {
                         fVar.M = bArr;
-                    } else if (i == 2) {
-                        fVar.N = bArr;
                     }
                     fVar.c();
                     f.d(this.a);
@@ -925,7 +1059,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
 
         @Override // com.baidu.pass.face.platform.IDetectStrategyCallback
-        public void onDetectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2) {
+        public void onDetectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, faceStatusNewEnum, str, hashMap, hashMap2) == null) {
                 try {
@@ -933,7 +1067,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     if (!fVar.p && !fVar.s) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
                             fVar.p = true;
-                            Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
+                            Map a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
                                 this.a.T = a;
                             } else {
@@ -994,7 +1128,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
 
         @Override // com.baidu.pass.face.platform.ILivenessStrategyCallback
-        public void onLivenessCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i) {
+        public void onLivenessCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{faceStatusNewEnum, str, hashMap, hashMap2, Integer.valueOf(i)}) == null) {
                 try {
@@ -1002,7 +1136,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     if (!fVar.p && !fVar.s) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
                             fVar.p = true;
-                            Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
+                            Map a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
                                 this.a.T = a;
                             } else {
@@ -1064,20 +1198,6 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
 
         @Override // com.baidu.pass.face.platform.ILivenessViewCallback
-        public void animStop() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    FaceProcessCallback faceProcessCallback = this.a.d;
-                    if (faceProcessCallback != null) {
-                        faceProcessCallback.animStop();
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-        }
-
-        @Override // com.baidu.pass.face.platform.ILivenessViewCallback
         public void setCurrentLiveType(LivenessTypeEnum livenessTypeEnum) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, livenessTypeEnum) == null) {
@@ -1106,6 +1226,20 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
 
         @Override // com.baidu.pass.face.platform.ILivenessViewCallback
+        public void animStop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    FaceProcessCallback faceProcessCallback = this.a.d;
+                    if (faceProcessCallback != null) {
+                        faceProcessCallback.animStop();
+                    }
+                } catch (Throwable unused) {
+                }
+            }
+        }
+
+        @Override // com.baidu.pass.face.platform.ILivenessViewCallback
         public void viewReset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -1115,133 +1249,6 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                         faceProcessCallback.viewReset();
                     }
                 } catch (Throwable unused) {
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class l implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        /* loaded from: classes2.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ l a;
-
-            public a(l lVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {lVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = lVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                FaceProcessCallback faceProcessCallback;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (faceProcessCallback = this.a.a.d) == null) {
-                    return;
-                }
-                faceProcessCallback.onBeginBuildData();
-            }
-        }
-
-        public l(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Pair<Integer, Object> pair;
-            Activity activity;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    f fVar = this.a;
-                    if (fVar.s) {
-                        return;
-                    }
-                    if (fVar.t && !fVar.P) {
-                        f.a(fVar);
-                    }
-                    f fVar2 = this.a;
-                    if (fVar2.s) {
-                        return;
-                    }
-                    if (fVar2.d != null && (activity = fVar2.b) != null) {
-                        activity.runOnUiThread(new a(this));
-                    }
-                    f fVar3 = this.a;
-                    JSONObject jSONObject = null;
-                    if (fVar3.v) {
-                        pair = FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, fVar3.r, Boolean.FALSE, fVar3.b());
-                        this.a.v = false;
-                    } else {
-                        pair = null;
-                    }
-                    if (this.a.s) {
-                        return;
-                    }
-                    if (pair != null && ((Integer) pair.first).intValue() == 0) {
-                        String str = (String) pair.second;
-                        if (!TextUtils.isEmpty(str)) {
-                            try {
-                                jSONObject = new JSONObject(str).optJSONObject("s");
-                            } catch (Throwable unused) {
-                            }
-                            if (jSONObject != null) {
-                                f fVar4 = this.a;
-                                if (fVar4.V > 0 && fVar4.n.d()) {
-                                    f fVar5 = this.a;
-                                    fVar5.getClass();
-                                    try {
-                                        fVar5.a(jSONObject, "g");
-                                        fVar5.a(jSONObject, "l");
-                                        fVar5.a(jSONObject, "d");
-                                    } catch (Throwable unused2) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    f fVar6 = this.a;
-                    if (fVar6.s) {
-                        return;
-                    }
-                    fVar6.a(fVar6.a(jSONObject));
-                } catch (Throwable th) {
-                    f fVar7 = this.a;
-                    com.baidu.sofire.face.b.b.a(fVar7.a, fVar7.r, 6, th);
-                    this.a.a(-12);
                 }
             }
         }
@@ -1309,22 +1316,35 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     public static int a(f fVar, Context context) {
         InterceptResult invokeLL;
         int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fVar, context)) == null) {
             fVar.getClass();
             try {
                 int rotation = fVar.b.getWindowManager().getDefaultDisplay().getRotation();
-                int i3 = rotation != 1 ? rotation != 2 ? rotation != 3 ? 0 : 270 : 180 : 90;
-                int i4 = ((0 - i3) + 360) % 360;
+                if (rotation != 1) {
+                    if (rotation != 2) {
+                        if (rotation != 3) {
+                            i2 = 0;
+                        } else {
+                            i2 = 270;
+                        }
+                    } else {
+                        i2 = 180;
+                    }
+                } else {
+                    i2 = 90;
+                }
+                int i4 = ((0 - i2) + 360) % 360;
                 if (Build.VERSION.SDK_INT >= 9) {
                     Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                     Camera.getCameraInfo(fVar.C, cameraInfo);
                     if (cameraInfo.facing == 1) {
-                        i2 = (360 - ((cameraInfo.orientation + i3) % 360)) % 360;
+                        i3 = (360 - ((cameraInfo.orientation + i2) % 360)) % 360;
                     } else {
-                        i2 = ((cameraInfo.orientation - i3) + 360) % 360;
+                        i3 = ((cameraInfo.orientation - i2) + 360) % 360;
                     }
-                    return i2;
+                    return i3;
                 }
                 return i4;
             } catch (Throwable unused) {
@@ -1332,271 +1352,6 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             }
         }
         return invokeLL.intValue;
-    }
-
-    public static void b(f fVar, HashMap hashMap, HashMap hashMap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, fVar, hashMap, hashMap2) == null) {
-            fVar.getClass();
-            if (hashMap != null) {
-                try {
-                    if (hashMap.size() > 0) {
-                        for (ImageInfo imageInfo : hashMap.values()) {
-                            imageInfo.setBase64("");
-                        }
-                    }
-                } catch (Throwable unused) {
-                    return;
-                }
-            }
-            if (hashMap2 == null || hashMap2.size() <= 0) {
-                return;
-            }
-            for (ImageInfo imageInfo2 : hashMap2.values()) {
-                imageInfo2.setBase64("");
-            }
-        }
-    }
-
-    public static void e(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, fVar) == null) {
-            fVar.getClass();
-            fVar.Q = FaceSDKManager.getInstance().getFaceConfig();
-            fVar.o = ((AudioManager) fVar.a.getSystemService("audio")).getStreamVolume(3) > 0 ? fVar.Q.isSound() : false;
-            if (fVar.h) {
-                if (fVar.e == null) {
-                    fVar.e = new j(fVar);
-                }
-            } else if (fVar.f == null) {
-                fVar.f = new i(fVar);
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            fVar.b.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            fVar.z = displayMetrics.widthPixels;
-            fVar.u = fVar.n.a.getBoolean("lt_sfff", false);
-            fVar.t = fVar.n.a.getBoolean("lt_sbff", false);
-            try {
-                TextureView textureView = fVar.c;
-                if (textureView != null) {
-                    textureView.setSurfaceTextureListener(fVar);
-                }
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            try {
-                this.b.runOnUiThread(new c(this));
-            } catch (Throwable th) {
-                com.baidu.sofire.face.b.b.a(this.a, this.r, 2, th);
-                a(-5);
-            }
-        }
-    }
-
-    @Override // com.baidu.pass.face.platform.listener.ISecurityCallback
-    public void getFaceInfoForSecurity(FaceInfo[] faceInfoArr) {
-        Map<Long, FaceInfo> map;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, faceInfoArr) == null) || faceInfoArr == null) {
-            return;
-        }
-        try {
-            if (faceInfoArr.length == 0 || this.Z == 0) {
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.a0 >= this.Z && (map = this.Y) != null) {
-                map.put(Long.valueOf(currentTimeMillis), faceInfoArr[0]);
-                this.a0 = currentTimeMillis;
-            }
-        } catch (Throwable unused) {
-        }
-    }
-
-    @Override // android.hardware.Camera.ErrorCallback
-    public void onError(int i2, Camera camera) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, camera) == null) || this.i0) {
-            return;
-        }
-        a(-5);
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048589, this, surfaceTexture, i2, i3) == null) || this.s || surfaceTexture == null) {
-            return;
-        }
-        TextureView textureView = this.c;
-        if (textureView != null) {
-            this.k = textureView.getHeight();
-            this.l = this.c.getWidth();
-        }
-        Camera camera = this.A;
-        if (camera != null) {
-            try {
-                camera.setPreviewTexture(surfaceTexture);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, surfaceTexture)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048591, this, surfaceTexture, i2, i3) == null) || this.s || surfaceTexture == null) {
-            return;
-        }
-        if (this.F) {
-            f();
-        } else if (this.I) {
-            e();
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        TextureView textureView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, surfaceTexture) == null) {
-            try {
-                if (this.p || this.s || this.K > 0 || (textureView = this.c) == null) {
-                    return;
-                }
-                Bitmap bitmap = textureView.getBitmap();
-                this.L = bitmap;
-                if (this.u && this.J == null) {
-                    this.J = bitmap;
-                }
-                if (this.R == null && !this.p && !this.s) {
-                    if (!com.baidu.sofire.face.a.e.b()) {
-                        a(-20);
-                    }
-                    if (this.g == null) {
-                        this.g = new k(this);
-                    }
-                    ILivenessStrategy livenessStrategyModule = FaceSDKManager.getInstance().getLivenessStrategyModule(this.g);
-                    this.R = livenessStrategyModule;
-                    livenessStrategyModule.setISecurityCallback(this);
-                    this.R.setPreviewDegree(this.w.get());
-                    this.R.setLivenessStrategySoundEnable(this.o);
-                    this.R.setLivenessStrategyConfig(this.Q.getLivenessTypeList(), this.x, this.y, this.e);
-                }
-                this.K++;
-            } catch (Throwable th) {
-                com.baidu.sofire.face.b.b.a(this.a, this.r, 3, th);
-                a(-11);
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                Activity activity = this.b;
-                if (activity != null) {
-                    activity.runOnUiThread(new RunnableC0163f(this));
-                }
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                if (com.baidu.sofire.face.b.e.a().a(new a(this)) != 1) {
-                    a(-7);
-                }
-                com.baidu.sofire.face.b.e.a().a(new b(this));
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static int c(f fVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, fVar)) == null) {
-            if (fVar.g0) {
-                fVar.g0 = false;
-                if (System.currentTimeMillis() - fVar.h0 < 2000) {
-                    fVar.d0.a();
-                    return -7;
-                }
-                String b2 = fVar.d0.b();
-                fVar.f0 = b2;
-                if (!TextUtils.isEmpty(b2) && new File(fVar.f0).exists()) {
-                    fVar.i0 = true;
-                    return 1;
-                }
-                fVar.a(-7);
-                fVar.i0 = false;
-                return -8;
-            }
-            return -3;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, fVar) == null) {
-            synchronized (fVar) {
-                try {
-                    fVar.notifyAll();
-                } catch (Throwable unused) {
-                }
-            }
-        }
-    }
-
-    public static Camera b(f fVar, boolean z) {
-        InterceptResult invokeLZ;
-        int numberOfCameras;
-        Camera open;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, fVar, z)) == null) {
-            if (fVar.s || (numberOfCameras = Camera.getNumberOfCameras()) == 0) {
-                return null;
-            }
-            int i2 = 0;
-            while (i2 < numberOfCameras) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i2, cameraInfo);
-                if ((z && cameraInfo.facing == 1) || (!z && cameraInfo.facing == 0)) {
-                    break;
-                }
-                i2++;
-            }
-            if (i2 < numberOfCameras) {
-                open = Camera.open(i2);
-                fVar.C = i2;
-            } else {
-                open = Camera.open(0);
-                fVar.C = 0;
-            }
-            return open;
-        }
-        return (Camera) invokeLZ.objValue;
     }
 
     public static Map a(f fVar, HashMap hashMap, HashMap hashMap2) {
@@ -1647,30 +1402,52 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         return (Map) invokeLLL.objValue;
     }
 
-    public final String b() {
-        JSONObject a2;
-        InterceptResult invokeV;
+    public static void a(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            try {
-                Map<Long, FaceInfo> map = this.Y;
-                if (map == null || map.size() <= 0) {
-                    return "";
-                }
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<Long, FaceInfo> entry : this.Y.entrySet()) {
-                    long longValue = entry.getKey().longValue();
-                    FaceInfo value = entry.getValue();
-                    if (longValue > 0 && (a2 = a(value)) != null) {
-                        jSONObject.put(String.valueOf(longValue), a2);
+        if (interceptable == null || interceptable.invokeL(65539, null, fVar) == null) {
+            synchronized (fVar) {
+                if (!fVar.P && !fVar.s) {
+                    fVar.O++;
+                    fVar.I = true;
+                    fVar.e();
+                    if (!fVar.P) {
+                        try {
+                            fVar.wait(2000L);
+                        } catch (InterruptedException unused) {
+                        }
                     }
+                    fVar.I = false;
                 }
-                return jSONObject.toString();
-            } catch (Throwable unused) {
-                return "";
             }
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.pass.face.platform.listener.ISecurityCallback
+    public void getFaceInfoForSecurity(FaceInfo[] faceInfoArr) {
+        Map map;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, faceInfoArr) == null) && faceInfoArr != null) {
+            try {
+                if (faceInfoArr.length == 0 || this.Z == 0) {
+                    return;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.a0 >= this.Z && (map = this.Y) != null) {
+                    map.put(Long.valueOf(currentTimeMillis), faceInfoArr[0]);
+                    this.a0 = currentTimeMillis;
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    @Override // android.hardware.Camera.ErrorCallback
+    public void onError(int i2, Camera camera) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048588, this, i2, camera) != null) || this.i0) {
+            return;
+        }
+        a(-5);
     }
 
     public static int b(f fVar) {
@@ -1696,37 +1473,92 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         return invokeL.intValue;
     }
 
-    public final void e() {
+    public static int c(f fVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                this.b.runOnUiThread(new e(this));
-            } catch (Throwable th) {
-                this.P = true;
-                synchronized (this) {
-                    try {
-                        notifyAll();
-                    } catch (Throwable unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, fVar)) == null) {
+            if (!fVar.g0) {
+                return -3;
+            }
+            fVar.g0 = false;
+            if (System.currentTimeMillis() - fVar.h0 < 2000) {
+                fVar.d0.a();
+                return -7;
+            }
+            String b2 = fVar.d0.b();
+            fVar.f0 = b2;
+            if (!TextUtils.isEmpty(b2) && new File(fVar.f0).exists()) {
+                fVar.i0 = true;
+                return 1;
+            }
+            fVar.a(-7);
+            fVar.i0 = false;
+            return -8;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Camera b(f fVar, boolean z) {
+        InterceptResult invokeLZ;
+        int numberOfCameras;
+        Camera open;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, fVar, z)) == null) {
+            if (fVar.s || (numberOfCameras = Camera.getNumberOfCameras()) == 0) {
+                return null;
+            }
+            int i2 = 0;
+            while (i2 < numberOfCameras) {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i2, cameraInfo);
+                if ((z && cameraInfo.facing == 1) || (!z && cameraInfo.facing == 0)) {
+                    break;
+                }
+                i2++;
+            }
+            if (i2 < numberOfCameras) {
+                open = Camera.open(i2);
+                fVar.C = i2;
+            } else {
+                open = Camera.open(0);
+                fVar.C = 0;
+            }
+            return open;
+        }
+        return (Camera) invokeLZ.objValue;
+    }
+
+    public static void b(f fVar, HashMap hashMap, HashMap hashMap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, fVar, hashMap, hashMap2) == null) {
+            fVar.getClass();
+            if (hashMap != null) {
+                try {
+                    if (hashMap.size() > 0) {
+                        for (ImageInfo imageInfo : hashMap.values()) {
+                            imageInfo.setBase64("");
+                        }
                     }
-                    c();
-                    com.baidu.sofire.face.b.b.a(this.a, this.r, 5, th);
+                } catch (Throwable unused) {
+                    return;
+                }
+            }
+            if (hashMap2 != null && hashMap2.size() > 0) {
+                for (ImageInfo imageInfo2 : hashMap2.values()) {
+                    imageInfo2.setBase64("");
                 }
             }
         }
     }
 
-    @Override // com.baidu.sofire.face.a.j
-    public void a() {
+    public static void d(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.s) {
-                    return;
+        if (interceptable == null || interceptable.invokeL(65546, null, fVar) == null) {
+            synchronized (fVar) {
+                try {
+                    fVar.notifyAll();
+                } catch (Throwable unused) {
                 }
-                this.s = true;
-                FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.r, Boolean.TRUE, "");
-                a(-6);
-            } catch (Throwable unused) {
             }
         }
     }
@@ -1747,6 +1579,40 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                 IDetectStrategy iDetectStrategy = this.S;
                 if (iDetectStrategy != null) {
                     iDetectStrategy.setDetectStrategySoundEnable(z);
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static void e(f fVar) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, fVar) == null) {
+            fVar.getClass();
+            fVar.Q = FaceSDKManager.getInstance().getFaceConfig();
+            if (((AudioManager) fVar.a.getSystemService("audio")).getStreamVolume(3) > 0) {
+                z = fVar.Q.isSound();
+            } else {
+                z = false;
+            }
+            fVar.o = z;
+            if (fVar.h) {
+                if (fVar.e == null) {
+                    fVar.e = new j(fVar);
+                }
+            } else if (fVar.f == null) {
+                fVar.f = new i(fVar);
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            fVar.b.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            fVar.z = displayMetrics.widthPixels;
+            fVar.u = fVar.n.a.getBoolean("lt_sfff", false);
+            fVar.t = fVar.n.a.getBoolean("lt_sbff", false);
+            try {
+                TextureView textureView = fVar.c;
+                if (textureView != null) {
+                    textureView.setSurfaceTextureListener(fVar);
                 }
             } catch (Throwable unused) {
             }
@@ -1792,7 +1658,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     }
                     this.j = null;
                 }
-                Map<Long, String> map = this.T;
+                Map map = this.T;
                 if (map != null) {
                     map.clear();
                     this.T = null;
@@ -1803,14 +1669,171 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
     }
 
+    public int a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject jSONObject2;
+        byte[] bArr;
+        byte[] bArr2;
+        String str;
+        JSONObject jSONObject3;
+        byte[] bArr3;
+        byte[] bArr4;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            try {
+                JSONObject jSONObject4 = new JSONObject();
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("f_i", this.r);
+                JSONObject jSONObject6 = new JSONObject();
+                if (this.i) {
+                    File file = new File(this.f0);
+                    if (file.exists()) {
+                        byte[][] a2 = com.baidu.sofire.face.d.b.a(com.baidu.sofire.face.a.a.a(file));
+                        try {
+                            file.delete();
+                        } catch (Throwable unused) {
+                        }
+                        if (a2 != null && a2.length == 2) {
+                            byte[] bArr5 = a2[1];
+                            byte[] bArr6 = a2[0];
+                            if (bArr6 != null && bArr6.length != 0) {
+                                if (bArr5 != null && bArr5.length != 0) {
+                                    JSONObject jSONObject7 = new JSONObject();
+                                    jSONObject2 = jSONObject4;
+                                    jSONObject7.put("transcheckdata", Base64.encodeToString(WbEncryptUtil.wbEncrypt(this.a, bArr6), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
+                                    jSONObject6.put("video", jSONObject7);
+                                    bArr = bArr5;
+                                } else {
+                                    throw new RuntimeException("empty mediaData");
+                                }
+                            } else {
+                                throw new RuntimeException("empty mediaSafeInfo");
+                            }
+                        } else {
+                            throw new RuntimeException("transformResult unexpected");
+                        }
+                    } else {
+                        throw new RuntimeException("mediaFile not exists");
+                    }
+                } else {
+                    jSONObject2 = jSONObject4;
+                    bArr = null;
+                }
+                byte[] bArr7 = bArr;
+                jSONObject5.put("t_c", this.V);
+                if (this.u && (bitmap = this.J) != null) {
+                    bArr2 = bArr7;
+                    jSONObject5.put("d_f", Base64.encodeToString(com.baidu.sofire.face.a.a.a(bitmap, 400, 300), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
+                    this.J.recycle();
+                    this.J = null;
+                } else {
+                    bArr2 = bArr7;
+                }
+                if (!this.t || (bArr4 = this.M) == null || bArr4.length <= 0) {
+                    str = "-";
+                } else {
+                    str = "-";
+                    jSONObject5.put("d_p", Base64.encodeToString(com.baidu.sofire.face.a.a.a(this.a, bArr4, 400, 300), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
+                }
+                if (this.t && (bArr3 = this.N) != null && bArr3.length > 0) {
+                    jSONObject5.put("d_a", Base64.encodeToString(com.baidu.sofire.face.a.a.a(this.a, bArr3, 400, 300), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
+                }
+                if (jSONObject != null) {
+                    jSONObject5.put("s", jSONObject);
+                }
+                IFaceProcessInfo iFaceProcessInfo = this.m;
+                if (iFaceProcessInfo != null) {
+                    jSONObject3 = iFaceProcessInfo.buildJson();
+                } else {
+                    jSONObject3 = null;
+                }
+                if (jSONObject3 == null) {
+                    jSONObject3 = new JSONObject();
+                }
+                if (this.T.size() == 1) {
+                    jSONObject3.put("image", this.T.values().iterator().next());
+                } else if (this.T.size() >= 2) {
+                    JSONArray jSONArray = new JSONArray();
+                    for (String str2 : this.T.values()) {
+                        jSONArray.put(str2);
+                    }
+                    jSONObject3.put("images", jSONArray);
+                }
+                jSONObject3.put("image_type", FaceEnum.ImageType.BASE64.name());
+                jSONObject3.put("image_sec", true);
+                jSONObject3.put("risk_identify", true);
+                jSONObject3.put("app", "android");
+                jSONObject6.put("face", jSONObject3);
+                JSONObject jSONObject8 = new JSONObject();
+                jSONObject8.put("zid", FH.gzfi(this.a, "", 5002));
+                jSONObject8.put(Config.EVENT_PART, "face");
+                jSONObject8.put(NotificationStyle.NOTIFICATION_STYLE, this.X);
+                jSONObject8.put("ts", System.currentTimeMillis());
+                TimeZone timeZone = TimeZone.getDefault();
+                if (timeZone != null) {
+                    jSONObject8.put("tz", timeZone.getID());
+                }
+                JSONArray jSONArray2 = this.W;
+                if (jSONArray2 != null) {
+                    jSONObject8.put("ce", jSONArray2);
+                }
+                jSONObject6.put("risk", jSONObject8);
+                jSONObject5.put("e", jSONObject6);
+                String str3 = com.baidu.sofire.face.a.e.d;
+                try {
+                    if (!TextUtils.isEmpty(str3)) {
+                        String str4 = str;
+                        String[] split = str3.split(str4);
+                        if (split.length >= 3) {
+                            StringBuilder sb = new StringBuilder();
+                            for (int i2 = 0; i2 < split.length - 3; i2++) {
+                                sb.append(split[i2]);
+                                sb.append(str4);
+                            }
+                            sb.append(split[split.length - 3]);
+                            str3 = sb.toString();
+                        }
+                    }
+                } catch (Throwable unused2) {
+                }
+                JSONObject jSONObject9 = jSONObject2;
+                jSONObject9.put("licenseId", str3);
+                jSONObject9.put("data", Base64.encodeToString(WbEncryptUtil.wbEncrypt(this.a, jSONObject5.toString().getBytes()), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
+                jSONObject9.put("app", "android");
+                String packageName = this.a.getPackageName();
+                if (packageName != null) {
+                    jSONObject9.put("pkg", packageName);
+                    try {
+                        Signature[] signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
+                        if (signatureArr != null && signatureArr.length > 0) {
+                            jSONObject9.put("sign", com.baidu.sofire.face.b.c.b(signatureArr[0].toByteArray()));
+                        }
+                    } catch (Throwable unused3) {
+                    }
+                }
+                this.b0 = com.baidu.sofire.face.b.b.a(this.a, jSONObject9.toString(), bArr2, this.e0);
+                return 1;
+            } catch (Throwable unused4) {
+                return -2;
+            }
+        }
+        return invokeL.intValue;
+    }
+
     public final JSONObject a(FaceInfo faceInfo) {
         InterceptResult invokeL;
-        BDFaceOcclusion bDFaceOcclusion;
-        BDFaceOcclusion bDFaceOcclusion2;
-        BDFaceOcclusion bDFaceOcclusion3;
-        BDFaceOcclusion bDFaceOcclusion4;
-        BDFaceOcclusion bDFaceOcclusion5;
-        BDFaceOcclusion bDFaceOcclusion6;
+        String arrays;
+        double d2;
+        double d3;
+        double d4;
+        double d5;
+        double d6;
+        double d7;
+        String name;
+        String name2;
+        String name3;
+        String name4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, faceInfo)) == null) {
             if (faceInfo == null) {
@@ -1827,33 +1850,94 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                 jSONObject.put("score", faceInfo.score);
                 float[] fArr = faceInfo.landmarks;
                 String str = "";
-                jSONObject.put("landmarks", fArr == null ? "" : Arrays.toString(fArr));
+                if (fArr == null) {
+                    arrays = "";
+                } else {
+                    arrays = Arrays.toString(fArr);
+                }
+                jSONObject.put("landmarks", arrays);
                 jSONObject.put(SdkConfigOptions.LivenessConfigOption.p, faceInfo.yaw);
                 jSONObject.put("roll", faceInfo.roll);
                 jSONObject.put(SdkConfigOptions.LivenessConfigOption.q, faceInfo.pitch);
                 jSONObject.put("bluriness", faceInfo.bluriness);
                 jSONObject.put("illum", faceInfo.illum);
-                double d2 = 0.0d;
-                jSONObject.put("occlusion_leftEye", faceInfo.occlusion == null ? 0.0d : bDFaceOcclusion.leftEye);
-                jSONObject.put("occlusion_rightEye", faceInfo.occlusion == null ? 0.0d : bDFaceOcclusion2.rightEye);
-                jSONObject.put("occlusion_leftCheek", faceInfo.occlusion == null ? 0.0d : bDFaceOcclusion3.leftCheek);
-                jSONObject.put("occlusion_rightCheek", faceInfo.occlusion == null ? 0.0d : bDFaceOcclusion4.rightCheek);
-                jSONObject.put("occlusion_mouth", faceInfo.occlusion == null ? 0.0d : bDFaceOcclusion5.mouth);
-                jSONObject.put("occlusion_nose", faceInfo.occlusion == null ? 0.0d : bDFaceOcclusion6.nose);
+                BDFaceOcclusion bDFaceOcclusion = faceInfo.occlusion;
+                double d8 = 0.0d;
+                if (bDFaceOcclusion == null) {
+                    d2 = 0.0d;
+                } else {
+                    d2 = bDFaceOcclusion.leftEye;
+                }
+                jSONObject.put("occlusion_leftEye", d2);
+                BDFaceOcclusion bDFaceOcclusion2 = faceInfo.occlusion;
+                if (bDFaceOcclusion2 == null) {
+                    d3 = 0.0d;
+                } else {
+                    d3 = bDFaceOcclusion2.rightEye;
+                }
+                jSONObject.put("occlusion_rightEye", d3);
+                BDFaceOcclusion bDFaceOcclusion3 = faceInfo.occlusion;
+                if (bDFaceOcclusion3 == null) {
+                    d4 = 0.0d;
+                } else {
+                    d4 = bDFaceOcclusion3.leftCheek;
+                }
+                jSONObject.put("occlusion_leftCheek", d4);
+                BDFaceOcclusion bDFaceOcclusion4 = faceInfo.occlusion;
+                if (bDFaceOcclusion4 == null) {
+                    d5 = 0.0d;
+                } else {
+                    d5 = bDFaceOcclusion4.rightCheek;
+                }
+                jSONObject.put("occlusion_rightCheek", d5);
+                BDFaceOcclusion bDFaceOcclusion5 = faceInfo.occlusion;
+                if (bDFaceOcclusion5 == null) {
+                    d6 = 0.0d;
+                } else {
+                    d6 = bDFaceOcclusion5.mouth;
+                }
+                jSONObject.put("occlusion_mouth", d6);
+                BDFaceOcclusion bDFaceOcclusion6 = faceInfo.occlusion;
+                if (bDFaceOcclusion6 == null) {
+                    d7 = 0.0d;
+                } else {
+                    d7 = bDFaceOcclusion6.nose;
+                }
+                jSONObject.put("occlusion_nose", d7);
                 BDFaceOcclusion bDFaceOcclusion7 = faceInfo.occlusion;
                 if (bDFaceOcclusion7 != null) {
-                    d2 = bDFaceOcclusion7.chin;
+                    d8 = bDFaceOcclusion7.chin;
                 }
-                jSONObject.put("occlusion_chin", d2);
+                jSONObject.put("occlusion_chin", d8);
                 jSONObject.put("age", faceInfo.age);
                 BDFaceSDKCommon.BDFaceRace bDFaceRace = faceInfo.race;
-                jSONObject.put("race", bDFaceRace == null ? "" : bDFaceRace.name());
+                if (bDFaceRace == null) {
+                    name = "";
+                } else {
+                    name = bDFaceRace.name();
+                }
+                jSONObject.put("race", name);
                 BDFaceSDKCommon.BDFaceGlasses bDFaceGlasses = faceInfo.glasses;
-                jSONObject.put("glasses", bDFaceGlasses == null ? "" : bDFaceGlasses.name());
+                if (bDFaceGlasses == null) {
+                    name2 = "";
+                } else {
+                    name2 = bDFaceGlasses.name();
+                }
+                jSONObject.put("glasses", name2);
                 BDFaceSDKCommon.BDFaceGender bDFaceGender = faceInfo.gender;
-                jSONObject.put("gender", bDFaceGender == null ? "" : bDFaceGender.name());
+                if (bDFaceGender == null) {
+                    name3 = "";
+                } else {
+                    name3 = bDFaceGender.name();
+                }
+                jSONObject.put("gender", name3);
                 BDFaceSDKCommon.BDFaceEmotion bDFaceEmotion = faceInfo.emotionThree;
-                jSONObject.put("emotionThree", bDFaceEmotion == null ? "" : bDFaceEmotion.name());
+                if (bDFaceEmotion == null) {
+                    name4 = "";
+                } else {
+                    name4 = bDFaceEmotion.name();
+                }
+                jSONObject.put("emotionThree", name4);
                 BDFaceSDKCommon.BDFaceEmotionEnum bDFaceEmotionEnum = faceInfo.emotionSeven;
                 if (bDFaceEmotionEnum != null) {
                     str = bDFaceEmotionEnum.name();
@@ -1900,9 +1984,11 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                                 }
                                 if (j2 <= 0) {
                                     continue;
-                                } else if (j2 <= this.V) {
-                                    str2 = string;
-                                } else if (TextUtils.isEmpty(str2)) {
+                                } else if (j2 > this.V) {
+                                    if (TextUtils.isEmpty(str2)) {
+                                        str2 = string;
+                                    }
+                                } else {
                                     str2 = string;
                                 }
                             }
@@ -1923,169 +2009,169 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         return (JSONObject) invokeLL.objValue;
     }
 
-    public int a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject jSONObject2;
-        byte[] bArr;
-        byte[] bArr2;
-        String str;
-        byte[] bArr3;
-        byte[] bArr4;
-        Bitmap bitmap;
+    @Override // com.baidu.sofire.face.a.j
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                JSONObject jSONObject3 = new JSONObject();
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("f_i", this.r);
-                JSONObject jSONObject5 = new JSONObject();
-                if (this.i) {
-                    File file = new File(this.f0);
-                    if (file.exists()) {
-                        byte[][] a2 = com.baidu.sofire.face.d.b.a(com.baidu.sofire.face.a.a.a(file));
-                        try {
-                            file.delete();
-                        } catch (Throwable unused) {
-                        }
-                        if (a2 != null && a2.length == 2) {
-                            byte[] bArr5 = a2[1];
-                            byte[] bArr6 = a2[0];
-                            if (bArr6 != null && bArr6.length != 0) {
-                                if (bArr5 != null && bArr5.length != 0) {
-                                    JSONObject jSONObject6 = new JSONObject();
-                                    jSONObject2 = jSONObject3;
-                                    jSONObject6.put("transcheckdata", Base64.encodeToString(WbEncryptUtil.wbEncrypt(this.a, bArr6), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
-                                    jSONObject5.put("video", jSONObject6);
-                                    bArr = bArr5;
-                                } else {
-                                    throw new RuntimeException("empty mediaData");
-                                }
-                            } else {
-                                throw new RuntimeException("empty mediaSafeInfo");
-                            }
-                        } else {
-                            throw new RuntimeException("transformResult unexpected");
-                        }
-                    } else {
-                        throw new RuntimeException("mediaFile not exists");
-                    }
-                } else {
-                    jSONObject2 = jSONObject3;
-                    bArr = null;
+                if (this.s) {
+                    return;
                 }
-                byte[] bArr7 = bArr;
-                jSONObject4.put("t_c", this.V);
-                if (!this.u || (bitmap = this.J) == null) {
-                    bArr2 = bArr7;
-                } else {
-                    bArr2 = bArr7;
-                    jSONObject4.put("d_f", Base64.encodeToString(com.baidu.sofire.face.a.a.a(bitmap, 400, 300), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
-                    this.J.recycle();
-                    this.J = null;
-                }
-                if (!this.t || (bArr4 = this.M) == null || bArr4.length <= 0) {
-                    str = "-";
-                } else {
-                    str = "-";
-                    jSONObject4.put("d_p", Base64.encodeToString(com.baidu.sofire.face.a.a.a(this.a, bArr4, 400, 300), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
-                }
-                if (this.t && (bArr3 = this.N) != null && bArr3.length > 0) {
-                    jSONObject4.put("d_a", Base64.encodeToString(com.baidu.sofire.face.a.a.a(this.a, bArr3, 400, 300), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
-                }
-                if (jSONObject != null) {
-                    jSONObject4.put("s", jSONObject);
-                }
-                IFaceProcessInfo iFaceProcessInfo = this.m;
-                JSONObject buildJson = iFaceProcessInfo != null ? iFaceProcessInfo.buildJson() : null;
-                if (buildJson == null) {
-                    buildJson = new JSONObject();
-                }
-                if (this.T.size() == 1) {
-                    buildJson.put("image", this.T.values().iterator().next());
-                } else if (this.T.size() >= 2) {
-                    JSONArray jSONArray = new JSONArray();
-                    for (String str2 : this.T.values()) {
-                        jSONArray.put(str2);
-                    }
-                    buildJson.put("images", jSONArray);
-                }
-                buildJson.put("image_type", FaceEnum.ImageType.BASE64.name());
-                buildJson.put("image_sec", true);
-                buildJson.put("risk_identify", true);
-                buildJson.put("app", "android");
-                jSONObject5.put("face", buildJson);
-                JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put("zid", FH.gzfi(this.a, "", 5002));
-                jSONObject7.put(Config.EVENT_PART, "face");
-                jSONObject7.put(NotificationStyle.NOTIFICATION_STYLE, this.X);
-                jSONObject7.put("ts", System.currentTimeMillis());
-                TimeZone timeZone = TimeZone.getDefault();
-                if (timeZone != null) {
-                    jSONObject7.put("tz", timeZone.getID());
-                }
-                JSONArray jSONArray2 = this.W;
-                if (jSONArray2 != null) {
-                    jSONObject7.put("ce", jSONArray2);
-                }
-                jSONObject5.put("risk", jSONObject7);
-                jSONObject4.put("e", jSONObject5);
-                String str3 = com.baidu.sofire.face.a.e.d;
-                try {
-                    if (!TextUtils.isEmpty(str3)) {
-                        String str4 = str;
-                        String[] split = str3.split(str4);
-                        if (split.length >= 3) {
-                            StringBuilder sb = new StringBuilder();
-                            for (int i2 = 0; i2 < split.length - 3; i2++) {
-                                sb.append(split[i2]);
-                                sb.append(str4);
-                            }
-                            sb.append(split[split.length - 3]);
-                            str3 = sb.toString();
-                        }
-                    }
-                } catch (Throwable unused2) {
-                }
-                JSONObject jSONObject8 = jSONObject2;
-                jSONObject8.put("licenseId", str3);
-                jSONObject8.put("data", Base64.encodeToString(WbEncryptUtil.wbEncrypt(this.a, jSONObject4.toString().getBytes()), 8).replace("\n", "").replace("\t", "").replace("\r", ""));
-                jSONObject8.put("app", "android");
-                String packageName = this.a.getPackageName();
-                if (packageName != null) {
-                    jSONObject8.put("pkg", packageName);
-                    try {
-                        Signature[] signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
-                        if (signatureArr != null && signatureArr.length > 0) {
-                            jSONObject8.put("sign", com.baidu.sofire.face.b.c.b(signatureArr[0].toByteArray()));
-                        }
-                    } catch (Throwable unused3) {
-                    }
-                }
-                this.b0 = com.baidu.sofire.face.b.b.a(this.a, jSONObject8.toString(), bArr2, this.e0);
-                return 1;
-            } catch (Throwable unused4) {
-                return -2;
+                this.s = true;
+                FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.r, Boolean.TRUE, "");
+                a(-6);
+            } catch (Throwable unused) {
             }
         }
-        return invokeL.intValue;
     }
 
-    public static void a(f fVar) {
+    public final String b() {
+        JSONObject a2;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, fVar) == null) {
-            synchronized (fVar) {
-                if (!fVar.P && !fVar.s) {
-                    fVar.O++;
-                    fVar.I = true;
-                    fVar.e();
-                    if (!fVar.P) {
-                        try {
-                            fVar.wait(2000L);
-                        } catch (InterruptedException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                Map map = this.Y;
+                if (map != null && map.size() > 0) {
+                    JSONObject jSONObject = new JSONObject();
+                    for (Map.Entry entry : this.Y.entrySet()) {
+                        long longValue = ((Long) entry.getKey()).longValue();
+                        FaceInfo faceInfo = (FaceInfo) entry.getValue();
+                        if (longValue > 0 && (a2 = a(faceInfo)) != null) {
+                            jSONObject.put(String.valueOf(longValue), a2);
                         }
                     }
-                    fVar.I = false;
+                    return jSONObject.toString();
                 }
+                return "";
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                Activity activity = this.b;
+                if (activity != null) {
+                    activity.runOnUiThread(new RunnableC0164f(this));
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                if (com.baidu.sofire.face.b.e.a().a(new a(this)) != 1) {
+                    a(-7);
+                }
+                com.baidu.sofire.face.b.e.a().a(new b(this));
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                this.b.runOnUiThread(new e(this));
+            } catch (Throwable th) {
+                this.P = true;
+                synchronized (this) {
+                    try {
+                        notifyAll();
+                    } catch (Throwable unused) {
+                    }
+                    c();
+                    com.baidu.sofire.face.b.b.a(this.a, this.r, 5, th);
+                }
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            try {
+                this.b.runOnUiThread(new c(this));
+            } catch (Throwable th) {
+                com.baidu.sofire.face.b.b.a(this.a, this.r, 2, th);
+                a(-5);
+            }
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048589, this, surfaceTexture, i2, i3) == null) && !this.s && surfaceTexture != null) {
+            TextureView textureView = this.c;
+            if (textureView != null) {
+                this.k = textureView.getHeight();
+                this.l = this.c.getWidth();
+            }
+            Camera camera = this.A;
+            if (camera != null) {
+                try {
+                    camera.setPreviewTexture(surfaceTexture);
+                } catch (Throwable unused) {
+                }
+            }
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(1048591, this, surfaceTexture, i2, i3) != null) || this.s || surfaceTexture == null) {
+            return;
+        }
+        if (this.F) {
+            f();
+        } else if (this.I) {
+            e();
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+        TextureView textureView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, surfaceTexture) == null) {
+            try {
+                if (this.p || this.s || this.K > 0 || (textureView = this.c) == null) {
+                    return;
+                }
+                Bitmap bitmap = textureView.getBitmap();
+                this.L = bitmap;
+                if (this.u && this.J == null) {
+                    this.J = bitmap;
+                }
+                if (this.R == null && !this.p && !this.s) {
+                    if (!com.baidu.sofire.face.a.e.b()) {
+                        a(-20);
+                    }
+                    if (this.g == null) {
+                        this.g = new k(this);
+                    }
+                    ILivenessStrategy livenessStrategyModule = FaceSDKManager.getInstance().getLivenessStrategyModule(this.g);
+                    this.R = livenessStrategyModule;
+                    livenessStrategyModule.setISecurityCallback(this);
+                    this.R.setPreviewDegree(this.w.get());
+                    this.R.setLivenessStrategySoundEnable(this.o);
+                    this.R.setLivenessStrategyConfig(this.Q.getLivenessTypeList(), this.x, this.y, this.e);
+                }
+                this.K++;
+            } catch (Throwable th) {
+                com.baidu.sofire.face.b.b.a(this.a, this.r, 3, th);
+                a(-11);
             }
         }
     }

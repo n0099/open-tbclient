@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -66,33 +65,33 @@ public class h {
         }
     }
 
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x0333 */
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x0334 */
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x0341 */
-    /* JADX WARN: Code restructure failed: missing block: B:110:0x022f, code lost:
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x0338 */
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x0339 */
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x0346 */
+    /* JADX WARN: Code restructure failed: missing block: B:110:0x0230, code lost:
         if (r1 == null) goto L96;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x026e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x0270, code lost:
         if (r1 == null) goto L96;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x02ad, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:136:0x02b0, code lost:
         if (r1 == null) goto L96;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:149:0x02ec, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:149:0x02f0, code lost:
         if (r1 == null) goto L96;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:162:0x032a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:162:0x032f, code lost:
         if (r1 == null) goto L96;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:163:0x032c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:163:0x0331, code lost:
         r16 = r1;
         r2 = r3;
      */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x022c A[Catch: all -> 0x0333, TRY_ENTER, TRY_LEAVE, TryCatch #10 {all -> 0x0333, blocks: (B:109:0x022c, B:122:0x026b, B:135:0x02aa, B:148:0x02e9, B:161:0x0327), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x026b A[Catch: all -> 0x0333, TRY_ENTER, TRY_LEAVE, TryCatch #10 {all -> 0x0333, blocks: (B:109:0x022c, B:122:0x026b, B:135:0x02aa, B:148:0x02e9, B:161:0x0327), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x02aa A[Catch: all -> 0x0333, TRY_ENTER, TRY_LEAVE, TryCatch #10 {all -> 0x0333, blocks: (B:109:0x022c, B:122:0x026b, B:135:0x02aa, B:148:0x02e9, B:161:0x0327), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x02e9 A[Catch: all -> 0x0333, TRY_ENTER, TRY_LEAVE, TryCatch #10 {all -> 0x0333, blocks: (B:109:0x022c, B:122:0x026b, B:135:0x02aa, B:148:0x02e9, B:161:0x0327), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:161:0x0327 A[Catch: all -> 0x0333, TRY_ENTER, TRY_LEAVE, TryCatch #10 {all -> 0x0333, blocks: (B:109:0x022c, B:122:0x026b, B:135:0x02aa, B:148:0x02e9, B:161:0x0327), top: B:184:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x022d A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x026d A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x02ad A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x02ed A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x032c A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
     /* JADX WARN: Type inference failed for: r10v0, types: [int, java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -151,16 +150,14 @@ public class h {
                             dataOutputStream.close();
                         }
                         if (Build.VERSION.SDK_INT >= 21 || httpsURLConnection.getResponseCode() != 302) {
-                            str6 = Headers.LOCATION;
+                            str6 = "Location";
                         } else {
-                            String headerField = httpsURLConnection.getHeaderField(Headers.LOCATION);
+                            String headerField = httpsURLConnection.getHeaderField("Location");
                             if (!TextUtils.isEmpty(headerField)) {
                                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                                 if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
-                                    int a2 = j.a(j.b(headerField));
-                                    Class<?> cls = Class.forName("android.net.ConnectivityManager");
-                                    str6 = Headers.LOCATION;
-                                    cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(connectivityManager, 5, Integer.valueOf(a2));
+                                    str6 = "Location";
+                                    Class.forName("android.net.ConnectivityManager").getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(connectivityManager, 5, Integer.valueOf(j.a(j.b(headerField))));
                                     URL url2 = new URL(headerField);
                                     httpsURLConnection = (HttpsURLConnection) ((network != null || Build.VERSION.SDK_INT < 21) ? url2.openConnection() : network.openConnection(url2));
                                     httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
@@ -174,7 +171,7 @@ public class h {
                                     httpsURLConnection.connect();
                                 }
                             }
-                            str6 = Headers.LOCATION;
+                            str6 = "Location";
                             URL url22 = new URL(headerField);
                             httpsURLConnection = (HttpsURLConnection) ((network != null || Build.VERSION.SDK_INT < 21) ? url22.openConnection() : network.openConnection(url22));
                             httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
@@ -217,8 +214,8 @@ public class h {
                                         str7 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
                                         String str8 = a;
                                         CtAuth.warn(str8, "sendRequest SocketTimeoutException-preauth-" + socketTimeoutException.getMessage(), socketTimeoutException);
-                                        cn.com.chinatelecom.gateway.lib.b.a a3 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                        a3.h("doPost SocketTimeoutException -- " + socketTimeoutException.getMessage());
+                                        cn.com.chinatelecom.gateway.lib.b.a a2 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                        a2.h("doPost SocketTimeoutException -- " + socketTimeoutException.getMessage());
                                         if (bufferedReader5 != null) {
                                         }
                                     } catch (UnknownHostException e2) {
@@ -227,8 +224,8 @@ public class h {
                                         str7 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
                                         String str9 = a;
                                         CtAuth.warn(str9, "sendRequest UnknownHostException-preauth-" + unknownHostException.getMessage(), unknownHostException);
-                                        cn.com.chinatelecom.gateway.lib.b.a a4 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                        a4.h("doPost UnknownHostException -- " + unknownHostException.getMessage());
+                                        cn.com.chinatelecom.gateway.lib.b.a a3 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                        a3.h("doPost UnknownHostException -- " + unknownHostException.getMessage());
                                         if (bufferedReader4 != null) {
                                         }
                                     } catch (SSLPeerUnverifiedException e3) {
@@ -237,8 +234,8 @@ public class h {
                                         str7 = "{\"result\":80013,\"msg\":\"域名校验未通过\"}";
                                         String str10 = a;
                                         CtAuth.warn(str10, "sendRequest SSLPeerUnverifiedException-preauth-" + sSLPeerUnverifiedException.getMessage(), sSLPeerUnverifiedException);
-                                        cn.com.chinatelecom.gateway.lib.b.a a5 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                        a5.h("doPost SSLPeerUnverifiedException -- " + sSLPeerUnverifiedException.getMessage());
+                                        cn.com.chinatelecom.gateway.lib.b.a a4 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                        a4.h("doPost SSLPeerUnverifiedException -- " + sSLPeerUnverifiedException.getMessage());
                                         if (bufferedReader3 != null) {
                                         }
                                     } catch (IOException e4) {
@@ -247,8 +244,8 @@ public class h {
                                         str7 = "{\"result\":80007,\"msg\":\"IO异常\"}";
                                         String str11 = a;
                                         CtAuth.warn(str11, "sendRequest IOException-preauth-" + iOException.getMessage(), iOException);
-                                        cn.com.chinatelecom.gateway.lib.b.a a6 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                        a6.h("doPost IOException -- " + iOException.getMessage());
+                                        cn.com.chinatelecom.gateway.lib.b.a a5 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                        a5.h("doPost IOException -- " + iOException.getMessage());
                                         if (bufferedReader2 != null) {
                                         }
                                     } catch (Throwable th2) {
@@ -257,8 +254,8 @@ public class h {
                                         str7 = "{\"result\":80001,\"msg\":\"请求异常\"}";
                                         String str12 = a;
                                         CtAuth.warn(str12, "sendRequest Throwable-preauth-" + th.getMessage(), th);
-                                        cn.com.chinatelecom.gateway.lib.b.a a7 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                        a7.h("doPost Throwable -- " + th.getMessage());
+                                        cn.com.chinatelecom.gateway.lib.b.a a6 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                        a6.h("doPost Throwable -- " + th.getMessage());
                                         if (bufferedReader != null) {
                                         }
                                     }
@@ -273,8 +270,8 @@ public class h {
                                 str7 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
                                 String str82 = a;
                                 CtAuth.warn(str82, "sendRequest SocketTimeoutException-preauth-" + socketTimeoutException.getMessage(), socketTimeoutException);
-                                cn.com.chinatelecom.gateway.lib.b.a a32 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                a32.h("doPost SocketTimeoutException -- " + socketTimeoutException.getMessage());
+                                cn.com.chinatelecom.gateway.lib.b.a a22 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                a22.h("doPost SocketTimeoutException -- " + socketTimeoutException.getMessage());
                                 if (bufferedReader5 != null) {
                                     bufferedReader5.close();
                                 }
@@ -284,8 +281,8 @@ public class h {
                                 str7 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
                                 String str92 = a;
                                 CtAuth.warn(str92, "sendRequest UnknownHostException-preauth-" + unknownHostException.getMessage(), unknownHostException);
-                                cn.com.chinatelecom.gateway.lib.b.a a42 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                a42.h("doPost UnknownHostException -- " + unknownHostException.getMessage());
+                                cn.com.chinatelecom.gateway.lib.b.a a32 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                a32.h("doPost UnknownHostException -- " + unknownHostException.getMessage());
                                 if (bufferedReader4 != null) {
                                     bufferedReader4.close();
                                 }
@@ -295,8 +292,8 @@ public class h {
                                 str7 = "{\"result\":80013,\"msg\":\"域名校验未通过\"}";
                                 String str102 = a;
                                 CtAuth.warn(str102, "sendRequest SSLPeerUnverifiedException-preauth-" + sSLPeerUnverifiedException.getMessage(), sSLPeerUnverifiedException);
-                                cn.com.chinatelecom.gateway.lib.b.a a52 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                a52.h("doPost SSLPeerUnverifiedException -- " + sSLPeerUnverifiedException.getMessage());
+                                cn.com.chinatelecom.gateway.lib.b.a a42 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                a42.h("doPost SSLPeerUnverifiedException -- " + sSLPeerUnverifiedException.getMessage());
                                 if (bufferedReader3 != null) {
                                     bufferedReader3.close();
                                 }
@@ -306,8 +303,8 @@ public class h {
                                 str7 = "{\"result\":80007,\"msg\":\"IO异常\"}";
                                 String str112 = a;
                                 CtAuth.warn(str112, "sendRequest IOException-preauth-" + iOException.getMessage(), iOException);
-                                cn.com.chinatelecom.gateway.lib.b.a a62 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                a62.h("doPost IOException -- " + iOException.getMessage());
+                                cn.com.chinatelecom.gateway.lib.b.a a52 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                a52.h("doPost IOException -- " + iOException.getMessage());
                                 if (bufferedReader2 != null) {
                                     bufferedReader2.close();
                                 }
@@ -317,8 +314,8 @@ public class h {
                                 str7 = "{\"result\":80001,\"msg\":\"请求异常\"}";
                                 String str122 = a;
                                 CtAuth.warn(str122, "sendRequest Throwable-preauth-" + th.getMessage(), th);
-                                cn.com.chinatelecom.gateway.lib.b.a a72 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
-                                a72.h("doPost Throwable -- " + th.getMessage());
+                                cn.com.chinatelecom.gateway.lib.b.a a62 = cn.com.chinatelecom.gateway.lib.b.d.a(str4);
+                                a62.h("doPost Throwable -- " + th.getMessage());
                                 if (bufferedReader != null) {
                                     bufferedReader.close();
                                 }
@@ -445,7 +442,7 @@ public class h {
                     httpsURLConnection.addRequestProperty("Accept-Charset", "UTF-8");
                     httpsURLConnection.connect();
                     if (httpsURLConnection.getResponseCode() == 302) {
-                        URL url2 = new URL(httpsURLConnection.getHeaderField(Headers.LOCATION));
+                        URL url2 = new URL(httpsURLConnection.getHeaderField("Location"));
                         httpsURLConnection = (HttpsURLConnection) ((network == null || Build.VERSION.SDK_INT < 21) ? url2.openConnection() : network.openConnection(url2));
                         httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
                         httpsURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);

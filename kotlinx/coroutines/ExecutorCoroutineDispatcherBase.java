@@ -11,7 +11,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlinx.coroutines.Delay;
@@ -20,22 +19,6 @@ import kotlinx.coroutines.internal.ConcurrentKt;
 /* loaded from: classes8.dex */
 public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineDispatcher implements Delay {
     public boolean removesFutureOnCancellation;
-
-    private final ScheduledFuture<?> scheduleBlock(Runnable runnable, long j, TimeUnit timeUnit) {
-        try {
-            Executor executor = getExecutor();
-            if (!(executor instanceof ScheduledExecutorService)) {
-                executor = null;
-            }
-            ScheduledExecutorService scheduledExecutorService = (ScheduledExecutorService) executor;
-            if (scheduledExecutorService != null) {
-                return scheduledExecutorService.schedule(runnable, j, timeUnit);
-            }
-            return null;
-        } catch (RejectedExecutionException unused) {
-            return null;
-        }
-    }
 
     @Override // kotlinx.coroutines.ExecutorCoroutineDispatcher, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
@@ -49,8 +32,37 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
         }
     }
 
+    public int hashCode() {
+        return System.identityHashCode(getExecutor());
+    }
+
+    public final void initFutureCancellation$kotlinx_coroutines_core() {
+        this.removesFutureOnCancellation = ConcurrentKt.removeFutureOnCancel(getExecutor());
+    }
+
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public String toString() {
+        return getExecutor().toString();
+    }
+
+    private final ScheduledFuture scheduleBlock(Runnable runnable, long j, TimeUnit timeUnit) {
+        try {
+            Executor executor = getExecutor();
+            if (!(executor instanceof ScheduledExecutorService)) {
+                executor = null;
+            }
+            ScheduledExecutorService scheduledExecutorService = (ScheduledExecutorService) executor;
+            if (scheduledExecutorService == null) {
+                return null;
+            }
+            return scheduledExecutorService.schedule(runnable, j, timeUnit);
+        } catch (RejectedExecutionException unused) {
+            return null;
+        }
+    }
+
     @Override // kotlinx.coroutines.Delay
-    public Object delay(long j, Continuation<? super Unit> continuation) {
+    public Object delay(long j, Continuation continuation) {
         return Delay.DefaultImpls.delay(this, j, continuation);
     }
 
@@ -73,36 +85,39 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
         }
     }
 
-    public boolean equals(Object obj) {
-        return (obj instanceof ExecutorCoroutineDispatcherBase) && ((ExecutorCoroutineDispatcherBase) obj).getExecutor() == getExecutor();
-    }
-
-    public int hashCode() {
-        return System.identityHashCode(getExecutor());
-    }
-
-    public final void initFutureCancellation$kotlinx_coroutines_core() {
-        this.removesFutureOnCancellation = ConcurrentKt.removeFutureOnCancel(getExecutor());
-    }
-
     @Override // kotlinx.coroutines.Delay
     public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
-        ScheduledFuture<?> scheduleBlock = this.removesFutureOnCancellation ? scheduleBlock(runnable, j, TimeUnit.MILLISECONDS) : null;
-        return scheduleBlock != null ? new DisposableFutureHandle(scheduleBlock) : DefaultExecutor.INSTANCE.invokeOnTimeout(j, runnable);
+        ScheduledFuture scheduledFuture;
+        if (this.removesFutureOnCancellation) {
+            scheduledFuture = scheduleBlock(runnable, j, TimeUnit.MILLISECONDS);
+        } else {
+            scheduledFuture = null;
+        }
+        if (scheduledFuture != null) {
+            return new DisposableFutureHandle(scheduledFuture);
+        }
+        return DefaultExecutor.INSTANCE.invokeOnTimeout(j, runnable);
     }
 
     @Override // kotlinx.coroutines.Delay
-    public void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
-        ScheduledFuture<?> scheduleBlock = this.removesFutureOnCancellation ? scheduleBlock(new ResumeUndispatchedRunnable(this, cancellableContinuation), j, TimeUnit.MILLISECONDS) : null;
-        if (scheduleBlock != null) {
-            JobKt.cancelFutureOnCancellation(cancellableContinuation, scheduleBlock);
+    public void scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
+        ScheduledFuture scheduledFuture;
+        if (this.removesFutureOnCancellation) {
+            scheduledFuture = scheduleBlock(new ResumeUndispatchedRunnable(this, cancellableContinuation), j, TimeUnit.MILLISECONDS);
+        } else {
+            scheduledFuture = null;
+        }
+        if (scheduledFuture != null) {
+            JobKt.cancelFutureOnCancellation(cancellableContinuation, scheduledFuture);
         } else {
             DefaultExecutor.INSTANCE.scheduleResumeAfterDelay(j, cancellableContinuation);
         }
     }
 
-    @Override // kotlinx.coroutines.CoroutineDispatcher
-    public String toString() {
-        return getExecutor().toString();
+    public boolean equals(Object obj) {
+        if ((obj instanceof ExecutorCoroutineDispatcherBase) && ((ExecutorCoroutineDispatcherBase) obj).getExecutor() == getExecutor()) {
+            return true;
+        }
+        return false;
     }
 }

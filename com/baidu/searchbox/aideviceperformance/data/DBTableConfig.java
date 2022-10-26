@@ -12,7 +12,7 @@ public class DBTableConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class LaunchTimeDBTable {
+    public class LaunchTimeDBTable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_LUNCH_TIME_COLUMN = "app_launch_time";
         public static final String CREATE_TABLE_SQL = "create table app_launch_time (event_time long default 0,app_launch_time long default 0);";
@@ -41,7 +41,7 @@ public class DBTableConfig {
     }
 
     /* loaded from: classes2.dex */
-    public static class UserStickinessDBTable {
+    public class UserStickinessDBTable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DB_NAME = "behavior_info.db";
         public static final boolean ENABLE_COUNT_RESTRICTION_FLAG = true;
@@ -50,7 +50,7 @@ public class DBTableConfig {
         public static final int RESTRICT_NUM = 150;
         public static final String TABLE_NAME = "user_stickiness";
         public static final int VERSION = 3;
-        public static List<String> sRegisterIds;
+        public static List sRegisterIds;
         public transient /* synthetic */ FieldHolder $fh;
 
         public UserStickinessDBTable() {
@@ -85,15 +85,19 @@ public class DBTableConfig {
                 }
                 String str = "";
                 for (int i = 0; i < sRegisterIds.size(); i++) {
-                    String str2 = sRegisterIds.get(i);
-                    str = i == sRegisterIds.size() - 1 ? str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0" : str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0,";
+                    String str2 = (String) sRegisterIds.get(i);
+                    if (i == sRegisterIds.size() - 1) {
+                        str = str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0";
+                    } else {
+                        str = str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0,";
+                    }
                 }
                 return str;
             }
             return (String) invokeV.objValue;
         }
 
-        public static void setRegisterIds(List<String> list) {
+        public static void setRegisterIds(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, null, list) == null) {
                 sRegisterIds = list;

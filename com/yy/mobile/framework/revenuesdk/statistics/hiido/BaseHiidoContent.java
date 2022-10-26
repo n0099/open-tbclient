@@ -43,9 +43,25 @@ public final class BaseHiidoContent extends AbstractHiidoContent {
     public String mUid;
     public String mUseChannel;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1132658684, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1132658684, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0010\u0018\u0000B\u0007¢\u0006\u0004\b\u0012\u0010\u0013J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\t\u001a\u00020\u00002\u0006\u0010\b\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\u0007J\u0015\u0010\u000b\u001a\u00020\u00002\u0006\u0010\n\u001a\u00020\u0004¢\u0006\u0004\b\u000b\u0010\u0007J\u0015\u0010\r\u001a\u00020\u00002\u0006\u0010\f\u001a\u00020\u0004¢\u0006\u0004\b\r\u0010\u0007J\u0015\u0010\u000f\u001a\u00020\u00002\u0006\u0010\u000e\u001a\u00020\u0004¢\u0006\u0004\b\u000f\u0010\u0007R\u0016\u0010\u0010\u001a\u00020\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0010\u0010\u0011¨\u0006\u0014"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent$BaseHiidoContentBuilder;", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;", "build", "()Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;", "", "act", "setAct", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent$BaseHiidoContentBuilder;", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "setAppId", "hostId", "setHostId", "uid", "setUid", "useChannel", "setUseChannel", "baseHiidoContent", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class BaseHiidoContentBuilder {
+    public final class BaseHiidoContentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BaseHiidoContent baseHiidoContent;
@@ -69,63 +85,66 @@ public final class BaseHiidoContent extends AbstractHiidoContent {
         public final BaseHiidoContent build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.baseHiidoContent : (BaseHiidoContent) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.baseHiidoContent;
+            }
+            return (BaseHiidoContent) invokeV.objValue;
         }
 
         public final BaseHiidoContentBuilder setAct(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.baseHiidoContent.mAct = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
+                return (BaseHiidoContentBuilder) invokeL.objValue;
             }
-            return (BaseHiidoContentBuilder) invokeL.objValue;
+            this.baseHiidoContent.mAct = str;
+            return this;
         }
 
         public final BaseHiidoContentBuilder setAppId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.baseHiidoContent.mAppId = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) != null) {
+                return (BaseHiidoContentBuilder) invokeL.objValue;
             }
-            return (BaseHiidoContentBuilder) invokeL.objValue;
+            this.baseHiidoContent.mAppId = str;
+            return this;
         }
 
         public final BaseHiidoContentBuilder setHostId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.baseHiidoContent.mHostId = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+                return (BaseHiidoContentBuilder) invokeL.objValue;
             }
-            return (BaseHiidoContentBuilder) invokeL.objValue;
+            this.baseHiidoContent.mHostId = str;
+            return this;
         }
 
         public final BaseHiidoContentBuilder setUid(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.baseHiidoContent.mUid = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
+                return (BaseHiidoContentBuilder) invokeL.objValue;
             }
-            return (BaseHiidoContentBuilder) invokeL.objValue;
+            this.baseHiidoContent.mUid = str;
+            return this;
         }
 
         public final BaseHiidoContentBuilder setUseChannel(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.baseHiidoContent.mUseChannel = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, str)) != null) {
+                return (BaseHiidoContentBuilder) invokeL.objValue;
             }
-            return (BaseHiidoContentBuilder) invokeL.objValue;
+            this.baseHiidoContent.mUseChannel = str;
+            return this;
         }
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0013\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0012\u0010\u0013R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003R\u0016\u0010\f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\f\u0010\u0003R\u0016\u0010\r\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0003R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0010\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003¨\u0006\u0014"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent$Companion;", "", "ACT", "Ljava/lang/String;", "APPID", "APPKEY", "BUNDLEID", "CLIENTVER", "HIIDOYYSYSTEM", "HOSTID", "KEY", "MBOS", "SDKVER", "SJM", "SYS", "TIME", "UID", "USECHANNEL", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -146,22 +165,6 @@ public final class BaseHiidoContent extends AbstractHiidoContent {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1132658684, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1132658684, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
     }
 
     public BaseHiidoContent() {
@@ -188,7 +191,14 @@ public final class BaseHiidoContent extends AbstractHiidoContent {
     public String getAct() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAct : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAct;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ BaseHiidoContent(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.statistics.hiido.AbstractHiidoContent
@@ -261,7 +271,7 @@ public final class BaseHiidoContent extends AbstractHiidoContent {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.statistics.hiido.AbstractHiidoContent
-    public Map<String, String> getMapContent() {
+    public Map getMapContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -294,9 +304,5 @@ public final class BaseHiidoContent extends AbstractHiidoContent {
             return linkedHashMap;
         }
         return (Map) invokeV.objValue;
-    }
-
-    public /* synthetic */ BaseHiidoContent(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
     }
 }

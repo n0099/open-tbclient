@@ -1,10 +1,9 @@
 package com.yy.hiidostatis.message;
 
-import com.yy.hiidostatis.api.StatisContent;
 import java.util.List;
 /* loaded from: classes8.dex */
 public interface MessageStore {
-    int notSave(List<StatisContent> list);
+    int notSave(List list);
 
-    int save(List<StatisContent> list);
+    int save(List list);
 }

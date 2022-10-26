@@ -98,7 +98,7 @@ public class o {
         }
     }
 
-    public static void a(Context context, Class<?> cls) {
+    public static void a(Context context, Class cls) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65542, null, context, cls) == null) || context == null || cls == null) {
             return;

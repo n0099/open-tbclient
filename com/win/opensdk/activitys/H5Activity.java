@@ -84,6 +84,53 @@ public class H5Activity extends Activity implements L1 {
         context.startActivity(intent);
     }
 
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        Info info;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (info = this.e) != null && info.getCb() == 0) {
+            super.onBackPressed();
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Info info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
+            if (keyEvent.getKeyCode() != 4 || (info = this.e) == null || info.getCb() > 0) {
+                return super.onKeyDown(i, keyEvent);
+            }
+            return true;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onRestoreInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            super.onRestoreInstanceState(bundle);
+            try {
+                this.f = bundle.getString("st_pid");
+                this.e = (Info) bundle.getSerializable("st_info");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putString("st_pid", this.f);
+            bundle.putSerializable("st_info", this.e);
+        }
+    }
+
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x00a3 */
     /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: int */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -93,6 +140,7 @@ public class H5Activity extends Activity implements L1 {
     /* JADX WARN: Type inference failed for: r5v3 */
     /* JADX WARN: Type inference failed for: r5v4, types: [boolean] */
     public final void a() {
+        boolean z;
         char c;
         View decorView;
         int i;
@@ -116,6 +164,11 @@ public class H5Activity extends Activity implements L1 {
                 String str = this.f;
                 int i4 = 1;
                 if (!TextUtils.isEmpty(str) && str.length() > 3) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
                     String substring = str.substring(0, 3);
                     switch (substring.hashCode()) {
                         case 53431:
@@ -165,12 +218,14 @@ public class H5Activity extends Activity implements L1 {
                             c = 65535;
                             break;
                     }
-                    if (c == 0) {
-                        i4 = 0;
-                    } else if (c != 1) {
-                        if (c == 2 || c == 3) {
-                            i4 = info2.isVertical();
+                    if (c != 0) {
+                        if (c != 1) {
+                            if (c == 2 || c == 3) {
+                                i4 = info2.isVertical();
+                            }
                         }
+                    } else {
+                        i4 = 0;
                     }
                     setRequestedOrientation(i4);
                 }
@@ -203,12 +258,109 @@ public class H5Activity extends Activity implements L1 {
         }
     }
 
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        Info info;
+    public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (info = this.e) != null && info.getCb() == 0) {
-            super.onBackPressed();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.e != null) {
+            M1.a(this.e.getId() + this.f, "is_click", null);
+            if (N.d.c && this.e.getOpent() == 1) {
+                return;
+            }
+            V1.a(this.a, str, this.e, this.i, str2);
+            e1.a(this.a).a(new f1(this.e), str).a("desc", str2).a();
+            M.a(this.e, str2);
+        }
+    }
+
+    @Override // com.win.opensdk.L1
+    public void a(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, obj) == null) {
+            if (str.equals("hcl")) {
+                finish();
+                if (this.e != null) {
+                    M1.a(this.e.getId() + this.f, "is_dismiss", null);
+                    M1.a(this.e.getId() + this.f);
+                }
+                M1.a("hcl");
+                M1.a("onT");
+                M1.a("onRewardedShowFail");
+                M1.a("onPlayProgress");
+                M1.a("onRewardedAdFinish");
+                M1.a("onRewardedAdStart");
+                return;
+            }
+            try {
+                if (str.equals("onRewardedShowFail")) {
+                    d1 a = e1.a(this.a);
+                    String str3 = (String) obj;
+                    try {
+                        a.b = e1.a("vvsf", new f1(this.e));
+                        a.a("desc", str3);
+                    } catch (JSONException unused) {
+                    }
+                    a.a();
+                    M1.a(this.e.getId() + this.f, "VIDEO_SHOW_FAIL", (String) obj);
+                } else if (str.equals("onRewardedAdFinish")) {
+                    int intValue = ((Integer) obj).intValue();
+                    if (intValue >= 0 && intValue >= this.e.getVvt() * 0.9d) {
+                        d1 a2 = e1.a(this.a);
+                        f1 f1Var = new f1(this.e);
+                        long vvamount = this.e.getVvamount();
+                        try {
+                            a2.b = e1.a("vvss", f1Var);
+                            a2.a("desc", vvamount);
+                        } catch (JSONException unused2) {
+                        }
+                        a2.a();
+                        M1.a(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.e.getVvamount()));
+                    } else {
+                        M1.a(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", null);
+                    }
+                    Info info = this.e;
+                    try {
+                        M.a(info, 401, "");
+                        if (info != null && !TextUtils.isEmpty(info.getVv_finish_urls())) {
+                            M.g(info.getVv_finish_urls());
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else if (str.equals("onPlayProgress")) {
+                    d1 a3 = e1.a(this.a);
+                    f1 f1Var2 = new f1(this.e);
+                    int intValue2 = ((Integer) obj).intValue();
+                    try {
+                        a3.b = e1.a("vvst", f1Var2);
+                        a3.a("desc", intValue2);
+                    } catch (JSONException unused3) {
+                    }
+                    a3.a();
+                } else if (str.equals("onRewardedAdStart")) {
+                    Info info2 = this.e;
+                    if (info2 != null) {
+                        try {
+                            if (!TextUtils.isEmpty(info2.getVv_start_urls())) {
+                                M.a(info2, 400, "");
+                                M.g(info2.getVv_start_urls());
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                } else if (str.equals("onT") && V1.a(this.e, this.h)) {
+                    this.h = System.currentTimeMillis();
+                    if (TextUtils.isEmpty(this.g)) {
+                        this.g = "";
+                    }
+                    try {
+                        a((String) obj, this.g);
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+            } catch (Exception e4) {
+                e4.printStackTrace();
+            }
         }
     }
 
@@ -217,10 +369,10 @@ public class H5Activity extends Activity implements L1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d092c);
+            setContentView(R.layout.obfuscated_res_0x7f0d092d);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092695);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f09268c);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09267d);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092674);
             this.h = 0L;
             this.i = new m2(this);
             M1.a("hcl", this);
@@ -287,152 +439,5 @@ public class H5Activity extends Activity implements L1 {
                 closeParentView.b();
             }
         }
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Info info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
-            if (keyEvent.getKeyCode() != 4 || (info = this.e) == null || info.getCb() > 0) {
-                return super.onKeyDown(i, keyEvent);
-            }
-            return true;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onRestoreInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            super.onRestoreInstanceState(bundle);
-            try {
-                this.f = bundle.getString("st_pid");
-                this.e = (Info) bundle.getSerializable("st_info");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putString("st_pid", this.f);
-            bundle.putSerializable("st_info", this.e);
-        }
-    }
-
-    @Override // com.win.opensdk.L1
-    public void a(String str, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, obj) == null) {
-            if (str.equals("hcl")) {
-                finish();
-                if (this.e != null) {
-                    M1.a(this.e.getId() + this.f, "is_dismiss", null);
-                    M1.a(this.e.getId() + this.f);
-                }
-                M1.a("hcl");
-                M1.a("onT");
-                M1.a("onRewardedShowFail");
-                M1.a("onPlayProgress");
-                M1.a("onRewardedAdFinish");
-                M1.a("onRewardedAdStart");
-                return;
-            }
-            try {
-                if (str.equals("onRewardedShowFail")) {
-                    d1 a = e1.a(this.a);
-                    String str3 = (String) obj;
-                    try {
-                        a.b = e1.a("vvsf", new f1(this.e));
-                        a.a("desc", str3);
-                    } catch (JSONException unused) {
-                    }
-                    a.a();
-                    M1.a(this.e.getId() + this.f, "VIDEO_SHOW_FAIL", (String) obj);
-                } else if (str.equals("onRewardedAdFinish")) {
-                    int intValue = ((Integer) obj).intValue();
-                    if (intValue < 0 || intValue < this.e.getVvt() * 0.9d) {
-                        M1.a(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", null);
-                    } else {
-                        d1 a2 = e1.a(this.a);
-                        f1 f1Var = new f1(this.e);
-                        long vvamount = this.e.getVvamount();
-                        try {
-                            a2.b = e1.a("vvss", f1Var);
-                            a2.a("desc", vvamount);
-                        } catch (JSONException unused2) {
-                        }
-                        a2.a();
-                        M1.a(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.e.getVvamount()));
-                    }
-                    Info info = this.e;
-                    try {
-                        M.a(info, 401, "");
-                        if (info == null || TextUtils.isEmpty(info.getVv_finish_urls())) {
-                            return;
-                        }
-                        M.g(info.getVv_finish_urls());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else if (str.equals("onPlayProgress")) {
-                    d1 a3 = e1.a(this.a);
-                    f1 f1Var2 = new f1(this.e);
-                    int intValue2 = ((Integer) obj).intValue();
-                    try {
-                        a3.b = e1.a("vvst", f1Var2);
-                        a3.a("desc", intValue2);
-                    } catch (JSONException unused3) {
-                    }
-                    a3.a();
-                } else if (str.equals("onRewardedAdStart")) {
-                    Info info2 = this.e;
-                    if (info2 != null) {
-                        try {
-                            if (TextUtils.isEmpty(info2.getVv_start_urls())) {
-                                return;
-                            }
-                            M.a(info2, 400, "");
-                            M.g(info2.getVv_start_urls());
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                } else if (str.equals("onT") && V1.a(this.e, this.h)) {
-                    this.h = System.currentTimeMillis();
-                    if (TextUtils.isEmpty(this.g)) {
-                        this.g = "";
-                    }
-                    try {
-                        a((String) obj, this.g);
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
-                    }
-                }
-            } catch (Exception e4) {
-                e4.printStackTrace();
-            }
-        }
-    }
-
-    public final void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.e == null) {
-            return;
-        }
-        M1.a(this.e.getId() + this.f, "is_click", null);
-        if (N.d.c && this.e.getOpent() == 1) {
-            return;
-        }
-        V1.a(this.a, str, this.e, this.i, str2);
-        e1.a(this.a).a(new f1(this.e), str).a("desc", str2).a();
-        M.a(this.e, str2);
     }
 }

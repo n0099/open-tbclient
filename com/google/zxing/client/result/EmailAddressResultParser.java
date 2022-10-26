@@ -55,17 +55,20 @@ public final class EmailAddressResultParser extends ResultParser {
         String[] strArr;
         String[] strArr2;
         String[] strArr3;
+        String[] strArr4;
         String str;
         String str2;
+        String[] strArr5;
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, result)) == null) {
             String massagedText = ResultParser.getMassagedText(result);
+            String[] strArr6 = null;
             if (!massagedText.startsWith(WebView.SCHEME_MAILTO) && !massagedText.startsWith("MAILTO:")) {
-                if (EmailDoCoMoResultParser.isBasicallyValidEmailAddress(massagedText)) {
-                    return new EmailAddressParsedResult(massagedText);
+                if (!EmailDoCoMoResultParser.isBasicallyValidEmailAddress(massagedText)) {
+                    return null;
                 }
-                return null;
+                return new EmailAddressParsedResult(massagedText);
             }
             String substring = massagedText.substring(7);
             int indexOf = substring.indexOf(63);
@@ -74,29 +77,39 @@ public final class EmailAddressResultParser extends ResultParser {
             }
             try {
                 String urlDecode = ResultParser.urlDecode(substring);
-                String[] split = !urlDecode.isEmpty() ? COMMA.split(urlDecode) : null;
-                Map<String, String> parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
-                if (parseNameValuePairs != null) {
-                    if (split == null && (str3 = parseNameValuePairs.get("to")) != null) {
-                        split = COMMA.split(str3);
-                    }
-                    String str4 = parseNameValuePairs.get("cc");
-                    String[] split2 = str4 != null ? COMMA.split(str4) : null;
-                    String str5 = parseNameValuePairs.get("bcc");
-                    String[] split3 = str5 != null ? COMMA.split(str5) : null;
-                    str2 = parseNameValuePairs.get(TtmlNode.TAG_BODY);
-                    strArr = split;
-                    strArr3 = split3;
-                    strArr2 = split2;
-                    str = parseNameValuePairs.get("subject");
+                if (!urlDecode.isEmpty()) {
+                    strArr = COMMA.split(urlDecode);
                 } else {
-                    strArr = split;
-                    strArr2 = null;
+                    strArr = null;
+                }
+                Map parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
+                if (parseNameValuePairs != null) {
+                    if (strArr == null && (str3 = (String) parseNameValuePairs.get("to")) != null) {
+                        strArr = COMMA.split(str3);
+                    }
+                    String str4 = (String) parseNameValuePairs.get("cc");
+                    if (str4 != null) {
+                        strArr5 = COMMA.split(str4);
+                    } else {
+                        strArr5 = null;
+                    }
+                    String str5 = (String) parseNameValuePairs.get("bcc");
+                    if (str5 != null) {
+                        strArr6 = COMMA.split(str5);
+                    }
+                    str2 = (String) parseNameValuePairs.get(TtmlNode.TAG_BODY);
+                    strArr2 = strArr;
+                    strArr4 = strArr6;
+                    strArr3 = strArr5;
+                    str = (String) parseNameValuePairs.get("subject");
+                } else {
+                    strArr2 = strArr;
                     strArr3 = null;
+                    strArr4 = null;
                     str = null;
                     str2 = null;
                 }
-                return new EmailAddressParsedResult(strArr, strArr2, strArr3, str, str2);
+                return new EmailAddressParsedResult(strArr2, strArr3, strArr4, str, str2);
             } catch (IllegalArgumentException unused) {
                 return null;
             }

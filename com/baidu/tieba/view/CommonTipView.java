@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.hh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,9 +55,10 @@ public class CommonTipView extends TextView {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.f();
         }
     }
 
@@ -89,10 +90,9 @@ public class CommonTipView extends TextView {
         public void run() {
             ViewGroup viewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) this.a.getParent()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (viewGroup = (ViewGroup) this.a.getParent()) != null) {
+                viewGroup.removeView(this.a);
             }
-            viewGroup.removeView(this.a);
         }
     }
 
@@ -101,6 +101,20 @@ public class CommonTipView extends TextView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonTipView a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
 
         public c(CommonTipView commonTipView) {
             Interceptable interceptable = $ic;
@@ -126,9 +140,16 @@ public class CommonTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.i();
                 this.a.setVisibility(8);
-                gh.a().postDelayed(this.a.e, 600L);
+                hh.a().postDelayed(this.a.e, 600L);
             }
         }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CommonTipView a;
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
@@ -143,13 +164,6 @@ public class CommonTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CommonTipView a;
 
         public d(CommonTipView commonTipView) {
             Interceptable interceptable = $ic;
@@ -175,20 +189,6 @@ public class CommonTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 CommonTipView commonTipView = this.a;
                 commonTipView.postDelayed(commonTipView.d, this.a.a);
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
             }
         }
     }
@@ -217,85 +217,6 @@ public class CommonTipView extends TextView {
         this.d = new a(this);
         this.e = new b(this);
         g();
-    }
-
-    public void e() {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) getParent()) == null) {
-            return;
-        }
-        viewGroup.removeView(this);
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            removeCallbacks(this.d);
-            if (getParent() != null) {
-                startAnimation(this.b);
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8));
-            setGravity(17);
-            this.b.setAnimationListener(new c(this));
-            this.c.setDuration(400L);
-            this.c.setAnimationListener(new d(this));
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundResource(this, R.color.common_color_10260, i);
-            SkinManager.setViewTextColor(this, R.color.CAM_X0111, 1, i);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeCallbacks(this.d);
-            gh.a().removeCallbacks(this.e);
-            e();
-        }
-    }
-
-    public void j(FrameLayout frameLayout, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, frameLayout, i) == null) || frameLayout == null) {
-            return;
-        }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702dd));
-        layoutParams.setMargins(0, 0, 0, 0);
-        frameLayout.addView(this, layoutParams);
-        h(i);
-        startAnimation(this.c);
-    }
-
-    public void k(LinearLayout linearLayout, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, linearLayout, i) == null) || linearLayout == null) {
-            return;
-        }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702dd));
-        layoutParams.gravity = 48;
-        linearLayout.addView(this, layoutParams);
-        h(i);
-        startAnimation(this.c);
-    }
-
-    public void setTipDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || i <= 0) {
-            return;
-        }
-        this.a = i;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -350,5 +271,82 @@ public class CommonTipView extends TextView {
         this.d = new a(this);
         this.e = new b(this);
         g();
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundResource(this, R.color.common_color_10260, i);
+            SkinManager.setViewTextColor(this, R.color.CAM_X0111, 1, i);
+        }
+    }
+
+    public void setTipDuration(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i > 0) {
+            this.a = i;
+        }
+    }
+
+    public void e() {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (viewGroup = (ViewGroup) getParent()) != null) {
+            viewGroup.removeView(this);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            removeCallbacks(this.d);
+            if (getParent() != null) {
+                startAnimation(this.b);
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            removeCallbacks(this.d);
+            hh.a().removeCallbacks(this.e);
+            e();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8));
+            setGravity(17);
+            this.b.setAnimationListener(new c(this));
+            this.c.setDuration(400L);
+            this.c.setAnimationListener(new d(this));
+        }
+    }
+
+    public void j(FrameLayout frameLayout, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048581, this, frameLayout, i) != null) || frameLayout == null) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702dd));
+        layoutParams.setMargins(0, 0, 0, 0);
+        frameLayout.addView(this, layoutParams);
+        h(i);
+        startAnimation(this.c);
+    }
+
+    public void k(LinearLayout linearLayout, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048582, this, linearLayout, i) != null) || linearLayout == null) {
+            return;
+        }
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702dd));
+        layoutParams.gravity = 48;
+        linearLayout.addView(this, layoutParams);
+        h(i);
+        startAnimation(this.c);
     }
 }

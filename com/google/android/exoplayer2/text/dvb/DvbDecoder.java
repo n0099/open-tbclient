@@ -16,7 +16,7 @@ public final class DvbDecoder extends SimpleSubtitleDecoder {
     public final DvbParser parser;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DvbDecoder(List<byte[]> list) {
+    public DvbDecoder(List list) {
         super("DvbDecoder");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,7 +33,7 @@ public final class DvbDecoder extends SimpleSubtitleDecoder {
                 return;
             }
         }
-        ParsableByteArray parsableByteArray = new ParsableByteArray(list.get(0));
+        ParsableByteArray parsableByteArray = new ParsableByteArray((byte[]) list.get(0));
         this.parser = new DvbParser(parsableByteArray.readUnsignedShort(), parsableByteArray.readUnsignedShort());
     }
 

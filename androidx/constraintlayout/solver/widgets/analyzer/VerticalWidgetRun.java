@@ -176,15 +176,15 @@ public class VerticalWidgetRun extends WidgetRun {
                             return;
                         }
                         return;
-                    } else if ((constraintWidget3 instanceof Helper) || constraintWidget3.getParent() == null || this.widget.getAnchor(ConstraintAnchor.Type.CENTER).mTarget != null) {
-                        return;
-                    } else {
+                    } else if (!(constraintWidget3 instanceof Helper) && constraintWidget3.getParent() != null && this.widget.getAnchor(ConstraintAnchor.Type.CENTER).mTarget == null) {
                         addTarget(this.start, this.widget.getParent().verticalRun.start, this.widget.getY());
                         addTarget(this.end, this.start, this.dimension.value);
                         if (this.widget.hasBaseline()) {
                             addTarget(this.baseline, this.start, this.widget.getBaselineDistance());
                             return;
                         }
+                        return;
+                    } else {
                         return;
                     }
                 }
@@ -337,7 +337,13 @@ public class VerticalWidgetRun extends WidgetRun {
     public boolean supportsWrapComputation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.dimensionBehavior != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT || this.widget.mMatchConstraintDefaultHeight == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.dimensionBehavior != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT || this.widget.mMatchConstraintDefaultHeight == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {
@@ -360,14 +366,18 @@ public class VerticalWidgetRun extends WidgetRun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dependency) == null) {
             int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$analyzer$WidgetRun$RunType[this.mRunType.ordinal()];
-            if (i2 == 1) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
+                        ConstraintWidget constraintWidget2 = this.widget;
+                        updateRunCenter(dependency, constraintWidget2.mTop, constraintWidget2.mBottom, 1);
+                        return;
+                    }
+                } else {
+                    updateRunEnd(dependency);
+                }
+            } else {
                 updateRunStart(dependency);
-            } else if (i2 == 2) {
-                updateRunEnd(dependency);
-            } else if (i2 == 3) {
-                ConstraintWidget constraintWidget2 = this.widget;
-                updateRunCenter(dependency, constraintWidget2.mTop, constraintWidget2.mBottom, 1);
-                return;
             }
             DimensionDependency dimensionDependency2 = this.dimension;
             if (dimensionDependency2.readyToSolve && !dimensionDependency2.resolved && this.dimensionBehavior == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
@@ -376,21 +386,25 @@ public class VerticalWidgetRun extends WidgetRun {
                 if (i3 != 2) {
                     if (i3 == 3 && constraintWidget3.horizontalRun.dimension.resolved) {
                         int dimensionRatioSide = constraintWidget3.getDimensionRatioSide();
-                        if (dimensionRatioSide == -1) {
-                            ConstraintWidget constraintWidget4 = this.widget;
-                            f = constraintWidget4.horizontalRun.dimension.value;
-                            dimensionRatio = constraintWidget4.getDimensionRatio();
-                        } else if (dimensionRatioSide == 0) {
-                            f2 = constraintWidget.horizontalRun.dimension.value * this.widget.getDimensionRatio();
-                            i = (int) (f2 + 0.5f);
-                            this.dimension.resolve(i);
-                        } else if (dimensionRatioSide == 1) {
+                        if (dimensionRatioSide != -1) {
+                            if (dimensionRatioSide != 0) {
+                                if (dimensionRatioSide != 1) {
+                                    i = 0;
+                                    this.dimension.resolve(i);
+                                } else {
+                                    ConstraintWidget constraintWidget4 = this.widget;
+                                    f = constraintWidget4.horizontalRun.dimension.value;
+                                    dimensionRatio = constraintWidget4.getDimensionRatio();
+                                }
+                            } else {
+                                f2 = constraintWidget.horizontalRun.dimension.value * this.widget.getDimensionRatio();
+                                i = (int) (f2 + 0.5f);
+                                this.dimension.resolve(i);
+                            }
+                        } else {
                             ConstraintWidget constraintWidget5 = this.widget;
                             f = constraintWidget5.horizontalRun.dimension.value;
                             dimensionRatio = constraintWidget5.getDimensionRatio();
-                        } else {
-                            i = 0;
-                            this.dimension.resolve(i);
                         }
                         f2 = f / dimensionRatio;
                         i = (int) (f2 + 0.5f);

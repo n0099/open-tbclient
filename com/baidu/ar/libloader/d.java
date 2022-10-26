@@ -14,7 +14,7 @@ import java.util.Map;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, List<ILibLoader.c>> sS;
+    public final Map sS;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d {
         this.sS = new HashMap();
     }
 
-    private void g(List<ILibLoader.c> list) {
+    private void g(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65537, this, list) == null) || list == null) {
             return;
@@ -48,7 +48,7 @@ public class d {
     public void a(String str, ILibLoader.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
-            List<ILibLoader.c> list = this.sS.get(str);
+            List list = (List) this.sS.get(str);
             if (list != null) {
                 list.add(cVar);
                 return;
@@ -69,8 +69,8 @@ public class d {
     public void fi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (Map.Entry<String, List<ILibLoader.c>> entry : this.sS.entrySet()) {
-                g(entry.getValue());
+            for (Map.Entry entry : this.sS.entrySet()) {
+                g((List) entry.getValue());
             }
         }
     }

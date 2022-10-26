@@ -30,49 +30,18 @@ public final class Detector {
 
     /* renamed from: com.google.zxing.datamatrix.detector.Detector$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class ResultPointsAndTransitions {
+    public final class ResultPointsAndTransitions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ResultPoint from;
         public final ResultPoint to;
         public final int transitions;
-
-        public /* synthetic */ ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i, AnonymousClass1 anonymousClass1) {
-            this(resultPoint, resultPoint2, i);
-        }
-
-        public ResultPoint getFrom() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.from : (ResultPoint) invokeV.objValue;
-        }
-
-        public ResultPoint getTo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.to : (ResultPoint) invokeV.objValue;
-        }
-
-        public int getTransitions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.transitions : invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.from + "/" + this.to + WebvttCueParser.CHAR_SLASH + this.transitions;
-            }
-            return (String) invokeV.objValue;
-        }
 
         public ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i) {
             Interceptable interceptable = $ic;
@@ -93,10 +62,50 @@ public final class Detector {
             this.to = resultPoint2;
             this.transitions = i;
         }
+
+        public /* synthetic */ ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i, AnonymousClass1 anonymousClass1) {
+            this(resultPoint, resultPoint2, i);
+        }
+
+        public ResultPoint getFrom() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.from;
+            }
+            return (ResultPoint) invokeV.objValue;
+        }
+
+        public ResultPoint getTo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.to;
+            }
+            return (ResultPoint) invokeV.objValue;
+        }
+
+        public int getTransitions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.transitions;
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.from + "/" + this.to + WebvttCueParser.CHAR_SLASH + this.transitions;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class ResultPointsAndTransitionsComparator implements Serializable, Comparator<ResultPointsAndTransitions> {
+    public final class ResultPointsAndTransitionsComparator implements Serializable, Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +132,10 @@ public final class Detector {
         public int compare(ResultPointsAndTransitions resultPointsAndTransitions, ResultPointsAndTransitions resultPointsAndTransitions2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resultPointsAndTransitions, resultPointsAndTransitions2)) == null) ? resultPointsAndTransitions.getTransitions() - resultPointsAndTransitions2.getTransitions() : invokeLL.intValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resultPointsAndTransitions, resultPointsAndTransitions2)) == null) {
+                return resultPointsAndTransitions.getTransitions() - resultPointsAndTransitions2.getTransitions();
+            }
+            return invokeLL.intValue;
         }
     }
 
@@ -146,6 +158,18 @@ public final class Detector {
         this.rectangleDetector = new WhiteRectangleDetector(bitMatrix);
     }
 
+    private boolean isValid(ResultPoint resultPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, resultPoint)) == null) {
+            if (resultPoint.getX() >= 0.0f && resultPoint.getX() < this.image.getWidth() && resultPoint.getY() > 0.0f && resultPoint.getY() < this.image.getHeight()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     private ResultPoint correctTopRight(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -157,12 +181,18 @@ public final class Detector {
             float distance3 = distance(resultPoint, resultPoint3) / f;
             float distance4 = distance(resultPoint2, resultPoint4);
             ResultPoint resultPoint6 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint2.getX()) / distance4) * distance3), resultPoint4.getY() + (distance3 * ((resultPoint4.getY() - resultPoint2.getY()) / distance4)));
-            if (isValid(resultPoint5)) {
-                return (isValid(resultPoint6) && Math.abs(transitionsBetween(resultPoint3, resultPoint5).getTransitions() - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(transitionsBetween(resultPoint3, resultPoint6).getTransitions() - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
-            } else if (isValid(resultPoint6)) {
-                return resultPoint6;
-            } else {
+            if (!isValid(resultPoint5)) {
+                if (isValid(resultPoint6)) {
+                    return resultPoint6;
+                }
                 return null;
+            } else if (!isValid(resultPoint6)) {
+                return resultPoint5;
+            } else {
+                if (Math.abs(transitionsBetween(resultPoint3, resultPoint5).getTransitions() - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) <= Math.abs(transitionsBetween(resultPoint3, resultPoint6).getTransitions() - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) {
+                    return resultPoint5;
+                }
+                return resultPoint6;
             }
         }
         return (ResultPoint) invokeCommon.objValue;
@@ -178,12 +208,18 @@ public final class Detector {
             float distance3 = distance(resultPoint, resultPoint3) / i2;
             float distance4 = distance(resultPoint2, resultPoint4);
             ResultPoint resultPoint6 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint2.getX()) / distance4) * distance3), resultPoint4.getY() + (distance3 * ((resultPoint4.getY() - resultPoint2.getY()) / distance4)));
-            if (isValid(resultPoint5)) {
-                return (isValid(resultPoint6) && Math.abs(i - transitionsBetween(resultPoint3, resultPoint5).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(i - transitionsBetween(resultPoint3, resultPoint6).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
-            } else if (isValid(resultPoint6)) {
-                return resultPoint6;
-            } else {
+            if (!isValid(resultPoint5)) {
+                if (isValid(resultPoint6)) {
+                    return resultPoint6;
+                }
                 return null;
+            } else if (!isValid(resultPoint6)) {
+                return resultPoint5;
+            } else {
+                if (Math.abs(i - transitionsBetween(resultPoint3, resultPoint5).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) <= Math.abs(i - transitionsBetween(resultPoint3, resultPoint6).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) {
+                    return resultPoint5;
+                }
+                return resultPoint6;
             }
         }
         return (ResultPoint) invokeCommon.objValue;
@@ -192,21 +228,22 @@ public final class Detector {
     public static int distance(ResultPoint resultPoint, ResultPoint resultPoint2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resultPoint, resultPoint2)) == null) ? MathUtils.round(ResultPoint.distance(resultPoint, resultPoint2)) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resultPoint, resultPoint2)) == null) {
+            return MathUtils.round(ResultPoint.distance(resultPoint, resultPoint2));
+        }
+        return invokeLL.intValue;
     }
 
-    public static void increment(Map<ResultPoint, Integer> map, ResultPoint resultPoint) {
+    public static void increment(Map map, ResultPoint resultPoint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, resultPoint) == null) {
-            Integer num = map.get(resultPoint);
-            map.put(resultPoint, Integer.valueOf(num != null ? 1 + num.intValue() : 1));
+            Integer num = (Integer) map.get(resultPoint);
+            int i = 1;
+            if (num != null) {
+                i = 1 + num.intValue();
+            }
+            map.put(resultPoint, Integer.valueOf(i));
         }
-    }
-
-    private boolean isValid(ResultPoint resultPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, resultPoint)) == null) ? resultPoint.getX() >= 0.0f && resultPoint.getX() < ((float) this.image.getWidth()) && resultPoint.getY() > 0.0f && resultPoint.getY() < ((float) this.image.getHeight()) : invokeL.booleanValue;
     }
 
     public static BitMatrix sampleGrid(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) throws NotFoundException {
@@ -222,14 +259,25 @@ public final class Detector {
 
     private ResultPointsAndTransitions transitionsBetween(ResultPoint resultPoint, ResultPoint resultPoint2) {
         InterceptResult invokeLL;
+        boolean z;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, resultPoint, resultPoint2)) == null) {
             int x = (int) resultPoint.getX();
             int y = (int) resultPoint.getY();
             int x2 = (int) resultPoint2.getX();
             int y2 = (int) resultPoint2.getY();
-            int i = 0;
-            boolean z = Math.abs(y2 - y) > Math.abs(x2 - x);
+            int i6 = 0;
+            int i7 = 1;
+            if (Math.abs(y2 - y) > Math.abs(x2 - x)) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (z) {
                 y = x;
                 x = y;
@@ -238,27 +286,55 @@ public final class Detector {
             }
             int abs = Math.abs(x2 - x);
             int abs2 = Math.abs(y2 - y);
-            int i2 = (-abs) / 2;
-            int i3 = y < y2 ? 1 : -1;
-            int i4 = x >= x2 ? -1 : 1;
-            boolean z2 = this.image.get(z ? y : x, z ? x : y);
+            int i8 = (-abs) / 2;
+            if (y < y2) {
+                i = 1;
+            } else {
+                i = -1;
+            }
+            if (x >= x2) {
+                i7 = -1;
+            }
+            BitMatrix bitMatrix = this.image;
+            if (z) {
+                i2 = y;
+            } else {
+                i2 = x;
+            }
+            if (z) {
+                i3 = x;
+            } else {
+                i3 = y;
+            }
+            boolean z2 = bitMatrix.get(i2, i3);
             while (x != x2) {
-                boolean z3 = this.image.get(z ? y : x, z ? x : y);
+                BitMatrix bitMatrix2 = this.image;
+                if (z) {
+                    i4 = y;
+                } else {
+                    i4 = x;
+                }
+                if (z) {
+                    i5 = x;
+                } else {
+                    i5 = y;
+                }
+                boolean z3 = bitMatrix2.get(i4, i5);
                 if (z3 != z2) {
-                    i++;
+                    i6++;
                     z2 = z3;
                 }
-                i2 += abs2;
-                if (i2 > 0) {
+                i8 += abs2;
+                if (i8 > 0) {
                     if (y == y2) {
                         break;
                     }
-                    y += i3;
-                    i2 -= abs;
+                    y += i;
+                    i8 -= abs;
                 }
-                x += i4;
+                x += i7;
             }
-            return new ResultPointsAndTransitions(resultPoint, resultPoint2, i, null);
+            return new ResultPointsAndTransitions(resultPoint, resultPoint2, i6, null);
         }
         return (ResultPointsAndTransitions) invokeLL.objValue;
     }
@@ -309,10 +385,12 @@ public final class Detector {
                 ResultPoint resultPoint13 = resultPointArr[2];
                 if (!hashMap.containsKey(resultPoint3)) {
                     resultPoint = resultPoint3;
-                } else if (hashMap.containsKey(resultPoint4)) {
-                    resultPoint = !hashMap.containsKey(resultPoint5) ? resultPoint5 : resultPoint6;
-                } else {
+                } else if (!hashMap.containsKey(resultPoint4)) {
                     resultPoint = resultPoint4;
+                } else if (!hashMap.containsKey(resultPoint5)) {
+                    resultPoint = resultPoint5;
+                } else {
+                    resultPoint = resultPoint6;
                 }
                 int transitions = transitionsBetween(resultPoint13, resultPoint).getTransitions();
                 int transitions2 = transitionsBetween(resultPoint11, resultPoint).getTransitions();

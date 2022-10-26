@@ -22,6 +22,8 @@ public abstract class DataChunk extends Chunk {
     public int limit;
     public volatile boolean loadCanceled;
 
+    public abstract void consume(byte[] bArr, int i) throws IOException;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DataChunk(DataSource dataSource, DataSpec dataSpec, int i, Format format, int i2, Object obj, byte[] bArr) {
         super(dataSource, dataSpec, i, format, i2, obj, C.TIME_UNSET, C.TIME_UNSET);
@@ -60,7 +62,10 @@ public abstract class DataChunk extends Chunk {
     public long bytesLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.limit : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.limit;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
@@ -71,19 +76,23 @@ public abstract class DataChunk extends Chunk {
         }
     }
 
-    public abstract void consume(byte[] bArr, int i) throws IOException;
-
     public byte[] getDataHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.data;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
     public final boolean isLoadCanceled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.loadCanceled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.loadCanceled;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable

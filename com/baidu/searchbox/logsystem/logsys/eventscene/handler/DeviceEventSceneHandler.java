@@ -1,9 +1,7 @@
 package com.baidu.searchbox.logsystem.logsys.eventscene.handler;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,6 +12,16 @@ import java.util.Set;
 public class DeviceEventSceneHandler extends BaseEventSceneHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    public Set requireGeneralSnapshots(Context context, EventObject eventObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eventObject)) == null) {
+            return null;
+        }
+        return (Set) invokeLL.objValue;
+    }
 
     public DeviceEventSceneHandler() {
         Interceptable interceptable = $ic;
@@ -27,15 +35,5 @@ public class DeviceEventSceneHandler extends BaseEventSceneHandler {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set<DeviceSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eventObject)) == null) {
-            return null;
-        }
-        return (Set) invokeLL.objValue;
     }
 }

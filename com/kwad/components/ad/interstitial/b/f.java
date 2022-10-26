@@ -1,6 +1,5 @@
 package com.kwad.components.ad.interstitial.b;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.text.TextUtils;
 import android.view.ViewGroup;
@@ -160,7 +159,6 @@ public final class f extends b {
                     }
 
                     @Override // com.kwad.components.core.video.a.b
-                    @SuppressLint({"SetTextI18n"})
                     public final void d(long j) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -192,7 +190,7 @@ public final class f extends b {
                 });
                 fVar.a(this.mAdTemplate, this.mAdInfo);
                 fVar.t(true);
-                this.gh.gs.add(new c.InterfaceC0534c(this, fVar) { // from class: com.kwad.components.ad.interstitial.b.f.6
+                this.gh.gs.add(new c.InterfaceC0530c(this, fVar) { // from class: com.kwad.components.ad.interstitial.b.f.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ f hp;
@@ -217,7 +215,7 @@ public final class f extends b {
                         this.hr = fVar;
                     }
 
-                    @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0534c
+                    @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0530c
                     public final void cH() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -426,7 +424,7 @@ public final class f extends b {
 
                 @Override // com.kwad.components.ad.interstitial.widget.i
                 /* renamed from: do  reason: not valid java name */
-                public final void mo82do() {
+                public final void mo81do() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                         this.hp.e(2, 30);
@@ -528,7 +526,7 @@ public final class f extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0910c8);
+            KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0910bc);
             this.ge = ksAutoCloseView;
             ksAutoCloseView.setViewListener(new KsAutoCloseView.a(this) { // from class: com.kwad.components.ad.interstitial.b.f.1
                 public static /* synthetic */ Interceptable $ic;

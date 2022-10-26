@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -36,7 +35,7 @@ public class j {
     public static String a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Set<String> f798a;
+    public static final Set f798a;
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f799a = false;
@@ -100,7 +99,6 @@ public class j {
         return invokeI.floatValue;
     }
 
-    @TargetApi(17)
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,7 +123,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m535a() {
+    public static String m534a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
@@ -135,7 +133,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m536a(int i) {
+    public static String m535a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
@@ -157,7 +155,7 @@ public class j {
             try {
                 return k.a(context).a();
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("failure to get gaid:" + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m89a("failure to get gaid:" + e2.getMessage());
                 return null;
             }
         }
@@ -170,7 +168,7 @@ public class j {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, context, z)) == null) {
             if (d == null) {
                 String c2 = c(context);
-                String d2 = !m.m567d() ? z ? d(context) : l(context) : "";
+                String d2 = !m.m566d() ? z ? d(context) : l(context) : "";
                 String b2 = b(context);
                 int i = 1;
                 if (!(Build.VERSION.SDK_INT < 26) && b(d2) && b(b2)) {
@@ -194,7 +192,7 @@ public class j {
                 if (i == 3) {
                     d = c2;
                 } else {
-                    d = m536a(i) + bp.b(c2);
+                    d = m535a(i) + bp.b(c2);
                 }
             }
             return d;
@@ -203,7 +201,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m537a(Context context) {
+    public static boolean m536a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
@@ -304,7 +302,7 @@ public class j {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m538b() {
+    public static String m537b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
@@ -324,7 +322,7 @@ public class j {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m539b(Context context) {
+    public static boolean m538b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
@@ -354,7 +352,7 @@ public class j {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static String m540c() {
+    public static String m539c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
@@ -368,13 +366,13 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
             if (b == null && f799a) {
-                boolean m542d = m542d(context);
-                f799a = m542d;
-                if (m542d) {
+                boolean m541d = m541d(context);
+                f799a = m541d;
+                if (m541d) {
                     try {
                         b = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                     } catch (Throwable th) {
-                        com.xiaomi.channel.commonutils.logger.b.m90a("failure to get androidId: " + th);
+                        com.xiaomi.channel.commonutils.logger.b.m89a("failure to get androidId: " + th);
                     }
                     return b;
                 }
@@ -386,12 +384,12 @@ public class j {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static boolean m541c(Context context) {
+    public static boolean m540c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
             String packageName = context.getPackageName();
-            if (m.m561a() && f798a.contains(packageName)) {
+            if (m.m560a() && f798a.contains(packageName)) {
                 return context.getPackageManager().checkPermission(com.kuaishou.weapon.p0.h.c, packageName) == 0 || context.getPackageManager().checkPermission("android.permission.READ_PRIVILEGED_PHONE_STATE", packageName) == 0;
             }
             return false;
@@ -402,7 +400,7 @@ public class j {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) ? !TextUtils.isEmpty(str) && str.length() <= 15 && str.length() >= 14 && bp.m207b(str) && !bp.c(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) ? !TextUtils.isEmpty(str) && str.length() <= 15 && str.length() >= 14 && bp.m206b(str) && !bp.c(str) : invokeL.booleanValue;
     }
 
     public static String d() {
@@ -439,7 +437,7 @@ public class j {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static boolean m542d(Context context) {
+    public static boolean m541d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
@@ -473,7 +471,7 @@ public class j {
         Object a3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (m.m567d()) {
+            if (m.m566d()) {
                 return "";
             }
             String str2 = a;
@@ -481,8 +479,8 @@ public class j {
                 return str2;
             }
             try {
-                if (m541c(context)) {
-                    str = (!m.m561a() || (a2 = bk.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = bk.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
+                if (m540c(context)) {
+                    str = (!m.m560a() || (a2 = bk.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = bk.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
                     if (str == null) {
                         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                         if (Build.VERSION.SDK_INT < 26) {
@@ -505,7 +503,7 @@ public class j {
                 }
                 return "";
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("failure to get id:" + th);
+                com.xiaomi.channel.commonutils.logger.b.m89a("failure to get id:" + th);
                 return null;
             }
         }
@@ -540,14 +538,14 @@ public class j {
         Object a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
-            if (!m.m567d() && Build.VERSION.SDK_INT >= 22) {
+            if (!m.m566d() && Build.VERSION.SDK_INT >= 22) {
                 if (TextUtils.isEmpty(c)) {
                     e(context);
                     if (TextUtils.isEmpty(a)) {
                         return "";
                     }
                     try {
-                        if (m541c(context)) {
+                        if (m540c(context)) {
                             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                             Integer num = (Integer) bk.a((Object) telephonyManager, "getPhoneCount", new Object[0]);
                             if (num != null && num.intValue() > 1) {
@@ -579,7 +577,7 @@ public class j {
                         }
                         return "";
                     } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.m90a("failure to get ids: " + e2);
+                        com.xiaomi.channel.commonutils.logger.b.m89a("failure to get ids: " + e2);
                         return "";
                     }
                 }

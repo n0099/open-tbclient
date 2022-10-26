@@ -37,7 +37,7 @@ public abstract class AccessibilityNodeProvider {
         return (AccessibilityNodeInfo) invokeI.objValue;
     }
 
-    public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
+    public List findAccessibilityNodeInfosByText(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {

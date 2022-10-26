@@ -106,10 +106,10 @@ public final class PDF417ErrorCorrection {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i < 0 || i > 8) {
-                throw new IllegalArgumentException("Error correction level must be between 0 and 8!");
+            if (i >= 0 && i <= 8) {
+                return 1 << (i + 1);
             }
-            return 1 << (i + 1);
+            throw new IllegalArgumentException("Error correction level must be between 0 and 8!");
         }
         return invokeI.intValue;
     }

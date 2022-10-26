@@ -16,6 +16,21 @@ public class ContainerHelpers {
     public static final Object[] EMPTY_OBJECTS;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int idealByteArraySize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            for (int i2 = 4; i2 < 32; i2++) {
+                int i3 = (1 << i2) - 12;
+                if (i <= i3) {
+                    return i3;
+                }
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -59,48 +74,15 @@ public class ContainerHelpers {
                 int i6 = iArr[i5];
                 if (i6 < i2) {
                     i4 = i5 + 1;
-                } else if (i6 <= i2) {
-                    return i5;
-                } else {
+                } else if (i6 > i2) {
                     i3 = i5 - 1;
+                } else {
+                    return i5;
                 }
             }
             return ~i4;
         }
         return invokeLII.intValue;
-    }
-
-    public static boolean equal(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
-    }
-
-    public static int idealByteArraySize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            for (int i2 = 4; i2 < 32; i2++) {
-                int i3 = (1 << i2) - 12;
-                if (i <= i3) {
-                    return i3;
-                }
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int idealIntArraySize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? idealByteArraySize(i * 4) / 4 : invokeI.intValue;
-    }
-
-    public static int idealLongArraySize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? idealByteArraySize(i * 8) / 8 : invokeI.intValue;
     }
 
     public static int binarySearch(long[] jArr, int i, long j) {
@@ -114,14 +96,44 @@ public class ContainerHelpers {
                 int i5 = (jArr[i4] > j ? 1 : (jArr[i4] == j ? 0 : -1));
                 if (i5 < 0) {
                     i3 = i4 + 1;
-                } else if (i5 <= 0) {
-                    return i4;
-                } else {
+                } else if (i5 > 0) {
                     i2 = i4 - 1;
+                } else {
+                    return i4;
                 }
             }
             return ~i3;
         }
         return invokeCommon.intValue;
+    }
+
+    public static boolean equal(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) {
+            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int idealIntArraySize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            return idealByteArraySize(i * 4) / 4;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int idealLongArraySize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return idealByteArraySize(i * 8) / 8;
+        }
+        return invokeI.intValue;
     }
 }

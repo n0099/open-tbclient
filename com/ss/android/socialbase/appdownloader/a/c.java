@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import java.util.Iterator;
 import org.json.JSONObject;
@@ -17,48 +16,17 @@ public class c extends a {
         this.d = jSONObject;
     }
 
-    public static void a(@NonNull Intent intent, JSONObject jSONObject, JSONObject jSONObject2) {
+    public static void a(Intent intent, JSONObject jSONObject, JSONObject jSONObject2) {
         Iterator<String> keys;
-        if (jSONObject == null || jSONObject2 == null || jSONObject.length() != jSONObject2.length() || intent == null || (keys = jSONObject.keys()) == null) {
-            return;
-        }
-        while (keys.hasNext()) {
-            String next = keys.next();
-            String optString = jSONObject2.optString(next);
-            if (optString != null) {
-                a(jSONObject, next, optString, intent);
+        if (jSONObject != null && jSONObject2 != null && jSONObject.length() == jSONObject2.length() && intent != null && (keys = jSONObject.keys()) != null) {
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject2.optString(next);
+                if (optString != null) {
+                    a(jSONObject, next, optString, intent);
+                }
             }
         }
-    }
-
-    @Override // com.ss.android.socialbase.appdownloader.a.e
-    public Intent b() {
-        String optString = this.d.optString("action");
-        String optString2 = this.d.optString("category");
-        int optInt = this.d.optInt("flags", 1342210048);
-        String optString3 = this.d.optString("path_extra_key");
-        String optString4 = this.d.optString("path_data_key");
-        JSONObject optJSONObject = this.d.optJSONObject("extra");
-        JSONObject optJSONObject2 = this.d.optJSONObject("extra_type");
-        if (TextUtils.isEmpty(optString)) {
-            return null;
-        }
-        Intent intent = new Intent(optString);
-        if (!TextUtils.isEmpty(optString2)) {
-            intent.addCategory(optString2);
-        }
-        if (!TextUtils.isEmpty(optString4)) {
-            try {
-                intent.setData(Uri.parse(String.format(optString4, this.c)));
-            } catch (Throwable unused) {
-            }
-        }
-        intent.setFlags(optInt);
-        if (!TextUtils.isEmpty(optString3)) {
-            intent.putExtra(optString3, this.c);
-        }
-        a(intent, optJSONObject, optJSONObject2);
-        return intent;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -104,17 +72,55 @@ public class c extends a {
                 c = 65535;
                 break;
         }
-        if (c == 0) {
-            intent.putExtra(str, jSONObject.optInt(str));
-        } else if (c == 1) {
+        if (c != 0) {
+            if (c != 1) {
+                if (c != 2) {
+                    if (c != 3) {
+                        if (c == 4) {
+                            intent.putExtra(str, jSONObject.optString(str));
+                            return;
+                        }
+                        return;
+                    }
+                    intent.putExtra(str, jSONObject.optDouble(str));
+                    return;
+                }
+                intent.putExtra(str, jSONObject.optLong(str));
+                return;
+            }
             intent.putExtra(str, jSONObject.optBoolean(str));
-        } else if (c == 2) {
-            intent.putExtra(str, jSONObject.optLong(str));
-        } else if (c == 3) {
-            intent.putExtra(str, jSONObject.optDouble(str));
-        } else if (c != 4) {
-        } else {
-            intent.putExtra(str, jSONObject.optString(str));
+            return;
         }
+        intent.putExtra(str, jSONObject.optInt(str));
+    }
+
+    @Override // com.ss.android.socialbase.appdownloader.a.e
+    public Intent b() {
+        String optString = this.d.optString("action");
+        String optString2 = this.d.optString("category");
+        int optInt = this.d.optInt("flags", 1342210048);
+        String optString3 = this.d.optString("path_extra_key");
+        String optString4 = this.d.optString("path_data_key");
+        JSONObject optJSONObject = this.d.optJSONObject("extra");
+        JSONObject optJSONObject2 = this.d.optJSONObject("extra_type");
+        if (TextUtils.isEmpty(optString)) {
+            return null;
+        }
+        Intent intent = new Intent(optString);
+        if (!TextUtils.isEmpty(optString2)) {
+            intent.addCategory(optString2);
+        }
+        if (!TextUtils.isEmpty(optString4)) {
+            try {
+                intent.setData(Uri.parse(String.format(optString4, this.c)));
+            } catch (Throwable unused) {
+            }
+        }
+        intent.setFlags(optInt);
+        if (!TextUtils.isEmpty(optString3)) {
+            intent.putExtra(optString3, this.c);
+        }
+        a(intent, optJSONObject, optJSONObject2);
+        return intent;
     }
 }

@@ -12,13 +12,13 @@ import io.reactivex.internal.util.BlockingHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes8.dex */
-public abstract class BlockingBaseObserver<T> extends CountDownLatch implements Observer<T>, Disposable {
+public abstract class BlockingBaseObserver extends CountDownLatch implements Observer, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
     public Disposable d;
     public Throwable error;
-    public T value;
+    public Object value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlockingBaseObserver() {
@@ -38,7 +38,37 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
         }
     }
 
-    public final T blockingGet() {
+    @Override // io.reactivex.disposables.Disposable
+    public final void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.cancelled = true;
+            Disposable disposable = this.d;
+            if (disposable != null) {
+                disposable.dispose();
+            }
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public final boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.cancelled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.Observer
+    public final void onComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            countDown();
+        }
+    }
+
+    public final Object blockingGet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -57,34 +87,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
             }
             throw ExceptionHelper.wrapOrThrow(th);
         }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public final void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.cancelled = true;
-            Disposable disposable = this.d;
-            if (disposable != null) {
-                disposable.dispose();
-            }
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public final boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cancelled : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.Observer
-    public final void onComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            countDown();
-        }
+        return invokeV.objValue;
     }
 
     @Override // io.reactivex.Observer

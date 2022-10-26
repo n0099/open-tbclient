@@ -32,6 +32,14 @@ public final class YYPluginProgressInvokeServiceImpl implements YYPluginProgress
     }
 
     @Override // com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService
+    public void onSubPluginLoadingEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LiveYYPluginManager.getInstance().stopLoadingBySubPlugin();
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService
     public void onPluginDownLoadProgress(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -48,26 +56,18 @@ public final class YYPluginProgressInvokeServiceImpl implements YYPluginProgress
     }
 
     @Override // com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService
+    public void onSubPluginLoadingStart(Context context, Consumer consumer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, consumer) == null) {
+            LiveYYPluginManager.getInstance().showLoadingBySubPlugin(consumer);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService
     public void onPluginLoadedSuccess(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             LiveYYPluginManager.getInstance().onPluginLoadedState(str, true, null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService
-    public void onSubPluginLoadingEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LiveYYPluginManager.getInstance().stopLoadingBySubPlugin();
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService
-    public void onSubPluginLoadingStart(Context context, Consumer<Boolean> consumer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, consumer) == null) {
-            LiveYYPluginManager.getInstance().showLoadingBySubPlugin(consumer);
         }
     }
 }

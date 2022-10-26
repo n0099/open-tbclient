@@ -44,22 +44,22 @@ import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
 public final class Functions {
     public static /* synthetic */ Interceptable $ic;
-    public static final Predicate<Object> ALWAYS_FALSE;
-    public static final Predicate<Object> ALWAYS_TRUE;
+    public static final Predicate ALWAYS_FALSE;
+    public static final Predicate ALWAYS_TRUE;
     public static final Action EMPTY_ACTION;
-    public static final Consumer<Object> EMPTY_CONSUMER;
+    public static final Consumer EMPTY_CONSUMER;
     public static final LongConsumer EMPTY_LONG_CONSUMER;
     public static final Runnable EMPTY_RUNNABLE;
-    public static final Consumer<Throwable> ERROR_CONSUMER;
-    public static final Function<Object, Object> IDENTITY;
-    public static final Comparator<Object> NATURAL_COMPARATOR;
-    public static final Callable<Object> NULL_SUPPLIER;
-    public static final Consumer<Throwable> ON_ERROR_MISSING;
-    public static final Consumer<Subscription> REQUEST_MAX;
+    public static final Consumer ERROR_CONSUMER;
+    public static final Function IDENTITY;
+    public static final Comparator NATURAL_COMPARATOR;
+    public static final Callable NULL_SUPPLIER;
+    public static final Consumer ON_ERROR_MISSING;
+    public static final Consumer REQUEST_MAX;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class ActionConsumer<T> implements Consumer<T> {
+    public final class ActionConsumer implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Action action;
@@ -83,21 +83,21 @@ public final class Functions {
         }
 
         @Override // io.reactivex.functions.Consumer
-        public void accept(T t) throws Exception {
+        public void accept(Object obj) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.action.run();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array2Func<T1, T2, R> implements Function<Object[], R> {
+    public final class Array2Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction<? super T1, ? super T2, ? extends R> f;
+        public final BiFunction f;
 
-        public Array2Func(BiFunction<? super T1, ? super T2, ? extends R> biFunction) {
+        public Array2Func(BiFunction biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public final class Functions {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
@@ -126,17 +126,17 @@ public final class Functions {
                 }
                 throw new IllegalArgumentException("Array of size 2 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array3Func<T1, T2, T3, R> implements Function<Object[], R> {
+    public final class Array3Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function3<T1, T2, T3, R> f;
+        public final Function3 f;
 
-        public Array3Func(Function3<T1, T2, T3, R> function3) {
+        public Array3Func(Function3 function3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,29 +155,27 @@ public final class Functions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: io.reactivex.functions.Function3<T1, T2, T3, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 3) {
-                    return (R) this.f.apply(objArr[0], objArr[1], objArr[2]);
+                    return this.f.apply(objArr[0], objArr[1], objArr[2]);
                 }
                 throw new IllegalArgumentException("Array of size 3 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array4Func<T1, T2, T3, T4, R> implements Function<Object[], R> {
+    public final class Array4Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function4<T1, T2, T3, T4, R> f;
+        public final Function4 f;
 
-        public Array4Func(Function4<T1, T2, T3, T4, R> function4) {
+        public Array4Func(Function4 function4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,29 +194,27 @@ public final class Functions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: io.reactivex.functions.Function4<T1, T2, T3, T4, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 4) {
-                    return (R) this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3]);
+                    return this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3]);
                 }
                 throw new IllegalArgumentException("Array of size 4 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array5Func<T1, T2, T3, T4, T5, R> implements Function<Object[], R> {
+    public final class Array5Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function5<T1, T2, T3, T4, T5, R> f;
+        public final Function5 f;
 
-        public Array5Func(Function5<T1, T2, T3, T4, T5, R> function5) {
+        public Array5Func(Function5 function5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,29 +233,27 @@ public final class Functions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: io.reactivex.functions.Function5<T1, T2, T3, T4, T5, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 5) {
-                    return (R) this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4]);
+                    return this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4]);
                 }
                 throw new IllegalArgumentException("Array of size 5 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array6Func<T1, T2, T3, T4, T5, T6, R> implements Function<Object[], R> {
+    public final class Array6Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function6<T1, T2, T3, T4, T5, T6, R> f;
+        public final Function6 f;
 
-        public Array6Func(Function6<T1, T2, T3, T4, T5, T6, R> function6) {
+        public Array6Func(Function6 function6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -278,29 +272,27 @@ public final class Functions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: io.reactivex.functions.Function6<T1, T2, T3, T4, T5, T6, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 6) {
-                    return (R) this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5]);
+                    return this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5]);
                 }
                 throw new IllegalArgumentException("Array of size 6 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array7Func<T1, T2, T3, T4, T5, T6, T7, R> implements Function<Object[], R> {
+    public final class Array7Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function7<T1, T2, T3, T4, T5, T6, T7, R> f;
+        public final Function7 f;
 
-        public Array7Func(Function7<T1, T2, T3, T4, T5, T6, T7, R> function7) {
+        public Array7Func(Function7 function7) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -319,29 +311,27 @@ public final class Functions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: io.reactivex.functions.Function7<T1, T2, T3, T4, T5, T6, T7, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 7) {
-                    return (R) this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6]);
+                    return this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6]);
                 }
                 throw new IllegalArgumentException("Array of size 7 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array8Func<T1, T2, T3, T4, T5, T6, T7, T8, R> implements Function<Object[], R> {
+    public final class Array8Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function8<T1, T2, T3, T4, T5, T6, T7, T8, R> f;
+        public final Function8 f;
 
-        public Array8Func(Function8<T1, T2, T3, T4, T5, T6, T7, T8, R> function8) {
+        public Array8Func(Function8 function8) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -360,29 +350,27 @@ public final class Functions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: io.reactivex.functions.Function8<T1, T2, T3, T4, T5, T6, T7, T8, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 8) {
-                    return (R) this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7]);
+                    return this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7]);
                 }
                 throw new IllegalArgumentException("Array of size 8 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Array9Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> implements Function<Object[], R> {
+    public final class Array9Func implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> f;
+        public final Function9 f;
 
-        public Array9Func(Function9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> function9) {
+        public Array9Func(Function9 function9) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -401,24 +389,22 @@ public final class Functions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: io.reactivex.functions.Function9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.functions.Function
-        public R apply(Object[] objArr) throws Exception {
+        public Object apply(Object[] objArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 9) {
-                    return (R) this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7], objArr[8]);
+                    return this.f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7], objArr[8]);
                 }
                 throw new IllegalArgumentException("Array of size 9 expected but got " + objArr.length);
             }
-            return (R) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ArrayListCapacityCallable<T> implements Callable<List<T>> {
+    public final class ArrayListCapacityCallable implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int capacity;
@@ -443,15 +429,18 @@ public final class Functions {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public List<T> call() throws Exception {
+        public List call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.capacity) : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new ArrayList(this.capacity);
+            }
+            return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class BooleanSupplierPredicateReverse<T> implements Predicate<T> {
+    public final class BooleanSupplierPredicateReverse implements Predicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BooleanSupplier supplier;
@@ -475,20 +464,23 @@ public final class Functions {
         }
 
         @Override // io.reactivex.functions.Predicate
-        public boolean test(T t) throws Exception {
+        public boolean test(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? !this.supplier.getAsBoolean() : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return !this.supplier.getAsBoolean();
+            }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class CastToClass<T, U> implements Function<T, U> {
+    public final class CastToClass implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class<U> clazz;
+        public final Class clazz;
 
-        public CastToClass(Class<U> cls) {
+        public CastToClass(Class cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -507,20 +499,23 @@ public final class Functions {
         }
 
         @Override // io.reactivex.functions.Function
-        public U apply(T t) throws Exception {
+        public Object apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? this.clazz.cast(t) : (U) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return this.clazz.cast(obj);
+            }
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ClassFilter<T, U> implements Predicate<T> {
+    public final class ClassFilter implements Predicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class<U> clazz;
+        public final Class clazz;
 
-        public ClassFilter(Class<U> cls) {
+        public ClassFilter(Class cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -539,17 +534,33 @@ public final class Functions {
         }
 
         @Override // io.reactivex.functions.Predicate
-        public boolean test(T t) throws Exception {
+        public boolean test(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? this.clazz.isInstance(t) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return this.clazz.isInstance(obj);
+            }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class EmptyAction implements Action {
+    public final class EmptyAction implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // io.reactivex.functions.Action
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "EmptyAction" : (String) invokeV.objValue;
+        }
 
         public EmptyAction() {
             Interceptable interceptable = $ic;
@@ -564,25 +575,25 @@ public final class Functions {
                 }
             }
         }
+    }
 
-        @Override // io.reactivex.functions.Action
-        public void run() {
+    /* loaded from: classes8.dex */
+    public final class EmptyConsumer implements Consumer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // io.reactivex.functions.Consumer
+        public void accept(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             }
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "EmptyAction" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "EmptyConsumer" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class EmptyConsumer implements Consumer<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         public EmptyConsumer() {
             Interceptable interceptable = $ic;
@@ -597,25 +608,19 @@ public final class Functions {
                 }
             }
         }
-
-        @Override // io.reactivex.functions.Consumer
-        public void accept(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "EmptyConsumer" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class EmptyLongConsumer implements LongConsumer {
+    public final class EmptyLongConsumer implements LongConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // io.reactivex.functions.LongConsumer
+        public void accept(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            }
+        }
 
         public EmptyLongConsumer() {
             Interceptable interceptable = $ic;
@@ -630,19 +635,25 @@ public final class Functions {
                 }
             }
         }
-
-        @Override // io.reactivex.functions.LongConsumer
-        public void accept(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class EmptyRunnable implements Runnable {
+    public final class EmptyRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "EmptyRunnable" : (String) invokeV.objValue;
+        }
 
         public EmptyRunnable() {
             Interceptable interceptable = $ic;
@@ -657,33 +668,20 @@ public final class Functions {
                 }
             }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "EmptyRunnable" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class EqualsPredicate<T> implements Predicate<T> {
+    public final class EqualsPredicate implements Predicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final T value;
+        public final Object value;
 
-        public EqualsPredicate(T t) {
+        public EqualsPredicate(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t};
+                Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -693,19 +691,22 @@ public final class Functions {
                     return;
                 }
             }
-            this.value = t;
+            this.value = obj;
         }
 
         @Override // io.reactivex.functions.Predicate
-        public boolean test(T t) throws Exception {
+        public boolean test(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? ObjectHelper.equals(t, this.value) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return ObjectHelper.equals(obj, this.value);
+            }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ErrorConsumer implements Consumer<Throwable> {
+    public final class ErrorConsumer implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -734,9 +735,19 @@ public final class Functions {
     }
 
     /* loaded from: classes8.dex */
-    public static final class FalsePredicate implements Predicate<Object> {
+    public final class FalsePredicate implements Predicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // io.reactivex.functions.Predicate
+        public boolean test(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
 
         public FalsePredicate() {
             Interceptable interceptable = $ic;
@@ -751,25 +762,15 @@ public final class Functions {
                 }
             }
         }
-
-        @Override // io.reactivex.functions.Predicate
-        public boolean test(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class FutureAction implements Action {
+    public final class FutureAction implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Future<?> future;
+        public final Future future;
 
-        public FutureAction(Future<?> future) {
+        public FutureAction(Future future) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -798,7 +799,7 @@ public final class Functions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class HashSetCallable implements Callable<Set<Object>> {
+    public final class HashSetCallable implements Callable {
         public static final /* synthetic */ HashSetCallable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HashSetCallable INSTANCE;
@@ -820,6 +821,15 @@ public final class Functions {
             HashSetCallable hashSetCallable = new HashSetCallable("INSTANCE", 0);
             INSTANCE = hashSetCallable;
             $VALUES = new HashSetCallable[]{hashSetCallable};
+        }
+
+        public static HashSetCallable[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (HashSetCallable[]) $VALUES.clone();
+            }
+            return (HashSetCallable[]) invokeV.objValue;
         }
 
         public HashSetCallable(String str, int i) {
@@ -844,28 +854,41 @@ public final class Functions {
         public static HashSetCallable valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HashSetCallable) Enum.valueOf(HashSetCallable.class, str) : (HashSetCallable) invokeL.objValue;
-        }
-
-        public static HashSetCallable[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HashSetCallable[]) $VALUES.clone() : (HashSetCallable[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (HashSetCallable) Enum.valueOf(HashSetCallable.class, str);
+            }
+            return (HashSetCallable) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public Set<Object> call() throws Exception {
+        public Set call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new HashSet() : (Set) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new HashSet();
+            }
+            return (Set) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class Identity implements Function<Object, Object> {
+    public final class Identity implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // io.reactivex.functions.Function
+        public Object apply(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj : invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "IdentityFunction" : (String) invokeV.objValue;
+        }
 
         public Identity() {
             Interceptable interceptable = $ic;
@@ -880,33 +903,20 @@ public final class Functions {
                 }
             }
         }
-
-        @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj : invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "IdentityFunction" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class JustValue<T, U> implements Callable<U>, Function<T, U> {
+    public final class JustValue implements Callable, Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final U value;
+        public final Object value;
 
-        public JustValue(U u) {
+        public JustValue(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u};
+                Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -916,31 +926,37 @@ public final class Functions {
                     return;
                 }
             }
-            this.value = u;
+            this.value = obj;
         }
 
         @Override // io.reactivex.functions.Function
-        public U apply(T t) throws Exception {
+        public Object apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? this.value : (U) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return this.value;
+            }
+            return invokeL.objValue;
         }
 
         @Override // java.util.concurrent.Callable
-        public U call() throws Exception {
+        public Object call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : (U) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.value;
+            }
+            return invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ListSorter<T> implements Function<List<T>, List<T>> {
+    public final class ListSorter implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Comparator<? super T> comparator;
+        public final Comparator comparator;
 
-        public ListSorter(Comparator<? super T> comparator) {
+        public ListSorter(Comparator comparator) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -958,12 +974,9 @@ public final class Functions {
             this.comparator = comparator;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
-            return apply((List) ((List) obj));
-        }
-
-        public List<T> apply(List<T> list) {
+        public List apply(List list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -975,7 +988,7 @@ public final class Functions {
     }
 
     /* loaded from: classes8.dex */
-    public static final class MaxRequestSubscription implements Consumer<Subscription> {
+    public final class MaxRequestSubscription implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1005,7 +1018,7 @@ public final class Functions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class NaturalComparator implements Comparator<Object> {
+    public final class NaturalComparator implements Comparator {
         public static final /* synthetic */ NaturalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NaturalComparator INSTANCE;
@@ -1027,6 +1040,15 @@ public final class Functions {
             NaturalComparator naturalComparator = new NaturalComparator("INSTANCE", 0);
             INSTANCE = naturalComparator;
             $VALUES = new NaturalComparator[]{naturalComparator};
+        }
+
+        public static NaturalComparator[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NaturalComparator[]) $VALUES.clone();
+            }
+            return (NaturalComparator[]) invokeV.objValue;
         }
 
         public NaturalComparator(String str, int i) {
@@ -1051,25 +1073,25 @@ public final class Functions {
         public static NaturalComparator valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NaturalComparator) Enum.valueOf(NaturalComparator.class, str) : (NaturalComparator) invokeL.objValue;
-        }
-
-        public static NaturalComparator[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NaturalComparator[]) $VALUES.clone() : (NaturalComparator[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NaturalComparator) Enum.valueOf(NaturalComparator.class, str);
+            }
+            return (NaturalComparator) invokeL.objValue;
         }
 
         @Override // java.util.Comparator
         public int compare(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? ((Comparable) obj).compareTo(obj2) : invokeLL.intValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+                return ((Comparable) obj).compareTo(obj2);
+            }
+            return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class NaturalObjectComparator implements Comparator<Object> {
+    public final class NaturalObjectComparator implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1091,17 +1113,20 @@ public final class Functions {
         public int compare(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? ((Comparable) obj).compareTo(obj2) : invokeLL.intValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+                return ((Comparable) obj).compareTo(obj2);
+            }
+            return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class NotificationOnComplete<T> implements Action {
+    public final class NotificationOnComplete implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Consumer<? super Notification<T>> onNotification;
+        public final Consumer onNotification;
 
-        public NotificationOnComplete(Consumer<? super Notification<T>> consumer) {
+        public NotificationOnComplete(Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1129,12 +1154,12 @@ public final class Functions {
     }
 
     /* loaded from: classes8.dex */
-    public static final class NotificationOnError<T> implements Consumer<Throwable> {
+    public final class NotificationOnError implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Consumer<? super Notification<T>> onNotification;
+        public final Consumer onNotification;
 
-        public NotificationOnError(Consumer<? super Notification<T>> consumer) {
+        public NotificationOnError(Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1163,12 +1188,12 @@ public final class Functions {
     }
 
     /* loaded from: classes8.dex */
-    public static final class NotificationOnNext<T> implements Consumer<T> {
+    public final class NotificationOnNext implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Consumer<? super Notification<T>> onNotification;
+        public final Consumer onNotification;
 
-        public NotificationOnNext(Consumer<? super Notification<T>> consumer) {
+        public NotificationOnNext(Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1187,18 +1212,28 @@ public final class Functions {
         }
 
         @Override // io.reactivex.functions.Consumer
-        public void accept(T t) throws Exception {
+        public void accept(Object obj) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                this.onNotification.accept(Notification.createOnNext(t));
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.onNotification.accept(Notification.createOnNext(obj));
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class NullCallable implements Callable<Object> {
+    public final class NullCallable implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // java.util.concurrent.Callable
+        public Object call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
+        }
 
         public NullCallable() {
             Interceptable interceptable = $ic;
@@ -1213,20 +1248,10 @@ public final class Functions {
                 }
             }
         }
-
-        @Override // java.util.concurrent.Callable
-        public Object call() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return invokeV.objValue;
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class OnErrorMissingConsumer implements Consumer<Throwable> {
+    public final class OnErrorMissingConsumer implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1255,7 +1280,7 @@ public final class Functions {
     }
 
     /* loaded from: classes8.dex */
-    public static final class TimestampFunction<T> implements Function<T, Timed<T>> {
+    public final class TimestampFunction implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Scheduler scheduler;
@@ -1280,28 +1305,25 @@ public final class Functions {
             this.scheduler = scheduler;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
-            return apply((TimestampFunction<T>) obj);
-        }
-
-        @Override // io.reactivex.functions.Function
-        public Timed<T> apply(T t) throws Exception {
+        public Timed apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? new Timed<>(t, this.scheduler.now(this.unit), this.unit) : (Timed) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return new Timed(obj, this.scheduler.now(this.unit), this.unit);
+            }
+            return (Timed) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ToMapKeySelector<K, T> implements BiConsumer<Map<K, T>, T> {
+    public final class ToMapKeySelector implements BiConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function<? super T, ? extends K> keySelector;
+        public final Function keySelector;
 
-        public ToMapKeySelector(Function<? super T, ? extends K> function) {
+        public ToMapKeySelector(Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1319,29 +1341,24 @@ public final class Functions {
             this.keySelector = function;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.BiConsumer
-        public /* bridge */ /* synthetic */ void accept(Object obj, Object obj2) throws Exception {
-            accept((Map<K, Map<K, T>>) obj, (Map<K, T>) obj2);
-        }
-
-        public void accept(Map<K, T> map, T t) throws Exception {
+        public void accept(Map map, Object obj) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, t) == null) {
-                map.put(this.keySelector.apply(t), t);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, obj) == null) {
+                map.put(this.keySelector.apply(obj), obj);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ToMapKeyValueSelector<K, V, T> implements BiConsumer<Map<K, V>, T> {
+    public final class ToMapKeyValueSelector implements BiConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function<? super T, ? extends K> keySelector;
-        public final Function<? super T, ? extends V> valueSelector;
+        public final Function keySelector;
+        public final Function valueSelector;
 
-        public ToMapKeyValueSelector(Function<? super T, ? extends V> function, Function<? super T, ? extends K> function2) {
+        public ToMapKeyValueSelector(Function function, Function function2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1360,30 +1377,25 @@ public final class Functions {
             this.keySelector = function2;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.BiConsumer
-        public /* bridge */ /* synthetic */ void accept(Object obj, Object obj2) throws Exception {
-            accept((Map) ((Map) obj), (Map<K, V>) obj2);
-        }
-
-        public void accept(Map<K, V> map, T t) throws Exception {
+        public void accept(Map map, Object obj) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, t) == null) {
-                map.put(this.keySelector.apply(t), this.valueSelector.apply(t));
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, obj) == null) {
+                map.put(this.keySelector.apply(obj), this.valueSelector.apply(obj));
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ToMultimapKeyValueSelector<K, V, T> implements BiConsumer<Map<K, Collection<V>>, T> {
+    public final class ToMultimapKeyValueSelector implements BiConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function<? super K, ? extends Collection<? super V>> collectionFactory;
-        public final Function<? super T, ? extends K> keySelector;
-        public final Function<? super T, ? extends V> valueSelector;
+        public final Function collectionFactory;
+        public final Function keySelector;
+        public final Function valueSelector;
 
-        public ToMultimapKeyValueSelector(Function<? super K, ? extends Collection<? super V>> function, Function<? super T, ? extends V> function2, Function<? super T, ? extends K> function3) {
+        public ToMultimapKeyValueSelector(Function function, Function function2, Function function3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1403,31 +1415,36 @@ public final class Functions {
             this.keySelector = function3;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.BiConsumer
-        public /* bridge */ /* synthetic */ void accept(Object obj, Object obj2) throws Exception {
-            accept((Map) ((Map) obj), (Map<K, Collection<V>>) obj2);
-        }
-
-        public void accept(Map<K, Collection<V>> map, T t) throws Exception {
+        public void accept(Map map, Object obj) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, t) == null) {
-                K apply = this.keySelector.apply(t);
-                Collection<? super V> collection = map.get(apply);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, obj) == null) {
+                Object apply = this.keySelector.apply(obj);
+                Collection collection = (Collection) map.get(apply);
                 if (collection == null) {
-                    collection = this.collectionFactory.apply(apply);
+                    collection = (Collection) this.collectionFactory.apply(apply);
                     map.put(apply, collection);
                 }
-                collection.add(this.valueSelector.apply(t));
+                collection.add(this.valueSelector.apply(obj));
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class TruePredicate implements Predicate<Object> {
+    public final class TruePredicate implements Predicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // io.reactivex.functions.Predicate
+        public boolean test(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
 
         public TruePredicate() {
             Interceptable interceptable = $ic;
@@ -1441,16 +1458,6 @@ public final class Functions {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // io.reactivex.functions.Predicate
-        public boolean test(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
         }
     }
 
@@ -1497,139 +1504,196 @@ public final class Functions {
         throw new IllegalStateException("No instances!");
     }
 
-    public static <T> Consumer<T> actionConsumer(Action action) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, action)) == null) ? new ActionConsumer(action) : (Consumer) invokeL.objValue;
-    }
-
-    public static <T> Predicate<T> alwaysFalse() {
+    public static Predicate alwaysFalse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Predicate<T>) ALWAYS_FALSE : (Predicate) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return ALWAYS_FALSE;
+        }
+        return (Predicate) invokeV.objValue;
     }
 
-    public static <T> Predicate<T> alwaysTrue() {
+    public static Predicate alwaysTrue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Predicate<T>) ALWAYS_TRUE : (Predicate) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return ALWAYS_TRUE;
+        }
+        return (Predicate) invokeV.objValue;
     }
 
-    public static <T, U> Function<T, U> castFunction(Class<U> cls) {
+    public static Callable createHashSet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return HashSetCallable.INSTANCE;
+        }
+        return (Callable) invokeV.objValue;
+    }
+
+    public static Consumer emptyConsumer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return EMPTY_CONSUMER;
+        }
+        return (Consumer) invokeV.objValue;
+    }
+
+    public static Function identity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return IDENTITY;
+        }
+        return (Function) invokeV.objValue;
+    }
+
+    public static Comparator naturalComparator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            return NaturalComparator.INSTANCE;
+        }
+        return (Comparator) invokeV.objValue;
+    }
+
+    public static Comparator naturalOrder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return NATURAL_COMPARATOR;
+        }
+        return (Comparator) invokeV.objValue;
+    }
+
+    public static Callable nullSupplier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return NULL_SUPPLIER;
+        }
+        return (Callable) invokeV.objValue;
+    }
+
+    public static Consumer actionConsumer(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) ? new CastToClass(cls) : (Function) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, action)) == null) {
+            return new ActionConsumer(action);
+        }
+        return (Consumer) invokeL.objValue;
     }
 
-    public static <T> Callable<List<T>> createArrayList(int i) {
+    public static Function castFunction(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) {
+            return new CastToClass(cls);
+        }
+        return (Function) invokeL.objValue;
+    }
+
+    public static Callable createArrayList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? new ArrayListCapacityCallable(i) : (Callable) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            return new ArrayListCapacityCallable(i);
+        }
+        return (Callable) invokeI.objValue;
     }
 
-    public static <T> Callable<Set<T>> createHashSet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? HashSetCallable.INSTANCE : (Callable) invokeV.objValue;
-    }
-
-    public static <T> Consumer<T> emptyConsumer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (Consumer<T>) EMPTY_CONSUMER : (Consumer) invokeV.objValue;
-    }
-
-    public static <T> Predicate<T> equalsWith(T t) {
+    public static Predicate equalsWith(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, t)) == null) ? new EqualsPredicate(t) : (Predicate) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
+            return new EqualsPredicate(obj);
+        }
+        return (Predicate) invokeL.objValue;
     }
 
-    public static Action futureAction(Future<?> future) {
+    public static Action futureAction(Future future) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, future)) == null) ? new FutureAction(future) : (Action) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, future)) == null) {
+            return new FutureAction(future);
+        }
+        return (Action) invokeL.objValue;
     }
 
-    public static <T> Function<T, T> identity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? (Function<T, T>) IDENTITY : (Function) invokeV.objValue;
-    }
-
-    public static <T, U> Predicate<T> isInstanceOf(Class<U> cls) {
+    public static Predicate isInstanceOf(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? new ClassFilter(cls) : (Predicate) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) {
+            return new ClassFilter(cls);
+        }
+        return (Predicate) invokeL.objValue;
     }
 
-    public static <T> Callable<T> justCallable(T t) {
+    public static Callable justCallable(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, t)) == null) ? new JustValue(t) : (Callable) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, obj)) == null) {
+            return new JustValue(obj);
+        }
+        return (Callable) invokeL.objValue;
     }
 
-    public static <T, U> Function<T, U> justFunction(U u) {
+    public static Function justFunction(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, u)) == null) ? new JustValue(u) : (Function) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, obj)) == null) {
+            return new JustValue(obj);
+        }
+        return (Function) invokeL.objValue;
     }
 
-    public static <T> Function<List<T>, List<T>> listSorter(Comparator<? super T> comparator) {
+    public static Function listSorter(Comparator comparator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, comparator)) == null) ? new ListSorter(comparator) : (Function) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, comparator)) == null) {
+            return new ListSorter(comparator);
+        }
+        return (Function) invokeL.objValue;
     }
 
-    public static <T> Comparator<T> naturalComparator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? NaturalComparator.INSTANCE : (Comparator) invokeV.objValue;
-    }
-
-    public static <T> Comparator<T> naturalOrder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? (Comparator<T>) NATURAL_COMPARATOR : (Comparator) invokeV.objValue;
-    }
-
-    public static <T> Action notificationOnComplete(Consumer<? super Notification<T>> consumer) {
+    public static Action notificationOnComplete(Consumer consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, consumer)) == null) ? new NotificationOnComplete(consumer) : (Action) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, consumer)) == null) {
+            return new NotificationOnComplete(consumer);
+        }
+        return (Action) invokeL.objValue;
     }
 
-    public static <T> Consumer<Throwable> notificationOnError(Consumer<? super Notification<T>> consumer) {
+    public static Consumer notificationOnError(Consumer consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, consumer)) == null) ? new NotificationOnError(consumer) : (Consumer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, consumer)) == null) {
+            return new NotificationOnError(consumer);
+        }
+        return (Consumer) invokeL.objValue;
     }
 
-    public static <T> Consumer<T> notificationOnNext(Consumer<? super Notification<T>> consumer) {
+    public static Consumer notificationOnNext(Consumer consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, consumer)) == null) ? new NotificationOnNext(consumer) : (Consumer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, consumer)) == null) {
+            return new NotificationOnNext(consumer);
+        }
+        return (Consumer) invokeL.objValue;
     }
 
-    public static <T> Callable<T> nullSupplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? (Callable<T>) NULL_SUPPLIER : (Callable) invokeV.objValue;
-    }
-
-    public static <T> Predicate<T> predicateReverseFor(BooleanSupplier booleanSupplier) {
+    public static Predicate predicateReverseFor(BooleanSupplier booleanSupplier) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, booleanSupplier)) == null) ? new BooleanSupplierPredicateReverse(booleanSupplier) : (Predicate) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, booleanSupplier)) == null) {
+            return new BooleanSupplierPredicateReverse(booleanSupplier);
+        }
+        return (Predicate) invokeL.objValue;
     }
 
-    public static <T> Function<T, Timed<T>> timestampWith(TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, timeUnit, scheduler)) == null) ? new TimestampFunction(timeUnit, scheduler) : (Function) invokeLL.objValue;
-    }
-
-    public static <T1, T2, R> Function<Object[], R> toFunction(BiFunction<? super T1, ? super T2, ? extends R> biFunction) {
+    public static Function toFunction(BiFunction biFunction) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, biFunction)) == null) {
@@ -1639,25 +1703,34 @@ public final class Functions {
         return (Function) invokeL.objValue;
     }
 
-    public static <T, K> BiConsumer<Map<K, T>, T> toMapKeySelector(Function<? super T, ? extends K> function) {
+    public static BiConsumer toMapKeySelector(Function function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, function)) == null) ? new ToMapKeySelector(function) : (BiConsumer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, function)) == null) {
+            return new ToMapKeySelector(function);
+        }
+        return (BiConsumer) invokeL.objValue;
     }
 
-    public static <T, K, V> BiConsumer<Map<K, V>, T> toMapKeyValueSelector(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2) {
+    public static Function timestampWith(TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, function, function2)) == null) ? new ToMapKeyValueSelector(function2, function) : (BiConsumer) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, timeUnit, scheduler)) == null) {
+            return new TimestampFunction(timeUnit, scheduler);
+        }
+        return (Function) invokeLL.objValue;
     }
 
-    public static <T, K, V> BiConsumer<Map<K, Collection<V>>, T> toMultimapKeyValueSelector(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, Function<? super K, ? extends Collection<? super V>> function3) {
-        InterceptResult invokeLLL;
+    public static BiConsumer toMapKeyValueSelector(Function function, Function function2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65570, null, function, function2, function3)) == null) ? new ToMultimapKeyValueSelector(function3, function2, function) : (BiConsumer) invokeLLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, function, function2)) == null) {
+            return new ToMapKeyValueSelector(function2, function);
+        }
+        return (BiConsumer) invokeLL.objValue;
     }
 
-    public static <T1, T2, T3, R> Function<Object[], R> toFunction(Function3<T1, T2, T3, R> function3) {
+    public static Function toFunction(Function3 function3) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, function3)) == null) {
@@ -1667,7 +1740,7 @@ public final class Functions {
         return (Function) invokeL.objValue;
     }
 
-    public static <T1, T2, T3, T4, R> Function<Object[], R> toFunction(Function4<T1, T2, T3, T4, R> function4) {
+    public static Function toFunction(Function4 function4) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, function4)) == null) {
@@ -1677,7 +1750,7 @@ public final class Functions {
         return (Function) invokeL.objValue;
     }
 
-    public static <T1, T2, T3, T4, T5, R> Function<Object[], R> toFunction(Function5<T1, T2, T3, T4, T5, R> function5) {
+    public static Function toFunction(Function5 function5) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, function5)) == null) {
@@ -1687,7 +1760,7 @@ public final class Functions {
         return (Function) invokeL.objValue;
     }
 
-    public static <T1, T2, T3, T4, T5, T6, R> Function<Object[], R> toFunction(Function6<T1, T2, T3, T4, T5, T6, R> function6) {
+    public static Function toFunction(Function6 function6) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, function6)) == null) {
@@ -1697,7 +1770,7 @@ public final class Functions {
         return (Function) invokeL.objValue;
     }
 
-    public static <T1, T2, T3, T4, T5, T6, T7, R> Function<Object[], R> toFunction(Function7<T1, T2, T3, T4, T5, T6, T7, R> function7) {
+    public static Function toFunction(Function7 function7) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, function7)) == null) {
@@ -1707,7 +1780,7 @@ public final class Functions {
         return (Function) invokeL.objValue;
     }
 
-    public static <T1, T2, T3, T4, T5, T6, T7, T8, R> Function<Object[], R> toFunction(Function8<T1, T2, T3, T4, T5, T6, T7, T8, R> function8) {
+    public static Function toFunction(Function8 function8) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, function8)) == null) {
@@ -1717,7 +1790,7 @@ public final class Functions {
         return (Function) invokeL.objValue;
     }
 
-    public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R> Function<Object[], R> toFunction(Function9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> function9) {
+    public static Function toFunction(Function9 function9) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, function9)) == null) {
@@ -1725,5 +1798,14 @@ public final class Functions {
             return new Array9Func(function9);
         }
         return (Function) invokeL.objValue;
+    }
+
+    public static BiConsumer toMultimapKeyValueSelector(Function function, Function function2, Function function3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65570, null, function, function2, function3)) == null) {
+            return new ToMultimapKeyValueSelector(function3, function2, function);
+        }
+        return (BiConsumer) invokeLLL.objValue;
     }
 }

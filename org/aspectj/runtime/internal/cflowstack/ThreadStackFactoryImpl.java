@@ -20,12 +20,12 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
     }
 
     /* loaded from: classes8.dex */
-    public static class ThreadCounterImpl extends ThreadLocal implements ThreadCounter {
+    public class ThreadCounterImpl extends ThreadLocal implements ThreadCounter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes8.dex */
-        public static class Counter {
+        public class Counter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int value;
@@ -73,7 +73,10 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
         public Counter getThreadCounter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (Counter) get() : (Counter) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return (Counter) get();
+            }
+            return (Counter) invokeV.objValue;
         }
 
         @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
@@ -88,14 +91,23 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
         public Object initialValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new Counter() : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return new Counter();
+            }
+            return invokeV.objValue;
         }
 
         @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
         public boolean isNotZero() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getThreadCounter().value != 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (getThreadCounter().value != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
@@ -112,7 +124,7 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
     }
 
     /* loaded from: classes8.dex */
-    public static class ThreadStackImpl extends ThreadLocal implements ThreadStack {
+    public class ThreadStackImpl extends ThreadLocal implements ThreadStack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -134,14 +146,20 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
         public Stack getThreadStack() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (Stack) get() : (Stack) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return (Stack) get();
+            }
+            return (Stack) invokeV.objValue;
         }
 
         @Override // java.lang.ThreadLocal
         public Object initialValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Stack() : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new Stack();
+            }
+            return invokeV.objValue;
         }
 
         @Override // org.aspectj.runtime.internal.cflowstack.ThreadStack
@@ -175,13 +193,19 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
     public ThreadCounter getNewThreadCounter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ThreadCounterImpl(null) : (ThreadCounter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ThreadCounterImpl(null);
+        }
+        return (ThreadCounter) invokeV.objValue;
     }
 
     @Override // org.aspectj.runtime.internal.cflowstack.ThreadStackFactory
     public ThreadStack getNewThreadStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ThreadStackImpl(null) : (ThreadStack) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ThreadStackImpl(null);
+        }
+        return (ThreadStack) invokeV.objValue;
     }
 }

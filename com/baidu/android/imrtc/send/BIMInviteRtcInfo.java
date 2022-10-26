@@ -3,7 +3,6 @@ package com.baidu.android.imrtc.send;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.IMJni;
@@ -24,13 +23,138 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMInviteRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<BIMInviteRtcInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "IMInviteRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public List<BIMInviteUser> mInviteUsers;
+    public List mInviteUsers;
     public int mMediaType;
     public int mRtcRoomType;
+
+    /* loaded from: classes.dex */
+    public class BIMInviteUser implements Parcelable {
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long appId;
+        public String appVersion;
+        public String cuid;
+        public String thirdUserId;
+        public long uk;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1121128766, "Lcom/baidu/android/imrtc/send/BIMInviteRtcInfo$BIMInviteUser;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1121128766, "Lcom/baidu/android/imrtc/send/BIMInviteRtcInfo$BIMInviteUser;");
+                    return;
+                }
+            }
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.BIMInviteUser.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                public BIMInviteUser createFromParcel(Parcel parcel) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new BIMInviteUser(parcel);
+                    }
+                    return (BIMInviteUser) invokeL.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
+                public BIMInviteUser[] newArray(int i) {
+                    InterceptResult invokeI;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new BIMInviteUser[i];
+                    }
+                    return (BIMInviteUser[]) invokeI.objValue;
+                }
+            };
+        }
+
+        public BIMInviteUser() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public BIMInviteUser(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.appId = parcel.readLong();
+            this.uk = parcel.readLong();
+            this.cuid = parcel.readString();
+            this.thirdUserId = parcel.readString();
+            this.appVersion = parcel.readString();
+        }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+                parcel.writeLong(this.appId);
+                parcel.writeLong(this.uk);
+                parcel.writeString(this.cuid);
+                parcel.writeString(this.thirdUserId);
+                parcel.writeString(this.appVersion);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +169,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<BIMInviteRtcInfo>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,23 +188,73 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMInviteRtcInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BIMInviteRtcInfo(parcel) : (BIMInviteRtcInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BIMInviteRtcInfo(parcel);
+                }
+                return (BIMInviteRtcInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMInviteRtcInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BIMInviteRtcInfo[i] : (BIMInviteRtcInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BIMInviteRtcInfo[i];
+                }
+                return (BIMInviteRtcInfo[]) invokeI.objValue;
             }
         };
+    }
+
+    public List getBIMInviteUsers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mInviteUsers;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMediaType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getRtcRoomType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRtcRoomType;
+        }
+        return invokeV.intValue;
+    }
+
+    public BIMInviteRtcInfo(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mInviteUsers = new ArrayList();
+        this.mContext = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,25 +282,29 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         this.mInviteUsers = parcel.createTypedArrayList(BIMInviteUser.CREATOR);
     }
 
-    public List<BIMInviteUser> getBIMInviteUsers() {
-        InterceptResult invokeV;
+    public BIMInviteRtcInfo(BIMRtcInfo bIMRtcInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInviteUsers : (List) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bIMRtcInfo};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mInviteUsers = new ArrayList();
+        setAction(bIMRtcInfo.getAction());
+        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
+        setRtcExt(bIMRtcInfo.getRtcExt());
+        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 
-    public int getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMediaType : invokeV.intValue;
-    }
-
-    public int getRtcRoomType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRtcRoomType : invokeV.intValue;
-    }
-
-    public void setBIMInviteUsers(@NonNull List<BIMInviteUser> list) {
+    public void setBIMInviteUsers(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.mInviteUsers.clear();
@@ -149,7 +327,6 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         JSONArray optJSONArray;
@@ -185,7 +362,6 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -239,167 +415,5 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             parcel.writeString(this.mRtcExt);
             parcel.writeTypedList(this.mInviteUsers);
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static class BIMInviteUser implements Parcelable {
-        public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<BIMInviteUser> CREATOR;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long appId;
-        public String appVersion;
-        public String cuid;
-        public String thirdUserId;
-        public long uk;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1121128766, "Lcom/baidu/android/imrtc/send/BIMInviteRtcInfo$BIMInviteUser;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1121128766, "Lcom/baidu/android/imrtc/send/BIMInviteRtcInfo$BIMInviteUser;");
-                    return;
-                }
-            }
-            CREATOR = new Parcelable.Creator<BIMInviteUser>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.BIMInviteUser.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // android.os.Parcelable.Creator
-                public BIMInviteUser createFromParcel(Parcel parcel) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BIMInviteUser(parcel) : (BIMInviteUser) invokeL.objValue;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // android.os.Parcelable.Creator
-                public BIMInviteUser[] newArray(int i) {
-                    InterceptResult invokeI;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BIMInviteUser[i] : (BIMInviteUser[]) invokeI.objValue;
-                }
-            };
-        }
-
-        public BIMInviteUser(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.appId = parcel.readLong();
-            this.uk = parcel.readLong();
-            this.cuid = parcel.readString();
-            this.thirdUserId = parcel.readString();
-            this.appVersion = parcel.readString();
-        }
-
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-                parcel.writeLong(this.appId);
-                parcel.writeLong(this.uk);
-                parcel.writeString(this.cuid);
-                parcel.writeString(this.thirdUserId);
-                parcel.writeString(this.appVersion);
-            }
-        }
-
-        public BIMInviteUser() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    public BIMInviteRtcInfo(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mInviteUsers = new ArrayList();
-        this.mContext = context;
-    }
-
-    public BIMInviteRtcInfo(BIMRtcInfo bIMRtcInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bIMRtcInfo};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mInviteUsers = new ArrayList();
-        setAction(bIMRtcInfo.getAction());
-        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
-        setRtcExt(bIMRtcInfo.getRtcExt());
-        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 }

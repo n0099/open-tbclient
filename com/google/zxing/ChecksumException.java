@@ -49,7 +49,13 @@ public final class ChecksumException extends ReaderException {
     public static ChecksumException getChecksumInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ReaderException.isStackTrace ? new ChecksumException() : INSTANCE : (ChecksumException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (ReaderException.isStackTrace) {
+                return new ChecksumException();
+            }
+            return INSTANCE;
+        }
+        return (ChecksumException) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,6 +81,12 @@ public final class ChecksumException extends ReaderException {
     public static ChecksumException getChecksumInstance(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) ? ReaderException.isStackTrace ? new ChecksumException(th) : INSTANCE : (ChecksumException) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
+            if (ReaderException.isStackTrace) {
+                return new ChecksumException(th);
+            }
+            return INSTANCE;
+        }
+        return (ChecksumException) invokeL.objValue;
     }
 }

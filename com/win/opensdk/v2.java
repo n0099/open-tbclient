@@ -34,9 +34,8 @@ public class v2 implements View.OnClickListener {
     public void onClick(View view2) {
         w2 w2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (w2Var = this.a.g) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (w2Var = this.a.g) != null) {
+            ((G) w2Var).a.finish();
         }
-        ((G) w2Var).a.finish();
     }
 }

@@ -1,9 +1,8 @@
 package com.baidu.tieba.downloadmanager.net;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.t76;
+import com.baidu.tieba.a86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemManage.ItemManageResIdl;
 /* loaded from: classes3.dex */
-public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMessage<t76, ItemManageResIdl> {
+public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,16 +34,25 @@ public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMess
         }
     }
 
+    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
+    public Class getProtobufResponseIdlClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ItemManageResIdl.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            t76 t76Var = new t76();
+            a86 a86Var = new a86();
             ItemManageResIdl itemManageResIdl = (ItemManageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemManageResIdl.class);
-            t76Var.b(itemManageResIdl.data);
+            a86Var.b(itemManageResIdl.data);
             if (itemManageResIdl != null && (error = itemManageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -52,17 +60,9 @@ public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMess
                 }
                 setErrorString(itemManageResIdl.error.usermsg);
             }
-            setData(t76Var);
+            setData(a86Var);
             return itemManageResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
-    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<ItemManageResIdl> getProtobufResponseIdlClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ItemManageResIdl.class : (Class) invokeV.objValue;
     }
 }

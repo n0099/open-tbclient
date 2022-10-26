@@ -106,10 +106,10 @@ public class e extends FileObserver {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 File file = new File(this.b);
-                if (file.exists()) {
-                    return file.delete();
+                if (!file.exists()) {
+                    return false;
                 }
-                return false;
+                return file.delete();
             } catch (Throwable unused) {
                 int i = b.a;
                 return false;

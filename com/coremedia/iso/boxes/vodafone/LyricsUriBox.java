@@ -60,6 +60,26 @@ public class LyricsUriBox extends AbstractFullBox {
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Utf8.utf8StringLengthInBytes(this.lyricsUri) + 5;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getLyricsUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.lyricsUri;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("LyricsUriBox.java", LyricsUriBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getLyricsUri", "com.coremedia.iso.boxes.vodafone.LyricsUriBox", "", "", "", "java.lang.String"), 39);
@@ -84,23 +104,6 @@ public class LyricsUriBox extends AbstractFullBox {
             byteBuffer.put(Utf8.convert(this.lyricsUri));
             byteBuffer.put((byte) 0);
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Utf8.utf8StringLengthInBytes(this.lyricsUri) + 5 : invokeV.longValue;
-    }
-
-    public String getLyricsUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.lyricsUri;
-        }
-        return (String) invokeV.objValue;
     }
 
     public void setLyricsUri(String str) {

@@ -14,16 +14,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ca7;
-import com.baidu.tieba.da7;
 import com.baidu.tieba.im.forum.broadcast.data.BroadcastMajorHistoryRequestMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorHistoryMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorResidueMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseSocketMajorHistoryMessage;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.ka7;
+import com.baidu.tieba.la7;
+import com.baidu.tieba.ma7;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,17 +34,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ca7 a;
+    public final ka7 a;
     public final String b;
     public boolean c;
     public long d;
     public boolean e;
-    public da7 f;
-    public pb g;
+    public la7 f;
+    public qb g;
     public HttpMessageListener h;
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes4.dex */
-    public class a extends pb {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumBroadCastMajorHistoryModel a;
@@ -70,19 +91,19 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
             this.a = forumBroadCastMajorHistoryModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
                 if (responsedMessage == null) {
                     return;
                 }
-                da7 da7Var = null;
+                la7 la7Var = null;
                 if (responsedMessage instanceof ResponseHttpMajorHistoryMessage) {
-                    da7Var = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
+                    la7Var = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
                 } else if (responsedMessage instanceof ResponseSocketMajorHistoryMessage) {
-                    da7Var = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
+                    la7Var = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
                 }
                 this.a.mErrorCode = responsedMessage.getError();
                 this.a.mErrorString = responsedMessage.getErrorString();
@@ -92,12 +113,12 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                 if (this.a.a == null) {
                     return;
                 }
-                if (this.a.mErrorCode != 0 || da7Var == null) {
-                    this.a.a.f(errorData);
+                if (this.a.mErrorCode == 0 && la7Var != null) {
+                    this.a.f = la7Var;
+                    this.a.L();
                     return;
                 }
-                this.a.f = da7Var;
-                this.a.L();
+                this.a.a.f(errorData);
             }
         }
     }
@@ -133,24 +154,27 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null) {
                 return;
             }
-            ForumBroadcastMajorResidueData data = httpResponsedMessage instanceof ResponseHttpMajorResidueMessage ? ((ResponseHttpMajorResidueMessage) httpResponsedMessage).getData() : null;
+            ForumBroadcastMajorResidueData forumBroadcastMajorResidueData = null;
+            if (httpResponsedMessage instanceof ResponseHttpMajorResidueMessage) {
+                forumBroadcastMajorResidueData = ((ResponseHttpMajorResidueMessage) httpResponsedMessage).getData();
+            }
             if (this.a.a != null) {
-                this.a.a.A0(data);
+                this.a.a.A0(forumBroadcastMajorResidueData);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, ca7 ca7Var, String str) {
+    public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, ka7 ka7Var, String str) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {tbPageContext, ca7Var, str};
+            Object[] objArr = {tbPageContext, ka7Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,12 +189,12 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         this.f = null;
         this.g = new a(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
         this.h = new b(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
-        sm8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
-        sm8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
-        sm8.e(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
+        zm8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
+        zm8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
+        zm8.e(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
         registerListener(this.g);
         registerListener(this.h);
-        this.a = ca7Var;
+        this.a = ka7Var;
         this.b = str;
     }
 
@@ -182,6 +206,44 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
             httpMessage.addParam("forum_id", this.b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
+    }
+
+    public void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = null;
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            la7 la7Var = this.f;
+            if (la7Var == null) {
+                return false;
+            }
+            return !ListUtils.isEmpty(la7Var.b());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c) {
+            return;
+        }
+        this.e = false;
+        J(2);
+    }
+
+    public void refresh() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.c) {
+            return;
+        }
+        this.e = true;
+        J(1);
     }
 
     public final void J(int i) {
@@ -197,20 +259,13 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
             }
             if (i == 2) {
                 broadcastMajorHistoryRequestMessage.lastId = this.d;
-            } else if (i != 1) {
-                return;
-            } else {
+            } else if (i == 1) {
                 broadcastMajorHistoryRequestMessage.lastId = 0L;
+            } else {
+                return;
             }
             this.c = true;
             sendMessage(broadcastMajorHistoryRequestMessage);
-        }
-    }
-
-    public void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = null;
         }
     }
 
@@ -218,61 +273,10 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.f.b() != null && this.f.b().size() > 1) {
-                this.d = this.f.b().get(this.f.b().size() - 1).b();
+                this.d = ((ma7) this.f.b().get(this.f.b().size() - 1)).b();
             }
             this.f.e(this.e);
             this.a.c0(this.f);
         }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            da7 da7Var = this.f;
-            if (da7Var == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(da7Var.b());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.c) {
-            return;
-        }
-        this.e = false;
-        J(2);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void refresh() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.c) {
-            return;
-        }
-        this.e = true;
-        J(1);
     }
 }

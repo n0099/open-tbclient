@@ -13,15 +13,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import androidx.annotation.ArrayRes;
-import androidx.annotation.AttrRes;
-import androidx.annotation.Dimension;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
-import androidx.annotation.StringRes;
-import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
@@ -42,17 +33,11 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     public static /* synthetic */ Interceptable $ic = null;
-    @AttrRes
     public static final int DEF_STYLE_ATTR = 2130968711;
-    @StyleRes
     public static final int DEF_STYLE_RES = 2131755301;
-    @AttrRes
     public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969766;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public Drawable background;
-    @NonNull
-    @Dimension
     public final Rect backgroundInsets;
 
     static {
@@ -71,7 +56,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialAlertDialogBuilder(@NonNull Context context) {
+    public MaterialAlertDialogBuilder(Context context) {
         this(context, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,87 +76,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         }
     }
 
-    public static Context createMaterialAlertDialogThemedContext(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            int materialAlertDialogThemeOverlay = getMaterialAlertDialogThemeOverlay(context);
-            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
-            return materialAlertDialogThemeOverlay == 0 ? wrap : new ContextThemeWrapper(wrap, materialAlertDialogThemeOverlay);
-        }
-        return (Context) invokeL.objValue;
-    }
-
-    public static int getMaterialAlertDialogThemeOverlay(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            TypedValue resolve = MaterialAttributes.resolve(context, MATERIAL_ALERT_DIALOG_THEME_OVERLAY);
-            if (resolve == null) {
-                return 0;
-            }
-            return resolve.data;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int getOverridingThemeResId(@NonNull Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) ? i == 0 ? getMaterialAlertDialogThemeOverlay(context) : i : invokeLI.intValue;
-    }
-
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public AlertDialog create() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AlertDialog create = super.create();
-            Window window = create.getWindow();
-            View decorView = window.getDecorView();
-            Drawable drawable = this.background;
-            if (drawable instanceof MaterialShapeDrawable) {
-                ((MaterialShapeDrawable) drawable).setElevation(ViewCompat.getElevation(decorView));
-            }
-            window.setBackgroundDrawable(MaterialDialogs.insetDrawable(this.background, this.backgroundInsets));
-            decorView.setOnTouchListener(new InsetDialogOnTouchListener(create, this.backgroundInsets));
-            return create;
-        }
-        return (AlertDialog) invokeV.objValue;
-    }
-
-    @Nullable
-    public Drawable getBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.background : (Drawable) invokeV.objValue;
-    }
-
-    @NonNull
-    public MaterialAlertDialogBuilder setBackground(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, drawable)) == null) {
-            this.background = drawable;
-            return this;
-        }
-        return (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    @NonNull
-    public MaterialAlertDialogBuilder setBackgroundInsetBottom(@Px int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.backgroundInsets.bottom = i;
-            return this;
-        }
-        return (MaterialAlertDialogBuilder) invokeI.objValue;
-    }
-
-    @NonNull
-    public MaterialAlertDialogBuilder setBackgroundInsetEnd(@Px int i) {
+    public MaterialAlertDialogBuilder setBackgroundInsetEnd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -185,8 +90,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         return (MaterialAlertDialogBuilder) invokeI.objValue;
     }
 
-    @NonNull
-    public MaterialAlertDialogBuilder setBackgroundInsetStart(@Px int i) {
+    public MaterialAlertDialogBuilder setBackgroundInsetStart(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
@@ -200,19 +104,8 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         return (MaterialAlertDialogBuilder) invokeI.objValue;
     }
 
-    @NonNull
-    public MaterialAlertDialogBuilder setBackgroundInsetTop(@Px int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.backgroundInsets.top = i;
-            return this;
-        }
-        return (MaterialAlertDialogBuilder) invokeI.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialAlertDialogBuilder(@NonNull Context context, int i) {
+    public MaterialAlertDialogBuilder(Context context, int i) {
         super(createMaterialAlertDialogThemedContext(context), getOverridingThemeResId(context, i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -248,318 +141,485 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         this.background = materialShapeDrawable;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setAdapter(@Nullable ListAdapter listAdapter, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeLL;
+    public static Context createMaterialAlertDialogThemedContext(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, listAdapter, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setAdapter(listAdapter, onClickListener) : (MaterialAlertDialogBuilder) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            int materialAlertDialogThemeOverlay = getMaterialAlertDialogThemeOverlay(context);
+            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
+            if (materialAlertDialogThemeOverlay == 0) {
+                return wrap;
+            }
+            return new ContextThemeWrapper(wrap, materialAlertDialogThemeOverlay);
+        }
+        return (Context) invokeL.objValue;
+    }
+
+    public static int getMaterialAlertDialogThemeOverlay(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            TypedValue resolve = MaterialAttributes.resolve(context, MATERIAL_ALERT_DIALOG_THEME_OVERLAY);
+            if (resolve == null) {
+                return 0;
+            }
+            return resolve.data;
+        }
+        return invokeL.intValue;
+    }
+
+    public MaterialAlertDialogBuilder setBackground(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, drawable)) == null) {
+            this.background = drawable;
+            return this;
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    public MaterialAlertDialogBuilder setBackgroundInsetBottom(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.backgroundInsets.bottom = i;
+            return this;
+        }
+        return (MaterialAlertDialogBuilder) invokeI.objValue;
+    }
+
+    public MaterialAlertDialogBuilder setBackgroundInsetTop(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.backgroundInsets.top = i;
+            return this;
+        }
+        return (MaterialAlertDialogBuilder) invokeI.objValue;
+    }
+
+    public static int getOverridingThemeResId(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
+            if (i == 0) {
+                return getMaterialAlertDialogThemeOverlay(context);
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public AlertDialog create() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AlertDialog create = super.create();
+            Window window = create.getWindow();
+            View decorView = window.getDecorView();
+            Drawable drawable = this.background;
+            if (drawable instanceof MaterialShapeDrawable) {
+                ((MaterialShapeDrawable) drawable).setElevation(ViewCompat.getElevation(decorView));
+            }
+            window.setBackgroundDrawable(MaterialDialogs.insetDrawable(this.background, this.backgroundInsets));
+            decorView.setOnTouchListener(new InsetDialogOnTouchListener(create, this.backgroundInsets));
+            return create;
+        }
+        return (AlertDialog) invokeV.objValue;
+    }
+
+    public Drawable getBackground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.background;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
+    public MaterialAlertDialogBuilder setAdapter(ListAdapter listAdapter, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, listAdapter, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setAdapter(listAdapter, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
     public MaterialAlertDialogBuilder setCancelable(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) ? (MaterialAlertDialogBuilder) super.setCancelable(z) : (MaterialAlertDialogBuilder) invokeZ.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            return (MaterialAlertDialogBuilder) super.setCancelable(z);
+        }
+        return (MaterialAlertDialogBuilder) invokeZ.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setCursor(@Nullable Cursor cursor, @Nullable DialogInterface.OnClickListener onClickListener, @NonNull String str) {
+    public MaterialAlertDialogBuilder setCustomTitle(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view2)) == null) {
+            return (MaterialAlertDialogBuilder) super.setCustomTitle(view2);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setIconAttribute(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            return (MaterialAlertDialogBuilder) super.setIconAttribute(i);
+        }
+        return (MaterialAlertDialogBuilder) invokeI.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setNegativeButtonIcon(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, drawable)) == null) {
+            return (MaterialAlertDialogBuilder) super.setNegativeButtonIcon(drawable);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setNeutralButtonIcon(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, drawable)) == null) {
+            return (MaterialAlertDialogBuilder) super.setNeutralButtonIcon(drawable);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, onCancelListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setOnCancelListener(onCancelListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, onDismissListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setOnDismissListener(onDismissListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, onItemSelectedListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setOnItemSelectedListener(onItemSelectedListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setOnKeyListener(DialogInterface.OnKeyListener onKeyListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, onKeyListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setOnKeyListener(onKeyListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setPositiveButtonIcon(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, drawable)) == null) {
+            return (MaterialAlertDialogBuilder) super.setPositiveButtonIcon(drawable);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setCursor(Cursor cursor, DialogInterface.OnClickListener onClickListener, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, cursor, onClickListener, str)) == null) ? (MaterialAlertDialogBuilder) super.setCursor(cursor, onClickListener, str) : (MaterialAlertDialogBuilder) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, cursor, onClickListener, str)) == null) {
+            return (MaterialAlertDialogBuilder) super.setCursor(cursor, onClickListener, str);
+        }
+        return (MaterialAlertDialogBuilder) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setCustomTitle(@Nullable View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view2)) == null) ? (MaterialAlertDialogBuilder) super.setCustomTitle(view2) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setIconAttribute(@AttrRes int i) {
+    public MaterialAlertDialogBuilder setIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) ? (MaterialAlertDialogBuilder) super.setIconAttribute(i) : (MaterialAlertDialogBuilder) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            return (MaterialAlertDialogBuilder) super.setIcon(i);
+        }
+        return (MaterialAlertDialogBuilder) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setNegativeButtonIcon(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, drawable)) == null) ? (MaterialAlertDialogBuilder) super.setNegativeButtonIcon(drawable) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setNeutralButtonIcon(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, drawable)) == null) ? (MaterialAlertDialogBuilder) super.setNeutralButtonIcon(drawable) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setOnCancelListener(@Nullable DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, onCancelListener)) == null) ? (MaterialAlertDialogBuilder) super.setOnCancelListener(onCancelListener) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setOnDismissListener(@Nullable DialogInterface.OnDismissListener onDismissListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, onDismissListener)) == null) ? (MaterialAlertDialogBuilder) super.setOnDismissListener(onDismissListener) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setOnItemSelectedListener(@Nullable AdapterView.OnItemSelectedListener onItemSelectedListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, onItemSelectedListener)) == null) ? (MaterialAlertDialogBuilder) super.setOnItemSelectedListener(onItemSelectedListener) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setOnKeyListener(@Nullable DialogInterface.OnKeyListener onKeyListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, onKeyListener)) == null) ? (MaterialAlertDialogBuilder) super.setOnKeyListener(onKeyListener) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setPositiveButtonIcon(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, drawable)) == null) ? (MaterialAlertDialogBuilder) super.setPositiveButtonIcon(drawable) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setIcon(@DrawableRes int i) {
+    public MaterialAlertDialogBuilder setMessage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? (MaterialAlertDialogBuilder) super.setIcon(i) : (MaterialAlertDialogBuilder) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            return (MaterialAlertDialogBuilder) super.setMessage(i);
+        }
+        return (MaterialAlertDialogBuilder) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setItems(@ArrayRes int i, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setItems(i, onClickListener) : (MaterialAlertDialogBuilder) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setMessage(@StringRes int i) {
+    public MaterialAlertDialogBuilder setTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) ? (MaterialAlertDialogBuilder) super.setMessage(i) : (MaterialAlertDialogBuilder) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048647, this, i)) == null) {
+            return (MaterialAlertDialogBuilder) super.setTitle(i);
+        }
+        return (MaterialAlertDialogBuilder) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setNegativeButton(@StringRes int i, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setNegativeButton(i, onClickListener) : (MaterialAlertDialogBuilder) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setNeutralButton(@StringRes int i, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048619, this, i, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setNeutralButton(i, onClickListener) : (MaterialAlertDialogBuilder) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setPositiveButton(@StringRes int i, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048633, this, i, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setPositiveButton(i, onClickListener) : (MaterialAlertDialogBuilder) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setTitle(@StringRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048647, this, i)) == null) ? (MaterialAlertDialogBuilder) super.setTitle(i) : (MaterialAlertDialogBuilder) invokeI.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
     public MaterialAlertDialogBuilder setView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048651, this, i)) == null) ? (MaterialAlertDialogBuilder) super.setView(i) : (MaterialAlertDialogBuilder) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048651, this, i)) == null) {
+            return (MaterialAlertDialogBuilder) super.setView(i);
+        }
+        return (MaterialAlertDialogBuilder) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setIcon(@Nullable Drawable drawable) {
+    public MaterialAlertDialogBuilder setIcon(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, drawable)) == null) ? (MaterialAlertDialogBuilder) super.setIcon(drawable) : (MaterialAlertDialogBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, drawable)) == null) {
+            return (MaterialAlertDialogBuilder) super.setIcon(drawable);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setItems(@Nullable CharSequence[] charSequenceArr, @Nullable DialogInterface.OnClickListener onClickListener) {
+    public MaterialAlertDialogBuilder setMessage(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, charSequence)) == null) {
+            return (MaterialAlertDialogBuilder) super.setMessage(charSequence);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setTitle(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, charSequence)) == null) {
+            return (MaterialAlertDialogBuilder) super.setTitle(charSequence);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, view2)) == null) {
+            return (MaterialAlertDialogBuilder) super.setView(view2);
+        }
+        return (MaterialAlertDialogBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setItems(int i, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setItems(i, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setNegativeButton(int i, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setNegativeButton(i, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setNeutralButton(int i, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048619, this, i, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setNeutralButton(i, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setPositiveButton(int i, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048633, this, i, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setPositiveButton(i, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setItems(CharSequence[] charSequenceArr, DialogInterface.OnClickListener onClickListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, charSequenceArr, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setItems(charSequenceArr, onClickListener) : (MaterialAlertDialogBuilder) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, charSequenceArr, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setItems(charSequenceArr, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setMessage(@Nullable CharSequence charSequence) {
-        InterceptResult invokeL;
+    public MaterialAlertDialogBuilder setNegativeButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, charSequence)) == null) ? (MaterialAlertDialogBuilder) super.setMessage(charSequence) : (MaterialAlertDialogBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, charSequence, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setNegativeButton(charSequence, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setMultiChoiceItems(@ArrayRes int i, @Nullable boolean[] zArr, @Nullable DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
+    public MaterialAlertDialogBuilder setNeutralButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, charSequence, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setNeutralButton(charSequence, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setPositiveButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048634, this, charSequence, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setPositiveButton(charSequence, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setMultiChoiceItems(int i, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048608, this, i, zArr, onMultiChoiceClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setMultiChoiceItems(i, zArr, onMultiChoiceClickListener) : (MaterialAlertDialogBuilder) invokeILL.objValue;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048608, this, i, zArr, onMultiChoiceClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setMultiChoiceItems(i, zArr, onMultiChoiceClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeILL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setNegativeButton(@Nullable CharSequence charSequence, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, charSequence, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setNegativeButton(charSequence, onClickListener) : (MaterialAlertDialogBuilder) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setNeutralButton(@Nullable CharSequence charSequence, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, charSequence, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setNeutralButton(charSequence, onClickListener) : (MaterialAlertDialogBuilder) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setPositiveButton(@Nullable CharSequence charSequence, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048634, this, charSequence, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setPositiveButton(charSequence, onClickListener) : (MaterialAlertDialogBuilder) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setTitle(@Nullable CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, charSequence)) == null) ? (MaterialAlertDialogBuilder) super.setTitle(charSequence) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setView(@Nullable View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, view2)) == null) ? (MaterialAlertDialogBuilder) super.setView(view2) : (MaterialAlertDialogBuilder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setMultiChoiceItems(@Nullable CharSequence[] charSequenceArr, @Nullable boolean[] zArr, @Nullable DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, charSequenceArr, zArr, onMultiChoiceClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setMultiChoiceItems(charSequenceArr, zArr, onMultiChoiceClickListener) : (MaterialAlertDialogBuilder) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setSingleChoiceItems(@ArrayRes int i, int i2, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048641, this, i, i2, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setSingleChoiceItems(i, i2, onClickListener) : (MaterialAlertDialogBuilder) invokeIIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setMultiChoiceItems(@Nullable Cursor cursor, @NonNull String str, @NonNull String str2, @Nullable DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
+    public MaterialAlertDialogBuilder setMultiChoiceItems(Cursor cursor, String str, String str2, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048609, this, cursor, str, str2, onMultiChoiceClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setMultiChoiceItems(cursor, str, str2, onMultiChoiceClickListener) : (MaterialAlertDialogBuilder) invokeLLLL.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048609, this, cursor, str, str2, onMultiChoiceClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setMultiChoiceItems(cursor, str, str2, onMultiChoiceClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setSingleChoiceItems(@Nullable Cursor cursor, int i, @NonNull String str, @Nullable DialogInterface.OnClickListener onClickListener) {
+    public MaterialAlertDialogBuilder setSingleChoiceItems(Cursor cursor, int i, String str, DialogInterface.OnClickListener onClickListener) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048642, this, cursor, i, str, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setSingleChoiceItems(cursor, i, str, onClickListener) : (MaterialAlertDialogBuilder) invokeLILL.objValue;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048642, this, cursor, i, str, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setSingleChoiceItems(cursor, i, str, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLILL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setSingleChoiceItems(@Nullable CharSequence[] charSequenceArr, int i, @Nullable DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeLIL;
+    public MaterialAlertDialogBuilder setMultiChoiceItems(CharSequence[] charSequenceArr, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048644, this, charSequenceArr, i, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setSingleChoiceItems(charSequenceArr, i, onClickListener) : (MaterialAlertDialogBuilder) invokeLIL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, charSequenceArr, zArr, onMultiChoiceClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setMultiChoiceItems(charSequenceArr, zArr, onMultiChoiceClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
-    @NonNull
-    public MaterialAlertDialogBuilder setSingleChoiceItems(@Nullable ListAdapter listAdapter, int i, @Nullable DialogInterface.OnClickListener onClickListener) {
+    public MaterialAlertDialogBuilder setSingleChoiceItems(int i, int i2, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048641, this, i, i2, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setSingleChoiceItems(i, i2, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeIIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setSingleChoiceItems(ListAdapter listAdapter, int i, DialogInterface.OnClickListener onClickListener) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048643, this, listAdapter, i, onClickListener)) == null) ? (MaterialAlertDialogBuilder) super.setSingleChoiceItems(listAdapter, i, onClickListener) : (MaterialAlertDialogBuilder) invokeLIL.objValue;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048643, this, listAdapter, i, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setSingleChoiceItems(listAdapter, i, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.app.AlertDialog.Builder
+    public MaterialAlertDialogBuilder setSingleChoiceItems(CharSequence[] charSequenceArr, int i, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048644, this, charSequenceArr, i, onClickListener)) == null) {
+            return (MaterialAlertDialogBuilder) super.setSingleChoiceItems(charSequenceArr, i, onClickListener);
+        }
+        return (MaterialAlertDialogBuilder) invokeLIL.objValue;
     }
 }

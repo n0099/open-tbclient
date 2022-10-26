@@ -1,6 +1,5 @@
 package com.baidu.searchbox.config;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -28,7 +27,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-@SuppressLint({"BDOfflineUrl"})
 /* loaded from: classes2.dex */
 public class AppConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,7 +38,7 @@ public class AppConfig {
     public static final String UBC_DEBUG_URL = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
     public static final int VOICE_ID = 790;
     public static final String WEEKLY_CONFIG_FILE = "weekly_searchbox_config.ini";
-    public static HashMap<String, String> sConfigMap;
+    public static HashMap sConfigMap;
     public static boolean sDebug;
     public static String sFileContent;
     public static String sInternalFileContent;
@@ -55,7 +53,60 @@ public class AppConfig {
     public File mTimestampFile;
 
     /* loaded from: classes2.dex */
-    public static class AppInfo {
+    public interface ConfigValueFilter {
+        boolean isIllegalContent(String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1333490987, "Lcom/baidu/searchbox/config/AppConfig;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1333490987, "Lcom/baidu/searchbox/config/AppConfig;");
+        }
+    }
+
+    public static String getActiveDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "2分钟" : (String) invokeV.objValue;
+    }
+
+    public static String getExternalConfigFileName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? CONFIG_FILE : (String) invokeV.objValue;
+    }
+
+    public static String getNetTestServer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? "http://112.34.113.161/checkupdate" : (String) invokeV.objValue;
+    }
+
+    public static String getWeeklyUpdateUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? "http://shoubai.m.baidu.com/weeklyupdate/index.php?type=update" : (String) invokeV.objValue;
+    }
+
+    public static boolean isDebugBuild() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes2.dex */
+    public class AppInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
         public static final String PREVIEW_PACKAGE_NAME = "com.baidu.searchbox.preview";
@@ -81,6 +132,63 @@ public class AppConfig {
             }
         }
 
+        public static String getPackageName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                if (TextUtils.isEmpty(sPackageName)) {
+                    sPackageName = AppRuntime.getAppContext().getPackageName();
+                }
+                return sPackageName;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public static boolean isDaily() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return AppConfig.sIsDaily;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean isModifyPkg() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+                return !TextUtils.equals(getPackageName(), "com.baidu.searchbox");
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean isPreview() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                return TextUtils.equals(getPackageName(), PREVIEW_PACKAGE_NAME);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean isSmartPreview() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+                return TextUtils.equals(getPackageName(), SMART_PACKAGE_NAME);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean isWeekly() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+                return TextUtils.equals(getPackageName(), WEEKLY_PACKAGE_NAME);
+            }
+            return invokeV.booleanValue;
+        }
+
         public static String dumpAppInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -90,18 +198,6 @@ public class AppConfig {
                     Log.d(TAG, str);
                 }
                 return str;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static String getPackageName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (TextUtils.isEmpty(sPackageName)) {
-                    sPackageName = AppRuntime.getAppContext().getPackageName();
-                }
-                return sPackageName;
             }
             return (String) invokeV.objValue;
         }
@@ -141,45 +237,10 @@ public class AppConfig {
             }
             return (String) invokeV.objValue;
         }
-
-        public static boolean isDaily() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? AppConfig.sIsDaily : invokeV.booleanValue;
-        }
-
-        public static boolean isModifyPkg() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? !TextUtils.equals(getPackageName(), "com.baidu.searchbox") : invokeV.booleanValue;
-        }
-
-        public static boolean isPreview() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TextUtils.equals(getPackageName(), PREVIEW_PACKAGE_NAME) : invokeV.booleanValue;
-        }
-
-        public static boolean isSmartPreview() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? TextUtils.equals(getPackageName(), SMART_PACKAGE_NAME) : invokeV.booleanValue;
-        }
-
-        public static boolean isWeekly() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? TextUtils.equals(getPackageName(), WEEKLY_PACKAGE_NAME) : invokeV.booleanValue;
-        }
     }
 
     /* loaded from: classes2.dex */
-    public interface ConfigValueFilter {
-        boolean isIllegalContent(String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public static class ConfigWhiteList {
+    public class ConfigWhiteList {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] WHITE_LIST;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,7 +292,7 @@ public class AppConfig {
     }
 
     /* loaded from: classes2.dex */
-    public static class Debug {
+    public class Debug {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,12 +313,15 @@ public class AppConfig {
         public static String getJacocoUploadUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AppConfig.getStringConfig("JACOCO_UPLOAD_URL", "http://cp01-searchbbox-andriod-cqa01.epc.baidu.com:8666/Coverage/fileUploadAPI/fileManager.php") : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return AppConfig.getStringConfig("JACOCO_UPLOAD_URL", "http://cp01-searchbbox-andriod-cqa01.epc.baidu.com:8666/Coverage/fileUploadAPI/fileManager.php");
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class Downloads {
+    public class Downloads {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -278,18 +342,24 @@ public class AppConfig {
         public static String getDestinationDir() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AppConfig.getStringConfig("DOWNLOAD_DEST_DIR", "") : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return AppConfig.getStringConfig("DOWNLOAD_DEST_DIR", "");
+            }
+            return (String) invokeV.objValue;
         }
 
         public static String getDestinationMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? AppConfig.getStringConfig("DOWNLOAD_DEST_MODE", null) : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return AppConfig.getStringConfig("DOWNLOAD_DEST_MODE", null);
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class HTTPSConfig {
+    public class HTTPSConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TMP_USE_HTTP_DELTA = 518400000;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,19 +378,6 @@ public class AppConfig {
             }
         }
 
-        public static boolean isTmpUseHttp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                QuickPersistConfig quickPersistConfig = QuickPersistConfig.getInstance();
-                if (quickPersistConfig.getInt(QuickPersistConfigConst.KEY_TMP_USE_HTTP, 0) == 0) {
-                    return false;
-                }
-                return Math.abs(System.currentTimeMillis() - quickPersistConfig.getLong(QuickPersistConfigConst.KEY_LAST_TMP_USE_HTTP_TS, 0L)) < TMP_USE_HTTP_DELTA;
-            }
-            return invokeV.booleanValue;
-        }
-
         public static void setTmpUseHttp() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, null) == null) {
@@ -329,10 +386,26 @@ public class AppConfig {
                 quickPersistConfig.putLong(QuickPersistConfigConst.KEY_LAST_TMP_USE_HTTP_TS, System.currentTimeMillis());
             }
         }
+
+        public static boolean isTmpUseHttp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                QuickPersistConfig quickPersistConfig = QuickPersistConfig.getInstance();
+                if (quickPersistConfig.getInt(QuickPersistConfigConst.KEY_TMP_USE_HTTP, 0) == 0) {
+                    return false;
+                }
+                if (Math.abs(System.currentTimeMillis() - quickPersistConfig.getLong(QuickPersistConfigConst.KEY_LAST_TMP_USE_HTTP_TS, 0L)) >= TMP_USE_HTTP_DELTA) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
     /* loaded from: classes2.dex */
-    public static class Speed {
+    public class Speed {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -353,28 +426,19 @@ public class AppConfig {
         public static boolean getSpeedEnable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AppConfig.getBooleanConfig("SPEED_MONITOR", false) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return AppConfig.getBooleanConfig("SPEED_MONITOR", false);
+            }
+            return invokeV.booleanValue;
         }
 
         public static String getSpeedMonitorUpload() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? AppConfig.getStringConfig("SPEED_MONITOR_UPLOAD", "") : (String) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1333490987, "Lcom/baidu/searchbox/config/AppConfig;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1333490987, "Lcom/baidu/searchbox/config/AppConfig;");
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return AppConfig.getStringConfig("SPEED_MONITOR_UPLOAD", "");
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -390,6 +454,222 @@ public class AppConfig {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static String getCommunityPreConnectImageUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (HostConfig.isSearchboxUseHttps()) {
+                return "https://timgmb.bdimg.com/timg";
+            }
+            return "http://timgmb.bdimg.com/timg";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getConfigFileContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return sFileContent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getConfigUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return getStringConfig("CONFIG_URL", String.format("%s/static/searchbox/android/appconfig.html", DownloadConstants.REFER));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getCookieHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return getStringConfig("COOKIE_URL", ".baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getDailyUpdateUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return getWeeklyUpdateUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getFollowAllUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return String.format("%s/api/subscribe/v1/relation/receive_all", HostConfig.getExtHostForHttps());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean getForbidConfigFileWarning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return getBooleanConfig("FORBID_CONFIG_FILE_WARNING", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean getGrabServerCommandSwitch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return getBooleanConfig("GRAB_SERVER_COMMAND", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean getImageSearchGuideConfiged() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (getStringConfig("IMAGE_SEARCH_GUIDE_HOST", null) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean getImageSearchHostConfiged() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (getStringConfig("IMAGE_SEARCH_URL", null) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String getInternalConfigContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return sInternalFileContent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean getLoadInMainBrowser() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            return getBooleanConfig("LOAD_IN_MAIN_BROWSER", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int getNetTrafficUploadNumLimit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return getIntConfig("NETTRAFFIC_UPLOAD_NUM_LIMIT", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static String getPreviewUpdateUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            return getWeeklyUpdateUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean getSilentVideo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            return getBooleanConfig("SILENT_VIDEO", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean getSilentWebkit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            return getBooleanConfig("SILENT_WEBKIT", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String getUbcTestUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            return getStringConfig("UBC_DEBUG_HOST", "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean getUseAutoFocus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
+            return getBooleanConfig("USE_AUTO_FOCUS", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean getUserProfileForbidden() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            return getBooleanConfig("USER_PROFILE_FORBIDDEN_CONFIG", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int getVoicePid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+            return getIntConfig("VOICE_PID", VOICE_ID);
+        }
+        return invokeV.intValue;
+    }
+
+    public static String getXDataUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+            return getStringConfig("XSEARCH_DATA_URL", "http://m.baidu.com/microapp");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean isBeta() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
+            return sIsBeta;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
+            return sDebug;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0033 */
@@ -419,7 +699,7 @@ public class AppConfig {
         Exception e;
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || sDebug || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, context) != null) || sDebug || context == null) {
             return;
         }
         File filesDir = context.getFilesDir();
@@ -479,128 +759,55 @@ public class AppConfig {
         Toast.makeText(context, "配置文件有效时间：" + getActiveDuration(), 0).show();
     }
 
-    public static String getActiveDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "2分钟" : (String) invokeV.objValue;
-    }
-
     public static final boolean getBooleanConfig(String str, boolean z) {
         InterceptResult invokeLZ;
-        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
-            HashMap<String, String> hashMap = sConfigMap;
-            return (hashMap == null || (str2 = hashMap.get(str)) == null) ? z : Boolean.parseBoolean(str2);
+            HashMap hashMap = sConfigMap;
+            if (hashMap == null) {
+                return z;
+            }
+            String str2 = (String) hashMap.get(str);
+            if (str2 != null) {
+                return Boolean.parseBoolean(str2);
+            }
+            return z;
         }
         return invokeLZ.booleanValue;
     }
 
-    public static String getCommunityPreConnectImageUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? HostConfig.isSearchboxUseHttps() ? "https://timgmb.bdimg.com/timg" : "http://timgmb.bdimg.com/timg" : (String) invokeV.objValue;
-    }
-
-    public static String getConfigFileContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sFileContent : (String) invokeV.objValue;
-    }
-
-    public static String getConfigUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? getStringConfig("CONFIG_URL", String.format("%s/static/searchbox/android/appconfig.html", DownloadConstants.REFER)) : (String) invokeV.objValue;
-    }
-
-    public static String getCookieHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getStringConfig("COOKIE_URL", ".baidu.com") : (String) invokeV.objValue;
-    }
-
-    public static String getDailyUpdateUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? getWeeklyUpdateUrl() : (String) invokeV.objValue;
-    }
-
-    public static String getExternalConfigFileName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? CONFIG_FILE : (String) invokeV.objValue;
-    }
-
-    public static String getFollowAllUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? String.format("%s/api/subscribe/v1/relation/receive_all", HostConfig.getExtHostForHttps()) : (String) invokeV.objValue;
-    }
-
-    public static boolean getForbidConfigFileWarning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? getBooleanConfig("FORBID_CONFIG_FILE_WARNING", false) : invokeV.booleanValue;
-    }
-
-    public static boolean getGrabServerCommandSwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? getBooleanConfig("GRAB_SERVER_COMMAND", true) : invokeV.booleanValue;
-    }
-
-    public static boolean getImageSearchGuideConfiged() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? getStringConfig("IMAGE_SEARCH_GUIDE_HOST", null) != null : invokeV.booleanValue;
-    }
-
-    public static boolean getImageSearchHostConfiged() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? getStringConfig("IMAGE_SEARCH_URL", null) != null : invokeV.booleanValue;
-    }
-
     public static final int getIntConfig(String str, int i) {
         InterceptResult invokeLI;
-        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, str, i)) == null) {
-            HashMap<String, String> hashMap = sConfigMap;
-            return (hashMap == null || (str2 = hashMap.get(str)) == null) ? i : Integer.parseInt(str2);
+            HashMap hashMap = sConfigMap;
+            if (hashMap == null) {
+                return i;
+            }
+            String str2 = (String) hashMap.get(str);
+            if (str2 != null) {
+                return Integer.parseInt(str2);
+            }
+            return i;
         }
         return invokeLI.intValue;
     }
 
-    public static String getInternalConfigContent() {
-        InterceptResult invokeV;
+    public static final String getStringConfig(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? sInternalFileContent : (String) invokeV.objValue;
-    }
-
-    public static boolean getLoadInMainBrowser() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? getBooleanConfig("LOAD_IN_MAIN_BROWSER", false) : invokeV.booleanValue;
-    }
-
-    public static String getNetTestServer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? "http://112.34.113.161/checkupdate" : (String) invokeV.objValue;
-    }
-
-    public static int getNetTrafficUploadNumLimit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? getIntConfig("NETTRAFFIC_UPLOAD_NUM_LIMIT", 0) : invokeV.intValue;
-    }
-
-    public static String getPreviewUpdateUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? getWeeklyUpdateUrl() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, str, str2)) == null) {
+            HashMap hashMap = sConfigMap;
+            if (hashMap == null) {
+                return str2;
+            }
+            String str3 = (String) hashMap.get(str);
+            if (str3 != null) {
+                return str3;
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String getQAWebSearchUrl() {
@@ -610,73 +817,14 @@ public class AppConfig {
             String stringConfig = getStringConfig("WEB_SEARCH_URL", null);
             if (stringConfig == null) {
                 String stringConfig2 = getStringConfig("ANTIHIJACK_WEBSEARCH_URL", null);
-                if (stringConfig2 != null) {
-                    return stringConfig2;
+                if (stringConfig2 == null) {
+                    return null;
                 }
-                return null;
+                return stringConfig2;
             }
             return stringConfig + "/s?tn=zbios&pu=sz%401320_480&bd_page_type=1&word=";
         }
         return (String) invokeV.objValue;
-    }
-
-    public static boolean getSilentVideo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getBooleanConfig("SILENT_VIDEO", true) : invokeV.booleanValue;
-    }
-
-    public static boolean getSilentWebkit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? getBooleanConfig("SILENT_WEBKIT", true) : invokeV.booleanValue;
-    }
-
-    public static final String getStringConfig(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, str, str2)) == null) {
-            HashMap<String, String> hashMap = sConfigMap;
-            return (hashMap == null || (str3 = hashMap.get(str)) == null) ? str2 : str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String getUbcTestUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? getStringConfig("UBC_DEBUG_HOST", "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc") : (String) invokeV.objValue;
-    }
-
-    public static boolean getUseAutoFocus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? getBooleanConfig("USE_AUTO_FOCUS", true) : invokeV.booleanValue;
-    }
-
-    public static boolean getUserProfileForbidden() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? getBooleanConfig("USER_PROFILE_FORBIDDEN_CONFIG", false) : invokeV.booleanValue;
-    }
-
-    public static int getVoicePid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? getIntConfig("VOICE_PID", VOICE_ID) : invokeV.intValue;
-    }
-
-    public static String getWeeklyUpdateUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? "http://shoubai.m.baidu.com/weeklyupdate/index.php?type=update" : (String) invokeV.objValue;
-    }
-
-    public static String getXDataUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? getStringConfig("XSEARCH_DATA_URL", "http://m.baidu.com/microapp") : (String) invokeV.objValue;
     }
 
     public static void init(boolean z, boolean z2, boolean z3, boolean z4) {
@@ -689,31 +837,10 @@ public class AppConfig {
         }
     }
 
-    public static boolean isBeta() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? sIsBeta : invokeV.booleanValue;
-    }
-
-    public static boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? sDebug : invokeV.booleanValue;
-    }
-
-    public static boolean isDebugBuild() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static void parseConfig(ConfigValueFilter configValueFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65573, null, configValueFilter) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             if (!parseExternalConfig(hashMap, configValueFilter) || !sIsDaily) {
                 parseInternalConfig(hashMap, configValueFilter);
             }
@@ -723,7 +850,7 @@ public class AppConfig {
         }
     }
 
-    public static boolean parseExternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
+    public static boolean parseExternalConfig(HashMap hashMap, ConfigValueFilter configValueFilter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, hashMap, configValueFilter)) == null) {
@@ -769,47 +896,46 @@ public class AppConfig {
         return invokeLL.booleanValue;
     }
 
-    public static void parseInternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
+    public static void parseInternalConfig(HashMap hashMap, ConfigValueFilter configValueFilter) {
         InputStream open;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65575, null, hashMap, configValueFilter) != null) {
-            return;
-        }
-        AssetManager assets = AppRuntime.getAppContext().getResources().getAssets();
-        InputStream inputStream = null;
-        try {
-            if (sIsDaily) {
-                open = assets.open(DAILY_CONFIG_FILE);
-            } else if (sIsWeekly) {
-                open = assets.open(WEEKLY_CONFIG_FILE);
-            } else {
-                open = assets.open(CONFIG_FILE);
-            }
-            inputStream = open;
-            parseStream(inputStream, hashMap, configValueFilter, true);
-            if (inputStream == null) {
-                return;
-            }
-        } catch (Exception unused) {
-            if (inputStream == null) {
-                return;
-            }
-        } catch (Throwable th) {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception unused2) {
+        if (interceptable == null || interceptable.invokeLL(65575, null, hashMap, configValueFilter) == null) {
+            AssetManager assets = AppRuntime.getAppContext().getResources().getAssets();
+            InputStream inputStream = null;
+            try {
+                if (sIsDaily) {
+                    open = assets.open(DAILY_CONFIG_FILE);
+                } else if (sIsWeekly) {
+                    open = assets.open(WEEKLY_CONFIG_FILE);
+                } else {
+                    open = assets.open(CONFIG_FILE);
                 }
+                inputStream = open;
+                parseStream(inputStream, hashMap, configValueFilter, true);
+                if (inputStream == null) {
+                    return;
+                }
+            } catch (Exception unused) {
+                if (inputStream == null) {
+                    return;
+                }
+            } catch (Throwable th) {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception unused2) {
+                    }
+                }
+                throw th;
             }
-            throw th;
-        }
-        try {
-            inputStream.close();
-        } catch (Exception unused3) {
+            try {
+                inputStream.close();
+            } catch (Exception unused3) {
+            }
         }
     }
 
-    public static void parseStream(InputStream inputStream, Map<String, String> map, ConfigValueFilter configValueFilter, boolean z) {
+    public static void parseStream(InputStream inputStream, Map map, ConfigValueFilter configValueFilter, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65576, null, new Object[]{inputStream, map, configValueFilter, Boolean.valueOf(z)}) == null) {
             try {

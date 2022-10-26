@@ -21,11 +21,21 @@ public class DeviceIdBag implements Parcelable {
     public static final int CODE_PRIVACY_DISAGREE = -3;
     public static final int CODE_REFUSE = -2;
     public static final int CODE_SYNC_MAPPING = 3;
-    public static final Parcelable.Creator<DeviceIdBag> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String deviceId;
     public String encodedDeviceId;
     public int errorCode;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +50,7 @@ public class DeviceIdBag implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<DeviceIdBag>() { // from class: com.baidu.searchbox.common.security.DeviceIdBag.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.searchbox.common.security.DeviceIdBag.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,21 +69,25 @@ public class DeviceIdBag implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DeviceIdBag createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new DeviceIdBag(parcel) : (DeviceIdBag) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new DeviceIdBag(parcel);
+                }
+                return (DeviceIdBag) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DeviceIdBag[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new DeviceIdBag[i] : (DeviceIdBag[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new DeviceIdBag[i];
+                }
+                return (DeviceIdBag[]) invokeI.objValue;
             }
         };
     }
@@ -89,35 +103,6 @@ public class DeviceIdBag implements Parcelable {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "DeviceIdBag[" + this.deviceId + "--" + this.errorCode + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.deviceId);
-            parcel.writeInt(this.errorCode);
-            parcel.writeString(this.encodedDeviceId);
         }
     }
 
@@ -139,5 +124,24 @@ public class DeviceIdBag implements Parcelable {
         this.deviceId = parcel.readString();
         this.errorCode = parcel.readInt();
         this.encodedDeviceId = parcel.readString();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "DeviceIdBag[" + this.deviceId + "--" + this.errorCode + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.deviceId);
+            parcel.writeInt(this.errorCode);
+            parcel.writeString(this.encodedDeviceId);
+        }
     }
 }

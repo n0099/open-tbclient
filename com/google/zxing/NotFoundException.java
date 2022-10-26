@@ -48,6 +48,9 @@ public final class NotFoundException extends ReaderException {
     public static NotFoundException getNotFoundInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? INSTANCE : (NotFoundException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (NotFoundException) invokeV.objValue;
     }
 }

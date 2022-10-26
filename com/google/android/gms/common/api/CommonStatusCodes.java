@@ -1,13 +1,10 @@
 package com.google.android.gms.common.api;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class CommonStatusCodes {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,7 +31,6 @@ public class CommonStatusCodes {
     public static final int TIMEOUT = 15;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @KeepForSdk
     public CommonStatusCodes() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,7 +45,6 @@ public class CommonStatusCodes {
         }
     }
 
-    @NonNull
     public static String getStatusCodeString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

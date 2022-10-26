@@ -39,6 +39,27 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TbLiveVideoView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        g();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbLiveVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -74,7 +95,62 @@ public class TbLiveVideoView extends BVideoView {
     public Uri getVideoURI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.I : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.I;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onCompletion();
+            a aVar = this.J;
+            if (aVar != null) {
+                aVar.onCompletion();
+            }
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onPrepared();
+            a aVar = this.J;
+            if (aVar != null) {
+                aVar.onPrepared();
+            }
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
+    public void onSeekComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onSeekComplete();
+            a aVar = this.J;
+            if (aVar != null) {
+                aVar.onSeekComplete();
+            }
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.pause();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.start();
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
@@ -89,15 +165,19 @@ public class TbLiveVideoView extends BVideoView {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
+    public void setPlayerCallback(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onCompletion();
-            a aVar = this.J;
-            if (aVar != null) {
-                aVar.onCompletion();
-            }
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.J = aVar;
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
+    public void setVideoURI(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, uri) == null) {
+            super.setVideoURI(uri);
+            this.I = uri;
         }
     }
 
@@ -129,30 +209,6 @@ public class TbLiveVideoView extends BVideoView {
         return invokeIIL.booleanValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onPrepared();
-            a aVar = this.J;
-            if (aVar != null) {
-                aVar.onPrepared();
-            }
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
-    public void onSeekComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onSeekComplete();
-            a aVar = this.J;
-            if (aVar != null) {
-                aVar.onSeekComplete();
-            }
-        }
-    }
-
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
     public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -166,60 +222,7 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.pause();
-        }
-    }
-
-    public void setPlayerCallback(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.J = aVar;
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, uri) == null) {
-            super.setVideoURI(uri);
-            this.I = uri;
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.start();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbLiveVideoView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        g();
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri, Map<String, String> map) {
+    public void setVideoURI(Uri uri, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, uri, map) == null) {
             super.setVideoURI(uri, map);

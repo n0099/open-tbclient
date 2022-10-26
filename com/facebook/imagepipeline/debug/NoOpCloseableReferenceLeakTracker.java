@@ -14,20 +14,6 @@ public class NoOpCloseableReferenceLeakTracker implements CloseableReferenceLeak
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public NoOpCloseableReferenceLeakTracker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker
     public boolean isSet() {
         InterceptResult invokeV;
@@ -46,9 +32,23 @@ public class NoOpCloseableReferenceLeakTracker implements CloseableReferenceLeak
     }
 
     @Override // com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker
-    public void trackCloseableReferenceLeak(SharedReference<Object> sharedReference, @Nullable Throwable th) {
+    public void trackCloseableReferenceLeak(SharedReference sharedReference, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sharedReference, th) == null) {
+        }
+    }
+
+    public NoOpCloseableReferenceLeakTracker() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

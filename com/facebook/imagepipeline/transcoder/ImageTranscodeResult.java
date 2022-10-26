@@ -33,12 +33,18 @@ public class ImageTranscodeResult {
     public int getTranscodeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mTranscodeStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mTranscodeStatus;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.format(null, "Status: %d", Integer.valueOf(this.mTranscodeStatus)) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return String.format(null, "Status: %d", Integer.valueOf(this.mTranscodeStatus));
+        }
+        return (String) invokeV.objValue;
     }
 }

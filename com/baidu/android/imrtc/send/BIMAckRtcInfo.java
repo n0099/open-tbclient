@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.send;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -21,6 +20,56 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
     public long mImUK;
     public int mSyncAction;
 
+    public BIMAckRtcInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public long getAckSeqId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAckSeqId;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getImUK() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mImUK;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSyncAction() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSyncAction;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getmAppState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAppState;
+        }
+        return invokeV.intValue;
+    }
+
     public BIMAckRtcInfo(BIMRtcInfo bIMRtcInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,30 +89,6 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
         setRtcRoomId(bIMRtcInfo.getRtcRoomId());
         setRtcExt(bIMRtcInfo.getRtcExt());
         setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
-    }
-
-    public long getAckSeqId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAckSeqId : invokeV.longValue;
-    }
-
-    public long getImUK() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImUK : invokeV.longValue;
-    }
-
-    public int getSyncAction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSyncAction : invokeV.intValue;
-    }
-
-    public int getmAppState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppState : invokeV.intValue;
     }
 
     public void setAckSeqId(long j) {
@@ -95,7 +120,6 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -116,7 +140,6 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,19 +167,5 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
             return "BIMAckRtcInfo{" + super.toString() + ", mAckSeqId='" + this.mAckSeqId + "', mSyncAction=" + this.mSyncAction + ", mImUK=" + this.mImUK + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public BIMAckRtcInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

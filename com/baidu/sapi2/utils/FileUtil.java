@@ -98,62 +98,63 @@ public final class FileUtil {
     public static String read(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            FileInputStream fileInputStream = null;
             try {
-                byte[] bArr = new byte[fileInputStream2.available()];
-                fileInputStream2.read(bArr);
-                String str2 = new String(bArr);
+                FileInputStream fileInputStream2 = new FileInputStream(str);
                 try {
-                    fileInputStream2.close();
-                } catch (Exception unused) {
-                }
-                return str2;
-            } catch (Exception unused2) {
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
+                    byte[] bArr = new byte[fileInputStream2.available()];
+                    fileInputStream2.read(bArr);
+                    String str2 = new String(bArr);
                     try {
-                        fileInputStream.close();
-                        return "";
-                    } catch (Exception unused3) {
-                        return "";
+                        fileInputStream2.close();
+                    } catch (Exception unused) {
                     }
-                }
-                return "";
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception unused4) {
+                    return str2;
+                } catch (Exception unused2) {
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                            return "";
+                        } catch (Exception unused3) {
+                            return "";
+                        }
                     }
+                    return "";
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception unused5) {
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
     public static boolean write(File file, byte[] bArr, boolean z) throws IOException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65541, null, file, bArr, z)) != null) {
-            return invokeLLZ.booleanValue;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            if (!file.exists()) {
-                file.getParentFile().mkdirs();
-                file.createNewFile();
-            }
-            if (file.canWrite()) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, file, bArr, z)) == null) {
+            FileOutputStream fileOutputStream = null;
+            try {
+                if (!file.exists()) {
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
+                }
+                if (!file.canWrite()) {
+                    return false;
+                }
                 FileOutputStream fileOutputStream2 = new FileOutputStream(file, z);
                 try {
                     fileOutputStream2.write(bArr);
@@ -166,9 +167,10 @@ public final class FileUtil {
                     }
                     return false;
                 }
+            } catch (Throwable unused2) {
             }
-            return false;
-        } catch (Throwable unused2) {
+        } else {
+            return invokeLLZ.booleanValue;
         }
     }
 }

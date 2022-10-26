@@ -22,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e eA;
-    public Map<Integer, Vector<Float>> eB;
+    public Map eB;
     public boolean eC;
     public e eD;
     public e eE;
@@ -44,7 +44,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.arplay.core.engine.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] eL;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0049a {
+    public final class EnumC0049a {
         public static /* synthetic */ Interceptable $ic;
         public static final EnumC0049a eM;
         public static final EnumC0049a eN;
@@ -244,7 +244,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class c {
+    public final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c eY;
         public static final c eZ;
@@ -324,7 +324,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class d {
+    public final class d {
         public static /* synthetic */ Interceptable $ic;
         public static final d fl;
         public static final d fm;
@@ -444,7 +444,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class f {
+    public final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f fq;
         public static final f fr;
@@ -771,9 +771,9 @@ public class a {
                         float y2 = motionEvent.getY(i3);
                         float f5 = 0.0f;
                         if (this.eB.containsKey(Integer.valueOf(pointerId2))) {
-                            Vector<Float> vector = this.eB.get(Integer.valueOf(pointerId2));
-                            f5 = x2 - vector.firstElement().floatValue();
-                            f2 = y2 - vector.lastElement().floatValue();
+                            Vector vector = (Vector) this.eB.get(Integer.valueOf(pointerId2));
+                            f5 = x2 - ((Float) vector.firstElement()).floatValue();
+                            f2 = y2 - ((Float) vector.lastElement()).floatValue();
                             vector.setElementAt(Float.valueOf(x2), 0);
                             vector.setElementAt(Float.valueOf(y2), 1);
                         } else {
@@ -793,10 +793,10 @@ public class a {
                     return;
                 } else if (actionMasked == 3) {
                     if (this.eB.containsKey(Integer.valueOf(pointerId))) {
-                        Vector<Float> vector2 = this.eB.get(Integer.valueOf(pointerId));
+                        Vector vector2 = (Vector) this.eB.get(Integer.valueOf(pointerId));
                         this.eB.remove(Integer.valueOf(pointerId));
-                        f4 = y - vector2.elementAt(1).floatValue();
-                        f3 = x - vector2.elementAt(0).floatValue();
+                        f4 = y - ((Float) vector2.elementAt(1)).floatValue();
+                        f3 = x - ((Float) vector2.elementAt(0)).floatValue();
                     }
                     fVar = f.ft;
                     a(pointerId, x, y, f3, f4, eventTime, fVar.ordinal(), pressure);
@@ -807,15 +807,15 @@ public class a {
                 }
             }
             if (this.eB.containsKey(Integer.valueOf(pointerId))) {
-                Vector<Float> vector3 = this.eB.get(Integer.valueOf(pointerId));
+                Vector vector3 = (Vector) this.eB.get(Integer.valueOf(pointerId));
                 this.eB.remove(Integer.valueOf(pointerId));
-                f4 = y - vector3.elementAt(1).floatValue();
-                f3 = x - vector3.elementAt(0).floatValue();
+                f4 = y - ((Float) vector3.elementAt(1)).floatValue();
+                f3 = x - ((Float) vector3.elementAt(0)).floatValue();
             }
             fVar = f.fs;
             a(pointerId, x, y, f3, f4, eventTime, fVar.ordinal(), pressure);
         }
-        Vector<Float> vector4 = new Vector<>(2);
+        Vector vector4 = new Vector(2);
         vector4.add(Float.valueOf(x));
         vector4.add(Float.valueOf(y));
         this.eB.put(Integer.valueOf(pointerId), vector4);

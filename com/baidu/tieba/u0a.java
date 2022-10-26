@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,12 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public abstract class u0a<E> extends r0a<E> {
+public abstract class u0a extends v0a {
     public static /* synthetic */ Interceptable $ic;
-    public static final long g;
+    public static final int c;
+    public static final long d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public long producerIndex;
+    public final long a;
+    public final Object[] b;
 
     static {
         InterceptResult invokeClinit;
@@ -27,12 +33,19 @@ public abstract class u0a<E> extends r0a<E> {
                 return;
             }
         }
-        g = c1a.a(u0a.class, "producerIndex");
+        c = Integer.getInteger("sparse.shift", 0).intValue();
+        int b = u1a.a.b(Object[].class);
+        if (4 == b) {
+            e = c + 2;
+        } else if (8 == b) {
+            e = c + 3;
+        } else {
+            throw new IllegalStateException("Unknown pointer size");
+        }
+        d = u1a.a.a(Object[].class) + (32 << (e - c));
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u0a(int i) {
-        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,11 +55,95 @@ public abstract class u0a<E> extends r0a<E> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        int b = x0a.b(i);
+        this.a = b - 1;
+        this.b = new Object[(b << c) + 64];
+    }
+
+    public final long a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return b(j, this.a);
+        }
+        return invokeJ.longValue;
+    }
+
+    public final Object d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            return e(this.b, j);
+        }
+        return invokeJ.objValue;
+    }
+
+    public final long b(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return d + ((j & j2) << e);
+        }
+        return invokeCommon.longValue;
+    }
+
+    public final Object c(Object[] objArr, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, objArr, j)) == null) {
+            return u1a.a.e(objArr, j);
+        }
+        return invokeLJ.objValue;
+    }
+
+    public final Object e(Object[] objArr, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, objArr, j)) == null) {
+            return u1a.a.f(objArr, j);
+        }
+        return invokeLJ.objValue;
+    }
+
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
+        }
+        while (true) {
+            if (poll() == null && isEmpty()) {
+                return;
+            }
+        }
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public final void f(Object[] objArr, long j, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{objArr, Long.valueOf(j), obj}) == null) {
+            u1a.a.j(objArr, j, obj);
+        }
+    }
+
+    public final void g(Object[] objArr, long j, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{objArr, Long.valueOf(j), obj}) == null) {
+            u1a.a.h(objArr, j, obj);
         }
     }
 }

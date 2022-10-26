@@ -89,6 +89,19 @@ public class WbShareTransActivity extends BaseActivity {
         };
     }
 
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
+            if (i == 4) {
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
     private void checkSource(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent) == null) {
@@ -104,6 +117,49 @@ public class WbShareTransActivity extends BaseActivity {
             } catch (Exception unused) {
                 finish();
             }
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.share.BaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            initView();
+            Intent intent = getIntent();
+            if (intent == null) {
+                return;
+            }
+            if (intent.getIntExtra(WBConstants.SHARE_START_FLAG, -1) != 0) {
+                finish();
+            } else {
+                checkSource(intent);
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            super.onNewIntent(intent);
+            LogUtil.i("Share", "startTransActivity.onNewIntent()");
+            Handler handler = this.handler;
+            if (handler != null) {
+                handler.removeMessages(0);
+                this.handler = null;
+            }
+            setResult(-1, intent);
+            finish();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.remove(WBConstants.SHARE_START_FLAG);
         }
     }
 
@@ -217,6 +273,13 @@ public class WbShareTransActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WbShareTransActivity this$0;
 
+                @Override // com.sina.weibo.sdk.share.TransResourceCallback
+                public void onTransFinish(StoryObject storyObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, storyObject) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -233,13 +296,6 @@ public class WbShareTransActivity extends BaseActivity {
                         }
                     }
                     this.this$0 = this;
-                }
-
-                @Override // com.sina.weibo.sdk.share.TransResourceCallback
-                public void onTransFinish(StoryObject storyObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, storyObject) == null) {
-                    }
                 }
 
                 @Override // com.sina.weibo.sdk.share.TransResourceCallback
@@ -269,62 +325,6 @@ public class WbShareTransActivity extends BaseActivity {
             if (handler != null) {
                 handler.sendEmptyMessageDelayed(0, 100L);
             }
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.share.BaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            initView();
-            Intent intent = getIntent();
-            if (intent == null) {
-                return;
-            }
-            if (intent.getIntExtra(WBConstants.SHARE_START_FLAG, -1) != 0) {
-                finish();
-            } else {
-                checkSource(intent);
-            }
-        }
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
-            if (i == 4) {
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            super.onNewIntent(intent);
-            LogUtil.i("Share", "startTransActivity.onNewIntent()");
-            Handler handler = this.handler;
-            if (handler != null) {
-                handler.removeMessages(0);
-                this.handler = null;
-            }
-            setResult(-1, intent);
-            finish();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.remove(WBConstants.SHARE_START_FLAG);
         }
     }
 }

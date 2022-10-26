@@ -1,110 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public final class vb9 {
+public class vb9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final vb9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
-    public boolean b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void U();
-
-        void a(Activity activity);
-
-        void b();
-
-        void onActivityDestroyed(Activity activity);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948235164, "Lcom/baidu/tieba/vb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948235164, "Lcom/baidu/tieba/vb9;");
-                return;
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
             }
-        }
-        c = new vb9();
-    }
-
-    public vb9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
             }
+            return str;
         }
-        this.a = new LinkedHashSet();
-    }
-
-    public static vb9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (vb9) invokeV.objValue;
-    }
-
-    public final Set<a> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Set) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                this.a.clear();
-            }
-        }
-    }
-
-    public final void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this.a) {
-                this.a.add(aVar);
-            }
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.b || Build.VERSION.SDK_INT < 14) {
-            return;
-        }
-        try {
-            ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new cc9(this));
-        } catch (Exception unused) {
-            qc9.b("registerActivityLifecycleCallbacks encounter exception");
-        }
-        this.b = true;
+        return (String) invokeLLL.objValue;
     }
 }

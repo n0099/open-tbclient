@@ -77,7 +77,10 @@ public class PassSdkModel {
             if (sapiAccountManager.getConfignation() == null) {
                 SapiAccountManager.getGlobalCallback().onNeedInitPassSdk();
             }
-            return sapiAccountManager.getConfignation() != null;
+            if (sapiAccountManager.getConfignation() == null) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -89,28 +92,28 @@ public class PassSdkModel {
             if (context == null || TextUtils.isEmpty(str) || ServiceManager.getInstance().getIsAccountManager() == null || ServiceManager.getInstance().getIsAccountManager().getConfignation() == null) {
                 return false;
             }
-            Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
+            Map authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
             String packageSign = SapiUtils.getPackageSign(context, str);
             if (!TextUtils.isEmpty(packageSign)) {
-                Iterator<String> it = authorizedPackages.keySet().iterator();
+                Iterator it = authorizedPackages.keySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    String next = it.next();
-                    if (str.matches(next)) {
-                        if (packageSign.equals(authorizedPackages.get(next))) {
-                            String str2 = TAG;
-                            Log.d(str2, "checkPkgSign pkgName=" + str + " is true, sign is true");
+                    String str2 = (String) it.next();
+                    if (str.matches(str2)) {
+                        if (packageSign.equals(authorizedPackages.get(str2))) {
+                            String str3 = TAG;
+                            Log.d(str3, "checkPkgSign pkgName=" + str + " is true, sign is true");
                             return true;
                         }
-                        String str3 = TAG;
-                        Log.d(str3, "checkPkgSign pkgName=" + str + " is true, sign is error, sign=" + packageSign);
+                        String str4 = TAG;
+                        Log.d(str4, "checkPkgSign pkgName=" + str + " is true, sign is error, sign=" + packageSign);
                     }
                 }
             }
-            String str4 = TAG;
-            Log.d(str4, "checkPkgSign is fail pkgName=" + str + " sign=" + packageSign);
+            String str5 = TAG;
+            Log.d(str5, "checkPkgSign is fail pkgName=" + str + " sign=" + packageSign);
             return false;
         }
         return invokeLL.booleanValue;

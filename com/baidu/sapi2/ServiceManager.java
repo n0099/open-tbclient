@@ -47,7 +47,10 @@ public class ServiceManager implements NoProguard {
     public ISAccountManager getIsAccountManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isAccountManager : (ISAccountManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isAccountManager;
+        }
+        return (ISAccountManager) invokeV.objValue;
     }
 
     public void setIsAccountManager(ISAccountManager iSAccountManager) {

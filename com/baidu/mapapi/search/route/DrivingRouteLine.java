@@ -19,21 +19,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelable {
+public class DrivingRouteLine extends RouteLine implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<DrivingRouteLine> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean b;
-    public List<RouteNode> c;
+    public List c;
     public int d;
     public int e;
 
     /* loaded from: classes2.dex */
-    public static class DrivingStep extends RouteStep implements Parcelable {
+    public class DrivingStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<DrivingStep> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<LatLng> d;
+        public List d;
         public int[] e;
         public int f;
         public RouteNode g;
@@ -163,7 +163,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
-        public List<LatLng> getWayPoints() {
+        public List getWayPoints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -224,7 +224,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
             }
         }
 
-        public void setPathList(List<LatLng> list) {
+        public void setPathList(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
                 this.d = list;
@@ -342,7 +342,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public List<RouteNode> getWayPoints() {
+    public List getWayPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (List) invokeV.objValue;
@@ -376,7 +376,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
     }
 
-    public void setWayPoints(List<RouteNode> list) {
+    public void setWayPoints(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.c = list;

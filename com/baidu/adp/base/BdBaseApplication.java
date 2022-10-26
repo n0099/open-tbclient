@@ -31,7 +31,7 @@ public class BdBaseApplication extends Application {
     public boolean mIsNewUser;
     public boolean mIsPluginResourceOpen;
     public boolean mIsSmallFlow;
-    public ConcurrentHashMap<String, String> mResHashMap;
+    public ConcurrentHashMap mResHashMap;
     public long mSmallFlowInterval;
     public long mStartSmallFlowTime;
 
@@ -66,52 +66,9 @@ public class BdBaseApplication extends Application {
         this.mIsDebugMode = false;
         this.mContext = null;
         this.mIsPluginResourceOpen = true;
-        this.mResHashMap = new ConcurrentHashMap<>();
+        this.mResHashMap = new ConcurrentHashMap();
         this.lastGcTime = 0L;
         sApp = this;
-    }
-
-    public static BdBaseApplication getInst() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sApp : (BdBaseApplication) invokeV.objValue;
-    }
-
-    @Override // android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            super.attachBaseContext(context);
-        }
-    }
-
-    public boolean checkInLater30Min() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(2019, 5, 7, 21, 0, 0);
-            long timeInMillis = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 7, 21, 30, 0);
-            long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 21, 50, 0);
-            long timeInMillis3 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 22, 20, 0);
-            long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 30, 0);
-            long timeInMillis5 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 21, 0, 0);
-            long timeInMillis6 = calendar.getTimeInMillis();
-            long currentTimeMillis = System.currentTimeMillis();
-            return (timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2) || (timeInMillis3 <= currentTimeMillis && currentTimeMillis <= timeInMillis4) || (timeInMillis5 <= currentTimeMillis && currentTimeMillis <= timeInMillis6);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean checkInterrupt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? checkInterrupt(System.currentTimeMillis()) : invokeV.booleanValue;
     }
 
     public boolean checkNewUser() {
@@ -132,10 +89,56 @@ public class BdBaseApplication extends Application {
         return invokeV.booleanValue;
     }
 
+    private boolean checkInterrupt(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2019, 5, 7, 19, 20, 0);
+            long timeInMillis = calendar.getTimeInMillis();
+            calendar.set(2019, 5, 7, 21, 0, 0);
+            long timeInMillis2 = calendar.getTimeInMillis();
+            calendar.set(2019, 5, 15, 20, 10, 0);
+            long timeInMillis3 = calendar.getTimeInMillis();
+            calendar.set(2019, 5, 15, 21, 50, 0);
+            long timeInMillis4 = calendar.getTimeInMillis();
+            calendar.set(2019, 4, 27, 20, 0, 0);
+            long timeInMillis5 = calendar.getTimeInMillis();
+            calendar.set(2019, 4, 27, 20, 30, 0);
+            long timeInMillis6 = calendar.getTimeInMillis();
+            if ((timeInMillis <= j && j <= timeInMillis2) || ((timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= timeInMillis6))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public static BdBaseApplication getInst() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sApp;
+        }
+        return (BdBaseApplication) invokeV.objValue;
+    }
+
+    public boolean checkInterrupt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return checkInterrupt(System.currentTimeMillis());
+        }
+        return invokeV.booleanValue;
+    }
+
     public Application getApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (Application) this.mContext.getApplicationContext() : (Application) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (Application) this.mContext.getApplicationContext();
+        }
+        return (Application) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -144,7 +147,10 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             AssetManager assets = getResources().getAssets();
-            return assets != null ? assets : super.getAssets();
+            if (assets != null) {
+                return assets;
+            }
+            return super.getAssets();
         }
         return (AssetManager) invokeV.objValue;
     }
@@ -152,19 +158,28 @@ public class BdBaseApplication extends Application {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public boolean getIsPluginResourcOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsPluginResourceOpen : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mIsPluginResourceOpen;
+        }
+        return invokeV.booleanValue;
     }
 
-    public ConcurrentHashMap<String, String> getResHashMap() {
+    public ConcurrentHashMap getResHashMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mResHashMap : (ConcurrentHashMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mResHashMap;
+        }
+        return (ConcurrentHashMap) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -173,7 +188,10 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Resources resources = t9.a().getResources();
-            return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
+            if (resources != null && this.mIsPluginResourceOpen) {
+                return resources;
+            }
+            return super.getResources();
         }
         return (Resources) invokeV.objValue;
     }
@@ -181,17 +199,20 @@ public class BdBaseApplication extends Application {
     public boolean isDebugMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIsDebugMode : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mIsDebugMode;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSmallFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (!this.mIsSmallFlow || (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 <= this.mSmallFlowInterval) {
-                return this.mIsSmallFlow;
+            if (this.mIsSmallFlow && (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 > this.mSmallFlowInterval) {
+                return false;
             }
-            return false;
+            return this.mIsSmallFlow;
         }
         return invokeV.booleanValue;
     }
@@ -216,6 +237,14 @@ public class BdBaseApplication extends Application {
         }
     }
 
+    @Override // android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            super.attachBaseContext(context);
+        }
+    }
+
     public void setIsSmallFlow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
@@ -237,24 +266,29 @@ public class BdBaseApplication extends Application {
         }
     }
 
-    private boolean checkInterrupt(long j) {
-        InterceptResult invokeJ;
+    public boolean checkInLater30Min() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(2019, 5, 7, 19, 20, 0);
-            long timeInMillis = calendar.getTimeInMillis();
             calendar.set(2019, 5, 7, 21, 0, 0);
+            long timeInMillis = calendar.getTimeInMillis();
+            calendar.set(2019, 5, 7, 21, 30, 0);
             long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 20, 10, 0);
-            long timeInMillis3 = calendar.getTimeInMillis();
             calendar.set(2019, 5, 15, 21, 50, 0);
+            long timeInMillis3 = calendar.getTimeInMillis();
+            calendar.set(2019, 5, 15, 22, 20, 0);
             long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 0, 0);
-            long timeInMillis5 = calendar.getTimeInMillis();
             calendar.set(2019, 4, 27, 20, 30, 0);
-            return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
+            long timeInMillis5 = calendar.getTimeInMillis();
+            calendar.set(2019, 4, 27, 21, 0, 0);
+            long timeInMillis6 = calendar.getTimeInMillis();
+            long currentTimeMillis = System.currentTimeMillis();
+            if ((timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2) || ((timeInMillis3 <= currentTimeMillis && currentTimeMillis <= timeInMillis4) || (timeInMillis5 <= currentTimeMillis && currentTimeMillis <= timeInMillis6))) {
+                return true;
+            }
+            return false;
         }
-        return invokeJ.booleanValue;
+        return invokeV.booleanValue;
     }
 }

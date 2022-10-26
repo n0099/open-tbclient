@@ -1,23 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class qk8 implements mv4 {
+public class qk8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yt4 a;
+    public xk8 a;
+    public int b;
+    public a c;
+    public Context d;
 
-    public qk8(yt4 yt4Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+        public TextView b;
+
+        public a(qk8 qk8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qk8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public qk8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yt4Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,47 +71,119 @@ public class qk8 implements mv4 {
                 return;
             }
         }
-        this.a = yt4Var;
+        this.b = 0;
+        this.d = context;
     }
 
-    public String a() {
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void e(xk8 xk8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xk8Var) == null) {
+            this.a = xk8Var;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            xk8 xk8Var = this.a;
+            if (xk8Var != null && (arrayList = xk8Var.e) != null) {
+                return arrayList.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    public final View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yt4 yt4Var = this.a;
-            if (yt4Var == null) {
-                return null;
-            }
-            return yt4Var.c();
+            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d02b4, (ViewGroup) null);
+            a aVar = new a(this);
+            this.c = aVar;
+            aVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914f7);
+            this.c.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914fe);
+            inflate.setTag(this.c);
+            return inflate;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mv4
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
+    public final void b(a aVar, xk8 xk8Var, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yt4 yt4Var = this.a;
-            if (yt4Var == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, xk8Var, view2, i) == null) && aVar != null && xk8Var != null) {
+            aVar.b.setText("");
+            if (i == 0) {
+                TextView textView = aVar.b;
+                textView.setText(this.d.getString(R.string.obfuscated_res_0x7f0f026d) + xk8Var.b);
+            } else {
+                aVar.b.setText(xk8Var.b);
             }
-            return yt4Var.b();
+            if (i != this.b) {
+                aVar.a.setVisibility(4);
+                SkinManager.setViewTextColor(aVar.b, R.color.common_color_10200, 1);
+                return;
+            }
+            aVar.a.setVisibility(0);
+            SkinManager.setViewTextColor(aVar.b, R.color.common_color_10013, 1);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mv4
-    public String getPicUrl() {
+    public xk8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yt4 yt4Var = this.a;
-            if (yt4Var == null) {
-                return null;
-            }
-            return yt4Var.a();
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (xk8) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            xk8 xk8Var = this.a;
+            if (xk8Var != null && (arrayList = xk8Var.e) != null) {
+                return arrayList.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = a();
+            }
+            xk8 xk8Var = this.a;
+            if (xk8Var == null) {
+                return view2;
+            }
+            xk8 xk8Var2 = (xk8) xk8Var.e.get(i);
+            a aVar = (a) view2.getTag();
+            this.c = aVar;
+            if (xk8Var2 != null) {
+                b(aVar, xk8Var2, view2, i);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

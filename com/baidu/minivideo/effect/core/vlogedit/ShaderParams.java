@@ -31,8 +31,18 @@ public class ShaderParams implements Parcelable, Cloneable {
     public float[] values;
     public int valuesPointer;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<ShaderParams> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +66,10 @@ public class ShaderParams implements Parcelable, Cloneable {
         public ShaderParams createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ShaderParams(parcel) : (ShaderParams) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ShaderParams(parcel);
+            }
+            return (ShaderParams) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +78,10 @@ public class ShaderParams implements Parcelable, Cloneable {
         public ShaderParams[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ShaderParams[i] : (ShaderParams[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ShaderParams[i];
+            }
+            return (ShaderParams[]) invokeI.objValue;
         }
     }
 
@@ -99,48 +115,6 @@ public class ShaderParams implements Parcelable, Cloneable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.name);
-            parcel.writeString(this.type);
-            parcel.writeFloatArray(this.values);
-            parcel.writeLong(this.timeInterval);
-            parcel.writeLong(this.lastTimeInterval);
-            parcel.writeInt(this.valuesPointer);
-            parcel.writeString(this.interpolator);
-        }
-    }
-
-    public ShaderParams(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.name = str;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
     public ShaderParams m35clone() {
@@ -158,26 +132,6 @@ public class ShaderParams implements Parcelable, Cloneable {
             }
         }
         return (ShaderParams) invokeV.objValue;
-    }
-
-    public ShaderParams(String str, String str2, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, fArr};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.name = str;
-        this.type = str2;
-        this.values = fArr;
     }
 
     public ShaderParams(Parcel parcel) {
@@ -202,5 +156,57 @@ public class ShaderParams implements Parcelable, Cloneable {
         this.lastTimeInterval = parcel.readLong();
         this.valuesPointer = parcel.readInt();
         this.interpolator = parcel.readString();
+    }
+
+    public ShaderParams(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.name = str;
+    }
+
+    public ShaderParams(String str, String str2, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, fArr};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.name = str;
+        this.type = str2;
+        this.values = fArr;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.name);
+            parcel.writeString(this.type);
+            parcel.writeFloatArray(this.values);
+            parcel.writeLong(this.timeInterval);
+            parcel.writeLong(this.lastTimeInterval);
+            parcel.writeInt(this.valuesPointer);
+            parcel.writeString(this.interpolator);
+        }
     }
 }

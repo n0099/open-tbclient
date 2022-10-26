@@ -4,13 +4,17 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
 public final class e implements Handler.Callback {
     public volatile Handler a = new Handler(a.a, this);
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public interface b {
+        long a();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a {
         public static final Looper a;
 
         static {
@@ -18,11 +22,6 @@ public final class e implements Handler.Callback {
             handlerThread.start();
             a = handlerThread.getLooper();
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        long a();
     }
 
     public static Looper a() {
@@ -38,25 +37,6 @@ public final class e implements Handler.Callback {
         handler.removeCallbacksAndMessages(null);
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(@NonNull Message message) {
-        if (message.what != 0) {
-            return true;
-        }
-        try {
-            b bVar = (b) message.obj;
-            long a2 = bVar.a();
-            if (a2 > 0) {
-                a(bVar, a2);
-                return true;
-            }
-            return true;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return true;
-        }
-    }
-
     public void a(b bVar, long j) {
         Handler handler = this.a;
         if (handler == null) {
@@ -66,5 +46,24 @@ public final class e implements Handler.Callback {
         obtain.what = 0;
         obtain.obj = bVar;
         handler.sendMessageDelayed(obtain, j);
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        if (message.what == 0) {
+            try {
+                b bVar = (b) message.obj;
+                long a2 = bVar.a();
+                if (a2 > 0) {
+                    a(bVar, a2);
+                    return true;
+                }
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return true;
+            }
+        }
+        return true;
     }
 }

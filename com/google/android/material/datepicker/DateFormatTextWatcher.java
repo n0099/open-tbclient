@@ -3,8 +3,6 @@ package com.google.android.material.datepicker;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,30 +21,7 @@ public abstract class DateFormatTextWatcher implements TextWatcher {
     public final DateFormat dateFormat;
     public final String formatHint;
     public final String outOfRange;
-    @NonNull
     public final TextInputLayout textInputLayout;
-
-    public DateFormatTextWatcher(String str, DateFormat dateFormat, @NonNull TextInputLayout textInputLayout, CalendarConstraints calendarConstraints) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, dateFormat, textInputLayout, calendarConstraints};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.formatHint = str;
-        this.dateFormat = dateFormat;
-        this.textInputLayout = textInputLayout;
-        this.constraints = calendarConstraints;
-        this.outOfRange = textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b2b);
-    }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
@@ -68,8 +43,32 @@ public abstract class DateFormatTextWatcher implements TextWatcher {
         }
     }
 
+    public abstract void onValidDate(Long l);
+
+    public DateFormatTextWatcher(String str, DateFormat dateFormat, TextInputLayout textInputLayout, CalendarConstraints calendarConstraints) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, dateFormat, textInputLayout, calendarConstraints};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.formatHint = str;
+        this.dateFormat = dateFormat;
+        this.textInputLayout = textInputLayout;
+        this.constraints = calendarConstraints;
+        this.outOfRange = textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b3a);
+    }
+
     @Override // android.text.TextWatcher
-    public void onTextChanged(@NonNull CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048579, this, charSequence, i, i2, i3) == null) {
             if (TextUtils.isEmpty(charSequence)) {
@@ -88,15 +87,13 @@ public abstract class DateFormatTextWatcher implements TextWatcher {
                     onInvalidDate();
                 }
             } catch (ParseException unused) {
-                String string = this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b26);
-                String format = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b28), this.formatHint);
-                String format2 = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b27), this.dateFormat.format(new Date(UtcDates.getTodayCalendar().getTimeInMillis())));
+                String string = this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b35);
+                String format = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b37), this.formatHint);
+                String format2 = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0b36), this.dateFormat.format(new Date(UtcDates.getTodayCalendar().getTimeInMillis())));
                 TextInputLayout textInputLayout = this.textInputLayout;
                 textInputLayout.setError(string + "\n" + format + "\n" + format2);
                 onInvalidDate();
             }
         }
     }
-
-    public abstract void onValidDate(@Nullable Long l);
 }

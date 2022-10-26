@@ -7,23 +7,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Metrics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Metrics";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, HistogramInfo> map;
+    public final Map map;
 
-    /* loaded from: classes9.dex */
-    public static class HistogramInfo {
+    public static native void nativeEnable();
+
+    public static native Metrics nativeGetAndReset();
+
+    /* loaded from: classes8.dex */
+    public class HistogramInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bucketCount;
         public final int max;
         public final int min;
-        public final Map<Integer, Integer> samples;
+        public final Map samples;
 
-        @CalledByNative("HistogramInfo")
         public HistogramInfo(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -45,7 +48,6 @@ public class Metrics {
             this.bucketCount = i3;
         }
 
-        @CalledByNative("HistogramInfo")
         public void addSample(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -54,7 +56,6 @@ public class Metrics {
         }
     }
 
-    @CalledByNative
     public Metrics() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,14 +72,6 @@ public class Metrics {
         this.map = new HashMap();
     }
 
-    @CalledByNative
-    private void add(String str, HistogramInfo histogramInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, str, histogramInfo) == null) {
-            this.map.put(str, histogramInfo);
-        }
-    }
-
     public static void enable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
@@ -89,10 +82,16 @@ public class Metrics {
     public static Metrics getAndReset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? nativeGetAndReset() : (Metrics) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return nativeGetAndReset();
+        }
+        return (Metrics) invokeV.objValue;
     }
 
-    public static native void nativeEnable();
-
-    public static native Metrics nativeGetAndReset();
+    private void add(String str, HistogramInfo histogramInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, this, str, histogramInfo) == null) {
+            this.map.put(str, histogramInfo);
+        }
+    }
 }

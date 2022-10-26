@@ -23,31 +23,12 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> implements RequestCancelable {
+public class RequestTask extends AsyncTask implements RequestCancelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IRequestParam param;
-    public Class<T> tClass;
-    public Target<R> target;
-
-    public RequestTask(IRequestParam iRequestParam, Target<R> target) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iRequestParam, target};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.param = iRequestParam;
-        this.target = target;
-    }
+    public Class tClass;
+    public Target target;
 
     @Override // com.sina.weibo.sdk.network.RequestCancelable
     public void cancelRequest() {
@@ -66,8 +47,26 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
         return invokeV.booleanValue;
     }
 
+    public RequestTask(IRequestParam iRequestParam, Target target) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iRequestParam, target};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.param = iRequestParam;
+        this.target = target;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.AsyncTask
     public RequestResult doInBackground(Object... objArr) {
         InterceptResult invokeL;
@@ -81,18 +80,18 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
             if (this.param.needIntercept()) {
                 try {
                     Bundle bundle = new Bundle();
-                    HashMap<String, IRequestIntercept> globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
+                    HashMap globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
                     for (String str : globalIntercept.keySet()) {
-                        IRequestIntercept iRequestIntercept = globalIntercept.get(str);
+                        IRequestIntercept iRequestIntercept = (IRequestIntercept) globalIntercept.get(str);
                         if (iRequestIntercept != null && iRequestIntercept.needIntercept(this.param, bundle)) {
                             iRequestIntercept.doIntercept(this.param, bundle);
                         }
                     }
-                    Iterator<IRequestIntercept> it = this.param.getIntercept().iterator();
+                    Iterator it = this.param.getIntercept().iterator();
                     while (it.hasNext()) {
-                        IRequestIntercept next = it.next();
-                        if (next.needIntercept(this.param, bundle)) {
-                            next.doIntercept(this.param, bundle);
+                        IRequestIntercept iRequestIntercept2 = (IRequestIntercept) it.next();
+                        if (iRequestIntercept2.needIntercept(this.param, bundle)) {
+                            iRequestIntercept2.doIntercept(this.param, bundle);
                         }
                     }
                     this.param.getPostBundle().putAll(bundle);
@@ -103,7 +102,7 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
             }
             try {
                 WbResponse request = RequestEngine.request(this.param);
-                R transResponse = this.target.transResponse(request);
+                Object transResponse = this.target.transResponse(request);
                 this.target.onRequestSuccessBg(transResponse);
                 requestResult.setResponse(transResponse);
                 try {
@@ -122,14 +121,12 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.sina.weibo.sdk.network.target.Target<R> */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.os.AsyncTask
     public void onPostExecute(RequestResult requestResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, requestResult) == null) {
-            super.onPostExecute((RequestTask<T, R>) requestResult);
-            Target<R> target = this.target;
+            super.onPostExecute((RequestTask) requestResult);
+            Target target = this.target;
             if (target != null) {
                 target.onRequestDone();
                 if (requestResult.getE() != null) {

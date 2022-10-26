@@ -39,13 +39,19 @@ public class FileMetaUtil {
 
     public static JSONObject makeFileMeta(File file, String str, String str2, String str3, boolean z) {
         InterceptResult invokeCommon;
+        String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errno", str2);
                 jSONObject.put("errmsg", str3);
-                jSONObject.put(IS_FILE, z ? "1" : "0");
+                if (z) {
+                    str4 = "1";
+                } else {
+                    str4 = "0";
+                }
+                jSONObject.put(IS_FILE, str4);
                 if (file != null && file.exists() && file.isFile()) {
                     jSONObject.put(ZIP_PATH, str);
                     jSONObject.put("size", String.valueOf(file.length()));

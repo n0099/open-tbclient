@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ai5;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.eh;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fi5;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.lt6;
+import com.baidu.tieba.le8;
+import com.baidu.tieba.st6;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -126,7 +126,28 @@ public class FrsActivityConfig extends IntentConfig {
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? createBackSpecialCfg(str, str2, z, z2, false) : (FrsActivityConfig) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return createBackSpecialCfg(str, str2, z, z2, false);
+        }
+        return (FrsActivityConfig) invokeCommon.objValue;
+    }
+
+    public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("name", str);
+            intent.putExtra("from", str2);
+            intent.putExtra("back_special", z);
+            intent.putExtra(GOOD, z2);
+            intent.putExtra(FOLLOWED_HAS_NEW, z3);
+            if (!(getContext() instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            return this;
+        }
+        return (FrsActivityConfig) invokeCommon.objValue;
     }
 
     public FrsActivityConfig createCfgForpersonalized(String str, String str2, String str3) {
@@ -169,11 +190,24 @@ public class FrsActivityConfig extends IntentConfig {
     public FrsActivityConfig createNormalCfg(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) ? createBackSpecialCfg(str, str2, false, false) : (FrsActivityConfig) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            return createBackSpecialCfg(str, str2, false, false);
+        }
+        return (FrsActivityConfig) invokeLL.objValue;
+    }
+
+    public FrsActivityConfig createNormalCfg(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, str, str2, z)) == null) {
+            return createBackSpecialCfg(str, str2, false, false, z);
+        }
+        return (FrsActivityConfig) invokeLLZ.objValue;
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Intent intent = getIntent();
@@ -193,53 +227,58 @@ public class FrsActivityConfig extends IntentConfig {
             if (TextUtils.isEmpty(stringExtra3)) {
                 stringExtra3 = "";
             }
-            int i = -1;
+            int i2 = -1;
             FrsRequestData frsRequestData = new FrsRequestData();
             if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-                i = 3;
+                i2 = 3;
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-                i = 6;
+                i2 = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.L(lt6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.L(st6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(lt6.d(i));
-            if (i == 5) {
+            frsRequestData.setSortType(st6.d(i2));
+            if (i2 == 5) {
                 frsRequestData.O(1);
             } else {
                 frsRequestData.O(0);
             }
-            frsRequestData.z("forum_name", dj.getUrlEncode(stringExtra));
+            frsRequestData.z("forum_name", ej.getUrlEncode(stringExtra));
             frsRequestData.z("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            lt6.e(i, frsRequestData);
+            st6.e(i2, frsRequestData);
             frsRequestData.W("2");
             frsRequestData.X("-2");
             frsRequestData.Q(stringExtra);
             frsRequestData.e0(1);
             frsRequestData.I(0);
-            frsRequestData.d0(ej.k(TbadkCoreApplication.getInst()));
-            frsRequestData.c0(ej.i(TbadkCoreApplication.getInst()));
-            frsRequestData.b0(ej.h(TbadkCoreApplication.getInst()));
-            frsRequestData.g0(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
+            frsRequestData.d0(fj.k(TbadkCoreApplication.getInst()));
+            frsRequestData.c0(fj.i(TbadkCoreApplication.getInst()));
+            frsRequestData.b0(fj.h(TbadkCoreApplication.getInst()));
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            frsRequestData.g0(i);
             if (uri != null) {
                 frsRequestData.a0(uri.toString());
             }
             frsRequestData.S(null);
             frsRequestData.f0(stringExtra3);
-            frsRequestData.R(dh.g(ai5.a(), 0L));
+            frsRequestData.R(eh.g(fi5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.N(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
             frsRequestData.M(longExtra);
-            lt6.e(i, frsRequestData);
+            st6.e(i2, frsRequestData);
             frsRequestData.U(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && be8.l().b() != null) {
-                int d = be8.l().b().d(stringExtra, false);
-                int e = be8.l().b().e(stringExtra, false);
+            if (ThreadData.isRecAppLoaded.get() && le8.l().b() != null) {
+                int d = le8.l().b().d(stringExtra, false);
+                int e = le8.l().b().e(stringExtra, false);
                 if (frsRequestData.E() == 1) {
                     d++;
                 } else if (frsRequestData.E() == 2) {
@@ -260,10 +299,9 @@ public class FrsActivityConfig extends IntentConfig {
     public void setAchievementUrl(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_ACHIEVEMENT_URL, str);
         }
-        intent.putExtra(KEY_ACHIEVEMENT_URL, str);
     }
 
     public FrsActivityConfig setCallFrom(int i) {
@@ -299,51 +337,24 @@ public class FrsActivityConfig extends IntentConfig {
     public void setFrsCallFromByItemPosition(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(FRS_CALL_FROM_BY_ITEM_POSITION, i);
         }
-        intent.putExtra(FRS_CALL_FROM_BY_ITEM_POSITION, i);
     }
 
     public void setPushTid(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(MainTabActivityConfig.PUSH_TID, str);
         }
-        intent.putExtra(MainTabActivityConfig.PUSH_TID, str);
     }
 
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
         }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            Intent intent = getIntent();
-            intent.putExtra("name", str);
-            intent.putExtra("from", str2);
-            intent.putExtra("back_special", z);
-            intent.putExtra(GOOD, z2);
-            intent.putExtra(FOLLOWED_HAS_NEW, z3);
-            if (!(getContext() instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            return this;
-        }
-        return (FrsActivityConfig) invokeCommon.objValue;
-    }
-
-    public FrsActivityConfig createNormalCfg(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, str, str2, z)) == null) ? createBackSpecialCfg(str, str2, false, false, z) : (FrsActivityConfig) invokeLLZ.objValue;
     }
 }

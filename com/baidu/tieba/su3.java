@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,60 +12,73 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class su3 extends rv3 {
+public class su3 extends sv3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163864, "Lcom/baidu/tieba/su3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163864, "Lcom/baidu/tieba/su3;");
+                return;
+            }
+        }
+        c = wj1.a;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public su3() {
-        super("openSpaceCleanActivity");
+        super("openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.rv3
-    public lv1 a(@NonNull JSONObject jSONObject, @NonNull pg2 pg2Var) {
+    @Override // com.baidu.tieba.sv3
+    public mv1 a(JSONObject jSONObject, qg2 qg2Var) {
         InterceptResult invokeLL;
-        boolean b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, pg2Var)) == null) {
-            if (ug3.m()) {
-                b = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (ug3.n()) {
-                b = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (ug3.o()) {
-                b = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qg2Var)) == null) {
+            if (c) {
+                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                qg2Var.onFail(31010, "package name is empty");
+                return null;
+            }
+            nv3.a(optString, "openApp", null, null, null);
+            if (!bv3.h(AppRuntime.getAppContext(), optString)) {
+                qg2Var.onFail(31011, "app is not installed");
+                nv3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31011), null);
+                return null;
+            }
+            if (bv3.l(AppRuntime.getAppContext(), optString)) {
+                qg2Var.a(null);
+                nv3.a(optString, "openApp", "success", null, null);
             } else {
-                b = ug3.r() ? b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2") : false;
+                qg2Var.onFail(31019, "open app fail");
+                nv3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31019), null);
             }
-            if (!b) {
-                Toast.makeText(sm2.c(), (int) R.string.obfuscated_res_0x7f0f0190, 0).show();
-            }
-            pg2Var.a(null);
             return null;
         }
-        return (lv1) invokeLL.objValue;
-    }
-
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return uf3.i(sm2.c(), intent, true, false);
-        }
-        return invokeLL.booleanValue;
+        return (mv1) invokeLL.objValue;
     }
 }

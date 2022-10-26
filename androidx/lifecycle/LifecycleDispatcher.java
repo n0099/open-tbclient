@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,11 +19,24 @@ public class LifecycleDispatcher {
     public static AtomicBoolean sInitialized;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @VisibleForTesting
     /* loaded from: classes.dex */
     public static class DispatcherActivityCallback extends EmptyActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            }
+        }
 
         public DispatcherActivityCallback() {
             Interceptable interceptable = $ic;
@@ -45,20 +57,6 @@ public class LifecycleDispatcher {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
                 ReportFragment.injectIfNeededIn(activity);
-            }
-        }
-
-        @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
-            }
-        }
-
-        @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             }
         }
     }
@@ -95,7 +93,7 @@ public class LifecycleDispatcher {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || sInitialized.getAndSet(true)) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, context) != null) || sInitialized.getAndSet(true)) {
             return;
         }
         ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new DispatcherActivityCallback());

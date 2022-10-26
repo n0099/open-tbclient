@@ -62,7 +62,13 @@ public final class Item extends Message {
     public final List<String> tags;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<Item> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ApkDetail apkDetail;
@@ -79,7 +85,7 @@ public final class Item extends Message {
         public String itemName;
         public Double score;
         public Integer star;
-        public List<String> tags;
+        public List tags;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -138,14 +144,11 @@ public final class Item extends Message {
         public Item build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new Item(this, z, null) : (Item) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new Item(this, z, null);
+            }
+            return (Item) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -169,10 +172,6 @@ public final class Item extends Message {
         DEFAULT_STAR = 0;
         DEFAULT_CATEGORYID = 0;
         DEFAULT_BUTTONLINKTYPE = 0;
-    }
-
-    public /* synthetic */ Item(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -218,7 +217,7 @@ public final class Item extends Message {
             } else {
                 this.iconUrl = str2;
             }
-            List<String> list = builder.tags;
+            List list = builder.tags;
             if (list == null) {
                 this.tags = DEFAULT_TAGS;
             } else {
@@ -296,5 +295,9 @@ public final class Item extends Message {
         this.apkName = builder.apkName;
         this.forumName = builder.forumName;
         this.apkDetail = builder.apkDetail;
+    }
+
+    public /* synthetic */ Item(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

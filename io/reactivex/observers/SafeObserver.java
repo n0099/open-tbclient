@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
@@ -15,14 +14,14 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class SafeObserver<T> implements Observer<T>, Disposable {
+public final class SafeObserver implements Observer, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer<? super T> actual;
+    public final Observer actual;
     public boolean done;
     public Disposable s;
 
-    public SafeObserver(@NonNull Observer<? super T> observer) {
+    public SafeObserver(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,13 +51,16 @@ public final class SafeObserver<T> implements Observer<T>, Disposable {
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.s.isDisposed();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.Observer
     public void onComplete() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
             return;
         }
         this.done = true;
@@ -93,8 +95,28 @@ public final class SafeObserver<T> implements Observer<T>, Disposable {
         }
     }
 
+    public void onNextNoSubscription() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.done = true;
+            NullPointerException nullPointerException = new NullPointerException("Subscription not set!");
+            try {
+                this.actual.onSubscribe(EmptyDisposable.INSTANCE);
+                try {
+                    this.actual.onError(nullPointerException);
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    RxJavaPlugins.onError(new CompositeException(nullPointerException, th));
+                }
+            } catch (Throwable th2) {
+                Exceptions.throwIfFatal(th2);
+                RxJavaPlugins.onError(new CompositeException(nullPointerException, th2));
+            }
+        }
+    }
+
     @Override // io.reactivex.Observer
-    public void onError(@NonNull Throwable th) {
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
             if (this.done) {
@@ -133,14 +155,14 @@ public final class SafeObserver<T> implements Observer<T>, Disposable {
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(@NonNull T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.done) {
             return;
         }
         if (this.s == null) {
             onNextNoSubscription();
-        } else if (t == null) {
+        } else if (obj == null) {
             NullPointerException nullPointerException = new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             try {
                 this.s.dispose();
@@ -151,7 +173,7 @@ public final class SafeObserver<T> implements Observer<T>, Disposable {
             }
         } else {
             try {
-                this.actual.onNext(t);
+                this.actual.onNext(obj);
             } catch (Throwable th2) {
                 Exceptions.throwIfFatal(th2);
                 try {
@@ -165,28 +187,8 @@ public final class SafeObserver<T> implements Observer<T>, Disposable {
         }
     }
 
-    public void onNextNoSubscription() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.done = true;
-            NullPointerException nullPointerException = new NullPointerException("Subscription not set!");
-            try {
-                this.actual.onSubscribe(EmptyDisposable.INSTANCE);
-                try {
-                    this.actual.onError(nullPointerException);
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    RxJavaPlugins.onError(new CompositeException(nullPointerException, th));
-                }
-            } catch (Throwable th2) {
-                Exceptions.throwIfFatal(th2);
-                RxJavaPlugins.onError(new CompositeException(nullPointerException, th2));
-            }
-        }
-    }
-
     @Override // io.reactivex.Observer
-    public void onSubscribe(@NonNull Disposable disposable) {
+    public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
             this.s = disposable;

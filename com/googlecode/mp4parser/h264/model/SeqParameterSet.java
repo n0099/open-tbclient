@@ -223,6 +223,115 @@ public class SeqParameterSet extends BitstreamElement {
         return (SeqParameterSet) invokeL.objValue;
     }
 
+    @Override // com.googlecode.mp4parser.h264.model.BitstreamElement
+    public void write(OutputStream outputStream) throws IOException {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
+            CAVLCWriter cAVLCWriter = new CAVLCWriter(outputStream);
+            cAVLCWriter.writeNBit(this.profile_idc, 8, "SPS: profile_idc");
+            cAVLCWriter.writeBool(this.constraint_set_0_flag, "SPS: constraint_set_0_flag");
+            cAVLCWriter.writeBool(this.constraint_set_1_flag, "SPS: constraint_set_1_flag");
+            cAVLCWriter.writeBool(this.constraint_set_2_flag, "SPS: constraint_set_2_flag");
+            cAVLCWriter.writeBool(this.constraint_set_3_flag, "SPS: constraint_set_3_flag");
+            cAVLCWriter.writeNBit(0L, 4, "SPS: reserved");
+            cAVLCWriter.writeNBit(this.level_idc, 8, "SPS: level_idc");
+            cAVLCWriter.writeUE(this.seq_parameter_set_id, "SPS: seq_parameter_set_id");
+            int i = this.profile_idc;
+            boolean z4 = false;
+            if (i == 100 || i == 110 || i == 122 || i == 144) {
+                cAVLCWriter.writeUE(this.chroma_format_idc.getId(), "SPS: chroma_format_idc");
+                if (this.chroma_format_idc == ChromaFormat.YUV_444) {
+                    cAVLCWriter.writeBool(this.residual_color_transform_flag, "SPS: residual_color_transform_flag");
+                }
+                cAVLCWriter.writeUE(this.bit_depth_luma_minus8, "SPS: ");
+                cAVLCWriter.writeUE(this.bit_depth_chroma_minus8, "SPS: ");
+                cAVLCWriter.writeBool(this.qpprime_y_zero_transform_bypass_flag, "SPS: qpprime_y_zero_transform_bypass_flag");
+                if (this.scalingMatrix != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                cAVLCWriter.writeBool(z, "SPS: ");
+                if (this.scalingMatrix != null) {
+                    for (int i2 = 0; i2 < 8; i2++) {
+                        if (i2 < 6) {
+                            if (this.scalingMatrix.ScalingList4x4[i2] != null) {
+                                z3 = true;
+                            } else {
+                                z3 = false;
+                            }
+                            cAVLCWriter.writeBool(z3, "SPS: ");
+                            ScalingList[] scalingListArr = this.scalingMatrix.ScalingList4x4;
+                            if (scalingListArr[i2] != null) {
+                                scalingListArr[i2].write(cAVLCWriter);
+                            }
+                        } else {
+                            int i3 = i2 - 6;
+                            if (this.scalingMatrix.ScalingList8x8[i3] != null) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            cAVLCWriter.writeBool(z2, "SPS: ");
+                            ScalingList[] scalingListArr2 = this.scalingMatrix.ScalingList8x8;
+                            if (scalingListArr2[i3] != null) {
+                                scalingListArr2[i3].write(cAVLCWriter);
+                            }
+                        }
+                    }
+                }
+            }
+            cAVLCWriter.writeUE(this.log2_max_frame_num_minus4, "SPS: log2_max_frame_num_minus4");
+            cAVLCWriter.writeUE(this.pic_order_cnt_type, "SPS: pic_order_cnt_type");
+            int i4 = this.pic_order_cnt_type;
+            if (i4 == 0) {
+                cAVLCWriter.writeUE(this.log2_max_pic_order_cnt_lsb_minus4, "SPS: log2_max_pic_order_cnt_lsb_minus4");
+            } else if (i4 == 1) {
+                cAVLCWriter.writeBool(this.delta_pic_order_always_zero_flag, "SPS: delta_pic_order_always_zero_flag");
+                cAVLCWriter.writeSE(this.offset_for_non_ref_pic, "SPS: offset_for_non_ref_pic");
+                cAVLCWriter.writeSE(this.offset_for_top_to_bottom_field, "SPS: offset_for_top_to_bottom_field");
+                cAVLCWriter.writeUE(this.offsetForRefFrame.length, "SPS: ");
+                int i5 = 0;
+                while (true) {
+                    int[] iArr = this.offsetForRefFrame;
+                    if (i5 >= iArr.length) {
+                        break;
+                    }
+                    cAVLCWriter.writeSE(iArr[i5], "SPS: ");
+                    i5++;
+                }
+            }
+            cAVLCWriter.writeUE(this.num_ref_frames, "SPS: num_ref_frames");
+            cAVLCWriter.writeBool(this.gaps_in_frame_num_value_allowed_flag, "SPS: gaps_in_frame_num_value_allowed_flag");
+            cAVLCWriter.writeUE(this.pic_width_in_mbs_minus1, "SPS: pic_width_in_mbs_minus1");
+            cAVLCWriter.writeUE(this.pic_height_in_map_units_minus1, "SPS: pic_height_in_map_units_minus1");
+            cAVLCWriter.writeBool(this.frame_mbs_only_flag, "SPS: frame_mbs_only_flag");
+            if (!this.frame_mbs_only_flag) {
+                cAVLCWriter.writeBool(this.mb_adaptive_frame_field_flag, "SPS: mb_adaptive_frame_field_flag");
+            }
+            cAVLCWriter.writeBool(this.direct_8x8_inference_flag, "SPS: direct_8x8_inference_flag");
+            cAVLCWriter.writeBool(this.frame_cropping_flag, "SPS: frame_cropping_flag");
+            if (this.frame_cropping_flag) {
+                cAVLCWriter.writeUE(this.frame_crop_left_offset, "SPS: frame_crop_left_offset");
+                cAVLCWriter.writeUE(this.frame_crop_right_offset, "SPS: frame_crop_right_offset");
+                cAVLCWriter.writeUE(this.frame_crop_top_offset, "SPS: frame_crop_top_offset");
+                cAVLCWriter.writeUE(this.frame_crop_bottom_offset, "SPS: frame_crop_bottom_offset");
+            }
+            if (this.vuiParams != null) {
+                z4 = true;
+            }
+            cAVLCWriter.writeBool(z4, "SPS: ");
+            VUIParameters vUIParameters = this.vuiParams;
+            if (vUIParameters != null) {
+                writeVUIParameters(vUIParameters, cAVLCWriter);
+            }
+            cAVLCWriter.writeTrailingBits();
+        }
+    }
+
     public static HRDParameters readHRDParameters(CAVLCReader cAVLCReader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -289,6 +398,8 @@ public class SeqParameterSet extends BitstreamElement {
     }
 
     private void writeVUIParameters(VUIParameters vUIParameters, CAVLCWriter cAVLCWriter) throws IOException {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, vUIParameters, cAVLCWriter) == null) {
             cAVLCWriter.writeBool(vUIParameters.aspect_ratio_info_present_flag, "VUI: aspect_ratio_info_present_flag");
@@ -325,12 +436,23 @@ public class SeqParameterSet extends BitstreamElement {
                 cAVLCWriter.writeNBit(vUIParameters.time_scale, 32, "VUI: time_scale");
                 cAVLCWriter.writeBool(vUIParameters.fixed_frame_rate_flag, "VUI: fixed_frame_rate_flag");
             }
-            cAVLCWriter.writeBool(vUIParameters.nalHRDParams != null, "VUI: ");
+            boolean z3 = true;
+            if (vUIParameters.nalHRDParams != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            cAVLCWriter.writeBool(z, "VUI: ");
             HRDParameters hRDParameters = vUIParameters.nalHRDParams;
             if (hRDParameters != null) {
                 writeHRDParameters(hRDParameters, cAVLCWriter);
             }
-            cAVLCWriter.writeBool(vUIParameters.vclHRDParams != null, "VUI: ");
+            if (vUIParameters.vclHRDParams != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            cAVLCWriter.writeBool(z2, "VUI: ");
             HRDParameters hRDParameters2 = vUIParameters.vclHRDParams;
             if (hRDParameters2 != null) {
                 writeHRDParameters(hRDParameters2, cAVLCWriter);
@@ -339,7 +461,10 @@ public class SeqParameterSet extends BitstreamElement {
                 cAVLCWriter.writeBool(vUIParameters.low_delay_hrd_flag, "VUI: low_delay_hrd_flag");
             }
             cAVLCWriter.writeBool(vUIParameters.pic_struct_present_flag, "VUI: pic_struct_present_flag");
-            cAVLCWriter.writeBool(vUIParameters.bitstreamRestriction != null, "VUI: ");
+            if (vUIParameters.bitstreamRestriction == null) {
+                z3 = false;
+            }
+            cAVLCWriter.writeBool(z3, "VUI: ");
             VUIParameters.BitstreamRestriction bitstreamRestriction = vUIParameters.bitstreamRestriction;
             if (bitstreamRestriction != null) {
                 cAVLCWriter.writeBool(bitstreamRestriction.motion_vectors_over_pic_boundaries_flag, "VUI: motion_vectors_over_pic_boundaries_flag");
@@ -360,92 +485,5 @@ public class SeqParameterSet extends BitstreamElement {
             return "SeqParameterSet{ \n        pic_order_cnt_type=" + this.pic_order_cnt_type + ", \n        field_pic_flag=" + this.field_pic_flag + ", \n        delta_pic_order_always_zero_flag=" + this.delta_pic_order_always_zero_flag + ", \n        weighted_pred_flag=" + this.weighted_pred_flag + ", \n        weighted_bipred_idc=" + this.weighted_bipred_idc + ", \n        entropy_coding_mode_flag=" + this.entropy_coding_mode_flag + ", \n        mb_adaptive_frame_field_flag=" + this.mb_adaptive_frame_field_flag + ", \n        direct_8x8_inference_flag=" + this.direct_8x8_inference_flag + ", \n        chroma_format_idc=" + this.chroma_format_idc + ", \n        log2_max_frame_num_minus4=" + this.log2_max_frame_num_minus4 + ", \n        log2_max_pic_order_cnt_lsb_minus4=" + this.log2_max_pic_order_cnt_lsb_minus4 + ", \n        pic_height_in_map_units_minus1=" + this.pic_height_in_map_units_minus1 + ", \n        pic_width_in_mbs_minus1=" + this.pic_width_in_mbs_minus1 + ", \n        bit_depth_luma_minus8=" + this.bit_depth_luma_minus8 + ", \n        bit_depth_chroma_minus8=" + this.bit_depth_chroma_minus8 + ", \n        qpprime_y_zero_transform_bypass_flag=" + this.qpprime_y_zero_transform_bypass_flag + ", \n        profile_idc=" + this.profile_idc + ", \n        constraint_set_0_flag=" + this.constraint_set_0_flag + ", \n        constraint_set_1_flag=" + this.constraint_set_1_flag + ", \n        constraint_set_2_flag=" + this.constraint_set_2_flag + ", \n        constraint_set_3_flag=" + this.constraint_set_3_flag + ", \n        constraint_set_4_flag=" + this.constraint_set_4_flag + ", \n        constraint_set_5_flag=" + this.constraint_set_5_flag + ", \n        level_idc=" + this.level_idc + ", \n        seq_parameter_set_id=" + this.seq_parameter_set_id + ", \n        residual_color_transform_flag=" + this.residual_color_transform_flag + ", \n        offset_for_non_ref_pic=" + this.offset_for_non_ref_pic + ", \n        offset_for_top_to_bottom_field=" + this.offset_for_top_to_bottom_field + ", \n        num_ref_frames=" + this.num_ref_frames + ", \n        gaps_in_frame_num_value_allowed_flag=" + this.gaps_in_frame_num_value_allowed_flag + ", \n        frame_mbs_only_flag=" + this.frame_mbs_only_flag + ", \n        frame_cropping_flag=" + this.frame_cropping_flag + ", \n        frame_crop_left_offset=" + this.frame_crop_left_offset + ", \n        frame_crop_right_offset=" + this.frame_crop_right_offset + ", \n        frame_crop_top_offset=" + this.frame_crop_top_offset + ", \n        frame_crop_bottom_offset=" + this.frame_crop_bottom_offset + ", \n        offsetForRefFrame=" + this.offsetForRefFrame + ", \n        vuiParams=" + this.vuiParams + ", \n        scalingMatrix=" + this.scalingMatrix + ", \n        num_ref_frames_in_pic_order_cnt_cycle=" + this.num_ref_frames_in_pic_order_cnt_cycle + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.h264.model.BitstreamElement
-    public void write(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
-            CAVLCWriter cAVLCWriter = new CAVLCWriter(outputStream);
-            cAVLCWriter.writeNBit(this.profile_idc, 8, "SPS: profile_idc");
-            cAVLCWriter.writeBool(this.constraint_set_0_flag, "SPS: constraint_set_0_flag");
-            cAVLCWriter.writeBool(this.constraint_set_1_flag, "SPS: constraint_set_1_flag");
-            cAVLCWriter.writeBool(this.constraint_set_2_flag, "SPS: constraint_set_2_flag");
-            cAVLCWriter.writeBool(this.constraint_set_3_flag, "SPS: constraint_set_3_flag");
-            cAVLCWriter.writeNBit(0L, 4, "SPS: reserved");
-            cAVLCWriter.writeNBit(this.level_idc, 8, "SPS: level_idc");
-            cAVLCWriter.writeUE(this.seq_parameter_set_id, "SPS: seq_parameter_set_id");
-            int i = this.profile_idc;
-            if (i == 100 || i == 110 || i == 122 || i == 144) {
-                cAVLCWriter.writeUE(this.chroma_format_idc.getId(), "SPS: chroma_format_idc");
-                if (this.chroma_format_idc == ChromaFormat.YUV_444) {
-                    cAVLCWriter.writeBool(this.residual_color_transform_flag, "SPS: residual_color_transform_flag");
-                }
-                cAVLCWriter.writeUE(this.bit_depth_luma_minus8, "SPS: ");
-                cAVLCWriter.writeUE(this.bit_depth_chroma_minus8, "SPS: ");
-                cAVLCWriter.writeBool(this.qpprime_y_zero_transform_bypass_flag, "SPS: qpprime_y_zero_transform_bypass_flag");
-                cAVLCWriter.writeBool(this.scalingMatrix != null, "SPS: ");
-                if (this.scalingMatrix != null) {
-                    for (int i2 = 0; i2 < 8; i2++) {
-                        if (i2 < 6) {
-                            cAVLCWriter.writeBool(this.scalingMatrix.ScalingList4x4[i2] != null, "SPS: ");
-                            ScalingList[] scalingListArr = this.scalingMatrix.ScalingList4x4;
-                            if (scalingListArr[i2] != null) {
-                                scalingListArr[i2].write(cAVLCWriter);
-                            }
-                        } else {
-                            int i3 = i2 - 6;
-                            cAVLCWriter.writeBool(this.scalingMatrix.ScalingList8x8[i3] != null, "SPS: ");
-                            ScalingList[] scalingListArr2 = this.scalingMatrix.ScalingList8x8;
-                            if (scalingListArr2[i3] != null) {
-                                scalingListArr2[i3].write(cAVLCWriter);
-                            }
-                        }
-                    }
-                }
-            }
-            cAVLCWriter.writeUE(this.log2_max_frame_num_minus4, "SPS: log2_max_frame_num_minus4");
-            cAVLCWriter.writeUE(this.pic_order_cnt_type, "SPS: pic_order_cnt_type");
-            int i4 = this.pic_order_cnt_type;
-            if (i4 == 0) {
-                cAVLCWriter.writeUE(this.log2_max_pic_order_cnt_lsb_minus4, "SPS: log2_max_pic_order_cnt_lsb_minus4");
-            } else if (i4 == 1) {
-                cAVLCWriter.writeBool(this.delta_pic_order_always_zero_flag, "SPS: delta_pic_order_always_zero_flag");
-                cAVLCWriter.writeSE(this.offset_for_non_ref_pic, "SPS: offset_for_non_ref_pic");
-                cAVLCWriter.writeSE(this.offset_for_top_to_bottom_field, "SPS: offset_for_top_to_bottom_field");
-                cAVLCWriter.writeUE(this.offsetForRefFrame.length, "SPS: ");
-                int i5 = 0;
-                while (true) {
-                    int[] iArr = this.offsetForRefFrame;
-                    if (i5 >= iArr.length) {
-                        break;
-                    }
-                    cAVLCWriter.writeSE(iArr[i5], "SPS: ");
-                    i5++;
-                }
-            }
-            cAVLCWriter.writeUE(this.num_ref_frames, "SPS: num_ref_frames");
-            cAVLCWriter.writeBool(this.gaps_in_frame_num_value_allowed_flag, "SPS: gaps_in_frame_num_value_allowed_flag");
-            cAVLCWriter.writeUE(this.pic_width_in_mbs_minus1, "SPS: pic_width_in_mbs_minus1");
-            cAVLCWriter.writeUE(this.pic_height_in_map_units_minus1, "SPS: pic_height_in_map_units_minus1");
-            cAVLCWriter.writeBool(this.frame_mbs_only_flag, "SPS: frame_mbs_only_flag");
-            if (!this.frame_mbs_only_flag) {
-                cAVLCWriter.writeBool(this.mb_adaptive_frame_field_flag, "SPS: mb_adaptive_frame_field_flag");
-            }
-            cAVLCWriter.writeBool(this.direct_8x8_inference_flag, "SPS: direct_8x8_inference_flag");
-            cAVLCWriter.writeBool(this.frame_cropping_flag, "SPS: frame_cropping_flag");
-            if (this.frame_cropping_flag) {
-                cAVLCWriter.writeUE(this.frame_crop_left_offset, "SPS: frame_crop_left_offset");
-                cAVLCWriter.writeUE(this.frame_crop_right_offset, "SPS: frame_crop_right_offset");
-                cAVLCWriter.writeUE(this.frame_crop_top_offset, "SPS: frame_crop_top_offset");
-                cAVLCWriter.writeUE(this.frame_crop_bottom_offset, "SPS: frame_crop_bottom_offset");
-            }
-            cAVLCWriter.writeBool(this.vuiParams != null, "SPS: ");
-            VUIParameters vUIParameters = this.vuiParams;
-            if (vUIParameters != null) {
-                writeVUIParameters(vUIParameters, cAVLCWriter);
-            }
-            cAVLCWriter.writeTrailingBits();
-        }
     }
 }

@@ -11,6 +11,18 @@ public class LibvpxVp8Encoder extends WrappedNativeVideoEncoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native long nativeCreateEncoder();
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public boolean isHardwareEncoder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public LibvpxVp8Encoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,18 +37,14 @@ public class LibvpxVp8Encoder extends WrappedNativeVideoEncoder {
         }
     }
 
-    public static native long nativeCreateEncoder();
-
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
     public long createNativeVideoEncoder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeCreateEncoder() : invokeV.longValue;
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus encode(VideoFrame videoFrame, VideoEncoder.EncodeInfo encodeInfo) {
-        return super.encode(videoFrame, encodeInfo);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return nativeCreateEncoder();
+        }
+        return invokeV.longValue;
     }
 
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
@@ -50,23 +58,18 @@ public class LibvpxVp8Encoder extends WrappedNativeVideoEncoder {
     }
 
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus initEncode(VideoEncoder.Settings settings, VideoEncoder.Callback callback) {
-        return super.initEncode(settings, callback);
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public boolean isHardwareEncoder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
     public /* bridge */ /* synthetic */ VideoCodecStatus release() {
         return super.release();
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public /* bridge */ /* synthetic */ VideoCodecStatus encode(VideoFrame videoFrame, VideoEncoder.EncodeInfo encodeInfo) {
+        return super.encode(videoFrame, encodeInfo);
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public /* bridge */ /* synthetic */ VideoCodecStatus initEncode(VideoEncoder.Settings settings, VideoEncoder.Callback callback) {
+        return super.initEncode(settings, callback);
     }
 
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder

@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.video.kwai;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.core.report.m;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ak;
@@ -16,7 +15,7 @@ public final class e {
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: com.kwad.sdk.core.video.kwai.d */
     /* JADX WARN: Multi-variable type inference failed */
-    public static c a(@NonNull Context context, boolean z, boolean z2, boolean z3) {
+    public static c a(Context context, boolean z, boolean z2, boolean z3) {
         boolean z4;
         b bVar;
         b bVar2;
@@ -53,7 +52,7 @@ public final class e {
     public static void aY(int i) {
         m mVar = new m(10212L);
         mVar.aaQ = i;
-        com.kwad.sdk.core.report.e.a2(mVar);
+        com.kwad.sdk.core.report.e.a(mVar);
     }
 
     public static boolean rr() {

@@ -1,12 +1,11 @@
 package com.baidu.tieba.memberCenter.index;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.an7;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ln7;
+import com.baidu.tieba.ou4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public an7 mMembercenter;
+    public ln7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterSocketResponseMessage() {
@@ -41,10 +40,19 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    public ln7 getMembercenterData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMembercenter;
+        }
+        return (ln7) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetVipInfoResIdl getVipInfoResIdl = (GetVipInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVipInfoResIdl.class);
@@ -58,12 +66,16 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
             }
             DataRes dataRes = getVipInfoResIdl.data;
             if (dataRes != null) {
-                this.mMembercenter = new an7(dataRes);
+                this.mMembercenter = new ln7(dataRes);
             }
             if (getError() == 0) {
-                String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-                mu4.f();
-                jf<byte[]> e = mu4.e("tb_member_center", currentAccount);
+                if (TbadkCoreApplication.isLogin()) {
+                    str = TbadkCoreApplication.getCurrentAccount();
+                } else {
+                    str = SevenZipUtils.FILE_NAME_TEMP;
+                }
+                ou4.f();
+                kf e = ou4.e("tb_member_center", str);
                 if (e != null && bArr != null) {
                     e.g("member_center_cache_key", bArr);
                 }
@@ -71,11 +83,5 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
             return getVipInfoResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public an7 getMembercenterData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (an7) invokeV.objValue;
     }
 }

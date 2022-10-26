@@ -29,7 +29,7 @@ public class AccessibleUtils {
 
     public static void accessible(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService("accessibility");

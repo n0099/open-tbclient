@@ -51,11 +51,6 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
             this.constructor = objectConstructor;
         }
 
-        @Override // com.google.gson.TypeAdapter
-        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
-            write(jsonWriter, (Collection) ((Collection) obj));
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         public Collection<E> read(JsonReader jsonReader) throws IOException {
@@ -66,15 +61,20 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
                     jsonReader.nextNull();
                     return null;
                 }
-                Collection<E> construct = this.constructor.construct();
+                Collection<E> collection = (Collection) this.constructor.construct();
                 jsonReader.beginArray();
                 while (jsonReader.hasNext()) {
-                    construct.add(this.elementTypeAdapter.read(jsonReader));
+                    collection.add(this.elementTypeAdapter.read(jsonReader));
                 }
                 jsonReader.endArray();
-                return construct;
+                return collection;
             }
             return (Collection) invokeL.objValue;
+        }
+
+        @Override // com.google.gson.TypeAdapter
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
+            write(jsonWriter, (Collection) ((Collection) obj));
         }
 
         public void write(JsonWriter jsonWriter, Collection<E> collection) throws IOException {
@@ -118,11 +118,11 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gson, typeToken)) == null) {
             Type type = typeToken.getType();
             Class<? super T> rawType = typeToken.getRawType();
-            if (Collection.class.isAssignableFrom(rawType)) {
-                Type collectionElementType = C$Gson$Types.getCollectionElementType(type, rawType);
-                return new Adapter(gson, collectionElementType, gson.getAdapter(TypeToken.get(collectionElementType)), this.constructorConstructor.get(typeToken));
+            if (!Collection.class.isAssignableFrom(rawType)) {
+                return null;
             }
-            return null;
+            Type collectionElementType = C$Gson$Types.getCollectionElementType(type, rawType);
+            return new Adapter(gson, collectionElementType, gson.getAdapter(TypeToken.get(collectionElementType)), this.constructorConstructor.get(typeToken));
         }
         return (TypeAdapter) invokeLL.objValue;
     }

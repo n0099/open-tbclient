@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface c {
-    void a(int i, int i2, HashMap<String, Object> hashMap);
+    void a(int i, int i2, HashMap hashMap);
 
-    List<Integer> n();
+    List n();
 }

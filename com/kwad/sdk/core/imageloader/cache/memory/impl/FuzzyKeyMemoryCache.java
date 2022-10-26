@@ -8,9 +8,9 @@ import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class FuzzyKeyMemoryCache implements MemoryCache {
     public final MemoryCache cache;
-    public final Comparator<String> keyComparator;
+    public final Comparator keyComparator;
 
-    public FuzzyKeyMemoryCache(MemoryCache memoryCache, Comparator<String> comparator) {
+    public FuzzyKeyMemoryCache(MemoryCache memoryCache, Comparator comparator) {
         this.cache = memoryCache;
         this.keyComparator = comparator;
     }
@@ -26,7 +26,7 @@ public class FuzzyKeyMemoryCache implements MemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public Collection<String> keys() {
+    public Collection keys() {
         return this.cache.keys();
     }
 
@@ -34,14 +34,14 @@ public class FuzzyKeyMemoryCache implements MemoryCache {
     public boolean put(String str, DecodedResult decodedResult) {
         synchronized (this.cache) {
             String str2 = null;
-            Iterator<String> it = this.cache.keys().iterator();
+            Iterator it = this.cache.keys().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                String next = it.next();
-                if (this.keyComparator.compare(str, next) == 0) {
-                    str2 = next;
+                String str3 = (String) it.next();
+                if (this.keyComparator.compare(str, str3) == 0) {
+                    str2 = str3;
                     break;
                 }
             }

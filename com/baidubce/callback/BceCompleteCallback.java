@@ -3,8 +3,8 @@ package com.baidubce.callback;
 import com.baidubce.BceClientException;
 import com.baidubce.BceServiceException;
 /* loaded from: classes7.dex */
-public interface BceCompleteCallback<T> {
+public interface BceCompleteCallback {
     void onFailure(BceClientException bceClientException, BceServiceException bceServiceException);
 
-    void onSuccess(T t);
+    void onSuccess(Object obj);
 }

@@ -19,14 +19,14 @@ public final class BooleanSpreadBuilder extends PrimitiveSpreadBuilder<boolean[]
         zArr[position] = z;
     }
 
-    public final boolean[] toArray() {
-        return toArray(this.values, new boolean[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(boolean[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final boolean[] toArray() {
+        return toArray(this.values, new boolean[size()]);
     }
 }

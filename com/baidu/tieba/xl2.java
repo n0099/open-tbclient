@@ -1,62 +1,106 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.Surface;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class xl2 extends i53 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xl2 extends jh2 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xl2(i43 i43Var) {
-        super(i43Var, "/swanAPI/closeInput");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
+
+        void b(int i);
+
+        void c(String str);
+
+        void d(String str);
+
+        void e(String str);
+
+        void f();
+
+        void onEnded();
+
+        void onError(int i);
+
+        void onPrepared();
+
+        void onRelease(String str);
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            SwanEditText c = yl2.d().c();
-            if (c == null) {
-                l02.c("closeInput", "input组件不存在");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
-                return false;
-            } else if (yo2.U().V() == null) {
-                l02.c("closeInput", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                c.clearFocus();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
+    void B(boolean z);
+
+    void C();
+
+    void G(int i);
+
+    void H();
+
+    void L(int i, int i2, int i3, int i4);
+
+    void N(ZeusPluginFactory.Invoker invoker);
+
+    boolean O(String str, String str2, String str3, boolean z);
+
+    boolean P();
+
+    a Q();
+
+    void T(Map map);
+
+    void U();
+
+    void W();
+
+    int a();
+
+    void b0(String str);
+
+    String c();
+
+    void c0();
+
+    ZeusPluginFactory.Invoker f0();
+
+    void g0(int i);
+
+    Context getContext();
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoSarDen();
+
+    int getVideoSarNum();
+
+    int getVideoWidth();
+
+    void h0(a aVar);
+
+    boolean isPlaying();
+
+    boolean j0();
+
+    void l(boolean z);
+
+    void n0();
+
+    void pause();
+
+    boolean prepareAsync();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setSpeed(float f);
+
+    void setSurface(Surface surface);
+
+    void start();
 }

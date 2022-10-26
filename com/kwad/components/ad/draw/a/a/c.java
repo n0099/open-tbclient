@@ -3,7 +3,6 @@ package com.kwad.components.ad.draw.a.a;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import androidx.core.view.InputDeviceCompat;
@@ -291,7 +290,6 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
@@ -562,8 +560,8 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091056);
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091124);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09104a);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091118);
         }
     }
 

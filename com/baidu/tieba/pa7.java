@@ -1,74 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class pa7 extends eb {
+public class pa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pa7() {
-        super(2016007);
+    public static short b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case -100000306:
+                    return (short) 6;
+                case -100000303:
+                    return (short) 2;
+                case 3160010:
+                    return (short) 5;
+                case 3160011:
+                    return (short) 4;
+                default:
+                    return (short) 9;
             }
         }
+        return invokeI.shortValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        InterceptResult invokeL;
-        List<ImMessageCenterPojo> data;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
+        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo = null;
-            if (customResponsedMessage == null) {
-                return null;
-            }
-            if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
-                ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
-                if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
-                    ImMessageCenterPojo imMessageCenterPojo2 = null;
-                    for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
-                            imMessageCenterPojo = imMessageCenterPojo3;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
+            short b = b(i);
+            int i2 = R.string.obfuscated_res_0x7f0f0af6;
+            if (b != 2) {
+                if (b != 9) {
+                    if (b != 4) {
+                        if (b != 5) {
+                            if (b == 6) {
+                                i2 = R.string.obfuscated_res_0x7f0f0af7;
+                            }
+                            i2 = -1;
+                        } else {
+                            i2 = R.string.obfuscated_res_0x7f0f0af9;
                         }
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
-                            imMessageCenterPojo2 = imMessageCenterPojo3;
-                        }
-                    }
-                    if (imMessageCenterPojo != null) {
-                        data.remove(imMessageCenterPojo);
-                        data.add(t77.a(imMessageCenterPojo));
-                    }
-                    if (imMessageCenterPojo2 != null) {
-                        data.remove(imMessageCenterPojo2);
-                        data.add(u77.a(imMessageCenterPojo2));
+                    } else {
+                        i2 = R.string.obfuscated_res_0x7f0f0af8;
                     }
                 }
             }
-            return customResponsedMessage;
+            if (i2 != -1) {
+                return TbadkCoreApplication.getInst().getResources().getString(i2);
+            }
+            return str;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (String) invokeIL.objValue;
     }
 }

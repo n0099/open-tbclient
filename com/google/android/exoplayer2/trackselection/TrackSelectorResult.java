@@ -61,6 +61,12 @@ public final class TrackSelectorResult {
     public boolean isEquivalent(TrackSelectorResult trackSelectorResult, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trackSelectorResult, i)) == null) ? trackSelectorResult != null && this.renderersEnabled[i] == trackSelectorResult.renderersEnabled[i] && Util.areEqual(this.selections.get(i), trackSelectorResult.selections.get(i)) && Util.areEqual(this.rendererConfigurations[i], trackSelectorResult.rendererConfigurations[i]) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trackSelectorResult, i)) == null) {
+            if (trackSelectorResult == null || this.renderersEnabled[i] != trackSelectorResult.renderersEnabled[i] || !Util.areEqual(this.selections.get(i), trackSelectorResult.selections.get(i)) || !Util.areEqual(this.rendererConfigurations[i], trackSelectorResult.rendererConfigurations[i])) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

@@ -42,70 +42,6 @@ public class ScrollTextView extends TextView implements Runnable {
         setup(context);
     }
 
-    private void setup(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            Scroller scroller = new Scroller(context, new LinearInterpolator());
-            this.a = scroller;
-            setScroller(scroller);
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
-            int lineCount = height + ((getLineCount() - 1) * getLineHeight());
-            this.a.startScroll(0, height * (-1), 0, lineCount, (int) (lineCount * this.b));
-            if (this.c) {
-                post(this);
-            }
-        }
-    }
-
-    public float getSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.floatValue;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (this.a.isFinished()) {
-                a();
-            }
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a.isFinished()) {
-                a();
-            } else {
-                post(this);
-            }
-        }
-    }
-
-    public void setContinuousScrolling(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void setSpeed(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.b = f;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -128,5 +64,72 @@ public class ScrollTextView extends TextView implements Runnable {
         this.b = 15.0f;
         this.c = true;
         setup(context);
+    }
+
+    private void setup(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
+            Scroller scroller = new Scroller(context, new LinearInterpolator());
+            this.a = scroller;
+            setScroller(scroller);
+        }
+    }
+
+    public void setContinuousScrolling(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void setSpeed(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            this.b = f;
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
+            int lineCount = height + ((getLineCount() - 1) * getLineHeight());
+            this.a.startScroll(0, height * (-1), 0, lineCount, (int) (lineCount * this.b));
+            if (this.c) {
+                post(this);
+            }
+        }
+    }
+
+    public float getSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.a.isFinished()) {
+                a();
+            } else {
+                post(this);
+            }
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (this.a.isFinished()) {
+                a();
+            }
+        }
     }
 }

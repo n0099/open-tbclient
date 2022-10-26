@@ -41,7 +41,10 @@ public class a {
     public static int b(float f, float f2, float f3, float f4, float f5, float f6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) ? (int) Math.signum((f * (f6 - f4)) + (f3 * (f2 - f6)) + (f5 * (f4 - f2))) : invokeCommon.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            return (int) Math.signum((f * (f6 - f4)) + (f3 * (f2 - f6)) + (f5 * (f4 - f2)));
+        }
+        return invokeCommon.intValue;
     }
 
     public final int a(int i) {
@@ -58,10 +61,48 @@ public class a {
         return invokeI.intValue;
     }
 
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            short[] sArr = this.b;
+            g8 g8Var = this.f;
+            g8Var.a(sArr[i(i)]);
+            g8Var.a(sArr[i]);
+            g8Var.a(sArr[h(i)]);
+            this.a.d(i);
+            this.e.f(i);
+            this.d--;
+        }
+    }
+
     public g8 c(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) ? d(fArr, 0, fArr.length) : (g8) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) {
+            return d(fArr, 0, fArr.length);
+        }
+        return (g8) invokeL.objValue;
+    }
+
+    public final int h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return (i + 1) % this.d;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i == 0) {
+                i = this.d;
+            }
+            return i - 1;
+        }
+        return invokeI.intValue;
     }
 
     public g8 d(float[] fArr, int i, int i2) {
@@ -101,20 +142,6 @@ public class a {
             return g8Var2;
         }
         return (g8) invokeLII.objValue;
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            short[] sArr = this.b;
-            g8 g8Var = this.f;
-            g8Var.a(sArr[i(i)]);
-            g8Var.a(sArr[i]);
-            g8Var.a(sArr[h(i)]);
-            this.a.d(i);
-            this.e.f(i);
-            this.d--;
-        }
     }
 
     public final int f() {
@@ -176,24 +203,6 @@ public class a {
             return true;
         }
         return invokeI.booleanValue;
-    }
-
-    public final int h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? (i + 1) % this.d : invokeI.intValue;
-    }
-
-    public final int i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i == 0) {
-                i = this.d;
-            }
-            return i - 1;
-        }
-        return invokeI.intValue;
     }
 
     public final void j() {

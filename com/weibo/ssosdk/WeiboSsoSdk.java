@@ -3,9 +3,9 @@ package com.weibo.ssosdk;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jt9;
-import com.baidu.tieba.kt9;
-import com.baidu.tieba.lt9;
+import com.baidu.tieba.bu9;
+import com.baidu.tieba.cu9;
+import com.baidu.tieba.du9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,12 +31,14 @@ import org.json.JSONObject;
 public class WeiboSsoSdk {
     public static /* synthetic */ Interceptable $ic;
     public static WeiboSsoSdk e;
-    public static lt9 f;
+    public static du9 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile ReentrantLock a;
     public boolean b;
     public d c;
     public int d;
+
+    private native String riseWind(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, int i2);
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -64,6 +66,7 @@ public class WeiboSsoSdk {
 
         @Override // java.lang.Runnable
         public void run() {
+            String k;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
@@ -71,7 +74,12 @@ public class WeiboSsoSdk {
             while (true) {
                 try {
                     Thread.sleep(86400000L);
-                    WeiboSsoSdk.i().l((this.a.c == null || TextUtils.isEmpty(this.a.c.a())) ? this.a.k() : this.a.c.a(), 2);
+                    if (this.a.c != null && !TextUtils.isEmpty(this.a.c.a())) {
+                        k = this.a.c.a();
+                    } else {
+                        k = this.a.k();
+                    }
+                    WeiboSsoSdk.i().l(k, 2);
                 } catch (Exception unused) {
                 }
             }
@@ -104,13 +112,20 @@ public class WeiboSsoSdk {
 
         @Override // java.lang.Runnable
         public void run() {
+            String k;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     Thread.sleep(60000L);
-                    if (this.a.b) {
-                        this.a.l((this.a.c == null || TextUtils.isEmpty(this.a.c.a())) ? this.a.k() : this.a.c.a(), 2);
+                    if (!this.a.b) {
+                        return;
                     }
+                    if (this.a.c != null && !TextUtils.isEmpty(this.a.c.a())) {
+                        k = this.a.c.a();
+                    } else {
+                        k = this.a.k();
+                    }
+                    this.a.l(k, 2);
                 } catch (Exception unused) {
                 }
             }
@@ -121,15 +136,15 @@ public class WeiboSsoSdk {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kt9 a;
+        public final /* synthetic */ cu9 a;
         public final /* synthetic */ WeiboSsoSdk b;
 
-        public c(WeiboSsoSdk weiboSsoSdk, kt9 kt9Var) {
+        public c(WeiboSsoSdk weiboSsoSdk, cu9 cu9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {weiboSsoSdk, kt9Var};
+                Object[] objArr = {weiboSsoSdk, cu9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,27 +155,28 @@ public class WeiboSsoSdk {
                 }
             }
             this.b = weiboSsoSdk;
-            this.a = kt9Var;
+            this.a = cu9Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.b.l("", 1);
-                } catch (Exception unused) {
-                }
-                if (this.b.c == null) {
-                    this.b.c = new d();
-                }
-                this.a.handler(this.b.c);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            try {
+                this.b.l("", 1);
+            } catch (Exception unused) {
+            }
+            if (this.b.c == null) {
+                this.b.c = new d();
+            }
+            this.a.handler(this.b.c);
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class d {
+    public final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -181,6 +197,24 @@ public class WeiboSsoSdk {
             }
             this.a = "";
             this.b = "";
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
         }
 
         public static d c(String str) throws Exception {
@@ -204,18 +238,6 @@ public class WeiboSsoSdk {
             }
             return (d) invokeL.objValue;
         }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
     }
 
     static {
@@ -234,31 +256,6 @@ public class WeiboSsoSdk {
         System.loadLibrary("wind");
     }
 
-    public WeiboSsoSdk() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ReentrantLock(true);
-        this.b = true;
-        lt9 lt9Var = f;
-        if (lt9Var != null && lt9Var.n()) {
-            this.d = 0;
-            new Thread(new a(this)).start();
-            new Thread(new b(this)).start();
-            return;
-        }
-        throw new Exception("config error");
-    }
-
     public static synchronized WeiboSsoSdk i() throws Exception {
         InterceptResult invokeV;
         WeiboSsoSdk weiboSsoSdk;
@@ -275,30 +272,53 @@ public class WeiboSsoSdk {
         return (WeiboSsoSdk) invokeV.objValue;
     }
 
-    public static synchronized boolean j(lt9 lt9Var) {
+    public WeiboSsoSdk() throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ReentrantLock(true);
+        this.b = true;
+        du9 du9Var = f;
+        if (du9Var != null && du9Var.n()) {
+            this.d = 0;
+            new Thread(new a(this)).start();
+            new Thread(new b(this)).start();
+            return;
+        }
+        throw new Exception("config error");
+    }
+
+    public static synchronized boolean j(du9 du9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, lt9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, du9Var)) == null) {
             synchronized (WeiboSsoSdk.class) {
-                if (lt9Var == null) {
+                if (du9Var == null) {
                     return false;
                 }
-                if (lt9Var.n()) {
-                    if (f == null) {
-                        lt9 lt9Var2 = (lt9) lt9Var.clone();
-                        f = lt9Var2;
-                        jt9.w(lt9Var2.b());
-                        return true;
-                    }
+                if (!du9Var.n()) {
                     return false;
                 }
-                return false;
+                if (f != null) {
+                    return false;
+                }
+                du9 du9Var2 = (du9) du9Var.clone();
+                f = du9Var2;
+                bu9.w(du9Var2.b());
+                return true;
             }
         }
         return invokeL.booleanValue;
     }
-
-    private native String riseWind(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, int i2);
 
     public final synchronized void f(String str) {
         FileOutputStream fileOutputStream;
@@ -341,44 +361,6 @@ public class WeiboSsoSdk {
         }
     }
 
-    public final String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://login.sina.com.cn/visitor/signin").openConnection();
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setReadTimeout(3000);
-            httpURLConnection.setConnectTimeout(1000);
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setDoInput(true);
-            httpURLConnection.setUseCaches(false);
-            OutputStream outputStream = httpURLConnection.getOutputStream();
-            outputStream.write(str.getBytes());
-            outputStream.flush();
-            if (httpURLConnection.getResponseCode() != 200) {
-                return null;
-            }
-            InputStream inputStream = httpURLConnection.getInputStream();
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } else {
-                    inputStream.close();
-                    byteArrayOutputStream.close();
-                    return new String(byteArrayOutputStream.toByteArray());
-                }
-            }
-        } catch (Exception unused) {
-            return null;
-        }
-    }
-
     public final File h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -389,56 +371,108 @@ public class WeiboSsoSdk {
         return (File) invokeI.objValue;
     }
 
+    public void m(cu9 cu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cu9Var) == null) {
+            d dVar = this.c;
+            if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.c.b())) {
+                cu9Var.handler(this.c);
+            } else {
+                Executors.newSingleThreadExecutor().execute(new c(this, cu9Var));
+            }
+        }
+    }
+
+    public final String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://login.sina.com.cn/visitor/signin").openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setReadTimeout(3000);
+                httpURLConnection.setConnectTimeout(1000);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setUseCaches(false);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                outputStream.write(str.getBytes());
+                outputStream.flush();
+                if (httpURLConnection.getResponseCode() != 200) {
+                    return null;
+                }
+                InputStream inputStream = httpURLConnection.getInputStream();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read != -1) {
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    } else {
+                        inputStream.close();
+                        byteArrayOutputStream.close();
+                        return new String(byteArrayOutputStream.toByteArray());
+                    }
+                }
+            } catch (Exception unused) {
+                return null;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
     public final String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
-            return (String) invokeV.objValue;
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(h(1));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            FileInputStream fileInputStream = null;
             try {
-                byte[] bArr = new byte[fileInputStream2.available()];
-                fileInputStream2.read(bArr);
-                String str = new String(bArr);
+                FileInputStream fileInputStream2 = new FileInputStream(h(1));
                 try {
-                    fileInputStream2.close();
-                } catch (IOException unused) {
-                }
-                return str;
-            } catch (Exception unused2) {
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
+                    byte[] bArr = new byte[fileInputStream2.available()];
+                    fileInputStream2.read(bArr);
+                    String str = new String(bArr);
                     try {
-                        fileInputStream.close();
-                        return "";
-                    } catch (IOException unused3) {
-                        return "";
+                        fileInputStream2.close();
+                    } catch (IOException unused) {
                     }
-                }
-                return "";
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused4) {
+                    return str;
+                } catch (Exception unused2) {
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                            return "";
+                        } catch (IOException unused3) {
+                            return "";
+                        }
                     }
+                    return "";
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception unused5) {
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (String) invokeV.objValue;
         }
     }
 
     public final void l(String str, int i) throws Exception {
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) || TextUtils.isEmpty(f.a(false))) {
+        if ((interceptable != null && interceptable.invokeLI(1048580, this, str, i) != null) || TextUtils.isEmpty(f.a(false))) {
             return;
         }
         if (!this.a.tryLock()) {
@@ -447,7 +481,7 @@ public class WeiboSsoSdk {
             return;
         }
         this.b = false;
-        String n = jt9.n(f.b());
+        String n = bu9.n(f.b());
         try {
             str2 = URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException unused) {
@@ -473,17 +507,5 @@ public class WeiboSsoSdk {
         }
         this.a.unlock();
         throw new Exception("network error.");
-    }
-
-    public void m(kt9 kt9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, kt9Var) == null) {
-            d dVar = this.c;
-            if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.c.b())) {
-                kt9Var.handler(this.c);
-            } else {
-                Executors.newSingleThreadExecutor().execute(new c(this, kt9Var));
-            }
-        }
     }
 }

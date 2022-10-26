@@ -55,6 +55,16 @@ public final class UPCEReader extends UPCEANReader {
         this.decodeMiddleCounters = new int[4];
     }
 
+    @Override // com.google.zxing.oned.UPCEANReader
+    public BarcodeFormat getBarcodeFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return BarcodeFormat.UPC_E;
+        }
+        return (BarcodeFormat) invokeV.objValue;
+    }
+
     public static String convertUPCEtoUPCA(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -115,14 +125,20 @@ public final class UPCEReader extends UPCEANReader {
     public boolean checkChecksum(String str) throws FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? super.checkChecksum(convertUPCEtoUPCA(str)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return super.checkChecksum(convertUPCEtoUPCA(str));
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
     public int[] decodeEnd(BitArray bitArray, int i) throws NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitArray, i)) == null) ? UPCEANReader.findGuardPattern(bitArray, i, true, MIDDLE_END_PATTERN) : (int[]) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitArray, i)) == null) {
+            return UPCEANReader.findGuardPattern(bitArray, i, true, MIDDLE_END_PATTERN);
+        }
+        return (int[]) invokeLI.objValue;
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
@@ -152,12 +168,5 @@ public final class UPCEReader extends UPCEANReader {
             return i;
         }
         return invokeLLL.intValue;
-    }
-
-    @Override // com.google.zxing.oned.UPCEANReader
-    public BarcodeFormat getBarcodeFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? BarcodeFormat.UPC_E : (BarcodeFormat) invokeV.objValue;
     }
 }

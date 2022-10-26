@@ -75,134 +75,12 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TrackFragmentHeaderBox() {
-        super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.baseDataOffset = -1L;
-        this.defaultSampleDuration = -1L;
-        this.defaultSampleSize = -1L;
-    }
-
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("TrackFragmentHeaderBox.java", TrackFragmentHeaderBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 126);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 130);
-        ajc$tjp_10 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), TTAdConstant.IMAGE_MODE_LIVE);
-        ajc$tjp_11 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID);
-        ajc$tjp_12 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), MatroskaExtractor.ID_TRACK_ENTRY);
-        ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "trackId", "", "void"), 178);
-        ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "baseDataOffset", "", "void"), 182);
-        ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "sampleDescriptionIndex", "", "void"), 191);
-        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleDuration", "", "void"), 200);
-        ajc$tjp_17 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleSize", "", "void"), 205);
-        ajc$tjp_18 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), 210);
-        ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "durationIsEmpty", "", "void"), 215);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 134);
-        ajc$tjp_20 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "defaultBaseIsMoof", "", "void"), PassFaceRecogManager.k);
-        ajc$tjp_21 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "java.lang.String"), Constants.METHOD_MEDIA_NOTIFY);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 138);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), Cea708Decoder.COMMAND_DLC);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), Cea708Decoder.COMMAND_SPL);
-        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 150);
-        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), Cea708Decoder.COMMAND_DF2);
-        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), Cea708Decoder.COMMAND_DF6);
-        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), BDLocation.TypeServerDecryptError);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            this.trackId = IsoTypeReader.readUInt32(byteBuffer);
-            if ((getFlags() & 1) == 1) {
-                this.baseDataOffset = IsoTypeReader.readUInt64(byteBuffer);
-            }
-            if ((getFlags() & 2) == 2) {
-                this.sampleDescriptionIndex = IsoTypeReader.readUInt32(byteBuffer);
-            }
-            if ((getFlags() & 8) == 8) {
-                this.defaultSampleDuration = IsoTypeReader.readUInt32(byteBuffer);
-            }
-            if ((getFlags() & 16) == 16) {
-                this.defaultSampleSize = IsoTypeReader.readUInt32(byteBuffer);
-            }
-            if ((getFlags() & 32) == 32) {
-                this.defaultSampleFlags = new SampleFlags(byteBuffer);
-            }
-            if ((getFlags() & 65536) == 65536) {
-                this.durationIsEmpty = true;
-            }
-            if ((getFlags() & 131072) == 131072) {
-                this.defaultBaseIsMoof = true;
-            }
-        }
-    }
-
     public long getBaseDataOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
             return this.baseDataOffset;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.trackId);
-            if ((getFlags() & 1) == 1) {
-                IsoTypeWriter.writeUInt64(byteBuffer, getBaseDataOffset());
-            }
-            if ((getFlags() & 2) == 2) {
-                IsoTypeWriter.writeUInt32(byteBuffer, getSampleDescriptionIndex());
-            }
-            if ((getFlags() & 8) == 8) {
-                IsoTypeWriter.writeUInt32(byteBuffer, getDefaultSampleDuration());
-            }
-            if ((getFlags() & 16) == 16) {
-                IsoTypeWriter.writeUInt32(byteBuffer, getDefaultSampleSize());
-            }
-            if ((getFlags() & 32) == 32) {
-                this.defaultSampleFlags.getContent(byteBuffer);
-            }
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int flags = getFlags();
-            long j = (flags & 1) == 1 ? 16L : 8L;
-            if ((flags & 2) == 2) {
-                j += 4;
-            }
-            if ((flags & 8) == 8) {
-                j += 4;
-            }
-            if ((flags & 16) == 16) {
-                j += 4;
-            }
-            return (flags & 32) == 32 ? j + 4 : j;
         }
         return invokeV.longValue;
     }
@@ -262,7 +140,10 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return (getFlags() & 1) != 0;
+            if ((getFlags() & 1) != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -272,7 +153,10 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return (getFlags() & 8) != 0;
+            if ((getFlags() & 8) != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -282,7 +166,10 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return (getFlags() & 32) != 0;
+            if ((getFlags() & 32) != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -292,7 +179,10 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this));
-            return (getFlags() & 16) != 0;
+            if ((getFlags() & 16) != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -302,7 +192,10 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
-            return (getFlags() & 2) != 0;
+            if ((getFlags() & 2) != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -327,6 +220,136 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
         return invokeV.booleanValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TrackFragmentHeaderBox() {
+        super(TYPE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.baseDataOffset = -1L;
+        this.defaultSampleDuration = -1L;
+        this.defaultSampleSize = -1L;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int flags = getFlags();
+            if ((flags & 1) == 1) {
+                j = 16;
+            } else {
+                j = 8;
+            }
+            if ((flags & 2) == 2) {
+                j += 4;
+            }
+            if ((flags & 8) == 8) {
+                j += 4;
+            }
+            if ((flags & 16) == 16) {
+                j += 4;
+            }
+            if ((flags & 32) == 32) {
+                return j + 4;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("TrackFragmentHeaderBox.java", TrackFragmentHeaderBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 126);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 130);
+        ajc$tjp_10 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), TTAdConstant.IMAGE_MODE_LIVE);
+        ajc$tjp_11 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID);
+        ajc$tjp_12 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), MatroskaExtractor.ID_TRACK_ENTRY);
+        ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "trackId", "", "void"), 178);
+        ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "baseDataOffset", "", "void"), 182);
+        ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "sampleDescriptionIndex", "", "void"), 191);
+        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleDuration", "", "void"), 200);
+        ajc$tjp_17 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleSize", "", "void"), 205);
+        ajc$tjp_18 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), 210);
+        ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "durationIsEmpty", "", "void"), 215);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 134);
+        ajc$tjp_20 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "defaultBaseIsMoof", "", "void"), PassFaceRecogManager.k);
+        ajc$tjp_21 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "java.lang.String"), Constants.METHOD_MEDIA_NOTIFY);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 138);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), Cea708Decoder.COMMAND_DLC);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), Cea708Decoder.COMMAND_SPL);
+        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 150);
+        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), Cea708Decoder.COMMAND_DF2);
+        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), Cea708Decoder.COMMAND_DF6);
+        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), BDLocation.TypeServerDecryptError);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            this.trackId = IsoTypeReader.readUInt32(byteBuffer);
+            if ((getFlags() & 1) == 1) {
+                this.baseDataOffset = IsoTypeReader.readUInt64(byteBuffer);
+            }
+            if ((getFlags() & 2) == 2) {
+                this.sampleDescriptionIndex = IsoTypeReader.readUInt32(byteBuffer);
+            }
+            if ((getFlags() & 8) == 8) {
+                this.defaultSampleDuration = IsoTypeReader.readUInt32(byteBuffer);
+            }
+            if ((getFlags() & 16) == 16) {
+                this.defaultSampleSize = IsoTypeReader.readUInt32(byteBuffer);
+            }
+            if ((getFlags() & 32) == 32) {
+                this.defaultSampleFlags = new SampleFlags(byteBuffer);
+            }
+            if ((getFlags() & 65536) == 65536) {
+                this.durationIsEmpty = true;
+            }
+            if ((getFlags() & 131072) == 131072) {
+                this.defaultBaseIsMoof = true;
+            }
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.trackId);
+            if ((getFlags() & 1) == 1) {
+                IsoTypeWriter.writeUInt64(byteBuffer, getBaseDataOffset());
+            }
+            if ((getFlags() & 2) == 2) {
+                IsoTypeWriter.writeUInt32(byteBuffer, getSampleDescriptionIndex());
+            }
+            if ((getFlags() & 8) == 8) {
+                IsoTypeWriter.writeUInt32(byteBuffer, getDefaultSampleDuration());
+            }
+            if ((getFlags() & 16) == 16) {
+                IsoTypeWriter.writeUInt32(byteBuffer, getDefaultSampleSize());
+            }
+            if ((getFlags() & 32) == 32) {
+                this.defaultSampleFlags.getContent(byteBuffer);
+            }
+        }
+    }
+
     public void setBaseDataOffset(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
@@ -337,6 +360,19 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
                 setFlags(getFlags() | 1);
             }
             this.baseDataOffset = j;
+        }
+    }
+
+    public void setSampleDescriptionIndex(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.longObject(j)));
+            if (j == -1) {
+                setFlags(getFlags() & CollectionToArray.MAX_SIZE);
+            } else {
+                setFlags(getFlags() | 2);
+            }
+            this.sampleDescriptionIndex = j;
         }
     }
 
@@ -382,19 +418,6 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_19, this, this, Conversions.booleanObject(z)));
             setFlags(getFlags() | 65536);
             this.durationIsEmpty = z;
-        }
-    }
-
-    public void setSampleDescriptionIndex(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.longObject(j)));
-            if (j == -1) {
-                setFlags(getFlags() & CollectionToArray.MAX_SIZE);
-            } else {
-                setFlags(getFlags() | 2);
-            }
-            this.sampleDescriptionIndex = j;
         }
     }
 

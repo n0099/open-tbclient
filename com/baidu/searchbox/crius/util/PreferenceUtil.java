@@ -1,8 +1,6 @@
 package com.baidu.searchbox.crius.util;
 
 import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.crius.CriusRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,13 +16,13 @@ public class PreferenceUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class CriusPreference {
+    public class CriusPreference {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PREFERENCE_NAME = "com.baidu.searchbox.feed.crius";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public static final class Holder {
+        public final class Holder {
             public static /* synthetic */ Interceptable $ic;
             public static final SharedPreferences INSTANCE;
             public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +75,10 @@ public class PreferenceUtil {
         public static SharedPreferences getPreference() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Holder.INSTANCE : (SharedPreferences) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return Holder.INSTANCE;
+            }
+            return (SharedPreferences) invokeV.objValue;
         }
     }
 
@@ -95,27 +96,32 @@ public class PreferenceUtil {
         }
     }
 
-    public static boolean getBoolean(@NonNull String str, boolean z) {
+    public static boolean getBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? CriusPreference.getPreference().getBoolean(str, z) : invokeLZ.booleanValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            return CriusPreference.getPreference().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
     }
 
-    @Nullable
-    public static String getString(@NonNull String str, @Nullable String str2) {
+    public static String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? CriusPreference.getPreference().getString(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return CriusPreference.getPreference().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public static void putBoolean(@NonNull String str, boolean z) {
+    public static void putBoolean(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
             CriusPreference.getPreference().edit().putBoolean(str, z).apply();
         }
     }
 
-    public static void putString(@NonNull String str, @Nullable String str2) {
+    public static void putString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             CriusPreference.getPreference().edit().putString(str, str2).apply();

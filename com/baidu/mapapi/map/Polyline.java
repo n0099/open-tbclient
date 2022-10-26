@@ -19,7 +19,7 @@ public final class Polyline extends Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public List<LatLng> b;
+    public List b;
     public int[] c;
     public int[] d;
     public int e;
@@ -27,7 +27,7 @@ public final class Polyline extends Overlay {
     public boolean g;
     public boolean h;
     public BitmapDescriptor i;
-    public List<BitmapDescriptor> j;
+    public List j;
 
     public Polyline() {
         Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public final class Polyline extends Overlay {
             int i = 0;
             for (int i2 = 0; i2 < this.j.size(); i2++) {
                 if (this.j.get(i2) != null) {
-                    bundle2.putBundle("texture_" + String.valueOf(i), this.j.get(i2).b());
+                    bundle2.putBundle("texture_" + String.valueOf(i), ((BitmapDescriptor) this.j.get(i2)).b());
                     i++;
                 }
             }
@@ -105,7 +105,7 @@ public final class Polyline extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.b.get(0));
+            GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) this.b.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
             bundle.putInt("width", this.e);
@@ -164,7 +164,7 @@ public final class Polyline extends Overlay {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (int[]) invokeV.objValue;
     }
 
-    public List<LatLng> getPoints() {
+    public List getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (List) invokeV.objValue;
@@ -251,7 +251,7 @@ public final class Polyline extends Overlay {
         }
     }
 
-    public void setPoints(List<LatLng> list) {
+    public void setPoints(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             if (list == null) {
@@ -276,7 +276,7 @@ public final class Polyline extends Overlay {
         }
     }
 
-    public void setTextureList(List<BitmapDescriptor> list) {
+    public void setTextureList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
             if (list == null || list.isEmpty()) {

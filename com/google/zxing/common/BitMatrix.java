@@ -39,14 +39,114 @@ public final class BitMatrix implements Cloneable {
         }
     }
 
+    public void xor(BitMatrix bitMatrix) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, bitMatrix) == null) {
+            if (this.width == bitMatrix.getWidth() && this.height == bitMatrix.getHeight() && this.rowSize == bitMatrix.getRowSize()) {
+                BitArray bitArray = new BitArray((this.width / 32) + 1);
+                for (int i = 0; i < this.height; i++) {
+                    int i2 = this.rowSize * i;
+                    int[] bitArray2 = bitMatrix.getRow(i, bitArray).getBitArray();
+                    for (int i3 = 0; i3 < this.rowSize; i3++) {
+                        int[] iArr = this.bits;
+                        int i4 = i2 + i3;
+                        iArr[i4] = iArr[i4] ^ bitArray2[i3];
+                    }
+                }
+                return;
+            }
+            throw new IllegalArgumentException("input matrix dimensions do not match");
+        }
+    }
+
+    public BitMatrix(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (i > 0 && i2 > 0) {
+            this.width = i;
+            this.height = i2;
+            int i5 = (i + 31) / 32;
+            this.rowSize = i5;
+            this.bits = new int[i5 * i2];
+            return;
+        }
+        throw new IllegalArgumentException("Both dimensions must be greater than 0");
+    }
+
+    public BitMatrix(int i, int i2, int i3, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.width = i;
+        this.height = i2;
+        this.rowSize = i3;
+        this.bits = iArr;
+    }
+
+    public void setRegion(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
+            if (i2 >= 0 && i >= 0) {
+                if (i4 > 0 && i3 > 0) {
+                    int i5 = i3 + i;
+                    int i6 = i4 + i2;
+                    if (i6 <= this.height && i5 <= this.width) {
+                        while (i2 < i6) {
+                            int i7 = this.rowSize * i2;
+                            for (int i8 = i; i8 < i5; i8++) {
+                                int[] iArr = this.bits;
+                                int i9 = (i8 / 32) + i7;
+                                iArr[i9] = iArr[i9] | (1 << (i8 & 31));
+                            }
+                            i2++;
+                        }
+                        return;
+                    }
+                    throw new IllegalArgumentException("The region must fit inside the matrix");
+                }
+                throw new IllegalArgumentException("Height and width must be at least 1");
+            }
+            throw new IllegalArgumentException("Left and top must be nonnegative");
+        }
+    }
+
     private String buildToString(String str, String str2, String str3) {
         InterceptResult invokeLLL;
+        String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, str, str2, str3)) == null) {
             StringBuilder sb = new StringBuilder(this.height * (this.width + 1));
             for (int i = 0; i < this.height; i++) {
                 for (int i2 = 0; i2 < this.width; i2++) {
-                    sb.append(get(i2, i) ? str : str2);
+                    if (get(i2, i)) {
+                        str4 = str;
+                    } else {
+                        str4 = str2;
+                    }
+                    sb.append(str4);
                 }
                 sb.append(str3);
             }
@@ -67,18 +167,7 @@ public final class BitMatrix implements Cloneable {
                 int i4 = -1;
                 int i5 = 0;
                 while (i < str.length()) {
-                    if (str.charAt(i) == '\n' || str.charAt(i) == '\r') {
-                        if (i2 > i3) {
-                            if (i4 == -1) {
-                                i4 = i2 - i3;
-                            } else if (i2 - i3 != i4) {
-                                throw new IllegalArgumentException("row lengths do not match");
-                            }
-                            i5++;
-                            i3 = i2;
-                        }
-                        i++;
-                    } else {
+                    if (str.charAt(i) != '\n' && str.charAt(i) != '\r') {
                         if (str.substring(i, str2.length() + i).equals(str2)) {
                             i += str2.length();
                             zArr[i2] = true;
@@ -89,6 +178,17 @@ public final class BitMatrix implements Cloneable {
                             throw new IllegalArgumentException("illegal character encountered: " + str.substring(i));
                         }
                         i2++;
+                    } else {
+                        if (i2 > i3) {
+                            if (i4 == -1) {
+                                i4 = i2 - i3;
+                            } else if (i2 - i3 != i4) {
+                                throw new IllegalArgumentException("row lengths do not match");
+                            }
+                            i5++;
+                            i3 = i2;
+                        }
+                        i++;
                     }
                 }
                 if (i2 > i3) {
@@ -122,15 +222,75 @@ public final class BitMatrix implements Cloneable {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public BitMatrix m80clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new BitMatrix(this.width, this.height, this.rowSize, (int[]) this.bits.clone());
+        }
+        return (BitMatrix) invokeV.objValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getRowSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.rowSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            int i = this.width;
+            return (((((((i * 31) + i) * 31) + this.height) * 31) + this.rowSize) * 31) + Arrays.hashCode(this.bits);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return toString("X ", GlideException.IndentedAppendable.INDENT);
+        }
+        return (String) invokeV.objValue;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj instanceof BitMatrix) {
-                BitMatrix bitMatrix = (BitMatrix) obj;
-                return this.width == bitMatrix.width && this.height == bitMatrix.height && this.rowSize == bitMatrix.rowSize && Arrays.equals(this.bits, bitMatrix.bits);
+            if (!(obj instanceof BitMatrix)) {
+                return false;
             }
-            return false;
+            BitMatrix bitMatrix = (BitMatrix) obj;
+            if (this.width != bitMatrix.width || this.height != bitMatrix.height || this.rowSize != bitMatrix.rowSize || !Arrays.equals(this.bits, bitMatrix.bits)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -147,7 +307,50 @@ public final class BitMatrix implements Cloneable {
     public boolean get(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) ? ((this.bits[(i2 * this.rowSize) + (i / 32)] >>> (i & 31)) & 1) != 0 : invokeII.booleanValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
+            if (((this.bits[(i2 * this.rowSize) + (i / 32)] >>> (i & 31)) & 1) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public void set(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
+            int i3 = (i2 * this.rowSize) + (i / 32);
+            int[] iArr = this.bits;
+            iArr[i3] = (1 << (i & 31)) | iArr[i3];
+        }
+    }
+
+    public void setRow(int i, BitArray bitArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048593, this, i, bitArray) == null) {
+            int[] bitArray2 = bitArray.getBitArray();
+            int[] iArr = this.bits;
+            int i2 = this.rowSize;
+            System.arraycopy(bitArray2, 0, iArr, i * i2, i2);
+        }
+    }
+
+    public String toString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, str, str2)) == null) {
+            return buildToString(str, str2, "\n");
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void unset(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            int i3 = (i2 * this.rowSize) + (i / 32);
+            int[] iArr = this.bits;
+            iArr[i3] = (~(1 << (i & 31))) & iArr[i3];
+        }
     }
 
     public int[] getBottomRightOnBit() {
@@ -171,6 +374,54 @@ public final class BitMatrix implements Cloneable {
             return new int[]{i3 + i4, i2};
         }
         return (int[]) invokeV.objValue;
+    }
+
+    public int[] getTopLeftOnBit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int i = 0;
+            while (true) {
+                int[] iArr = this.bits;
+                if (i >= iArr.length || iArr[i] != 0) {
+                    break;
+                }
+                i++;
+            }
+            int[] iArr2 = this.bits;
+            if (i == iArr2.length) {
+                return null;
+            }
+            int i2 = this.rowSize;
+            int i3 = i / i2;
+            int i4 = (i % i2) << 5;
+            int i5 = iArr2[i];
+            int i6 = 0;
+            while ((i5 << (31 - i6)) == 0) {
+                i6++;
+            }
+            return new int[]{i4 + i6, i3};
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public void rotate180() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            int width = getWidth();
+            int height = getHeight();
+            BitArray bitArray = new BitArray(width);
+            BitArray bitArray2 = new BitArray(width);
+            for (int i = 0; i < (height + 1) / 2; i++) {
+                bitArray = getRow(i, bitArray);
+                int i2 = (height - 1) - i;
+                bitArray2 = getRow(i2, bitArray2);
+                bitArray.reverse();
+                bitArray2.reverse();
+                setRow(i, bitArray2);
+                setRow(i2, bitArray);
+            }
+        }
     }
 
     public int[] getEnclosingRectangle() {
@@ -228,12 +479,6 @@ public final class BitMatrix implements Cloneable {
         return (int[]) invokeV.objValue;
     }
 
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.height : invokeV.intValue;
-    }
-
     public BitArray getRow(int i, BitArray bitArray) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -252,222 +497,13 @@ public final class BitMatrix implements Cloneable {
         return (BitArray) invokeIL.objValue;
     }
 
-    public int getRowSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.rowSize : invokeV.intValue;
-    }
-
-    public int[] getTopLeftOnBit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i = 0;
-            while (true) {
-                int[] iArr = this.bits;
-                if (i >= iArr.length || iArr[i] != 0) {
-                    break;
-                }
-                i++;
-            }
-            int[] iArr2 = this.bits;
-            if (i == iArr2.length) {
-                return null;
-            }
-            int i2 = this.rowSize;
-            int i3 = i / i2;
-            int i4 = (i % i2) << 5;
-            int i5 = iArr2[i];
-            int i6 = 0;
-            while ((i5 << (31 - i6)) == 0) {
-                i6++;
-            }
-            return new int[]{i4 + i6, i3};
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.width : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            int i = this.width;
-            return (((((((i * 31) + i) * 31) + this.height) * 31) + this.rowSize) * 31) + Arrays.hashCode(this.bits);
-        }
-        return invokeV.intValue;
-    }
-
-    public void rotate180() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            int width = getWidth();
-            int height = getHeight();
-            BitArray bitArray = new BitArray(width);
-            BitArray bitArray2 = new BitArray(width);
-            for (int i = 0; i < (height + 1) / 2; i++) {
-                bitArray = getRow(i, bitArray);
-                int i2 = (height - 1) - i;
-                bitArray2 = getRow(i2, bitArray2);
-                bitArray.reverse();
-                bitArray2.reverse();
-                setRow(i, bitArray2);
-                setRow(i2, bitArray);
-            }
-        }
-    }
-
-    public void set(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
-            int i3 = (i2 * this.rowSize) + (i / 32);
-            int[] iArr = this.bits;
-            iArr[i3] = (1 << (i & 31)) | iArr[i3];
-        }
-    }
-
-    public void setRegion(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
-            if (i2 < 0 || i < 0) {
-                throw new IllegalArgumentException("Left and top must be nonnegative");
-            }
-            if (i4 > 0 && i3 > 0) {
-                int i5 = i3 + i;
-                int i6 = i4 + i2;
-                if (i6 > this.height || i5 > this.width) {
-                    throw new IllegalArgumentException("The region must fit inside the matrix");
-                }
-                while (i2 < i6) {
-                    int i7 = this.rowSize * i2;
-                    for (int i8 = i; i8 < i5; i8++) {
-                        int[] iArr = this.bits;
-                        int i9 = (i8 / 32) + i7;
-                        iArr[i9] = iArr[i9] | (1 << (i8 & 31));
-                    }
-                    i2++;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Height and width must be at least 1");
-        }
-    }
-
-    public void setRow(int i, BitArray bitArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048593, this, i, bitArray) == null) {
-            int[] bitArray2 = bitArray.getBitArray();
-            int[] iArr = this.bits;
-            int i2 = this.rowSize;
-            System.arraycopy(bitArray2, 0, iArr, i * i2, i2);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? toString("X ", GlideException.IndentedAppendable.INDENT) : (String) invokeV.objValue;
-    }
-
-    public void unset(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
-            int i3 = (i2 * this.rowSize) + (i / 32);
-            int[] iArr = this.bits;
-            iArr[i3] = (~(1 << (i & 31))) & iArr[i3];
-        }
-    }
-
-    public void xor(BitMatrix bitMatrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, bitMatrix) == null) {
-            if (this.width == bitMatrix.getWidth() && this.height == bitMatrix.getHeight() && this.rowSize == bitMatrix.getRowSize()) {
-                BitArray bitArray = new BitArray((this.width / 32) + 1);
-                for (int i = 0; i < this.height; i++) {
-                    int i2 = this.rowSize * i;
-                    int[] bitArray2 = bitMatrix.getRow(i, bitArray).getBitArray();
-                    for (int i3 = 0; i3 < this.rowSize; i3++) {
-                        int[] iArr = this.bits;
-                        int i4 = i2 + i3;
-                        iArr[i4] = iArr[i4] ^ bitArray2[i3];
-                    }
-                }
-                return;
-            }
-            throw new IllegalArgumentException("input matrix dimensions do not match");
-        }
-    }
-
-    public BitMatrix(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (i > 0 && i2 > 0) {
-            this.width = i;
-            this.height = i2;
-            int i5 = (i + 31) / 32;
-            this.rowSize = i5;
-            this.bits = new int[i5 * i2];
-            return;
-        }
-        throw new IllegalArgumentException("Both dimensions must be greater than 0");
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public BitMatrix m81clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new BitMatrix(this.width, this.height, this.rowSize, (int[]) this.bits.clone()) : (BitMatrix) invokeV.objValue;
-    }
-
-    public String toString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, str, str2)) == null) ? buildToString(str, str2, "\n") : (String) invokeLL.objValue;
-    }
-
     @Deprecated
     public String toString(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, str, str2, str3)) == null) ? buildToString(str, str2, str3) : (String) invokeLLL.objValue;
-    }
-
-    public BitMatrix(int i, int i2, int i3, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, str, str2, str3)) == null) {
+            return buildToString(str, str2, str3);
         }
-        this.width = i;
-        this.height = i2;
-        this.rowSize = i3;
-        this.bits = iArr;
+        return (String) invokeLLL.objValue;
     }
 }

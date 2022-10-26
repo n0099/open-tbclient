@@ -1,14 +1,12 @@
 package com.googlecode.mp4parser.authoring;
 
 import com.coremedia.iso.boxes.Box;
-import com.coremedia.iso.boxes.CompositionTimeToSample;
-import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import java.util.List;
 /* loaded from: classes7.dex */
 public interface Track {
-    List<CompositionTimeToSample.Entry> getCompositionTimeEntries();
+    List getCompositionTimeEntries();
 
     long getDuration();
 
@@ -16,13 +14,13 @@ public interface Track {
 
     Box getMediaHeaderBox();
 
-    List<SampleDependencyTypeBox.Entry> getSampleDependencies();
+    List getSampleDependencies();
 
     SampleDescriptionBox getSampleDescriptionBox();
 
     long[] getSampleDurations();
 
-    List<Sample> getSamples();
+    List getSamples();
 
     SubSampleInformationBox getSubsampleInformationBox();
 

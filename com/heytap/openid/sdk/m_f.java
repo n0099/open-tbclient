@@ -1,18 +1,14 @@
 package com.heytap.openid.sdk;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class m_f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public String m_a;
-    @Keep
     public long m_b;
 
     public m_f(String str, long j) {
@@ -34,6 +30,5 @@ public class m_f {
         this.m_b = j;
     }
 
-    @Keep
     public native boolean m_a(String str);
 }

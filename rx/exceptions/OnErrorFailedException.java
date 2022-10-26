@@ -31,9 +31,13 @@ public class OnErrorFailedException extends RuntimeException {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public OnErrorFailedException(Throwable th) {
-        super(th != null ? th.getMessage() : null, th == null ? new NullPointerException() : th);
+        super(r0, th == null ? new NullPointerException() : th);
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,6 +53,11 @@ public class OnErrorFailedException extends RuntimeException {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        if (th != null) {
+            str = th.getMessage();
+        } else {
+            str = null;
         }
     }
 }

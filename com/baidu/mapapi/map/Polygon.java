@@ -17,7 +17,7 @@ public final class Polygon extends Overlay {
     public transient /* synthetic */ FieldHolder $fh;
     public Stroke a;
     public int b;
-    public List<LatLng> c;
+    public List c;
 
     public Polygon() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class Polygon extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.c.get(0));
+            GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) this.c.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
             Overlay.a(this.c, bundle);
@@ -63,7 +63,7 @@ public final class Polygon extends Overlay {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public List<LatLng> getPoints() {
+    public List getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (List) invokeV.objValue;
@@ -83,7 +83,7 @@ public final class Polygon extends Overlay {
         }
     }
 
-    public void setPoints(List<LatLng> list) {
+    public void setPoints(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             if (list == null) {
@@ -99,7 +99,7 @@ public final class Polygon extends Overlay {
             while (i < list.size()) {
                 int i2 = i + 1;
                 for (int i3 = i2; i3 < list.size(); i3++) {
-                    if (list.get(i) == list.get(i3)) {
+                    if (((LatLng) list.get(i)) == ((LatLng) list.get(i3))) {
                         throw new IllegalArgumentException("BDMapSDKException: points list can not has same points");
                     }
                 }

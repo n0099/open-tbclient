@@ -6,9 +6,9 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,23 +16,23 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class bi {
     public static boolean apo;
-    public static final List<a> app = new ArrayList();
+    public static final List app = new ArrayList();
 
     /* loaded from: classes8.dex */
-    public static class a implements com.kwad.sdk.core.b {
+    public final class a implements com.kwad.sdk.core.b {
         public String apq;
         public String apr;
         public int level;
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(@Nullable JSONObject jSONObject) {
+        public final void parseJson(JSONObject jSONObject) {
         }
 
         @Override // com.kwad.sdk.core.b
         public final JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             r.putValue(jSONObject, PollingModel.LEVEL, this.level);
-            r.putValue(jSONObject, "ssid", this.apq);
+            r.putValue(jSONObject, YyLiveRoomConfig.KEY_SSID, this.apq);
             r.putValue(jSONObject, "bssid", this.apr);
             return jSONObject;
         }
@@ -42,7 +42,7 @@ public final class bi {
         return (context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29) ? Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) == -1 && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.h) == -1 : ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) == -1;
     }
 
-    public static List<a> h(Context context, int i) {
+    public static List h(Context context, int i) {
         WifiManager wifiManager;
         if (aq.Ad()) {
             return new ArrayList();

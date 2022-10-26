@@ -62,6 +62,44 @@ public class QQAvatar extends BaseApi {
         return (Intent) invokeL.objValue;
     }
 
+    private void a(Activity activity, Bundle bundle, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, this, activity, bundle, intent) == null) {
+            a(bundle);
+            intent.putExtra(Constants.KEY_ACTION, "action_avatar");
+            intent.putExtra(Constants.KEY_PARAMS, bundle);
+            UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_AVATER, this.a);
+            a(activity, intent, Constants.REQUEST_AVATER);
+        }
+    }
+
+    private void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
+            QQToken qQToken = this.c;
+            if (qQToken != null) {
+                bundle.putString("appid", qQToken.getAppId());
+                if (this.c.isSessionValid()) {
+                    bundle.putString(Constants.PARAM_KEY_STR, this.c.getAccessToken());
+                    bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
+                }
+                String openId = this.c.getOpenId();
+                if (openId != null) {
+                    bundle.putString("hopenid", openId);
+                }
+                bundle.putString(Constants.PARAM_PLATFORM, "androidqz");
+                try {
+                    bundle.putString("pf", f.a().getSharedPreferences(Constants.PREFERENCE_PF, 0).getString("pf", Constants.DEFAULT_PF));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    bundle.putString("pf", Constants.DEFAULT_PF);
+                }
+            }
+            bundle.putString("sdkv", Constants.SDK_VERSION);
+            bundle.putString("sdkp", "a");
+        }
+    }
+
     public void setAvatar(Activity activity, Uri uri, IUiListener iUiListener, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048576, this, activity, uri, iUiListener, i) == null) {
@@ -195,44 +233,6 @@ public class QQAvatar extends BaseApi {
                     a(activity, Constants.REQUEST_EDIT_DYNAMIC_AVATAR, intent, false);
                 }
             }
-        }
-    }
-
-    private void a(Activity activity, Bundle bundle, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, this, activity, bundle, intent) == null) {
-            a(bundle);
-            intent.putExtra(Constants.KEY_ACTION, "action_avatar");
-            intent.putExtra(Constants.KEY_PARAMS, bundle);
-            UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_AVATER, this.a);
-            a(activity, intent, Constants.REQUEST_AVATER);
-        }
-    }
-
-    private void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
-            QQToken qQToken = this.c;
-            if (qQToken != null) {
-                bundle.putString("appid", qQToken.getAppId());
-                if (this.c.isSessionValid()) {
-                    bundle.putString(Constants.PARAM_KEY_STR, this.c.getAccessToken());
-                    bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
-                }
-                String openId = this.c.getOpenId();
-                if (openId != null) {
-                    bundle.putString("hopenid", openId);
-                }
-                bundle.putString(Constants.PARAM_PLATFORM, "androidqz");
-                try {
-                    bundle.putString("pf", f.a().getSharedPreferences(Constants.PREFERENCE_PF, 0).getString("pf", Constants.DEFAULT_PF));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    bundle.putString("pf", Constants.DEFAULT_PF);
-                }
-            }
-            bundle.putString("sdkv", Constants.SDK_VERSION);
-            bundle.putString("sdkp", "a");
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tbadk.util;
 
-import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +11,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.ph5;
-import com.baidu.tieba.rc;
+import com.baidu.tieba.sc;
+import com.baidu.tieba.vh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,15 +20,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AppLaunchInfoFetcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes3.dex */
+    public interface a {
+        void onFinish(vh5 vh5Var);
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class Type {
+    public final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type ACTIVITY;
@@ -83,19 +88,20 @@ public class AppLaunchInfoFetcher {
         public static Type valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str);
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Type[]) $VALUES.clone();
+            }
+            return (Type[]) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onFinish(ph5 ph5Var);
     }
 
     public static Intent a(Message message) {
@@ -104,7 +110,7 @@ public class AppLaunchInfoFetcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, message)) == null) {
             if (message != null && (obj = message.obj) != null) {
-                Object d = rc.d(obj, IntentData.KEY);
+                Object d = sc.d(obj, IntentData.KEY);
                 if (d instanceof Intent) {
                     return (Intent) d;
                 }
@@ -114,8 +120,7 @@ public class AppLaunchInfoFetcher {
         return (Intent) invokeL.objValue;
     }
 
-    @TargetApi(23)
-    public static ph5 b(Context context) {
+    public static vh5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -123,41 +128,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new ph5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new vh5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (ph5) invokeL.objValue;
-    }
-
-    public static ph5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Object d = rc.d(Looper.myQueue(), "mMessages");
-            if (d instanceof Message) {
-                Message message = (Message) d;
-                int i = 0;
-                while (message != null && i < 10) {
-                    i++;
-                    Intent a2 = a(message);
-                    Type d2 = d(message);
-                    if (a2 != null && a2.getComponent() != null) {
-                        return new ph5(Type.ACTIVITY, a2);
-                    }
-                    if (d2 != Type.UNKNOWN) {
-                        return new ph5(d2, null);
-                    }
-                    Object d3 = rc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
-                    message = d3 instanceof Message ? (Message) d3 : null;
-                }
-            }
-            return null;
-        }
-        return (ph5) invokeV.objValue;
+        return (vh5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -183,19 +161,56 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static void e(Context context, List<a> list) {
+    public static vh5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Object d = sc.d(Looper.myQueue(), "mMessages");
+            if (d instanceof Message) {
+                Message message = (Message) d;
+                int i = 0;
+                while (message != null && i < 10) {
+                    i++;
+                    Intent a2 = a(message);
+                    Type d2 = d(message);
+                    if (a2 != null && a2.getComponent() != null) {
+                        return new vh5(Type.ACTIVITY, a2);
+                    }
+                    if (d2 != Type.UNKNOWN) {
+                        return new vh5(d2, null);
+                    }
+                    Object d3 = sc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                    if (d3 instanceof Message) {
+                        message = (Message) d3;
+                    } else {
+                        message = null;
+                    }
+                }
+            }
+            return null;
+        }
+        return (vh5) invokeV.objValue;
+    }
+
+    public static void e(Context context, List list) {
+        vh5 vh5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
-                ph5 b = Build.VERSION.SDK_INT >= 23 ? b(context) : null;
-                if (b == null) {
-                    b = c();
+                if (Build.VERSION.SDK_INT >= 23) {
+                    vh5Var = b(context);
+                } else {
+                    vh5Var = null;
                 }
-                if (b == null) {
-                    b = new ph5(Type.UNKNOWN, null);
+                if (vh5Var == null) {
+                    vh5Var = c();
                 }
-                for (a aVar : list) {
-                    aVar.onFinish(b);
+                if (vh5Var == null) {
+                    vh5Var = new vh5(Type.UNKNOWN, null);
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    ((a) it.next()).onFinish(vh5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

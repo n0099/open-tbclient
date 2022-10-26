@@ -38,13 +38,6 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    private void addColumn(SQLiteDatabase sQLiteDatabase, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, this, sQLiteDatabase, str, str2, str3) == null) {
-            sQLiteDatabase.execSQL("ALTER TABLE " + str + " ADD COLUMN " + str2 + " " + str3);
-        }
-    }
-
     private void createDownloadsTable(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
@@ -54,6 +47,13 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
             } catch (SQLException e) {
                 throw e;
             }
+        }
+    }
+
+    private void addColumn(SQLiteDatabase sQLiteDatabase, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, this, sQLiteDatabase, str, str2, str3) == null) {
+            sQLiteDatabase.execSQL("ALTER TABLE " + str + " ADD COLUMN " + str2 + " " + str3);
         }
     }
 
@@ -92,10 +92,11 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
         }
         while (true) {
             i++;
-            if (i > i2) {
+            if (i <= i2) {
+                upgradeTo(sQLiteDatabase, i);
+            } else {
                 return;
             }
-            upgradeTo(sQLiteDatabase, i);
         }
     }
 }

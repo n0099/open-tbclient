@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.o35;
+import com.baidu.tieba.u35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitUserNameDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o35 a;
+    public u35 a;
 
     /* loaded from: classes3.dex */
-    public class a implements o35.e {
+    public class a implements u35.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InitUserNameDialogActivity a;
@@ -43,7 +43,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // com.baidu.tieba.o35.e
+        @Override // com.baidu.tieba.u35.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -54,7 +54,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements o35.e {
+    public class b implements u35.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InitUserNameDialogActivity a;
@@ -77,7 +77,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // com.baidu.tieba.o35.e
+        @Override // com.baidu.tieba.u35.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -122,25 +122,6 @@ public class InitUserNameDialogActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            setIsAddSwipeBackLayout(false);
-            super.onCreate(bundle);
-            o35 o35Var = new o35(this);
-            this.a = o35Var;
-            o35Var.v(new a(this));
-            this.a.w(new b(this));
-            this.a.p();
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo == null && getIntent() != null && (getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA) instanceof AccountData)) {
-                currentAccountInfo = (AccountData) getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA);
-            }
-            this.a.u(currentAccountInfo);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -155,6 +136,25 @@ public class InitUserNameDialogActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             this.a.z(1);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            setIsAddSwipeBackLayout(false);
+            super.onCreate(bundle);
+            u35 u35Var = new u35(this);
+            this.a = u35Var;
+            u35Var.v(new a(this));
+            this.a.w(new b(this));
+            this.a.p();
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo == null && getIntent() != null && (getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA) instanceof AccountData)) {
+                currentAccountInfo = (AccountData) getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA);
+            }
+            this.a.u(currentAccountInfo);
         }
     }
 }

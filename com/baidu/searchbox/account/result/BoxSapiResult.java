@@ -33,7 +33,7 @@ public class BoxSapiResult {
     public static final int RESULT_CODE_WAPPASS_SUCCESS = 110000;
     public static final String RESULT_MSG_SUCCESS = "成功";
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> msgMap;
+    public SparseArray msgMap;
     public int resultCode;
     public String resultMsg;
 
@@ -50,7 +50,7 @@ public class BoxSapiResult {
                 return;
             }
         }
-        SparseArray<String> sparseArray = new SparseArray<>();
+        SparseArray sparseArray = new SparseArray();
         this.msgMap = sparseArray;
         this.resultCode = -202;
         sparseArray.put(0, "成功");
@@ -68,12 +68,15 @@ public class BoxSapiResult {
     public int getResultCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.resultCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.resultCode;
+        }
+        return invokeV.intValue;
     }
 
     public String getResultMsg() {
         InterceptResult invokeV;
-        SparseArray<String> sparseArray;
+        SparseArray sparseArray;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -87,7 +90,7 @@ public class BoxSapiResult {
                 sparseArray = this.msgMap;
                 i = -202;
             }
-            return sparseArray.get(i);
+            return (String) sparseArray.get(i);
         }
         return (String) invokeV.objValue;
     }

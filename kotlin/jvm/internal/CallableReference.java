@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.lang.annotation.Annotation;
 import java.util.List;
 import java.util.Map;
-import kotlin.SinceKotlin;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KDeclarationContainer;
@@ -15,21 +14,16 @@ import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KVisibility;
 /* loaded from: classes8.dex */
 public abstract class CallableReference implements KCallable, Serializable {
-    @SinceKotlin(version = "1.1")
     public static final Object NO_RECEIVER = NoReceiver.INSTANCE;
-    @SinceKotlin(version = "1.4")
     public final boolean isTopLevel;
-    @SinceKotlin(version = "1.4")
     public final String name;
-    @SinceKotlin(version = "1.4")
     public final Class owner;
-    @SinceKotlin(version = "1.1")
     public final Object receiver;
     public transient KCallable reflected;
-    @SinceKotlin(version = "1.4")
     public final String signature;
 
-    @SinceKotlin(version = "1.2")
+    public abstract KCallable computeReflected();
+
     /* loaded from: classes8.dex */
     public static class NoReceiver implements Serializable {
         public static final NoReceiver INSTANCE = new NoReceiver();
@@ -43,17 +37,6 @@ public abstract class CallableReference implements KCallable, Serializable {
         this(NO_RECEIVER);
     }
 
-    @Override // kotlin.reflect.KCallable
-    public Object call(Object... objArr) {
-        return getReflected().call(objArr);
-    }
-
-    @Override // kotlin.reflect.KCallable
-    public Object callBy(Map map) {
-        return getReflected().callBy(map);
-    }
-
-    @SinceKotlin(version = "1.1")
     public KCallable compute() {
         KCallable kCallable = this.reflected;
         if (kCallable == null) {
@@ -64,14 +47,11 @@ public abstract class CallableReference implements KCallable, Serializable {
         return kCallable;
     }
 
-    public abstract KCallable computeReflected();
-
     @Override // kotlin.reflect.KAnnotatedElement
     public List<Annotation> getAnnotations() {
         return getReflected().getAnnotations();
     }
 
-    @SinceKotlin(version = "1.1")
     public Object getBoundReceiver() {
         return this.receiver;
     }
@@ -86,7 +66,10 @@ public abstract class CallableReference implements KCallable, Serializable {
         if (cls == null) {
             return null;
         }
-        return this.isTopLevel ? Reflection.getOrCreateKotlinPackage(cls) : Reflection.getOrCreateKotlinClass(cls);
+        if (this.isTopLevel) {
+            return Reflection.getOrCreateKotlinPackage(cls);
+        }
+        return Reflection.getOrCreateKotlinClass(cls);
     }
 
     @Override // kotlin.reflect.KCallable
@@ -94,7 +77,6 @@ public abstract class CallableReference implements KCallable, Serializable {
         return getReflected().getParameters();
     }
 
-    @SinceKotlin(version = "1.1")
     public KCallable getReflected() {
         KCallable compute = compute();
         if (compute != this) {
@@ -113,47 +95,49 @@ public abstract class CallableReference implements KCallable, Serializable {
     }
 
     @Override // kotlin.reflect.KCallable
-    @SinceKotlin(version = "1.1")
     public List<KTypeParameter> getTypeParameters() {
         return getReflected().getTypeParameters();
     }
 
     @Override // kotlin.reflect.KCallable
-    @SinceKotlin(version = "1.1")
     public KVisibility getVisibility() {
         return getReflected().getVisibility();
     }
 
     @Override // kotlin.reflect.KCallable
-    @SinceKotlin(version = "1.1")
     public boolean isAbstract() {
         return getReflected().isAbstract();
     }
 
     @Override // kotlin.reflect.KCallable
-    @SinceKotlin(version = "1.1")
     public boolean isFinal() {
         return getReflected().isFinal();
     }
 
     @Override // kotlin.reflect.KCallable
-    @SinceKotlin(version = "1.1")
     public boolean isOpen() {
         return getReflected().isOpen();
     }
 
     @Override // kotlin.reflect.KCallable
-    @SinceKotlin(version = "1.3")
     public boolean isSuspend() {
         return getReflected().isSuspend();
     }
 
-    @SinceKotlin(version = "1.1")
     public CallableReference(Object obj) {
         this(obj, null, null, null, false);
     }
 
-    @SinceKotlin(version = "1.4")
+    @Override // kotlin.reflect.KCallable
+    public Object call(Object... objArr) {
+        return getReflected().call(objArr);
+    }
+
+    @Override // kotlin.reflect.KCallable
+    public Object callBy(Map map) {
+        return getReflected().callBy(map);
+    }
+
     public CallableReference(Object obj, Class cls, String str, String str2, boolean z) {
         this.receiver = obj;
         this.owner = cls;

@@ -56,7 +56,20 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     public static FLogDefaultLoggingDelegate getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (FLogDefaultLoggingDelegate) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sInstance;
+        }
+        return (FLogDefaultLoggingDelegate) invokeV.objValue;
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
+    public int getMinimumLoggingLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mMinimumLoggingLevel;
+        }
+        return invokeV.intValue;
     }
 
     public static String getMsg(String str, Throwable th) {
@@ -66,6 +79,54 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
             return str + '\n' + getStackTraceString(th);
         }
         return (String) invokeLL.objValue;
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            println(3, str, str2);
+        }
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            println(6, str, str2);
+        }
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            println(4, str, str2);
+        }
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
+    public void v(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+            println(2, str, str2);
+        }
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
+    public void w(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
+            println(5, str, str2);
+        }
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
+    public void wtf(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            println(6, str, str2);
+        }
     }
 
     public static String getStackTraceString(Throwable th) {
@@ -94,57 +155,17 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         return (String) invokeL.objValue;
     }
 
-    private void println(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, this, i, str, str2) == null) {
-            Log.println(i, prefixTag(str), str2);
-        }
-    }
-
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            println(3, str, str2);
-        }
-    }
-
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            println(6, str, str2);
-        }
-    }
-
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public int getMinimumLoggingLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMinimumLoggingLevel : invokeV.intValue;
-    }
-
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            println(4, str, str2);
-        }
-    }
-
     @Override // com.facebook.common.logging.LoggingDelegate
     public boolean isLoggable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.mMinimumLoggingLevel <= i : invokeI.booleanValue;
-    }
-
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public void log(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str, str2) == null) {
-            println(i, str, str2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (this.mMinimumLoggingLevel <= i) {
+                return true;
+            }
+            return false;
         }
+        return invokeI.booleanValue;
     }
 
     public void setApplicationTag(String str) {
@@ -162,34 +183,10 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         }
     }
 
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public void v(String str, String str2) {
+    private void println(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            println(2, str, str2);
-        }
-    }
-
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
-            println(5, str, str2);
-        }
-    }
-
-    @Override // com.facebook.common.logging.LoggingDelegate
-    public void wtf(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
-            println(6, str, str2);
-        }
-    }
-
-    private void println(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            Log.println(i, prefixTag(str), getMsg(str2, th));
+        if (interceptable == null || interceptable.invokeILL(65542, this, i, str, str2) == null) {
+            Log.println(i, prefixTag(str), str2);
         }
     }
 
@@ -218,6 +215,14 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
+    public void log(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str, str2) == null) {
+            println(i, str, str2);
+        }
+    }
+
+    @Override // com.facebook.common.logging.LoggingDelegate
     public void v(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, th) == null) {
@@ -238,6 +243,13 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048592, this, str, str2, th) == null) {
             println(6, str, str2, th);
+        }
+    }
+
+    private void println(int i, String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            Log.println(i, prefixTag(str), getMsg(str2, th));
         }
     }
 }

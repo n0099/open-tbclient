@@ -10,6 +10,7 @@ import com.baidu.live.arch.runtime.MiniShellRuntime;
 import com.baidu.live.arch.utils.MixNetWorkUtils;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
 import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
@@ -53,15 +54,33 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
     public final Lazy abService$delegate;
     public String externalSource;
     public YYStatInfo externalYYStatInfo;
-    public Map<String, JSONObject> flowExtContent;
-    public Map<String, Flow> flowMaps;
+    public Map flowExtContent;
+    public Map flowMaps;
     public String mCurrentRoomId;
     public long mStartTime;
     public final UBCManager ubc;
 
+    private final AbConfigService getAbService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            Lazy lazy = this.abService$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (AbConfigService) lazy.getValue();
+        }
+        return (AbConfigService) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
+    public void onFinished(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        }
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\r\u0010\u000eR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u001d\u0010\f\u001a\u00020\u00078F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\n\u0010\u000b¨\u0006\u000f"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger$Companion;", "", "MEDIA_COMMPONENT_TAG", "Ljava/lang/String;", "UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW", "UBC_LIVE_EVENT_COMP_LOADED", "UBC_LIVE_EVENT_ENTER", "Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger;", "instance$delegate", "Lkotlin/Lazy;", "getInstance", "()Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger;", Transition.MATCH_INSTANCE_STR, "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ KProperty[] $$delegatedProperties;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,6 +101,18 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
             $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(Companion.class), Transition.MATCH_INSTANCE_STR, "getInstance()Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger;"))};
         }
 
+        public final LiveComponentLoadLogger getInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Lazy lazy = LiveComponentLoadLogger.instance$delegate;
+                Companion companion = LiveComponentLoadLogger.Companion;
+                KProperty kProperty = $$delegatedProperties[0];
+                return (LiveComponentLoadLogger) lazy.getValue();
+            }
+            return (LiveComponentLoadLogger) invokeV.objValue;
+        }
+
         public Companion() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -94,18 +125,6 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-        }
-
-        public final LiveComponentLoadLogger getInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Lazy lazy = LiveComponentLoadLogger.instance$delegate;
-                Companion companion = LiveComponentLoadLogger.Companion;
-                KProperty kProperty = $$delegatedProperties[0];
-                return (LiveComponentLoadLogger) lazy.getValue();
-            }
-            return (LiveComponentLoadLogger) invokeV.objValue;
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -152,6 +171,26 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
         this.flowExtContent = new LinkedHashMap();
     }
 
+    public /* synthetic */ LiveComponentLoadLogger(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    private final Flow getCurrentFlowRoomId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
+            return (Flow) this.flowMaps.get(str);
+        }
+        return (Flow) invokeL.objValue;
+    }
+
+    public final void logDebug(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && MiniShellRuntime.INSTANCE.isDebug()) {
+            Log.d("LIVE_ARCH", str);
+        }
+    }
+
     private final JSONObject contentItem(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -172,31 +211,19 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
         return (JSONObject) invokeL.objValue;
     }
 
-    private final AbConfigService getAbService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            Lazy lazy = this.abService$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (AbConfigService) lazy.getValue();
-        }
-        return (AbConfigService) invokeV.objValue;
-    }
-
-    private final Flow getCurrentFlowRoomId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? this.flowMaps.get(str) : (Flow) invokeL.objValue;
-    }
-
     public final void bindRoomIdToExternalEnterFlow(String str, String str2, String str3) {
         String str4;
+        boolean z;
         Object obj;
+        boolean z2;
+        Object obj2;
+        Object obj3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
             logDebug("bindRoomIdToExternalEnterFlow  :" + str);
             if (str != null) {
                 this.mCurrentRoomId = str;
+                Boolean bool = null;
                 try {
                     str4 = new JSONObject(str2).optString("livesource");
                 } catch (Exception unused) {
@@ -206,40 +233,128 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                     str2 = str4;
                 }
                 this.externalSource = str2;
-                Map<String, Flow> map = this.flowMaps;
-                if ((map != null ? Boolean.valueOf(map.containsKey(str)) : null).booleanValue()) {
+                Map map = this.flowMaps;
+                if (map != null) {
+                    bool = Boolean.valueOf(map.containsKey(str));
+                }
+                if (bool.booleanValue()) {
                     return;
                 }
                 YYStatInfo yYStatInfo = this.externalYYStatInfo;
-                if (yYStatInfo != null && (obj = yYStatInfo.flowObj) != null) {
-                    Map<String, Flow> map2 = this.flowMaps;
-                    if (obj == null) {
+                if (yYStatInfo != null && (obj3 = yYStatInfo.flowObj) != null) {
+                    Map map2 = this.flowMaps;
+                    if (obj3 != null) {
+                        Flow flow = (Flow) map2.put(str, (Flow) obj3);
+                    } else {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.ubc.Flow");
                     }
-                    map2.put(str, (Flow) obj);
                 }
                 YYStatInfo yYStatInfo2 = this.externalYYStatInfo;
-                if (yYStatInfo2 == null || this.flowExtContent.get(str) != null) {
-                    return;
+                if (yYStatInfo2 != null && ((JSONObject) this.flowExtContent.get(str)) == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
+                    jSONObject.put("setup_type", yYStatInfo2.loadType);
+                    jSONObject.put("jump_source", str2);
+                    jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
+                    jSONObject.put("templateId", str3);
+                    AbConfigService abService = getAbService();
+                    boolean z3 = true;
+                    if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    String str5 = "1";
+                    if (z) {
+                        obj = "1";
+                    } else {
+                        obj = "0";
+                    }
+                    jSONObject.put("prohibit_preload_media_business", obj);
+                    AbConfigService abService2 = getAbService();
+                    if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z2) {
+                        obj2 = "1";
+                    } else {
+                        obj2 = "0";
+                    }
+                    jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
+                    AbConfigService abService3 = getAbService();
+                    z3 = (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) ? false : false;
+                    if (!z3) {
+                        str5 = "0";
+                    }
+                    jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str5);
+                    logDebug("禁止预加载二级实验 " + z + "， 延时加载二级实验： " + z2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z3);
+                    this.flowExtContent.put(str, jSONObject);
                 }
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
-                jSONObject.put("setup_type", yYStatInfo2.loadType);
-                jSONObject.put("jump_source", str2);
-                jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
-                jSONObject.put("templateId", str3);
-                AbConfigService abService = getAbService();
-                boolean z = true;
-                boolean z2 = abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false);
-                jSONObject.put("prohibit_preload_media_business", z2 ? "1" : "0");
-                AbConfigService abService2 = getAbService();
-                boolean z3 = abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false);
-                jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, z3 ? "1" : "0");
-                AbConfigService abService3 = getAbService();
-                z = (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) ? false : false;
-                jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, z ? "1" : "0");
-                logDebug("禁止预加载二级实验 " + z2 + "， 延时加载二级实验： " + z3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z);
-                this.flowExtContent.put(str, jSONObject);
+            }
+        }
+    }
+
+    public final void launchMediaCompLoadFlow(String str, String str2, boolean z) {
+        boolean z2;
+        Object obj;
+        boolean z3;
+        Object obj2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, str, str2, z) == null) && z && str != null) {
+            LiveComponentStatusHelper.Companion.getInstance().clean();
+            this.mCurrentRoomId = str;
+            if (((Flow) this.flowMaps.get(str)) == null) {
+                Flow flow = this.ubc.beginFlow(UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW);
+                this.ubc.flowAddEvent(flow, UBC_LIVE_EVENT_ENTER);
+                Map map = this.flowMaps;
+                Intrinsics.checkExpressionValueIsNotNull(flow, "flow");
+                map.put(str, flow);
+                if (((JSONObject) this.flowExtContent.get(str)) == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
+                    jSONObject.put("setup_type", "launch");
+                    jSONObject.put("jump_source", MediaLivePluginLogger.PAGE_SELECT_SOURCE);
+                    jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
+                    jSONObject.put("templateId", str2);
+                    AbConfigService abService = getAbService();
+                    boolean z4 = true;
+                    if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    String str3 = "1";
+                    if (z2) {
+                        obj = "1";
+                    } else {
+                        obj = "0";
+                    }
+                    jSONObject.put("prohibit_preload_media_business", obj);
+                    AbConfigService abService2 = getAbService();
+                    if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (z3) {
+                        obj2 = "1";
+                    } else {
+                        obj2 = "0";
+                    }
+                    jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
+                    AbConfigService abService3 = getAbService();
+                    z4 = (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) ? false : false;
+                    if (!z4) {
+                        str3 = "0";
+                    }
+                    jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str3);
+                    logDebug("禁止预加载二级实验 " + z2 + "， 延时加载二级实验： " + z3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z4);
+                    this.flowExtContent.put(str, jSONObject);
+                }
+                this.mStartTime = System.currentTimeMillis();
+                logDebug("launchMediaCompLoadFlow  second jump create flow " + str);
             }
         }
     }
@@ -247,46 +362,85 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
     public final void cancelCurrentComponentFlow(String str) {
         Flow currentFlowRoomId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (currentFlowRoomId = getCurrentFlowRoomId(str)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (currentFlowRoomId = getCurrentFlowRoomId(str)) != null) {
+            logDebug("cancelCurrentComponentFlow" + str);
+            this.ubc.flowCancel(currentFlowRoomId);
+            this.flowMaps.remove(str);
+            JSONObject jSONObject = (JSONObject) this.flowExtContent.remove(str);
         }
-        logDebug("cancelCurrentComponentFlow" + str);
-        this.ubc.flowCancel(currentFlowRoomId);
-        this.flowMaps.remove(str);
-        this.flowExtContent.remove(str);
     }
 
     public final void endCurrentComponentFlow(String str) {
         Flow currentFlowRoomId;
+        String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (currentFlowRoomId = getCurrentFlowRoomId(str)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (currentFlowRoomId = getCurrentFlowRoomId(str)) != null) {
+            JSONObject jSONObject = (JSONObject) this.flowExtContent.get(str);
+            if (jSONObject != null) {
+                PluginInvokeService pluginInvokeService = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
+                if (pluginInvokeService != null && pluginInvokeService.isPluginLoaded("com.baidu.live.media.business")) {
+                    str2 = "1";
+                } else {
+                    str2 = "0";
+                }
+                jSONObject.put("media_business_plugin_loaded", str2);
+            }
+            logDebug("endCurrentComponentFlow" + str + contentItem((JSONObject) this.flowExtContent.get(str)).toString());
+            this.ubc.flowSetValueWithDuration(currentFlowRoomId, contentItem((JSONObject) this.flowExtContent.get(str)).toString());
+            this.ubc.flowEnd(currentFlowRoomId);
+            this.flowMaps.remove(str);
+            JSONObject jSONObject2 = (JSONObject) this.flowExtContent.remove(str);
         }
-        logDebug("endCurrentComponentFlow" + str + contentItem(this.flowExtContent.get(str)).toString());
-        this.ubc.flowSetValueWithDuration(currentFlowRoomId, contentItem(this.flowExtContent.get(str)).toString());
-        this.ubc.flowEnd(currentFlowRoomId);
-        this.flowMaps.remove(str);
-        this.flowExtContent.remove(str);
     }
 
     public final void externalLiveLaunchMediaCompLoadFlow(Object obj) {
+        Object obj2;
+        Object obj3;
+        long j;
+        Object obj4;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             logDebug("externalLiveLaunchMediaCompLoadFlow ");
             LiveComponentStatusHelper.Companion.getInstance().clean();
             boolean z = obj instanceof YYStatInfo;
-            YYStatInfo yYStatInfo = (YYStatInfo) (!z ? null : obj);
-            Object obj2 = yYStatInfo != null ? yYStatInfo.flowObj : null;
-            if (!(obj2 instanceof Flow)) {
+            String str2 = null;
+            if (!z) {
                 obj2 = null;
+            } else {
+                obj2 = obj;
             }
-            Flow flow = (Flow) obj2;
-            this.mStartTime = flow != null ? flow.getStartTime() : 0L;
+            YYStatInfo yYStatInfo = (YYStatInfo) obj2;
+            if (yYStatInfo != null) {
+                obj3 = yYStatInfo.flowObj;
+            } else {
+                obj3 = null;
+            }
+            if (!(obj3 instanceof Flow)) {
+                obj3 = null;
+            }
+            Flow flow = (Flow) obj3;
+            if (flow != null) {
+                j = flow.getStartTime();
+            } else {
+                j = 0;
+            }
+            this.mStartTime = j;
             YYStatInfo yYStatInfo2 = new YYStatInfo();
             this.externalYYStatInfo = yYStatInfo2;
             if (yYStatInfo2 != null) {
-                YYStatInfo yYStatInfo3 = (YYStatInfo) (!z ? null : obj);
-                yYStatInfo2.roomId = yYStatInfo3 != null ? yYStatInfo3.roomId : null;
+                if (!z) {
+                    obj4 = null;
+                } else {
+                    obj4 = obj;
+                }
+                YYStatInfo yYStatInfo3 = (YYStatInfo) obj4;
+                if (yYStatInfo3 != null) {
+                    str = yYStatInfo3.roomId;
+                } else {
+                    str = null;
+                }
+                yYStatInfo2.roomId = str;
             }
             YYStatInfo yYStatInfo4 = this.externalYYStatInfo;
             if (yYStatInfo4 != null) {
@@ -294,7 +448,10 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                     obj = null;
                 }
                 YYStatInfo yYStatInfo5 = (YYStatInfo) obj;
-                yYStatInfo4.loadType = yYStatInfo5 != null ? yYStatInfo5.loadType : null;
+                if (yYStatInfo5 != null) {
+                    str2 = yYStatInfo5.loadType;
+                }
+                yYStatInfo4.loadType = str2;
             }
             Flow beginFlow = this.ubc.beginFlow(UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW);
             this.ubc.flowAddEventWithDate(beginFlow, UBC_LIVE_EVENT_ENTER, "", this.mStartTime);
@@ -306,70 +463,14 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
         }
     }
 
-    public final void launchMediaCompLoadFlow(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, str, str2, z) == null) && z && str != null) {
-            LiveComponentStatusHelper.Companion.getInstance().clean();
-            this.mCurrentRoomId = str;
-            if (this.flowMaps.get(str) == null) {
-                Flow flow = this.ubc.beginFlow(UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW);
-                this.ubc.flowAddEvent(flow, UBC_LIVE_EVENT_ENTER);
-                Map<String, Flow> map = this.flowMaps;
-                Intrinsics.checkExpressionValueIsNotNull(flow, "flow");
-                map.put(str, flow);
-                if (this.flowExtContent.get(str) == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
-                    jSONObject.put("setup_type", "launch");
-                    jSONObject.put("jump_source", MediaLivePluginLogger.PAGE_SELECT_SOURCE);
-                    jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
-                    jSONObject.put("templateId", str2);
-                    AbConfigService abService = getAbService();
-                    boolean z2 = true;
-                    boolean z3 = abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false);
-                    jSONObject.put("prohibit_preload_media_business", z3 ? "1" : "0");
-                    AbConfigService abService2 = getAbService();
-                    boolean z4 = abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false);
-                    jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, z4 ? "1" : "0");
-                    AbConfigService abService3 = getAbService();
-                    z2 = (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) ? false : false;
-                    jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, z2 ? "1" : "0");
-                    logDebug("禁止预加载二级实验 " + z3 + "， 延时加载二级实验： " + z4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z2);
-                    this.flowExtContent.put(str, jSONObject);
-                }
-                this.mStartTime = System.currentTimeMillis();
-                logDebug("launchMediaCompLoadFlow  second jump create flow " + str);
-            }
-        }
-    }
-
-    public final void logDebug(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && MiniShellRuntime.INSTANCE.isDebug()) {
-            Log.d("LIVE_ARCH", str);
-        }
-    }
-
     @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
     public void onCoreFinished() {
         String str;
         Flow currentFlowRoomId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (str = this.mCurrentRoomId) == null || (currentFlowRoomId = getCurrentFlowRoomId(str)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (str = this.mCurrentRoomId) != null && (currentFlowRoomId = getCurrentFlowRoomId(str)) != null) {
+            logDebug("addComponentLoadedEvent all finish" + (System.currentTimeMillis() - this.mStartTime));
+            this.ubc.flowAddEvent(currentFlowRoomId, UBC_LIVE_EVENT_COMP_LOADED);
         }
-        logDebug("addComponentLoadedEvent all finish" + (System.currentTimeMillis() - this.mStartTime));
-        this.ubc.flowAddEvent(currentFlowRoomId, UBC_LIVE_EVENT_COMP_LOADED);
-    }
-
-    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
-    public void onFinished(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
-
-    public /* synthetic */ LiveComponentLoadLogger(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
     }
 }

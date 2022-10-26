@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.widget.SpinnerAdapter;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.view.ContextThemeWrapper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +13,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface ThemedSpinnerAdapter extends SpinnerAdapter {
+    Resources.Theme getDropDownViewTheme();
+
+    void setDropDownViewTheme(Resources.Theme theme);
 
     /* loaded from: classes.dex */
     public static final class Helper {
@@ -24,7 +25,7 @@ public interface ThemedSpinnerAdapter extends SpinnerAdapter {
         public LayoutInflater mDropDownInflater;
         public final LayoutInflater mInflater;
 
-        public Helper(@NonNull Context context) {
+        public Helper(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,18 +44,19 @@ public interface ThemedSpinnerAdapter extends SpinnerAdapter {
             this.mInflater = LayoutInflater.from(context);
         }
 
-        @NonNull
         public LayoutInflater getDropDownViewInflater() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LayoutInflater layoutInflater = this.mDropDownInflater;
-                return layoutInflater != null ? layoutInflater : this.mInflater;
+                if (layoutInflater == null) {
+                    return this.mInflater;
+                }
+                return layoutInflater;
             }
             return (LayoutInflater) invokeV.objValue;
         }
 
-        @Nullable
         public Resources.Theme getDropDownViewTheme() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -68,7 +70,7 @@ public interface ThemedSpinnerAdapter extends SpinnerAdapter {
             return (Resources.Theme) invokeV.objValue;
         }
 
-        public void setDropDownViewTheme(@Nullable Resources.Theme theme) {
+        public void setDropDownViewTheme(Resources.Theme theme) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, theme) == null) {
                 if (theme == null) {
@@ -81,9 +83,4 @@ public interface ThemedSpinnerAdapter extends SpinnerAdapter {
             }
         }
     }
-
-    @Nullable
-    Resources.Theme getDropDownViewTheme();
-
-    void setDropDownViewTheme(@Nullable Resources.Theme theme);
 }

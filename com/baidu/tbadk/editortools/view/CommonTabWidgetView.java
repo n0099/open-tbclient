@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.t75;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.x75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,6 +26,11 @@ public class CommonTabWidgetView extends LinearLayout {
     public CommonTabHorizonScrollView a;
     public ImageView b;
     public EditorTools c;
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(int i);
+    }
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -54,16 +59,44 @@ public class CommonTabWidgetView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
+                this.a.c.A(new l55(3, 3, null));
             }
-            this.a.c.A(new h55(3, 3, null));
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(int i);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CommonTabWidgetView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        c(context);
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            setVisibility(8);
+            removeAllViews();
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e9, (ViewGroup) this, true);
+            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091a9f);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a9d);
+            this.b = imageView;
+            imageView.setOnClickListener(new a(this));
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,23 +121,10 @@ public class CommonTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(t75.b bVar) {
+    public void b(x75.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a.b(bVar);
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            setVisibility(8);
-            removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ea, (ViewGroup) this, true);
-            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091aa3);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091aa1);
-            this.b = imageView;
-            imageView.setOnClickListener(new a(this));
         }
     }
 
@@ -118,13 +138,6 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.f();
-        }
-    }
-
     public void setCurrentTab(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -132,7 +145,7 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<t75> arrayList) {
+    public void setDatas(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);
@@ -169,24 +182,10 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommonTabWidgetView(Context context) {
-        super(context);
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.f();
         }
-        c(context);
     }
 }

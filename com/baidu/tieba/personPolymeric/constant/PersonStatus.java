@@ -61,12 +61,18 @@ public final class PersonStatus {
     public static PersonStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PersonStatus) Enum.valueOf(PersonStatus.class, str) : (PersonStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PersonStatus) Enum.valueOf(PersonStatus.class, str);
+        }
+        return (PersonStatus) invokeL.objValue;
     }
 
     public static PersonStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PersonStatus[]) $VALUES.clone() : (PersonStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PersonStatus[]) $VALUES.clone();
+        }
+        return (PersonStatus[]) invokeV.objValue;
     }
 }

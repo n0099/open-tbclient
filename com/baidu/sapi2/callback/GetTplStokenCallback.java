@@ -1,12 +1,11 @@
 package com.baidu.sapi2.callback;
 
-import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class GetTplStokenCallback implements SapiCallback<GetTplStokenResult> {
+public abstract class GetTplStokenCallback implements SapiCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

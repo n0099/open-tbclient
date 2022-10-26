@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.bubble.list;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,8 +23,8 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public boolean isDefault;
-    public List<DressItemData> mDressItemList;
-    public st8 mRecommand;
+    public List mDressItemList;
+    public cu8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListHttpResponseMessage(int i) {
@@ -48,35 +48,13 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
         this.isDefault = false;
     }
 
-    public List<DressItemData> getBubbleList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDressItemList : (List) invokeV.objValue;
-    }
-
-    public st8 getRecommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
-    }
-
-    public boolean hasMore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hasMore : invokeV.booleanValue;
-    }
-
-    public boolean isDefault() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isDefault : invokeV.booleanValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            boolean z2 = false;
             GetBubbleListResIdl getBubbleListResIdl = (GetBubbleListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBubbleListResIdl.class);
             if (getBubbleListResIdl == null) {
                 return;
@@ -89,9 +67,9 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    st8 st8Var = new st8();
-                    this.mRecommand = st8Var;
-                    st8Var.d(getBubbleListResIdl.data.recommend);
+                    cu8 cu8Var = new cu8();
+                    this.mRecommand = cu8Var;
+                    cu8Var.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();
@@ -101,9 +79,53 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
                         }
                     }
                 }
-                this.hasMore = getBubbleListResIdl.data.hasmore.intValue() == 1;
-                this.isDefault = getBubbleListResIdl.data.is_default.intValue() == 1;
+                if (getBubbleListResIdl.data.hasmore.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.hasMore = z;
+                if (getBubbleListResIdl.data.is_default.intValue() == 1) {
+                    z2 = true;
+                }
+                this.isDefault = z2;
             }
         }
+    }
+
+    public List getBubbleList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDressItemList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public cu8 getRecommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRecommand;
+        }
+        return (cu8) invokeV.objValue;
+    }
+
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.hasMore;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isDefault() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.isDefault;
+        }
+        return invokeV.booleanValue;
     }
 }

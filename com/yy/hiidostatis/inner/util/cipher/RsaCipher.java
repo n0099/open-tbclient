@@ -38,7 +38,7 @@ public class RsaCipher {
     public PublicKey publicKey;
     public int public_m_flen;
     public int public_m_tail;
-    public final ThreadLocal<Cipher> rsaCipher;
+    public final ThreadLocal rsaCipher;
 
     public RsaCipher() {
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class RsaCipher {
         this.private_m_tail = 5;
         this.public_m_flen = 16;
         this.public_m_tail = 5;
-        this.rsaCipher = new ThreadLocal<Cipher>(this) { // from class: com.yy.hiidostatis.inner.util.cipher.RsaCipher.1
+        this.rsaCipher = new ThreadLocal(this) { // from class: com.yy.hiidostatis.inner.util.cipher.RsaCipher.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RsaCipher this$0;
@@ -99,6 +99,28 @@ public class RsaCipher {
         };
     }
 
+    private byte[] decrypt(byte[] bArr, int i, int i2, Key key) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), key})) == null) {
+            Cipher cipher = (Cipher) this.rsaCipher.get();
+            cipher.init(2, key);
+            return cipher.doFinal(bArr, i, i2);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    private byte[] encrypt(byte[] bArr, int i, int i2, Key key) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), key})) == null) {
+            Cipher cipher = (Cipher) this.rsaCipher.get();
+            cipher.init(1, key);
+            return cipher.doFinal(bArr, i, i2);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
     public static byte[] readAllBytes(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -118,6 +140,24 @@ public class RsaCipher {
                 bArr[i] = ((Byte) arrayList.get(i)).byteValue();
             }
             return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public byte[] decryptTlogAesKey(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int decimalCharLength = TextUtils.getDecimalCharLength(str);
+            byte[] hex2Bytes = TextUtils.hex2Bytes(str, 8);
+            if (hex2Bytes != null && hex2Bytes.length != 0) {
+                byte[] decrypt = decrypt(hex2Bytes, decimalCharLength);
+                if (decrypt.length == decimalCharLength) {
+                    return decrypt;
+                }
+                throw new Exception(String.format("Head length [ %d ] != decrypt length [ %d ]", Integer.valueOf(decimalCharLength), Integer.valueOf(decrypt.length)));
+            }
+            return null;
         }
         return (byte[]) invokeL.objValue;
     }
@@ -173,24 +213,6 @@ public class RsaCipher {
         return (byte[]) invokeLI.objValue;
     }
 
-    public byte[] decryptTlogAesKey(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int decimalCharLength = TextUtils.getDecimalCharLength(str);
-            byte[] hex2Bytes = TextUtils.hex2Bytes(str, 8);
-            if (hex2Bytes == null || hex2Bytes.length == 0) {
-                return null;
-            }
-            byte[] decrypt = decrypt(hex2Bytes, decimalCharLength);
-            if (decrypt.length == decimalCharLength) {
-                return decrypt;
-            }
-            throw new Exception(String.format("Head length [ %d ] != decrypt length [ %d ]", Integer.valueOf(decimalCharLength), Integer.valueOf(decrypt.length)));
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
     public byte[] encrypt(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -235,45 +257,16 @@ public class RsaCipher {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return null;
+            if (bArr != null && bArr.length != 0) {
+                byte[] encrypt = encrypt(bArr);
+                StringBuilder sb = new StringBuilder((encrypt.length * 2) + 8);
+                sb.append(TextUtils.length2DecimalChar(bArr.length));
+                sb.append(TextUtils.bytes2hex(encrypt));
+                return sb.toString();
             }
-            byte[] encrypt = encrypt(bArr);
-            StringBuilder sb = new StringBuilder((encrypt.length * 2) + 8);
-            sb.append(TextUtils.length2DecimalChar(bArr.length));
-            sb.append(TextUtils.bytes2hex(encrypt));
-            return sb.toString();
+            return null;
         }
         return (String) invokeL.objValue;
-    }
-
-    public void loadPrivateKey(InputStream inputStream) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, inputStream) == null) {
-            try {
-                this.privateKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(readAllBytes(inputStream)));
-            } catch (Throwable th) {
-                throw new Exception(th);
-            }
-        }
-    }
-
-    public void loadPublicKey(InputStream inputStream) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, inputStream) == null) {
-            try {
-                this.publicKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(readAllBytes(inputStream)));
-            } catch (Throwable th) {
-                throw new Exception(th);
-            }
-        }
-    }
-
-    public void loadPublicKey(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            loadPublicKey(new ByteArrayInputStream(TextUtils.decodeBase64(str)));
-        }
     }
 
     public void loadPrivateKey(File file) throws Exception {
@@ -308,25 +301,32 @@ public class RsaCipher {
         }
     }
 
-    private byte[] encrypt(byte[] bArr, int i, int i2, Key key) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
-        InterceptResult invokeCommon;
+    public void loadPrivateKey(InputStream inputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), key})) == null) {
-            Cipher cipher = this.rsaCipher.get();
-            cipher.init(1, key);
-            return cipher.doFinal(bArr, i, i2);
+        if (interceptable == null || interceptable.invokeL(1048581, this, inputStream) == null) {
+            try {
+                this.privateKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(readAllBytes(inputStream)));
+            } catch (Throwable th) {
+                throw new Exception(th);
+            }
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    private byte[] decrypt(byte[] bArr, int i, int i2, Key key) throws IllegalBlockSizeException, BadPaddingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
-        InterceptResult invokeCommon;
+    public void loadPublicKey(InputStream inputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), key})) == null) {
-            Cipher cipher = this.rsaCipher.get();
-            cipher.init(2, key);
-            return cipher.doFinal(bArr, i, i2);
+        if (interceptable == null || interceptable.invokeL(1048582, this, inputStream) == null) {
+            try {
+                this.publicKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(readAllBytes(inputStream)));
+            } catch (Throwable th) {
+                throw new Exception(th);
+            }
         }
-        return (byte[]) invokeCommon.objValue;
+    }
+
+    public void loadPublicKey(String str) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            loadPublicKey(new ByteArrayInputStream(TextUtils.decodeBase64(str)));
+        }
     }
 }

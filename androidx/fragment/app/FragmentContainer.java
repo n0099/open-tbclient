@@ -3,9 +3,6 @@ package androidx.fragment.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class FragmentContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract View onFindViewById(int i);
+
+    public abstract boolean onHasView();
 
     public FragmentContainer() {
         Interceptable interceptable = $ic;
@@ -30,16 +31,13 @@ public abstract class FragmentContainer {
         }
     }
 
-    @NonNull
     @Deprecated
-    public Fragment instantiate(@NonNull Context context, @NonNull String str, @Nullable Bundle bundle) {
+    public Fragment instantiate(Context context, String str, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, bundle)) == null) ? Fragment.instantiate(context, str, bundle) : (Fragment) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, bundle)) == null) {
+            return Fragment.instantiate(context, str, bundle);
+        }
+        return (Fragment) invokeLLL.objValue;
     }
-
-    @Nullable
-    public abstract View onFindViewById(@IdRes int i);
-
-    public abstract boolean onHasView();
 }

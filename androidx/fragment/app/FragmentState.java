@@ -1,10 +1,8 @@
 package androidx.fragment.app;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -32,6 +29,16 @@ public final class FragmentState implements Parcelable {
     public Bundle mSavedFragmentState;
     public final String mTag;
     public final String mWho;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +77,10 @@ public final class FragmentState implements Parcelable {
             public FragmentState createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new FragmentState(parcel) : (FragmentState) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new FragmentState(parcel);
+                }
+                return (FragmentState) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -79,9 +89,66 @@ public final class FragmentState implements Parcelable {
             public FragmentState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new FragmentState[i] : (FragmentState[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new FragmentState[i];
+                }
+                return (FragmentState[]) invokeI.objValue;
             }
         };
+    }
+
+    public FragmentState(Parcel parcel) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mClassName = parcel.readString();
+        this.mWho = parcel.readString();
+        if (parcel.readInt() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mFromLayout = z;
+        this.mFragmentId = parcel.readInt();
+        this.mContainerId = parcel.readInt();
+        this.mTag = parcel.readString();
+        if (parcel.readInt() != 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.mRetainInstance = z2;
+        if (parcel.readInt() != 0) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        this.mRemoving = z3;
+        if (parcel.readInt() != 0) {
+            z4 = true;
+        } else {
+            z4 = false;
+        }
+        this.mDetached = z4;
+        this.mArguments = parcel.readBundle();
+        this.mHidden = parcel.readInt() != 0;
+        this.mSavedFragmentState = parcel.readBundle();
+        this.mMaxLifecycleState = parcel.readInt();
     }
 
     public FragmentState(Fragment fragment) {
@@ -113,17 +180,6 @@ public final class FragmentState implements Parcelable {
         this.mMaxLifecycleState = fragment.mMaxState.ordinal();
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -181,35 +237,5 @@ public final class FragmentState implements Parcelable {
             parcel.writeBundle(this.mSavedFragmentState);
             parcel.writeInt(this.mMaxLifecycleState);
         }
-    }
-
-    public FragmentState(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mClassName = parcel.readString();
-        this.mWho = parcel.readString();
-        this.mFromLayout = parcel.readInt() != 0;
-        this.mFragmentId = parcel.readInt();
-        this.mContainerId = parcel.readInt();
-        this.mTag = parcel.readString();
-        this.mRetainInstance = parcel.readInt() != 0;
-        this.mRemoving = parcel.readInt() != 0;
-        this.mDetached = parcel.readInt() != 0;
-        this.mArguments = parcel.readBundle();
-        this.mHidden = parcel.readInt() != 0;
-        this.mSavedFragmentState = parcel.readBundle();
-        this.mMaxLifecycleState = parcel.readInt();
     }
 }

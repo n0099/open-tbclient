@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import androidx.annotation.CallSuper;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.MainTabFragmentIdleSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc;
+import com.baidu.tieba.hc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,6 +28,10 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public Bundle e;
     public final CustomMessageListener f;
 
+    public abstract int r1();
+
+    public abstract void t1(View view2, Bundle bundle);
+
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
@@ -37,12 +40,12 @@ public abstract class LazyBaseFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tbadk.core.LazyBaseFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0184a implements Runnable {
+        public class RunnableC0185a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0184a(a aVar) {
+            public RunnableC0185a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,16 +95,16 @@ public abstract class LazyBaseFragment extends BaseFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 LazyBaseFragment lazyBaseFragment = this.a;
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
-                } else if (!gc.b().c()) {
-                    this.a.a.post(new RunnableC0184a(this));
-                } else {
+                } else if (hc.b().c()) {
                     this.a.s1();
+                } else {
+                    this.a.a.post(new RunnableC0185a(this));
                 }
             }
         }
@@ -138,14 +141,13 @@ public abstract class LazyBaseFragment extends BaseFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    @CallSuper
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             if (MainTabFragmentIdleSwitch.isOn()) {
                 View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0570, viewGroup, false);
-                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091495);
+                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091487);
                 this.d = viewStub;
                 viewStub.setLayoutResource(r1());
                 if (this.c) {
@@ -166,14 +168,11 @@ public abstract class LazyBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onPrimary();
-            if (!isPrimary() || this.b || getView() == null) {
-                return;
+            if (isPrimary() && !this.b && getView() != null) {
+                s1();
             }
-            s1();
         }
     }
-
-    public abstract int r1();
 
     public synchronized void s1() {
         Interceptable interceptable = $ic;
@@ -186,6 +185,4 @@ public abstract class LazyBaseFragment extends BaseFragment {
             }
         }
     }
-
-    public abstract void t1(View view2, Bundle bundle);
 }

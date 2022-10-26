@@ -3,7 +3,6 @@ package com.baidu.tbadk;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
@@ -14,8 +13,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.h85;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.l85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -457,8 +456,8 @@ public class TbConfig {
     public static final String URL_GET_USER_LIST = "c/u/follow/getFoldedMessageUserInfo";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
     public static final String URL_GET_WORKS_TAGS = "c/f/video/getWorksTags";
-    public static final String URL_GOD_AUTH = "https://tieba.baidu.com/mo/q/godRegister";
-    public static final String URL_GOD_EXAMINE = "https://tieba.baidu.com/mo/q/godExamine";
+    public static final String URL_GOD_AUTH = "https://tieba.baidu.com/mo/q/hybrid/godGuide?customfullscreen=1&nonavigationbar=1&skin=";
+    public static final String URL_GOD_EXAMINE = "https://tieba.baidu.com/mo/q/hybrid/godCheck?customfullscreen=1&nonavigationbar=1&skin=";
     public static final String URL_HISTORY_SWAN = "c/s/historySwan";
     public static final String URL_HOT_ACTIVITIES = "https://tieba.baidu.com/mo/q/creativeCenter?local=hots";
     public static final String URL_IMAGE_PREFIX = "https://tiebac.baidu.com/c/p/img?src=";
@@ -570,16 +569,54 @@ public class TbConfig {
     public static final String WEIXIN_SHARE_APP_ID = "wx289a8c58bca4c71e";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
-    @Nullable
     public static String cachedFeedBackUrl = null;
     public static final String gamePlayIndexBanner = "/peiwan/api/index/service";
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static final int getBigEmotionsSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 230400;
+        }
+        return invokeV.intValue;
+    }
+
+    public static final String getBroadcastActionChangeSharedPref() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? BROADCAST_CHANGE_SHARED_PREF : (String) invokeV.objValue;
+    }
+
+    public static final String getBroadcastActionChangeSkin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? BROADCAST_CHANGESKIN : (String) invokeV.objValue;
+    }
+
+    public static final String getBroadcastActionImageResized() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? BROADCAST_IMAGE_RESIZED : (String) invokeV.objValue;
+    }
+
+    public static final String getBroadcastActionNewVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? BROADCAST_NEWVERSION : (String) invokeV.objValue;
+    }
+
+    public static final String getBroadcastActionSignAlert() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? BROADCAST_SIGN_ALERT : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class DownFlowCmd {
+    public class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
-        public static HashSet<Integer> sInterruptCMDs;
+        public static HashSet sInterruptCMDs;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -595,7 +632,7 @@ public class TbConfig {
                     return;
                 }
             }
-            sInterruptCMDs = new HashSet<>();
+            sInterruptCMDs = new HashSet();
             collectHttpCmd();
             collectSocketCmd();
         }
@@ -651,7 +688,7 @@ public class TbConfig {
     }
 
     /* loaded from: classes3.dex */
-    public static final class PassConfig {
+    public final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";
@@ -803,6 +840,168 @@ public class TbConfig {
         }
     }
 
+    public static int getBigImageMaxUsedMemory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return BIG_IMAGE_MAX_USED_MEMORY;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getBigImageMaxUsedMemoryForRemoteProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * 0.28d);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getBigImageSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return BIG_IMAGE_SIZE;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String getBigPhotoAdress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return PHOTO_BIG_ADDRESS;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getCurrentFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return CURRENT_FROM;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean getDebugSwitch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return BdBaseApplication.getInst().isDebugMode();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            return FROM;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getLegoLibVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            return LEGO_LIB_VERSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int getMaxPhotoMemoryCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            return MAX_PHOTO_MEMORY_CACHE;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getMaxPhotoMemoryCacheForRemoteProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+            return MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getPbImageSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
+            return BIG_IMAGE_SIZE;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String getPhotoSmallAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            return PHOTO_SMALL_ADDRESS;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getSubVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+            return SUB_VERSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getSubappType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+            return SUBAPP_TYPE;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getTempDirName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
+            return TMPDIRNAME;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int getThreadImageMaxWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
+            return THREAD_IMAGE_MAX_WIDTH;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+            return VERSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int getVersionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
+            return VERSION_TYPE;
+        }
+        return invokeV.intValue;
+    }
+
     public static String getBigAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -817,69 +1016,6 @@ public class TbConfig {
             return "";
         }
         return (String) invokeV.objValue;
-    }
-
-    public static final int getBigEmotionsSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 230400;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int getBigImageMaxUsedMemory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? BIG_IMAGE_MAX_USED_MEMORY : invokeV.intValue;
-    }
-
-    public static int getBigImageMaxUsedMemoryForRemoteProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * 0.28d) : invokeV.intValue;
-    }
-
-    public static int getBigImageSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? BIG_IMAGE_SIZE : invokeV.intValue;
-    }
-
-    public static String getBigPhotoAdress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? PHOTO_BIG_ADDRESS : (String) invokeV.objValue;
-    }
-
-    public static final String getBroadcastActionChangeSharedPref() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? BROADCAST_CHANGE_SHARED_PREF : (String) invokeV.objValue;
-    }
-
-    public static final String getBroadcastActionChangeSkin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? BROADCAST_CHANGESKIN : (String) invokeV.objValue;
-    }
-
-    public static final String getBroadcastActionImageResized() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? BROADCAST_IMAGE_RESIZED : (String) invokeV.objValue;
-    }
-
-    public static final String getBroadcastActionNewVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? BROADCAST_NEWVERSION : (String) invokeV.objValue;
-    }
-
-    public static final String getBroadcastActionSignAlert() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? BROADCAST_SIGN_ALERT : (String) invokeV.objValue;
     }
 
     public static int getContentLineSpace() {
@@ -973,24 +1109,6 @@ public class TbConfig {
         return invokeV.intValue;
     }
 
-    public static String getCurrentFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? CURRENT_FROM : (String) invokeV.objValue;
-    }
-
-    public static boolean getDebugSwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? BdBaseApplication.getInst().isDebugMode() : invokeV.booleanValue;
-    }
-
-    public static final int getDimens(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) ? ej.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
-    }
-
     public static int getEmotionContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1050,30 +1168,6 @@ public class TbConfig {
         return (String) invokeV.objValue;
     }
 
-    public static String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? FROM : (String) invokeV.objValue;
-    }
-
-    public static String getLegoLibVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? LEGO_LIB_VERSION : (String) invokeV.objValue;
-    }
-
-    public static int getMaxPhotoMemoryCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? MAX_PHOTO_MEMORY_CACHE : invokeV.intValue;
-    }
-
-    public static int getMaxPhotoMemoryCacheForRemoteProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS : invokeV.intValue;
-    }
-
     public static int getOutterSubpbContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1094,18 +1188,6 @@ public class TbConfig {
             return VALUE_OUTTER_SUBPB_FONT_SIZE_XLAGER;
         }
         return invokeV.intValue;
-    }
-
-    public static int getPbImageSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? BIG_IMAGE_SIZE : invokeV.intValue;
-    }
-
-    public static String getPhotoSmallAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? PHOTO_SMALL_ADDRESS : (String) invokeV.objValue;
     }
 
     public static int getPostLineSpace() {
@@ -1130,24 +1212,6 @@ public class TbConfig {
         return invokeV.intValue;
     }
 
-    public static String getSubVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? SUB_VERSION : (String) invokeV.objValue;
-    }
-
-    public static String getSubappType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? SUBAPP_TYPE : (String) invokeV.objValue;
-    }
-
-    public static String getTempDirName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? TMPDIRNAME : (String) invokeV.objValue;
-    }
-
     public static int getTestContentSizeOfLzl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1170,67 +1234,20 @@ public class TbConfig {
         return invokeV.intValue;
     }
 
-    public static int getThreadImageMaxWidth() {
-        InterceptResult invokeV;
+    public static final int getDimens(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? THREAD_IMAGE_MAX_WIDTH : invokeV.intValue;
-    }
-
-    public static String getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? VERSION : (String) invokeV.objValue;
-    }
-
-    public static int getVersionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? VERSION_TYPE : invokeV.intValue;
-    }
-
-    public static void initBigImageMaxUsedMemory(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65574, null, context) == null) {
-            int initPbImageSize = initPbImageSize(context) * 13;
-            BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize;
-            if (initPbImageSize < UtilHelper.getBitmapMaxMemory(context) * 0.35d) {
-                BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.35d);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
+            return fj.f(TbadkCoreApplication.getInst().getContext(), i);
         }
-    }
-
-    public static void initBigImageWidth(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65575, null, context) == null) || sThreadImageMaxInited) {
-            return;
-        }
-        sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(ej.k(context) * ej.i(context));
-        if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
-            THREAD_IMAGE_MAX_WIDTH = sqrt;
-        }
-        if (Runtime.getRuntime().maxMemory() <= 16777216) {
-            THREAD_IMAGE_MAX_WIDTH = (int) (THREAD_IMAGE_MAX_WIDTH * 0.8d);
-        }
-    }
-
-    public static void initFriendPhotoConfig(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65576, null, context) == null) || context == null || context.getResources() == null) {
-            return;
-        }
-        if (context.getResources().getDisplayMetrics().density < 1.0f) {
-            FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
-        } else {
-            FRIEND_PHOTO_ADDRESS = PHOTO_BIG_ADDRESS;
-        }
+        return invokeI.intValue;
     }
 
     public static int initPbImageSize(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
-            int d = ej.d(context, 427.0f);
+            int d = fj.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1278,7 +1295,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                h85.k().t(i);
+                l85.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1311,6 +1328,43 @@ public class TbConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65586, null, i) == null) {
             VERSION_TYPE = i;
+        }
+    }
+
+    public static void initBigImageMaxUsedMemory(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65574, null, context) == null) {
+            int initPbImageSize = initPbImageSize(context) * 13;
+            BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize;
+            if (initPbImageSize < UtilHelper.getBitmapMaxMemory(context) * 0.35d) {
+                BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.35d);
+            }
+        }
+    }
+
+    public static void initFriendPhotoConfig(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65576, null, context) == null) && context != null && context.getResources() != null) {
+            if (context.getResources().getDisplayMetrics().density < 1.0f) {
+                FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
+            } else {
+                FRIEND_PHOTO_ADDRESS = PHOTO_BIG_ADDRESS;
+            }
+        }
+    }
+
+    public static void initBigImageWidth(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65575, null, context) != null) || sThreadImageMaxInited) {
+            return;
+        }
+        sThreadImageMaxInited = true;
+        int sqrt = (int) Math.sqrt(fj.k(context) * fj.i(context));
+        if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
+            THREAD_IMAGE_MAX_WIDTH = sqrt;
+        }
+        if (Runtime.getRuntime().maxMemory() <= 16777216) {
+            THREAD_IMAGE_MAX_WIDTH = (int) (THREAD_IMAGE_MAX_WIDTH * 0.8d);
         }
     }
 }

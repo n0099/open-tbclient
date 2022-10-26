@@ -1,128 +1,155 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes5.dex */
-public class qu9 implements ru9 {
+public class qu9 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] a;
+    public int b;
+    public int c;
+    public final yu9 d;
 
-    public qu9() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public qu9(InputStream inputStream) throws IOException {
+        this(inputStream, 16384, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ru9
-    public ru9 a() {
-        InterceptResult invokeV;
+    public qu9(InputStream inputStream, int i, byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new qu9() : (ru9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public void c(Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, framedata) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            return obj != null && qu9.class == obj.getClass();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public void f(Framedata framedata) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, framedata) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public void h(Framedata framedata) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, framedata) == null) {
-            if (framedata.b() || framedata.c() || framedata.e()) {
-                throw new InvalidFrameException("bad rsv RSV1: " + framedata.b() + " RSV2: " + framedata.c() + " RSV3: " + framedata.e());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        yu9 yu9Var = new yu9();
+        this.d = yu9Var;
+        if (i > 0) {
+            if (inputStream != null) {
+                this.a = new byte[i];
+                this.b = 0;
+                this.c = 0;
+                try {
+                    yu9.c(yu9Var, inputStream);
+                    if (bArr != null) {
+                        su9.s(this.d, bArr);
+                        return;
+                    }
+                    return;
+                } catch (BrotliRuntimeException e) {
+                    throw new IOException("Brotli decoder initialization failed", e);
+                }
+            }
+            throw new IllegalArgumentException("source is null");
+        }
+        throw new IllegalArgumentException("Bad buffer size:" + i);
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? qu9.class.hashCode() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ru9
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            yu9.a(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.ru9
-    public String toString() {
+    @Override // java.io.InputStream
+    public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? qu9.class.getSimpleName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c >= this.b) {
+                byte[] bArr = this.a;
+                int read = read(bArr, 0, bArr.length);
+                this.b = read;
+                this.c = 0;
+                if (read == -1) {
+                    return -1;
+                }
+            }
+            byte[] bArr2 = this.a;
+            int i = this.c;
+            this.c = i + 1;
+            return bArr2[i] & 255;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (i >= 0) {
+                if (i2 >= 0) {
+                    int i3 = i + i2;
+                    if (i3 <= bArr.length) {
+                        if (i2 == 0) {
+                            return 0;
+                        }
+                        int max = Math.max(this.b - this.c, 0);
+                        if (max != 0) {
+                            max = Math.min(max, i2);
+                            System.arraycopy(this.a, this.c, bArr, i, max);
+                            this.c += max;
+                            i += max;
+                            i2 -= max;
+                            if (i2 == 0) {
+                                return max;
+                            }
+                        }
+                        try {
+                            this.d.Z = bArr;
+                            this.d.U = i;
+                            this.d.V = i2;
+                            this.d.W = 0;
+                            su9.i(this.d);
+                            if (this.d.W == 0) {
+                                return -1;
+                            }
+                            return this.d.W + max;
+                        } catch (BrotliRuntimeException e) {
+                            throw new IOException("Brotli stream decoding failed", e);
+                        }
+                    }
+                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
+                }
+                throw new IllegalArgumentException("Bad length: " + i2);
+            }
+            throw new IllegalArgumentException("Bad offset: " + i);
+        }
+        return invokeLII.intValue;
     }
 }

@@ -1,294 +1,344 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.media.MediaCodec;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Process;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
+import com.baidu.tieba.df9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.io.Closeable;
+import java.io.File;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import org.webrtc.HardwareVideoEncoder;
-@SuppressLint({"NewApi"})
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class jf9 implements df9 {
+public abstract class jf9 implements df9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaCodec a;
-    public MediaFormat b;
-    public ByteBuffer[] c;
-    public ByteBuffer[] d;
-    public BufferedOutputStream e;
-    public boolean f;
-    public ByteBuffer g;
-    public byte[] h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public lf9 m;
+    public String a;
+    public final gf9 b;
+    public final of9 c;
+    public final df9.a d;
+    public volatile int e;
+    public volatile int f;
 
-    public jf9(int i, int i2) throws IOException {
+    public abstract RandomAccessFile e(File file, String str, long j) throws IOException;
+
+    public abstract Map<String, String> f(of9 of9Var);
+
+    public abstract int g();
+
+    public abstract String h();
+
+    public abstract void j(of9 of9Var);
+
+    public abstract void n(of9 of9Var);
+
+    public jf9(gf9 gf9Var, of9 of9Var, df9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {gf9Var, of9Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = i2;
-        this.l = g(i);
-        MediaCodecInfo h = h("audio/mp4a-latm");
-        if (h == null) {
-            lf9 lf9Var = this.m;
-            if (lf9Var != null) {
-                lf9Var.onExceptionThrown("not suport aac encoder");
-                return;
-            }
-            return;
+        this.f = 0;
+        this.b = gf9Var;
+        this.c = of9Var;
+        this.d = aVar;
+        String h = h();
+        this.a = h;
+        if (TextUtils.isEmpty(h)) {
+            this.a = getClass().getSimpleName();
         }
-        this.a = MediaCodec.createByCodecName(h.getName());
-        MediaFormat mediaFormat = new MediaFormat();
-        this.b = mediaFormat;
-        mediaFormat.setString("mime", "audio/mp4a-latm");
-        this.b.setInteger("aac-profile", 2);
-        this.b.setInteger("sample-rate", i);
-        this.b.setInteger("channel-count", i2);
-        this.b.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-        this.b.setInteger("max-input-size", 8192);
-        this.b.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 16);
-        this.a.configure(this.b, (Surface) null, (MediaCrypto) null, 1);
-        this.a.start();
-        this.c = this.a.getInputBuffers();
-        this.d = this.a.getOutputBuffers();
-        this.g = ByteBuffer.allocateDirect(8192);
-        this.h = new byte[4096];
     }
 
-    @Override // com.baidu.tieba.df9
-    public void a() throws IOException {
-        int dequeueInputBuffer;
+    public final void a() throws DownloadException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qg9.j("VideoMuxer: ", "----set BUFFER_FLAG_END_OF_STREAM to encoder-----");
-            do {
-                dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    qg9.j("VideoMuxer: ", "----MediaCodec.BUFFER_FLAG_END_OF_STREAM-----");
-                    this.a.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                }
-                i();
-            } while (dequeueInputBuffer < 0);
-            while (!this.f) {
-                i();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.df9
-    public void b(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.e = new BufferedOutputStream(new FileOutputStream(str));
-        }
-    }
-
-    @Override // com.baidu.tieba.df9
-    public int c(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (this.g.capacity() < i2) {
-                this.g = ByteBuffer.allocateDirect(i2);
-            }
-            this.g.clear();
-            this.g.put(bArr, i, i2);
-            this.g.flip();
-            while (this.g.hasRemaining()) {
-                int dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    ByteBuffer byteBuffer = this.c[dequeueInputBuffer];
-                    int min = Math.min(byteBuffer.capacity(), this.g.remaining());
-                    if (min != this.h.length) {
-                        this.h = new byte[min];
-                    }
-                    this.g.get(this.h, 0, min);
-                    byteBuffer.clear();
-                    byteBuffer.put(this.h);
-                    this.a.queueInputBuffer(dequeueInputBuffer, 0, min, 0L, 0);
-                    this.i += min;
-                }
-                i();
-            }
-            return 0;
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // com.baidu.tieba.df9
-    public void d(lf9 lf9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lf9Var) == null) {
-            this.m = lf9Var;
-        }
-    }
-
-    public final void e(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, bArr, i) == null) {
-            int i2 = this.l;
-            int i3 = this.k;
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + (i3 >> 2));
-            bArr[3] = (byte) (((i3 & 3) << 6) + (i >> 11));
-            bArr[4] = (byte) ((i & 2047) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            try {
-                this.a.stop();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                this.a.release();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            this.a = null;
-            try {
-                this.e.flush();
-                this.e.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            }
-        }
-    }
-
-    public final int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            switch (i) {
-                case 7350:
-                    return 12;
-                case 8000:
-                    return 11;
-                case 11025:
-                    return 10;
-                case 12000:
-                    return 9;
-                case 16000:
-                    return 8;
-                case 22050:
-                    return 7;
-                case 24000:
-                    return 6;
-                case 32000:
-                    return 5;
-                case 48000:
-                    return 3;
-                case 64000:
-                    return 2;
-                case 88200:
-                    return 1;
-                case 96000:
-                    return 0;
-                default:
-                    return 4;
-            }
-        }
-        return invokeI.intValue;
-    }
-
-    public final MediaCodecInfo h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            int codecCount = MediaCodecList.getCodecCount();
-            for (int i = 0; i < codecCount; i++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
-                if (codecInfoAt.isEncoder()) {
-                    for (String str2 : codecInfoAt.getSupportedTypes()) {
-                        if (str2.equalsIgnoreCase(str)) {
-                            return codecInfoAt;
-                        }
-                    }
-                    continue;
-                }
-            }
-            return null;
-        }
-        return (MediaCodecInfo) invokeL.objValue;
-    }
-
-    public final void i() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            int dequeueOutputBuffer = this.a.dequeueOutputBuffer(bufferInfo, 10000L);
-            if (dequeueOutputBuffer == -2) {
-                this.b = this.a.getOutputFormat();
-            } else if (dequeueOutputBuffer == -3) {
-                this.d = this.a.getOutputBuffers();
-            } else if (dequeueOutputBuffer == -1) {
-                qg9.j("VideoMuxer", "writeOutput INFO_TRY_AGAIN_LATER");
-            } else if (dequeueOutputBuffer >= 0) {
-                if ((bufferInfo.flags & 2) != 0) {
-                    this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
+            if (this.f != 107) {
+                if (this.f != 106) {
                     return;
                 }
-                int i = bufferInfo.size;
-                if (i > 0) {
-                    int i2 = i + 7;
-                    ByteBuffer byteBuffer = this.d[dequeueOutputBuffer];
-                    byteBuffer.position(bufferInfo.offset);
-                    byteBuffer.limit(bufferInfo.offset + i);
-                    byte[] bArr = new byte[i2];
-                    e(bArr, i2);
-                    byteBuffer.get(bArr, 7, i);
-                    byteBuffer.position(bufferInfo.offset);
-                    this.e.write(bArr, 0, i2);
-                    this.j += bufferInfo.size;
-                    byteBuffer.clear();
+                n(this.c);
+                throw new DownloadException(106, "Download paused!");
+            }
+            throw new DownloadException(107, "Download canceled!");
+        }
+    }
+
+    @Override // com.baidu.tieba.df9
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = 107;
+        }
+    }
+
+    @Override // com.baidu.tieba.df9
+    public boolean isComplete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.e == 105) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.df9
+    public boolean isDownloading() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.e == 104) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.df9
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.f = 106;
+        }
+    }
+
+    public final void b(Closeable closeable) throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeable) == null) && closeable != null) {
+            synchronized (jf9.class) {
+                closeable.close();
+            }
+        }
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.a().getAbsolutePath() + File.separator + this.b.d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            Process.setThreadPriority(10);
+            j(this.c);
+            try {
+                this.e = 104;
+                d();
+                synchronized (this.d) {
+                    this.e = 105;
+                    this.d.onDownloadCompleted(c());
                 }
-                this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if ((bufferInfo.flags & 4) != 0) {
-                    this.f = true;
+            } catch (DownloadException e) {
+                i(e);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x005c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x007a  */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r7v0, types: [com.baidu.tieba.jf9, java.lang.Object] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void d() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                URL url = new URL(this.c.d());
+                ?? r2 = 0;
+                try {
                     try {
-                        f();
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            k(f(this.c), httpURLConnection);
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == g()) {
+                                m(httpURLConnection);
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                    return;
+                                }
+                                return;
+                            }
+                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
                     }
-                    if (this.m != null) {
-                        qg9.j("VideoMuxer: ", "----Encode done-----,numBytesSubmitted:" + this.i + ",numBytesDequeued:" + this.j);
-                        this.m.onFinishedWriting(true);
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (r2 != 0) {
                     }
+                    throw th;
                 }
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
+            }
+        }
+    }
+
+    public final void i(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.d) {
+                        this.e = 106;
+                        this.d.onDownloadPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.d) {
+                        this.e = 107;
+                        this.d.onDownloadCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.d) {
+                        this.e = 108;
+                        this.d.a(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
+        }
+    }
+
+    public final void k(Map<String, String> map, URLConnection uRLConnection) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, map, uRLConnection) == null) && map != null) {
+            for (String str : map.keySet()) {
+                uRLConnection.setRequestProperty(str, map.get(str));
+            }
+        }
+    }
+
+    public final void l(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, randomAccessFile) == null) {
+            byte[] bArr = new byte[8192];
+            while (true) {
+                a();
+                try {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        return;
+                    }
+                    randomAccessFile.write(bArr, 0, read);
+                    long j = read;
+                    this.c.e(this.c.b() + j);
+                    synchronized (this.d) {
+                        this.b.f(this.b.b() + j);
+                        this.d.onDownloadProgress(this.b.b(), this.b.c());
+                    }
+                } catch (IOException e) {
+                    n(this.c);
+                    throw new DownloadException(108, e);
+                }
+            }
+        }
+    }
+
+    public final void m(HttpURLConnection httpURLConnection) throws DownloadException {
+        Closeable closeable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, httpURLConnection) == null) {
+            Closeable closeable2 = null;
+            try {
+                try {
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    try {
+                        long c = this.c.c() + this.c.b();
+                        try {
+                            File a = this.b.a();
+                            if (!a.exists()) {
+                                a.mkdirs();
+                            }
+                            RandomAccessFile e = e(a, this.b.d(), c);
+                            l(inputStream, e);
+                            try {
+                                b(inputStream);
+                                b(e);
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        } catch (IOException e3) {
+                            throw new DownloadException(108, "File occur IOException ", e3);
+                        } catch (Exception e4) {
+                            throw new DownloadException(108, "Occur Exception ", e4);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        closeable2 = inputStream;
+                        closeable = null;
+                        try {
+                            b(closeable2);
+                            b(closeable);
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (IOException e6) {
+                    throw new DownloadException(108, "http get inputStream error", e6);
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                closeable = null;
             }
         }
     }

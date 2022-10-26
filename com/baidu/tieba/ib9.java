@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class ib9 {
+public class ib9 implements db9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jb9 a;
 
     public ib9() {
         Interceptable interceptable = $ic;
@@ -23,29 +20,21 @@ public final class ib9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new jb9();
     }
 
-    public final List<com.baidu.ubs.analytics.a.a> a() {
+    @Override // com.baidu.tieba.db9
+    public boolean isAgreePrivacy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            fa9 a = ab9.a();
+            if (a != null) {
+                return a.isAgreePrivacy();
+            }
+            return true;
         }
-    }
-
-    public final void c(com.baidu.ubs.analytics.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a.c(aVar);
-        }
+        return invokeV.booleanValue;
     }
 }

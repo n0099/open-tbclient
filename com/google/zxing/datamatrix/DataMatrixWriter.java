@@ -59,6 +59,8 @@ public final class DataMatrixWriter implements Writer {
 
     public static BitMatrix encodeLowLevel(DefaultPlacement defaultPlacement, SymbolInfo symbolInfo) {
         InterceptResult invokeLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, defaultPlacement, symbolInfo)) == null) {
             int symbolDataWidth = symbolInfo.getSymbolDataWidth();
@@ -69,7 +71,12 @@ public final class DataMatrixWriter implements Writer {
                 if (i2 % symbolInfo.matrixHeight == 0) {
                     int i3 = 0;
                     for (int i4 = 0; i4 < symbolInfo.getSymbolWidth(); i4++) {
-                        byteMatrix.set(i3, i, i4 % 2 == 0);
+                        if (i4 % 2 == 0) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        byteMatrix.set(i3, i, z2);
                         i3++;
                     }
                     i++;
@@ -84,7 +91,12 @@ public final class DataMatrixWriter implements Writer {
                     i5++;
                     int i7 = symbolInfo.matrixWidth;
                     if (i6 % i7 == i7 - 1) {
-                        byteMatrix.set(i5, i, i2 % 2 == 0);
+                        if (i2 % 2 == 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        byteMatrix.set(i5, i, z);
                         i5++;
                     }
                 }
@@ -108,46 +120,49 @@ public final class DataMatrixWriter implements Writer {
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) ? encode(str, barcodeFormat, i, i2, null) : (BitMatrix) invokeLLII.objValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) {
+            return encode(str, barcodeFormat, i, i2, null);
+        }
+        return (BitMatrix) invokeLLII.objValue;
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) {
         InterceptResult invokeCommon;
         Dimension dimension;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (!str.isEmpty()) {
-                if (barcodeFormat != BarcodeFormat.DATA_MATRIX) {
-                    throw new IllegalArgumentException("Can only encode DATA_MATRIX, but got " + barcodeFormat);
-                } else if (i >= 0 && i2 >= 0) {
-                    SymbolShapeHint symbolShapeHint = SymbolShapeHint.FORCE_NONE;
-                    Dimension dimension2 = null;
-                    if (map != null) {
-                        SymbolShapeHint symbolShapeHint2 = (SymbolShapeHint) map.get(EncodeHintType.DATA_MATRIX_SHAPE);
-                        if (symbolShapeHint2 != null) {
-                            symbolShapeHint = symbolShapeHint2;
-                        }
-                        Dimension dimension3 = (Dimension) map.get(EncodeHintType.MIN_SIZE);
-                        if (dimension3 == null) {
-                            dimension3 = null;
-                        }
-                        dimension = (Dimension) map.get(EncodeHintType.MAX_SIZE);
-                        if (dimension == null) {
+                if (barcodeFormat == BarcodeFormat.DATA_MATRIX) {
+                    if (i >= 0 && i2 >= 0) {
+                        SymbolShapeHint symbolShapeHint = SymbolShapeHint.FORCE_NONE;
+                        Dimension dimension2 = null;
+                        if (map != null) {
+                            SymbolShapeHint symbolShapeHint2 = (SymbolShapeHint) map.get(EncodeHintType.DATA_MATRIX_SHAPE);
+                            if (symbolShapeHint2 != null) {
+                                symbolShapeHint = symbolShapeHint2;
+                            }
+                            Dimension dimension3 = (Dimension) map.get(EncodeHintType.MIN_SIZE);
+                            if (dimension3 == null) {
+                                dimension3 = null;
+                            }
+                            dimension = (Dimension) map.get(EncodeHintType.MAX_SIZE);
+                            if (dimension == null) {
+                                dimension = null;
+                            }
+                            dimension2 = dimension3;
+                        } else {
                             dimension = null;
                         }
-                        dimension2 = dimension3;
-                    } else {
-                        dimension = null;
+                        String encodeHighLevel = HighLevelEncoder.encodeHighLevel(str, symbolShapeHint, dimension2, dimension);
+                        SymbolInfo lookup = SymbolInfo.lookup(encodeHighLevel.length(), symbolShapeHint, dimension2, dimension, true);
+                        DefaultPlacement defaultPlacement = new DefaultPlacement(ErrorCorrection.encodeECC200(encodeHighLevel, lookup), lookup.getSymbolDataWidth(), lookup.getSymbolDataHeight());
+                        defaultPlacement.place();
+                        return encodeLowLevel(defaultPlacement, lookup);
                     }
-                    String encodeHighLevel = HighLevelEncoder.encodeHighLevel(str, symbolShapeHint, dimension2, dimension);
-                    SymbolInfo lookup = SymbolInfo.lookup(encodeHighLevel.length(), symbolShapeHint, dimension2, dimension, true);
-                    DefaultPlacement defaultPlacement = new DefaultPlacement(ErrorCorrection.encodeECC200(encodeHighLevel, lookup), lookup.getSymbolDataWidth(), lookup.getSymbolDataHeight());
-                    defaultPlacement.place();
-                    return encodeLowLevel(defaultPlacement, lookup);
-                } else {
                     throw new IllegalArgumentException("Requested dimensions are too small: " + i + 'x' + i2);
                 }
+                throw new IllegalArgumentException("Can only encode DATA_MATRIX, but got " + barcodeFormat);
             }
             throw new IllegalArgumentException("Found empty contents");
         }

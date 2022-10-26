@@ -126,14 +126,6 @@ public abstract class SDKManager {
         }
     }
 
-    public static void securityType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
-            a.d = i;
-            a.e = i == 0 ? "B" : "C";
-        }
-    }
-
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
@@ -190,7 +182,7 @@ public abstract class SDKManager {
         }
     }
 
-    public static <T> void toFailed(CallBack<T> callBack, int i, String str) {
+    public static void toFailed(CallBack callBack, int i, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(65558, null, callBack, i, str) == null) || callBack == null) {
             return;
@@ -202,5 +194,19 @@ public abstract class SDKManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? useCache : invokeV.booleanValue;
+    }
+
+    public static void securityType(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            a.d = i;
+            if (i == 0) {
+                str = "B";
+            } else {
+                str = "C";
+            }
+            a.e = str;
+        }
     }
 }

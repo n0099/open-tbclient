@@ -21,6 +21,12 @@ public final class QRCode {
     public Mode mode;
     public Version version;
 
+    public static boolean isValidMaskPattern(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 0 && i < 8 : invokeI.booleanValue;
+    }
+
     public QRCode() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,40 +43,49 @@ public final class QRCode {
         this.maskPattern = -1;
     }
 
-    public static boolean isValidMaskPattern(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 0 && i < 8 : invokeI.booleanValue;
-    }
-
     public ErrorCorrectionLevel getECLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.ecLevel : (ErrorCorrectionLevel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.ecLevel;
+        }
+        return (ErrorCorrectionLevel) invokeV.objValue;
     }
 
     public int getMaskPattern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.maskPattern : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.maskPattern;
+        }
+        return invokeV.intValue;
     }
 
     public ByteMatrix getMatrix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.matrix : (ByteMatrix) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.matrix;
+        }
+        return (ByteMatrix) invokeV.objValue;
     }
 
     public Mode getMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mode : (Mode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mode;
+        }
+        return (Mode) invokeV.objValue;
     }
 
     public Version getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.version : (Version) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.version;
+        }
+        return (Version) invokeV.objValue;
     }
 
     public void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {

@@ -14,6 +14,12 @@ public class StatusCodeException extends IOException {
     public static final int STATUS_CODE_START = 400;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isStatusCodeMatched(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 400 && i != 429 : invokeI.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StatusCodeException(String str) {
         super(str);
@@ -32,11 +38,5 @@ public class StatusCodeException extends IOException {
                 return;
             }
         }
-    }
-
-    public static boolean isStatusCodeMatched(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 400 && i != 429 : invokeI.booleanValue;
     }
 }

@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -33,7 +31,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         public Map<View, AccessibilityDelegateCompat> mOriginalItemDelegates;
         public final RecyclerViewAccessibilityDelegate mRecyclerViewDelegate;
 
-        public ItemDelegate(@NonNull RecyclerViewAccessibilityDelegate recyclerViewAccessibilityDelegate) {
+        public ItemDelegate(RecyclerViewAccessibilityDelegate recyclerViewAccessibilityDelegate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +51,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public boolean dispatchPopulateAccessibilityEvent(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
+        public boolean dispatchPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, accessibilityEvent)) == null) {
@@ -67,8 +65,59 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        @Nullable
-        public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(@NonNull View view2) {
+        public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, view2, accessibilityEvent) == null) {
+                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
+                if (accessibilityDelegateCompat != null) {
+                    accessibilityDelegateCompat.onInitializeAccessibilityEvent(view2, accessibilityEvent);
+                } else {
+                    super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
+                }
+            }
+        }
+
+        @Override // androidx.core.view.AccessibilityDelegateCompat
+        public void onPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, view2, accessibilityEvent) == null) {
+                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
+                if (accessibilityDelegateCompat != null) {
+                    accessibilityDelegateCompat.onPopulateAccessibilityEvent(view2, accessibilityEvent);
+                } else {
+                    super.onPopulateAccessibilityEvent(view2, accessibilityEvent);
+                }
+            }
+        }
+
+        @Override // androidx.core.view.AccessibilityDelegateCompat
+        public void sendAccessibilityEvent(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) {
+                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
+                if (accessibilityDelegateCompat != null) {
+                    accessibilityDelegateCompat.sendAccessibilityEvent(view2, i);
+                } else {
+                    super.sendAccessibilityEvent(view2, i);
+                }
+            }
+        }
+
+        @Override // androidx.core.view.AccessibilityDelegateCompat
+        public void sendAccessibilityEventUnchecked(View view2, AccessibilityEvent accessibilityEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048586, this, view2, accessibilityEvent) == null) {
+                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
+                if (accessibilityDelegateCompat != null) {
+                    accessibilityDelegateCompat.sendAccessibilityEventUnchecked(view2, accessibilityEvent);
+                } else {
+                    super.sendAccessibilityEventUnchecked(view2, accessibilityEvent);
+                }
+            }
+        }
+
+        @Override // androidx.core.view.AccessibilityDelegateCompat
+        public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
@@ -84,19 +133,17 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         public AccessibilityDelegateCompat getAndRemoveOriginalDelegateForItem(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? this.mOriginalItemDelegates.remove(view2) : (AccessibilityDelegateCompat) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                return this.mOriginalItemDelegates.remove(view2);
+            }
+            return (AccessibilityDelegateCompat) invokeL.objValue;
         }
 
-        @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityEvent(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
+        public void saveOriginalDelegate(View view2) {
+            AccessibilityDelegateCompat accessibilityDelegate;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, view2, accessibilityEvent) == null) {
-                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
-                if (accessibilityDelegateCompat != null) {
-                    accessibilityDelegateCompat.onInitializeAccessibilityEvent(view2, accessibilityEvent);
-                } else {
-                    super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
-                }
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) && (accessibilityDelegate = ViewCompat.getAccessibilityDelegate(view2)) != null && accessibilityDelegate != this) {
+                this.mOriginalItemDelegates.put(view2, accessibilityDelegate);
             }
         }
 
@@ -120,20 +167,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onPopulateAccessibilityEvent(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, view2, accessibilityEvent) == null) {
-                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
-                if (accessibilityDelegateCompat != null) {
-                    accessibilityDelegateCompat.onPopulateAccessibilityEvent(view2, accessibilityEvent);
-                } else {
-                    super.onPopulateAccessibilityEvent(view2, accessibilityEvent);
-                }
-            }
-        }
-
-        @Override // androidx.core.view.AccessibilityDelegateCompat
-        public boolean onRequestSendAccessibilityEvent(@NonNull ViewGroup viewGroup, @NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
+        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, viewGroup, view2, accessibilityEvent)) == null) {
@@ -166,44 +200,9 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
             }
             return invokeLIL.booleanValue;
         }
-
-        public void saveOriginalDelegate(View view2) {
-            AccessibilityDelegateCompat accessibilityDelegate;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) || (accessibilityDelegate = ViewCompat.getAccessibilityDelegate(view2)) == null || accessibilityDelegate == this) {
-                return;
-            }
-            this.mOriginalItemDelegates.put(view2, accessibilityDelegate);
-        }
-
-        @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void sendAccessibilityEvent(@NonNull View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) {
-                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
-                if (accessibilityDelegateCompat != null) {
-                    accessibilityDelegateCompat.sendAccessibilityEvent(view2, i);
-                } else {
-                    super.sendAccessibilityEvent(view2, i);
-                }
-            }
-        }
-
-        @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void sendAccessibilityEventUnchecked(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048586, this, view2, accessibilityEvent) == null) {
-                AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
-                if (accessibilityDelegateCompat != null) {
-                    accessibilityDelegateCompat.sendAccessibilityEventUnchecked(view2, accessibilityEvent);
-                } else {
-                    super.sendAccessibilityEventUnchecked(view2, accessibilityEvent);
-                }
-            }
-        }
     }
 
-    public RecyclerViewAccessibilityDelegate(@NonNull RecyclerView recyclerView) {
+    public RecyclerViewAccessibilityDelegate(RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,11 +226,22 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
     }
 
-    @NonNull
     public AccessibilityDelegateCompat getItemDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mItemDelegate : (AccessibilityDelegateCompat) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mItemDelegate;
+        }
+        return (AccessibilityDelegateCompat) invokeV.objValue;
+    }
+
+    public boolean shouldIgnore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRecyclerView.hasPendingAdapterUpdates();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.core.view.AccessibilityDelegateCompat
@@ -239,12 +249,11 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, accessibilityEvent) == null) {
             super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
-            if (!(view2 instanceof RecyclerView) || shouldIgnore()) {
-                return;
-            }
-            RecyclerView recyclerView = (RecyclerView) view2;
-            if (recyclerView.getLayoutManager() != null) {
-                recyclerView.getLayoutManager().onInitializeAccessibilityEvent(accessibilityEvent);
+            if ((view2 instanceof RecyclerView) && !shouldIgnore()) {
+                RecyclerView recyclerView = (RecyclerView) view2;
+                if (recyclerView.getLayoutManager() != null) {
+                    recyclerView.getLayoutManager().onInitializeAccessibilityEvent(accessibilityEvent);
+                }
             }
         }
     }
@@ -254,10 +263,9 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, accessibilityNodeInfoCompat) == null) {
             super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
-            if (shouldIgnore() || this.mRecyclerView.getLayoutManager() == null) {
-                return;
+            if (!shouldIgnore() && this.mRecyclerView.getLayoutManager() != null) {
+                this.mRecyclerView.getLayoutManager().onInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat);
             }
-            this.mRecyclerView.getLayoutManager().onInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat);
         }
     }
 
@@ -269,17 +277,11 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
             if (super.performAccessibilityAction(view2, i, bundle)) {
                 return true;
             }
-            if (shouldIgnore() || this.mRecyclerView.getLayoutManager() == null) {
-                return false;
+            if (!shouldIgnore() && this.mRecyclerView.getLayoutManager() != null) {
+                return this.mRecyclerView.getLayoutManager().performAccessibilityAction(i, bundle);
             }
-            return this.mRecyclerView.getLayoutManager().performAccessibilityAction(i, bundle);
+            return false;
         }
         return invokeLIL.booleanValue;
-    }
-
-    public boolean shouldIgnore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRecyclerView.hasPendingAdapterUpdates() : invokeV.booleanValue;
     }
 }

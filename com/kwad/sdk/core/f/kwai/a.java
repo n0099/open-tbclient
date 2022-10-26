@@ -9,7 +9,7 @@ import com.kwad.sdk.core.f.a.a;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes7.dex */
 public final class a {
-    public final LinkedBlockingQueue<IBinder> Zp = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue Zp = new LinkedBlockingQueue(1);
     public ServiceConnection Zq = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.a.1
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -38,7 +38,7 @@ public final class a {
             intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
             if (this.mContext.bindService(intent, this.Zq, 1)) {
                 try {
-                    str = new a.C0606a(this.Zp.take()).getID();
+                    str = new a.C0602a((IBinder) this.Zp.take()).getID();
                     new StringBuilder("getOAID oaid:").append(str);
                     context = this.mContext;
                 } catch (Exception unused) {

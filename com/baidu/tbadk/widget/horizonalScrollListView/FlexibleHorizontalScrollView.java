@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.animation.DecelerateInterpolator;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,6 +79,29 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         this.d = 0.0f;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FlexibleHorizontalScrollView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 150;
+        this.d = 0.0f;
+    }
+
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -91,7 +114,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
             }
             if (this.g == 0) {
                 setOverScrollMode(2);
-                int a2 = yi.a(getContext());
+                int a2 = zi.a(getContext());
                 this.g = a2;
                 this.f = (this.a * 1.0f) / a2;
             }
@@ -186,33 +209,10 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
 
     public void setMaxOverScrollDistance(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || i <= 0) {
             return;
         }
         this.a = i;
         this.f = (i * 1.0f) / this.g;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlexibleHorizontalScrollView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 150;
-        this.d = 0.0f;
     }
 }

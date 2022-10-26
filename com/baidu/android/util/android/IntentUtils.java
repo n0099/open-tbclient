@@ -58,7 +58,7 @@ public class IntentUtils {
         }
     }
 
-    public static List<ComponentName> getIntentHandlers(Context context, Intent intent) {
+    public static List getIntentHandlers(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
@@ -71,62 +71,6 @@ public class IntentUtils {
             return arrayList;
         }
         return (List) invokeLL.objValue;
-    }
-
-    public static boolean isAvailable(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) ? intent != null && context.getPackageManager().queryIntentActivities(intent, 65536).size() > 0 : invokeLL.booleanValue;
-    }
-
-    public static boolean processFileUriIntent(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        ActivityInfo activityInfo = resolveInfo.activityInfo;
-                        if (activityInfo != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException e) {
-                    if (DEBUG) {
-                        throw e;
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean safeGetBooleanExtra(Intent intent, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, intent, str, z)) == null) {
-            try {
-                return intent.getBooleanExtra(str, z);
-            } catch (Throwable unused) {
-                if (DEBUG) {
-                    Log.e(TAG, "getBooleanExtra failed on intent " + intent);
-                }
-                return z;
-            }
-        }
-        return invokeLLZ.booleanValue;
     }
 
     public static Bundle safeGetBundle(Bundle bundle, String str) {
@@ -180,44 +124,12 @@ public class IntentUtils {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static int safeGetIntExtra(Intent intent, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, intent, str, i)) == null) {
-            try {
-                return intent.getIntExtra(str, i);
-            } catch (Throwable unused) {
-                if (DEBUG) {
-                    Log.e(TAG, "getIntExtra failed on intent " + intent);
-                }
-                return i;
-            }
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static long safeGetLongExtra(Intent intent, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j)})) == null) {
-            try {
-                return intent.getLongExtra(str, j);
-            } catch (Throwable unused) {
-                if (DEBUG) {
-                    Log.e(TAG, "getLongExtra failed on intent " + intent);
-                }
-                return j;
-            }
-        }
-        return invokeCommon.longValue;
-    }
-
-    public static <T extends Parcelable> T safeGetParcelableExtra(Intent intent, String str) {
+    public static Parcelable safeGetParcelableExtra(Intent intent, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, intent, str)) == null) {
             try {
-                return (T) intent.getParcelableExtra(str);
+                return intent.getParcelableExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
                     Log.e(TAG, "getByteArrayExtra failed on intent " + intent);
@@ -226,7 +138,7 @@ public class IntentUtils {
                 return null;
             }
         }
-        return (T) invokeLL.objValue;
+        return (Parcelable) invokeLL.objValue;
     }
 
     public static String safeGetString(Bundle bundle, String str) {
@@ -246,7 +158,7 @@ public class IntentUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static ArrayList<String> safeGetStringArrayListExtra(Intent intent, String str) {
+    public static ArrayList safeGetStringArrayListExtra(Intent intent, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, intent, str)) == null) {
@@ -278,5 +190,99 @@ public class IntentUtils {
             }
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static boolean isAvailable(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
+            if (intent == null || context.getPackageManager().queryIntentActivities(intent, 65536).size() <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean processFileUriIntent(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file, intent)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                try {
+                    Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
+                    if (uriForFile == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(uriForFile, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        ActivityInfo activityInfo = resolveInfo.activityInfo;
+                        if (activityInfo != null && (str = activityInfo.packageName) != null) {
+                            context.grantUriPermission(str, uriForFile, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException e) {
+                    if (!DEBUG) {
+                        return false;
+                    }
+                    throw e;
+                }
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean safeGetBooleanExtra(Intent intent, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, intent, str, z)) == null) {
+            try {
+                return intent.getBooleanExtra(str, z);
+            } catch (Throwable unused) {
+                if (DEBUG) {
+                    Log.e(TAG, "getBooleanExtra failed on intent " + intent);
+                }
+                return z;
+            }
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static int safeGetIntExtra(Intent intent, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, intent, str, i)) == null) {
+            try {
+                return intent.getIntExtra(str, i);
+            } catch (Throwable unused) {
+                if (DEBUG) {
+                    Log.e(TAG, "getIntExtra failed on intent " + intent);
+                }
+                return i;
+            }
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static long safeGetLongExtra(Intent intent, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j)})) == null) {
+            try {
+                return intent.getLongExtra(str, j);
+            } catch (Throwable unused) {
+                if (DEBUG) {
+                    Log.e(TAG, "getLongExtra failed on intent " + intent);
+                }
+                return j;
+            }
+        }
+        return invokeCommon.longValue;
     }
 }

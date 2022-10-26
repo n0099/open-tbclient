@@ -49,10 +49,10 @@ public class NPSPatch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             int patch = NPSPatchUtils.patch(this.oldFileName, str, this.patchFileName);
-            if (patch != 0 || checkMD5(str)) {
-                return patch;
+            if (patch == 0 && !checkMD5(str)) {
+                return 2;
             }
-            return 2;
+            return patch;
         }
         return invokeL.intValue;
     }

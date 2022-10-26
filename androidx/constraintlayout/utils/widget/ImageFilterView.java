@@ -15,7 +15,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
@@ -132,59 +131,6 @@ public class ImageFilterView extends AppCompatImageView {
             }
         }
 
-        private void warmth(float f) {
-            float log;
-            float f2;
-            float f3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
-                if (f <= 0.0f) {
-                    f = 0.01f;
-                }
-                float f4 = (5000.0f / f) / 100.0f;
-                if (f4 > 66.0f) {
-                    double d = f4 - 60.0f;
-                    f2 = ((float) Math.pow(d, -0.13320475816726685d)) * 329.69873f;
-                    log = ((float) Math.pow(d, 0.07551484555006027d)) * 288.12216f;
-                } else {
-                    log = (((float) Math.log(f4)) * 99.4708f) - 161.11957f;
-                    f2 = 255.0f;
-                }
-                if (f4 < 66.0f) {
-                    f3 = f4 > 19.0f ? (((float) Math.log(f4 - 10.0f)) * 138.51773f) - 305.0448f : 0.0f;
-                } else {
-                    f3 = 255.0f;
-                }
-                float min = Math.min(255.0f, Math.max(f2, 0.0f));
-                float min2 = Math.min(255.0f, Math.max(log, 0.0f));
-                float min3 = Math.min(255.0f, Math.max(f3, 0.0f));
-                float min4 = Math.min(255.0f, Math.max(255.0f, 0.0f));
-                float min5 = Math.min(255.0f, Math.max((((float) Math.log(50.0f)) * 99.4708f) - 161.11957f, 0.0f));
-                float min6 = min3 / Math.min(255.0f, Math.max((((float) Math.log(40.0f)) * 138.51773f) - 305.0448f, 0.0f));
-                float[] fArr = this.m;
-                fArr[0] = min / min4;
-                fArr[1] = 0.0f;
-                fArr[2] = 0.0f;
-                fArr[3] = 0.0f;
-                fArr[4] = 0.0f;
-                fArr[5] = 0.0f;
-                fArr[6] = min2 / min5;
-                fArr[7] = 0.0f;
-                fArr[8] = 0.0f;
-                fArr[9] = 0.0f;
-                fArr[10] = 0.0f;
-                fArr[11] = 0.0f;
-                fArr[12] = min6;
-                fArr[13] = 0.0f;
-                fArr[14] = 0.0f;
-                fArr[15] = 0.0f;
-                fArr[16] = 0.0f;
-                fArr[17] = 0.0f;
-                fArr[18] = 1.0f;
-                fArr[19] = 0.0f;
-            }
-        }
-
         public void updateMatrix(ImageView imageView) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -227,6 +173,63 @@ public class ImageFilterView extends AppCompatImageView {
                 }
             }
         }
+
+        private void warmth(float f) {
+            float log;
+            float f2;
+            float f3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
+                if (f <= 0.0f) {
+                    f = 0.01f;
+                }
+                float f4 = (5000.0f / f) / 100.0f;
+                if (f4 > 66.0f) {
+                    double d = f4 - 60.0f;
+                    f2 = ((float) Math.pow(d, -0.13320475816726685d)) * 329.69873f;
+                    log = ((float) Math.pow(d, 0.07551484555006027d)) * 288.12216f;
+                } else {
+                    log = (((float) Math.log(f4)) * 99.4708f) - 161.11957f;
+                    f2 = 255.0f;
+                }
+                if (f4 < 66.0f) {
+                    if (f4 > 19.0f) {
+                        f3 = (((float) Math.log(f4 - 10.0f)) * 138.51773f) - 305.0448f;
+                    } else {
+                        f3 = 0.0f;
+                    }
+                } else {
+                    f3 = 255.0f;
+                }
+                float min = Math.min(255.0f, Math.max(f2, 0.0f));
+                float min2 = Math.min(255.0f, Math.max(log, 0.0f));
+                float min3 = Math.min(255.0f, Math.max(f3, 0.0f));
+                float min4 = Math.min(255.0f, Math.max(255.0f, 0.0f));
+                float min5 = Math.min(255.0f, Math.max((((float) Math.log(50.0f)) * 99.4708f) - 161.11957f, 0.0f));
+                float min6 = min3 / Math.min(255.0f, Math.max((((float) Math.log(40.0f)) * 138.51773f) - 305.0448f, 0.0f));
+                float[] fArr = this.m;
+                fArr[0] = min / min4;
+                fArr[1] = 0.0f;
+                fArr[2] = 0.0f;
+                fArr[3] = 0.0f;
+                fArr[4] = 0.0f;
+                fArr[5] = 0.0f;
+                fArr[6] = min2 / min5;
+                fArr[7] = 0.0f;
+                fArr[8] = 0.0f;
+                fArr[9] = 0.0f;
+                fArr[10] = 0.0f;
+                fArr[11] = 0.0f;
+                fArr[12] = min6;
+                fArr[13] = 0.0f;
+                fArr[14] = 0.0f;
+                fArr[15] = 0.0f;
+                fArr[16] = 0.0f;
+                fArr[17] = 0.0f;
+                fArr[18] = 1.0f;
+                fArr[19] = 0.0f;
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -255,47 +258,58 @@ public class ImageFilterView extends AppCompatImageView {
         init(context, null);
     }
 
-    private void init(Context context, AttributeSet attributeSet) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ImageFilterView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) || attributeSet == null) {
-            return;
-        }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ImageFilterView);
-        int indexCount = obtainStyledAttributes.getIndexCount();
-        Drawable drawable = obtainStyledAttributes.getDrawable(0);
-        for (int i = 0; i < indexCount; i++) {
-            int index = obtainStyledAttributes.getIndex(i);
-            if (index == 3) {
-                this.mCrossfade = obtainStyledAttributes.getFloat(index, 0.0f);
-            } else if (index == 8) {
-                setWarmth(obtainStyledAttributes.getFloat(index, 0.0f));
-            } else if (index == 7) {
-                setSaturation(obtainStyledAttributes.getFloat(index, 0.0f));
-            } else if (index == 2) {
-                setContrast(obtainStyledAttributes.getFloat(index, 0.0f));
-            } else if (index == 5) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    setRound(obtainStyledAttributes.getDimension(index, 0.0f));
-                }
-            } else if (index == 6) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    setRoundPercent(obtainStyledAttributes.getFloat(index, 0.0f));
-                }
-            } else if (index == 4) {
-                setOverlay(obtainStyledAttributes.getBoolean(index, this.mOverlay));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        obtainStyledAttributes.recycle();
-        if (drawable != null) {
-            Drawable[] drawableArr = new Drawable[2];
-            this.mLayers = drawableArr;
-            drawableArr[0] = getDrawable();
-            this.mLayers[1] = drawable;
-            LayerDrawable layerDrawable = new LayerDrawable(this.mLayers);
-            this.mLayer = layerDrawable;
-            layerDrawable.getDrawable(1).setAlpha((int) (this.mCrossfade * 255.0f));
-            super.setImageDrawable(this.mLayer);
+        this.mImageMatrix = new ImageMatrix();
+        this.mOverlay = true;
+        this.mCrossfade = 0.0f;
+        this.mRoundPercent = 0.0f;
+        this.mRound = Float.NaN;
+        init(context, attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ImageFilterView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.mImageMatrix = new ImageMatrix();
+        this.mOverlay = true;
+        this.mCrossfade = 0.0f;
+        this.mRoundPercent = 0.0f;
+        this.mRound = Float.NaN;
+        init(context, attributeSet);
     }
 
     private void setOverlay(boolean z) {
@@ -303,67 +317,6 @@ public class ImageFilterView extends AppCompatImageView {
         if (interceptable == null || interceptable.invokeZ(65542, this, z) == null) {
             this.mOverlay = z;
         }
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (Build.VERSION.SDK_INT >= 21 || this.mRoundPercent == 0.0f || this.mPath == null) {
-                z = false;
-            } else {
-                z = true;
-                canvas.save();
-                canvas.clipPath(this.mPath);
-            }
-            super.draw(canvas);
-            if (z) {
-                canvas.restore();
-            }
-        }
-    }
-
-    public float getBrightness() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImageMatrix.mBrightness : invokeV.floatValue;
-    }
-
-    public float getContrast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImageMatrix.mContrast : invokeV.floatValue;
-    }
-
-    public float getCrossfade() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCrossfade : invokeV.floatValue;
-    }
-
-    public float getRound() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRound : invokeV.floatValue;
-    }
-
-    public float getRoundPercent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRoundPercent : invokeV.floatValue;
-    }
-
-    public float getSaturation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mImageMatrix.mSaturation : invokeV.floatValue;
-    }
-
-    public float getWarmth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mImageMatrix.mWarmth : invokeV.floatValue;
     }
 
     public void setBrightness(float f) {
@@ -384,6 +337,85 @@ public class ImageFilterView extends AppCompatImageView {
         }
     }
 
+    public void setSaturation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            ImageMatrix imageMatrix = this.mImageMatrix;
+            imageMatrix.mSaturation = f;
+            imageMatrix.updateMatrix(this);
+        }
+    }
+
+    public void setWarmth(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            ImageMatrix imageMatrix = this.mImageMatrix;
+            imageMatrix.mWarmth = f;
+            imageMatrix.updateMatrix(this);
+        }
+    }
+
+    private void init(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) && attributeSet != null) {
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ImageFilterView);
+            int indexCount = obtainStyledAttributes.getIndexCount();
+            Drawable drawable = obtainStyledAttributes.getDrawable(0);
+            for (int i = 0; i < indexCount; i++) {
+                int index = obtainStyledAttributes.getIndex(i);
+                if (index == 3) {
+                    this.mCrossfade = obtainStyledAttributes.getFloat(index, 0.0f);
+                } else if (index == 8) {
+                    setWarmth(obtainStyledAttributes.getFloat(index, 0.0f));
+                } else if (index == 7) {
+                    setSaturation(obtainStyledAttributes.getFloat(index, 0.0f));
+                } else if (index == 2) {
+                    setContrast(obtainStyledAttributes.getFloat(index, 0.0f));
+                } else if (index == 5) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        setRound(obtainStyledAttributes.getDimension(index, 0.0f));
+                    }
+                } else if (index == 6) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        setRoundPercent(obtainStyledAttributes.getFloat(index, 0.0f));
+                    }
+                } else if (index == 4) {
+                    setOverlay(obtainStyledAttributes.getBoolean(index, this.mOverlay));
+                }
+            }
+            obtainStyledAttributes.recycle();
+            if (drawable != null) {
+                Drawable[] drawableArr = new Drawable[2];
+                this.mLayers = drawableArr;
+                drawableArr[0] = getDrawable();
+                this.mLayers[1] = drawable;
+                LayerDrawable layerDrawable = new LayerDrawable(this.mLayers);
+                this.mLayer = layerDrawable;
+                layerDrawable.getDrawable(1).setAlpha((int) (this.mCrossfade * 255.0f));
+                super.setImageDrawable(this.mLayer);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            if (Build.VERSION.SDK_INT < 21 && this.mRoundPercent != 0.0f && this.mPath != null) {
+                z = true;
+                canvas.save();
+                canvas.clipPath(this.mPath);
+            } else {
+                z = false;
+            }
+            super.draw(canvas);
+            if (z) {
+                canvas.restore();
+            }
+        }
+    }
+
     public void setCrossfade(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
@@ -398,8 +430,71 @@ public class ImageFilterView extends AppCompatImageView {
         }
     }
 
-    @RequiresApi(21)
+    public float getBrightness() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mImageMatrix.mBrightness;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getContrast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mImageMatrix.mContrast;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getCrossfade() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCrossfade;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getRound() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRound;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getRoundPercent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRoundPercent;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getSaturation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mImageMatrix.mSaturation;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getWarmth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mImageMatrix.mWarmth;
+        }
+        return invokeV.floatValue;
+    }
+
     public void setRound(float f) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
             if (Float.isNaN(f)) {
@@ -409,7 +504,11 @@ public class ImageFilterView extends AppCompatImageView {
                 setRoundPercent(f2);
                 return;
             }
-            boolean z = this.mRound != f;
+            if (this.mRound != f) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.mRound = f;
             if (f != 0.0f) {
                 if (this.mPath == null) {
@@ -465,18 +564,21 @@ public class ImageFilterView extends AppCompatImageView {
             } else if (Build.VERSION.SDK_INT >= 21) {
                 setClipToOutline(false);
             }
-            if (!z || Build.VERSION.SDK_INT < 21) {
-                return;
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                invalidateOutline();
             }
-            invalidateOutline();
         }
     }
 
-    @RequiresApi(21)
     public void setRoundPercent(float f) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
-            boolean z = this.mRoundPercent != f;
+            if (this.mRoundPercent != f) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.mRoundPercent = f;
             if (f != 0.0f) {
                 if (this.mPath == null) {
@@ -534,82 +636,9 @@ public class ImageFilterView extends AppCompatImageView {
             } else if (Build.VERSION.SDK_INT >= 21) {
                 setClipToOutline(false);
             }
-            if (!z || Build.VERSION.SDK_INT < 21) {
-                return;
-            }
-            invalidateOutline();
-        }
-    }
-
-    public void setSaturation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mSaturation = f;
-            imageMatrix.updateMatrix(this);
-        }
-    }
-
-    public void setWarmth(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
-            ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mWarmth = f;
-            imageMatrix.updateMatrix(this);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageFilterView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                invalidateOutline();
             }
         }
-        this.mImageMatrix = new ImageMatrix();
-        this.mOverlay = true;
-        this.mCrossfade = 0.0f;
-        this.mRoundPercent = 0.0f;
-        this.mRound = Float.NaN;
-        init(context, attributeSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageFilterView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mImageMatrix = new ImageMatrix();
-        this.mOverlay = true;
-        this.mCrossfade = 0.0f;
-        this.mRoundPercent = 0.0f;
-        this.mRound = Float.NaN;
-        init(context, attributeSet);
     }
 }

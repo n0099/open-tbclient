@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "androidx.lifecycle.BlockRunner$maybeRun$1", f = "CoroutineLiveData.kt", i = {0, 0}, l = {MatroskaExtractor.ID_PIXEL_WIDTH}, m = "invokeSuspend", n = {"$this$launch", "liveDataScope"}, s = {"L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class BlockRunner$maybeRun$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
@@ -63,12 +64,11 @@ public final class BlockRunner$maybeRun$1 extends SuspendLambda implements Funct
         return (Continuation) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
+    public final Object invoke(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coroutineScope, continuation)) == null) ? ((BlockRunner$maybeRun$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, obj2)) == null) ? ((BlockRunner$maybeRun$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -81,24 +81,26 @@ public final class BlockRunner$maybeRun$1 extends SuspendLambda implements Funct
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
             int i = this.label;
-            if (i == 0) {
+            if (i != 0) {
+                if (i == 1) {
+                    LiveDataScopeImpl liveDataScopeImpl = (LiveDataScopeImpl) this.L$1;
+                    CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
+                    ResultKt.throwOnFailure(obj);
+                } else {
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                }
+            } else {
                 ResultKt.throwOnFailure(obj);
-                CoroutineScope coroutineScope = this.p$;
+                CoroutineScope coroutineScope2 = this.p$;
                 coroutineLiveData = this.this$0.liveData;
-                LiveDataScopeImpl liveDataScopeImpl = new LiveDataScopeImpl(coroutineLiveData, coroutineScope.getCoroutineContext());
+                LiveDataScopeImpl liveDataScopeImpl2 = new LiveDataScopeImpl(coroutineLiveData, coroutineScope2.getCoroutineContext());
                 function2 = this.this$0.block;
-                this.L$0 = coroutineScope;
-                this.L$1 = liveDataScopeImpl;
+                this.L$0 = coroutineScope2;
+                this.L$1 = liveDataScopeImpl2;
                 this.label = 1;
-                if (function2.invoke(liveDataScopeImpl, this) == coroutine_suspended) {
+                if (function2.invoke(liveDataScopeImpl2, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i != 1) {
-                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-            } else {
-                LiveDataScopeImpl liveDataScopeImpl2 = (LiveDataScopeImpl) this.L$1;
-                CoroutineScope coroutineScope2 = (CoroutineScope) this.L$0;
-                ResultKt.throwOnFailure(obj);
             }
             function0 = this.this$0.onDone;
             function0.invoke();

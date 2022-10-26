@@ -8,13 +8,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.dz4;
+import com.baidu.tieba.gz4;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.iz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,22 +28,46 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public int a;
     public boolean b;
     public boolean c;
-    public HashMap<View, f> d;
+    public HashMap d;
     public int e;
     public int f;
     public int g;
     public float h;
     public int i;
-    public List<dz4> j;
+    public List j;
     public FrameLayout k;
     public FrameLayout.LayoutParams l;
     public boolean m;
-    public List<cz4> n;
+    public List n;
     public ValueAnimator o;
     public int p;
     public ValueAnimator q;
     public int r;
-    public List<bz4> s;
+    public List s;
+
+    public abstract void A(int i, float f2, float f3);
+
+    public abstract void B(int i, float f2);
+
+    public abstract void C(int i, float f2);
+
+    public abstract void D(int i, float f2, float f3);
+
+    public abstract void E(int i, float f2);
+
+    public abstract void F(int i, float f2);
+
+    public abstract int getLoadingPointDistance();
+
+    public abstract int getLoadingPointToBottomDistance();
+
+    public abstract int getLoadingVewMaxHeight();
+
+    public abstract void t(FrameLayout frameLayout);
+
+    public abstract void y(int i, float f2);
+
+    public abstract void z(int i, float f2);
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -78,14 +100,13 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c > 0) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c <= 0) {
+                int height = this.b.getHeight();
+                if (height <= 0 && this.b.getLayoutParams() != null) {
+                    height = this.b.getLayoutParams().height;
+                }
+                this.a.c = height;
             }
-            int height = this.b.getHeight();
-            if (height <= 0 && this.b.getLayoutParams() != null) {
-                height = this.b.getLayoutParams().height;
-            }
-            this.a.c = height;
         }
     }
 
@@ -135,8 +156,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                 baseSlideLoadingLayout4.D(baseSlideLoadingLayout4.i, this.c.h, floatValue);
                 BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.c;
                 baseSlideLoadingLayout5.G(baseSlideLoadingLayout5.i, this.c.h);
-                for (dz4 dz4Var : this.c.j) {
-                    dz4Var.a(this.c.i, this.c.h);
+                for (iz4 iz4Var : this.c.j) {
+                    iz4Var.a(this.c.i, this.c.h);
                 }
             }
         }
@@ -147,6 +168,20 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseSlideLoadingLayout a;
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
 
         public c(BaseSlideLoadingLayout baseSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -167,32 +202,18 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         }
 
         @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                for (bz4 bz4Var : this.a.s) {
-                    bz4Var.d(this.a.i, this.a.h);
+                for (gz4 gz4Var : this.a.s) {
+                    gz4Var.d(this.a.i, this.a.h);
                 }
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.B(baseSlideLoadingLayout.i, this.a.h);
                 this.a.m = false;
-                for (cz4 cz4Var : this.a.n) {
-                    cz4Var.a();
+                for (hz4 hz4Var : this.a.n) {
+                    hz4Var.a();
                 }
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
             }
         }
 
@@ -202,8 +223,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.C(baseSlideLoadingLayout.i, this.a.h);
-                for (bz4 bz4Var : this.a.s) {
-                    bz4Var.c(this.a.i, this.a.h);
+                for (gz4 gz4Var : this.a.s) {
+                    gz4Var.c(this.a.i, this.a.h);
                 }
             }
         }
@@ -255,8 +276,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                 baseSlideLoadingLayout4.A(baseSlideLoadingLayout4.i, this.c.h, floatValue);
                 BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.c;
                 baseSlideLoadingLayout5.G(baseSlideLoadingLayout5.i, this.c.h);
-                for (dz4 dz4Var : this.c.j) {
-                    dz4Var.a(this.c.i, this.c.h);
+                for (iz4 iz4Var : this.c.j) {
+                    iz4Var.a(this.c.i, this.c.h);
                 }
             }
         }
@@ -267,6 +288,20 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseSlideLoadingLayout a;
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
 
         public e(BaseSlideLoadingLayout baseSlideLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -287,28 +322,14 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         }
 
         @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.y(baseSlideLoadingLayout.i, this.a.h);
-                for (bz4 bz4Var : this.a.s) {
-                    bz4Var.a(this.a.i, this.a.h);
+                for (gz4 gz4Var : this.a.s) {
+                    gz4Var.a(this.a.i, this.a.h);
                 }
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
             }
         }
 
@@ -318,8 +339,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.z(baseSlideLoadingLayout.i, this.a.h);
-                for (bz4 bz4Var : this.a.s) {
-                    bz4Var.b(this.a.i, this.a.h);
+                for (gz4 gz4Var : this.a.s) {
+                    gz4Var.b(this.a.i, this.a.h);
                 }
             }
         }
@@ -355,7 +376,7 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseSlideLoadingLayout(@NonNull Context context) {
+    public BaseSlideLoadingLayout(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -373,180 +394,6 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                 return;
             }
         }
-    }
-
-    public abstract void A(int i, float f2, float f3);
-
-    public abstract void B(int i, float f2);
-
-    public abstract void C(int i, float f2);
-
-    public abstract void D(int i, float f2, float f3);
-
-    public abstract void E(int i, float f2);
-
-    public abstract void F(int i, float f2);
-
-    public void G(int i, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            I(i, f2);
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.m && this.b) {
-            w();
-        }
-    }
-
-    public final void I(int i, float f2) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) || this.d.isEmpty()) {
-            return;
-        }
-        for (f fVar : this.d.values()) {
-            if (fVar != null && (view2 = fVar.a) != null) {
-                if (fVar.b && fVar.c >= 0) {
-                    ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                    layoutParams.height = fVar.c + i;
-                    view2.setLayoutParams(layoutParams);
-                }
-                if (fVar.d) {
-                    float f3 = fVar.e;
-                    if (f3 >= 0.0f) {
-                        if (fVar.f) {
-                            view2.setAlpha(f3 + ((1.0f - f3) * f2));
-                        } else {
-                            view2.setAlpha(f3 * (1.0f - f2));
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public abstract int getLoadingPointDistance();
-
-    public float getLoadingPointRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((this.a + getLoadingPointDistance()) * 1.0f) / getMaxFingerSlideDistance() : invokeV.floatValue;
-    }
-
-    public abstract int getLoadingPointToBottomDistance();
-
-    public abstract int getLoadingVewMaxHeight();
-
-    public int getMaxFingerSlideDistance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a + getLoadingPointDistance() + getLoadingPointToBottomDistance() : invokeV.intValue;
-    }
-
-    public void i(bz4 bz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bz4Var) == null) {
-            if (bz4Var != null) {
-                this.s.add(bz4Var);
-                return;
-            }
-            throw new IllegalArgumentException("Can not add null animationListener");
-        }
-    }
-
-    public void j(cz4 cz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, cz4Var) == null) {
-            if (cz4Var != null) {
-                this.n.add(cz4Var);
-                return;
-            }
-            throw new IllegalArgumentException("Can not add null loadingListener");
-        }
-    }
-
-    public void k(dz4 dz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, dz4Var) == null) {
-            if (dz4Var != null) {
-                this.j.add(dz4Var);
-                return;
-            }
-            throw new IllegalArgumentException("Can not add null scrollListener");
-        }
-    }
-
-    public f l(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, view2)) == null) ? m(view2, -1) : (f) invokeL.objValue;
-    }
-
-    public f m(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, view2, i)) == null) {
-            if (view2 != null) {
-                f fVar = this.d.get(view2);
-                if (fVar == null) {
-                    fVar = new f();
-                    fVar.a = view2;
-                    this.d.put(view2, fVar);
-                }
-                fVar.b = true;
-                if (i >= 0) {
-                    fVar.c = i;
-                } else {
-                    view2.post(new a(this, fVar, view2));
-                }
-                return fVar;
-            }
-            throw new IllegalArgumentException("Can not add null view as sync view");
-        }
-        return (f) invokeLI.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.k.bringToFront();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.m) {
-            x();
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, motionEvent)) == null) {
-            if (this.m || !this.b) {
-                return false;
-            }
-            int rawX = (int) motionEvent.getRawX();
-            int rawY = (int) motionEvent.getRawY();
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 2) {
-                    return false;
-                }
-                int i = rawY - this.f;
-                return this.c && i > 20 && Math.abs(i) > Math.abs(rawX - this.e);
-            }
-            this.e = rawX;
-            this.f = rawY;
-            this.g = rawY;
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0017, code lost:
@@ -577,16 +424,318 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BaseSlideLoadingLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BaseSlideLoadingLayout(Context context, AttributeSet attributeSet, int i) {
+        this(context, attributeSet, i, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BaseSlideLoadingLayout(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.b = true;
+        this.c = true;
+        this.d = new HashMap();
+        this.j = new LinkedList();
+        this.n = new LinkedList();
+        this.p = 300;
+        this.r = 150;
+        this.s = new LinkedList();
+        this.k = new FrameLayout(context);
+        this.l = new FrameLayout.LayoutParams(-2, -2);
+        int loadingVewMaxHeight = getLoadingVewMaxHeight();
+        this.a = loadingVewMaxHeight;
+        FrameLayout.LayoutParams layoutParams = this.l;
+        layoutParams.topMargin = -loadingVewMaxHeight;
+        layoutParams.gravity = 49;
+        addView(this.k, layoutParams);
+        t(this.k);
+    }
+
+    public void i(gz4 gz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, gz4Var) == null) {
+            if (gz4Var != null) {
+                this.s.add(gz4Var);
+                return;
+            }
+            throw new IllegalArgumentException("Can not add null animationListener");
+        }
+    }
+
+    public void j(hz4 hz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, hz4Var) == null) {
+            if (hz4Var != null) {
+                this.n.add(hz4Var);
+                return;
+            }
+            throw new IllegalArgumentException("Can not add null loadingListener");
+        }
+    }
+
+    public void k(iz4 iz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, iz4Var) == null) {
+            if (iz4Var != null) {
+                this.j.add(iz4Var);
+                return;
+            }
+            throw new IllegalArgumentException("Can not add null scrollListener");
+        }
+    }
+
+    public f l(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, view2)) == null) {
+            return m(view2, -1);
+        }
+        return (f) invokeL.objValue;
+    }
+
     public int p(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048599, this, f2)) == null) ? (int) (f2 * getMaxFingerSlideDistance()) : invokeF.intValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048599, this, f2)) == null) {
+            return (int) (f2 * getMaxFingerSlideDistance());
+        }
+        return invokeF.intValue;
     }
 
     public float q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) ? ((i + this.a) * 1.0f) / getMaxFingerSlideDistance() : invokeI.floatValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            return ((i + this.a) * 1.0f) / getMaxFingerSlideDistance();
+        }
+        return invokeI.floatValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048602, this, z) == null) && getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
+        }
+    }
+
+    public void setEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void setEnableSlideLoading(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void G(int i, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            I(i, f2);
+        }
+    }
+
+    public void H() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.m && this.b) {
+            w();
+        }
+    }
+
+    public float getLoadingPointRatio() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return ((this.a + getLoadingPointDistance()) * 1.0f) / getMaxFingerSlideDistance();
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getMaxFingerSlideDistance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a + getLoadingPointDistance() + getLoadingPointToBottomDistance();
+        }
+        return invokeV.intValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.k.bringToFront();
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || !this.m) {
+            return;
+        }
+        x();
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            F(p(this.h), this.h);
+        }
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.m;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void I(int i, float f2) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) && !this.d.isEmpty()) {
+            for (f fVar : this.d.values()) {
+                if (fVar != null && (view2 = fVar.a) != null) {
+                    if (fVar.b && fVar.c >= 0) {
+                        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                        layoutParams.height = fVar.c + i;
+                        view2.setLayoutParams(layoutParams);
+                    }
+                    if (fVar.d) {
+                        float f3 = fVar.e;
+                        if (f3 >= 0.0f) {
+                            if (fVar.f) {
+                                view2.setAlpha(f3 + ((1.0f - f3) * f2));
+                            } else {
+                                view2.setAlpha(f3 * (1.0f - f2));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public f m(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, view2, i)) == null) {
+            if (view2 != null) {
+                f fVar = (f) this.d.get(view2);
+                if (fVar == null) {
+                    fVar = new f();
+                    fVar.a = view2;
+                    this.d.put(view2, fVar);
+                }
+                fVar.b = true;
+                if (i >= 0) {
+                    fVar.c = i;
+                } else {
+                    view2.post(new a(this, fVar, view2));
+                }
+                return fVar;
+            }
+            throw new IllegalArgumentException("Can not add null view as sync view");
+        }
+        return (f) invokeLI.objValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, motionEvent)) == null) {
+            if (this.m || !this.b) {
+                return false;
+            }
+            int rawX = (int) motionEvent.getRawX();
+            int rawY = (int) motionEvent.getRawY();
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 2) {
+                    return false;
+                }
+                int i = rawY - this.f;
+                int i2 = rawX - this.e;
+                if (!this.c || i <= 20 || Math.abs(i) <= Math.abs(i2)) {
+                    return false;
+                }
+                return true;
+            }
+            this.e = rawX;
+            this.f = rawY;
+            this.g = rawY;
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public final void r(int i) {
@@ -610,62 +759,18 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             this.i = p;
             E(p, this.h);
             G(this.i, this.h);
-            for (dz4 dz4Var : this.j) {
-                dz4Var.a(this.i, this.h);
+            for (iz4 iz4Var : this.j) {
+                iz4Var.a(this.i, this.h);
             }
         }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || getParent() == null) {
-            return;
-        }
-        getParent().requestDisallowInterceptTouchEvent(z);
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            F(p(this.h), this.h);
-        }
-    }
-
-    public void setEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void setEnableSlideLoading(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public abstract void t(FrameLayout frameLayout);
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.m : invokeV.booleanValue;
     }
 
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             this.m = true;
-            for (cz4 cz4Var : this.n) {
-                cz4Var.onLoadingStart();
+            for (hz4 hz4Var : this.n) {
+                hz4Var.onLoadingStart();
             }
             int i = this.l.topMargin;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -688,89 +793,5 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             this.o.addListener(new c(this));
             this.o.start();
         }
-    }
-
-    public abstract void y(int i, float f2);
-
-    public abstract void z(int i, float f2);
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseSlideLoadingLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseSlideLoadingLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        this(context, attributeSet, i, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseSlideLoadingLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.b = true;
-        this.c = true;
-        this.d = new HashMap<>();
-        this.j = new LinkedList();
-        this.n = new LinkedList();
-        this.p = 300;
-        this.r = 150;
-        this.s = new LinkedList();
-        this.k = new FrameLayout(context);
-        this.l = new FrameLayout.LayoutParams(-2, -2);
-        int loadingVewMaxHeight = getLoadingVewMaxHeight();
-        this.a = loadingVewMaxHeight;
-        FrameLayout.LayoutParams layoutParams = this.l;
-        layoutParams.topMargin = -loadingVewMaxHeight;
-        layoutParams.gravity = 49;
-        addView(this.k, layoutParams);
-        t(this.k);
     }
 }

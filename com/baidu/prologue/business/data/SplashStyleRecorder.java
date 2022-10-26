@@ -1,10 +1,9 @@
 package com.baidu.prologue.business.data;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e01;
+import com.baidu.tieba.f01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ public class SplashStyleRecorder {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class SplashElements {
+    public final class SplashElements {
         public static final /* synthetic */ SplashElements[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SplashElements LABEL;
@@ -79,19 +78,10 @@ public class SplashStyleRecorder {
         public static SplashElements valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (SplashElements) Enum.valueOf(SplashElements.class, str) : (SplashElements) invokeL.objValue;
-        }
-
-        public static SplashElements[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SplashElements[]) $VALUES.clone() : (SplashElements[]) invokeV.objValue;
-        }
-
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (SplashElements) Enum.valueOf(SplashElements.class, str);
+            }
+            return (SplashElements) invokeL.objValue;
         }
 
         public void setName(String str) {
@@ -100,14 +90,31 @@ public class SplashStyleRecorder {
                 this.name = str;
             }
         }
+
+        public static SplashElements[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (SplashElements[]) $VALUES.clone();
+            }
+            return (SplashElements[]) invokeV.objValue;
+        }
+
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.name;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    @Nullable
     public static JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String string = e01.a().b("splash_sp_name").getString("splash_style", "");
+            String string = f01.a().b("splash_sp_name").getString("splash_style", "");
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
@@ -122,14 +129,12 @@ public class SplashStyleRecorder {
 
     public static void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) && jSONObject != null) {
+            String string = f01.a().b("splash_sp_name").getString("splash_style", "");
+            String jSONObject2 = jSONObject.toString();
+            if (!TextUtils.equals(string, jSONObject2)) {
+                f01.a().b("splash_sp_name").j("splash_style", jSONObject2, false);
+            }
         }
-        String string = e01.a().b("splash_sp_name").getString("splash_style", "");
-        String jSONObject2 = jSONObject.toString();
-        if (TextUtils.equals(string, jSONObject2)) {
-            return;
-        }
-        e01.a().b("splash_sp_name").j("splash_style", jSONObject2, false);
     }
 }

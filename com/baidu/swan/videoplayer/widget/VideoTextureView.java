@@ -33,22 +33,6 @@ public class VideoTextureView extends TextureView {
         }
     }
 
-    @Override // android.view.TextureView, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.onAttachedToWindow();
-        }
-    }
-
-    @Override // android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDetachedFromWindow();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoTextureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -88,6 +72,22 @@ public class VideoTextureView extends TextureView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.view.TextureView, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.onAttachedToWindow();
+        }
+    }
+
+    @Override // android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDetachedFromWindow();
         }
     }
 }

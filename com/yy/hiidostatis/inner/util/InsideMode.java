@@ -23,7 +23,7 @@ public class InsideMode {
 
     /* renamed from: com.yy.hiidostatis.inner.util.InsideMode$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType;
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class InsideMode {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class EncriptType {
+    public final class EncriptType {
         public static final /* synthetic */ EncriptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EncriptType DOUBLE_MD5;
@@ -135,19 +135,25 @@ public class InsideMode {
         public static EncriptType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EncriptType) Enum.valueOf(EncriptType.class, str) : (EncriptType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EncriptType) Enum.valueOf(EncriptType.class, str);
+            }
+            return (EncriptType) invokeL.objValue;
         }
 
         public static EncriptType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EncriptType[]) $VALUES.clone() : (EncriptType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EncriptType[]) $VALUES.clone();
+            }
+            return (EncriptType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class HostApp {
+    public final class HostApp {
         public static final /* synthetic */ HostApp[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HostApp MEIPAI;
@@ -199,13 +205,19 @@ public class InsideMode {
         public static HostApp valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HostApp) Enum.valueOf(HostApp.class, str) : (HostApp) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (HostApp) Enum.valueOf(HostApp.class, str);
+            }
+            return (HostApp) invokeL.objValue;
         }
 
         public static HostApp[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HostApp[]) $VALUES.clone() : (HostApp[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (HostApp[]) $VALUES.clone();
+            }
+            return (HostApp[]) invokeV.objValue;
         }
     }
 
@@ -240,26 +252,38 @@ public class InsideMode {
         }
     }
 
+    public static boolean isSafeMac() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return encriptMAC;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static String encript(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || str.isEmpty()) {
-                return str;
-            }
-            try {
-                int i = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType[encriptType.ordinal()];
-                if (i != 2) {
-                    if (i != 3) {
-                        return i != 4 ? str : Coder.encryptMD5(Coder.encryptMD5(str));
+            if (str != null && !str.isEmpty()) {
+                try {
+                    int i = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType[encriptType.ordinal()];
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i == 4) {
+                                return Coder.encryptMD5(Coder.encryptMD5(str));
+                            }
+                            return str;
+                        }
+                        return Coder.sha256Encrypt(str);
                     }
-                    return Coder.sha256Encrypt(str);
+                    return Coder.encryptMD5(str);
+                } catch (Throwable th) {
+                    L.debug("InsideMode", "encript", th);
+                    return "";
                 }
-                return Coder.encryptMD5(str);
-            } catch (Throwable th) {
-                L.debug("InsideMode", "encript", th);
-                return "";
             }
+            return str;
         }
         return (String) invokeL.objValue;
     }
@@ -268,52 +292,70 @@ public class InsideMode {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, hostApp2) == null) {
             int i = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp[hostApp2.ordinal()];
-            if (i == 1) {
-                encriptIMEI = false;
-                encriptIMSI = false;
-                encriptMAC = false;
-                encriptType = EncriptType.NONE;
-            } else if (i == 2) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            encriptIMEI = true;
+                            encriptIMSI = true;
+                            encriptMAC = false;
+                            encriptType = EncriptType.SHA256;
+                            return;
+                        }
+                        return;
+                    }
+                    encriptIMEI = true;
+                    encriptIMSI = true;
+                    encriptMAC = true;
+                    encriptType = EncriptType.DOUBLE_MD5;
+                    return;
+                }
                 encriptIMEI = true;
                 encriptIMSI = true;
                 encriptMAC = false;
                 encriptType = EncriptType.SHA256;
-            } else if (i == 3) {
-                encriptIMEI = true;
-                encriptIMSI = true;
-                encriptMAC = true;
-                encriptType = EncriptType.DOUBLE_MD5;
-            } else if (i != 4) {
-            } else {
-                encriptIMEI = true;
-                encriptIMSI = true;
-                encriptMAC = false;
-                encriptType = EncriptType.SHA256;
+                return;
             }
+            encriptIMEI = false;
+            encriptIMSI = false;
+            encriptMAC = false;
+            encriptType = EncriptType.NONE;
         }
-    }
-
-    public static boolean isSafeMac() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? encriptMAC : invokeV.booleanValue;
     }
 
     public static String safeIMEI(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? encriptIMEI ? encript(str) : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (encriptIMEI) {
+                return encript(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String safeIMSI(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? encriptIMSI ? encript(str) : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (encriptIMSI) {
+                return encript(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String safeMac(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? encriptMAC ? encript(str) : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (encriptMAC) {
+                return encript(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

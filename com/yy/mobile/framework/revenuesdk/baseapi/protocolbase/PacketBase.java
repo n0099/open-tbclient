@@ -14,6 +14,20 @@ public class PacketBase implements IPacket {
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer buffer;
 
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
+    public void marshall(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
+    public void unmarshall(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
+        }
+    }
+
     public PacketBase() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,27 +39,6 @@ public class PacketBase implements IPacket {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void checkPacket(int i) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ByteBuffer byteBuffer = this.buffer;
-            if (byteBuffer != null) {
-                if (byteBuffer.capacity() - this.buffer.position() < i) {
-                    throw new Exception("cause stack overflow exception when unmarshall the pack");
-                }
-                return;
-            }
-            throw new Exception("call supper unmarshall before pop data");
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
-    public void marshall(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
         }
     }
 
@@ -65,24 +58,6 @@ public class PacketBase implements IPacket {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
-    public void unmarshall(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
-    public void unmarshall(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            this.buffer = wrap;
-            wrap.order(ByteOrder.LITTLE_ENDIAN);
-            unmarshall(this.buffer);
-        }
-    }
-
     public PacketBase(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,5 +74,30 @@ public class PacketBase implements IPacket {
             }
         }
         unmarshall(bArr);
+    }
+
+    public void checkPacket(int i) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ByteBuffer byteBuffer = this.buffer;
+            if (byteBuffer != null) {
+                if (byteBuffer.capacity() - this.buffer.position() >= i) {
+                    return;
+                }
+                throw new Exception("cause stack overflow exception when unmarshall the pack");
+            }
+            throw new Exception("call supper unmarshall before pop data");
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
+    public void unmarshall(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            this.buffer = wrap;
+            wrap.order(ByteOrder.LITTLE_ENDIAN);
+            unmarshall(this.buffer);
+        }
     }
 }

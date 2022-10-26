@@ -6,14 +6,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y1 extends p1<y5, a> {
+public class y1 extends p1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String b;
     public String c;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.o1
+    /* renamed from: f */
+    public b7 a(String str, k3 k3Var, a aVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
+            return null;
+        }
+        return (b7) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p1
+    /* renamed from: g */
+    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
+        }
+    }
+
     /* loaded from: classes6.dex */
-    public static class a extends l1<y5> {
+    public class a extends l1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String b;
@@ -62,32 +83,13 @@ public class y1 extends p1<y5, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o1
-    /* renamed from: f */
-    public b7<j1> a(String str, k3 k3Var, a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
-            return null;
-        }
-        return (b7) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p1
-    /* renamed from: g */
-    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.p1
     /* renamed from: h */
     public y5 d(n1 n1Var, String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLLL;
         String str2;
+        k3 b;
+        String o;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, n1Var, str, k3Var, aVar)) == null) {
             String str3 = null;
@@ -110,21 +112,29 @@ public class y1 extends p1<y5, a> {
             if (str2 == null && str.endsWith(this.b)) {
                 str2 = str.substring(0, str.length() - this.b.length()) + this.c;
             }
-            k3 b = str3 == null ? k3Var : b(str3);
+            if (str3 == null) {
+                b = k3Var;
+            } else {
+                b = b(str3);
+            }
             if (str2 != null) {
                 k3Var = b(str2);
             }
-            String o = b.o();
-            String o2 = b.equals(k3Var) ? o : k3Var.o();
+            String o2 = b.o();
+            if (b.equals(k3Var)) {
+                o = o2;
+            } else {
+                o = k3Var.o();
+            }
             if (aVar != null) {
                 if (aVar.e != null) {
-                    o = aVar.e + o;
+                    o2 = aVar.e + o2;
                 }
                 if (aVar.f != null) {
-                    o2 = aVar.f + o2;
+                    o = aVar.f + o;
                 }
             }
-            y5 y5Var = new y5(o, o2);
+            y5 y5Var = new y5(o2, o);
             if ((aVar == null || aVar.d) && !y5Var.o()) {
                 n1Var.p().b("ShaderProgram " + str + " failed to compile:\n" + y5Var.l());
             }

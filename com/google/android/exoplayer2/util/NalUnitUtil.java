@@ -2,7 +2,6 @@ package com.google.android.exoplayer2.util;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ public final class NalUnitUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class PpsData {
+    public final class PpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean bottomFieldPicOrderInFramePresentFlag;
@@ -56,7 +55,7 @@ public final class NalUnitUtil {
     }
 
     /* loaded from: classes7.dex */
-    public static final class SpsData {
+    public final class SpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean deltaPicOrderAlwaysZeroFlag;
@@ -142,35 +141,34 @@ public final class NalUnitUtil {
 
     public static void discardToSps(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65539, null, byteBuffer) != null) {
-            return;
-        }
-        int position = byteBuffer.position();
-        int i = 0;
-        int i2 = 0;
-        while (true) {
-            int i3 = i + 1;
-            if (i3 < position) {
-                int i4 = byteBuffer.get(i) & 255;
-                if (i2 == 3) {
-                    if (i4 == 1 && (byteBuffer.get(i3) & 31) == 7) {
-                        ByteBuffer duplicate = byteBuffer.duplicate();
-                        duplicate.position(i - 3);
-                        duplicate.limit(position);
-                        byteBuffer.position(0);
-                        byteBuffer.put(duplicate);
-                        return;
+        if (interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) {
+            int position = byteBuffer.position();
+            int i = 0;
+            int i2 = 0;
+            while (true) {
+                int i3 = i + 1;
+                if (i3 < position) {
+                    int i4 = byteBuffer.get(i) & 255;
+                    if (i2 == 3) {
+                        if (i4 == 1 && (byteBuffer.get(i3) & 31) == 7) {
+                            ByteBuffer duplicate = byteBuffer.duplicate();
+                            duplicate.position(i - 3);
+                            duplicate.limit(position);
+                            byteBuffer.position(0);
+                            byteBuffer.put(duplicate);
+                            return;
+                        }
+                    } else if (i4 == 0) {
+                        i2++;
                     }
-                } else if (i4 == 0) {
-                    i2++;
+                    if (i4 != 0) {
+                        i2 = 0;
+                    }
+                    i = i3;
+                } else {
+                    byteBuffer.clear();
+                    return;
                 }
-                if (i4 != 0) {
-                    i2 = 0;
-                }
-                i = i3;
-            } else {
-                byteBuffer.clear();
-                return;
             }
         }
     }
@@ -183,10 +181,18 @@ public final class NalUnitUtil {
     */
     public static int findNalUnit(byte[] bArr, int i, int i2, boolean[] zArr) {
         InterceptResult invokeCommon;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), zArr})) == null) {
             int i3 = i2 - i;
-            Assertions.checkState(i3 >= 0);
+            boolean z3 = false;
+            if (i3 >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             if (i3 == 0) {
                 return i2;
             }
@@ -205,7 +211,7 @@ public final class NalUnitUtil {
             int i4 = i2 - 1;
             int i5 = i + 2;
             while (i5 < i4) {
-                if ((bArr[i5] & BaseActivity.KEYBOARD_STATE_HIDE) == 0) {
+                if ((bArr[i5] & 254) == 0) {
                     int i6 = i5 - 2;
                     if (bArr[i6] == 0 && bArr[i5 - 1] == 0 && bArr[i5] == 1) {
                         if (zArr != null) {
@@ -218,10 +224,18 @@ public final class NalUnitUtil {
                 i5 += 3;
             }
             if (zArr != null) {
-                boolean z = i3 > 2 ? false : false;
-                zArr[0] = z;
-                zArr[1] = i3 <= 1 ? zArr[2] && bArr[i4] == 0 : bArr[i2 + (-2)] == 0 && bArr[i4] == 0;
-                zArr[2] = bArr[i4] == 0;
+                boolean z4 = i3 > 2 ? false : false;
+                zArr[0] = z4;
+                if (i3 <= 1 ? !(!zArr[2] || bArr[i4] != 0) : !(bArr[i2 - 2] != 0 || bArr[i4] != 0)) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                zArr[1] = z2;
+                if (bArr[i4] == 0) {
+                    z3 = true;
+                }
+                zArr[2] = z3;
             }
             return i2;
         }
@@ -246,13 +260,35 @@ public final class NalUnitUtil {
     public static int getH265NalUnitType(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i)) == null) ? (bArr[i + 3] & 126) >> 1 : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i)) == null) {
+            return (bArr[i + 3] & 126) >> 1;
+        }
+        return invokeLI.intValue;
     }
 
     public static int getNalUnitType(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) ? bArr[i + 3] & 31 : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) {
+            return bArr[i + 3] & 31;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static void skipScalingList(ParsableNalUnitBitArray parsableNalUnitBitArray, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, null, parsableNalUnitBitArray, i) == null) {
+            int i2 = 8;
+            int i3 = 8;
+            for (int i4 = 0; i4 < i; i4++) {
+                if (i2 != 0) {
+                    i2 = ((parsableNalUnitBitArray.readSignedExpGolombCodedInt() + i3) + 256) % 256;
+                }
+                if (i2 != 0) {
+                    i3 = i2;
+                }
+            }
+        }
     }
 
     public static boolean isNalUnitSei(String str, byte b) {
@@ -262,7 +298,10 @@ public final class NalUnitUtil {
             if ("video/avc".equals(str) && (b & 31) == 6) {
                 return true;
             }
-            return MimeTypes.VIDEO_H265.equals(str) && ((b & 126) >> 1) == 39;
+            if (MimeTypes.VIDEO_H265.equals(str) && ((b & 126) >> 1) == 39) {
+                return true;
+            }
+            return false;
         }
         return invokeCommon.booleanValue;
     }
@@ -292,13 +331,17 @@ public final class NalUnitUtil {
         InterceptResult invokeLII;
         int readUnsignedExpGolombCodedInt;
         boolean z;
+        boolean z2;
         int i3;
         int i4;
-        boolean z2;
+        int i5;
+        int i6;
+        boolean z3;
         boolean readBit;
         float f;
         int readBits;
-        int i5;
+        int i7;
+        int i8;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, bArr, i, i2)) == null) {
             ParsableNalUnitBitArray parsableNalUnitBitArray = new ParsableNalUnitBitArray(bArr, i, i2);
@@ -306,43 +349,55 @@ public final class NalUnitUtil {
             int readBits2 = parsableNalUnitBitArray.readBits(8);
             parsableNalUnitBitArray.skipBits(16);
             int readUnsignedExpGolombCodedInt2 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
-            if (readBits2 == 100 || readBits2 == 110 || readBits2 == 122 || readBits2 == 244 || readBits2 == 44 || readBits2 == 83 || readBits2 == 86 || readBits2 == 118 || readBits2 == 128 || readBits2 == 138) {
+            int i9 = 1;
+            if (readBits2 != 100 && readBits2 != 110 && readBits2 != 122 && readBits2 != 244 && readBits2 != 44 && readBits2 != 83 && readBits2 != 86 && readBits2 != 118 && readBits2 != 128 && readBits2 != 138) {
+                readUnsignedExpGolombCodedInt = 1;
+                z2 = false;
+            } else {
                 readUnsignedExpGolombCodedInt = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
-                boolean readBit2 = readUnsignedExpGolombCodedInt == 3 ? parsableNalUnitBitArray.readBit() : false;
+                if (readUnsignedExpGolombCodedInt == 3) {
+                    z = parsableNalUnitBitArray.readBit();
+                } else {
+                    z = false;
+                }
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 parsableNalUnitBitArray.skipBit();
                 if (parsableNalUnitBitArray.readBit()) {
-                    int i6 = readUnsignedExpGolombCodedInt != 3 ? 8 : 12;
-                    int i7 = 0;
-                    while (i7 < i6) {
+                    if (readUnsignedExpGolombCodedInt != 3) {
+                        i3 = 8;
+                    } else {
+                        i3 = 12;
+                    }
+                    for (int i10 = 0; i10 < i3; i10++) {
                         if (parsableNalUnitBitArray.readBit()) {
-                            skipScalingList(parsableNalUnitBitArray, i7 < 6 ? 16 : 64);
+                            if (i10 < 6) {
+                                i4 = 16;
+                            } else {
+                                i4 = 64;
+                            }
+                            skipScalingList(parsableNalUnitBitArray, i4);
                         }
-                        i7++;
                     }
                 }
-                z = readBit2;
-            } else {
-                readUnsignedExpGolombCodedInt = 1;
-                z = false;
+                z2 = z;
             }
             int readUnsignedExpGolombCodedInt3 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 4;
             int readUnsignedExpGolombCodedInt4 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
             if (readUnsignedExpGolombCodedInt4 == 0) {
-                i3 = readUnsignedExpGolombCodedInt2;
-                i4 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 4;
+                i5 = readUnsignedExpGolombCodedInt2;
+                i6 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 4;
             } else if (readUnsignedExpGolombCodedInt4 == 1) {
-                boolean readBit3 = parsableNalUnitBitArray.readBit();
+                boolean readBit2 = parsableNalUnitBitArray.readBit();
                 parsableNalUnitBitArray.readSignedExpGolombCodedInt();
                 parsableNalUnitBitArray.readSignedExpGolombCodedInt();
                 long readUnsignedExpGolombCodedInt5 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
-                i3 = readUnsignedExpGolombCodedInt2;
-                for (int i8 = 0; i8 < readUnsignedExpGolombCodedInt5; i8++) {
+                i5 = readUnsignedExpGolombCodedInt2;
+                for (int i11 = 0; i11 < readUnsignedExpGolombCodedInt5; i11++) {
                     parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 }
-                z2 = readBit3;
-                i4 = 0;
+                z3 = readBit2;
+                i6 = 0;
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 parsableNalUnitBitArray.skipBit();
                 int readUnsignedExpGolombCodedInt6 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 1;
@@ -352,25 +407,32 @@ public final class NalUnitUtil {
                     parsableNalUnitBitArray.skipBit();
                 }
                 parsableNalUnitBitArray.skipBit();
-                int i9 = readUnsignedExpGolombCodedInt6 * 16;
-                int i10 = readUnsignedExpGolombCodedInt7 * 16;
+                int i12 = readUnsignedExpGolombCodedInt6 * 16;
+                int i13 = readUnsignedExpGolombCodedInt7 * 16;
                 if (parsableNalUnitBitArray.readBit()) {
                     int readUnsignedExpGolombCodedInt8 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     int readUnsignedExpGolombCodedInt9 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     int readUnsignedExpGolombCodedInt10 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     int readUnsignedExpGolombCodedInt11 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     if (readUnsignedExpGolombCodedInt == 0) {
-                        i5 = 2 - (readBit ? 1 : 0);
+                        i8 = 2 - (readBit ? 1 : 0);
                     } else {
-                        int i11 = readUnsignedExpGolombCodedInt == 3 ? 1 : 2;
-                        i5 = (2 - (readBit ? 1 : 0)) * (readUnsignedExpGolombCodedInt == 1 ? 2 : 1);
-                        r7 = i11;
+                        if (readUnsignedExpGolombCodedInt == 3) {
+                            i7 = 1;
+                        } else {
+                            i7 = 2;
+                        }
+                        if (readUnsignedExpGolombCodedInt == 1) {
+                            i9 = 2;
+                        }
+                        i8 = (2 - (readBit ? 1 : 0)) * i9;
+                        i9 = i7;
                     }
-                    i9 -= (readUnsignedExpGolombCodedInt8 + readUnsignedExpGolombCodedInt9) * r7;
-                    i10 -= (readUnsignedExpGolombCodedInt10 + readUnsignedExpGolombCodedInt11) * i5;
+                    i12 -= (readUnsignedExpGolombCodedInt8 + readUnsignedExpGolombCodedInt9) * i9;
+                    i13 -= (readUnsignedExpGolombCodedInt10 + readUnsignedExpGolombCodedInt11) * i8;
                 }
-                int i12 = i10;
-                int i13 = i9;
+                int i14 = i13;
+                int i15 = i12;
                 float f2 = 1.0f;
                 if (parsableNalUnitBitArray.readBit() && parsableNalUnitBitArray.readBit()) {
                     readBits = parsableNalUnitBitArray.readBits(8);
@@ -389,15 +451,15 @@ public final class NalUnitUtil {
                             Log.w(TAG, "Unexpected aspect_ratio_idc value: " + readBits);
                         }
                     }
-                    return new SpsData(i3, i13, i12, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+                    return new SpsData(i5, i15, i14, f, z2, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i6, z3);
                 }
                 f = 1.0f;
-                return new SpsData(i3, i13, i12, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+                return new SpsData(i5, i15, i14, f, z2, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i6, z3);
             } else {
-                i3 = readUnsignedExpGolombCodedInt2;
-                i4 = 0;
+                i5 = readUnsignedExpGolombCodedInt2;
+                i6 = 0;
             }
-            z2 = false;
+            z3 = false;
             parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
             parsableNalUnitBitArray.skipBit();
             int readUnsignedExpGolombCodedInt62 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 1;
@@ -406,39 +468,23 @@ public final class NalUnitUtil {
             if (!readBit) {
             }
             parsableNalUnitBitArray.skipBit();
-            int i92 = readUnsignedExpGolombCodedInt62 * 16;
-            int i102 = readUnsignedExpGolombCodedInt72 * 16;
+            int i122 = readUnsignedExpGolombCodedInt62 * 16;
+            int i132 = readUnsignedExpGolombCodedInt72 * 16;
             if (parsableNalUnitBitArray.readBit()) {
             }
-            int i122 = i102;
-            int i132 = i92;
+            int i142 = i132;
+            int i152 = i122;
             float f22 = 1.0f;
             if (parsableNalUnitBitArray.readBit()) {
                 readBits = parsableNalUnitBitArray.readBits(8);
                 if (readBits != 255) {
                 }
-                return new SpsData(i3, i132, i122, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+                return new SpsData(i5, i152, i142, f, z2, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i6, z3);
             }
             f = 1.0f;
-            return new SpsData(i3, i132, i122, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+            return new SpsData(i5, i152, i142, f, z2, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i6, z3);
         }
         return (SpsData) invokeLII.objValue;
-    }
-
-    public static void skipScalingList(ParsableNalUnitBitArray parsableNalUnitBitArray, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, parsableNalUnitBitArray, i) == null) {
-            int i2 = 8;
-            int i3 = 8;
-            for (int i4 = 0; i4 < i; i4++) {
-                if (i2 != 0) {
-                    i2 = ((parsableNalUnitBitArray.readSignedExpGolombCodedInt() + i3) + 256) % 256;
-                }
-                if (i2 != 0) {
-                    i3 = i2;
-                }
-            }
-        }
     }
 
     public static int unescapeStream(byte[] bArr, int i) {

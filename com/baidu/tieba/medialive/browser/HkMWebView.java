@@ -14,8 +14,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gp4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +76,7 @@ public class HkMWebView extends BaseWebView {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements DownloadListener {
+    public class b implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HkMWebView a;
@@ -107,7 +107,7 @@ public class HkMWebView extends BaseWebView {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 if (this.b.getPackageManager().resolveActivity(intent, 0) == null) {
-                    ej.O(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
+                    fj.O(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
                 } else {
                     this.b.startActivity(intent);
                 }
@@ -116,7 +116,7 @@ public class HkMWebView extends BaseWebView {
     }
 
     /* loaded from: classes5.dex */
-    public static class c extends WebViewClient {
+    public class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HkMWebView a;
@@ -151,23 +151,23 @@ public class HkMWebView extends BaseWebView {
         }
 
         @Override // android.webkit.WebViewClient
+        public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
+                hp4.a("HkMWebView", webView);
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 this.a.a = str;
                 super.onPageStarted(webView, str, bitmap);
             }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                gp4.a("HkMWebView", webView);
-                return true;
-            }
-            return invokeLL.booleanValue;
         }
 
         @Override // android.webkit.WebViewClient
@@ -212,6 +212,30 @@ public class HkMWebView extends BaseWebView {
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 16777216;
+        this.c = 16777216;
+        a();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HkMWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -266,7 +290,18 @@ public class HkMWebView extends BaseWebView {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void setLightTouchEnabled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            loadUrl("javascript:eval(\"window.SetBodyStyleTapColor=function() {   var bodystyle = document.body.style.cssText;   if (bodystyle == undefined || bodystyle == null)      bodystyle = '';   var tapstylekey = '-webkit-tap-highlight-color';   if (bodystyle.indexOf(tapstylekey) < 0) {      bodystyle += (bodystyle == '' ? '' : ';') + tapstylekey + ':rgba(0,0,0,0);';      document.body.style.cssText = bodystyle;   }}\");");
+            loadUrl("javascript:SetBodyStyleTapColor();");
+        }
     }
 
     @Override // android.webkit.WebView
@@ -285,7 +320,7 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    @Override // android.webkit.WebView
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -293,43 +328,11 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    public void setLightTouchEnabled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            loadUrl("javascript:eval(\"window.SetBodyStyleTapColor=function() {   var bodystyle = document.body.style.cssText;   if (bodystyle == undefined || bodystyle == null)      bodystyle = '';   var tapstylekey = '-webkit-tap-highlight-color';   if (bodystyle.indexOf(tapstylekey) < 0) {      bodystyle += (bodystyle == '' ? '' : ';') + tapstylekey + ':rgba(0,0,0,0);';      document.body.style.cssText = bodystyle;   }}\");");
-            loadUrl("javascript:SetBodyStyleTapColor();");
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void loadUrl(String str, Map<String, String> map) {
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
+    public void loadUrl(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, map) == null) {
             super.loadUrl(str, map);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HkMWebView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = 16777216;
-        this.c = 16777216;
-        a();
     }
 }

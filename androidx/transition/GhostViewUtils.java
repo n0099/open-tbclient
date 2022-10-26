@@ -4,8 +4,6 @@ import android.graphics.Matrix;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +28,7 @@ public class GhostViewUtils {
         }
     }
 
-    @Nullable
-    public static GhostView addGhost(@NonNull View view2, @NonNull ViewGroup viewGroup, @Nullable Matrix matrix) {
+    public static GhostView addGhost(View view2, ViewGroup viewGroup, Matrix matrix) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, viewGroup, matrix)) == null) {

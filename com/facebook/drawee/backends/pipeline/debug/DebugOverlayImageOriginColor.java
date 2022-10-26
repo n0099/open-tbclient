@@ -56,6 +56,9 @@ public class DebugOverlayImageOriginColor {
     public static int getImageOriginColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? IMAGE_ORIGIN_COLOR_MAP.get(i, -1) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return IMAGE_ORIGIN_COLOR_MAP.get(i, -1);
+        }
+        return invokeI.intValue;
     }
 }

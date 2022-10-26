@@ -44,18 +44,16 @@ public class PaymentConfirmActivityConfig extends IntentConfig {
     public void setBookId(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("book_id", str);
         }
-        intent.putExtra("book_id", str);
     }
 
     public void setBookType(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(BOOK_TYPE, i);
         }
-        intent.putExtra("book_type", i);
     }
 }

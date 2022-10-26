@@ -1,18 +1,28 @@
 package com.google.ar.core;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mr9;
+import com.baidu.tieba.es9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class TrackableBase implements mr9 {
+public class TrackableBase implements es9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
     public final Session b;
+
+    private native long nativeCreateAnchor(long j, long j2, Pose pose);
+
+    private native long[] nativeGetAnchors(long j, long j2);
+
+    private native int nativeGetTrackingState(long j, long j2);
+
+    public static native int nativeGetType(long j, long j2);
+
+    public static native void nativeReleaseTrackable(long j);
 
     public TrackableBase(long j, Session session) {
         Interceptable interceptable = $ic;
@@ -33,20 +43,16 @@ public class TrackableBase implements mr9 {
         this.a = j;
     }
 
-    private native long nativeCreateAnchor(long j, long j2, Pose pose);
-
-    private native long[] nativeGetAnchors(long j, long j2);
-
-    private native int nativeGetTrackingState(long j, long j2);
-
-    public static native int nativeGetType(long j, long j2);
-
-    public static native void nativeReleaseTrackable(long j);
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).a == this.a : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null || obj.getClass() != getClass() || ((TrackableBase) obj).a != this.a) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public void finalize() {
@@ -63,6 +69,9 @@ public class TrackableBase implements mr9 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.a).hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Long.valueOf(this.a).hashCode();
+        }
+        return invokeV.intValue;
     }
 }

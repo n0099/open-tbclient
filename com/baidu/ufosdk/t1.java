@@ -12,7 +12,7 @@ import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class t1 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, String> a;
+    public static HashMap a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(String str) {
@@ -20,7 +20,7 @@ public class t1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             if (a == null) {
-                HashMap<String, String> hashMap = new HashMap<>();
+                HashMap hashMap = new HashMap();
                 hashMap.put("0", "找不到相册应用");
                 hashMap.put("1", "        继续描述您遇到的问题");
                 hashMap.put("2", "天以前");
@@ -61,7 +61,10 @@ public class t1 {
                 hashMap.put(PayConfig.PAYMENT_POS_KEY_MANGA, "请输入反馈内容不少于8个字");
                 a = hashMap;
             }
-            return a.containsKey(str) ? a.get(str) : "";
+            if (a.containsKey(str)) {
+                return (String) a.get(str);
+            }
+            return "";
         }
         return (String) invokeL.objValue;
     }

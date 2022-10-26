@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.pn8;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.wn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,9 +24,9 @@ import tbclient.SkinInfo;
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext v0;
-    public SkinInfo w0;
-    public pn8.b x0;
+    public TbPageContext w0;
+    public SkinInfo x0;
+    public wn8.b y0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -46,95 +46,22 @@ public class ThreadSkinView extends TbImageView {
                 return;
             }
         }
-        v();
+        w();
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view2) {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (skinInfo = this.w0) == null || StringUtils.isNull(skinInfo.url)) {
-            return;
-        }
-        pn8.b bVar = this.x0;
-        if (bVar != null) {
-            bVar.delete("action_type");
-            this.x0.d("action_type", "CLICK");
-            this.x0.e();
-        }
-        UrlManager.getInstance().dealOneLink(this.v0, new String[]{this.w0.url});
-    }
-
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, pn8.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
-            if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
-                this.v0 = tbPageContext;
-                if (this.w0 != skinInfo && bVar != null) {
-                    this.x0 = bVar;
-                    bVar.delete("action_type");
-                    this.x0.d("obj_id", skinInfo.obj_id);
-                    this.x0.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                    this.x0.d("obj_name", skinInfo.monitor_id);
-                    this.x0.d("action_type", "VIEW_TRUE");
-                    this.x0.e();
-                }
-                this.w0 = skinInfo;
-                int k = ej.k(tbPageContext.getPageActivity());
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                layoutParams.width = k;
-                if (!StringUtils.isNull(skinInfo.skin_size)) {
-                    String[] split = skinInfo.skin_size.split(",");
-                    if (split.length > 1) {
-                        int e = dh.e(split[0].trim(), -1);
-                        int e2 = dh.e(split[1].trim(), -1);
-                        if (e > 0 && e2 > 0) {
-                            layoutParams.height = (int) (layoutParams.width * (e2 / e));
-                        } else {
-                            layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275);
-                        }
-                    }
-                } else {
-                    layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275);
-                }
-                setLayoutParams(layoutParams);
-                K(skinInfo.skin, 10, false);
-                setOnClickListener(this);
-                setScaleType(ImageView.ScaleType.CENTER_CROP);
-                setVisibility(0);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.x0) != null && !StringUtils.isNull(skinInfo.url)) {
+            wn8.b bVar = this.y0;
+            if (bVar != null) {
+                bVar.delete("action_type");
+                this.y0.d("action_type", "CLICK");
+                this.y0.e();
             }
-            setVisibility(8);
+            UrlManager.getInstance().dealOneLink(this.w0, new String[]{this.x0.url});
         }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadSkinView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        v();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -156,6 +83,78 @@ public class ThreadSkinView extends TbImageView {
                 return;
             }
         }
-        v();
+        w();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ThreadSkinView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        w();
+    }
+
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, wn8.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
+            if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
+                this.w0 = tbPageContext;
+                if (this.x0 != skinInfo && bVar != null) {
+                    this.y0 = bVar;
+                    bVar.delete("action_type");
+                    this.y0.d("obj_id", skinInfo.obj_id);
+                    this.y0.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                    this.y0.d("obj_name", skinInfo.monitor_id);
+                    this.y0.d("action_type", "VIEW_TRUE");
+                    this.y0.e();
+                }
+                this.x0 = skinInfo;
+                int k = fj.k(tbPageContext.getPageActivity());
+                ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                layoutParams.width = k;
+                if (!StringUtils.isNull(skinInfo.skin_size)) {
+                    String[] split = skinInfo.skin_size.split(",");
+                    if (split.length > 1) {
+                        int e = eh.e(split[0].trim(), -1);
+                        int e2 = eh.e(split[1].trim(), -1);
+                        if (e > 0 && e2 > 0) {
+                            layoutParams.height = (int) (layoutParams.width * (e2 / e));
+                        } else {
+                            layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275);
+                        }
+                    }
+                } else {
+                    layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275);
+                }
+                setLayoutParams(layoutParams);
+                L(skinInfo.skin, 10, false);
+                setOnClickListener(this);
+                setScaleType(ImageView.ScaleType.CENTER_CROP);
+                setVisibility(0);
+                return;
+            }
+            setVisibility(8);
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setVisibility(8);
+        }
     }
 }

@@ -21,6 +21,13 @@ public class BdShimmerView extends f1 {
     public ImageView s;
     public int t;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    public BdShimmerView getLoadingView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (BdShimmerView) invokeV.objValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BdShimmerView(Context context) {
         this(context, null, 0);
@@ -42,48 +49,32 @@ public class BdShimmerView extends f1 {
         }
     }
 
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.s = new ImageView(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 17;
-            this.s.setLayoutParams(layoutParams);
-            addView(this.s);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    public BdShimmerView getLoadingView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (BdShimmerView) invokeV.objValue;
-    }
-
     public void setType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.t = i;
             Resources resources = getResources();
             int i2 = this.t;
-            if (i2 == 0) {
-                Drawable drawable = resources.getDrawable(R.drawable.shimmer_white_loading);
-                if (drawable == null) {
-                    this.s.setImageDrawable(resources.getDrawable(R.drawable.shimmer_white_loading));
-                } else {
-                    this.s.setImageDrawable(drawable);
+            if (i2 != 0) {
+                if (i2 == 1) {
+                    Drawable drawable = resources.getDrawable(R.drawable.shimmer_black_loading);
+                    if (drawable == null) {
+                        this.s.setImageDrawable(resources.getDrawable(R.drawable.shimmer_black_loading));
+                    } else {
+                        this.s.setImageDrawable(drawable);
+                    }
+                    setMaskShape(f1.f.a);
+                    return;
                 }
-                setMaskShape(f1.f.c);
-            } else if (i2 != 1) {
-            } else {
-                Drawable drawable2 = resources.getDrawable(R.drawable.shimmer_black_loading);
-                if (drawable2 == null) {
-                    this.s.setImageDrawable(resources.getDrawable(R.drawable.shimmer_black_loading));
-                } else {
-                    this.s.setImageDrawable(drawable2);
-                }
-                setMaskShape(f1.f.a);
+                return;
             }
+            Drawable drawable2 = resources.getDrawable(R.drawable.shimmer_white_loading);
+            if (drawable2 == null) {
+                this.s.setImageDrawable(resources.getDrawable(R.drawable.shimmer_white_loading));
+            } else {
+                this.s.setImageDrawable(drawable2);
+            }
+            setMaskShape(f1.f.c);
         }
     }
 
@@ -128,5 +119,16 @@ public class BdShimmerView extends f1 {
             }
         }
         a(context);
+    }
+
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.s = new ImageView(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 17;
+            this.s.setLayoutParams(layoutParams);
+            addView(this.s);
+        }
     }
 }

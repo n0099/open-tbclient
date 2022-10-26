@@ -29,54 +29,81 @@ public final class BuildInfo {
     public static String getAndroidBuildId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.ID : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Build.ID;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getBrand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.BRAND : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Build.BRAND;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getBuildRelease() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.VERSION.RELEASE : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Build.VERSION.RELEASE;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getBuildType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.TYPE : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Build.TYPE;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.DEVICE : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return Build.DEVICE;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getDeviceManufacturer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.MANUFACTURER : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return Build.MANUFACTURER;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getDeviceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.MODEL : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return Build.MODEL;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getProduct() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? Build.PRODUCT : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return Build.PRODUCT;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static int getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return Build.VERSION.SDK_INT;
+        }
+        return invokeV.intValue;
     }
 }

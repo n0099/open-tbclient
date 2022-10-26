@@ -44,9 +44,30 @@ public final class DownloadConstants {
     public static DestinationMode sDestinationMode;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(819163103, "Lcom/baidu/down/manage/DownloadConstants;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(819163103, "Lcom/baidu/down/manage/DownloadConstants;");
+        }
+    }
+
+    public static boolean isStatusError(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i >= 400 && i < 600 : invokeI.booleanValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class DestinationMode {
+    public final class DestinationMode {
         public static final /* synthetic */ DestinationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DestinationMode AUTO;
@@ -98,18 +119,24 @@ public final class DownloadConstants {
         public static DestinationMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DestinationMode) Enum.valueOf(DestinationMode.class, str) : (DestinationMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (DestinationMode) Enum.valueOf(DestinationMode.class, str);
+            }
+            return (DestinationMode) invokeL.objValue;
         }
 
         public static DestinationMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DestinationMode[]) $VALUES.clone() : (DestinationMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (DestinationMode[]) $VALUES.clone();
+            }
+            return (DestinationMode[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class DownloadColumns implements BaseColumns {
+    public final class DownloadColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_AUTO_PAUSE = "AUTO_PAUSE";
         public static final String COLUMN_CONTROL_FLAG = "CONTROL_FLAG";
@@ -148,21 +175,6 @@ public final class DownloadConstants {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(819163103, "Lcom/baidu/down/manage/DownloadConstants;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(819163103, "Lcom/baidu/down/manage/DownloadConstants;");
-        }
-    }
-
     public DownloadConstants() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -180,7 +192,10 @@ public final class DownloadConstants {
     public static String getDestinationDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sDestinationDir : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sDestinationDir;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static DestinationMode getDestinationMode() {
@@ -188,15 +203,12 @@ public final class DownloadConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             DestinationMode destinationMode = sDestinationMode;
-            return destinationMode != null ? destinationMode : DestinationMode.AUTO;
+            if (destinationMode != null) {
+                return destinationMode;
+            }
+            return DestinationMode.AUTO;
         }
         return (DestinationMode) invokeV.objValue;
-    }
-
-    public static boolean isStatusError(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i >= 400 && i < 600 : invokeI.booleanValue;
     }
 
     public static void setDestinationDir(String str) {

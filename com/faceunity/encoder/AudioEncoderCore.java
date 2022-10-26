@@ -59,63 +59,63 @@ public class AudioEncoderCore {
 
     public void drainEncoder() throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
-        while (true) {
-            int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
-            if (dequeueOutputBuffer == -1) {
-                return;
-            }
-            if (dequeueOutputBuffer == -3) {
-                outputBuffers = this.mEncoder.getOutputBuffers();
-            } else if (dequeueOutputBuffer == -2) {
-                if (!this.mMuxerStarted) {
-                    MediaFormat outputFormat = this.mEncoder.getOutputFormat();
-                    Log.d(TAG, "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
-                    if (!this.mMuxer.start()) {
-                        synchronized (this.mMuxer) {
-                            while (!this.mMuxer.isStarted()) {
-                                try {
-                                    this.mMuxer.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
+            while (true) {
+                int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
+                if (dequeueOutputBuffer != -1) {
+                    if (dequeueOutputBuffer == -3) {
+                        outputBuffers = this.mEncoder.getOutputBuffers();
+                    } else if (dequeueOutputBuffer == -2) {
+                        if (!this.mMuxerStarted) {
+                            MediaFormat outputFormat = this.mEncoder.getOutputFormat();
+                            Log.d(TAG, "encoder output format changed: " + outputFormat);
+                            this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
+                            if (!this.mMuxer.start()) {
+                                synchronized (this.mMuxer) {
+                                    while (!this.mMuxer.isStarted()) {
+                                        try {
+                                            this.mMuxer.wait(100L);
+                                        } catch (InterruptedException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
                                 }
                             }
-                        }
-                    }
-                    this.mMuxerStarted = true;
-                } else {
-                    throw new RuntimeException("format changed twice");
-                }
-            } else if (dequeueOutputBuffer < 0) {
-                Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-            } else {
-                ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                if (byteBuffer != null) {
-                    MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
-                    if (bufferInfo2.size != 0) {
-                        if (this.mMuxerStarted) {
-                            byteBuffer.position(bufferInfo2.offset);
-                            MediaCodec.BufferInfo bufferInfo3 = this.mBufferInfo;
-                            byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                            this.mMuxer.writeSampleData(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                            this.mMuxerStarted = true;
                         } else {
-                            throw new RuntimeException("muxer hasn't started");
+                            throw new RuntimeException("format changed twice");
+                        }
+                    } else if (dequeueOutputBuffer < 0) {
+                        Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                    } else {
+                        ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                        if (byteBuffer != null) {
+                            MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
+                            if ((bufferInfo.flags & 2) != 0) {
+                                bufferInfo.size = 0;
+                            }
+                            MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
+                            if (bufferInfo2.size != 0) {
+                                if (this.mMuxerStarted) {
+                                    byteBuffer.position(bufferInfo2.offset);
+                                    MediaCodec.BufferInfo bufferInfo3 = this.mBufferInfo;
+                                    byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                                    this.mMuxer.writeSampleData(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                                } else {
+                                    throw new RuntimeException("muxer hasn't started");
+                                }
+                            }
+                            this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            if ((this.mBufferInfo.flags & 4) != 0) {
+                                return;
+                            }
+                        } else {
+                            throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
                         }
                     }
-                    this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if ((this.mBufferInfo.flags & 4) != 0) {
-                        return;
-                    }
                 } else {
-                    throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    return;
                 }
             }
         }

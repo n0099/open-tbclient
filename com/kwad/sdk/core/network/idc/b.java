@@ -13,7 +13,7 @@ public final class b {
         w.c(context, "ksadsdk_idc", "idc_data", aVar == null ? "" : aVar.toJson().toString());
     }
 
-    public static void a(Context context, Map<String, String> map) {
+    public static void a(Context context, Map map) {
         w.c(context, "ksadsdk_idc", "idc_current", (map == null || map.isEmpty()) ? "" : new JSONObject(map).toString());
     }
 
@@ -30,7 +30,7 @@ public final class b {
         return com.kwad.sdk.core.network.idc.kwai.a.cb(w.d(context, "ksadsdk_idc", "idc_data", ""));
     }
 
-    public static Map<String, String> bu(Context context) {
+    public static Map bu(Context context) {
         return r.parseJSON2MapString(w.d(context, "ksadsdk_idc", "idc_current", ""));
     }
 }

@@ -39,10 +39,10 @@ public class AccountManager extends BaseManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             if (BaseManager.isNullContext(context)) {
                 IMListener removeListener = ListenerManager.getInstance().removeListener(str);
-                if (removeListener == null || !(removeListener instanceof ILoginListener)) {
+                if (removeListener != null && (removeListener instanceof ILoginListener)) {
+                    ((ILoginListener) removeListener).onLogoutResult(1005, "Context is null", -1);
                     return false;
                 }
-                ((ILoginListener) removeListener).onLogoutResult(1005, "Context is null", -1);
                 return false;
             }
             return AccountManagerImpl.getInstance(context).clearToken(str);
@@ -64,7 +64,7 @@ public class AccountManager extends BaseManager {
 
     public static void disconnect(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || BaseManager.isNullContext(context)) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, context) != null) || BaseManager.isNullContext(context)) {
             return;
         }
         AccountManagerImpl.getInstance(context).disconnect(null);
@@ -85,36 +85,40 @@ public class AccountManager extends BaseManager {
     public static int getLoginState(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? AccountManagerImpl.getInstance(context).getLoginState() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return AccountManagerImpl.getInstance(context).getLoginState();
+        }
+        return invokeL.intValue;
     }
 
     public static boolean getMediaRole(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? AccountManagerImpl.getInstance(context).getMediaRole() : invokeL.booleanValue;
-    }
-
-    public static void getMsgSettingSwitchStatus(Context context, IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, iGetMsgSettingSwitchListener) == null) {
-            if (!BaseManager.isNullContext(context)) {
-                AccountManagerImpl.getInstance(context).getMsgSettingSwitchStatus(iGetMsgSettingSwitchListener);
-            } else if (iGetMsgSettingSwitchListener != null) {
-                iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR, 0, 0);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return AccountManagerImpl.getInstance(context).getMediaRole();
         }
+        return invokeL.booleanValue;
     }
 
     public static int getNotificationPrivacy(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? AccountManagerImpl.getInstance(context).getNotificationPrivacy(context) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return AccountManagerImpl.getInstance(context).getNotificationPrivacy(context);
+        }
+        return invokeL.intValue;
     }
 
     public static String getToken(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? BaseManager.isNullContext(context) ? "" : AccountManagerImpl.getInstance(context).getToken() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (BaseManager.isNullContext(context)) {
+                return "";
+            }
+            return AccountManagerImpl.getInstance(context).getToken();
+        }
+        return (String) invokeL.objValue;
     }
 
     public static long getUK(Context context) {
@@ -132,18 +136,13 @@ public class AccountManager extends BaseManager {
     public static String getUid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? BaseManager.isNullContext(context) ? "" : AccountManagerImpl.getInstance(context).getUid() : (String) invokeL.objValue;
-    }
-
-    public static void getUidByUk(Context context, long[] jArr, IGetUidByUkListener iGetUidByUkListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, jArr, iGetUidByUkListener) == null) {
-            if (!BaseManager.isNullContext(context)) {
-                AccountManagerImpl.getInstance(context).getUidByUk(jArr, iGetUidByUkListener);
-            } else if (iGetUidByUkListener != null) {
-                iGetUidByUkListener.onGetUidByUkResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, jArr, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            if (BaseManager.isNullContext(context)) {
+                return "";
             }
+            return AccountManagerImpl.getInstance(context).getUid();
         }
+        return (String) invokeL.objValue;
     }
 
     public static void init(Context context) {
@@ -151,18 +150,6 @@ public class AccountManager extends BaseManager {
         if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
             AccountManagerImpl.getInstance(context);
         }
-    }
-
-    public static boolean isCuidLogin(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            int loginType = AccountManagerImpl.getInstance(context).getLoginType();
-            String str = BaseManager.TAG;
-            LogUtils.d(str, "isCuidLogin loginType: " + loginType);
-            return loginType == 6;
-        }
-        return invokeL.booleanValue;
     }
 
     public static boolean isLogin(Context context) {
@@ -177,28 +164,23 @@ public class AccountManager extends BaseManager {
         return invokeL.booleanValue;
     }
 
-    public static void login(Context context, String str, ILoginListener iLoginListener) {
+    public static void getMsgSettingSwitchStatus(Context context, IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, context, str, iLoginListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, iGetMsgSettingSwitchListener) == null) {
             if (BaseManager.isNullContext(context)) {
-                if (iLoginListener != null) {
-                    iLoginListener.onLoginResult(1005, "Context is NULL");
+                if (iGetMsgSettingSwitchListener != null) {
+                    iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR, 0, 0);
+                    return;
                 }
-            } else if (TextUtils.isEmpty(str)) {
-                if (iLoginListener != null) {
-                    iLoginListener.onLoginResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
-                }
-            } else if (!TextUtils.isEmpty(AccountManagerImpl.getInstance(context).getUid())) {
-                AccountManagerImpl.getInstance(context).login(AccountManagerImpl.getInstance(context).getLoginType(), getUid(context), str, AccountManagerImpl.getInstance(context).getFrom(), AccountManagerImpl.getInstance(context).getcFrom(), iLoginListener);
-            } else if (iLoginListener != null) {
-                iLoginListener.onLoginResult(1005, "uid is required and must be set using setUid() method before login");
+                return;
             }
+            AccountManagerImpl.getInstance(context).getMsgSettingSwitchStatus(iGetMsgSettingSwitchListener);
         }
     }
 
     public static void logout(Context context, ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65553, null, context, iLoginListener) == null) || BaseManager.isNullContext(context)) {
+        if ((interceptable != null && interceptable.invokeLL(65553, null, context, iLoginListener) != null) || BaseManager.isNullContext(context)) {
             return;
         }
         AccountManagerImpl.getInstance(context).logout(1, iLoginListener);
@@ -206,7 +188,7 @@ public class AccountManager extends BaseManager {
 
     public static void registerToDoAfterLoginListener(Context context, TodoAfterLogin todoAfterLogin) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65554, null, context, todoAfterLogin) == null) || BaseManager.isNullContext(context)) {
+        if ((interceptable != null && interceptable.invokeLL(65554, null, context, todoAfterLogin) != null) || BaseManager.isNullContext(context)) {
             return;
         }
         AccountManagerImpl.getInstance(context).registerToDoAfterLoginListener(todoAfterLogin);
@@ -214,7 +196,7 @@ public class AccountManager extends BaseManager {
 
     public static void registerToDoBeforeLogoutListener(Context context, TodoBeforeLogout todoBeforeLogout) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65555, null, context, todoBeforeLogout) == null) || BaseManager.isNullContext(context)) {
+        if ((interceptable != null && interceptable.invokeLL(65555, null, context, todoBeforeLogout) != null) || BaseManager.isNullContext(context)) {
             return;
         }
         AccountManagerImpl.getInstance(context).registerToDoBeforeLogoutListener(todoBeforeLogout);
@@ -265,17 +247,6 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static void setMsgSettingSwitchStatus(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), iSetMsgSettingSwitchListener}) == null) {
-            if (!BaseManager.isNullContext(context)) {
-                AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i, i2, iSetMsgSettingSwitchListener);
-            } else if (iSetMsgSettingSwitchListener != null) {
-                iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
-            }
-        }
-    }
-
     public static void setNofityPaid(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65562, null, context, j) == null) {
@@ -283,25 +254,14 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static void setNotificationPrivacy(Context context, int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65563, null, context, i, iSetNotificationPrivacyListener) == null) {
-            if (!BaseManager.isNullContext(context)) {
-                AccountManagerImpl.getInstance(context).setNotificationPrivacy(i, iSetNotificationPrivacyListener);
-            } else if (iSetNotificationPrivacyListener != null) {
-                iSetNotificationPrivacyListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
-            }
-        }
-    }
-
     public static boolean setUid(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, context, str)) == null) {
-            if (BaseManager.isNullContext(context) || TextUtils.isEmpty(str)) {
-                return false;
+            if (!BaseManager.isNullContext(context) && !TextUtils.isEmpty(str)) {
+                return AccountManagerImpl.getInstance(context).setUid(str);
             }
-            return AccountManagerImpl.getInstance(context).setUid(str);
+            return false;
         }
         return invokeLL.booleanValue;
     }
@@ -310,6 +270,84 @@ public class AccountManager extends BaseManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65565, null, context, i) == null) {
             AccountManagerImpl.getInstance(context).setUpdateSwitch(i);
+        }
+    }
+
+    public static void getUidByUk(Context context, long[] jArr, IGetUidByUkListener iGetUidByUkListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, context, jArr, iGetUidByUkListener) == null) {
+            if (BaseManager.isNullContext(context)) {
+                if (iGetUidByUkListener != null) {
+                    iGetUidByUkListener.onGetUidByUkResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, jArr, null);
+                    return;
+                }
+                return;
+            }
+            AccountManagerImpl.getInstance(context).getUidByUk(jArr, iGetUidByUkListener);
+        }
+    }
+
+    public static void setNotificationPrivacy(Context context, int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65563, null, context, i, iSetNotificationPrivacyListener) == null) {
+            if (BaseManager.isNullContext(context)) {
+                if (iSetNotificationPrivacyListener != null) {
+                    iSetNotificationPrivacyListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
+                    return;
+                }
+                return;
+            }
+            AccountManagerImpl.getInstance(context).setNotificationPrivacy(i, iSetNotificationPrivacyListener);
+        }
+    }
+
+    public static boolean isCuidLogin(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            int loginType = AccountManagerImpl.getInstance(context).getLoginType();
+            String str = BaseManager.TAG;
+            LogUtils.d(str, "isCuidLogin loginType: " + loginType);
+            if (loginType == 6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void login(Context context, String str, ILoginListener iLoginListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65552, null, context, str, iLoginListener) == null) {
+            if (BaseManager.isNullContext(context)) {
+                if (iLoginListener != null) {
+                    iLoginListener.onLoginResult(1005, "Context is NULL");
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                if (iLoginListener != null) {
+                    iLoginListener.onLoginResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
+                }
+            } else if (TextUtils.isEmpty(AccountManagerImpl.getInstance(context).getUid())) {
+                if (iLoginListener != null) {
+                    iLoginListener.onLoginResult(1005, "uid is required and must be set using setUid() method before login");
+                }
+            } else {
+                AccountManagerImpl.getInstance(context).login(AccountManagerImpl.getInstance(context).getLoginType(), getUid(context), str, AccountManagerImpl.getInstance(context).getFrom(), AccountManagerImpl.getInstance(context).getcFrom(), iLoginListener);
+            }
+        }
+    }
+
+    public static void setMsgSettingSwitchStatus(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), iSetMsgSettingSwitchListener}) == null) {
+            if (BaseManager.isNullContext(context)) {
+                if (iSetMsgSettingSwitchListener != null) {
+                    iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
+                    return;
+                }
+                return;
+            }
+            AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i, i2, iSetMsgSettingSwitchListener);
         }
     }
 

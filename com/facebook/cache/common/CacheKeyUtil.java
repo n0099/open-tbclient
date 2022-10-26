@@ -34,7 +34,7 @@ public final class CacheKeyUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cacheKey)) == null) {
             try {
                 if (cacheKey instanceof MultiCacheKey) {
-                    return secureHashKey(((MultiCacheKey) cacheKey).getCacheKeys().get(0));
+                    return secureHashKey((CacheKey) ((MultiCacheKey) cacheKey).getCacheKeys().get(0));
                 }
                 return secureHashKey(cacheKey);
             } catch (UnsupportedEncodingException e) {
@@ -44,21 +44,27 @@ public final class CacheKeyUtil {
         return (String) invokeL.objValue;
     }
 
-    public static List<String> getResourceIds(CacheKey cacheKey) {
+    public static List getResourceIds(CacheKey cacheKey) {
         ArrayList arrayList;
+        String secureHashKey;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cacheKey)) == null) {
             try {
                 if (cacheKey instanceof MultiCacheKey) {
-                    List<CacheKey> cacheKeys = ((MultiCacheKey) cacheKey).getCacheKeys();
+                    List cacheKeys = ((MultiCacheKey) cacheKey).getCacheKeys();
                     arrayList = new ArrayList(cacheKeys.size());
                     for (int i = 0; i < cacheKeys.size(); i++) {
-                        arrayList.add(secureHashKey(cacheKeys.get(i)));
+                        arrayList.add(secureHashKey((CacheKey) cacheKeys.get(i)));
                     }
                 } else {
                     arrayList = new ArrayList(1);
-                    arrayList.add(cacheKey.isResourceIdForDebugging() ? cacheKey.getUriString() : secureHashKey(cacheKey));
+                    if (cacheKey.isResourceIdForDebugging()) {
+                        secureHashKey = cacheKey.getUriString();
+                    } else {
+                        secureHashKey = secureHashKey(cacheKey);
+                    }
+                    arrayList.add(secureHashKey);
                 }
                 return arrayList;
             } catch (UnsupportedEncodingException e) {
@@ -71,6 +77,9 @@ public final class CacheKeyUtil {
     public static String secureHashKey(CacheKey cacheKey) throws UnsupportedEncodingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cacheKey)) == null) ? SecureHashUtil.makeSHA1HashBase64(cacheKey.getUriString().getBytes("UTF-8")) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cacheKey)) == null) {
+            return SecureHashUtil.makeSHA1HashBase64(cacheKey.getUriString().getBytes("UTF-8"));
+        }
+        return (String) invokeL.objValue;
     }
 }

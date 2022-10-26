@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.route.BikingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteLine;
@@ -18,20 +17,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class RouteLine<T extends RouteStep> implements Parcelable {
+public class RouteLine implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TYPE a;
     public RouteNode b;
     public RouteNode c;
     public String d;
-    public List<T> e;
+    public List e;
     public int f;
     public int g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class TYPE {
+    public final class TYPE {
         public static /* synthetic */ Interceptable $ic;
         public static final TYPE BIKINGSTEP;
         public static final TYPE DRIVESTEP;
@@ -118,7 +117,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     }
 
     public RouteLine(Parcel parcel) {
-        Object obj;
+        Parcelable.Creator creator;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,19 +137,19 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
         this.c = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
         this.d = parcel.readString();
         if (readInt == 0) {
-            obj = DrivingRouteLine.DrivingStep.CREATOR;
+            creator = DrivingRouteLine.DrivingStep.CREATOR;
         } else if (readInt == 1) {
-            obj = TransitRouteLine.TransitStep.CREATOR;
+            creator = TransitRouteLine.TransitStep.CREATOR;
         } else if (readInt != 2) {
             if (readInt == 3) {
-                obj = BikingRouteLine.BikingStep.CREATOR;
+                creator = BikingRouteLine.BikingStep.CREATOR;
             }
             this.f = parcel.readInt();
             this.g = parcel.readInt();
         } else {
-            obj = WalkingRouteLine.WalkingStep.CREATOR;
+            creator = WalkingRouteLine.WalkingStep.CREATOR;
         }
-        this.e = parcel.createTypedArrayList(obj);
+        this.e = parcel.createTypedArrayList(creator);
         this.f = parcel.readInt();
         this.g = parcel.readInt();
     }
@@ -165,7 +164,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List<T> getAllStep() {
+    public List getAllStep() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (List) invokeV.objValue;
@@ -228,7 +227,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
         }
     }
 
-    public void setSteps(List<T> list) {
+    public void setSteps(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.e = list;

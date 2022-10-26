@@ -76,15 +76,82 @@ public class LiveMessageParser {
                 }
             }
             LiveMessageBean.MessageBody messageBody = liveMessageBean.message_body;
-            if (messageBody != null) {
-                return (messageBody.txt == null && messageBody.voice == null && messageBody.link == null && messageBody.pic == null) ? false : true;
+            if (messageBody == null) {
+                return false;
             }
-            return false;
+            if (messageBody.txt == null && messageBody.voice == null && messageBody.link == null && messageBody.pic == null) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static List<LiveMessageBean> getMessageList(JSONArray jSONArray) {
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0024 A[Catch: Exception -> 0x0036, TRY_LEAVE, TryCatch #1 {Exception -> 0x0036, blocks: (B:6:0x0007, B:8:0x0013, B:13:0x001e, B:15:0x0024, B:11:0x001a), top: B:26:0x0007, inners: #0 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static LiveMessageBean parseJson(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject jSONObject2;
+        LiveMessageBean parseContentJson;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                String optString = jSONObject.optString("content");
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        jSONObject2 = new JSONObject(optString);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    parseContentJson = parseContentJson(jSONObject2);
+                    if (parseContentJson != null) {
+                        parseContentJson.msgId = jSONObject.optLong("msgid");
+                        parseContentJson.time = jSONObject.optLong("create_time");
+                    }
+                    return parseContentJson;
+                }
+                jSONObject2 = null;
+                parseContentJson = parseContentJson(jSONObject2);
+                if (parseContentJson != null) {
+                }
+                return parseContentJson;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (LiveMessageBean) invokeL.objValue;
+    }
+
+    public static LiveMessageBean.MessageBody parseMessageBody(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
+            if (!TextUtils.isEmpty(jSONObject.optString("message_body"))) {
+                return parseMessageBody(jSONObject.optString("message_body"));
+            }
+            if (!TextUtils.isEmpty(jSONObject.optString("content"))) {
+                String optString = jSONObject.optString("content");
+                if (!TextUtils.isEmpty(optString)) {
+                    LiveMessageBean.MessageBody messageBody = new LiveMessageBean.MessageBody();
+                    LiveMessageBean.Txt txt = new LiveMessageBean.Txt();
+                    txt.word = optString;
+                    messageBody.txt = txt;
+                    return messageBody;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (LiveMessageBean.MessageBody) invokeL.objValue;
+    }
+
+    public static List getMessageList(JSONArray jSONArray) {
         InterceptResult invokeL;
         LiveMessageBean parseJson;
         Interceptable interceptable = $ic;
@@ -103,18 +170,6 @@ public class LiveMessageParser {
             return null;
         }
         return (List) invokeL.objValue;
-    }
-
-    public static LiveMessageBean.MessageBody parseAtMessageBody(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            if (TextUtils.isEmpty(jSONObject.optString("at_message_body"))) {
-                return null;
-            }
-            return parseMessageBody(jSONObject.optString("at_message_body"));
-        }
-        return (LiveMessageBean.MessageBody) invokeL.objValue;
     }
 
     public static LiveMessageBean parseChatMsg(ChatMsg chatMsg) {
@@ -137,6 +192,18 @@ public class LiveMessageParser {
         return (LiveMessageBean) invokeL.objValue;
     }
 
+    public static LiveMessageBean.MessageBody parseAtMessageBody(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (!TextUtils.isEmpty(jSONObject.optString("at_message_body"))) {
+                return parseMessageBody(jSONObject.optString("at_message_body"));
+            }
+            return null;
+        }
+        return (LiveMessageBean.MessageBody) invokeL.objValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:16:0x0039 A[Catch: Exception -> 0x0033, TryCatch #2 {Exception -> 0x0033, blocks: (B:6:0x001b, B:8:0x0028, B:16:0x0039, B:17:0x0057, B:26:0x007b, B:28:0x008b, B:29:0x0091, B:31:0x00a3, B:32:0x00a9, B:34:0x00af, B:35:0x00b5, B:37:0x00dd, B:38:0x00e3, B:40:0x00ed, B:41:0x00f3, B:43:0x00fd, B:44:0x0103, B:46:0x0133, B:47:0x0139, B:49:0x0141, B:19:0x005e, B:21:0x006a, B:24:0x0077, B:11:0x002f), top: B:61:0x001b, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
     /*
@@ -146,94 +213,211 @@ public class LiveMessageParser {
         InterceptResult invokeL;
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, jSONObject)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            LiveMessageBean liveMessageBean = new LiveMessageBean();
+            if (jSONObject != null) {
+                try {
+                    String optString = jSONObject.optString("text");
+                    if (!TextUtils.isEmpty(optString)) {
+                        try {
+                            jSONObject2 = new JSONObject(optString);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        if (jSONObject2 == null) {
+                            int optInt = jSONObject2.optInt("type");
+                            liveMessageBean.type = String.valueOf(optInt);
+                            liveMessageBean.room_id = jSONObject2.optString("room_id");
+                            liveMessageBean.to_uid = jSONObject2.optString("to_uid");
+                            switch (optInt) {
+                                case 100:
+                                case 101:
+                                case 102:
+                                case 103:
+                                case 104:
+                                case 105:
+                                case 106:
+                                case 107:
+                                case 108:
+                                    String optString2 = jSONObject2.optString("data");
+                                    if (!TextUtils.isEmpty(optString2)) {
+                                        try {
+                                            liveMessageBean.data = parseDataFromJson(optInt, new JSONObject(optString2));
+                                        } catch (JSONException e2) {
+                                            e2.printStackTrace();
+                                        }
+                                    }
+                                    return liveMessageBean;
+                                default:
+                                    liveMessageBean.uid = jSONObject2.optString("uid");
+                                    if (!TextUtils.isEmpty(jSONObject2.optString(PushMessageHelper.MESSAGE_TYPE))) {
+                                        liveMessageBean.message_type = jSONObject2.optString(PushMessageHelper.MESSAGE_TYPE);
+                                    }
+                                    liveMessageBean.character_name = jSONObject2.optString("character_name");
+                                    if (!TextUtils.isEmpty(jSONObject2.optString("character"))) {
+                                        liveMessageBean.character = jSONObject2.optString("character");
+                                    }
+                                    if (!TextUtils.isEmpty("vip")) {
+                                        liveMessageBean.vip = jSONObject2.optString("vip");
+                                    }
+                                    liveMessageBean.name = jSONObject2.optString("name");
+                                    liveMessageBean.portrait = jSONObject2.optString("portrait");
+                                    liveMessageBean.content = jSONObject2.optString("content");
+                                    liveMessageBean.at_uid = jSONObject2.optString("at_uid");
+                                    if (!TextUtils.isEmpty(jSONObject2.optString("at_message_type"))) {
+                                        liveMessageBean.at_message_type = jSONObject2.optString("at_message_type");
+                                    }
+                                    if (!TextUtils.isEmpty(jSONObject2.optString("at_character"))) {
+                                        liveMessageBean.at_character = jSONObject2.optString("at_character");
+                                    }
+                                    if (!TextUtils.isEmpty(jSONObject2.optString("at_vip"))) {
+                                        liveMessageBean.at_vip = jSONObject2.optString("at_vip");
+                                    }
+                                    liveMessageBean.at_name = jSONObject2.optString("at_name");
+                                    liveMessageBean.at_character_name = jSONObject2.optString("at_character_name");
+                                    liveMessageBean.at_portrait = jSONObject2.optString("at_portrait");
+                                    liveMessageBean.message_body = parseMessageBody(jSONObject2);
+                                    liveMessageBean.content = jSONObject2.optString("content");
+                                    if (!TextUtils.isEmpty(jSONObject2.optString("at_message_body"))) {
+                                        liveMessageBean.at_message_body = parseAtMessageBody(jSONObject2);
+                                    }
+                                    JSONObject optJSONObject = jSONObject2.optJSONObject("ext_params");
+                                    if (optJSONObject != null) {
+                                        liveMessageBean.expand = optJSONObject.toString();
+                                        return liveMessageBean;
+                                    }
+                                    return liveMessageBean;
+                            }
+                        }
+                        return liveMessageBean;
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    return null;
+                }
+            }
+            jSONObject2 = null;
+            if (jSONObject2 == null) {
+            }
+        } else {
             return (LiveMessageBean) invokeL.objValue;
         }
-        LiveMessageBean liveMessageBean = new LiveMessageBean();
-        if (jSONObject != null) {
+    }
+
+    public static LiveMessageBean.MessageBody parseMessageBody(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        JSONObject jSONObject4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            JSONObject jSONObject5 = null;
             try {
-                String optString = jSONObject.optString("text");
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        jSONObject2 = new JSONObject(optString);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    if (jSONObject2 == null) {
-                        int optInt = jSONObject2.optInt("type");
-                        liveMessageBean.type = String.valueOf(optInt);
-                        liveMessageBean.room_id = jSONObject2.optString("room_id");
-                        liveMessageBean.to_uid = jSONObject2.optString("to_uid");
-                        switch (optInt) {
-                            case 100:
-                            case 101:
-                            case 102:
-                            case 103:
-                            case 104:
-                            case 105:
-                            case 106:
-                            case 107:
-                            case 108:
-                                String optString2 = jSONObject2.optString("data");
-                                if (!TextUtils.isEmpty(optString2)) {
-                                    try {
-                                        liveMessageBean.data = parseDataFromJson(optInt, new JSONObject(optString2));
-                                    } catch (JSONException e2) {
-                                        e2.printStackTrace();
-                                    }
-                                }
-                                return liveMessageBean;
-                            default:
-                                liveMessageBean.uid = jSONObject2.optString("uid");
-                                if (!TextUtils.isEmpty(jSONObject2.optString(PushMessageHelper.MESSAGE_TYPE))) {
-                                    liveMessageBean.message_type = jSONObject2.optString(PushMessageHelper.MESSAGE_TYPE);
-                                }
-                                liveMessageBean.character_name = jSONObject2.optString("character_name");
-                                if (!TextUtils.isEmpty(jSONObject2.optString("character"))) {
-                                    liveMessageBean.character = jSONObject2.optString("character");
-                                }
-                                if (!TextUtils.isEmpty("vip")) {
-                                    liveMessageBean.vip = jSONObject2.optString("vip");
-                                }
-                                liveMessageBean.name = jSONObject2.optString("name");
-                                liveMessageBean.portrait = jSONObject2.optString("portrait");
-                                liveMessageBean.content = jSONObject2.optString("content");
-                                liveMessageBean.at_uid = jSONObject2.optString("at_uid");
-                                if (!TextUtils.isEmpty(jSONObject2.optString("at_message_type"))) {
-                                    liveMessageBean.at_message_type = jSONObject2.optString("at_message_type");
-                                }
-                                if (!TextUtils.isEmpty(jSONObject2.optString("at_character"))) {
-                                    liveMessageBean.at_character = jSONObject2.optString("at_character");
-                                }
-                                if (!TextUtils.isEmpty(jSONObject2.optString("at_vip"))) {
-                                    liveMessageBean.at_vip = jSONObject2.optString("at_vip");
-                                }
-                                liveMessageBean.at_name = jSONObject2.optString("at_name");
-                                liveMessageBean.at_character_name = jSONObject2.optString("at_character_name");
-                                liveMessageBean.at_portrait = jSONObject2.optString("at_portrait");
-                                liveMessageBean.message_body = parseMessageBody(jSONObject2);
-                                liveMessageBean.content = jSONObject2.optString("content");
-                                if (!TextUtils.isEmpty(jSONObject2.optString("at_message_body"))) {
-                                    liveMessageBean.at_message_body = parseAtMessageBody(jSONObject2);
-                                }
-                                JSONObject optJSONObject = jSONObject2.optJSONObject("ext_params");
-                                if (optJSONObject != null) {
-                                    liveMessageBean.expand = optJSONObject.toString();
-                                    return liveMessageBean;
-                                }
-                                return liveMessageBean;
-                        }
-                    }
-                    return liveMessageBean;
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONObject = null;
+            }
+            if (jSONObject == null) {
                 return null;
             }
+            LiveMessageBean.MessageBody messageBody = new LiveMessageBean.MessageBody();
+            if (!TextUtils.isEmpty(jSONObject.optString("txt"))) {
+                try {
+                    jSONObject4 = new JSONObject(jSONObject.optString("txt"));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    jSONObject4 = null;
+                }
+                if (jSONObject4 != null) {
+                    String optString = jSONObject4.optString("word");
+                    LiveMessageBean.Txt txt = new LiveMessageBean.Txt();
+                    txt.word = optString;
+                    messageBody.txt = txt;
+                }
+            }
+            if (!TextUtils.isEmpty(jSONObject.optString("link"))) {
+                try {
+                    jSONObject3 = new JSONObject(jSONObject.optString("link"));
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                    jSONObject3 = null;
+                }
+                if (jSONObject3 != null) {
+                    String optString2 = jSONObject3.optString("title");
+                    String optString3 = jSONObject3.optString("url");
+                    LiveMessageBean.Link link = new LiveMessageBean.Link();
+                    link.title = optString2;
+                    link.url = optString3;
+                    messageBody.link = link;
+                }
+            }
+            if (!TextUtils.isEmpty(jSONObject.optString("voice"))) {
+                try {
+                    jSONObject2 = new JSONObject(jSONObject.optString("voice"));
+                } catch (JSONException e4) {
+                    e4.printStackTrace();
+                    jSONObject2 = null;
+                }
+                if (jSONObject2 != null) {
+                    String optString4 = jSONObject2.optString("url");
+                    String optString5 = jSONObject2.optString("duration");
+                    String optString6 = jSONObject2.optString("format");
+                    LiveMessageBean.Voice voice = new LiveMessageBean.Voice();
+                    voice.url = optString4;
+                    voice.duration = optString5;
+                    voice.format = optString6;
+                    messageBody.voice = voice;
+                }
+            }
+            if (!TextUtils.isEmpty(jSONObject.optString("pic"))) {
+                try {
+                    jSONObject5 = new JSONObject(jSONObject.optString("pic"));
+                } catch (JSONException e5) {
+                    e5.printStackTrace();
+                }
+                if (jSONObject5 != null) {
+                    String optString7 = jSONObject5.optString("origin");
+                    String optString8 = jSONObject5.optString("thumbnail");
+                    LiveMessageBean.Pic pic = new LiveMessageBean.Pic();
+                    try {
+                        JSONObject jSONObject6 = new JSONObject(optString7);
+                        LiveMessageBean.Pic.ImageInfo imageInfo = new LiveMessageBean.Pic.ImageInfo();
+                        if (!TextUtils.isEmpty(jSONObject6.optString("width"))) {
+                            imageInfo.width = jSONObject6.optInt("width");
+                        }
+                        if (!TextUtils.isEmpty(jSONObject6.optString("height"))) {
+                            imageInfo.height = jSONObject6.optInt("height");
+                        }
+                        imageInfo.url = jSONObject6.optString("url");
+                        imageInfo.format = jSONObject6.optString("format");
+                        pic.origin = imageInfo;
+                        messageBody.pic = pic;
+                    } catch (JSONException e6) {
+                        e6.printStackTrace();
+                    }
+                    try {
+                        JSONObject jSONObject7 = new JSONObject(optString8);
+                        LiveMessageBean.Pic.ImageInfo imageInfo2 = new LiveMessageBean.Pic.ImageInfo();
+                        if (!TextUtils.isEmpty(jSONObject7.optString("width"))) {
+                            imageInfo2.width = jSONObject7.optInt("width");
+                        }
+                        if (!TextUtils.isEmpty(jSONObject7.optString("height"))) {
+                            imageInfo2.height = jSONObject7.optInt("height");
+                        }
+                        imageInfo2.url = jSONObject7.optString("url");
+                        imageInfo2.format = jSONObject7.optString("format");
+                        pic.thumbnail = imageInfo2;
+                        messageBody.pic = pic;
+                    } catch (JSONException e7) {
+                        e7.printStackTrace();
+                    }
+                }
+            }
+            return messageBody;
         }
-        jSONObject2 = null;
-        if (jSONObject2 == null) {
-        }
+        return (LiveMessageBean.MessageBody) invokeL.objValue;
     }
 
     public static LiveMessageBean.Data parseDataFromJson(int i, JSONObject jSONObject) {
@@ -311,72 +495,9 @@ public class LiveMessageParser {
         return (LiveMessageBean.Data) invokeIL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0024 A[Catch: Exception -> 0x0036, TRY_LEAVE, TryCatch #1 {Exception -> 0x0036, blocks: (B:6:0x0007, B:8:0x0013, B:13:0x001e, B:15:0x0024, B:11:0x001a), top: B:26:0x0007, inners: #0 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static LiveMessageBean parseJson(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject jSONObject2;
-        LiveMessageBean parseContentJson;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                try {
-                    String optString = jSONObject.optString("content");
-                    if (!TextUtils.isEmpty(optString)) {
-                        try {
-                            jSONObject2 = new JSONObject(optString);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        parseContentJson = parseContentJson(jSONObject2);
-                        if (parseContentJson != null) {
-                            parseContentJson.msgId = jSONObject.optLong("msgid");
-                            parseContentJson.time = jSONObject.optLong("create_time");
-                        }
-                        return parseContentJson;
-                    }
-                    jSONObject2 = null;
-                    parseContentJson = parseContentJson(jSONObject2);
-                    if (parseContentJson != null) {
-                    }
-                    return parseContentJson;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (LiveMessageBean) invokeL.objValue;
-    }
-
-    public static LiveMessageBean.MessageBody parseMessageBody(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
-            if (!TextUtils.isEmpty(jSONObject.optString("message_body"))) {
-                return parseMessageBody(jSONObject.optString("message_body"));
-            }
-            if (TextUtils.isEmpty(jSONObject.optString("content"))) {
-                return null;
-            }
-            String optString = jSONObject.optString("content");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            LiveMessageBean.MessageBody messageBody = new LiveMessageBean.MessageBody();
-            LiveMessageBean.Txt txt = new LiveMessageBean.Txt();
-            txt.word = optString;
-            messageBody.txt = txt;
-            return messageBody;
-        }
-        return (LiveMessageBean.MessageBody) invokeL.objValue;
-    }
-
     public static ChatMsg trans2ChatMsg(Context context, LiveSendMessage liveSendMessage) {
         InterceptResult invokeLL;
+        AccountBean accountBean;
         String str;
         String str2;
         String str3;
@@ -405,10 +526,14 @@ public class LiveMessageParser {
                 liveMessageBean.message_type = "2";
             }
             Account account = LiveSDK.getInstance(context).getAccount();
-            AccountBean accountInfo = account != null ? account.accountInfo() : null;
-            if (accountInfo != null) {
-                liveMessageBean.portrait = accountInfo.getProtrait();
-                liveMessageBean.uid = accountInfo.getUid();
+            if (account != null) {
+                accountBean = account.accountInfo();
+            } else {
+                accountBean = null;
+            }
+            if (accountBean != null) {
+                liveMessageBean.portrait = accountBean.getProtrait();
+                liveMessageBean.uid = accountBean.getUid();
                 liveMessageBean.name = liveSendMessage.name;
             }
             LiveMessageBean.MessageBody messageBody = new LiveMessageBean.MessageBody();
@@ -468,18 +593,25 @@ public class LiveMessageParser {
                     if (!TextUtils.isEmpty(liveMessageBean.expand)) {
                         jSONObject.put("ext_params", new JSONObject(liveMessageBean.expand));
                     }
-                    if (liveMessageBean.message_body != null) {
+                    if (liveMessageBean.message_body == null) {
+                        str = "";
+                        str2 = "txt";
+                        str3 = "word";
+                    } else {
                         JSONObject jSONObject2 = new JSONObject();
                         LiveMessageBean.MessageBody messageBody2 = liveMessageBean.message_body;
-                        if (liveMessageBean.message_body.txt != null) {
+                        if (liveMessageBean.message_body.txt == null) {
+                            str = "";
+                        } else {
                             JSONObject jSONObject3 = new JSONObject();
                             str = "";
                             jSONObject3.put("word", messageBody2.txt.word);
                             jSONObject2.put("txt", jSONObject3);
-                        } else {
-                            str = "";
                         }
-                        if (liveMessageBean.message_body.pic != null) {
+                        if (liveMessageBean.message_body.pic == null) {
+                            str2 = "txt";
+                            str3 = "word";
+                        } else {
                             JSONObject jSONObject4 = new JSONObject();
                             JSONObject jSONObject5 = new JSONObject();
                             str2 = "txt";
@@ -494,9 +626,6 @@ public class LiveMessageParser {
                             jSONObject4.put("origin", jSONObject5);
                             jSONObject4.put("thumbnail", jSONObject6);
                             jSONObject2.put("pic", jSONObject4);
-                        } else {
-                            str2 = "txt";
-                            str3 = "word";
                         }
                         if (liveMessageBean.message_body.voice != null) {
                             JSONObject jSONObject7 = new JSONObject();
@@ -505,10 +634,6 @@ public class LiveMessageParser {
                             jSONObject2.put("voice", jSONObject7);
                         }
                         jSONObject.put("message_body", jSONObject2);
-                    } else {
-                        str = "";
-                        str2 = "txt";
-                        str3 = "word";
                     }
                     jSONObject.put("at_uid", liveMessageBean.at_uid);
                     StringBuilder sb = new StringBuilder();
@@ -568,121 +693,5 @@ public class LiveMessageParser {
             return null;
         }
         return (ChatMsg) invokeLL.objValue;
-    }
-
-    public static LiveMessageBean.MessageBody parseMessageBody(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        JSONObject jSONObject3;
-        JSONObject jSONObject4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            JSONObject jSONObject5 = null;
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONObject = null;
-            }
-            if (jSONObject != null) {
-                LiveMessageBean.MessageBody messageBody = new LiveMessageBean.MessageBody();
-                if (!TextUtils.isEmpty(jSONObject.optString("txt"))) {
-                    try {
-                        jSONObject4 = new JSONObject(jSONObject.optString("txt"));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                        jSONObject4 = null;
-                    }
-                    if (jSONObject4 != null) {
-                        String optString = jSONObject4.optString("word");
-                        LiveMessageBean.Txt txt = new LiveMessageBean.Txt();
-                        txt.word = optString;
-                        messageBody.txt = txt;
-                    }
-                }
-                if (!TextUtils.isEmpty(jSONObject.optString("link"))) {
-                    try {
-                        jSONObject3 = new JSONObject(jSONObject.optString("link"));
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
-                        jSONObject3 = null;
-                    }
-                    if (jSONObject3 != null) {
-                        String optString2 = jSONObject3.optString("title");
-                        String optString3 = jSONObject3.optString("url");
-                        LiveMessageBean.Link link = new LiveMessageBean.Link();
-                        link.title = optString2;
-                        link.url = optString3;
-                        messageBody.link = link;
-                    }
-                }
-                if (!TextUtils.isEmpty(jSONObject.optString("voice"))) {
-                    try {
-                        jSONObject2 = new JSONObject(jSONObject.optString("voice"));
-                    } catch (JSONException e4) {
-                        e4.printStackTrace();
-                        jSONObject2 = null;
-                    }
-                    if (jSONObject2 != null) {
-                        String optString4 = jSONObject2.optString("url");
-                        String optString5 = jSONObject2.optString("duration");
-                        String optString6 = jSONObject2.optString("format");
-                        LiveMessageBean.Voice voice = new LiveMessageBean.Voice();
-                        voice.url = optString4;
-                        voice.duration = optString5;
-                        voice.format = optString6;
-                        messageBody.voice = voice;
-                    }
-                }
-                if (!TextUtils.isEmpty(jSONObject.optString("pic"))) {
-                    try {
-                        jSONObject5 = new JSONObject(jSONObject.optString("pic"));
-                    } catch (JSONException e5) {
-                        e5.printStackTrace();
-                    }
-                    if (jSONObject5 != null) {
-                        String optString7 = jSONObject5.optString("origin");
-                        String optString8 = jSONObject5.optString("thumbnail");
-                        LiveMessageBean.Pic pic = new LiveMessageBean.Pic();
-                        try {
-                            JSONObject jSONObject6 = new JSONObject(optString7);
-                            LiveMessageBean.Pic.ImageInfo imageInfo = new LiveMessageBean.Pic.ImageInfo();
-                            if (!TextUtils.isEmpty(jSONObject6.optString("width"))) {
-                                imageInfo.width = jSONObject6.optInt("width");
-                            }
-                            if (!TextUtils.isEmpty(jSONObject6.optString("height"))) {
-                                imageInfo.height = jSONObject6.optInt("height");
-                            }
-                            imageInfo.url = jSONObject6.optString("url");
-                            imageInfo.format = jSONObject6.optString("format");
-                            pic.origin = imageInfo;
-                            messageBody.pic = pic;
-                        } catch (JSONException e6) {
-                            e6.printStackTrace();
-                        }
-                        try {
-                            JSONObject jSONObject7 = new JSONObject(optString8);
-                            LiveMessageBean.Pic.ImageInfo imageInfo2 = new LiveMessageBean.Pic.ImageInfo();
-                            if (!TextUtils.isEmpty(jSONObject7.optString("width"))) {
-                                imageInfo2.width = jSONObject7.optInt("width");
-                            }
-                            if (!TextUtils.isEmpty(jSONObject7.optString("height"))) {
-                                imageInfo2.height = jSONObject7.optInt("height");
-                            }
-                            imageInfo2.url = jSONObject7.optString("url");
-                            imageInfo2.format = jSONObject7.optString("format");
-                            pic.thumbnail = imageInfo2;
-                            messageBody.pic = pic;
-                        } catch (JSONException e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                }
-                return messageBody;
-            }
-            return null;
-        }
-        return (LiveMessageBean.MessageBody) invokeL.objValue;
     }
 }

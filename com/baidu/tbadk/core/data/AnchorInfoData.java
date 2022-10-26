@@ -61,121 +61,158 @@ public class AnchorInfoData extends OrmObject implements Serializable {
     public long getAuthorId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.authorId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.authorId;
+        }
+        return invokeV.longValue;
     }
 
     public String getAuthorName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.authorName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.authorName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getGroup_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.group_id : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.group_id;
+        }
+        return invokeV.longValue;
     }
 
     public String getIntro() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.intro : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.intro;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getIsVip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isVip : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isVip;
+        }
+        return invokeV.intValue;
     }
 
     public String getLabelName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.labelName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.labelName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getLikers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.likers : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.likers;
+        }
+        return invokeV.intValue;
     }
 
     public int getListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.listeners : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.listeners;
+        }
+        return invokeV.intValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.portrait : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.portrait;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPublisherPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.publisherPortrait : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.publisherPortrait;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.startTime : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.startTime;
+        }
+        return invokeV.intValue;
     }
 
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.status : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.portrait = jSONObject.getString("portrait");
-            this.name = jSONObject.getString("name");
-            this.startTime = jSONObject.getInt("start_time");
-            this.status = jSONObject.getInt("status");
-            this.authorId = jSONObject.getLong("author_id");
-            this.authorName = jSONObject.getString("author_name");
-            this.listeners = jSONObject.getInt("listeners");
-            this.likers = jSONObject.getInt("likers");
-            this.group_id = jSONObject.optLong("group_id", 0L);
-            this.intro = jSONObject.getString("intro");
-            this.publisherPortrait = jSONObject.getString("publisherPortrait");
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) && jSONObject != null) {
+            try {
+                this.portrait = jSONObject.getString("portrait");
+                this.name = jSONObject.getString("name");
+                this.startTime = jSONObject.getInt("start_time");
+                this.status = jSONObject.getInt("status");
+                this.authorId = jSONObject.getLong("author_id");
+                this.authorName = jSONObject.getString("author_name");
+                this.listeners = jSONObject.getInt("listeners");
+                this.likers = jSONObject.getInt("likers");
+                this.group_id = jSONObject.optLong("group_id", 0L);
+                this.intro = jSONObject.getString("intro");
+                this.publisherPortrait = jSONObject.getString("publisherPortrait");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public void parserProtobuf(AnchorInfo anchorInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, anchorInfo) == null) || anchorInfo == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, anchorInfo) == null) && anchorInfo != null) {
+            this.authorId = anchorInfo.author_id.longValue();
+            this.authorName = anchorInfo.author_name;
+            this.group_id = anchorInfo.group_id.longValue();
+            this.intro = anchorInfo.intro;
+            this.likers = anchorInfo.likers.intValue();
+            this.listeners = anchorInfo.listeners.intValue();
+            this.name = anchorInfo.name;
+            this.portrait = anchorInfo.portrait;
+            this.publisherPortrait = anchorInfo.publisherPortrait;
+            this.startTime = anchorInfo.start_time.intValue();
+            this.status = anchorInfo.status.intValue();
+            this.labelName = anchorInfo.label_name;
+            this.isVip = anchorInfo.is_vip.intValue();
         }
-        this.authorId = anchorInfo.author_id.longValue();
-        this.authorName = anchorInfo.author_name;
-        this.group_id = anchorInfo.group_id.longValue();
-        this.intro = anchorInfo.intro;
-        this.likers = anchorInfo.likers.intValue();
-        this.listeners = anchorInfo.listeners.intValue();
-        this.name = anchorInfo.name;
-        this.portrait = anchorInfo.portrait;
-        this.publisherPortrait = anchorInfo.publisherPortrait;
-        this.startTime = anchorInfo.start_time.intValue();
-        this.status = anchorInfo.status.intValue();
-        this.labelName = anchorInfo.label_name;
-        this.isVip = anchorInfo.is_vip.intValue();
     }
 
     public void setAuthorId(long j) {

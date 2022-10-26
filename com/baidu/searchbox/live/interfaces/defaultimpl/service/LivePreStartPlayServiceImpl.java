@@ -32,6 +32,7 @@ import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.Pair;
+import kotlin.Unit;
 import kotlin.collections.MapsKt__MapsJVMKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
@@ -50,6 +51,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public static final String AB_PRE_START_PLAYER_SWITCH = "android_live_media_pre_start_player_switch";
     public static final Companion Companion;
     public static final int ENABLE_ERROR_NO_CONVERT = 2013;
+    public static final String KEY_PLAY_CDN_TRACE_ID = "live_add_cdn_trace_id";
     public static final String KEY_PLAY_CONFIG_PLAY_RATE = "live_play_rate";
     public static final int K_LIVE_PLAY_RATE_SETTING = 2014;
     public static final int K_RTC_MEDIA_SERVER_IP = 2010;
@@ -59,6 +61,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public static final String LIVE_TEMPLATE_AUDIO = "5";
     public static final String LIVE_TEMPLATE_DATE = "7";
     public static final String PARAM_KABR_SPTS = "kabr_spts";
+    public static final String PARAM_URL = "url";
     public static final long PLAYER_TIME_OUT_DURATION = 6000;
     public static final int V_MEDIA_SOURCE_TYPE_DEF = 0;
     public static final int V_MEDIA_SOURCE_TYPE_DURTC = 2;
@@ -70,136 +73,6 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public final Lazy playerService$delegate;
     public final Lazy pluginManagerService$delegate;
     public PreStartPlayer preStartPlayer;
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000b\n\u0002\u0010\t\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0016\u0010\u0017R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0006R\u0016\u0010\t\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0006R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0006R\u0016\u0010\f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\f\u0010\u0003R\u0016\u0010\r\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0003R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012R\u0016\u0010\u0013\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0006R\u0016\u0010\u0014\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0014\u0010\u0006R\u0016\u0010\u0015\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0006¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$Companion;", "", "AB_PRE_START_PLAYER_SWITCH", "Ljava/lang/String;", "", "ENABLE_ERROR_NO_CONVERT", "I", "KEY_PLAY_CONFIG_PLAY_RATE", "K_LIVE_PLAY_RATE_SETTING", "K_RTC_MEDIA_SERVER_IP", "LIVE_NPS", "LIVE_PLUGIN_SUPPORT_PRE_START_PLAYER_MIM_VERSION", "LIVE_STATE_BACK", "LIVE_TEMPLATE_AUDIO", "LIVE_TEMPLATE_DATE", "PARAM_KABR_SPTS", "", "PLAYER_TIME_OUT_DURATION", "J", "V_MEDIA_SOURCE_TYPE_DEF", "V_MEDIA_SOURCE_TYPE_DURTC", "V_MEDIA_SOURCE_TYPE_PLAYBACK", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\b\u0086\b\u0018\u0000B\u0017\u0012\u0006\u0010\u0007\u001a\u00020\u0001\u0012\u0006\u0010\b\u001a\u00020\u0004¢\u0006\u0004\b\u0018\u0010\u0019J\u0010\u0010\u0002\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0002\u0010\u0003J\u0010\u0010\u0005\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J$\u0010\t\u001a\u00020\u00002\b\b\u0002\u0010\u0007\u001a\u00020\u00012\b\b\u0002\u0010\b\u001a\u00020\u0004HÆ\u0001¢\u0006\u0004\b\t\u0010\nJ\u001a\u0010\u000e\u001a\u00020\r2\b\u0010\f\u001a\u0004\u0018\u00010\u000bHÖ\u0003¢\u0006\u0004\b\u000e\u0010\u000fJ\u0010\u0010\u0011\u001a\u00020\u0010HÖ\u0001¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0013\u001a\u00020\u0001HÖ\u0001¢\u0006\u0004\b\u0013\u0010\u0003R\u0019\u0010\u0007\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0007\u0010\u0014\u001a\u0004\b\u0015\u0010\u0003R\u0019\u0010\b\u001a\u00020\u00048\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u0016\u001a\u0004\b\u0017\u0010\u0006¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "", "component1", "()Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "component2", "()Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "cacheKey", DI.LIVE_PLAYER, "copy", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;)Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "toString", "Ljava/lang/String;", "getCacheKey", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "getPlayer", "<init>", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;)V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class PreStartPlayer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String cacheKey;
-        public final LivePlayer player;
-
-        public PreStartPlayer(String str, LivePlayer livePlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, livePlayer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.cacheKey = str;
-            this.player = livePlayer;
-        }
-
-        public static /* synthetic */ PreStartPlayer copy$default(PreStartPlayer preStartPlayer, String str, LivePlayer livePlayer, int i, Object obj) {
-            if ((i & 1) != 0) {
-                str = preStartPlayer.cacheKey;
-            }
-            if ((i & 2) != 0) {
-                livePlayer = preStartPlayer.player;
-            }
-            return preStartPlayer.copy(str, livePlayer);
-        }
-
-        public final String component1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cacheKey : (String) invokeV.objValue;
-        }
-
-        public final LivePlayer component2() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.player : (LivePlayer) invokeV.objValue;
-        }
-
-        public final PreStartPlayer copy(String str, LivePlayer livePlayer) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, livePlayer)) == null) ? new PreStartPlayer(str, livePlayer) : (PreStartPlayer) invokeLL.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if (this != obj) {
-                    if (obj instanceof PreStartPlayer) {
-                        PreStartPlayer preStartPlayer = (PreStartPlayer) obj;
-                        return Intrinsics.areEqual(this.cacheKey, preStartPlayer.cacheKey) && Intrinsics.areEqual(this.player, preStartPlayer.player);
-                    }
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public final String getCacheKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cacheKey : (String) invokeV.objValue;
-        }
-
-        public final LivePlayer getPlayer() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.player : (LivePlayer) invokeV.objValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                String str = this.cacheKey;
-                int hashCode = (str != null ? str.hashCode() : 0) * 31;
-                LivePlayer livePlayer = this.player;
-                return hashCode + (livePlayer != null ? livePlayer.hashCode() : 0);
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return "PreStartPlayer(cacheKey=" + this.cacheKey + ", player=" + this.player + SmallTailInfo.EMOTION_SUFFIX;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -216,230 +89,6 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         }
         $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LivePreStartPlayServiceImpl.class), "playerService", "getPlayerService()Lcom/baidu/searchbox/live/interfaces/service/ILivePlayerService;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LivePreStartPlayServiceImpl.class), "pluginManagerService", "getPluginManagerService()Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LivePreStartPlayServiceImpl.class), "appService", "getAppService()Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LivePreStartPlayServiceImpl.class), "mainHandler", "getMainHandler()Landroid/os/Handler;"))};
         Companion = new Companion(null);
-    }
-
-    public LivePreStartPlayServiceImpl() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.playerService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$playerService$2.INSTANCE);
-        this.pluginManagerService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$pluginManagerService$2.INSTANCE);
-        this.appService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$appService$2.INSTANCE);
-        this.abService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
-        this.mainHandler$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$mainHandler$2.INSTANCE);
-    }
-
-    private final String buildExtLog(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("pdRec", str2);
-                jSONObject.put("firstJump", "1");
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, str);
-                jSONObject.put("pageType", "zhongtai");
-            } catch (JSONException e) {
-                log("buildExtLog Exception " + e.getMessage());
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:124:0x01e9  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x01eb  */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x01ee A[Catch: Exception -> 0x0354, TryCatch #0 {Exception -> 0x0354, blocks: (B:5:0x0012, B:10:0x0025, B:14:0x003c, B:18:0x0046, B:22:0x0050, B:24:0x0069, B:26:0x0084, B:28:0x008c, B:31:0x0096, B:36:0x00a1, B:41:0x00ac, B:46:0x00b7, B:51:0x00c2, B:53:0x00c9, B:55:0x0108, B:57:0x0110, B:60:0x0115, B:63:0x011b, B:66:0x0125, B:68:0x012c, B:70:0x0133, B:71:0x0137, B:73:0x013f, B:74:0x0143, B:76:0x014b, B:77:0x014f, B:83:0x015b, B:85:0x0161, B:87:0x0168, B:89:0x016e, B:91:0x0176, B:122:0x01e3, B:127:0x01ee, B:129:0x01f5, B:132:0x01fe, B:135:0x0208, B:137:0x020f, B:138:0x0218, B:142:0x0245, B:147:0x0256, B:149:0x0269, B:153:0x0273, B:175:0x02c3, B:177:0x02fe, B:156:0x0279, B:158:0x027f, B:160:0x0286, B:162:0x028c, B:164:0x0292, B:168:0x0299, B:170:0x02b5, B:174:0x02c0, B:92:0x0182, B:97:0x018d, B:99:0x0193, B:101:0x019a, B:103:0x01a0, B:105:0x01a8, B:106:0x01af, B:111:0x01ba, B:113:0x01c0, B:115:0x01c7, B:117:0x01cd, B:119:0x01d5, B:120:0x01dc, B:179:0x0339), top: B:190:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x01f5 A[Catch: Exception -> 0x0354, TryCatch #0 {Exception -> 0x0354, blocks: (B:5:0x0012, B:10:0x0025, B:14:0x003c, B:18:0x0046, B:22:0x0050, B:24:0x0069, B:26:0x0084, B:28:0x008c, B:31:0x0096, B:36:0x00a1, B:41:0x00ac, B:46:0x00b7, B:51:0x00c2, B:53:0x00c9, B:55:0x0108, B:57:0x0110, B:60:0x0115, B:63:0x011b, B:66:0x0125, B:68:0x012c, B:70:0x0133, B:71:0x0137, B:73:0x013f, B:74:0x0143, B:76:0x014b, B:77:0x014f, B:83:0x015b, B:85:0x0161, B:87:0x0168, B:89:0x016e, B:91:0x0176, B:122:0x01e3, B:127:0x01ee, B:129:0x01f5, B:132:0x01fe, B:135:0x0208, B:137:0x020f, B:138:0x0218, B:142:0x0245, B:147:0x0256, B:149:0x0269, B:153:0x0273, B:175:0x02c3, B:177:0x02fe, B:156:0x0279, B:158:0x027f, B:160:0x0286, B:162:0x028c, B:164:0x0292, B:168:0x0299, B:170:0x02b5, B:174:0x02c0, B:92:0x0182, B:97:0x018d, B:99:0x0193, B:101:0x019a, B:103:0x01a0, B:105:0x01a8, B:106:0x01af, B:111:0x01ba, B:113:0x01c0, B:115:0x01c7, B:117:0x01cd, B:119:0x01d5, B:120:0x01dc, B:179:0x0339), top: B:190:0x0012 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private final boolean createAndStartPlayer(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Map<String, Object> mediaLivePlayConfig;
-        Integer num;
-        Map<String, Object> mediaLivePlayConfig2;
-        int i;
-        Map<String, Object> mediaLivePlayConfig3;
-        Map<String, Object> mediaLivePlayConfig4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, str, str2, str3)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str3);
-                String optString = jSONObject.optString("playUrl");
-                if (optString == null) {
-                    optString = "";
-                }
-                boolean areEqual = Intrinsics.areEqual("3", jSONObject.optString("status"));
-                String optString2 = jSONObject.optString("avcUrl");
-                if (optString2 == null) {
-                    optString2 = "";
-                }
-                String optString3 = jSONObject.optString("hevcUrl");
-                if (optString3 == null) {
-                    optString3 = "";
-                }
-                String optString4 = jSONObject.optString("rtcUrl");
-                if (optString4 == null) {
-                    optString4 = "";
-                }
-                String optString5 = jSONObject.optString("templateId");
-                String optString6 = jSONObject.optString(PARAM_KABR_SPTS);
-                String optString7 = jSONObject.optString("playerIdentifier");
-                if (!TextUtils.isEmpty(optString7)) {
-                    log("preStartPlayer paramsString: playerCacheKey " + optString7 + ",内核复用场景，直播间外已经起播，无需预播放");
-                    return false;
-                }
-                if (!Intrinsics.areEqual(optString5, "5") && !Intrinsics.areEqual(optString5, "7")) {
-                    if (optString.length() == 0) {
-                        if (optString2.length() == 0) {
-                            if (optString3.length() == 0) {
-                                if (optString4.length() == 0) {
-                                    log("preStartPlayer paramsString: 无起播地址，返回 ");
-                                    return false;
-                                }
-                            }
-                        }
-                    }
-                    log("preStartPlayer paramsString: 开始构建起播参数， 流地址： playUrl " + optString + ", avcUrl " + optString2 + ", hevcUrl " + optString3);
-                    Map<String, Object> mediaLivePlayConfig5 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CONFIG_PLAY_RATE, MapsKt__MapsJVMKt.mapOf(new Pair(PARAM_KABR_SPTS, optString6)));
-                    Object obj = mediaLivePlayConfig5 != null ? mediaLivePlayConfig5.get("KEY_PLAY_CONFIG_PLAY_RATE") : null;
-                    if (!(obj instanceof String)) {
-                        obj = null;
-                    }
-                    String str4 = (String) obj;
-                    if (!areEqual && optString6 != null && (!StringsKt__StringsJVMKt.isBlank(optString6)) && str4 != null && (!StringsKt__StringsJVMKt.isBlank(str4))) {
-                        if (!StringsKt__StringsJVMKt.isBlank(optString)) {
-                            optString = fillParam(optString, PARAM_KABR_SPTS, optString6);
-                        }
-                        if (!StringsKt__StringsJVMKt.isBlank(optString2)) {
-                            optString2 = fillParam(optString2, PARAM_KABR_SPTS, optString6);
-                        }
-                        if (!StringsKt__StringsJVMKt.isBlank(optString3)) {
-                            optString3 = fillParam(optString3, PARAM_KABR_SPTS, optString6);
-                        }
-                    }
-                    if (optString4.length() > 0) {
-                        PluginInvokeService pluginManagerService = getPluginManagerService();
-                        if (Intrinsics.areEqual((pluginManagerService == null || (mediaLivePlayConfig4 = pluginManagerService.getMediaLivePlayConfig("is_support_rtc", null)) == null) ? null : mediaLivePlayConfig4.get("is_support_rtc"), Boolean.TRUE)) {
-                            log("preStartPlayer 使用 rtc");
-                            num = 2;
-                            if (!(optString4.length() != 0)) {
-                                log("preStartPlayer 无有效流地址");
-                                return false;
-                            }
-                            HashMap<Integer, String> hashMap = new HashMap<>();
-                            if (!areEqual && optString6 != null && (!StringsKt__StringsJVMKt.isBlank(optString6)) && str4 != null && (!StringsKt__StringsJVMKt.isBlank(str4))) {
-                                hashMap.put(2014, str4);
-                            }
-                            hashMap.put(0, optString4);
-                            hashMap.put(301, "live");
-                            hashMap.put(124, "live_landing");
-                            String buildExtLog = buildExtLog(str, str2);
-                            if (buildExtLog == null) {
-                                buildExtLog = "";
-                            }
-                            hashMap.put(111, buildExtLog);
-                            hashMap.put(2000, areEqual ? "0" : "1");
-                            hashMap.put(2013, "1");
-                            BuildParams buildParams = new BuildParams(str);
-                            if (num != null) {
-                                i = num.intValue();
-                            } else {
-                                i = areEqual ? 1 : 0;
-                            }
-                            buildParams.setPlayerType(i);
-                            if (num != null && num.intValue() == 2) {
-                                PluginInvokeService pluginManagerService2 = getPluginManagerService();
-                                Object obj2 = (pluginManagerService2 == null || (mediaLivePlayConfig3 = pluginManagerService2.getMediaLivePlayConfig("get_preset_ip", null)) == null) ? null : mediaLivePlayConfig3.get("get_preset_ip");
-                                String str5 = (String) (!(obj2 instanceof String) ? null : obj2);
-                                log("preStartPlayer rtc preset_ip " + str5);
-                                if (!TextUtils.isEmpty(str5)) {
-                                    if (str5 == null) {
-                                        str5 = "";
-                                    }
-                                    hashMap.put(2010, str5);
-                                }
-                            }
-                            log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
-                            LivePlayer createPlayer = getPlayerService().createPlayer(buildParams);
-                            log("preStartPlayer: 播放器创建结束： " + createPlayer);
-                            if (createPlayer != null) {
-                                log("preStartPlayer: 播放器开始起播");
-                                long currentTimeMillis = System.currentTimeMillis();
-                                createPlayer.setUseLivePreStartPlayerState(true);
-                                createPlayer.setVideoInfo(hashMap);
-                                createPlayer.mute(true);
-                                createPlayer.start();
-                                log("preStartPlayer: 播放器起播动作耗时：" + (System.currentTimeMillis() - currentTimeMillis));
-                                this.preStartPlayer = new PreStartPlayer(str, createPlayer);
-                                resetTimeoutWork();
-                                return true;
-                            }
-                            return false;
-                        }
-                    }
-                    if (optString3.length() > 0) {
-                        PluginInvokeService pluginManagerService3 = getPluginManagerService();
-                        if (Intrinsics.areEqual((pluginManagerService3 == null || (mediaLivePlayConfig2 = pluginManagerService3.getMediaLivePlayConfig("is_support_hevc", null)) == null) ? null : mediaLivePlayConfig2.get("is_support_hevc"), Boolean.TRUE)) {
-                            log("preStartPlayer 使用 hevc");
-                            optString4 = optString3;
-                            num = null;
-                            if (!(optString4.length() != 0)) {
-                            }
-                        }
-                    }
-                    if (optString3.length() > 0) {
-                        PluginInvokeService pluginManagerService4 = getPluginManagerService();
-                        if (Intrinsics.areEqual((pluginManagerService4 == null || (mediaLivePlayConfig = pluginManagerService4.getMediaLivePlayConfig("is_support_avc", null)) == null) ? null : mediaLivePlayConfig.get("is_support_avc"), Boolean.TRUE)) {
-                            log("preStartPlayer 使用 avc");
-                            optString4 = optString2;
-                            num = null;
-                            if (!(optString4.length() != 0)) {
-                            }
-                        }
-                    }
-                    log("preStartPlayer 使用默认流地址");
-                    optString4 = optString;
-                    num = null;
-                    if (!(optString4.length() != 0)) {
-                    }
-                }
-                log("preStartPlayer paramsString: templateId " + optString5 + " ,非可起播模版，返回 ");
-                return false;
-            } catch (Exception e) {
-                log("preStartPlayer Exception " + e.getMessage());
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    private final String fillParam(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, str, str2, str3)) == null) {
-            if (StringsKt__StringsJVMKt.isBlank(str2) || StringsKt__StringsJVMKt.isBlank(str3)) {
-                return str;
-            }
-            if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "?", false, 2, (Object) null)) {
-                return str + '&' + str2 + '=' + str3;
-            }
-            return str + '?' + str2 + '=' + str3;
-        }
-        return (String) invokeLLL.objValue;
     }
 
     private final AppInfoService getAppService() {
@@ -488,24 +137,582 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         return (PluginInvokeService) invokeV.objValue;
     }
 
-    private final boolean isLiveNpsSupportPreStart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            PluginInvokeService pluginManagerService = getPluginManagerService();
-            return (pluginManagerService != null ? pluginManagerService.getLiveNpsPluginWillLoadVersion() : 0) >= 601500000;
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\r\n\u0002\u0010\t\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0018\u0010\u0019R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0006R\u0016\u0010\n\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0006R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003R\u0016\u0010\f\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\f\u0010\u0006R\u0016\u0010\r\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0003R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0010\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0014R\u0016\u0010\u0015\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0006R\u0016\u0010\u0016\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0006R\u0016\u0010\u0017\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0017\u0010\u0006¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$Companion;", "", "AB_PRE_START_PLAYER_SWITCH", "Ljava/lang/String;", "", "ENABLE_ERROR_NO_CONVERT", "I", "KEY_PLAY_CDN_TRACE_ID", "KEY_PLAY_CONFIG_PLAY_RATE", "K_LIVE_PLAY_RATE_SETTING", "K_RTC_MEDIA_SERVER_IP", "LIVE_NPS", "LIVE_PLUGIN_SUPPORT_PRE_START_PLAYER_MIM_VERSION", "LIVE_STATE_BACK", "LIVE_TEMPLATE_AUDIO", "LIVE_TEMPLATE_DATE", "PARAM_KABR_SPTS", "PARAM_URL", "", "PLAYER_TIME_OUT_DURATION", "J", "V_MEDIA_SOURCE_TYPE_DEF", "V_MEDIA_SOURCE_TYPE_DURTC", "V_MEDIA_SOURCE_TYPE_PLAYBACK", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class Companion {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Companion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\b\u0086\b\u0018\u0000B\u0017\u0012\u0006\u0010\u0007\u001a\u00020\u0001\u0012\u0006\u0010\b\u001a\u00020\u0004¢\u0006\u0004\b\u0018\u0010\u0019J\u0010\u0010\u0002\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0002\u0010\u0003J\u0010\u0010\u0005\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J$\u0010\t\u001a\u00020\u00002\b\b\u0002\u0010\u0007\u001a\u00020\u00012\b\b\u0002\u0010\b\u001a\u00020\u0004HÆ\u0001¢\u0006\u0004\b\t\u0010\nJ\u001a\u0010\u000e\u001a\u00020\r2\b\u0010\f\u001a\u0004\u0018\u00010\u000bHÖ\u0003¢\u0006\u0004\b\u000e\u0010\u000fJ\u0010\u0010\u0011\u001a\u00020\u0010HÖ\u0001¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0013\u001a\u00020\u0001HÖ\u0001¢\u0006\u0004\b\u0013\u0010\u0003R\u0019\u0010\u0007\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0007\u0010\u0014\u001a\u0004\b\u0015\u0010\u0003R\u0019\u0010\b\u001a\u00020\u00048\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u0016\u001a\u0004\b\u0017\u0010\u0006¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "", "component1", "()Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "component2", "()Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "cacheKey", DI.LIVE_PLAYER, "copy", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;)Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "toString", "Ljava/lang/String;", "getCacheKey", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "getPlayer", "<init>", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;)V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class PreStartPlayer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String cacheKey;
+        public final LivePlayer player;
+
+        public static /* synthetic */ PreStartPlayer copy$default(PreStartPlayer preStartPlayer, String str, LivePlayer livePlayer, int i, Object obj) {
+            if ((i & 1) != 0) {
+                str = preStartPlayer.cacheKey;
+            }
+            if ((i & 2) != 0) {
+                livePlayer = preStartPlayer.player;
+            }
+            return preStartPlayer.copy(str, livePlayer);
+        }
+
+        public final String component1() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cacheKey : (String) invokeV.objValue;
+        }
+
+        public final LivePlayer component2() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.player : (LivePlayer) invokeV.objValue;
+        }
+
+        public final PreStartPlayer copy(String str, LivePlayer livePlayer) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, livePlayer)) == null) ? new PreStartPlayer(str, livePlayer) : (PreStartPlayer) invokeLL.objValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this != obj) {
+                    if (obj instanceof PreStartPlayer) {
+                        PreStartPlayer preStartPlayer = (PreStartPlayer) obj;
+                        return Intrinsics.areEqual(this.cacheKey, preStartPlayer.cacheKey) && Intrinsics.areEqual(this.player, preStartPlayer.player);
+                    }
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                String str = this.cacheKey;
+                int hashCode = (str != null ? str.hashCode() : 0) * 31;
+                LivePlayer livePlayer = this.player;
+                return hashCode + (livePlayer != null ? livePlayer.hashCode() : 0);
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return "PreStartPlayer(cacheKey=" + this.cacheKey + ", player=" + this.player + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public PreStartPlayer(String str, LivePlayer livePlayer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, livePlayer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.cacheKey = str;
+            this.player = livePlayer;
+        }
+
+        public final String getCacheKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.cacheKey;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final LivePlayer getPlayer() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.player;
+            }
+            return (LivePlayer) invokeV.objValue;
+        }
+    }
+
+    public LivePreStartPlayServiceImpl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.playerService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$playerService$2.INSTANCE);
+        this.pluginManagerService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$pluginManagerService$2.INSTANCE);
+        this.appService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$appService$2.INSTANCE);
+        this.abService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
+        this.mainHandler$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$mainHandler$2.INSTANCE);
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.player.internal.LivePreStartPlayerService
+    public void releasePreStartPlayer() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("releasePreStartPlayer: 播放器超时回收，cacheKey: ");
+            PreStartPlayer preStartPlayer = this.preStartPlayer;
+            if (preStartPlayer != null) {
+                str = preStartPlayer.getCacheKey();
+            } else {
+                str = null;
+            }
+            sb.append(str);
+            log(sb.toString());
+            getMainHandler().removeCallbacksAndMessages(null);
+            PreStartPlayer preStartPlayer2 = this.preStartPlayer;
+            this.preStartPlayer = null;
+            if (preStartPlayer2 != null) {
+                preStartPlayer2.getPlayer().goBackOrForeground(false);
+                preStartPlayer2.getPlayer().release();
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void log(String str) {
         AppInfoService appService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, this, str) == null) || (appService = getAppService()) == null || !appService.isDebug() || TextUtils.isEmpty(str)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65549, this, str) == null) && (appService = getAppService()) != null && appService.isDebug() && !TextUtils.isEmpty(str)) {
+            Log.i("LivePreStartPlayService", String.valueOf(str));
         }
-        Log.i("LivePreStartPlayService", String.valueOf(str));
+    }
+
+    private final String buildExtLog(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("pdRec", str2);
+                jSONObject.put("firstJump", "1");
+                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, str);
+                jSONObject.put("pageType", "zhongtai");
+            } catch (JSONException e) {
+                log("buildExtLog Exception " + e.getMessage());
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:161:0x0272  */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x0274  */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x0277 A[Catch: Exception -> 0x03e1, TryCatch #0 {Exception -> 0x03e1, blocks: (B:5:0x0014, B:10:0x0027, B:14:0x003e, B:18:0x0048, B:22:0x0052, B:24:0x006d, B:26:0x0088, B:28:0x0090, B:31:0x009a, B:36:0x00a6, B:41:0x00b1, B:46:0x00bc, B:51:0x00c7, B:53:0x00ce, B:55:0x010b, B:57:0x0111, B:60:0x0116, B:63:0x011c, B:66:0x0125, B:68:0x012c, B:70:0x0133, B:71:0x0137, B:73:0x013e, B:74:0x0142, B:76:0x0149, B:77:0x014d, B:80:0x0159, B:82:0x016c, B:84:0x0172, B:87:0x0177, B:89:0x017b, B:90:0x017e, B:92:0x0186, B:94:0x0199, B:96:0x019f, B:99:0x01a4, B:101:0x01a8, B:102:0x01ab, B:104:0x01b3, B:106:0x01c6, B:108:0x01cc, B:111:0x01d1, B:113:0x01d5, B:114:0x01d8, B:120:0x01e4, B:122:0x01ea, B:124:0x01f1, B:126:0x01f7, B:128:0x01ff, B:159:0x026c, B:164:0x0277, B:166:0x027e, B:169:0x0287, B:172:0x0291, B:174:0x0298, B:175:0x02a1, B:179:0x02ce, B:184:0x02df, B:186:0x02f2, B:190:0x02fc, B:213:0x0350, B:215:0x038b, B:193:0x0302, B:195:0x0308, B:197:0x030e, B:199:0x0317, B:202:0x031e, B:206:0x0325, B:208:0x0341, B:212:0x034d, B:129:0x020b, B:134:0x0216, B:136:0x021c, B:138:0x0223, B:140:0x0229, B:142:0x0231, B:143:0x0238, B:148:0x0243, B:150:0x0249, B:152:0x0250, B:154:0x0256, B:156:0x025e, B:157:0x0265, B:217:0x03c6), top: B:228:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:166:0x027e A[Catch: Exception -> 0x03e1, TryCatch #0 {Exception -> 0x03e1, blocks: (B:5:0x0014, B:10:0x0027, B:14:0x003e, B:18:0x0048, B:22:0x0052, B:24:0x006d, B:26:0x0088, B:28:0x0090, B:31:0x009a, B:36:0x00a6, B:41:0x00b1, B:46:0x00bc, B:51:0x00c7, B:53:0x00ce, B:55:0x010b, B:57:0x0111, B:60:0x0116, B:63:0x011c, B:66:0x0125, B:68:0x012c, B:70:0x0133, B:71:0x0137, B:73:0x013e, B:74:0x0142, B:76:0x0149, B:77:0x014d, B:80:0x0159, B:82:0x016c, B:84:0x0172, B:87:0x0177, B:89:0x017b, B:90:0x017e, B:92:0x0186, B:94:0x0199, B:96:0x019f, B:99:0x01a4, B:101:0x01a8, B:102:0x01ab, B:104:0x01b3, B:106:0x01c6, B:108:0x01cc, B:111:0x01d1, B:113:0x01d5, B:114:0x01d8, B:120:0x01e4, B:122:0x01ea, B:124:0x01f1, B:126:0x01f7, B:128:0x01ff, B:159:0x026c, B:164:0x0277, B:166:0x027e, B:169:0x0287, B:172:0x0291, B:174:0x0298, B:175:0x02a1, B:179:0x02ce, B:184:0x02df, B:186:0x02f2, B:190:0x02fc, B:213:0x0350, B:215:0x038b, B:193:0x0302, B:195:0x0308, B:197:0x030e, B:199:0x0317, B:202:0x031e, B:206:0x0325, B:208:0x0341, B:212:0x034d, B:129:0x020b, B:134:0x0216, B:136:0x021c, B:138:0x0223, B:140:0x0229, B:142:0x0231, B:143:0x0238, B:148:0x0243, B:150:0x0249, B:152:0x0250, B:154:0x0256, B:156:0x025e, B:157:0x0265, B:217:0x03c6), top: B:228:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:204:0x0322  */
+    /* JADX WARN: Removed duplicated region for block: B:205:0x0324  */
+    /* JADX WARN: Removed duplicated region for block: B:208:0x0341 A[Catch: Exception -> 0x03e1, TryCatch #0 {Exception -> 0x03e1, blocks: (B:5:0x0014, B:10:0x0027, B:14:0x003e, B:18:0x0048, B:22:0x0052, B:24:0x006d, B:26:0x0088, B:28:0x0090, B:31:0x009a, B:36:0x00a6, B:41:0x00b1, B:46:0x00bc, B:51:0x00c7, B:53:0x00ce, B:55:0x010b, B:57:0x0111, B:60:0x0116, B:63:0x011c, B:66:0x0125, B:68:0x012c, B:70:0x0133, B:71:0x0137, B:73:0x013e, B:74:0x0142, B:76:0x0149, B:77:0x014d, B:80:0x0159, B:82:0x016c, B:84:0x0172, B:87:0x0177, B:89:0x017b, B:90:0x017e, B:92:0x0186, B:94:0x0199, B:96:0x019f, B:99:0x01a4, B:101:0x01a8, B:102:0x01ab, B:104:0x01b3, B:106:0x01c6, B:108:0x01cc, B:111:0x01d1, B:113:0x01d5, B:114:0x01d8, B:120:0x01e4, B:122:0x01ea, B:124:0x01f1, B:126:0x01f7, B:128:0x01ff, B:159:0x026c, B:164:0x0277, B:166:0x027e, B:169:0x0287, B:172:0x0291, B:174:0x0298, B:175:0x02a1, B:179:0x02ce, B:184:0x02df, B:186:0x02f2, B:190:0x02fc, B:213:0x0350, B:215:0x038b, B:193:0x0302, B:195:0x0308, B:197:0x030e, B:199:0x0317, B:202:0x031e, B:206:0x0325, B:208:0x0341, B:212:0x034d, B:129:0x020b, B:134:0x0216, B:136:0x021c, B:138:0x0223, B:140:0x0229, B:142:0x0231, B:143:0x0238, B:148:0x0243, B:150:0x0249, B:152:0x0250, B:154:0x0256, B:156:0x025e, B:157:0x0265, B:217:0x03c6), top: B:228:0x0014 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private final boolean createAndStartPlayer(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Object obj;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        Object obj2;
+        Map mediaLivePlayConfig;
+        Integer num;
+        Object obj3;
+        Map mediaLivePlayConfig2;
+        boolean z5;
+        String str4;
+        int i;
+        Object obj4;
+        Object obj5;
+        Object obj6;
+        String str5;
+        String str6;
+        Object obj7;
+        Map mediaLivePlayConfig3;
+        Object obj8;
+        Object obj9;
+        Object obj10;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, str, str2, str3)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str3);
+                String optString = jSONObject.optString("playUrl");
+                if (optString == null) {
+                    optString = "";
+                }
+                boolean areEqual = Intrinsics.areEqual("3", jSONObject.optString("status"));
+                String optString2 = jSONObject.optString("avcUrl");
+                if (optString2 == null) {
+                    optString2 = "";
+                }
+                String optString3 = jSONObject.optString("hevcUrl");
+                if (optString3 == null) {
+                    optString3 = "";
+                }
+                String optString4 = jSONObject.optString("rtcUrl");
+                if (optString4 == null) {
+                    optString4 = "";
+                }
+                String optString5 = jSONObject.optString("templateId");
+                String optString6 = jSONObject.optString(PARAM_KABR_SPTS);
+                String optString7 = jSONObject.optString("playerIdentifier");
+                if (!TextUtils.isEmpty(optString7)) {
+                    log("preStartPlayer paramsString: playerCacheKey " + optString7 + ",内核复用场景，直播间外已经起播，无需预播放");
+                    return false;
+                }
+                if (!Intrinsics.areEqual(optString5, "5") && !Intrinsics.areEqual(optString5, "7")) {
+                    if (optString.length() == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        if (optString2.length() == 0) {
+                            z6 = true;
+                        } else {
+                            z6 = false;
+                        }
+                        if (z6) {
+                            if (optString3.length() == 0) {
+                                z7 = true;
+                            } else {
+                                z7 = false;
+                            }
+                            if (z7) {
+                                if (optString4.length() == 0) {
+                                    z8 = true;
+                                } else {
+                                    z8 = false;
+                                }
+                                if (z8) {
+                                    log("preStartPlayer paramsString: 无起播地址，返回 ");
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    log("preStartPlayer paramsString: 开始构建起播参数， 流地址： playUrl " + optString + ", avcUrl " + optString2 + ", hevcUrl " + optString3);
+                    Map mediaLivePlayConfig4 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CONFIG_PLAY_RATE, MapsKt__MapsJVMKt.mapOf(new Pair(PARAM_KABR_SPTS, optString6)));
+                    if (mediaLivePlayConfig4 != null) {
+                        obj = mediaLivePlayConfig4.get(KEY_PLAY_CONFIG_PLAY_RATE);
+                    } else {
+                        obj = null;
+                    }
+                    if (!(obj instanceof String)) {
+                        obj = null;
+                    }
+                    String str7 = (String) obj;
+                    if (!areEqual && optString6 != null && (!StringsKt__StringsJVMKt.isBlank(optString6)) && str7 != null && (!StringsKt__StringsJVMKt.isBlank(str7))) {
+                        if (!StringsKt__StringsJVMKt.isBlank(optString)) {
+                            optString = fillParam(optString, PARAM_KABR_SPTS, optString6);
+                        }
+                        if (!StringsKt__StringsJVMKt.isBlank(optString2)) {
+                            optString2 = fillParam(optString2, PARAM_KABR_SPTS, optString6);
+                        }
+                        if (!StringsKt__StringsJVMKt.isBlank(optString3)) {
+                            optString3 = fillParam(optString3, PARAM_KABR_SPTS, optString6);
+                        }
+                    }
+                    if (!StringsKt__StringsJVMKt.isBlank(optString)) {
+                        Map mediaLivePlayConfig5 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString)));
+                        if (mediaLivePlayConfig5 != null) {
+                            obj10 = mediaLivePlayConfig5.get(KEY_PLAY_CDN_TRACE_ID);
+                        } else {
+                            obj10 = null;
+                        }
+                        if (!(obj10 instanceof String)) {
+                            obj10 = null;
+                        }
+                        String str8 = (String) obj10;
+                        if (str8 != null) {
+                            Unit unit = Unit.INSTANCE;
+                            optString = str8;
+                        }
+                    }
+                    if (!StringsKt__StringsJVMKt.isBlank(optString2)) {
+                        Map mediaLivePlayConfig6 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString2)));
+                        if (mediaLivePlayConfig6 != null) {
+                            obj9 = mediaLivePlayConfig6.get(KEY_PLAY_CDN_TRACE_ID);
+                        } else {
+                            obj9 = null;
+                        }
+                        if (!(obj9 instanceof String)) {
+                            obj9 = null;
+                        }
+                        String str9 = (String) obj9;
+                        if (str9 != null) {
+                            Unit unit2 = Unit.INSTANCE;
+                            optString2 = str9;
+                        }
+                    }
+                    if (!StringsKt__StringsJVMKt.isBlank(optString3)) {
+                        Map mediaLivePlayConfig7 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString3)));
+                        if (mediaLivePlayConfig7 != null) {
+                            obj8 = mediaLivePlayConfig7.get(KEY_PLAY_CDN_TRACE_ID);
+                        } else {
+                            obj8 = null;
+                        }
+                        if (!(obj8 instanceof String)) {
+                            obj8 = null;
+                        }
+                        String str10 = (String) obj8;
+                        if (str10 != null) {
+                            Unit unit3 = Unit.INSTANCE;
+                            optString3 = str10;
+                        }
+                    }
+                    if (optString4.length() > 0) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z2) {
+                        PluginInvokeService pluginManagerService = getPluginManagerService();
+                        if (pluginManagerService != null && (mediaLivePlayConfig3 = pluginManagerService.getMediaLivePlayConfig("is_support_rtc", null)) != null) {
+                            obj7 = mediaLivePlayConfig3.get("is_support_rtc");
+                        } else {
+                            obj7 = null;
+                        }
+                        if (Intrinsics.areEqual(obj7, Boolean.TRUE)) {
+                            log("preStartPlayer 使用 rtc");
+                            num = 2;
+                            if (optString4.length() != 0) {
+                                z5 = true;
+                            } else {
+                                z5 = false;
+                            }
+                            if (!z5) {
+                                log("preStartPlayer 无有效流地址");
+                                return false;
+                            }
+                            HashMap hashMap = new HashMap();
+                            if (!areEqual && optString6 != null && (!StringsKt__StringsJVMKt.isBlank(optString6)) && str7 != null && (!StringsKt__StringsJVMKt.isBlank(str7))) {
+                                hashMap.put(2014, str7);
+                            }
+                            hashMap.put(0, optString4);
+                            hashMap.put(301, "live");
+                            hashMap.put(124, "live_landing");
+                            String buildExtLog = buildExtLog(str, str2);
+                            if (buildExtLog == null) {
+                                buildExtLog = "";
+                            }
+                            hashMap.put(111, buildExtLog);
+                            if (!areEqual) {
+                                str4 = "1";
+                            } else {
+                                str4 = "0";
+                            }
+                            hashMap.put(2000, str4);
+                            hashMap.put(2013, "1");
+                            BuildParams buildParams = new BuildParams(str);
+                            if (num != null) {
+                                i = num.intValue();
+                            } else if (areEqual) {
+                                i = 1;
+                            } else {
+                                i = 0;
+                            }
+                            buildParams.setPlayerType(i);
+                            if (num != null && num.intValue() == 2) {
+                                PluginInvokeService pluginManagerService2 = getPluginManagerService();
+                                if (pluginManagerService2 != null) {
+                                    obj4 = null;
+                                    Map mediaLivePlayConfig8 = pluginManagerService2.getMediaLivePlayConfig("get_preset_ip", null);
+                                    if (mediaLivePlayConfig8 != null) {
+                                        obj5 = mediaLivePlayConfig8.get("get_preset_ip");
+                                        if (obj5 instanceof String) {
+                                            obj6 = obj4;
+                                        } else {
+                                            obj6 = obj5;
+                                        }
+                                        str5 = (String) obj6;
+                                        log("preStartPlayer rtc preset_ip " + str5);
+                                        if (!TextUtils.isEmpty(str5)) {
+                                            if (str5 == null) {
+                                                str6 = "";
+                                            } else {
+                                                str6 = str5;
+                                            }
+                                            hashMap.put(2010, str6);
+                                        }
+                                    }
+                                } else {
+                                    obj4 = null;
+                                }
+                                obj5 = obj4;
+                                if (obj5 instanceof String) {
+                                }
+                                str5 = (String) obj6;
+                                log("preStartPlayer rtc preset_ip " + str5);
+                                if (!TextUtils.isEmpty(str5)) {
+                                }
+                            }
+                            log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
+                            LivePlayer createPlayer = getPlayerService().createPlayer(buildParams);
+                            log("preStartPlayer: 播放器创建结束： " + createPlayer);
+                            if (createPlayer != null) {
+                                log("preStartPlayer: 播放器开始起播");
+                                long currentTimeMillis = System.currentTimeMillis();
+                                createPlayer.setUseLivePreStartPlayerState(true);
+                                createPlayer.setVideoInfo(hashMap);
+                                createPlayer.mute(true);
+                                createPlayer.start();
+                                log("preStartPlayer: 播放器起播动作耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+                                this.preStartPlayer = new PreStartPlayer(str, createPlayer);
+                                resetTimeoutWork();
+                                return true;
+                            }
+                            return false;
+                        }
+                    }
+                    if (optString3.length() > 0) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (z3) {
+                        PluginInvokeService pluginManagerService3 = getPluginManagerService();
+                        if (pluginManagerService3 != null && (mediaLivePlayConfig2 = pluginManagerService3.getMediaLivePlayConfig("is_support_hevc", null)) != null) {
+                            obj3 = mediaLivePlayConfig2.get("is_support_hevc");
+                        } else {
+                            obj3 = null;
+                        }
+                        if (Intrinsics.areEqual(obj3, Boolean.TRUE)) {
+                            log("preStartPlayer 使用 hevc");
+                            optString4 = optString3;
+                            num = null;
+                            if (optString4.length() != 0) {
+                            }
+                            if (!z5) {
+                            }
+                        }
+                    }
+                    if (optString3.length() > 0) {
+                        z4 = true;
+                    } else {
+                        z4 = false;
+                    }
+                    if (z4) {
+                        PluginInvokeService pluginManagerService4 = getPluginManagerService();
+                        if (pluginManagerService4 != null && (mediaLivePlayConfig = pluginManagerService4.getMediaLivePlayConfig("is_support_avc", null)) != null) {
+                            obj2 = mediaLivePlayConfig.get("is_support_avc");
+                        } else {
+                            obj2 = null;
+                        }
+                        if (Intrinsics.areEqual(obj2, Boolean.TRUE)) {
+                            log("preStartPlayer 使用 avc");
+                            optString4 = optString2;
+                            num = null;
+                            if (optString4.length() != 0) {
+                            }
+                            if (!z5) {
+                            }
+                        }
+                    }
+                    log("preStartPlayer 使用默认流地址");
+                    optString4 = optString;
+                    num = null;
+                    if (optString4.length() != 0) {
+                    }
+                    if (!z5) {
+                    }
+                }
+                log("preStartPlayer paramsString: templateId " + optString5 + " ,非可起播模版，返回 ");
+                return false;
+            } catch (Exception e) {
+                log("preStartPlayer Exception " + e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    private final String fillParam(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, str, str2, str3)) == null) {
+            if (!StringsKt__StringsJVMKt.isBlank(str2) && !StringsKt__StringsJVMKt.isBlank(str3)) {
+                if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "?", false, 2, (Object) null)) {
+                    return str + '&' + str2 + '=' + str3;
+                }
+                return str + '?' + str2 + '=' + str3;
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    private final boolean isLiveNpsSupportPreStart() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            PluginInvokeService pluginManagerService = getPluginManagerService();
+            if (pluginManagerService != null) {
+                i = pluginManagerService.getLiveNpsPluginWillLoadVersion();
+            } else {
+                i = 0;
+            }
+            if (i < 601500000) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     private final void resetTimeoutWork() {
@@ -540,49 +747,51 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                     PluginInvokeService pluginManagerService;
                     Handler mainHandler;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.log("resetTimeoutWork: 播放器超时检查第一次： 6000");
-                        pluginManagerService = this.this$0.getPluginManagerService();
-                        if (pluginManagerService == null || !pluginManagerService.isPluginLoaded("com.baidu.searchbox.livenps")) {
-                            this.this$0.log("resetTimeoutWork: 播放器超时检查第一次，插件未加载，再次延时等待");
-                            mainHandler = this.this$0.getMainHandler();
-                            mainHandler.postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl$resetTimeoutWork$1.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ LivePreStartPlayServiceImpl$resetTimeoutWork$1 this$0;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public final void run() {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.this$0.this$0.log("resetTimeoutWork: 播放器超时检查第二级，再次延时等待结束，直接检查回收");
-                                        this.this$0.this$0.releasePreStartPlayer();
-                                    }
-                                }
-                            }, 12000L);
-                            return;
-                        }
-                        this.this$0.log("resetTimeoutWork: 播放器超时检查第一次，插件已加载： 6000");
-                        this.this$0.releasePreStartPlayer();
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.this$0.log("resetTimeoutWork: 播放器超时检查第一次： 6000");
+                    pluginManagerService = this.this$0.getPluginManagerService();
+                    if (pluginManagerService == null || !pluginManagerService.isPluginLoaded("com.baidu.searchbox.livenps")) {
+                        this.this$0.log("resetTimeoutWork: 播放器超时检查第一次，插件未加载，再次延时等待");
+                        mainHandler = this.this$0.getMainHandler();
+                        mainHandler.postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl$resetTimeoutWork$1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ LivePreStartPlayServiceImpl$resetTimeoutWork$1 this$0;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null && interceptable3.invokeV(1048576, this) != null) {
+                                    return;
+                                }
+                                this.this$0.this$0.log("resetTimeoutWork: 播放器超时检查第二级，再次延时等待结束，直接检查回收");
+                                this.this$0.this$0.releasePreStartPlayer();
+                            }
+                        }, 12000L);
+                        return;
+                    }
+                    this.this$0.log("resetTimeoutWork: 播放器超时检查第一次，插件已加载： 6000");
+                    this.this$0.releasePreStartPlayer();
                 }
             }, PLAYER_TIME_OUT_DURATION);
         }
@@ -591,19 +800,36 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     @Override // com.baidu.searchbox.live.interfaces.player.internal.LivePreStartPlayerService
     public LivePlayer getPreStartPlayer(String str) {
         InterceptResult invokeL;
+        String str2;
+        String str3;
+        LivePlayer livePlayer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             getMainHandler().removeCallbacksAndMessages(null);
             PreStartPlayer preStartPlayer = this.preStartPlayer;
-            if (!TextUtils.isEmpty(preStartPlayer != null ? preStartPlayer.getCacheKey() : null)) {
+            if (preStartPlayer != null) {
+                str2 = preStartPlayer.getCacheKey();
+            } else {
+                str2 = null;
+            }
+            if (!TextUtils.isEmpty(str2)) {
                 PreStartPlayer preStartPlayer2 = this.preStartPlayer;
-                if (Intrinsics.areEqual(str, preStartPlayer2 != null ? preStartPlayer2.getCacheKey() : null)) {
+                if (preStartPlayer2 != null) {
+                    str3 = preStartPlayer2.getCacheKey();
+                } else {
+                    str3 = null;
+                }
+                if (Intrinsics.areEqual(str, str3)) {
                     log("getCachePlayer player: 存在提前创建当前直播间播放器");
                     PreStartPlayer preStartPlayer3 = this.preStartPlayer;
-                    LivePlayer player = preStartPlayer3 != null ? preStartPlayer3.getPlayer() : null;
-                    log("getCachePlayer 返回已起播播放器：player: " + player);
+                    if (preStartPlayer3 != null) {
+                        livePlayer = preStartPlayer3.getPlayer();
+                    } else {
+                        livePlayer = null;
+                    }
+                    log("getCachePlayer 返回已起播播放器：player: " + livePlayer);
                     this.preStartPlayer = null;
-                    return player;
+                    return livePlayer;
                 }
             }
             releasePreStartPlayer();
@@ -620,19 +846,37 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     */
     public boolean preStartPlayer(String str, String str2, String str3) {
         InterceptResult invokeLLL;
+        boolean z;
+        String str4;
+        String str5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
             AbConfigService abConfigService = this.abService;
-            boolean z = abConfigService != null && abConfigService.getSwitch(AB_PRE_START_PLAYER_SWITCH, false);
+            if (abConfigService != null && abConfigService.getSwitch(AB_PRE_START_PLAYER_SWITCH, false)) {
+                z = true;
+            } else {
+                z = false;
+            }
             log("preStartPlayer preStartSupportSwitch: " + z + "， isLiveNpsSupportPreStart: " + isLiveNpsSupportPreStart() + ",roomId: " + str + ", source: " + str2 + ", params " + str3 + "，Thread: " + Thread.currentThread());
             if (!Intrinsics.areEqual(Looper.getMainLooper(), Looper.myLooper())) {
                 return false;
             }
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3) && z && isLiveNpsSupportPreStart()) {
                 PreStartPlayer preStartPlayer = this.preStartPlayer;
-                if (!TextUtils.isEmpty(preStartPlayer != null ? preStartPlayer.getCacheKey() : null)) {
+                String str6 = null;
+                if (preStartPlayer != null) {
+                    str4 = preStartPlayer.getCacheKey();
+                } else {
+                    str4 = null;
+                }
+                if (!TextUtils.isEmpty(str4)) {
                     PreStartPlayer preStartPlayer2 = this.preStartPlayer;
-                    if (!Intrinsics.areEqual(preStartPlayer2 != null ? preStartPlayer2.getCacheKey() : null, str)) {
+                    if (preStartPlayer2 != null) {
+                        str5 = preStartPlayer2.getCacheKey();
+                    } else {
+                        str5 = null;
+                    }
+                    if (!Intrinsics.areEqual(str5, str)) {
                         log("preStartPlayer paramsString: 存在已起播非当前直播间播放器, 直接销毁后再次创建");
                         releasePreStartPlayer();
                         long currentTimeMillis = System.currentTimeMillis();
@@ -648,7 +892,10 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                     }
                 }
                 PreStartPlayer preStartPlayer3 = this.preStartPlayer;
-                if (Intrinsics.areEqual(preStartPlayer3 != null ? preStartPlayer3.getCacheKey() : null, str)) {
+                if (preStartPlayer3 != null) {
+                    str6 = preStartPlayer3.getCacheKey();
+                }
+                if (Intrinsics.areEqual(str6, str)) {
                     log("preStartPlayer paramsString: 存在当前直播间已起播播放器，无需继续创建，重置超时时间，返回");
                     resetTimeoutWork();
                     return true;
@@ -666,24 +913,5 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
             return false;
         }
         return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.player.internal.LivePreStartPlayerService
-    public void releasePreStartPlayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("releasePreStartPlayer: 播放器超时回收，cacheKey: ");
-            PreStartPlayer preStartPlayer = this.preStartPlayer;
-            sb.append(preStartPlayer != null ? preStartPlayer.getCacheKey() : null);
-            log(sb.toString());
-            getMainHandler().removeCallbacksAndMessages(null);
-            PreStartPlayer preStartPlayer2 = this.preStartPlayer;
-            this.preStartPlayer = null;
-            if (preStartPlayer2 != null) {
-                preStartPlayer2.getPlayer().goBackOrForeground(false);
-                preStartPlayer2.getPlayer().release();
-            }
-        }
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.io8;
+import com.baidu.tieba.po8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class PostSearchActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<String> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,26 +44,26 @@ public class PostSearchActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<Void> run(CustomMessage<String> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                String data = customMessage.getData();
-                if (StringUtils.isNull(data)) {
+                String str = (String) customMessage.getData();
+                if (StringUtils.isNull(str)) {
                     return null;
                 }
-                io8.q(data);
-                return new CustomResponsedMessage<>(2009003);
+                po8.q(str);
+                return new CustomResponsedMessage(2009003);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<Void> {
+    public final class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,15 +82,15 @@ public class PostSearchActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<Void> run(CustomMessage<Void> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                io8.d();
-                return new CustomResponsedMessage<>(2009004);
+                po8.d();
+                return new CustomResponsedMessage(2009004);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -115,6 +115,15 @@ public class PostSearchActivityStatic {
         a();
     }
 
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_POST_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.POST_SEARCH_URL);
+            tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
     public PostSearchActivityStatic() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -135,15 +144,6 @@ public class PostSearchActivityStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2009004, new b());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_POST_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.POST_SEARCH_URL);
-            tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 

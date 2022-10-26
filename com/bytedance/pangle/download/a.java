@@ -1,6 +1,5 @@
 package com.bytedance.pangle.download;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -20,19 +19,34 @@ public final class a {
     public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1012231117, "Lcom/bytedance/pangle/download/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1012231117, "Lcom/bytedance/pangle/download/a;");
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.bytedance.pangle.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class EnumC0497a {
+    public final class EnumC0493a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0497a a;
-        public static final EnumC0497a b;
-        public static final EnumC0497a c;
-        public static final EnumC0497a d;
-        public static final EnumC0497a e;
-        public static final EnumC0497a f;
-        public static final EnumC0497a g;
-        public static final /* synthetic */ EnumC0497a[] i;
+        public static final EnumC0493a a;
+        public static final EnumC0493a b;
+        public static final EnumC0493a c;
+        public static final EnumC0493a d;
+        public static final EnumC0493a e;
+        public static final EnumC0493a f;
+        public static final EnumC0493a g;
+        public static final /* synthetic */ EnumC0493a[] i;
         public transient /* synthetic */ FieldHolder $fh;
         public final int h;
 
@@ -49,18 +63,18 @@ public final class a {
                     return;
                 }
             }
-            a = new EnumC0497a(RomUtils.UNKNOWN, 0, -1);
-            b = new EnumC0497a(HlsPlaylistParser.METHOD_NONE, 1, 0);
-            c = new EnumC0497a("MOBILE", 2, 1);
-            d = new EnumC0497a("MOBILE_2G", 3, 2);
-            e = new EnumC0497a("MOBILE_3G", 4, 3);
-            f = new EnumC0497a("WIFI", 5, 4);
-            EnumC0497a enumC0497a = new EnumC0497a("MOBILE_4G", 6, 5);
-            g = enumC0497a;
-            i = new EnumC0497a[]{a, b, c, d, e, f, enumC0497a};
+            a = new EnumC0493a(RomUtils.UNKNOWN, 0, -1);
+            b = new EnumC0493a(HlsPlaylistParser.METHOD_NONE, 1, 0);
+            c = new EnumC0493a("MOBILE", 2, 1);
+            d = new EnumC0493a("MOBILE_2G", 3, 2);
+            e = new EnumC0493a("MOBILE_3G", 4, 3);
+            f = new EnumC0493a("WIFI", 5, 4);
+            EnumC0493a enumC0493a = new EnumC0493a("MOBILE_4G", 6, 5);
+            g = enumC0493a;
+            i = new EnumC0493a[]{a, b, c, d, e, f, enumC0493a};
         }
 
-        public EnumC0497a(String str, int i2, int i3) {
+        public EnumC0493a(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,36 +95,26 @@ public final class a {
             this.h = i3;
         }
 
-        public static EnumC0497a valueOf(String str) {
+        public static EnumC0493a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0497a) Enum.valueOf(EnumC0497a.class, str) : (EnumC0497a) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EnumC0493a) Enum.valueOf(EnumC0493a.class, str);
+            }
+            return (EnumC0493a) invokeL.objValue;
         }
 
-        public static EnumC0497a[] values() {
+        public static EnumC0493a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0497a[]) i.clone() : (EnumC0497a[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EnumC0493a[]) i.clone();
+            }
+            return (EnumC0493a[]) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1012231117, "Lcom/bytedance/pangle/download/a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1012231117, "Lcom/bytedance/pangle/download/a;");
-        }
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public static EnumC0497a a(Context context) {
+    public static EnumC0493a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -119,7 +123,7 @@ public final class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return EnumC0497a.f;
+                        return EnumC0493a.f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -132,23 +136,23 @@ public final class a {
                             case 12:
                             case 14:
                             case 15:
-                                return EnumC0497a.e;
+                                return EnumC0493a.e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return EnumC0497a.c;
+                                return EnumC0493a.c;
                             case 13:
-                                return EnumC0497a.g;
+                                return EnumC0493a.g;
                         }
                     }
-                    return EnumC0497a.c;
+                    return EnumC0493a.c;
                 }
-                return EnumC0497a.b;
+                return EnumC0493a.b;
             } catch (Throwable unused) {
-                return EnumC0497a.c;
+                return EnumC0493a.c;
             }
         }
-        return (EnumC0497a) invokeL.objValue;
+        return (EnumC0493a) invokeL.objValue;
     }
 }

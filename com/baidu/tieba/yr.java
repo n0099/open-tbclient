@@ -1,85 +1,92 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public final class yr {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public js b;
 
-    public yr(String str, js jsVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jsVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322996, "Lcom/baidu/tieba/yr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448322996, "Lcom/baidu/tieba/yr;");
                 return;
             }
         }
-        this.a = str;
-        this.b = jsVar;
+        a = new a(null);
     }
 
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final js b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (js) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof yr) {
-                    yr yrVar = (yr) obj;
-                    return Intrinsics.areEqual(this.a, yrVar.a) && Intrinsics.areEqual(this.b, yrVar.b);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return false;
             }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            js jsVar = this.b;
-            return hashCode + (jsVar != null ? jsVar.hashCode() : 0);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return invokeV.intValue;
-    }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        public final JSONArray a(List list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                JSONArray jSONArray = new JSONArray();
+                if (list != null) {
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(((bs) it.next()).c());
+                    }
+                }
+                return jSONArray;
+            }
+            return (JSONArray) invokeL.objValue;
         }
-        return (String) invokeV.objValue;
+
+        public final JSONArray b(List list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+                JSONArray jSONArray = new JSONArray();
+                if (list != null) {
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(wt.a((byte[]) it.next()));
+                    }
+                }
+                return jSONArray;
+            }
+            return (JSONArray) invokeL.objValue;
+        }
     }
 }

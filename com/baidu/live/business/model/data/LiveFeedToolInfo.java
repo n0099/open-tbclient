@@ -15,11 +15,21 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedToolInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LiveFeedToolInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String cmd;
     public String icon;
     public String name;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +44,7 @@ public class LiveFeedToolInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<LiveFeedToolInfo>() { // from class: com.baidu.live.business.model.data.LiveFeedToolInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveFeedToolInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,21 +63,25 @@ public class LiveFeedToolInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedToolInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LiveFeedToolInfo(parcel) : (LiveFeedToolInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new LiveFeedToolInfo(parcel);
+                }
+                return (LiveFeedToolInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedToolInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LiveFeedToolInfo[i] : (LiveFeedToolInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new LiveFeedToolInfo[i];
+                }
+                return (LiveFeedToolInfo[]) invokeI.objValue;
             }
         };
     }
@@ -84,6 +98,38 @@ public class LiveFeedToolInfo implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.icon) && !TextUtils.isEmpty(this.name) && !TextUtils.isEmpty(this.cmd)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public LiveFeedToolInfo(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.icon = parcel.readString();
+        this.name = parcel.readString();
+        this.cmd = parcel.readString();
     }
 
     public static LiveFeedToolInfo parse(JSONObject jSONObject) {
@@ -106,22 +152,6 @@ public class LiveFeedToolInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.icon) || TextUtils.isEmpty(this.name) || TextUtils.isEmpty(this.cmd)) ? false : true : invokeV.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
@@ -129,25 +159,5 @@ public class LiveFeedToolInfo implements Parcelable {
             parcel.writeString(this.name);
             parcel.writeString(this.cmd);
         }
-    }
-
-    public LiveFeedToolInfo(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.icon = parcel.readString();
-        this.name = parcel.readString();
-        this.cmd = parcel.readString();
     }
 }

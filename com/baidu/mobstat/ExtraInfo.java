@@ -52,125 +52,19 @@ public class ExtraInfo {
         this.j = "";
     }
 
-    public static boolean a(String str, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            if (str == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
-            try {
-                i2 = str.getBytes().length;
-            } catch (Exception unused) {
-                i2 = 0;
+            if (a(str, 1024)) {
+                return "";
             }
-            return i2 > i;
+            return str;
         }
-        return invokeLI.booleanValue;
-    }
-
-    public JSONObject dumpToJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(this.a)) {
-                    jSONObject.put("v1", this.a);
-                }
-                if (!TextUtils.isEmpty(this.b)) {
-                    jSONObject.put(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX, this.b);
-                }
-                if (!TextUtils.isEmpty(this.c)) {
-                    jSONObject.put("v3", this.c);
-                }
-                if (!TextUtils.isEmpty(this.d)) {
-                    jSONObject.put("v4", this.d);
-                }
-                if (!TextUtils.isEmpty(this.e)) {
-                    jSONObject.put("v5", this.e);
-                }
-                if (!TextUtils.isEmpty(this.f)) {
-                    jSONObject.put("v6", this.f);
-                }
-                if (!TextUtils.isEmpty(this.g)) {
-                    jSONObject.put("v7", this.g);
-                }
-                if (!TextUtils.isEmpty(this.h)) {
-                    jSONObject.put(V8Engine.TYPE_V8, this.h);
-                }
-                if (!TextUtils.isEmpty(this.i)) {
-                    jSONObject.put("v9", this.i);
-                }
-                if (!TextUtils.isEmpty(this.j)) {
-                    jSONObject.put("v10", this.j);
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String getV1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String getV10() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public String getV2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String getV3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String getV4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String getV5() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String getV6() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String getV7() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String getV8() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String getV9() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
     public void setV1(String str) {
@@ -243,15 +137,157 @@ public class ExtraInfo {
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static boolean a(String str, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            if (str == null) {
+                return false;
             }
-            return a(str, 1024) ? "" : str;
+            try {
+                i2 = str.getBytes().length;
+            } catch (Exception unused) {
+                i2 = 0;
+            }
+            if (i2 <= i) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeLI.booleanValue;
+    }
+
+    public JSONObject dumpToJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(this.a)) {
+                    jSONObject.put("v1", this.a);
+                }
+                if (!TextUtils.isEmpty(this.b)) {
+                    jSONObject.put(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX, this.b);
+                }
+                if (!TextUtils.isEmpty(this.c)) {
+                    jSONObject.put("v3", this.c);
+                }
+                if (!TextUtils.isEmpty(this.d)) {
+                    jSONObject.put("v4", this.d);
+                }
+                if (!TextUtils.isEmpty(this.e)) {
+                    jSONObject.put("v5", this.e);
+                }
+                if (!TextUtils.isEmpty(this.f)) {
+                    jSONObject.put("v6", this.f);
+                }
+                if (!TextUtils.isEmpty(this.g)) {
+                    jSONObject.put("v7", this.g);
+                }
+                if (!TextUtils.isEmpty(this.h)) {
+                    jSONObject.put(V8Engine.TYPE_V8, this.h);
+                }
+                if (!TextUtils.isEmpty(this.i)) {
+                    jSONObject.put("v9", this.i);
+                }
+                if (!TextUtils.isEmpty(this.j)) {
+                    jSONObject.put("v10", this.j);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String getV1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV10() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV5() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV6() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV7() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV8() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getV9() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
     }
 }

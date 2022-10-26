@@ -31,7 +31,7 @@ import java.util.Map;
 public class i {
     public static /* synthetic */ Interceptable $ic = null;
     public static String A = null;
-    public static Map<String, String> B = null;
+    public static Map B = null;
     public static Context a = null;
     public static final int b;
     public static float c = 0.0f;
@@ -213,11 +213,11 @@ public class i {
             long time = date.getTime() + (date.getSeconds() * 1000);
             B.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf((time / 1000) + ((time % 1000) / 1000.0d)))));
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry : B.entrySet()) {
+            for (Map.Entry entry : B.entrySet()) {
                 sb.append("&");
-                sb.append(entry.getKey());
+                sb.append((String) entry.getKey());
                 sb.append("=");
-                sb.append(entry.getValue());
+                sb.append((String) entry.getValue());
             }
             return sb.toString();
         }

@@ -34,18 +34,24 @@ public class ForumRecTip implements Serializable {
     public String getAttentionStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.attentionStatus : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.attentionStatus;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getRecReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.recReason : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.recReason;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.attentionStatus = jSONObject.optString(TiebaStatic.Params.IS_FOLLOW);
@@ -54,7 +60,7 @@ public class ForumRecTip implements Serializable {
 
     public void parseProto(RecommendTip recommendTip) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, recommendTip) == null) || recommendTip == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, recommendTip) != null) || recommendTip == null) {
             return;
         }
         this.attentionStatus = recommendTip.is_follow;

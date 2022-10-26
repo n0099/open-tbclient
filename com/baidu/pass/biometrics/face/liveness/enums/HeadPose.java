@@ -101,12 +101,18 @@ public final class HeadPose {
     public static HeadPose valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (HeadPose) Enum.valueOf(HeadPose.class, str) : (HeadPose) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (HeadPose) Enum.valueOf(HeadPose.class, str);
+        }
+        return (HeadPose) invokeL.objValue;
     }
 
     public static HeadPose[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (HeadPose[]) a.clone() : (HeadPose[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (HeadPose[]) a.clone();
+        }
+        return (HeadPose[]) invokeV.objValue;
     }
 }

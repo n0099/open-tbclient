@@ -25,18 +25,18 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.newFriends.RequestNewFriendActionLocalMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.rb;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hd7;
+import com.baidu.tieba.sb;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.zc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
+public class AddFriendActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InputMethodManager a;
@@ -54,7 +54,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public String m;
 
     /* loaded from: classes4.dex */
-    public class a extends rb {
+    public class a extends sb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddFriendActivity a;
@@ -89,19 +89,19 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new zc7(this.a.h, this.a.j)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new hd7(this.a.h, this.a.j)));
                     if (this.a.k) {
                         AddFriendActivity addFriendActivity = this.a;
-                        addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f080e), false);
+                        addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f081a), false);
                     } else {
                         AddFriendActivity addFriendActivity2 = this.a;
-                        addFriendActivity2.showToast(addFriendActivity2.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f080e), false);
+                        addFriendActivity2.showToast(addFriendActivity2.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f081a), false);
                     }
                     this.a.finish();
                 } else if (AntiHelper.m(error, errorString)) {
                     AntiHelper.u(this.a.getPageContext().getPageActivity(), errorString);
                 } else {
-                    ej.N(this.a.getPageContext().getPageActivity(), errorString);
+                    fj.N(this.a.getPageContext().getPageActivity(), errorString);
                 }
             }
         }
@@ -168,10 +168,9 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                this.a.d.setText("");
             }
-            this.a.d.setText("");
         }
     }
 
@@ -205,11 +204,11 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 AddFriendActivity addFriendActivity = this.a;
                 addFriendActivity.HidenSoftKeyPad(addFriendActivity.a, this.a.d);
-                if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-                    this.a.I1(this.a.d.getText().toString());
+                if (!TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0ee0);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0ece);
+                this.a.H1(this.a.d.getText().toString());
             }
         }
     }
@@ -306,7 +305,34 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    public final void G1(Bundle bundle) {
+    public final void G1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            registerListener(new a(this, 304100));
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onPause();
+            HidenSoftKeyPad(this.a, this.d);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            ShowSoftKeyPad(this.a, this.d);
+            EditText editText = this.d;
+            editText.setSelection(editText.getText().length());
+        }
+    }
+
+    public final void F1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle == null) {
@@ -322,10 +348,10 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                             String stringExtra2 = intent.getStringExtra("from");
                             if (StringUtils.isNull(stringExtra2)) {
                                 EditText editText = this.d;
-                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b6a) + TbadkCoreApplication.getCurrentAccountName());
+                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b79) + TbadkCoreApplication.getCurrentAccountName());
                             } else {
                                 EditText editText2 = this.d;
-                                editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08bd) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f0286) + TbadkCoreApplication.getCurrentAccountName());
+                                editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08ca) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f0286) + TbadkCoreApplication.getCurrentAccountName());
                             }
                         }
                         this.d.requestFocus();
@@ -358,47 +384,39 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    public final void H1() {
+    public final void H1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            registerListener(new a(this, 304100));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(this.h) && !TextUtils.isEmpty(this.j) && !TextUtils.isEmpty(this.i)) {
+            if (TextUtils.isEmpty(str)) {
+                str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b79) + TbadkCoreApplication.getCurrentAccountName();
+            }
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(eh.g(this.h, 0L), this.j, this.i, str, this.l));
         }
-    }
-
-    public final void I1(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(this.h) || TextUtils.isEmpty(this.j) || TextUtils.isEmpty(this.i)) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b6a) + TbadkCoreApplication.getCurrentAccountName();
-        }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(dh.g(this.h, 0L), this.j, this.i, str, this.l));
     }
 
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091df2);
+            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091dee);
             this.b = findViewById;
             findViewById.setOnClickListener(new b(this));
-            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904a4);
+            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904ad);
             this.g = imageView;
             imageView.setOnClickListener(new c(this));
-            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091df1);
+            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091ded);
             this.c = navigationBar;
             navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f02a6));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f112c));
+            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f113e));
             this.e = addTextButton;
             if (addTextButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
-                layoutParams.rightMargin = ej.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+                layoutParams.rightMargin = fj.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
                 this.e.setLayoutParams(layoutParams);
             }
             this.e.setOnClickListener(new d(this));
-            this.f = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091df3);
-            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091df0);
+            this.f = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091def);
+            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091dec);
             this.d = editText;
             editText.setOnFocusChangeListener(new e(this));
             this.d.setOnTouchListener(new f(this));
@@ -426,28 +444,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             setContentView(R.layout.obfuscated_res_0x7f0d0028);
             this.a = (InputMethodManager) getPageContext().getPageActivity().getSystemService("input_method");
             initViews();
-            G1(bundle);
-            H1();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onPause();
-            HidenSoftKeyPad(this.a, this.d);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onResume();
-            ShowSoftKeyPad(this.a, this.d);
-            EditText editText = this.d;
-            editText.setSelection(editText.getText().length());
+            F1(bundle);
+            G1();
         }
     }
 

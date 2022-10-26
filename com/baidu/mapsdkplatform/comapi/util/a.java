@@ -20,7 +20,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0111a {
+    public class C0111a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -14,9 +14,9 @@ public class cc implements Runnable {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public WeakReference<Context> f161a;
+    public WeakReference f161a;
 
-    public cc(String str, WeakReference<Context> weakReference) {
+    public cc(String str, WeakReference weakReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,10 +37,10 @@ public class cc implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        WeakReference<Context> weakReference;
+        WeakReference weakReference;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = this.f161a) == null || (context = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = this.f161a) == null || (context = (Context) weakReference.get()) == null) {
             return;
         }
         if (cp.a(this.a) <= cb.f159a) {

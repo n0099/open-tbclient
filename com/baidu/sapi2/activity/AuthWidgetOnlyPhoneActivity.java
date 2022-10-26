@@ -59,6 +59,36 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
+            a();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+                return;
+            }
+            if (CoreViewRouter.getInstance().getAuthWidgetCallback() != null) {
+                this.v.setResultCode(-301);
+                this.v.setResultMsg("您已取消操作");
+                CoreViewRouter.getInstance().getAuthWidgetCallback().onFailure(this.v);
+            }
+            finish();
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         Interceptable interceptable = $ic;
@@ -78,22 +108,11 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0508);
+            setContentView(R.layout.obfuscated_res_0x7f0d0505);
             this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
             this.u = getIntent().getStringExtra(EXTRA_PARAM_SCENE);
             init();
             setupViews();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
-            }
         }
     }
 
@@ -128,9 +147,10 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.a();
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.a.a();
                 }
             });
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.AuthWidgetOnlyPhoneActivity.2
@@ -204,6 +224,20 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AuthWidgetOnlyPhoneActivity a;
 
+                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
+                public void onPageFinished(WebView webView, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
+                    }
+                }
+
+                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
+                public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -223,20 +257,6 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
-                public void onPageFinished(WebView webView, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                    }
-                }
-
-                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
-                public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                    }
-                }
-
-                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
                 public void shouldOverrideUrlLoading(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.contains(AuthWidgetOnlyPhoneActivity.w)) {
@@ -252,24 +272,6 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
             arrayList.add(new PassNameValuePair("scene", this.u));
             arrayList.add(new PassNameValuePair("authid", this.t));
             this.sapiWebView.loadAuthWidget(arrayList);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-                return;
-            }
-            if (CoreViewRouter.getInstance().getAuthWidgetCallback() != null) {
-                this.v.setResultCode(-301);
-                this.v.setResultMsg("您已取消操作");
-                CoreViewRouter.getInstance().getAuthWidgetCallback().onFailure(this.v);
-            }
-            finish();
         }
     }
 }

@@ -1,113 +1,126 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class mi5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
+    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<q26> b;
 
     /* loaded from: classes5.dex */
-    public class a implements Comparator<q26> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public ii5 a;
+        public oh5 b;
 
-        public a(mi5 mi5Var) {
+        public a(ii5 ii5Var, oh5 oh5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mi5Var};
+                Object[] objArr = {ii5Var, oh5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = null;
+            this.b = null;
+            this.a = ii5Var;
+            this.b = oh5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(q26 q26Var, q26 q26Var2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Object doInBackground(String... strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, q26Var, q26Var2)) == null) ? q26Var.sort() - q26Var2.sort() : invokeLL.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                try {
+                    if (this.a == null) {
+                        return null;
+                    }
+                    return this.a.doInBackground();
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                    return null;
+                }
+            }
+            return invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Object obj) {
+            oh5 oh5Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && (oh5Var = this.b) != null) {
+                oh5Var.onReturnDataInUI(obj);
+            }
         }
     }
 
-    public mi5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947973648, "Lcom/baidu/tieba/mi5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947973648, "Lcom/baidu/tieba/mi5;");
                 return;
             }
         }
-        this.b = new LinkedList();
+        a = BdUniqueId.gen();
+        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
     }
 
-    public List<q26> a(List<PbLinkData> list, List<PbGoodsData> list2) {
-        InterceptResult invokeLL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) ? b(list, list2, null) : (List) invokeLL.objValue;
-    }
-
-    public List<q26> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                for (int i = 0; i < list.size(); i++) {
-                    PbLinkData pbLinkData = list.get(i);
-                    if (pbLinkData.urlType == 2 && !this.a) {
-                        this.a = true;
-                    }
-                    this.b.add(pbLinkData);
-                }
-            }
-            if (!ListUtils.isEmpty(list2)) {
-                this.a = true;
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    this.b.add(list2.get(i2));
-                }
-            }
-            if (!ListUtils.isEmpty(list3)) {
-                this.a = false;
-                for (int i3 = 0; i3 < list3.size(); i3++) {
-                    this.b.add(list3.get(i3));
-                }
-            }
-            Collections.sort(this.b, new a(this));
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            BdAsyncTask.removeAllTask(a);
         }
-        return (List) invokeLLL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public static void b(ii5 ii5Var, oh5 oh5Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, ii5Var, oh5Var) == null) && ii5Var != null) {
+            a aVar = new a(ii5Var, oh5Var);
+            aVar.setParallel(b);
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
+        }
+    }
+
+    public static void c(ii5 ii5Var, oh5 oh5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, ii5Var, oh5Var) == null) && ii5Var != null) {
+            a aVar = new a(ii5Var, oh5Var);
+            aVar.setParallel(TiebaIMConfig.getParallel());
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
+        }
     }
 }

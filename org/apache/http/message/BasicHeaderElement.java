@@ -15,6 +15,24 @@ public class BasicHeaderElement implements HeaderElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public BasicHeaderElement(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public BasicHeaderElement(String str, String str2, NameValuePair[] nameValuePairArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,15 +60,6 @@ public class BasicHeaderElement implements HeaderElement {
         return invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // org.apache.http.HeaderElement
     public String getName() {
         InterceptResult invokeV;
@@ -59,26 +68,6 @@ public class BasicHeaderElement implements HeaderElement {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.HeaderElement
-    public NameValuePair getParameter(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (NameValuePair) invokeI.objValue;
-    }
-
-    @Override // org.apache.http.HeaderElement
-    public NameValuePair getParameterByName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (NameValuePair) invokeL.objValue;
     }
 
     @Override // org.apache.http.HeaderElement
@@ -129,21 +118,32 @@ public class BasicHeaderElement implements HeaderElement {
         return (String) invokeV.objValue;
     }
 
-    public BasicHeaderElement(String str, String str2) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
         }
-        throw new RuntimeException("Stub!");
+        return invokeL.booleanValue;
+    }
+
+    @Override // org.apache.http.HeaderElement
+    public NameValuePair getParameter(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (NameValuePair) invokeI.objValue;
+    }
+
+    @Override // org.apache.http.HeaderElement
+    public NameValuePair getParameterByName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (NameValuePair) invokeL.objValue;
     }
 }

@@ -48,18 +48,24 @@ public final class TimestampUtil {
     public static String getCalibratedTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.valueOf((System.currentTimeMillis() / SECONDUNIT) + mDelta) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return String.valueOf((System.currentTimeMillis() / SECONDUNIT) + mDelta);
+        }
+        return (String) invokeV.objValue;
     }
 
     public static long getDelta() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? mDelta : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return mDelta;
+        }
+        return invokeV.longValue;
     }
 
     public static void setDeltaTime(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || str == null) {
             return;
         }
         try {

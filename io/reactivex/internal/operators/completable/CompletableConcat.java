@@ -31,10 +31,10 @@ public final class CompletableConcat extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int prefetch;
-    public final Publisher<? extends CompletableSource> sources;
+    public final Publisher sources;
 
     /* loaded from: classes8.dex */
-    public static final class CompletableConcatSubscriber extends AtomicInteger implements FlowableSubscriber<CompletableSource>, Disposable {
+    public final class CompletableConcatSubscriber extends AtomicInteger implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9032184911934499404L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,12 +46,12 @@ public final class CompletableConcat extends Completable {
         public final int limit;
         public final AtomicBoolean once;
         public final int prefetch;
-        public SimpleQueue<CompletableSource> queue;
+        public SimpleQueue queue;
         public Subscription s;
         public int sourceFused;
 
         /* loaded from: classes8.dex */
-        public static final class ConcatInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
+        public final class ConcatInnerObserver extends AtomicReference implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -5454794857847146511L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -75,14 +75,6 @@ public final class CompletableConcat extends Completable {
                 this.parent = completableConcatSubscriber;
             }
 
-            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.parent.innerComplete();
-                }
-            }
-
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
@@ -96,6 +88,14 @@ public final class CompletableConcat extends Completable {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) {
                     DisposableHelper.replace(this, disposable);
+                }
+            }
+
+            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.parent.innerComplete();
                 }
             }
         }
@@ -131,44 +131,82 @@ public final class CompletableConcat extends Completable {
             }
         }
 
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
-                while (!isDisposed()) {
-                    if (!this.active) {
-                        boolean z = this.done;
-                        try {
-                            CompletableSource poll = this.queue.poll();
-                            boolean z2 = poll == null;
-                            if (z && z2) {
-                                if (this.once.compareAndSet(false, true)) {
-                                    this.actual.onComplete();
-                                    return;
-                                }
-                                return;
-                            } else if (!z2) {
-                                this.active = true;
-                                poll.subscribe(this.inner);
-                                request();
-                            }
-                        } catch (Throwable th) {
-                            Exceptions.throwIfFatal(th);
-                            innerError(th);
-                            return;
-                        }
-                    }
-                    if (decrementAndGet() == 0) {
-                        return;
-                    }
-                }
-            }
-        }
-
         public void innerComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.active = false;
                 drain();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) this.inner.get());
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        public void request() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.sourceFused != 1) {
+                int i = this.consumed + 1;
+                if (i == this.limit) {
+                    this.consumed = 0;
+                    this.s.request(i);
+                    return;
+                }
+                this.consumed = i;
+            }
+        }
+
+        public void drain() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            while (!isDisposed()) {
+                if (!this.active) {
+                    boolean z2 = this.done;
+                    try {
+                        CompletableSource completableSource = (CompletableSource) this.queue.poll();
+                        if (completableSource == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (z2 && z) {
+                            if (this.once.compareAndSet(false, true)) {
+                                this.actual.onComplete();
+                                return;
+                            }
+                            return;
+                        } else if (!z) {
+                            this.active = true;
+                            completableSource.subscribe(this.inner);
+                            request();
+                        }
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        innerError(th);
+                        return;
+                    }
+                }
+                if (decrementAndGet() == 0) {
+                    return;
+                }
             }
         }
 
@@ -181,22 +219,6 @@ public final class CompletableConcat extends Completable {
                     return;
                 }
                 RxJavaPlugins.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.inner.get()) : invokeV.booleanValue;
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.done = true;
-                drain();
             }
         }
 
@@ -213,13 +235,31 @@ public final class CompletableConcat extends Completable {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(CompletableSource completableSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, completableSource) == null) {
+                if (this.sourceFused == 0 && !this.queue.offer(completableSource)) {
+                    onError(new MissingBackpressureException());
+                } else {
+                    drain();
+                }
+            }
+        }
+
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
+            long j;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048585, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 int i = this.prefetch;
-                long j = i == Integer.MAX_VALUE ? Long.MAX_VALUE : i;
+                if (i == Integer.MAX_VALUE) {
+                    j = Long.MAX_VALUE;
+                } else {
+                    j = i;
+                }
                 if (subscription instanceof QueueSubscription) {
                     QueueSubscription queueSubscription = (QueueSubscription) subscription;
                     int requestFusion = queueSubscription.requestFusion(3);
@@ -247,36 +287,9 @@ public final class CompletableConcat extends Completable {
                 subscription.request(j);
             }
         }
-
-        public void request() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.sourceFused == 1) {
-                return;
-            }
-            int i = this.consumed + 1;
-            if (i == this.limit) {
-                this.consumed = 0;
-                this.s.request(i);
-                return;
-            }
-            this.consumed = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(CompletableSource completableSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, completableSource) == null) {
-                if (this.sourceFused == 0 && !this.queue.offer(completableSource)) {
-                    onError(new MissingBackpressureException());
-                } else {
-                    drain();
-                }
-            }
-        }
     }
 
-    public CompletableConcat(Publisher<? extends CompletableSource> publisher, int i) {
+    public CompletableConcat(Publisher publisher, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

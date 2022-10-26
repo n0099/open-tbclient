@@ -9,14 +9,15 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.di7;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sh7;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +28,30 @@ import tbclient.Lego.DataRes;
 public class LegoPageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pb a;
+    public qb a;
     public b b;
 
     /* loaded from: classes4.dex */
-    public class a extends pb {
+    public interface b {
+        void a(long j, String str, DataRes dataRes, boolean z);
+
+        void b(long j, String str, int i, String str2);
+
+        void c(long j, String str, DataRes dataRes, boolean z, int i);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoPageModel a;
@@ -60,77 +80,80 @@ public class LegoPageModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x0060  */
         /* JADX WARN: Removed duplicated region for block: B:26:0x0073  */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        public void onMessage(ResponsedMessage responsedMessage) {
             long j;
             String str;
             boolean z;
             int i;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.b == null) {
-                return;
-            }
-            boolean z2 = false;
-            if (responsedMessage.getOrginalMessage() != null) {
-                Object extra = responsedMessage.getOrginalMessage().getExtra();
-                if (extra instanceof LegoPageRequest) {
-                    LegoPageRequest legoPageRequest = (LegoPageRequest) extra;
-                    long tagCode = legoPageRequest.getTagCode();
-                    String itemId = legoPageRequest.getItemId();
-                    int pn = legoPageRequest.getPn();
-                    boolean z3 = legoPageRequest.getPn() == 1;
-                    j = tagCode;
-                    z2 = legoPageRequest.getPageType() == 2;
-                    str = itemId;
-                    i = pn;
-                    z = z3;
-                    if (responsedMessage.getError() == 0) {
-                        this.a.b.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && this.a.b != null) {
+                String str2 = "";
+                boolean z3 = true;
+                boolean z4 = false;
+                if (responsedMessage.getOrginalMessage() != null) {
+                    Object extra = responsedMessage.getOrginalMessage().getExtra();
+                    if (extra instanceof LegoPageRequest) {
+                        LegoPageRequest legoPageRequest = (LegoPageRequest) extra;
+                        long tagCode = legoPageRequest.getTagCode();
+                        String itemId = legoPageRequest.getItemId();
+                        int pn = legoPageRequest.getPn();
+                        if (legoPageRequest.getPn() == 1) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (legoPageRequest.getPageType() != 2) {
+                            z3 = false;
+                        }
+                        j = tagCode;
+                        z4 = z3;
+                        str = itemId;
+                        i = pn;
+                        z = z2;
+                        if (responsedMessage.getError() == 0) {
+                            this.a.b.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
+                            return;
+                        }
+                        DataRes dataRes = null;
+                        if (responsedMessage instanceof LegoSocketResponse) {
+                            dataRes = ((LegoSocketResponse) responsedMessage).getResultData();
+                        } else if (responsedMessage instanceof LegoHttpResponse) {
+                            dataRes = ((LegoHttpResponse) responsedMessage).getResultData();
+                        }
+                        if (!z4) {
+                            this.a.b.a(j, str, dataRes, z);
+                        } else {
+                            if (z && dataRes != null) {
+                                ou4.f();
+                                kf d = ou4.d("tb.lego_update");
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(j);
+                                sb.append("_");
+                                if (!TextUtils.isEmpty(str)) {
+                                    str2 = str;
+                                }
+                                sb.append(str2);
+                                d.a(sb.toString(), dataRes.toByteArray());
+                            }
+                            this.a.b.c(j, str, dataRes, z, i);
+                        }
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, dataRes));
                         return;
                     }
-                    DataRes dataRes = null;
-                    if (responsedMessage instanceof LegoSocketResponse) {
-                        dataRes = ((LegoSocketResponse) responsedMessage).getResultData();
-                    } else if (responsedMessage instanceof LegoHttpResponse) {
-                        dataRes = ((LegoHttpResponse) responsedMessage).getResultData();
-                    }
-                    if (!z2) {
-                        this.a.b.a(j, str, dataRes, z);
-                    } else {
-                        if (z && dataRes != null) {
-                            mu4.f();
-                            jf<byte[]> d = mu4.d("tb.lego_update");
-                            StringBuilder sb = new StringBuilder();
-                            sb.append(j);
-                            sb.append("_");
-                            sb.append(TextUtils.isEmpty(str) ? "" : str);
-                            d.a(sb.toString(), dataRes.toByteArray());
-                        }
-                        this.a.b.c(j, str, dataRes, z, i);
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, dataRes));
-                    return;
+                }
+                j = 0;
+                str = "";
+                z = false;
+                i = 1;
+                if (responsedMessage.getError() == 0) {
                 }
             }
-            j = 0;
-            str = "";
-            z = false;
-            i = 1;
-            if (responsedMessage.getError() == 0) {
-            }
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(long j, String str, DataRes dataRes, boolean z);
-
-        void b(long j, String str, int i, String str2);
-
-        void c(long j, String str, DataRes dataRes, boolean z, int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,6 +182,13 @@ public class LegoPageModel extends BdBaseModel {
         registerListener(this.a);
     }
 
+    public void B(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
     public void A(int i, long j, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) {
@@ -170,20 +200,13 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            sh7 a2 = sh7.a(j, str);
+            di7 a2 = di7.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
             }
-            legoPageRequest.getHttpMessage().addParam("page_id", j);
+            legoPageRequest.getHttpMessage().addParam(LegoListActivityConfig.PAGE_ID, j);
             sendMessage(legoPageRequest);
-        }
-    }
-
-    public void B(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.b = bVar;
         }
     }
 
@@ -198,20 +221,10 @@ public class LegoPageModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, sm8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, zm8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

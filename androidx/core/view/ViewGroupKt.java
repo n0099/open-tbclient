@@ -2,8 +2,6 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.Px;
-import androidx.annotation.RequiresApi;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +25,13 @@ public final class ViewGroupKt {
     public static final boolean contains(ViewGroup viewGroup, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, viewGroup, view2)) == null) ? viewGroup.indexOfChild(view2) != -1 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, viewGroup, view2)) == null) {
+            if (viewGroup.indexOfChild(view2) != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static final void forEach(ViewGroup viewGroup, Function1<? super View, Unit> function1) {
@@ -55,6 +59,27 @@ public final class ViewGroupKt {
         }
     }
 
+    public static final void minusAssign(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, viewGroup, view2) == null) {
+            viewGroup.removeView(view2);
+        }
+    }
+
+    public static final void plusAssign(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, viewGroup, view2) == null) {
+            viewGroup.addView(view2);
+        }
+    }
+
+    public static final void setMargins(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, null, marginLayoutParams, i) == null) {
+            marginLayoutParams.setMargins(i, i, i, i);
+        }
+    }
+
     public static final View get(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -71,87 +96,100 @@ public final class ViewGroupKt {
     public static final Sequence<View> getChildren(final ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) ? new Sequence<View>(viewGroup) { // from class: androidx.core.view.ViewGroupKt$children$1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ViewGroup $this_children;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) {
+            return new Sequence<View>(viewGroup) { // from class: androidx.core.view.ViewGroupKt$children$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ViewGroup $this_children;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {viewGroup};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {viewGroup};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.$this_children = viewGroup;
                 }
-                this.$this_children = viewGroup;
-            }
 
-            @Override // kotlin.sequences.Sequence
-            public Iterator<View> iterator() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? ViewGroupKt.iterator(this.$this_children) : (Iterator) invokeV.objValue;
-            }
-        } : (Sequence) invokeL.objValue;
+                @Override // kotlin.sequences.Sequence
+                public Iterator<View> iterator() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return ViewGroupKt.iterator(this.$this_children);
+                    }
+                    return (Iterator) invokeV.objValue;
+                }
+            };
+        }
+        return (Sequence) invokeL.objValue;
     }
 
     public static final int getSize(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewGroup)) == null) ? viewGroup.getChildCount() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewGroup)) == null) {
+            return viewGroup.getChildCount();
+        }
+        return invokeL.intValue;
     }
 
     public static final boolean isEmpty(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, viewGroup)) == null) ? viewGroup.getChildCount() == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, viewGroup)) == null) {
+            if (viewGroup.getChildCount() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static final boolean isNotEmpty(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, viewGroup)) == null) ? viewGroup.getChildCount() != 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, viewGroup)) == null) {
+            if (viewGroup.getChildCount() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static final Iterator<View> iterator(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, viewGroup)) == null) ? new ViewGroupKt$iterator$1(viewGroup) : (Iterator) invokeL.objValue;
-    }
-
-    public static final void minusAssign(ViewGroup viewGroup, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, viewGroup, view2) == null) {
-            viewGroup.removeView(view2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, viewGroup)) == null) {
+            return new ViewGroupKt$iterator$1(viewGroup);
         }
+        return (Iterator) invokeL.objValue;
     }
 
-    public static final void plusAssign(ViewGroup viewGroup, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, viewGroup, view2) == null) {
-            viewGroup.addView(view2);
-        }
-    }
-
-    public static final void setMargins(ViewGroup.MarginLayoutParams marginLayoutParams, @Px int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, marginLayoutParams, i) == null) {
-            marginLayoutParams.setMargins(i, i, i, i);
-        }
-    }
-
-    public static final void updateMargins(ViewGroup.MarginLayoutParams marginLayoutParams, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
+    public static final void updateMargins(ViewGroup.MarginLayoutParams marginLayoutParams, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{marginLayoutParams, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             marginLayoutParams.setMargins(i, i2, i3, i4);
+        }
+    }
+
+    public static final void updateMarginsRelative(ViewGroup.MarginLayoutParams marginLayoutParams, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{marginLayoutParams, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            marginLayoutParams.setMarginStart(i);
+            marginLayoutParams.topMargin = i2;
+            marginLayoutParams.setMarginEnd(i3);
+            marginLayoutParams.bottomMargin = i4;
         }
     }
 
@@ -169,17 +207,6 @@ public final class ViewGroupKt {
             i4 = marginLayoutParams.bottomMargin;
         }
         marginLayoutParams.setMargins(i, i2, i3, i4);
-    }
-
-    @RequiresApi(17)
-    public static final void updateMarginsRelative(ViewGroup.MarginLayoutParams marginLayoutParams, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{marginLayoutParams, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            marginLayoutParams.setMarginStart(i);
-            marginLayoutParams.topMargin = i2;
-            marginLayoutParams.setMarginEnd(i3);
-            marginLayoutParams.bottomMargin = i4;
-        }
     }
 
     public static /* synthetic */ void updateMarginsRelative$default(ViewGroup.MarginLayoutParams marginLayoutParams, int i, int i2, int i3, int i4, int i5, Object obj) {

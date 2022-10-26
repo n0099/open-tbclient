@@ -30,6 +30,16 @@ public class NullMediaHeaderBox extends AbstractMediaHeaderBox {
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 4L;
+        }
+        return invokeV.longValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NullMediaHeaderBox() {
         super(TYPE);
@@ -62,15 +72,5 @@ public class NullMediaHeaderBox extends AbstractMediaHeaderBox {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
             writeVersionAndFlags(byteBuffer);
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 4L;
-        }
-        return invokeV.longValue;
     }
 }

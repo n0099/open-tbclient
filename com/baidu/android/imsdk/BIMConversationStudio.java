@@ -74,6 +74,33 @@ public class BIMConversationStudio extends BIMConversation {
         this.mIsReliable = z;
     }
 
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void beginWithCompletion(IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iMcastSetListener) == null) {
+            this.mCastListener = iMcastSetListener;
+            beginWithCompletion(Long.parseLong(this.mCastId), this.mIsReliable, iMcastSetListener);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void seekCastMessage(int i) {
+        UnLoginCastService unLoginCastService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (unLoginCastService = this.mCastService) != null) {
+            unLoginCastService.seek(i);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void setPullInterval(int i) {
+        UnLoginCastService unLoginCastService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (unLoginCastService = this.mCastService) != null) {
+            unLoginCastService.setPullInterval(i);
+        }
+    }
+
     private void beginOtherCastType(IMcastSetListener iMcastSetListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, iMcastSetListener) == null) {
@@ -90,15 +117,6 @@ public class BIMConversationStudio extends BIMConversation {
                 LogUtils.e(TAG, "Exception ", e);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void beginWithCompletion(IMcastSetListener iMcastSetListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iMcastSetListener) == null) {
-            this.mCastListener = iMcastSetListener;
-            beginWithCompletion(Long.parseLong(this.mCastId), this.mIsReliable, iMcastSetListener);
         }
     }
 
@@ -122,62 +140,6 @@ public class BIMConversationStudio extends BIMConversation {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
-    }
-
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void pauseCastMessage() {
-        UnLoginCastService unLoginCastService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (unLoginCastService = this.mCastService) == null) {
-            return;
-        }
-        unLoginCastService.pause();
-    }
-
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void playCastMessage() {
-        UnLoginCastService unLoginCastService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (unLoginCastService = this.mCastService) == null) {
-            return;
-        }
-        unLoginCastService.replay(this.mCastId, this.mCastUrl, this.mCastType);
-    }
-
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void seekCastMessage(int i) {
-        UnLoginCastService unLoginCastService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (unLoginCastService = this.mCastService) == null) {
-            return;
-        }
-        unLoginCastService.seek(i);
-    }
-
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
-            if (this.mCastType == 2) {
-                ConversationStudioManImpl.getInstance(this.mContext).sendQuizOpts(j, j2, i, str, iMcastSetListener);
-                return;
-            }
-            UnLoginCastService unLoginCastService = this.mCastService;
-            if (unLoginCastService != null) {
-                unLoginCastService.stopService(0);
-            }
-            iMcastSetListener.onResult(0, this.session.getContacter(), -1L);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.BIMConversation
-    public void setPullInterval(int i) {
-        UnLoginCastService unLoginCastService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (unLoginCastService = this.mCastService) == null) {
-            return;
-        }
-        unLoginCastService.setPullInterval(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -231,6 +193,40 @@ public class BIMConversationStudio extends BIMConversation {
             } else {
                 beginOtherCastType(iMcastSetListener);
             }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void pauseCastMessage() {
+        UnLoginCastService unLoginCastService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (unLoginCastService = this.mCastService) != null) {
+            unLoginCastService.pause();
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void playCastMessage() {
+        UnLoginCastService unLoginCastService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (unLoginCastService = this.mCastService) != null) {
+            unLoginCastService.replay(this.mCastId, this.mCastUrl, this.mCastType);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.BIMConversation
+    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
+            if (this.mCastType == 2) {
+                ConversationStudioManImpl.getInstance(this.mContext).sendQuizOpts(j, j2, i, str, iMcastSetListener);
+                return;
+            }
+            UnLoginCastService unLoginCastService = this.mCastService;
+            if (unLoginCastService != null) {
+                unLoginCastService.stopService(0);
+            }
+            iMcastSetListener.onResult(0, this.session.getContacter(), -1L);
         }
     }
 }

@@ -41,7 +41,7 @@ public class bp {
             }
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(m206a(str));
+                messageDigest.update(m205a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException unused) {
                 return str;
@@ -83,7 +83,7 @@ public class bp {
         return (String) invokeLI.objValue;
     }
 
-    public static String a(Collection<?> collection, String str) {
+    public static String a(Collection collection, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, collection, str)) == null) {
@@ -96,7 +96,7 @@ public class bp {
     }
 
     /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:23:0x003b -> B:17:0x0029 */
-    public static String a(Iterator<?> it, String str) {
+    public static String a(Iterator it, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, it, str)) == null) {
@@ -186,7 +186,7 @@ public class bp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m205a(String str) {
+    public static boolean m204a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -205,7 +205,7 @@ public class bp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m206a(String str) {
+    public static byte[] m205a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -225,7 +225,7 @@ public class bp {
             if (str != null) {
                 try {
                     MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                    messageDigest.update(m206a(str));
+                    messageDigest.update(m205a(str));
                     return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
                 } catch (NoSuchAlgorithmException unused) {
                     return str;
@@ -253,7 +253,7 @@ public class bp {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m207b(String str) {
+    public static boolean m206b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {

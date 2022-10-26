@@ -60,12 +60,18 @@ public final class EncodeStrategy {
     public static EncodeStrategy valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EncodeStrategy) Enum.valueOf(EncodeStrategy.class, str) : (EncodeStrategy) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (EncodeStrategy) Enum.valueOf(EncodeStrategy.class, str);
+        }
+        return (EncodeStrategy) invokeL.objValue;
     }
 
     public static EncodeStrategy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EncodeStrategy[]) $VALUES.clone() : (EncodeStrategy[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (EncodeStrategy[]) $VALUES.clone();
+        }
+        return (EncodeStrategy[]) invokeV.objValue;
     }
 }

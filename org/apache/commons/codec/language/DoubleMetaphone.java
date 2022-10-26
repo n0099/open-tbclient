@@ -62,6 +62,41 @@ public class DoubleMetaphone implements StringEncoder {
             }
         }
 
+        public void append(char c, char c2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c), Character.valueOf(c2)}) == null) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+
+        public void append(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+
+        public void appendAlternate(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+
+        public void appendPrimary(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+
+        public void append(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+
         public String getAlternate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -88,41 +123,6 @@ public class DoubleMetaphone implements StringEncoder {
             }
             return invokeV.booleanValue;
         }
-
-        public void append(char c, char c2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c), Character.valueOf(c2)}) == null) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-
-        public void appendAlternate(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-
-        public void appendPrimary(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-
-        public void append(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-
-        public void append(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-                throw new RuntimeException("Stub!");
-            }
-        }
     }
 
     public DoubleMetaphone() {
@@ -141,6 +141,15 @@ public class DoubleMetaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
+    public int getMaxCodeLen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
+    }
+
     public static boolean contains(String str, int i, int i2, String[] strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -157,6 +166,24 @@ public class DoubleMetaphone implements StringEncoder {
             throw new RuntimeException("Stub!");
         }
         return invokeLI.charValue;
+    }
+
+    public String doubleMetaphone(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public boolean isDoubleMetaphoneEqual(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.booleanValue;
     }
 
     public String doubleMetaphone(String str) {
@@ -178,38 +205,11 @@ public class DoubleMetaphone implements StringEncoder {
         return invokeL.objValue;
     }
 
-    public int getMaxCodeLen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isDoubleMetaphoneEqual(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLL.booleanValue;
-    }
-
     public void setMaxCodeLen(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public String doubleMetaphone(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeLZ.objValue;
     }
 
     @Override // org.apache.commons.codec.StringEncoder

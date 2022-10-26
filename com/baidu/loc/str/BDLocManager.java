@@ -38,7 +38,7 @@ public class BDLocManager implements Debug {
     public static char[] alphabet;
     public static BDLocManager instance;
     public static Object lock;
-    public static Class<?> mCdmaClass;
+    public static Class mCdmaClass;
     public transient /* synthetic */ FieldHolder $fh;
     public int connecetWifiLevel;
     public String connectWifi;
@@ -54,7 +54,7 @@ public class BDLocManager implements Debug {
 
     /* renamed from: com.baidu.loc.str.BDLocManager$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -167,10 +167,10 @@ public class BDLocManager implements Debug {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BDLocManager this$0;
-        public List<ScanResult> wifiList;
+        public List wifiList;
         public long wifiTime;
 
-        public WifiList(BDLocManager bDLocManager, List<ScanResult> list) {
+        public WifiList(BDLocManager bDLocManager, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -221,7 +221,7 @@ public class BDLocManager implements Debug {
                 if (r0 >= r1) goto Lc
                 return
             Lc:
-                java.util.List<android.net.wifi.ScanResult> r0 = r7.wifiList
+                java.util.List r0 = r7.wifiList
                 int r0 = r0.size()
                 int r0 = r0 - r1
                 r2 = 1
@@ -232,23 +232,23 @@ public class BDLocManager implements Debug {
                 r3 = 0
             L1a:
                 if (r2 >= r0) goto L4d
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.wifiList
+                java.util.List r4 = r7.wifiList
                 java.lang.Object r4 = r4.get(r2)
                 android.net.wifi.ScanResult r4 = (android.net.wifi.ScanResult) r4
                 int r4 = r4.level
-                java.util.List<android.net.wifi.ScanResult> r5 = r7.wifiList
+                java.util.List r5 = r7.wifiList
                 int r6 = r2 + 1
                 java.lang.Object r5 = r5.get(r6)
                 android.net.wifi.ScanResult r5 = (android.net.wifi.ScanResult) r5
                 int r5 = r5.level
                 if (r4 >= r5) goto L4b
-                java.util.List<android.net.wifi.ScanResult> r3 = r7.wifiList
+                java.util.List r3 = r7.wifiList
                 java.lang.Object r3 = r3.get(r6)
                 android.net.wifi.ScanResult r3 = (android.net.wifi.ScanResult) r3
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.wifiList
+                java.util.List r4 = r7.wifiList
                 java.lang.Object r5 = r4.get(r2)
                 r4.set(r6, r5)
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.wifiList
+                java.util.List r4 = r7.wifiList
                 r4.set(r2, r3)
                 r3 = 1
             L4b:
@@ -274,7 +274,7 @@ public class BDLocManager implements Debug {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<ScanResult> list = this.wifiList;
+                List list = this.wifiList;
                 if (list == null) {
                     return 0;
                 }
@@ -305,9 +305,9 @@ public class BDLocManager implements Debug {
                 int i3 = 0;
                 boolean z2 = true;
                 for (int i4 = 0; i4 < size; i4++) {
-                    if (this.wifiList.get(i4).level != 0) {
-                        String str = this.wifiList.get(i4).BSSID;
-                        int i5 = this.wifiList.get(i4).level;
+                    if (((ScanResult) this.wifiList.get(i4)).level != 0) {
+                        String str = ((ScanResult) this.wifiList.get(i4)).BSSID;
+                        int i5 = ((ScanResult) this.wifiList.get(i4)).level;
                         String replace = str.replace(":", "");
                         if (this.this$0.connectWifi == null || !replace.equals(this.this$0.connectWifi)) {
                             if (i3 < i2) {
@@ -719,7 +719,7 @@ public class BDLocManager implements Debug {
                     return;
                 }
             }
-            Class<?> cls = mCdmaClass;
+            Class cls = mCdmaClass;
             if (cls != null && cls.isInstance(cellLocation)) {
                 try {
                     int systemId = ((CdmaCellLocation) cellLocation).getSystemId();

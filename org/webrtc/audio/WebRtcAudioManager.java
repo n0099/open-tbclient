@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 /* loaded from: classes9.dex */
 public class WebRtcAudioManager {
@@ -36,14 +35,62 @@ public class WebRtcAudioManager {
         }
     }
 
-    @CalledByNative
     public static AudioManager getAudioManager(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? (AudioManager) context.getSystemService("audio") : (AudioManager) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return (AudioManager) context.getSystemService("audio");
+        }
+        return (AudioManager) invokeL.objValue;
     }
 
-    @CalledByNative
+    public static int getLowLatencyFramesPerBuffer(AudioManager audioManager) {
+        InterceptResult invokeL;
+        String property;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, audioManager)) == null) {
+            if (Build.VERSION.SDK_INT < 17 || (property = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER")) == null) {
+                return 256;
+            }
+            return Integer.parseInt(property);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getSampleRateForApiLevel(AudioManager audioManager) {
+        InterceptResult invokeL;
+        String property;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, audioManager)) == null) {
+            if (Build.VERSION.SDK_INT < 17 || (property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE")) == null) {
+                return 16000;
+            }
+            return Integer.parseInt(property);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean isLowLatencyInputSupported(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 21 && isLowLatencyOutputSupported(context)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isLowLatencyOutputSupported(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            return context.getPackageManager().hasSystemFeature("android.hardware.audio.low_latency");
+        }
+        return invokeL.booleanValue;
+    }
+
     public static int getInputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
@@ -56,38 +103,6 @@ public class WebRtcAudioManager {
         return invokeLLII.intValue;
     }
 
-    public static int getLowLatencyFramesPerBuffer(AudioManager audioManager) {
-        InterceptResult invokeL;
-        String property;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, audioManager)) == null) {
-            if (Build.VERSION.SDK_INT >= 17 && (property = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER")) != null) {
-                return Integer.parseInt(property);
-            }
-            return 256;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int getMinInputFrameSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
-            return AudioRecord.getMinBufferSize(i, i2 == 1 ? 16 : 12, 2) / (i2 * 2);
-        }
-        return invokeII.intValue;
-    }
-
-    public static int getMinOutputFrameSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
-            return AudioTrack.getMinBufferSize(i, i2 == 1 ? 4 : 12, 2) / (i2 * 2);
-        }
-        return invokeII.intValue;
-    }
-
-    @CalledByNative
     public static int getOutputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
@@ -100,7 +115,38 @@ public class WebRtcAudioManager {
         return invokeLLII.intValue;
     }
 
-    @CalledByNative
+    public static int getMinInputFrameSize(int i, int i2) {
+        InterceptResult invokeII;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            int i4 = i2 * 2;
+            if (i2 == 1) {
+                i3 = 16;
+            } else {
+                i3 = 12;
+            }
+            return AudioRecord.getMinBufferSize(i, i3, 2) / i4;
+        }
+        return invokeII.intValue;
+    }
+
+    public static int getMinOutputFrameSize(int i, int i2) {
+        InterceptResult invokeII;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            int i4 = i2 * 2;
+            if (i2 == 1) {
+                i3 = 4;
+            } else {
+                i3 = 12;
+            }
+            return AudioTrack.getMinBufferSize(i, i3, 2) / i4;
+        }
+        return invokeII.intValue;
+    }
+
     public static int getSampleRate(AudioManager audioManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -114,30 +160,5 @@ public class WebRtcAudioManager {
             return sampleRateForApiLevel;
         }
         return invokeL.intValue;
-    }
-
-    public static int getSampleRateForApiLevel(AudioManager audioManager) {
-        InterceptResult invokeL;
-        String property;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, audioManager)) == null) {
-            if (Build.VERSION.SDK_INT >= 17 && (property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE")) != null) {
-                return Integer.parseInt(property);
-            }
-            return 16000;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean isLowLatencyInputSupported(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? Build.VERSION.SDK_INT >= 21 && isLowLatencyOutputSupported(context) : invokeL.booleanValue;
-    }
-
-    public static boolean isLowLatencyOutputSupported(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? context.getPackageManager().hasSystemFeature("android.hardware.audio.low_latency") : invokeL.booleanValue;
     }
 }

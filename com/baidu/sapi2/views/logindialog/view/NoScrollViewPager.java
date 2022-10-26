@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +19,7 @@ public class NoScrollViewPager extends ViewPager {
     public SparseIntArray b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NoScrollViewPager(@NonNull Context context) {
+    public NoScrollViewPager(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,37 +39,8 @@ public class NoScrollViewPager extends ViewPager {
         }
     }
 
-    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.a && super.onInterceptTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.a && super.onTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void scrollTo(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.scrollTo(i, i2);
-        }
-    }
-
-    public void setScanScroll(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoScrollViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public NoScrollViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,5 +60,46 @@ public class NoScrollViewPager extends ViewPager {
         }
         this.a = true;
         this.b = new SparseIntArray();
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (this.a && super.onInterceptTouchEvent(motionEvent)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (this.a && super.onTouchEvent(motionEvent)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setScanScroll(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    @Override // android.view.View
+    public void scrollTo(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.scrollTo(i, i2);
+        }
     }
 }

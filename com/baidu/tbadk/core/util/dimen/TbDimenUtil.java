@@ -30,22 +30,28 @@ public class TbDimenUtil {
     public static int dp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
-    }
-
-    public static void setDensity(DisplayMetrics displayMetrics, float f, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{displayMetrics, Float.valueOf(f), Integer.valueOf(i)}) == null) || displayMetrics == null) {
-            return;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
+            return (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics());
         }
-        displayMetrics.density = f;
-        displayMetrics.densityDpi = i;
-        displayMetrics.scaledDensity = f;
+        return invokeLF.intValue;
     }
 
     public static int sp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) {
+            return (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics());
+        }
+        return invokeLF.intValue;
+    }
+
+    public static void setDensity(DisplayMetrics displayMetrics, float f, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{displayMetrics, Float.valueOf(f), Integer.valueOf(i)}) != null) || displayMetrics == null) {
+            return;
+        }
+        displayMetrics.density = f;
+        displayMetrics.densityDpi = i;
+        displayMetrics.scaledDensity = f;
     }
 }

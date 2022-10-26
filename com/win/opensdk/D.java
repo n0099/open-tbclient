@@ -15,26 +15,6 @@ public class D implements g {
     public F1 a;
     public E b;
 
-    public D(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        F1 f1 = new F1(context, str);
-        this.a = f1;
-        f1.f = new C(this);
-    }
-
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -60,16 +40,6 @@ public class D implements g {
         f1.a(view2, pBMediaView);
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            F1 f1 = this.a;
-            return (f1 == null || !f1.b()) ? "" : f1.c.getLoad_type();
-        }
-        return (String) invokeV.objValue;
-    }
-
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,5 +48,38 @@ public class D implements g {
             return f1 != null && f1.b();
         }
         return invokeV.booleanValue;
+    }
+
+    public D(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        F1 f1 = new F1(context, str);
+        this.a = f1;
+        f1.f = new C(this);
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            F1 f1 = this.a;
+            if (f1 != null && f1.b()) {
+                return f1.c.getLoad_type();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 }

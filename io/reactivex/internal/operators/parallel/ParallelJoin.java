@@ -22,25 +22,25 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelJoin<T> extends Flowable<T> {
+public final class ParallelJoin extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final int prefetch;
-    public final ParallelFlowable<? extends T> source;
+    public final ParallelFlowable source;
 
     /* loaded from: classes8.dex */
-    public static final class JoinInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
+    public final class JoinInnerSubscriber extends AtomicReference implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8410034718427740355L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int limit;
-        public final JoinSubscriptionBase<T> parent;
+        public final JoinSubscriptionBase parent;
         public final int prefetch;
         public long produced;
-        public volatile SimplePlainQueue<T> queue;
+        public volatile SimplePlainQueue queue;
 
-        public JoinInnerSubscriber(JoinSubscriptionBase<T> joinSubscriptionBase, int i) {
+        public JoinInnerSubscriber(JoinSubscriptionBase joinSubscriptionBase, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,14 +63,17 @@ public final class ParallelJoin<T> extends Flowable<T> {
         public boolean cancel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SubscriptionHelper.cancel(this) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return SubscriptionHelper.cancel(this);
+            }
+            return invokeV.booleanValue;
         }
 
-        public SimplePlainQueue<T> getQueue() {
+        public SimplePlainQueue getQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                SimplePlainQueue<T> simplePlainQueue = this.queue;
+                SimplePlainQueue simplePlainQueue = this.queue;
                 if (simplePlainQueue == null) {
                     SpscArrayQueue spscArrayQueue = new SpscArrayQueue(this.prefetch);
                     this.queue = spscArrayQueue;
@@ -89,6 +92,19 @@ public final class ParallelJoin<T> extends Flowable<T> {
             }
         }
 
+        public void requestOne() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                long j = this.produced + 1;
+                if (j == this.limit) {
+                    this.produced = 0L;
+                    ((Subscription) get()).request(j);
+                    return;
+                }
+                this.produced = j;
+            }
+        }
+
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -98,10 +114,10 @@ public final class ParallelJoin<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.parent.onNext(this, t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.parent.onNext(this, obj);
             }
         }
 
@@ -119,35 +135,22 @@ public final class ParallelJoin<T> extends Flowable<T> {
                 long j2 = this.produced + j;
                 if (j2 >= this.limit) {
                     this.produced = 0L;
-                    get().request(j2);
+                    ((Subscription) get()).request(j2);
                     return;
                 }
                 this.produced = j2;
             }
         }
-
-        public void requestOne() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                long j = this.produced + 1;
-                if (j == this.limit) {
-                    this.produced = 0L;
-                    get().request(j);
-                    return;
-                }
-                this.produced = j;
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class JoinSubscription<T> extends JoinSubscriptionBase<T> {
+    public final class JoinSubscription extends JoinSubscriptionBase {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6312374661811000451L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public JoinSubscription(Subscriber<? super T> subscriber, int i, int i2) {
+        public JoinSubscription(Subscriber subscriber, int i, int i2) {
             super(subscriber, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -170,8 +173,18 @@ public final class ParallelJoin<T> extends Flowable<T> {
         @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
         public void drain() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getAndIncrement() == 0) {
-                drainLoop();
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            drainLoop();
+        }
+
+        @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.done.decrementAndGet();
+                drain();
             }
         }
 
@@ -195,98 +208,98 @@ public final class ParallelJoin<T> extends Flowable<T> {
         */
         public void drainLoop() {
             boolean z;
-            Object obj;
+            boolean z2;
+            boolean z3;
+            Object poll;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
-            int length = joinInnerSubscriberArr.length;
-            Subscriber<? super T> subscriber = this.actual;
-            int i = 1;
-            while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
-                while (j2 != j) {
-                    if (this.cancelled) {
-                        cleanup();
-                        return;
-                    }
-                    Throwable th = this.errors.get();
-                    if (th != null) {
-                        cleanup();
-                        subscriber.onError(th);
-                        return;
-                    }
-                    boolean z2 = this.done.get() == 0;
-                    int i2 = 0;
-                    boolean z3 = true;
-                    while (true) {
-                        if (i2 >= joinInnerSubscriberArr.length) {
-                            break;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                int length = joinInnerSubscriberArr.length;
+                Subscriber subscriber = this.actual;
+                int i = 1;
+                while (true) {
+                    long j = this.requested.get();
+                    long j2 = 0;
+                    while (j2 != j) {
+                        if (this.cancelled) {
+                            cleanup();
+                            return;
                         }
-                        JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i2];
-                        SimplePlainQueue<T> simplePlainQueue = joinInnerSubscriber.queue;
-                        if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
-                            subscriber.onNext(obj);
-                            joinInnerSubscriber.requestOne();
-                            j2++;
-                            if (j2 == j) {
-                                break;
-                            }
+                        Throwable th = (Throwable) this.errors.get();
+                        if (th != null) {
+                            cleanup();
+                            subscriber.onError(th);
+                            return;
+                        }
+                        if (this.done.get() == 0) {
+                            z3 = true;
+                        } else {
                             z3 = false;
                         }
-                        i2++;
-                    }
-                }
-                if (j2 == j) {
-                    if (this.cancelled) {
-                        cleanup();
-                        return;
-                    }
-                    Throwable th2 = this.errors.get();
-                    if (th2 != null) {
-                        cleanup();
-                        subscriber.onError(th2);
-                        return;
-                    }
-                    boolean z4 = this.done.get() == 0;
-                    int i3 = 0;
-                    while (true) {
-                        if (i3 < length) {
-                            SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
-                            if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
-                                z = false;
+                        int i2 = 0;
+                        boolean z4 = true;
+                        while (true) {
+                            if (i2 >= joinInnerSubscriberArr.length) {
                                 break;
                             }
-                            i3++;
-                        } else {
-                            z = true;
-                            break;
+                            JoinInnerSubscriber joinInnerSubscriber = joinInnerSubscriberArr[i2];
+                            SimplePlainQueue simplePlainQueue = joinInnerSubscriber.queue;
+                            if (simplePlainQueue != null && (poll = simplePlainQueue.poll()) != null) {
+                                subscriber.onNext(poll);
+                                joinInnerSubscriber.requestOne();
+                                j2++;
+                                if (j2 == j) {
+                                    break;
+                                }
+                                z4 = false;
+                            }
+                            i2++;
                         }
                     }
-                    if (z4 && z) {
-                        subscriber.onComplete();
+                    if (j2 == j) {
+                        if (this.cancelled) {
+                            cleanup();
+                            return;
+                        }
+                        Throwable th2 = (Throwable) this.errors.get();
+                        if (th2 != null) {
+                            cleanup();
+                            subscriber.onError(th2);
+                            return;
+                        }
+                        if (this.done.get() == 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        int i3 = 0;
+                        while (true) {
+                            if (i3 < length) {
+                                SimplePlainQueue simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
+                                if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
+                                    z2 = false;
+                                    break;
+                                }
+                                i3++;
+                            } else {
+                                z2 = true;
+                                break;
+                            }
+                        }
+                        if (z && z2) {
+                            subscriber.onComplete();
+                            return;
+                        }
+                    }
+                    if (j2 != 0 && j != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j2);
+                    }
+                    int i4 = get();
+                    if (i4 == i && (i4 = addAndGet(-i)) == 0) {
                         return;
                     }
+                    i = i4;
                 }
-                if (j2 != 0 && j != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j2);
-                }
-                int i4 = get();
-                if (i4 == i && (i4 = addAndGet(-i)) == 0) {
-                    return;
-                }
-                i = i4;
-            }
-        }
-
-        @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.done.decrementAndGet();
-                drain();
             }
         }
 
@@ -304,17 +317,17 @@ public final class ParallelJoin<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
-        public void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t) {
+        public void onNext(JoinInnerSubscriber joinInnerSubscriber, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, t) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, obj) == null) {
                 if (get() == 0 && compareAndSet(0, 1)) {
                     if (this.requested.get() != 0) {
-                        this.actual.onNext(t);
+                        this.actual.onNext(obj);
                         if (this.requested.get() != Long.MAX_VALUE) {
                             this.requested.decrementAndGet();
                         }
                         joinInnerSubscriber.request(1L);
-                    } else if (!joinInnerSubscriber.getQueue().offer(t)) {
+                    } else if (!joinInnerSubscriber.getQueue().offer(obj)) {
                         cancelAll();
                         MissingBackpressureException missingBackpressureException = new MissingBackpressureException("Queue full?!");
                         if (this.errors.compareAndSet(null, missingBackpressureException)) {
@@ -328,7 +341,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
                     if (decrementAndGet() == 0) {
                         return;
                     }
-                } else if (!joinInnerSubscriber.getQueue().offer(t)) {
+                } else if (!joinInnerSubscriber.getQueue().offer(obj)) {
                     cancelAll();
                     onError(new MissingBackpressureException("Queue full?!"));
                     return;
@@ -341,18 +354,26 @@ public final class ParallelJoin<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class JoinSubscriptionBase<T> extends AtomicInteger implements Subscription {
+    public abstract class JoinSubscriptionBase extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3100232009247827843L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public final AtomicInteger done;
         public final AtomicThrowable errors;
         public final AtomicLong requested;
-        public final JoinInnerSubscriber<T>[] subscribers;
+        public final JoinInnerSubscriber[] subscribers;
 
-        public JoinSubscriptionBase(Subscriber<? super T> subscriber, int i, int i2) {
+        public abstract void drain();
+
+        public abstract void onComplete();
+
+        public abstract void onError(Throwable th);
+
+        public abstract void onNext(JoinInnerSubscriber joinInnerSubscriber, Object obj);
+
+        public JoinSubscriptionBase(Subscriber subscriber, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -371,9 +392,9 @@ public final class ParallelJoin<T> extends Flowable<T> {
             this.requested = new AtomicLong();
             this.done = new AtomicInteger();
             this.actual = subscriber;
-            JoinInnerSubscriber<T>[] joinInnerSubscriberArr = new JoinInnerSubscriber[i];
+            JoinInnerSubscriber[] joinInnerSubscriberArr = new JoinInnerSubscriber[i];
             for (int i5 = 0; i5 < i; i5++) {
-                joinInnerSubscriberArr[i5] = new JoinInnerSubscriber<>(this, i2);
+                joinInnerSubscriberArr[i5] = new JoinInnerSubscriber(this, i2);
             }
             this.subscribers = joinInnerSubscriberArr;
             this.done.lazySet(i);
@@ -382,55 +403,46 @@ public final class ParallelJoin<T> extends Flowable<T> {
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            cancelAll();
-            if (getAndIncrement() == 0) {
-                cleanup();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                cancelAll();
+                if (getAndIncrement() == 0) {
+                    cleanup();
+                }
             }
         }
 
         public void cancelAll() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            int i = 0;
-            while (true) {
-                JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
-                if (i >= joinInnerSubscriberArr.length) {
-                    return;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                int i = 0;
+                while (true) {
+                    JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                    if (i < joinInnerSubscriberArr.length) {
+                        joinInnerSubscriberArr[i].cancel();
+                        i++;
+                    } else {
+                        return;
+                    }
                 }
-                joinInnerSubscriberArr[i].cancel();
-                i++;
             }
         }
 
         public void cleanup() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-                return;
-            }
-            int i = 0;
-            while (true) {
-                JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
-                if (i >= joinInnerSubscriberArr.length) {
-                    return;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                int i = 0;
+                while (true) {
+                    JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                    if (i < joinInnerSubscriberArr.length) {
+                        joinInnerSubscriberArr[i].queue = null;
+                        i++;
+                    } else {
+                        return;
+                    }
                 }
-                joinInnerSubscriberArr[i].queue = null;
-                i++;
             }
         }
-
-        public abstract void drain();
-
-        public abstract void onComplete();
-
-        public abstract void onError(Throwable th);
-
-        public abstract void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t);
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
@@ -443,13 +455,13 @@ public final class ParallelJoin<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class JoinSubscriptionDelayError<T> extends JoinSubscriptionBase<T> {
+    public final class JoinSubscriptionDelayError extends JoinSubscriptionBase {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5737965195918321883L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public JoinSubscriptionDelayError(Subscriber<? super T> subscriber, int i, int i2) {
+        public JoinSubscriptionDelayError(Subscriber subscriber, int i, int i2) {
             super(subscriber, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -472,8 +484,18 @@ public final class ParallelJoin<T> extends Flowable<T> {
         @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
         public void drain() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getAndIncrement() == 0) {
-                drainLoop();
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            drainLoop();
+        }
+
+        @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.done.decrementAndGet();
+                drain();
             }
         }
 
@@ -484,7 +506,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
             if (r15 == false) goto L84;
          */
         /* JADX WARN: Code restructure failed: missing block: B:30:0x005b, code lost:
-            if (r18.errors.get() == null) goto L82;
+            if (((java.lang.Throwable) r18.errors.get()) == null) goto L82;
          */
         /* JADX WARN: Code restructure failed: missing block: B:31:0x005d, code lost:
             r3.onError(r18.errors.terminate());
@@ -506,91 +528,91 @@ public final class ParallelJoin<T> extends Flowable<T> {
         */
         public void drainLoop() {
             boolean z;
-            Object obj;
+            boolean z2;
+            boolean z3;
+            Object poll;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
-            int length = joinInnerSubscriberArr.length;
-            Subscriber<? super T> subscriber = this.actual;
-            int i = 1;
-            while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
-                while (j2 != j) {
-                    if (this.cancelled) {
-                        cleanup();
-                        return;
-                    }
-                    boolean z2 = this.done.get() == 0;
-                    int i2 = 0;
-                    boolean z3 = true;
-                    while (true) {
-                        if (i2 >= length) {
-                            break;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                int length = joinInnerSubscriberArr.length;
+                Subscriber subscriber = this.actual;
+                int i = 1;
+                while (true) {
+                    long j = this.requested.get();
+                    long j2 = 0;
+                    while (j2 != j) {
+                        if (this.cancelled) {
+                            cleanup();
+                            return;
                         }
-                        JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i2];
-                        SimplePlainQueue<T> simplePlainQueue = joinInnerSubscriber.queue;
-                        if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
-                            subscriber.onNext(obj);
-                            joinInnerSubscriber.requestOne();
-                            j2++;
-                            if (j2 == j) {
-                                break;
-                            }
+                        if (this.done.get() == 0) {
+                            z3 = true;
+                        } else {
                             z3 = false;
                         }
-                        i2++;
-                    }
-                }
-                if (j2 == j) {
-                    if (this.cancelled) {
-                        cleanup();
-                        return;
-                    }
-                    boolean z4 = this.done.get() == 0;
-                    int i3 = 0;
-                    while (true) {
-                        if (i3 < length) {
-                            SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
-                            if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
-                                z = false;
+                        int i2 = 0;
+                        boolean z4 = true;
+                        while (true) {
+                            if (i2 >= length) {
                                 break;
                             }
-                            i3++;
-                        } else {
+                            JoinInnerSubscriber joinInnerSubscriber = joinInnerSubscriberArr[i2];
+                            SimplePlainQueue simplePlainQueue = joinInnerSubscriber.queue;
+                            if (simplePlainQueue != null && (poll = simplePlainQueue.poll()) != null) {
+                                subscriber.onNext(poll);
+                                joinInnerSubscriber.requestOne();
+                                j2++;
+                                if (j2 == j) {
+                                    break;
+                                }
+                                z4 = false;
+                            }
+                            i2++;
+                        }
+                    }
+                    if (j2 == j) {
+                        if (this.cancelled) {
+                            cleanup();
+                            return;
+                        }
+                        if (this.done.get() == 0) {
                             z = true;
-                            break;
-                        }
-                    }
-                    if (z4 && z) {
-                        if (this.errors.get() != null) {
-                            subscriber.onError(this.errors.terminate());
-                            return;
                         } else {
-                            subscriber.onComplete();
-                            return;
+                            z = false;
+                        }
+                        int i3 = 0;
+                        while (true) {
+                            if (i3 < length) {
+                                SimplePlainQueue simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
+                                if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
+                                    z2 = false;
+                                    break;
+                                }
+                                i3++;
+                            } else {
+                                z2 = true;
+                                break;
+                            }
+                        }
+                        if (z && z2) {
+                            if (((Throwable) this.errors.get()) != null) {
+                                subscriber.onError(this.errors.terminate());
+                                return;
+                            } else {
+                                subscriber.onComplete();
+                                return;
+                            }
                         }
                     }
+                    if (j2 != 0 && j != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j2);
+                    }
+                    int i4 = get();
+                    if (i4 == i && (i4 = addAndGet(-i)) == 0) {
+                        return;
+                    }
+                    i = i4;
                 }
-                if (j2 != 0 && j != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j2);
-                }
-                int i4 = get();
-                if (i4 == i && (i4 = addAndGet(-i)) == 0) {
-                    return;
-                }
-                i = i4;
-            }
-        }
-
-        @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.done.decrementAndGet();
-                drain();
             }
         }
 
@@ -605,17 +627,17 @@ public final class ParallelJoin<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
-        public void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t) {
+        public void onNext(JoinInnerSubscriber joinInnerSubscriber, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, t) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, obj) == null) {
                 if (get() == 0 && compareAndSet(0, 1)) {
                     if (this.requested.get() != 0) {
-                        this.actual.onNext(t);
+                        this.actual.onNext(obj);
                         if (this.requested.get() != Long.MAX_VALUE) {
                             this.requested.decrementAndGet();
                         }
                         joinInnerSubscriber.request(1L);
-                    } else if (!joinInnerSubscriber.getQueue().offer(t)) {
+                    } else if (!joinInnerSubscriber.getQueue().offer(obj)) {
                         joinInnerSubscriber.cancel();
                         this.errors.addThrowable(new MissingBackpressureException("Queue full?!"));
                         this.done.decrementAndGet();
@@ -626,7 +648,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         return;
                     }
                 } else {
-                    if (!joinInnerSubscriber.getQueue().offer(t) && joinInnerSubscriber.cancel()) {
+                    if (!joinInnerSubscriber.getQueue().offer(obj) && joinInnerSubscriber.cancel()) {
                         this.errors.addThrowable(new MissingBackpressureException("Queue full?!"));
                         this.done.decrementAndGet();
                     }
@@ -639,7 +661,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
         }
     }
 
-    public ParallelJoin(ParallelFlowable<? extends T> parallelFlowable, int i, boolean z) {
+    public ParallelJoin(ParallelFlowable parallelFlowable, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -660,7 +682,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         JoinSubscriptionBase joinSubscription;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {

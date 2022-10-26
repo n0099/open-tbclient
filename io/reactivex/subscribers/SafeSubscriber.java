@@ -14,14 +14,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscription {
+public final class SafeSubscriber implements FlowableSubscriber, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber<? super T> actual;
+    public final Subscriber actual;
     public boolean done;
     public Subscription s;
 
-    public SafeSubscriber(Subscriber<? super T> subscriber) {
+    public SafeSubscriber(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscript
     @Override // org.reactivestreams.Subscriber
     public void onComplete() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
             return;
         }
         this.done = true;
@@ -74,6 +74,26 @@ public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscript
     public void onCompleteNoSubscription() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            NullPointerException nullPointerException = new NullPointerException("Subscription not set!");
+            try {
+                this.actual.onSubscribe(EmptySubscription.INSTANCE);
+                try {
+                    this.actual.onError(nullPointerException);
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    RxJavaPlugins.onError(new CompositeException(nullPointerException, th));
+                }
+            } catch (Throwable th2) {
+                Exceptions.throwIfFatal(th2);
+                RxJavaPlugins.onError(new CompositeException(nullPointerException, th2));
+            }
+        }
+    }
+
+    public void onNextNoSubscription() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.done = true;
             NullPointerException nullPointerException = new NullPointerException("Subscription not set!");
             try {
                 this.actual.onSubscribe(EmptySubscription.INSTANCE);
@@ -130,14 +150,14 @@ public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscript
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
             return;
         }
         if (this.s == null) {
             onNextNoSubscription();
-        } else if (t == null) {
+        } else if (obj == null) {
             NullPointerException nullPointerException = new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             try {
                 this.s.cancel();
@@ -148,7 +168,7 @@ public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscript
             }
         } else {
             try {
-                this.actual.onNext(t);
+                this.actual.onNext(obj);
             } catch (Throwable th2) {
                 Exceptions.throwIfFatal(th2);
                 try {
@@ -158,26 +178,6 @@ public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscript
                     Exceptions.throwIfFatal(th3);
                     onError(new CompositeException(th2, th3));
                 }
-            }
-        }
-    }
-
-    public void onNextNoSubscription() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.done = true;
-            NullPointerException nullPointerException = new NullPointerException("Subscription not set!");
-            try {
-                this.actual.onSubscribe(EmptySubscription.INSTANCE);
-                try {
-                    this.actual.onError(nullPointerException);
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    RxJavaPlugins.onError(new CompositeException(nullPointerException, th));
-                }
-            } catch (Throwable th2) {
-                Exceptions.throwIfFatal(th2);
-                RxJavaPlugins.onError(new CompositeException(nullPointerException, th2));
             }
         }
     }

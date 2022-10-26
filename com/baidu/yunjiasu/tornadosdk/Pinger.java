@@ -5,7 +5,7 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.sj9;
+import com.baidu.tieba.kk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import kotlin.Metadata;
 import kotlin.concurrent.ThreadsKt;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\r\u001a\u0004\u0018\u00010\nJ\u000e\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0006J\u0010\u0010\u0011\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0006H\u0002J\u0006\u0010\u0012\u001a\u00020\u000fJ\u0010\u0010\u0013\u001a\u00020\u000f2\b\u0010\u0014\u001a\u0004\u0018\u00010\nR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/Pinger;", "", "()V", "TAG", "", "addressTarget", "Ljava/net/InetAddress;", "pingHandler", "Landroid/os/Handler;", "pingStatistics", "Lcom/baidu/yunjiasu/ping/PingStatistics;", "threadRun", "Ljava/lang/Thread;", "get", "run", "", "address", "runOnce", IntentConfig.STOP, "update", "ps", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Pinger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pinger INSTANCE;
@@ -45,7 +45,7 @@ public final class Pinger {
             }
         }
         INSTANCE = new Pinger();
-        pingHandler = new Handler(sj9.a);
+        pingHandler = new Handler(kk9.a);
     }
 
     public Pinger() {
@@ -59,6 +59,34 @@ public final class Pinger {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    public final synchronized PingStatistics get() {
+        InterceptResult invokeV;
+        PingStatistics pingStatistics2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                pingStatistics2 = pingStatistics;
+            }
+            return pingStatistics2;
+        }
+        return (PingStatistics) invokeV.objValue;
+    }
+
+    public final void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Thread thread = threadRun;
+            if (thread != null) {
+                thread.interrupt();
+            }
+            Thread thread2 = threadRun;
+            if (thread2 != null) {
+                thread2.join();
+            }
+            threadRun = null;
         }
     }
 
@@ -88,30 +116,24 @@ public final class Pinger {
         if (interceptable == null || interceptable.invokeL(65541, this, inetAddress) == null) {
             PingStatistics ping = Ping.INSTANCE.ping(inetAddress);
             LogTo.INSTANCE.d(TAG, Intrinsics.stringPlus("run1(): ", ping));
-            if (ping == null) {
-                return;
+            if (ping != null) {
+                Message message = new Message();
+                message.obj = ping;
+                pingHandler.sendMessage(message);
             }
-            Message message = new Message();
-            message.obj = ping;
-            pingHandler.sendMessage(message);
         }
     }
 
-    public final synchronized PingStatistics get() {
-        InterceptResult invokeV;
-        PingStatistics pingStatistics2;
+    public final synchronized void update(PingStatistics pingStatistics2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, pingStatistics2) == null) {
             synchronized (this) {
-                pingStatistics2 = pingStatistics;
+                pingStatistics = pingStatistics2;
             }
-            return pingStatistics2;
         }
-        return (PingStatistics) invokeV.objValue;
     }
 
     public final void run(InetAddress address) {
-        Thread thread;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, address) == null) {
             Intrinsics.checkNotNullParameter(address, "address");
@@ -124,32 +146,7 @@ public final class Pinger {
                 INSTANCE.stop();
             }
             LogTo.INSTANCE.i(TAG, Intrinsics.stringPlus("run: ", address));
-            thread = ThreadsKt.thread((r12 & 1) != 0, (r12 & 2) != 0 ? false : false, (r12 & 4) != 0 ? null : null, (r12 & 8) != 0 ? null : null, (r12 & 16) != 0 ? -1 : 0, new Pinger$run$3(address));
-            threadRun = thread;
-        }
-    }
-
-    public final void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Thread thread = threadRun;
-            if (thread != null) {
-                thread.interrupt();
-            }
-            Thread thread2 = threadRun;
-            if (thread2 != null) {
-                thread2.join();
-            }
-            threadRun = null;
-        }
-    }
-
-    public final synchronized void update(PingStatistics pingStatistics2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pingStatistics2) == null) {
-            synchronized (this) {
-                pingStatistics = pingStatistics2;
-            }
+            threadRun = ThreadsKt.thread$default(false, false, null, null, 0, new Pinger$run$3(address), 31, null);
         }
     }
 }

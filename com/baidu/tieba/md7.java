@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.UserData;
+import android.os.Build;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,41 +11,41 @@ public class md7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(UserData userData) {
-        InterceptResult invokeL;
+    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
-            if (userData == null) {
-                return "";
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(i)) {
+                c(baseFragmentActivity);
+                return false;
             }
-            if (UtilHelper.isFllowByPriorty(userData)) {
-                if (userData.getAuthType() == 1) {
-                    if (userData.isOfficial()) {
-                        return "";
-                    }
-                } else if (userData.getAuthType() == 2) {
-                    if (userData.isOriginal()) {
-                        return userData.getCreatorInfo().authDesc;
-                    }
-                } else if (userData.getAuthType() == 3) {
-                    if (userData.isNewGod()) {
-                        return userData.getNewGodData().getFieldName() + oi5.c(userData.isVideoGod());
-                    }
-                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
-                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
-                }
-            }
-            if (TextUtils.isEmpty("") && userData.isOfficial()) {
-                return "";
-            }
-            if (TextUtils.isEmpty("") && userData.isOriginal()) {
-                return userData.getCreatorInfo().authDesc;
-            }
-            if (!TextUtils.isEmpty("") || !userData.isNewGod()) {
-                return (TextUtils.isEmpty("") && userData.showBazhuGrade()) ? StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE) : "";
-            }
-            return userData.getNewGodData().getFieldName() + oi5.c(userData.isVideoGod());
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean b(BaseFragmentActivity baseFragmentActivity, Class cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, baseFragmentActivity, cls)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(cls)) {
+                c(baseFragmentActivity);
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void c(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, baseFragmentActivity) != null) || baseFragmentActivity == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT <= 10) {
+            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0edf);
+        } else {
+            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0ede);
+        }
     }
 }

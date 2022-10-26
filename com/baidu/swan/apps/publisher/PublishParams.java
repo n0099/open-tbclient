@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.io2;
-import com.baidu.tieba.l33;
+import com.baidu.tieba.jo2;
+import com.baidu.tieba.m33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,12 +39,38 @@ public final class PublishParams implements Parcelable {
     public final String navBarTitle;
     public final String publishText;
     public final int publishTextColor;
-    public final List<String> showList;
+    public final List showList;
     public final String target;
     public final String titleHint;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(749520006, "Lcom/baidu/swan/apps/publisher/PublishParams;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(749520006, "Lcom/baidu/swan/apps/publisher/PublishParams;");
+                return;
+            }
+        }
+        CREATOR = new a(null);
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static final class a implements Parcelable.Creator<PublishParams> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,6 +86,10 @@ public final class PublishParams implements Parcelable {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,31 +111,36 @@ public final class PublishParams implements Parcelable {
         public PublishParams[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PublishParams[i] : (PublishParams[]) invokeI.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new PublishParams[i];
+            }
+            return (PublishParams[]) invokeI.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(749520006, "Lcom/baidu/swan/apps/publisher/PublishParams;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(749520006, "Lcom/baidu/swan/apps/publisher/PublishParams;");
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PublishParams(Parcel parcel) {
+        this(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readFloat(), parcel.createStringArrayList(), parcel.readString(), parcel.readString());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (String) objArr2[5], ((Integer) objArr2[6]).intValue(), (String) objArr2[7], ((Integer) objArr2[8]).intValue(), (String) objArr2[9], (String) objArr2[10], (String) objArr2[11], ((Integer) objArr2[12]).intValue(), ((Float) objArr2[13]).floatValue(), (List) objArr2[14], (String) objArr2[15], (String) objArr2[16]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        CREATOR = new a(null);
+        Intrinsics.checkNotNullParameter(parcel, "parcel");
     }
 
-    public PublishParams(String str, String str2, String str3, int i, int i2, String str4, int i3, String str5, int i4, String str6, String str7, String str8, int i5, float f, List<String> list, String str9, String str10) {
+    public PublishParams(String str, String str2, String str3, int i, int i2, String str4, int i3, String str5, int i4, String str6, String str7, String str8, int i5, float f, List list, String str9, String str10) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,125 +174,202 @@ public final class PublishParams implements Parcelable {
         this.appVersion = str10;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ PublishParams(String str, String str2, String str3, int i, int i2, String str4, int i3, String str5, int i4, String str6, String str7, String str8, int i5, float f, List list, String str9, String str10, int i6, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, str3, i, i2, str4, i3, str5, i4, str6, str7, str8, i5, f, list, r18, r19);
+        String str11;
+        String str12;
+        String str13;
+        jo2.a Y;
+        String str14;
+        jo2.a Y2;
+        if ((i6 & 32768) != 0) {
+            m33 M = m33.M();
+            if (M != null && (Y2 = M.Y()) != null) {
+                str14 = Y2.H();
+            } else {
+                str14 = null;
+            }
+            str11 = str14;
+        } else {
+            str11 = str9;
         }
-        return invokeV.intValue;
+        if ((i6 & 65536) != 0) {
+            m33 M2 = m33.M();
+            if (M2 != null && (Y = M2.Y()) != null) {
+                str13 = Y.v1();
+            } else {
+                str13 = null;
+            }
+            str12 = str13;
+        } else {
+            str12 = str10;
+        }
     }
 
     public final String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.appId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.appId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.appVersion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.appVersion;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.callback : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.callback;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCancelText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cancelText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.cancelText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getCancelTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cancelTextColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.cancelTextColor;
+        }
+        return invokeV.intValue;
     }
 
     public final String getContentHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.contentHint : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.contentHint;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getEmojiPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.emojiPath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.emojiPath;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final float getImageRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imageRatio : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.imageRatio;
+        }
+        return invokeV.floatValue;
     }
 
     public final int getMaxImageNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.maxImageNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.maxImageNum;
+        }
+        return invokeV.intValue;
     }
 
     public final int getNavBarBgColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.navBarBgColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.navBarBgColor;
+        }
+        return invokeV.intValue;
     }
 
     public final int getNavBarTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.navBarTextColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.navBarTextColor;
+        }
+        return invokeV.intValue;
     }
 
     public final String getNavBarTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.navBarTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.navBarTitle;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getPublishText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.publishText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.publishText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getPublishTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.publishTextColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.publishTextColor;
+        }
+        return invokeV.intValue;
     }
 
-    public final List<String> getShowList() {
+    public final List getShowList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.showList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.showList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public final String getTarget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.target : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.target;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getTitleHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.titleHint : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.titleHint;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final Boolean supportEmoji() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            List<String> list = this.showList;
+            List list = this.showList;
             if (list != null) {
-                return Boolean.valueOf(list.contains(ReplyEditorParams.MODULE_EMOJI));
+                return Boolean.valueOf(list.contains("emoji"));
             }
             return null;
         }
@@ -268,7 +380,7 @@ public final class PublishParams implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            List<String> list = this.showList;
+            List list = this.showList;
             if (list != null) {
                 return Boolean.valueOf(list.contains("image"));
             }
@@ -281,7 +393,7 @@ public final class PublishParams implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            List<String> list = this.showList;
+            List list = this.showList;
             if (list != null) {
                 return Boolean.valueOf(list.contains("target"));
             }
@@ -294,7 +406,7 @@ public final class PublishParams implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            List<String> list = this.showList;
+            List list = this.showList;
             if (list != null) {
                 return Boolean.valueOf(list.contains("title"));
             }
@@ -326,51 +438,5 @@ public final class PublishParams implements Parcelable {
             parcel.writeString(this.appId);
             parcel.writeString(this.appVersion);
         }
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ PublishParams(String str, String str2, String str3, int i, int i2, String str4, int i3, String str5, int i4, String str6, String str7, String str8, int i5, float f, List list, String str9, String str10, int i6, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, str2, str3, i, i2, str4, i3, str5, i4, str6, str7, str8, i5, f, list, r18, r19);
-        String str11;
-        String str12;
-        io2.a Y;
-        io2.a Y2;
-        if ((i6 & 32768) != 0) {
-            l33 M = l33.M();
-            str11 = (M == null || (Y2 = M.Y()) == null) ? null : Y2.H();
-        } else {
-            str11 = str9;
-        }
-        if ((i6 & 65536) != 0) {
-            l33 M2 = l33.M();
-            str12 = (M2 == null || (Y = M2.Y()) == null) ? null : Y.v1();
-        } else {
-            str12 = str10;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PublishParams(Parcel parcel) {
-        this(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readFloat(), parcel.createStringArrayList(), parcel.readString(), parcel.readString());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (String) objArr2[5], ((Integer) objArr2[6]).intValue(), (String) objArr2[7], ((Integer) objArr2[8]).intValue(), (String) objArr2[9], (String) objArr2[10], (String) objArr2[11], ((Integer) objArr2[12]).intValue(), ((Float) objArr2[13]).floatValue(), (List) objArr2[14], (String) objArr2[15], (String) objArr2[16]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(parcel, "parcel");
     }
 }

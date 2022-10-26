@@ -35,8 +35,24 @@ public class TaskDialogData implements IViewData {
     public String taskInfoSingleKey;
     public String txtColor;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(638986509, "Lcom/baidu/bdtask/framework/ui/dialog/TaskDialogData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(638986509, "Lcom/baidu/bdtask/framework/ui/dialog/TaskDialogData;");
+                return;
+            }
+        }
+        TYPE = new a(null);
+    }
+
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,22 +73,6 @@ public class TaskDialogData implements IViewData {
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(638986509, "Lcom/baidu/bdtask/framework/ui/dialog/TaskDialogData;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(638986509, "Lcom/baidu/bdtask/framework/ui/dialog/TaskDialogData;");
-                return;
-            }
-        }
-        TYPE = new a(null);
     }
 
     public TaskDialogData(String str, int i, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12) {
@@ -108,79 +108,118 @@ public class TaskDialogData implements IViewData {
     public final String getBackBtnBgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.backBtnBgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.backBtnBgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getBackBtnSchema() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.backBtnSchema : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.backBtnSchema;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getBackBtnTxt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.backBtnTxt : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.backBtnTxt;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getBackBtnTxtColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.backBtnTxtColor : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.backBtnTxtColor;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getBgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.bgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCancelBtnBgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cancelBtnBgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.cancelBtnBgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCancelBtnSchema() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.cancelBtnSchema : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.cancelBtnSchema;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCancelBtnTxt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.cancelBtnTxt : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.cancelBtnTxt;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCancelBtnTxtColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.cancelBtnTxtColor : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.cancelBtnTxtColor;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCloseBg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.closeBg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.closeBg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getShowType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.showType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.showType;
+        }
+        return invokeV.intValue;
     }
 
     public final String getTaskInfoSingleKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.taskInfoSingleKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.taskInfoSingleKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getTxtColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.txtColor : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.txtColor;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void setBackBtnBgUrl(String str) {

@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
-import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes4.dex */
-public class k77 implements CustomMessageTask.CustomRunnable<Object> {
+public class k77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
     public k77() {
         Interceptable interceptable = $ic;
@@ -29,21 +27,37 @@ public class k77 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.a;
+            return (int) (j ^ (j >>> 32));
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(UserInfo userInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
+            this.a = userInfo.user_id.longValue();
+            String str = userInfo.user_name;
+            String str2 = userInfo.portrait;
+        }
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
-            try {
-                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
-            } catch (Exception unused) {
+            if (obj != null && k77.class == obj.getClass() && this.a == ((k77) obj).a) {
+                return true;
             }
-            return hotSelectCacheResponseMessage;
+            return false;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

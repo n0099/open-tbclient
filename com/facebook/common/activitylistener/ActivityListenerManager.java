@@ -18,10 +18,10 @@ public class ActivityListenerManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class Listener extends BaseActivityListener {
+    public class Listener extends BaseActivityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ActivityListener> mActivityListenerRef;
+        public final WeakReference mActivityListenerRef;
 
         public Listener(ActivityListener activityListener) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class ActivityListenerManager {
                     return;
                 }
             }
-            this.mActivityListenerRef = new WeakReference<>(activityListener);
+            this.mActivityListenerRef = new WeakReference(activityListener);
         }
 
         @Nullable
@@ -46,7 +46,7 @@ public class ActivityListenerManager {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, activity)) == null) {
-                ActivityListener activityListener = this.mActivityListenerRef.get();
+                ActivityListener activityListener = (ActivityListener) this.mActivityListenerRef.get();
                 if (activityListener == null) {
                     Preconditions.checkArgument(activity instanceof ListenableActivity);
                     ((ListenableActivity) activity).removeActivityListener(this);
@@ -60,60 +60,54 @@ public class ActivityListenerManager {
         public void onActivityCreate(Activity activity) {
             ActivityListener listenerOrCleanUp;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || (listenerOrCleanUp = getListenerOrCleanUp(activity)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (listenerOrCleanUp = getListenerOrCleanUp(activity)) != null) {
+                listenerOrCleanUp.onActivityCreate(activity);
             }
-            listenerOrCleanUp.onActivityCreate(activity);
         }
 
         @Override // com.facebook.common.activitylistener.BaseActivityListener, com.facebook.common.activitylistener.ActivityListener
         public void onDestroy(Activity activity) {
             ActivityListener listenerOrCleanUp;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || (listenerOrCleanUp = getListenerOrCleanUp(activity)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && (listenerOrCleanUp = getListenerOrCleanUp(activity)) != null) {
+                listenerOrCleanUp.onDestroy(activity);
             }
-            listenerOrCleanUp.onDestroy(activity);
         }
 
         @Override // com.facebook.common.activitylistener.BaseActivityListener, com.facebook.common.activitylistener.ActivityListener
         public void onPause(Activity activity) {
             ActivityListener listenerOrCleanUp;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (listenerOrCleanUp = getListenerOrCleanUp(activity)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (listenerOrCleanUp = getListenerOrCleanUp(activity)) != null) {
+                listenerOrCleanUp.onPause(activity);
             }
-            listenerOrCleanUp.onPause(activity);
         }
 
         @Override // com.facebook.common.activitylistener.BaseActivityListener, com.facebook.common.activitylistener.ActivityListener
         public void onResume(Activity activity) {
             ActivityListener listenerOrCleanUp;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (listenerOrCleanUp = getListenerOrCleanUp(activity)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (listenerOrCleanUp = getListenerOrCleanUp(activity)) != null) {
+                listenerOrCleanUp.onResume(activity);
             }
-            listenerOrCleanUp.onResume(activity);
         }
 
         @Override // com.facebook.common.activitylistener.BaseActivityListener, com.facebook.common.activitylistener.ActivityListener
         public void onStart(Activity activity) {
             ActivityListener listenerOrCleanUp;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || (listenerOrCleanUp = getListenerOrCleanUp(activity)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (listenerOrCleanUp = getListenerOrCleanUp(activity)) != null) {
+                listenerOrCleanUp.onStart(activity);
             }
-            listenerOrCleanUp.onStart(activity);
         }
 
         @Override // com.facebook.common.activitylistener.BaseActivityListener, com.facebook.common.activitylistener.ActivityListener
         public void onStop(Activity activity) {
             ActivityListener listenerOrCleanUp;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, activity) == null) || (listenerOrCleanUp = getListenerOrCleanUp(activity)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, activity) == null) && (listenerOrCleanUp = getListenerOrCleanUp(activity)) != null) {
+                listenerOrCleanUp.onStop(activity);
             }
-            listenerOrCleanUp.onStop(activity);
         }
     }
 
@@ -150,9 +144,8 @@ public class ActivityListenerManager {
     public static void register(ActivityListener activityListener, Context context) {
         ListenableActivity listenableActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, activityListener, context) == null) || (listenableActivity = getListenableActivity(context)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, activityListener, context) == null) && (listenableActivity = getListenableActivity(context)) != null) {
+            listenableActivity.addActivityListener(new Listener(activityListener));
         }
-        listenableActivity.addActivityListener(new Listener(activityListener));
     }
 }

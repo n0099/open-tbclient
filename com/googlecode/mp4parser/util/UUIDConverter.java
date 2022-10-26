@@ -27,6 +27,17 @@ public class UUIDConverter {
         }
     }
 
+    public static UUID convert(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            wrap.order(ByteOrder.BIG_ENDIAN);
+            return new UUID(wrap.getLong(), wrap.getLong());
+        }
+        return (UUID) invokeL.objValue;
+    }
+
     public static byte[] convert(UUID uuid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -43,16 +54,5 @@ public class UUIDConverter {
             return bArr;
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    public static UUID convert(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            wrap.order(ByteOrder.BIG_ENDIAN);
-            return new UUID(wrap.getLong(), wrap.getLong());
-        }
-        return (UUID) invokeL.objValue;
     }
 }

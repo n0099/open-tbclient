@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
@@ -33,7 +32,6 @@ public class FragmentViewLifecycleOwner implements LifecycleOwner {
     }
 
     @Override // androidx.lifecycle.LifecycleOwner
-    @NonNull
     public Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,13 +40,6 @@ public class FragmentViewLifecycleOwner implements LifecycleOwner {
             return this.mLifecycleRegistry;
         }
         return (Lifecycle) invokeV.objValue;
-    }
-
-    public void handleLifecycleEvent(@NonNull Lifecycle.Event event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            this.mLifecycleRegistry.handleLifecycleEvent(event);
-        }
     }
 
     public void initialize() {
@@ -61,10 +52,23 @@ public class FragmentViewLifecycleOwner implements LifecycleOwner {
     public boolean isInitialized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLifecycleRegistry != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mLifecycleRegistry != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void setCurrentState(@NonNull Lifecycle.State state) {
+    public void handleLifecycleEvent(Lifecycle.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            this.mLifecycleRegistry.handleLifecycleEvent(event);
+        }
+    }
+
+    public void setCurrentState(Lifecycle.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
             this.mLifecycleRegistry.setCurrentState(state);

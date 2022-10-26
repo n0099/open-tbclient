@@ -28,6 +28,13 @@ public final class ErrorRetryStatPlugin extends AbsPlugin {
     public BDVideoPlayerUbcContent ubcContent;
     public final UBCManager ubcService;
 
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
+    }
+
     public ErrorRetryStatPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,36 +55,36 @@ public final class ErrorRetryStatPlugin extends AbsPlugin {
     private final boolean checkData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.isErrorRetry && this.errorCode != 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.isErrorRetry && this.errorCode != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private final void uploadRetryError() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && checkData()) {
-            try {
-                BDVideoPlayerUbcContent ubcContent = this.ubcContent;
-                Intrinsics.checkNotNullExpressionValue(ubcContent, "ubcContent");
-                JSONObject extStatisticsLogClone = ubcContent.getExtStatisticsLogClone();
-                Intrinsics.checkNotNullExpressionValue(extStatisticsLogClone, "ubcContent.extStatisticsLogClone");
-                extStatisticsLogClone.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, this.errorCode);
-                extStatisticsLogClone.put("sub_errorNo", this.errorCode);
-                extStatisticsLogClone.put("isRetryError", 1);
-                String ubcContent2 = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.ubcContent, (JSONObject) null);
-                Intrinsics.checkNotNullExpressionValue(ubcContent2, "BDVideoPlayerUbcHelper.g…extLog, ubcContent, null)");
-                this.ubcService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, ubcContent2);
-            } catch (JSONException e) {
-                if (BDPlayerConfig.isDebug()) {
-                    e.printStackTrace();
-                }
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || !checkData()) {
+            return;
+        }
+        try {
+            BDVideoPlayerUbcContent ubcContent = this.ubcContent;
+            Intrinsics.checkNotNullExpressionValue(ubcContent, "ubcContent");
+            JSONObject extStatisticsLogClone = ubcContent.getExtStatisticsLogClone();
+            Intrinsics.checkNotNullExpressionValue(extStatisticsLogClone, "ubcContent.extStatisticsLogClone");
+            extStatisticsLogClone.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, this.errorCode);
+            extStatisticsLogClone.put("sub_errorNo", this.errorCode);
+            extStatisticsLogClone.put("isRetryError", 1);
+            String ubcContent2 = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.ubcContent, (JSONObject) null);
+            Intrinsics.checkNotNullExpressionValue(ubcContent2, "BDVideoPlayerUbcHelper.g…extLog, ubcContent, null)");
+            this.ubcService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, ubcContent2);
+        } catch (JSONException e) {
+            if (BDPlayerConfig.isDebug()) {
+                e.printStackTrace();
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
@@ -91,11 +98,11 @@ public final class ErrorRetryStatPlugin extends AbsPlugin {
                 case -2127352417:
                     if (action.equals(StatisticsEvent.ACTION_UPDATE_CONTENT)) {
                         Object extra = event.getExtra(13);
-                        if (extra == null) {
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent");
+                        if (extra != null) {
+                            this.ubcContent = (BDVideoPlayerUbcContent) extra;
+                            return;
                         }
-                        this.ubcContent = (BDVideoPlayerUbcContent) extra;
-                        return;
+                        throw new NullPointerException("null cannot be cast to non-null type com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent");
                     }
                     return;
                 case -812593525:

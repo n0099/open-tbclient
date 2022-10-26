@@ -2,10 +2,8 @@ package com.baidu.tieba;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class sb4 extends lb4<nc4> implements Object {
+public class sb4 extends mb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,72 +30,76 @@ public class sb4 extends lb4<nc4> implements Object {
         }
     }
 
-    public static int f(@NonNull Cursor cursor, @NonNull String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb4
+    /* renamed from: g */
+    public nc4 d(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) ? cursor.getColumnIndex(str) : invokeLL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                return h(cursor);
+            }
+            return null;
+        }
+        return (nc4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lb4
-    public List<nc4> e(Cursor cursor) {
+    @Override // com.baidu.tieba.mb4
+    public List e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    arrayList.add(h(cursor));
+                } while (cursor.moveToNext());
                 return arrayList;
             }
-            do {
-                arrayList.add(i(cursor));
-            } while (cursor.moveToNext());
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lb4
-    /* renamed from: g */
+    @Override // com.baidu.tieba.mb4
+    /* renamed from: f */
     public ContentValues c(nc4 nc4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, nc4Var)) == null) {
             ContentValues a = super.a(nc4Var);
             a.put("max_age", Long.valueOf(nc4Var.o));
-            a.put(PackageTable.ABI, nc4Var.q.id);
-            a.put("lib_name", nc4Var.p);
+            a.put("token", nc4Var.p);
+            a.put("domains", nc4Var.q);
+            a.put(GameGuideConfigInfo.KEY_APP_KEY, nc4Var.r);
+            a.put("app_name", nc4Var.s);
             return a;
         }
         return (ContentValues) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lb4
-    /* renamed from: h */
-    public nc4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return null;
-            }
-            return i(cursor);
-        }
-        return (nc4) invokeL.objValue;
-    }
-
-    public final nc4 i(Cursor cursor) {
+    public final nc4 h(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
             if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("max_age");
+                int columnIndex2 = cursor.getColumnIndex("token");
+                int columnIndex3 = cursor.getColumnIndex("domains");
+                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex5 = cursor.getColumnIndex("app_name");
                 nc4 nc4Var = new nc4();
                 if (b(cursor, nc4Var)) {
-                    nc4Var.o = cursor.getLong(f(cursor, "max_age"));
-                    nc4Var.q = AbiType.findById(cursor.getString(f(cursor, PackageTable.ABI)), null);
-                    nc4Var.p = cursor.getString(f(cursor, "lib_name"));
+                    nc4Var.o = cursor.getLong(columnIndex);
+                    nc4Var.p = cursor.getString(columnIndex2);
+                    nc4Var.q = cursor.getString(columnIndex3);
+                    nc4Var.r = cursor.getString(columnIndex4);
+                    nc4Var.s = cursor.getString(columnIndex5);
                     return nc4Var;
                 }
+                return null;
             }
             return null;
         }

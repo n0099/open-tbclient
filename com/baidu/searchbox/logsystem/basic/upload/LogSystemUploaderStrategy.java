@@ -4,8 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import com.baidu.searchbox.logsystem.logsys.LogFile;
@@ -45,7 +43,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    public /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +75,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public static final class Constants {
+    public final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KEEP_ALIVE_TIME = 60000;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -102,15 +100,13 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public static final class FileEntity implements Comparable<FileEntity> {
+    public final class FileEntity implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public File mFile;
-        @NonNull
         public FileName mFileName;
 
-        public FileEntity(@NonNull File file, @NonNull FileName fileName) {
+        public FileEntity(File file, FileName fileName) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +125,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             this.mFileName = fileName;
         }
 
-        public static FileEntity getFileEntity(@NonNull File file) {
+        public static FileEntity getFileEntity(File file) {
             InterceptResult invokeL;
             FileName fileName;
             Interceptable interceptable = $ic;
@@ -144,7 +140,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(@NonNull FileEntity fileEntity) {
+        public int compareTo(FileEntity fileEntity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fileEntity)) == null) {
@@ -152,14 +148,131 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 if (i > 0) {
                     return -1;
                 }
-                return i < 0 ? 1 : 0;
+                if (i < 0) {
+                    return 1;
+                }
+                return 0;
             }
             return invokeL.intValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class StoreUtil {
+    public final class FileName {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String FILE_ID_SEPARATOR = "_";
+        public static final String SEPARATOR = "#";
+        public transient /* synthetic */ FieldHolder $fh;
+        public String mFileID;
+        public LogType mLogType;
+        public String mProcessName;
+        public Long mTimestamp;
+
+        public FileName(String str, long j, String str2, LogType logType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j), str2, logType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mFileID = str;
+            this.mTimestamp = Long.valueOf(j);
+            this.mProcessName = str2;
+            this.mLogType = logType;
+        }
+
+        public static String createFileID(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) {
+                return str.replace("_", "").replace("#", "") + "_" + j;
+            }
+            return (String) invokeLJ.objValue;
+        }
+
+        public static FileName getFileName(String str) {
+            InterceptResult invokeL;
+            String[] split;
+            String[] split2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+                if (!TextUtils.isEmpty(str) && (split = str.split("#")) != null && split.length == 3) {
+                    long j = -1;
+                    String str2 = split[0];
+                    if (!TextUtils.isEmpty(str2) && (split2 = str2.split("_")) != null && split2.length == 2) {
+                        String str3 = split2[1];
+                        if (!TextUtils.isEmpty(str3)) {
+                            try {
+                                j = Long.valueOf(str3).longValue();
+                            } catch (NumberFormatException unused) {
+                                return null;
+                            }
+                        }
+                    }
+                    String str4 = split[1];
+                    LogType logType = LogType.getLogType(split[2]);
+                    if (!TextUtils.isEmpty(str2) && j > 0 && !TextUtils.isEmpty(str4) && logType != null) {
+                        return new FileName(str2, j, str4, logType);
+                    }
+                }
+                return null;
+            }
+            return (FileName) invokeL.objValue;
+        }
+
+        public static FileName getFileName(String str, String str2, LogType logType) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, logType)) == null) {
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && logType != null) {
+                    long j = -1;
+                    String[] split = str.split("_");
+                    if (split != null && split.length == 2) {
+                        try {
+                            j = Long.valueOf(split[1]).longValue();
+                        } catch (NumberFormatException unused) {
+                            return null;
+                        }
+                    }
+                    long j2 = j;
+                    if (j2 > 0) {
+                        return new FileName(str, j2, str2, logType);
+                    }
+                }
+                return null;
+            }
+            return (FileName) invokeLLL.objValue;
+        }
+
+        public static String getFileName(FileName fileName) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, fileName)) == null) {
+                return fileName.mFileID + "#" + fileName.mProcessName + "#" + fileName.mLogType.getTypeName();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mFileID + "#" + this.mTimestamp + "#" + this.mProcessName + "#" + this.mLogType.getTypeName();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_GZIP_TMP = ".gz.tmp";
         public static final String BASE_TMP = ".tmp";
@@ -187,49 +300,69 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public static File getAttachDir() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new File(LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "attachment") : (File) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                return new File((File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "attachment");
+            }
+            return (File) invokeV.objValue;
         }
 
         public static final File getAttachFlag() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new File(getStoreDir(), "attachment.flag") : (File) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+                return new File(getStoreDir(), "attachment.flag");
+            }
+            return (File) invokeV.objValue;
         }
 
         public static File getContentDir() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new File(LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "content") : (File) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+                return new File((File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "content");
+            }
+            return (File) invokeV.objValue;
         }
 
         public static final File getContentFlag() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new File(getStoreDir(), BASE_UPLOAD_CONTENT_FLAG) : (File) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+                return new File(getStoreDir(), BASE_UPLOAD_CONTENT_FLAG);
+            }
+            return (File) invokeV.objValue;
         }
 
         public static File getInvalidZipDir() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new File(LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "zip_supply") : (File) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+                return new File((File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "zip_supply");
+            }
+            return (File) invokeV.objValue;
         }
 
         public static File getStoreDir() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get() : (File) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+                return (File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get();
+            }
+            return (File) invokeV.objValue;
         }
 
-        @NonNull
-        public static File obtainFilePath(@NonNull File file, @NonNull FileName fileName) {
+        public static File obtainFilePath(File file, FileName fileName) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, file, fileName)) == null) ? new File(file, FileName.getFileName(fileName)) : (File) invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, file, fileName)) == null) {
+                return new File(file, FileName.getFileName(fileName));
+            }
+            return (File) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class TrimConfig {
+    public final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mLifeTime;
@@ -257,7 +390,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Type {
+    public final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type ATTACHMENT;
@@ -305,13 +438,19 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public static Type valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str);
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Type[]) $VALUES.clone();
+            }
+            return (Type[]) invokeV.objValue;
         }
     }
 
@@ -329,6 +468,18 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             }
         }
         DEBUG = LLog.sDebug;
+    }
+
+    public static boolean checkFlag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (!StoreUtil.getContentFlag().exists() && !StoreUtil.getAttachFlag().exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -350,10 +501,188 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    public static boolean checkFlag() {
+    @Override // com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy
+    public boolean canStopService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? StoreUtil.getContentFlag().exists() || StoreUtil.getAttachFlag().exists() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mAttachmentExecutor.getQueue().size() == 0 && this.mAttachmentExecutor.getActiveCount() == 0 && this.mContentExecutor.getQueue().size() == 0 && this.mContentExecutor.getActiveCount() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LogSystemUploaderStrategy(boolean z, boolean z2) {
+        this(z, z2, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), (BaseUploaderStrategy.UploadListener) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    private ResponseEntity uploadAction(Type type, FileEntity fileEntity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, type, fileEntity)) == null) {
+            if (type != null && fileEntity != null) {
+                int i = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        return new ResponseEntity(false);
+                    }
+                    return uploadAttachmentSync(fileEntity.mFileName.mFileID, fileEntity.mFile);
+                }
+                return uploadContentSync(fileEntity.mFile);
+            }
+            return new ResponseEntity(false);
+        }
+        return (ResponseEntity) invokeLL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LogSystemUploaderStrategy(boolean z, boolean z2, BaseUploaderStrategy.UploadListener uploadListener) {
+        super(z, z2, uploadListener);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), uploadListener};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), (BaseUploaderStrategy.UploadListener) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mInvalidDirDeleted = false;
+        this.mContentExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.mAttachmentExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    }
+
+    private File createContentFile(LogObject logObject, List list, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, this, logObject, list, str)) == null) {
+            File contentDir = StoreUtil.getContentDir();
+            if (!contentDir.exists()) {
+                contentDir.mkdirs();
+            }
+            FileName fileName = FileName.getFileName(str, logObject.getProcessName(), logObject.mLogType);
+            if (fileName != null) {
+                File obtainFilePath = StoreUtil.obtainFilePath(contentDir, fileName);
+                File file = new File(obtainFilePath.getAbsolutePath() + ".tmp");
+                File file2 = new File(obtainFilePath.getAbsolutePath() + StoreUtil.BASE_GZIP_TMP);
+                Utility.createNewEmptyFile(file);
+                Utility.createNewEmptyFile(file2);
+                if (file.exists()) {
+                    ContentUtil.createUBCContentInfo(logObject, list, str, file);
+                    if (file2.exists()) {
+                        ContentUtil.gzipContent(file, file2);
+                    }
+                    file2.renameTo(obtainFilePath);
+                }
+                file.delete();
+                file2.delete();
+                if (!obtainFilePath.exists()) {
+                    return null;
+                }
+                return obtainFilePath;
+            }
+            return null;
+        }
+        return (File) invokeLLL.objValue;
+    }
+
+    public void reUpload(Type type, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, type, i) != null) || i <= 0) {
+            return;
+        }
+        ThreadPoolExecutor threadPoolExecutor = null;
+        int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2) {
+                threadPoolExecutor = this.mAttachmentExecutor;
+            }
+        } else {
+            threadPoolExecutor = this.mContentExecutor;
+        }
+        if (threadPoolExecutor != null) {
+            threadPoolExecutor.execute(new Runnable(this, type, i) { // from class: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ LogSystemUploaderStrategy this$0;
+                public final /* synthetic */ int val$maxFileCount;
+                public final /* synthetic */ Type val$type;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, type, Integer.valueOf(i)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$type = type;
+                    this.val$maxFileCount = i;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if (this.this$0.doUpload(this.val$type, this.val$maxFileCount)) {
+                            this.this$0.reUpload(this.val$type, this.val$maxFileCount);
+                        } else {
+                            this.this$0.updateFileFlag(this.val$type);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy, com.baidu.searchbox.logsystem.basic.upload.UploadInterface
+    public void upload(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            reUpload(Type.CONTENT, 5);
+            reUpload(Type.ATTACHMENT, 5);
+            if (!this.mInvalidDirDeleted) {
+                this.mInvalidDirDeleted = true;
+                File invalidZipDir = StoreUtil.getInvalidZipDir();
+                if (invalidZipDir.exists()) {
+                    invalidZipDir.delete();
+                }
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -363,135 +692,138 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, type) == null) {
             int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-            if (i2 == 1) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    listFiles = null;
+                    i = 0;
+                } else {
+                    listFiles = StoreUtil.getAttachDir().listFiles();
+                    i = 100;
+                }
+            } else {
                 listFiles = StoreUtil.getContentDir().listFiles();
                 i = 500;
-            } else if (i2 != 2) {
-                listFiles = null;
-                i = 0;
-            } else {
-                listFiles = StoreUtil.getAttachDir().listFiles();
-                i = 100;
             }
-            if (listFiles == null || listFiles.length == 0) {
-                return;
-            }
-            Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i, 2592000000L));
-            if (((LinkedList) fileCluster.second).size() > 0) {
-                Iterator it = ((LinkedList) fileCluster.second).iterator();
-                while (it.hasNext()) {
-                    File file = (File) it.next();
-                    if (file != null) {
-                        file.delete();
+            if (listFiles != null && listFiles.length != 0) {
+                Pair fileCluster = fileCluster(listFiles, new TrimConfig(i, 2592000000L));
+                if (((LinkedList) fileCluster.second).size() > 0) {
+                    Iterator it = ((LinkedList) fileCluster.second).iterator();
+                    while (it.hasNext()) {
+                        File file = (File) it.next();
+                        if (file != null) {
+                            file.delete();
+                        }
                     }
                 }
+                updateFileFlag(type);
             }
-            updateFileFlag(type);
         }
+    }
+
+    public ResponseEntity uploadContentSync(File file) {
+        InterceptResult invokeL;
+        boolean z;
+        BaseContentUploader contentUploader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, file)) == null) {
+            if (file == null) {
+                return new ResponseEntity(false);
+            }
+            BaseContentUploader defaultContentUploader = UploaderProvider.getDefaultContentUploader();
+            ResponseEntity uploadSync = defaultContentUploader.uploadSync(file);
+            if (uploadSync != null) {
+                z = uploadSync.isSuccess();
+            } else {
+                z = false;
+            }
+            if (!z && (contentUploader = UploaderProvider.getContentUploader()) != defaultContentUploader) {
+                uploadSync = contentUploader.uploadSync(file);
+            }
+            if (uploadSync == null) {
+                uploadSync = new ResponseEntity(false);
+            }
+            if (DEBUG && uploadSync != null) {
+                Log.d("LSStrategy", "content upload file = " + file.getAbsolutePath());
+                Log.d("LSStrategy", "content upload success = " + uploadSync.isSuccess());
+                String message = uploadSync.getMessage();
+                if (!TextUtils.isEmpty(message)) {
+                    Log.d("LSStrategy", "content upload message = " + message);
+                }
+            }
+            return uploadSync;
+        }
+        return (ResponseEntity) invokeL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:50:0x00af, code lost:
         if (r7 == 2) goto L46;
      */
-    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private File createAttachZipFile(@NonNull LogObject logObject, @Nullable List<LogFile> list, @Nullable Set<LogFile> set, @Nullable List<LogFile> list2, @NonNull String str) {
+    private File createAttachZipFile(LogObject logObject, List list, Set set, List list2, String str) {
         InterceptResult invokeLLLLL;
         FileName fileName;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, this, logObject, list, set, list2, str)) == null) {
-            if (logObject.getLogBasicDataFile() == null || !logObject.getLogBasicDataFile().exists() || (fileName = FileName.getFileName(str, logObject.getProcessName(), logObject.mLogType)) == null) {
-                return null;
-            }
-            File attachDir = StoreUtil.getAttachDir();
-            if (!attachDir.exists()) {
-                attachDir.mkdirs();
-            }
-            File obtainFilePath = StoreUtil.obtainFilePath(attachDir, fileName);
-            try {
-                if (obtainFilePath.exists()) {
-                    obtainFilePath.delete();
+            if (logObject.getLogBasicDataFile() != null && logObject.getLogBasicDataFile().exists() && (fileName = FileName.getFileName(str, logObject.getProcessName(), logObject.mLogType)) != null) {
+                File attachDir = StoreUtil.getAttachDir();
+                if (!attachDir.exists()) {
+                    attachDir.mkdirs();
                 }
-                obtainFilePath.createNewFile();
-            } catch (IOException e) {
-                if (LLog.sDebug) {
-                    Log.d("LSStrategy", e.getMessage());
-                }
-            }
-            if (obtainFilePath.exists()) {
-                LinkedList linkedList = new LinkedList();
-                if (set != null && set.size() > 0) {
-                    linkedList.addAll(set);
-                }
-                if (list != null && list.size() > 0) {
-                    linkedList.addAll(list);
-                }
-                if (list2 != null && list2.size() > 0) {
-                    int i = 0;
-                    for (LogFile logFile : list2) {
-                        if (logFile != null && (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.FULL_BDMP_PERFIX) || logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.TXT_EXTRA))) {
-                            linkedList.add(logFile);
-                            i++;
-                        }
-                    }
-                }
+                File obtainFilePath = StoreUtil.obtainFilePath(attachDir, fileName);
                 try {
-                    LinkedList linkedList2 = new LinkedList();
-                    linkedList2.add(new ZipUtils.ZipSrc(logObject.getLogBasicDataFile(), SnapshotConstant.ProcessConstants.PROCESS_LOG_BASIC_DATA));
-                    Iterator it = linkedList.iterator();
-                    while (it.hasNext()) {
-                        LogFile logFile2 = (LogFile) it.next();
-                        if (logFile2 != null && logFile2.mFile.exists()) {
-                            linkedList2.add(new ZipUtils.ZipSrc(logFile2.mFile));
-                        }
+                    if (obtainFilePath.exists()) {
+                        obtainFilePath.delete();
                     }
-                    ZipUtils.zip(obtainFilePath, linkedList2);
-                    return obtainFilePath;
-                } catch (IOException e2) {
+                    obtainFilePath.createNewFile();
+                } catch (IOException e) {
                     if (LLog.sDebug) {
-                        Log.d("LSStrategy", e2.getMessage());
+                        Log.d("LSStrategy", e.getMessage());
                     }
                 }
+                if (obtainFilePath.exists()) {
+                    LinkedList linkedList = new LinkedList();
+                    if (set != null && set.size() > 0) {
+                        linkedList.addAll(set);
+                    }
+                    if (list != null && list.size() > 0) {
+                        linkedList.addAll(list);
+                    }
+                    if (list2 != null && list2.size() > 0) {
+                        int i = 0;
+                        Iterator it = list2.iterator();
+                        while (it.hasNext()) {
+                            LogFile logFile = (LogFile) it.next();
+                            if (logFile != null && (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.FULL_BDMP_PERFIX) || logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.TXT_EXTRA))) {
+                                linkedList.add(logFile);
+                                i++;
+                            }
+                        }
+                    }
+                    try {
+                        LinkedList linkedList2 = new LinkedList();
+                        linkedList2.add(new ZipUtils.ZipSrc(logObject.getLogBasicDataFile(), SnapshotConstant.ProcessConstants.PROCESS_LOG_BASIC_DATA));
+                        Iterator it2 = linkedList.iterator();
+                        while (it2.hasNext()) {
+                            LogFile logFile2 = (LogFile) it2.next();
+                            if (logFile2 != null && logFile2.mFile.exists()) {
+                                linkedList2.add(new ZipUtils.ZipSrc(logFile2.mFile));
+                            }
+                        }
+                        ZipUtils.zip(obtainFilePath, linkedList2);
+                        return obtainFilePath;
+                    } catch (IOException e2) {
+                        if (LLog.sDebug) {
+                            Log.d("LSStrategy", e2.getMessage());
+                        }
+                    }
+                }
+                return null;
             }
             return null;
         }
         return (File) invokeLLLLL.objValue;
-    }
-
-    private File createContentFile(@NonNull LogObject logObject, @Nullable List<LogFile> list, @NonNull String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, this, logObject, list, str)) == null) {
-            File contentDir = StoreUtil.getContentDir();
-            if (!contentDir.exists()) {
-                contentDir.mkdirs();
-            }
-            FileName fileName = FileName.getFileName(str, logObject.getProcessName(), logObject.mLogType);
-            if (fileName == null) {
-                return null;
-            }
-            File obtainFilePath = StoreUtil.obtainFilePath(contentDir, fileName);
-            File file = new File(obtainFilePath.getAbsolutePath() + ".tmp");
-            File file2 = new File(obtainFilePath.getAbsolutePath() + StoreUtil.BASE_GZIP_TMP);
-            Utility.createNewEmptyFile(file);
-            Utility.createNewEmptyFile(file2);
-            if (file.exists()) {
-                ContentUtil.createUBCContentInfo(logObject, list, str, file);
-                if (file2.exists()) {
-                    ContentUtil.gzipContent(file, file2);
-                }
-                file2.renameTo(obtainFilePath);
-            }
-            file.delete();
-            file2.delete();
-            if (obtainFilePath.exists()) {
-                return obtainFilePath;
-            }
-            return null;
-        }
-        return (File) invokeLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -503,20 +835,22 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, this, type, i)) == null) {
             int i4 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-            if (i4 == 1) {
+            if (i4 != 1) {
+                if (i4 != 2) {
+                    listFiles = null;
+                    i2 = 0;
+                } else {
+                    listFiles = StoreUtil.getAttachDir().listFiles();
+                    i2 = 100;
+                }
+            } else {
                 listFiles = StoreUtil.getContentDir().listFiles();
                 i2 = 500;
-            } else if (i4 != 2) {
-                listFiles = null;
-                i2 = 0;
-            } else {
-                listFiles = StoreUtil.getAttachDir().listFiles();
-                i2 = 100;
             }
             if (listFiles == null || listFiles.length == 0) {
                 return false;
             }
-            Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i2, 2592000000L));
+            Pair fileCluster = fileCluster(listFiles, new TrimConfig(i2, 2592000000L));
             if (((LinkedList) fileCluster.second).size() > 0) {
                 Iterator it = ((LinkedList) fileCluster.second).iterator();
                 while (it.hasNext()) {
@@ -546,13 +880,15 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             } else {
                 i3 = 0;
             }
-            return i3 == i;
+            if (i3 == i) {
+                return true;
+            }
+            return false;
         }
         return invokeLI.booleanValue;
     }
 
-    @NonNull
-    private Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster(@NonNull File[] fileArr, @NonNull TrimConfig trimConfig) {
+    private Pair fileCluster(File[] fileArr, TrimConfig trimConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, fileArr, trimConfig)) == null) {
@@ -589,7 +925,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     }
                 }
             }
-            return new Pair<>(linkedList, linkedList2);
+            return new Pair(linkedList, linkedList2);
         }
         return (Pair) invokeLL.objValue;
     }
@@ -605,56 +941,33 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             if (i == 1) {
                 file = StoreUtil.getContentFlag();
                 contentDir = StoreUtil.getContentDir();
-            } else if (i != 2) {
-                contentDir = null;
-            } else {
+            } else if (i == 2) {
                 file = StoreUtil.getAttachFlag();
                 contentDir = StoreUtil.getAttachDir();
+            } else {
+                contentDir = null;
             }
-            if (file == null || contentDir == null) {
-                return;
-            }
-            String[] list = contentDir.list();
-            z = (list == null || list.length <= 0) ? false : false;
-            boolean exists = file.exists();
-            if (!z) {
-                if (exists) {
+            if (file != null && contentDir != null) {
+                String[] list = contentDir.list();
+                z = (list == null || list.length <= 0) ? false : false;
+                boolean exists = file.exists();
+                if (z) {
+                    if (!exists) {
+                        try {
+                            file.createNewFile();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } else if (exists) {
                     file.delete();
                 }
-            } else if (exists) {
-            } else {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
-    }
-
-    @NonNull
-    private ResponseEntity uploadAction(@NonNull Type type, @NonNull FileEntity fileEntity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, type, fileEntity)) == null) {
-            if (type != null && fileEntity != null) {
-                int i = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-                if (i != 1) {
-                    if (i == 2) {
-                        return uploadAttachmentSync(fileEntity.mFileName.mFileID, fileEntity.mFile);
-                    }
-                    return new ResponseEntity(false);
-                }
-                return uploadContentSync(fileEntity.mFile);
-            }
-            return new ResponseEntity(false);
-        }
-        return (ResponseEntity) invokeLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public ResponseEntity uploadAttachmentSync(@NonNull String str, @NonNull File file) {
+    public ResponseEntity uploadAttachmentSync(String str, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, str, file)) == null) {
@@ -677,405 +990,136 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         return (ResponseEntity) invokeLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy
-    public boolean canStopService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAttachmentExecutor.getQueue().size() == 0 && this.mAttachmentExecutor.getActiveCount() == 0 && this.mContentExecutor.getQueue().size() == 0 && this.mContentExecutor.getActiveCount() == 0 : invokeV.booleanValue;
-    }
-
-    public void reUpload(Type type, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, type, i) == null) || i <= 0) {
-            return;
-        }
-        ThreadPoolExecutor threadPoolExecutor = null;
-        int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-        if (i2 == 1) {
-            threadPoolExecutor = this.mContentExecutor;
-        } else if (i2 == 2) {
-            threadPoolExecutor = this.mAttachmentExecutor;
-        }
-        if (threadPoolExecutor != null) {
-            threadPoolExecutor.execute(new Runnable(this, type, i) { // from class: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ LogSystemUploaderStrategy this$0;
-                public final /* synthetic */ int val$maxFileCount;
-                public final /* synthetic */ Type val$type;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, type, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$type = type;
-                    this.val$maxFileCount = i;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (!this.this$0.doUpload(this.val$type, this.val$maxFileCount)) {
-                            this.this$0.updateFileFlag(this.val$type);
-                        } else {
-                            this.this$0.reUpload(this.val$type, this.val$maxFileCount);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
     @Override // com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy, com.baidu.searchbox.logsystem.basic.upload.UploadInterface
-    public void upload(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            reUpload(Type.CONTENT, 5);
-            reUpload(Type.ATTACHMENT, 5);
-            if (this.mInvalidDirDeleted) {
-                return;
-            }
-            this.mInvalidDirDeleted = true;
-            File invalidZipDir = StoreUtil.getInvalidZipDir();
-            if (invalidZipDir.exists()) {
-                invalidZipDir.delete();
-            }
-        }
-    }
-
-    @NonNull
-    public ResponseEntity uploadContentSync(@NonNull File file) {
-        InterceptResult invokeL;
-        BaseContentUploader contentUploader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, file)) == null) {
-            if (file == null) {
-                return new ResponseEntity(false);
-            }
-            BaseContentUploader defaultContentUploader = UploaderProvider.getDefaultContentUploader();
-            ResponseEntity uploadSync = defaultContentUploader.uploadSync(file);
-            if (!(uploadSync != null ? uploadSync.isSuccess() : false) && (contentUploader = UploaderProvider.getContentUploader()) != defaultContentUploader) {
-                uploadSync = contentUploader.uploadSync(file);
-            }
-            if (uploadSync == null) {
-                uploadSync = new ResponseEntity(false);
-            }
-            if (DEBUG && uploadSync != null) {
-                Log.d("LSStrategy", "content upload file = " + file.getAbsolutePath());
-                Log.d("LSStrategy", "content upload success = " + uploadSync.isSuccess());
-                String message = uploadSync.getMessage();
-                if (!TextUtils.isEmpty(message)) {
-                    Log.d("LSStrategy", "content upload message = " + message);
-                }
-            }
-            return uploadSync;
-        }
-        return (ResponseEntity) invokeL.objValue;
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class FileName {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String FILE_ID_SEPARATOR = "_";
-        public static final String SEPARATOR = "#";
-        public transient /* synthetic */ FieldHolder $fh;
-        public String mFileID;
-        public LogType mLogType;
-        public String mProcessName;
-        public Long mTimestamp;
-
-        public FileName(@NonNull String str, long j, @NonNull String str2, @NonNull LogType logType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j), str2, logType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mFileID = str;
-            this.mTimestamp = Long.valueOf(j);
-            this.mProcessName = str2;
-            this.mLogType = logType;
-        }
-
-        public static String createFileID(@NonNull String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) {
-                return str.replace("_", "").replace("#", "") + "_" + j;
-            }
-            return (String) invokeLJ.objValue;
-        }
-
-        @NonNull
-        public static String getFileName(@NonNull FileName fileName) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, fileName)) == null) {
-                return fileName.mFileID + "#" + fileName.mProcessName + "#" + fileName.mLogType.getTypeName();
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mFileID + "#" + this.mTimestamp + "#" + this.mProcessName + "#" + this.mLogType.getTypeName();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static FileName getFileName(String str, String str2, LogType logType) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, logType)) == null) {
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && logType != null) {
-                    long j = -1;
-                    String[] split = str.split("_");
-                    if (split != null && split.length == 2) {
-                        try {
-                            j = Long.valueOf(split[1]).longValue();
-                        } catch (NumberFormatException unused) {
-                            return null;
-                        }
-                    }
-                    long j2 = j;
-                    if (j2 > 0) {
-                        return new FileName(str, j2, str2, logType);
-                    }
-                }
-                return null;
-            }
-            return (FileName) invokeLLL.objValue;
-        }
-
-        public static FileName getFileName(@NonNull String str) {
-            InterceptResult invokeL;
-            String[] split;
-            String[] split2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-                if (!TextUtils.isEmpty(str) && (split = str.split("#")) != null && split.length == 3) {
-                    long j = -1;
-                    String str2 = split[0];
-                    if (!TextUtils.isEmpty(str2) && (split2 = str2.split("_")) != null && split2.length == 2) {
-                        String str3 = split2[1];
-                        if (!TextUtils.isEmpty(str3)) {
-                            try {
-                                j = Long.valueOf(str3).longValue();
-                            } catch (NumberFormatException unused) {
-                                return null;
-                            }
-                        }
-                    }
-                    String str4 = split[1];
-                    LogType logType = LogType.getLogType(split[2]);
-                    if (!TextUtils.isEmpty(str2) && j > 0 && !TextUtils.isEmpty(str4) && logType != null) {
-                        return new FileName(str2, j, str4, logType);
-                    }
-                }
-                return null;
-            }
-            return (FileName) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LogSystemUploaderStrategy(boolean z, boolean z2) {
-        this(z, z2, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), (BaseUploaderStrategy.UploadListener) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LogSystemUploaderStrategy(boolean z, boolean z2, @Nullable BaseUploaderStrategy.UploadListener uploadListener) {
-        super(z, z2, uploadListener);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), uploadListener};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), (BaseUploaderStrategy.UploadListener) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mInvalidDirDeleted = false;
-        this.mContentExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        this.mAttachmentExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy, com.baidu.searchbox.logsystem.basic.upload.UploadInterface
-    public void upload(Context context, @NonNull LogObject logObject, @Nullable List<LogFile> list, @Nullable Set<LogFile> set, @Nullable List<LogFile> list2) {
+    public void upload(Context context, LogObject logObject, List list, Set set, List list2) {
         CrashUtil.CrashTAG crashTAG;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, logObject, list, set, list2) == null) {
-            if (logObject.mLogType != LogType.JAVA_CRASH || this.mUploadJavaCrash) {
-                if ((logObject.mLogType != LogType.NATIVE_CRASH || this.mUploadNativeCrash) && (crashTAG = CrashUtil.CrashTAG.getCrashTAG(logObject.getCrashTAG())) != null) {
-                    String createFileID = FileName.createFileID(crashTAG.mCrashProcessUUID, System.currentTimeMillis());
-                    File createContentFile = createContentFile(logObject, list2, createFileID);
-                    File createAttachZipFile = createAttachZipFile(logObject, list, set, list2, createFileID);
-                    BaseUploaderStrategy.UploadListener uploadListener = this.mUploadListener;
-                    if (uploadListener != null) {
-                        uploadListener.onUploadStart(logObject);
-                    }
-                    if (createContentFile != null) {
-                        this.mContentExecutor.execute(new Runnable(this, context, createContentFile) { // from class: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ LogSystemUploaderStrategy this$0;
-                            public final /* synthetic */ File val$contentFile;
-                            public final /* synthetic */ Context val$context;
+            if (logObject.mLogType == LogType.JAVA_CRASH && !this.mUploadJavaCrash) {
+                return;
+            }
+            if ((logObject.mLogType != LogType.NATIVE_CRASH || this.mUploadNativeCrash) && (crashTAG = CrashUtil.CrashTAG.getCrashTAG(logObject.getCrashTAG())) != null) {
+                String createFileID = FileName.createFileID(crashTAG.mCrashProcessUUID, System.currentTimeMillis());
+                File createContentFile = createContentFile(logObject, list2, createFileID);
+                File createAttachZipFile = createAttachZipFile(logObject, list, set, list2, createFileID);
+                BaseUploaderStrategy.UploadListener uploadListener = this.mUploadListener;
+                if (uploadListener != null) {
+                    uploadListener.onUploadStart(logObject);
+                }
+                if (createContentFile != null) {
+                    this.mContentExecutor.execute(new Runnable(this, context, createContentFile) { // from class: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ LogSystemUploaderStrategy this$0;
+                        public final /* synthetic */ File val$contentFile;
+                        public final /* synthetic */ Context val$context;
 
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, context, createContentFile};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                                this.val$context = context;
-                                this.val$contentFile = createContentFile;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    if (!Utility.isNetWorkEnabled(this.val$context)) {
-                                        this.this$0.cleanDiskCache(Type.CONTENT);
-                                        return;
-                                    }
-                                    this.this$0.updateFileFlag(Type.CONTENT);
-                                    if (LLog.sDebug) {
-                                        Log.d("LSStrategy", "new content file = " + this.val$contentFile.getAbsolutePath());
-                                    }
-                                    ResponseEntity uploadContentSync = this.this$0.uploadContentSync(this.val$contentFile);
-                                    if (uploadContentSync.isSuccess()) {
-                                        this.val$contentFile.delete();
-                                    }
-                                    if (this.this$0.mContentExecutor.getQueue().size() == 0) {
-                                        if (!uploadContentSync.isSuccess()) {
-                                            this.this$0.cleanDiskCache(Type.CONTENT);
-                                        } else {
-                                            this.this$0.reUpload(Type.CONTENT, 5);
-                                        }
-                                    }
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, context, createContentFile};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
                                 }
                             }
-                        });
-                    }
-                    if (createAttachZipFile != null) {
-                        this.mAttachmentExecutor.execute(new Runnable(this, context, createAttachZipFile, createFileID) { // from class: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ LogSystemUploaderStrategy this$0;
-                            public final /* synthetic */ File val$attachZipFile;
-                            public final /* synthetic */ Context val$context;
-                            public final /* synthetic */ String val$fileID;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, context, createAttachZipFile, createFileID};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                                this.val$context = context;
-                                this.val$attachZipFile = createAttachZipFile;
-                                this.val$fileID = createFileID;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    if (!Utility.isNetWorkEnabled(this.val$context)) {
-                                        this.this$0.cleanDiskCache(Type.ATTACHMENT);
-                                        return;
-                                    }
-                                    this.this$0.updateFileFlag(Type.ATTACHMENT);
-                                    if (LLog.sDebug) {
-                                        Log.d("LSStrategy", "new attachement file = " + this.val$attachZipFile.getAbsolutePath());
-                                    }
-                                    ResponseEntity uploadAttachmentSync = this.this$0.uploadAttachmentSync(this.val$fileID, this.val$attachZipFile);
-                                    if (uploadAttachmentSync.isSuccess()) {
-                                        this.val$attachZipFile.delete();
-                                    }
-                                    if (this.this$0.mAttachmentExecutor.getQueue().size() == 0) {
-                                        if (!uploadAttachmentSync.isSuccess()) {
-                                            this.this$0.cleanDiskCache(Type.ATTACHMENT);
-                                        } else {
-                                            this.this$0.reUpload(Type.ATTACHMENT, 5);
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                        BaseUploaderStrategy.UploadListener uploadListener2 = this.mUploadListener;
-                        if (uploadListener2 != null) {
-                            uploadListener2.onUploadDone(logObject);
+                            this.this$0 = this;
+                            this.val$context = context;
+                            this.val$contentFile = createContentFile;
                         }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                if (!Utility.isNetWorkEnabled(this.val$context)) {
+                                    this.this$0.cleanDiskCache(Type.CONTENT);
+                                    return;
+                                }
+                                this.this$0.updateFileFlag(Type.CONTENT);
+                                if (LLog.sDebug) {
+                                    Log.d("LSStrategy", "new content file = " + this.val$contentFile.getAbsolutePath());
+                                }
+                                ResponseEntity uploadContentSync = this.this$0.uploadContentSync(this.val$contentFile);
+                                if (uploadContentSync.isSuccess()) {
+                                    this.val$contentFile.delete();
+                                }
+                                if (this.this$0.mContentExecutor.getQueue().size() == 0) {
+                                    if (uploadContentSync.isSuccess()) {
+                                        this.this$0.reUpload(Type.CONTENT, 5);
+                                    } else {
+                                        this.this$0.cleanDiskCache(Type.CONTENT);
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+                if (createAttachZipFile != null) {
+                    this.mAttachmentExecutor.execute(new Runnable(this, context, createAttachZipFile, createFileID) { // from class: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ LogSystemUploaderStrategy this$0;
+                        public final /* synthetic */ File val$attachZipFile;
+                        public final /* synthetic */ Context val$context;
+                        public final /* synthetic */ String val$fileID;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, context, createAttachZipFile, createFileID};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$context = context;
+                            this.val$attachZipFile = createAttachZipFile;
+                            this.val$fileID = createFileID;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                if (!Utility.isNetWorkEnabled(this.val$context)) {
+                                    this.this$0.cleanDiskCache(Type.ATTACHMENT);
+                                    return;
+                                }
+                                this.this$0.updateFileFlag(Type.ATTACHMENT);
+                                if (LLog.sDebug) {
+                                    Log.d("LSStrategy", "new attachement file = " + this.val$attachZipFile.getAbsolutePath());
+                                }
+                                ResponseEntity uploadAttachmentSync = this.this$0.uploadAttachmentSync(this.val$fileID, this.val$attachZipFile);
+                                if (uploadAttachmentSync.isSuccess()) {
+                                    this.val$attachZipFile.delete();
+                                }
+                                if (this.this$0.mAttachmentExecutor.getQueue().size() == 0) {
+                                    if (uploadAttachmentSync.isSuccess()) {
+                                        this.this$0.reUpload(Type.ATTACHMENT, 5);
+                                    } else {
+                                        this.this$0.cleanDiskCache(Type.ATTACHMENT);
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    BaseUploaderStrategy.UploadListener uploadListener2 = this.mUploadListener;
+                    if (uploadListener2 != null) {
+                        uploadListener2.onUploadDone(logObject);
                     }
                 }
             }

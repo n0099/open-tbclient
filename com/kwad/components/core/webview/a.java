@@ -23,7 +23,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebView Fv;
-    public final Map<String, com.kwad.sdk.core.webview.kwai.a> KC;
+    public final Map KC;
     public com.kwad.sdk.core.webview.kwai.a KD;
     public boolean KE;
 
@@ -112,7 +112,7 @@ public final class a {
             try {
                 com.kwad.sdk.core.webview.kwai.b bVar = new com.kwad.sdk.core.webview.kwai.b();
                 bVar.parseJson(new JSONObject(str));
-                com.kwad.sdk.core.webview.kwai.a aVar = this.KC.get(bVar.agi);
+                com.kwad.sdk.core.webview.kwai.a aVar = (com.kwad.sdk.core.webview.kwai.a) this.KC.get(bVar.agi);
                 if (aVar == null) {
                     aVar = this.KD;
                 }
@@ -212,10 +212,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             com.kwad.sdk.core.e.b.i("KSAdJSBridge", "destroy jsInterface");
-            for (Map.Entry<String, com.kwad.sdk.core.webview.kwai.a> entry : this.KC.entrySet()) {
-                com.kwad.sdk.core.webview.kwai.a value = entry.getValue();
-                if (value != null) {
-                    value.onDestroy();
+            for (Map.Entry entry : this.KC.entrySet()) {
+                com.kwad.sdk.core.webview.kwai.a aVar = (com.kwad.sdk.core.webview.kwai.a) entry.getValue();
+                if (aVar != null) {
+                    aVar.onDestroy();
                 }
             }
             this.KE = true;

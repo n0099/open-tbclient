@@ -6,9 +6,8 @@ import com.heytap.mcssdk.PushManager;
 import com.kwad.components.core.webview.jshandler.p;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class fx implements com.kwad.sdk.core.d<p.a> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(p.a aVar, JSONObject jSONObject) {
+public final class fx implements com.kwad.sdk.core.d {
+    public static void a(p.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -60,8 +59,7 @@ public final class fx implements com.kwad.sdk.core.d<p.a> {
         aVar.Mf = jSONObject.optBoolean("isFromLive");
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(p.a aVar, JSONObject jSONObject) {
+    public static JSONObject b(p.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -132,15 +130,13 @@ public final class fx implements com.kwad.sdk.core.d<p.a> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(p.a aVar, JSONObject jSONObject) {
-        a2(aVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((p.a) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(p.a aVar, JSONObject jSONObject) {
-        return b2(aVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((p.a) bVar, jSONObject);
     }
 }

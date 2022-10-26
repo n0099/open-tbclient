@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +7,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mj2 extends fh2<wj2> {
+public class mj2 extends gh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gh2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteVideoPlayState" : (String) invokeV.objValue;
+    }
 
     public mj2() {
         Interceptable interceptable = $ic;
@@ -28,29 +34,23 @@ public class mj2 extends fh2<wj2> {
         }
     }
 
-    @Override // com.baidu.tieba.fh2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSoundModel" : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh2
+    @Override // com.baidu.tieba.gh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull wj2 wj2Var) {
+    public void a(ZeusPlugin.Command command, xj2 xj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wj2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xj2Var) == null) {
             String str = command.what;
-            d(wj2Var, str, "" + command.obj, true);
+            d(xj2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof String) {
-                String str2 = (String) obj;
-                if (TextUtils.equals(str2, "ear")) {
-                    wj2Var.r(str2);
-                } else if (TextUtils.equals(str2, "speaker")) {
-                    wj2Var.r(str2);
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.has("status") && jSONObject.has("userId")) {
+                    long optLong = jSONObject.optLong("userId", -1L);
+                    boolean optBoolean = jSONObject.optBoolean("status");
+                    if (vj2.a(optLong)) {
+                        xj2Var.e0(optLong, optBoolean);
+                    }
                 }
             }
         }

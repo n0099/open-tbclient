@@ -13,7 +13,7 @@ public class FeatureCardTopic extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Integer floor;
-    public List<FeatureCardTopicSubNode> sub_nodes;
+    public List sub_nodes;
     public String title;
     public Integer type;
 
@@ -34,6 +34,9 @@ public class FeatureCardTopic extends OrmObject {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !ListUtils.isEmpty(this.sub_nodes) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !ListUtils.isEmpty(this.sub_nodes);
+        }
+        return invokeV.booleanValue;
     }
 }

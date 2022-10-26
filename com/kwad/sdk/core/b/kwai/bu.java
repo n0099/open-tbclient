@@ -3,9 +3,8 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class bu implements com.kwad.sdk.core.d<AdMatrixInfo.EndCardInfo> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
+public final class bu implements com.kwad.sdk.core.d {
+    public static void a(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -13,8 +12,7 @@ public final class bu implements com.kwad.sdk.core.d<AdMatrixInfo.EndCardInfo> {
         endCardInfo.cardType = jSONObject.optInt("cardType");
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
+    public static JSONObject b(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -29,15 +27,13 @@ public final class bu implements com.kwad.sdk.core.d<AdMatrixInfo.EndCardInfo> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
-        a2(endCardInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((AdMatrixInfo.EndCardInfo) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
-        return b2(endCardInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((AdMatrixInfo.EndCardInfo) bVar, jSONObject);
     }
 }

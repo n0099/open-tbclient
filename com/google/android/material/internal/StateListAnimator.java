@@ -4,29 +4,23 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.util.StateSet;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class StateListAnimator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Animator.AnimatorListener animationListener;
-    @Nullable
     public Tuple lastMatch;
-    @Nullable
     public ValueAnimator runningAnimator;
-    public final ArrayList<Tuple> tuples;
+    public final ArrayList tuples;
 
     /* loaded from: classes7.dex */
-    public static class Tuple {
+    public class Tuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ValueAnimator animator;
@@ -65,7 +59,7 @@ public final class StateListAnimator {
                 return;
             }
         }
-        this.tuples = new ArrayList<>();
+        this.tuples = new ArrayList();
         this.lastMatch = null;
         this.runningAnimator = null;
         this.animationListener = new AnimatorListenerAdapter(this) { // from class: com.google.android.material.internal.StateListAnimator.1
@@ -107,14 +101,22 @@ public final class StateListAnimator {
     private void cancel() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (valueAnimator = this.runningAnimator) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (valueAnimator = this.runningAnimator) != null) {
+            valueAnimator.cancel();
+            this.runningAnimator = null;
         }
-        valueAnimator.cancel();
-        this.runningAnimator = null;
     }
 
-    private void start(@NonNull Tuple tuple) {
+    public void jumpToCurrentState() {
+        ValueAnimator valueAnimator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (valueAnimator = this.runningAnimator) != null) {
+            valueAnimator.end();
+            this.runningAnimator = null;
+        }
+    }
+
+    private void start(Tuple tuple) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, tuple) == null) {
             ValueAnimator valueAnimator = tuple.animator;
@@ -132,16 +134,6 @@ public final class StateListAnimator {
         }
     }
 
-    public void jumpToCurrentState() {
-        ValueAnimator valueAnimator;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (valueAnimator = this.runningAnimator) == null) {
-            return;
-        }
-        valueAnimator.end();
-        this.runningAnimator = null;
-    }
-
     public void setState(int[] iArr) {
         Tuple tuple;
         Interceptable interceptable = $ic;
@@ -149,15 +141,16 @@ public final class StateListAnimator {
             int size = this.tuples.size();
             int i = 0;
             while (true) {
-                if (i >= size) {
+                if (i < size) {
+                    tuple = (Tuple) this.tuples.get(i);
+                    if (StateSet.stateSetMatches(tuple.specs, iArr)) {
+                        break;
+                    }
+                    i++;
+                } else {
                     tuple = null;
                     break;
                 }
-                tuple = this.tuples.get(i);
-                if (StateSet.stateSetMatches(tuple.specs, iArr)) {
-                    break;
-                }
-                i++;
             }
             Tuple tuple2 = this.lastMatch;
             if (tuple == tuple2) {

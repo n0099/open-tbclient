@@ -7,11 +7,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public interface RequestHandler {
+    void preExecuteRequest() throws IOException;
 
     /* loaded from: classes2.dex */
-    public static class Default implements RequestHandler {
+    public class Default implements RequestHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.http.RequestHandler
+        public void preExecuteRequest() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
 
         public Default() {
             Interceptable interceptable = $ic;
@@ -26,14 +34,5 @@ public interface RequestHandler {
                 }
             }
         }
-
-        @Override // com.baidu.searchbox.http.RequestHandler
-        public void preExecuteRequest() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
     }
-
-    void preExecuteRequest() throws IOException;
 }

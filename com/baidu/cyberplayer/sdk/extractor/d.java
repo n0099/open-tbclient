@@ -53,7 +53,7 @@ public class d extends ExtractorProvider {
         return (ExtractorProvider) invokeV.objValue;
     }
 
-    private void a(Uri uri, Map<String, String> map) {
+    private void a(Uri uri, Map map) {
         com.baidu.cyberplayer.sdk.remote.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65538, this, uri, map) == null) || (aVar = this.a) == null) {
@@ -115,7 +115,7 @@ public class d extends ExtractorProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
-    public void setDataSource(Context context, Uri uri, Map<String, String> map) {
+    public void setDataSource(Context context, Uri uri, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, uri, map) == null) {
             a(uri, map);

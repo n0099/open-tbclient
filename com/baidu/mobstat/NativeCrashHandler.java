@@ -16,6 +16,14 @@ public final class NativeCrashHandler {
     public static Context b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native void nativeException();
+
+    public static native void nativeInit(String str);
+
+    public static native void nativeProcess(String str);
+
+    public static native void nativeUnint();
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,9 +68,19 @@ public final class NativeCrashHandler {
         }
     }
 
+    public static void uninit() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && a) {
+            try {
+                nativeUnint();
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, context) != null) || context == null) {
             return;
         }
         b = context;
@@ -77,14 +95,6 @@ public final class NativeCrashHandler {
         }
     }
 
-    public static native void nativeException();
-
-    public static native void nativeInit(String str);
-
-    public static native void nativeProcess(String str);
-
-    public static native void nativeUnint();
-
     public static void onCrashCallbackFromNative(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
@@ -94,24 +104,13 @@ public final class NativeCrashHandler {
 
     public static void process(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || str == null || str.length() == 0 || !a) {
-            return;
-        }
-        File file = new File(str);
-        if (file.exists() && file.isFile()) {
-            try {
-                nativeProcess(str);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static void uninit() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && a) {
-            try {
-                nativeUnint();
-            } catch (Throwable unused) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && str != null && str.length() != 0 && a) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                try {
+                    nativeProcess(str);
+                } catch (Throwable unused) {
+                }
             }
         }
     }

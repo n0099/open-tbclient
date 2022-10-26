@@ -3,7 +3,6 @@ package com.kwad.components.core.m;
 import android.app.Activity;
 import android.os.Build;
 import android.view.Window;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,21 +15,21 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Activity activity, int i, boolean z) {
+    public static void a(Activity activity, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             a(activity, 0, true, true);
         }
     }
 
-    public static void a(@NonNull Activity activity, int i, boolean z, boolean z2) {
+    public static void a(Activity activity, int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && oB()) {
             b(activity, i, z);
         }
     }
 
-    public static boolean a(@NonNull Activity activity, boolean z) {
+    public static boolean a(Activity activity, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, activity, z)) == null) {
@@ -46,7 +45,7 @@ public final class e {
         return invokeLZ.booleanValue;
     }
 
-    public static void b(@NonNull Activity activity, int i, boolean z) {
+    public static void b(Activity activity, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             Window window = activity.getWindow();

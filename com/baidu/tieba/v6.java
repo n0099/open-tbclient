@@ -37,103 +37,69 @@ public class v6 implements w6 {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.w6
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            this.b = f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-    }
-
-    @Override // com.baidu.tieba.w6
-    public void c(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            this.c = f;
-        }
-    }
-
-    @Override // com.baidu.tieba.w6
-    public void d(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            this.e = f;
-        }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.tieba.w6
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.w6
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.d = f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
         }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.tieba.w6
     public float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.w6
-    public void h(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.g = f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
         }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.tieba.w6
     public float i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.w6
-    public void j(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            this.f = f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
         }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.tieba.w6
     public float k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
+        }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.tieba.w6
     public float l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -141,7 +107,10 @@ public class v6 implements w6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             String str = this.a;
-            return str == null ? u8.e(getClass()) : str;
+            if (str == null) {
+                return u8.e(getClass());
+            }
+            return str;
         }
         return (String) invokeV.objValue;
     }
@@ -170,5 +139,60 @@ public class v6 implements w6 {
         this.e = w6Var.e();
         this.f = w6Var.a();
         this.g = w6Var.k();
+    }
+
+    @Override // com.baidu.tieba.w6
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.b = f;
+        }
+    }
+
+    @Override // com.baidu.tieba.w6
+    public void c(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.c = f;
+        }
+    }
+
+    @Override // com.baidu.tieba.w6
+    public void d(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.e = f;
+        }
+    }
+
+    @Override // com.baidu.tieba.w6
+    public void f(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            this.d = f;
+        }
+    }
+
+    @Override // com.baidu.tieba.w6
+    public void h(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.g = f;
+        }
+    }
+
+    @Override // com.baidu.tieba.w6
+    public void j(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.a = str;
+        }
     }
 }

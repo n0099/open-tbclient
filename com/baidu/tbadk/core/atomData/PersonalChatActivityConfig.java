@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,49 +63,6 @@ public class PersonalChatActivityConfig extends IntentConfig {
         this.mUserData = null;
     }
 
-    public UserData getUserData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUserData : (UserData) invokeV.objValue;
-    }
-
-    public void setFollowStatus(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            getIntent().putExtra(KEY_IS_FOLLOW, i);
-        }
-    }
-
-    public void setFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            getIntent().putExtra("key_from", i);
-        }
-    }
-
-    public void setIsReportSelect(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            getIntent().putExtra(KEY_FROM_REPORT_SELECT, z);
-        }
-    }
-
-    public void setLastUniqueId(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("last_page_unique_id", i);
-    }
-
-    public void setSelectList(ArrayList<ReportPrivateMsgData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            getIntent().putParcelableArrayListExtra(KEY_HAS_SELECT_MSG_LIST, arrayList);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonalChatActivityConfig(Context context, long j, String str, String str2, int i) {
         this(context, j, "", str, str2, 0, 0, i);
@@ -129,52 +85,6 @@ public class PersonalChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i) {
-        this(context, j, str, str2, str3, i, 1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        setFollowStatus(1);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i, String str4, String str5) {
-        this(context, j, str, str2, str3, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r5;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), str4, str5};
-            interceptable.invokeUnInit(65544, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65544, newInitContext);
-                return;
-            }
-        }
-        Intent intent = getIntent();
-        intent.putExtra(KEY_LEAVE_MSG, str4);
-        intent.putExtra(KEY_SHARE_MSG, str5);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3) {
         this(context, j, str, str2, 0);
         Interceptable interceptable = $ic;
@@ -194,6 +104,28 @@ public class PersonalChatActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(KEY_DEFAULT_DRAFT, str3);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i) {
+        this(context, j, str, str2, str3, i, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        setFollowStatus(1);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -266,10 +198,9 @@ public class PersonalChatActivityConfig extends IntentConfig {
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KEY_IS_FRIEND, i2);
-        if (StringUtils.isNull(str4)) {
-            return;
+        if (!StringUtils.isNull(str4)) {
+            intent.putExtra(KEY_REPLY_CONTENT, str4);
         }
-        intent.putExtra(KEY_REPLY_CONTENT, str4);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -301,9 +232,77 @@ public class PersonalChatActivityConfig extends IntentConfig {
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KEY_IS_FRIEND, i2);
-        if (StringUtils.isNull(str4)) {
-            return;
+        if (!StringUtils.isNull(str4)) {
+            intent.putExtra(KEY_REPLY_CONTENT, str4);
         }
-        intent.putExtra(KEY_REPLY_CONTENT, str4);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i, String str4, String str5) {
+        this(context, j, str, str2, str3, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r5;
+            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), str4, str5};
+            interceptable.invokeUnInit(65544, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65544, newInitContext);
+                return;
+            }
+        }
+        Intent intent = getIntent();
+        intent.putExtra(KEY_LEAVE_MSG, str4);
+        intent.putExtra(KEY_SHARE_MSG, str5);
+    }
+
+    public UserData getUserData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUserData;
+        }
+        return (UserData) invokeV.objValue;
+    }
+
+    public void setFollowStatus(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            getIntent().putExtra(KEY_IS_FOLLOW, i);
+        }
+    }
+
+    public void setFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            getIntent().putExtra("key_from", i);
+        }
+    }
+
+    public void setIsReportSelect(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            getIntent().putExtra(KEY_FROM_REPORT_SELECT, z);
+        }
+    }
+
+    public void setLastUniqueId(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("last_page_unique_id", i);
+        }
+    }
+
+    public void setSelectList(ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+            getIntent().putParcelableArrayListExtra(KEY_HAS_SELECT_MSG_LIST, arrayList);
+        }
     }
 }

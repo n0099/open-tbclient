@@ -20,17 +20,32 @@ public class AdDownloadController implements DownloadController {
     public boolean mEnableAH = true;
     public boolean mEnableAM = true;
 
-    /* loaded from: classes8.dex */
-    public static final class Builder {
-        public AdDownloadController controller = new AdDownloadController();
+    @Override // com.ss.android.download.api.download.DownloadController
+    public int getDowloadChunkCount() {
+        return 1;
+    }
 
-        public AdDownloadController build() {
-            return this.controller;
-        }
+    @Override // com.ss.android.download.api.download.DownloadController
+    public boolean isEnableMultipleDownload() {
+        return false;
+    }
+
+    /* loaded from: classes8.dex */
+    public final class Builder {
+        public AdDownloadController controller = new AdDownloadController();
 
         @Deprecated
         public Builder setDowloadChunkCount(int i) {
             return this;
+        }
+
+        @Deprecated
+        public Builder setIsEnableMultipleDownload(boolean z) {
+            return this;
+        }
+
+        public AdDownloadController build() {
+            return this.controller;
         }
 
         public Builder setDownloadMode(int i) {
@@ -94,11 +109,6 @@ public class AdDownloadController implements DownloadController {
             return this;
         }
 
-        @Deprecated
-        public Builder setIsEnableMultipleDownload(boolean z) {
-            return this;
-        }
-
         public Builder setLinkMode(int i) {
             this.controller.mLinkMode = i;
             return this;
@@ -108,30 +118,6 @@ public class AdDownloadController implements DownloadController {
             this.controller.mShouldUseNewWebView = z;
             return this;
         }
-    }
-
-    public static AdDownloadController fromJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
-        }
-        Builder builder = new Builder();
-        try {
-            builder.setLinkMode(jSONObject.optInt("link_mode"));
-            builder.setDownloadMode(jSONObject.optInt("download_mode"));
-            builder.setIsEnableBackDialog(jSONObject.optInt("enable_back_dialog") == 1);
-            builder.setIsAddToDownloadManage(jSONObject.optInt("add_to_manage") == 1);
-            builder.setShouldUseNewWebView(jSONObject.optInt("use_new_webview") == 1);
-            builder.setInterceptFlag(jSONObject.optInt("intercept_flag"));
-            builder.setEnableShowComplianceDialog(jSONObject.optInt("enable_show_compliance_dialog", 1) == 1);
-            builder.setIsAutoDownloadOnCardShow(jSONObject.optInt("is_auto_download_on_card_show") == 1);
-            builder.setEnableNewActivity(jSONObject.optInt("enable_new_activity", 1) == 1);
-            builder.setEnableAH(jSONObject.optInt("enable_ah", 1) == 1);
-            builder.setEnableAM(jSONObject.optInt("enable_am", 1) == 1);
-            builder.setExtraJson(jSONObject.optJSONObject("extra"));
-        } catch (Exception e) {
-            j.s().a(e, "AdDownloadController fromJson");
-        }
-        return builder.build();
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
@@ -152,11 +138,6 @@ public class AdDownloadController implements DownloadController {
     @Override // com.ss.android.download.api.download.DownloadController
     public boolean enableShowComplianceDialog() {
         return this.mEnableShowComplianceDialog;
-    }
-
-    @Override // com.ss.android.download.api.download.DownloadController
-    public int getDowloadChunkCount() {
-        return 1;
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
@@ -205,8 +186,78 @@ public class AdDownloadController implements DownloadController {
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
-    public boolean isEnableMultipleDownload() {
-        return false;
+    public boolean shouldUseNewWebView() {
+        return this.mShouldUseNewWebView;
+    }
+
+    public static AdDownloadController fromJson(JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        if (jSONObject == null) {
+            return null;
+        }
+        Builder builder = new Builder();
+        try {
+            builder.setLinkMode(jSONObject.optInt("link_mode"));
+            builder.setDownloadMode(jSONObject.optInt("download_mode"));
+            boolean z8 = false;
+            if (jSONObject.optInt("enable_back_dialog") == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            builder.setIsEnableBackDialog(z);
+            if (jSONObject.optInt("add_to_manage") == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            builder.setIsAddToDownloadManage(z2);
+            if (jSONObject.optInt("use_new_webview") == 1) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            builder.setShouldUseNewWebView(z3);
+            builder.setInterceptFlag(jSONObject.optInt("intercept_flag"));
+            if (jSONObject.optInt("enable_show_compliance_dialog", 1) == 1) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            builder.setEnableShowComplianceDialog(z4);
+            if (jSONObject.optInt("is_auto_download_on_card_show") == 1) {
+                z5 = true;
+            } else {
+                z5 = false;
+            }
+            builder.setIsAutoDownloadOnCardShow(z5);
+            if (jSONObject.optInt("enable_new_activity", 1) == 1) {
+                z6 = true;
+            } else {
+                z6 = false;
+            }
+            builder.setEnableNewActivity(z6);
+            if (jSONObject.optInt("enable_ah", 1) == 1) {
+                z7 = true;
+            } else {
+                z7 = false;
+            }
+            builder.setEnableAH(z7);
+            if (jSONObject.optInt("enable_am", 1) == 1) {
+                z8 = true;
+            }
+            builder.setEnableAM(z8);
+            builder.setExtraJson(jSONObject.optJSONObject("extra"));
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadController fromJson");
+        }
+        return builder.build();
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
@@ -241,30 +292,67 @@ public class AdDownloadController implements DownloadController {
         this.mLinkMode = i;
     }
 
-    @Override // com.ss.android.download.api.download.DownloadController
-    public boolean shouldUseNewWebView() {
-        return this.mShouldUseNewWebView;
-    }
-
     public JSONObject toJson() {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("link_mode", Integer.valueOf(this.mLinkMode));
             jSONObject.putOpt("download_mode", Integer.valueOf(this.mDownloadMode));
-            int i = 1;
-            jSONObject.putOpt("enable_back_dialog", Integer.valueOf(this.mIsEnableBackDialog ? 1 : 0));
-            jSONObject.putOpt("add_to_manage", Integer.valueOf(this.mIsAddToDownloadManage ? 1 : 0));
-            jSONObject.putOpt("use_new_webview", Integer.valueOf(this.mShouldUseNewWebView ? 1 : 0));
-            jSONObject.putOpt("intercept_flag", Integer.valueOf(this.mInterceptFlag));
-            jSONObject.putOpt("enable_show_compliance_dialog", Integer.valueOf(this.mEnableShowComplianceDialog ? 1 : 0));
-            jSONObject.putOpt("is_auto_download_on_card_show", Integer.valueOf(this.mIsAutoDownloadOnCardShow ? 1 : 0));
-            jSONObject.putOpt("extra", this.mExtraJson);
-            jSONObject.putOpt("enable_new_activity", Integer.valueOf(this.mEnableNewActivity ? 1 : 0));
-            jSONObject.putOpt("enable_ah", Integer.valueOf(this.mEnableAH ? 1 : 0));
-            if (!this.mEnableAM) {
+            int i8 = 1;
+            if (this.mIsEnableBackDialog) {
+                i = 1;
+            } else {
                 i = 0;
             }
-            jSONObject.putOpt("enable_am", Integer.valueOf(i));
+            jSONObject.putOpt("enable_back_dialog", Integer.valueOf(i));
+            if (this.mIsAddToDownloadManage) {
+                i2 = 1;
+            } else {
+                i2 = 0;
+            }
+            jSONObject.putOpt("add_to_manage", Integer.valueOf(i2));
+            if (this.mShouldUseNewWebView) {
+                i3 = 1;
+            } else {
+                i3 = 0;
+            }
+            jSONObject.putOpt("use_new_webview", Integer.valueOf(i3));
+            jSONObject.putOpt("intercept_flag", Integer.valueOf(this.mInterceptFlag));
+            if (this.mEnableShowComplianceDialog) {
+                i4 = 1;
+            } else {
+                i4 = 0;
+            }
+            jSONObject.putOpt("enable_show_compliance_dialog", Integer.valueOf(i4));
+            if (this.mIsAutoDownloadOnCardShow) {
+                i5 = 1;
+            } else {
+                i5 = 0;
+            }
+            jSONObject.putOpt("is_auto_download_on_card_show", Integer.valueOf(i5));
+            jSONObject.putOpt("extra", this.mExtraJson);
+            if (this.mEnableNewActivity) {
+                i6 = 1;
+            } else {
+                i6 = 0;
+            }
+            jSONObject.putOpt("enable_new_activity", Integer.valueOf(i6));
+            if (this.mEnableAH) {
+                i7 = 1;
+            } else {
+                i7 = 0;
+            }
+            jSONObject.putOpt("enable_ah", Integer.valueOf(i7));
+            if (!this.mEnableAM) {
+                i8 = 0;
+            }
+            jSONObject.putOpt("enable_am", Integer.valueOf(i8));
         } catch (Exception e) {
             j.s().a(e, "AdDownloadController toJson");
         }

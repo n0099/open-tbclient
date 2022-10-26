@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,6 +26,77 @@ public class GridLayout extends ViewGroup {
     public boolean f;
     public int g;
     public int h;
+
+    /* loaded from: classes3.dex */
+    public class LayoutParams extends FrameLayout.LayoutParams {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            ((FrameLayout.LayoutParams) this).gravity = 17;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(Context context, AttributeSet attributeSet) {
+            super(context, attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            ((FrameLayout.LayoutParams) this).gravity = 17;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
+            super(layoutParams);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutParams};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            ((FrameLayout.LayoutParams) this).gravity = 17;
+        }
+    }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GridLayout(Context context) {
@@ -48,6 +119,55 @@ public class GridLayout extends ViewGroup {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public GridLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GridLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = -1;
+        this.b = -1;
+        this.c = 0;
+        this.d = 0;
+        this.e = true;
+        this.f = false;
+        d(context, attributeSet, i);
+    }
+
     private View[] getNeedLayoutChild() {
         InterceptResult invokeV;
         int i;
@@ -64,7 +184,9 @@ public class GridLayout extends ViewGroup {
                 }
             }
             int i3 = this.h;
-            if (i3 <= 0 || (i = this.g) <= 0) {
+            if (i3 > 0 && (i = this.g) > 0) {
+                childCount = i3 * i;
+            } else {
                 int i4 = this.h;
                 if (i4 > 0) {
                     if (childCount % i4 == 0) {
@@ -88,8 +210,6 @@ public class GridLayout extends ViewGroup {
                         this.g = childCount;
                     }
                 }
-            } else {
-                childCount = i3 * i;
             }
             int min = Math.min(childCount, childCount2);
             View[] viewArr = new View[min];
@@ -112,7 +232,46 @@ public class GridLayout extends ViewGroup {
     public LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LayoutParams(-1, -1) : (LayoutParams) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LayoutParams(-1, -1);
+        }
+        return (LayoutParams) invokeV.objValue;
+    }
+
+    public int getHorNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getHorSpace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getVerNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getVerSpace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -121,7 +280,10 @@ public class GridLayout extends ViewGroup {
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (LayoutParams) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet)) == null) {
+            return new LayoutParams(getContext(), attributeSet);
+        }
+        return (LayoutParams) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -130,20 +292,104 @@ public class GridLayout extends ViewGroup {
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (LayoutParams) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) {
+            return new LayoutParams(layoutParams);
+        }
+        return (LayoutParams) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup
     public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutParams)) == null) ? layoutParams instanceof LayoutParams : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutParams)) == null) {
+            return layoutParams instanceof LayoutParams;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setHorNum(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (this.a != i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.a = i;
+            if (z) {
+                forceLayout();
+            }
+        }
+    }
+
+    public void setHorSpace(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            if (this.c != i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.c = i;
+            if (z) {
+                forceLayout();
+            }
+        }
+    }
+
+    public void setMeasureAllChild(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void setOrientionHor(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void setVerNum(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            if (this.b != i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.b = i;
+            if (z) {
+                forceLayout();
+            }
+        }
+    }
+
+    public void setVerSpace(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            if (this.d != i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.d = i;
+            if (z) {
+                forceLayout();
+            }
+        }
     }
 
     public final void d(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048580, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.GridLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.GridLayout);
             boolean z = true;
             try {
                 this.c = obtainStyledAttributes.getDimensionPixelSize(1, 0);
@@ -158,30 +404,6 @@ public class GridLayout extends ViewGroup {
                 obtainStyledAttributes.recycle();
             }
         }
-    }
-
-    public int getHorNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int getHorSpace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int getVerNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int getVerSpace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : invokeV.intValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0075  */
@@ -221,39 +443,43 @@ public class GridLayout extends ViewGroup {
                 int i18 = ((FrameLayout.LayoutParams) layoutParams).leftMargin;
                 int i19 = ((FrameLayout.LayoutParams) layoutParams).topMargin;
                 int i20 = ((FrameLayout.LayoutParams) layoutParams).gravity & 7;
-                if (i20 == 1) {
-                    i5 = (i15 - measuredWidth2) / 2;
-                } else if (i20 != 5) {
-                    i6 = i18 + 0;
-                    i7 = ((FrameLayout.LayoutParams) layoutParams).gravity & 112;
-                    if (i7 != 16) {
-                        i8 = (i16 - measuredHeight2) / 2;
-                    } else if (i7 != 80) {
-                        i9 = i19 + 0;
+                if (i20 != 1) {
+                    if (i20 != 5) {
+                        i6 = i18 + 0;
+                        i7 = ((FrameLayout.LayoutParams) layoutParams).gravity & 112;
+                        if (i7 == 16) {
+                            if (i7 != 80) {
+                                i9 = i19 + 0;
+                                view2.layout(paddingLeft + i6, paddingTop + i9, measuredWidth2 + paddingLeft + i6, measuredHeight2 + paddingTop + i9);
+                                paddingLeft += this.c + i15;
+                                i17++;
+                                if (i17 % this.h == 0 || i17 == needLayoutChild.length) {
+                                    paddingLeft = getPaddingLeft();
+                                    paddingTop += this.d + i16;
+                                }
+                            } else {
+                                i8 = i16 - measuredHeight2;
+                            }
+                        } else {
+                            i8 = (i16 - measuredHeight2) / 2;
+                        }
+                        i9 = i19 + i8;
                         view2.layout(paddingLeft + i6, paddingTop + i9, measuredWidth2 + paddingLeft + i6, measuredHeight2 + paddingTop + i9);
                         paddingLeft += this.c + i15;
                         i17++;
-                        if (i17 % this.h == 0 || i17 == needLayoutChild.length) {
-                            paddingLeft = getPaddingLeft();
-                            paddingTop += this.d + i16;
+                        if (i17 % this.h == 0) {
                         }
+                        paddingLeft = getPaddingLeft();
+                        paddingTop += this.d + i16;
                     } else {
-                        i8 = i16 - measuredHeight2;
+                        i5 = i15 - measuredWidth2;
                     }
-                    i9 = i19 + i8;
-                    view2.layout(paddingLeft + i6, paddingTop + i9, measuredWidth2 + paddingLeft + i6, measuredHeight2 + paddingTop + i9);
-                    paddingLeft += this.c + i15;
-                    i17++;
-                    if (i17 % this.h == 0) {
-                    }
-                    paddingLeft = getPaddingLeft();
-                    paddingTop += this.d + i16;
                 } else {
-                    i5 = i15 - measuredWidth2;
+                    i5 = (i15 - measuredWidth2) / 2;
                 }
                 i6 = i18 + i5;
                 i7 = ((FrameLayout.LayoutParams) layoutParams).gravity & 112;
-                if (i7 != 16) {
+                if (i7 == 16) {
                 }
                 i9 = i19 + i8;
                 view2.layout(paddingLeft + i6, paddingTop + i9, measuredWidth2 + paddingLeft + i6, measuredHeight2 + paddingTop + i9);
@@ -345,183 +571,5 @@ public class GridLayout extends ViewGroup {
                 view5.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth2, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight2, 1073741824));
             }
         }
-    }
-
-    public void setHorNum(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            boolean z = this.a != i;
-            this.a = i;
-            if (z) {
-                forceLayout();
-            }
-        }
-    }
-
-    public void setHorSpace(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            boolean z = this.c != i;
-            this.c = i;
-            if (z) {
-                forceLayout();
-            }
-        }
-    }
-
-    public void setMeasureAllChild(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void setOrientionHor(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void setVerNum(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            boolean z = this.b != i;
-            this.b = i;
-            if (z) {
-                forceLayout();
-            }
-        }
-    }
-
-    public void setVerSpace(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            boolean z = this.d != i;
-            this.d = i;
-            if (z) {
-                forceLayout();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class LayoutParams extends FrameLayout.LayoutParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
-            super(layoutParams);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            ((FrameLayout.LayoutParams) this).gravity = 17;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            ((FrameLayout.LayoutParams) this).gravity = 17;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(Context context, AttributeSet attributeSet) {
-            super(context, attributeSet);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            ((FrameLayout.LayoutParams) this).gravity = 17;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GridLayout(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GridLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        this.b = -1;
-        this.c = 0;
-        this.d = 0;
-        this.e = true;
-        this.f = false;
-        d(context, attributeSet, i);
     }
 }

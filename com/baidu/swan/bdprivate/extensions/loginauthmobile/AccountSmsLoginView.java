@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mg3;
+import com.baidu.tieba.ng3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +47,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mg3.a(this.a.w, ((FragmentActivity) this.a.w).getWindow().getDecorView().getWindowToken());
+                ng3.a(this.a.w, ((FragmentActivity) this.a.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
@@ -80,7 +80,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mg3.b(this.a.w, false);
+                ng3.b(this.a.w, false);
             }
         }
     }
@@ -105,31 +105,6 @@ public class AccountSmsLoginView extends SmsLoginView {
         }
         this.w = context;
         p();
-    }
-
-    @Override // com.baidu.sapi2.views.SmsLoginView
-    public void clean() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.clean();
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.SmsLoginView
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.close();
-            new Handler().postDelayed(new a(this), 100L);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((EditText) findViewById(R.id.obfuscated_res_0x7f0919b6)).requestFocus();
-            new Handler().postDelayed(new b(this), 100L);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,5 +151,30 @@ public class AccountSmsLoginView extends SmsLoginView {
         }
         this.w = context;
         p();
+    }
+
+    @Override // com.baidu.sapi2.views.SmsLoginView
+    public void clean() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.clean();
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.SmsLoginView
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.close();
+            new Handler().postDelayed(new a(this), 100L);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ((EditText) findViewById(R.id.obfuscated_res_0x7f0919b2)).requestFocus();
+            new Handler().postDelayed(new b(this), 100L);
+        }
     }
 }

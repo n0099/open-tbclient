@@ -1,7 +1,6 @@
 package kotlin.jvm.internal;
 
 import java.util.List;
-import kotlin.SinceKotlin;
 import kotlin.reflect.KClass;
 import kotlin.reflect.KClassifier;
 import kotlin.reflect.KDeclarationContainer;
@@ -20,20 +19,8 @@ import kotlin.reflect.KVariance;
 public class ReflectionFactory {
     public static final String KOTLIN_JVM_FUNCTIONS = "kotlin.jvm.functions.";
 
-    public KClass createKotlinClass(Class cls) {
-        return new ClassReference(cls);
-    }
-
     public KFunction function(FunctionReference functionReference) {
         return functionReference;
-    }
-
-    public KClass getOrCreateKotlinClass(Class cls) {
-        return new ClassReference(cls);
-    }
-
-    public KDeclarationContainer getOrCreateKotlinPackage(Class cls, String str) {
-        return new PackageReference(cls, str);
     }
 
     public KMutableProperty0 mutableProperty0(MutablePropertyReference0 mutablePropertyReference0) {
@@ -60,24 +47,20 @@ public class ReflectionFactory {
         return propertyReference2;
     }
 
-    @SinceKotlin(version = "1.1")
-    public String renderLambdaToString(Lambda lambda) {
-        return renderLambdaToString((FunctionBase) lambda);
+    public KClass createKotlinClass(Class cls) {
+        return new ClassReference(cls);
     }
 
-    @SinceKotlin(version = "1.4")
-    public void setUpperBounds(KTypeParameter kTypeParameter, List<KType> list) {
-        ((TypeParameterReference) kTypeParameter).setUpperBounds(list);
+    public KClass getOrCreateKotlinClass(Class cls) {
+        return new ClassReference(cls);
     }
 
-    @SinceKotlin(version = "1.4")
-    public KType typeOf(KClassifier kClassifier, List<KTypeProjection> list, boolean z) {
-        return new TypeReference(kClassifier, list, z);
-    }
-
-    @SinceKotlin(version = "1.4")
-    public KTypeParameter typeParameter(Object obj, String str, KVariance kVariance, boolean z) {
-        return new TypeParameterReference(obj, str, kVariance, z);
+    public String renderLambdaToString(FunctionBase functionBase) {
+        String obj = functionBase.getClass().getGenericInterfaces()[0].toString();
+        if (obj.startsWith(KOTLIN_JVM_FUNCTIONS)) {
+            return obj.substring(21);
+        }
+        return obj;
     }
 
     public KClass createKotlinClass(Class cls, String str) {
@@ -88,9 +71,23 @@ public class ReflectionFactory {
         return new ClassReference(cls);
     }
 
-    @SinceKotlin(version = "1.3")
-    public String renderLambdaToString(FunctionBase functionBase) {
-        String obj = functionBase.getClass().getGenericInterfaces()[0].toString();
-        return obj.startsWith(KOTLIN_JVM_FUNCTIONS) ? obj.substring(21) : obj;
+    public KDeclarationContainer getOrCreateKotlinPackage(Class cls, String str) {
+        return new PackageReference(cls, str);
+    }
+
+    public void setUpperBounds(KTypeParameter kTypeParameter, List<KType> list) {
+        ((TypeParameterReference) kTypeParameter).setUpperBounds(list);
+    }
+
+    public String renderLambdaToString(Lambda lambda) {
+        return renderLambdaToString((FunctionBase) lambda);
+    }
+
+    public KType typeOf(KClassifier kClassifier, List<KTypeProjection> list, boolean z) {
+        return new TypeReference(kClassifier, list, z);
+    }
+
+    public KTypeParameter typeParameter(Object obj, String str, KVariance kVariance, boolean z) {
+        return new TypeParameterReference(obj, str, kVariance, z);
     }
 }

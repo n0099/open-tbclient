@@ -10,6 +10,16 @@ public class DefaultDyeConfig implements IDyeConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.aperf.param.dye.IDyeConfig
+    public String getDyeConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public DefaultDyeConfig() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,15 +32,5 @@ public class DefaultDyeConfig implements IDyeConfig {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.aperf.param.dye.IDyeConfig
-    public String getDyeConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 }

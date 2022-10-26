@@ -43,6 +43,15 @@ public final class HStaticApi {
         $VALUES = new HStaticApi[]{hStaticApi};
     }
 
+    public static HStaticApi[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (HStaticApi[]) $VALUES.clone();
+        }
+        return (HStaticApi[]) invokeV.objValue;
+    }
+
     public HStaticApi(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,13 +74,10 @@ public final class HStaticApi {
     public static HStaticApi valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (HStaticApi) Enum.valueOf(HStaticApi.class, str) : (HStaticApi) invokeL.objValue;
-    }
-
-    public static HStaticApi[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (HStaticApi[]) $VALUES.clone() : (HStaticApi[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (HStaticApi) Enum.valueOf(HStaticApi.class, str);
+        }
+        return (HStaticApi) invokeL.objValue;
     }
 
     public void init(Context context, StatisOption statisOption, String str) {
@@ -97,7 +103,7 @@ public final class HStaticApi {
         }
     }
 
-    public void reportReg(String str, String str2, String str3, Map<String, String> map) {
+    public void reportReg(String str, String str2, String str3, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, map) == null) {
             ThreadPool.getPool().execute(new Runnable(this, str, str2, str3, map) { // from class: com.yy.hiidostatis.track.HStaticApi.1

@@ -8,23 +8,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.observers.BasicFuseableObserver;
 /* loaded from: classes8.dex */
-public final class ObservableFilter<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableFilter extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate<? super T> predicate;
+    public final Predicate predicate;
 
     /* loaded from: classes8.dex */
-    public static final class FilterObserver<T> extends BasicFuseableObserver<T, T> {
+    public final class FilterObserver extends BasicFuseableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Predicate<? super T> filter;
+        public final Predicate filter;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FilterObserver(Observer<? super T> observer, Predicate<? super T> predicate) {
+        public FilterObserver(Observer observer, Predicate predicate) {
             super(observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -45,13 +44,13 @@ public final class ObservableFilter<T> extends AbstractObservableWithUpstream<T,
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (this.sourceMode == 0) {
                     try {
-                        if (this.filter.test(t)) {
-                            this.actual.onNext(t);
+                        if (this.filter.test(obj)) {
+                            this.actual.onNext(obj);
                             return;
                         }
                         return;
@@ -64,10 +63,19 @@ public final class ObservableFilter<T> extends AbstractObservableWithUpstream<T,
             }
         }
 
+        @Override // io.reactivex.internal.fuseable.QueueFuseable
+        public int requestFusion(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return transitiveBoundaryFusion(i);
+            }
+            return invokeI.intValue;
+        }
+
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() throws Exception {
-            T poll;
+        public Object poll() throws Exception {
+            Object poll;
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -79,19 +87,12 @@ public final class ObservableFilter<T> extends AbstractObservableWithUpstream<T,
                 } while (!this.filter.test(poll));
                 return poll;
             }
-            return (T) invokeV.objValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? transitiveBoundaryFusion(i) : invokeI.intValue;
+            return invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableFilter(ObservableSource<T> observableSource, Predicate<? super T> predicate) {
+    public ObservableFilter(ObservableSource observableSource, Predicate predicate) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -112,7 +113,7 @@ public final class ObservableFilter<T> extends AbstractObservableWithUpstream<T,
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new FilterObserver(observer, this.predicate));

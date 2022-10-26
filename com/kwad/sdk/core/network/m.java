@@ -1,12 +1,7 @@
 package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import com.kwad.components.offline.api.core.api.INet;
-import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.core.network.idc.DomainException;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.service.ServiceProvider;
@@ -15,10 +10,9 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
+public abstract class m extends a {
     public static final String TAG = "Networking";
-    @Nullable
-    public h<R, T> mListener = null;
+    public h mListener = null;
     public final com.kwad.sdk.core.network.a.b mMonitorRecorder = com.kwad.sdk.core.network.a.c.tT();
 
     private void checkAndSetHasData(BaseResultData baseResultData) {
@@ -35,40 +29,40 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
         com.kwad.sdk.ip.direct.a.xE();
     }
 
-    private void notifyOnErrorListener(@NonNull R r, int i, String str) {
-        i.tB().b(r, i);
-        h<R, T> hVar = this.mListener;
+    private void notifyOnErrorListener(g gVar, int i, String str) {
+        i.tB().b(gVar, i);
+        h hVar = this.mListener;
         if (hVar == null) {
             return;
         }
-        hVar.onError(r, i, str);
+        hVar.onError(gVar, i, str);
         this.mMonitorRecorder.tS();
     }
 
-    private void notifyOnErrorListener(@NonNull R r, c cVar, String str) {
-        String url = r.getUrl();
+    private void notifyOnErrorListener(g gVar, c cVar, String str) {
+        String url = gVar.getUrl();
         com.kwad.sdk.core.network.idc.a.tH().a(url, url.contains("/rest/zt/emoticon/package/list") ? INet.HostType.ZT : "api", new DomainException(cVar.XT, cVar.XU));
-        notifyOnErrorListener((m<R, T>) r, cVar.code, str);
+        notifyOnErrorListener(gVar, cVar.code, str);
     }
 
-    private void notifyOnStartRequest(@NonNull R r) {
-        h<R, T> hVar = this.mListener;
+    private void notifyOnStartRequest(g gVar) {
+        h hVar = this.mListener;
         if (hVar == null) {
             return;
         }
-        hVar.onStartRequest(r);
+        hVar.onStartRequest(gVar);
     }
 
-    private void notifyOnSuccess(@NonNull R r, T t) {
-        h<R, T> hVar = this.mListener;
+    private void notifyOnSuccess(g gVar, BaseResultData baseResultData) {
+        h hVar = this.mListener;
         if (hVar == null) {
             return;
         }
-        hVar.onSuccess(r, t);
+        hVar.onSuccess(gVar, baseResultData);
         this.mMonitorRecorder.tS();
     }
 
-    private void onRequest(@NonNull h<R, T> hVar) {
+    private void onRequest(h hVar) {
         this.mMonitorRecorder.tM();
         this.mListener = hVar;
     }
@@ -81,10 +75,10 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
         }
     }
 
-    private void setMonitorRequestId(@NonNull g gVar) {
-        Map<String, String> header = gVar.getHeader();
+    private void setMonitorRequestId(g gVar) {
+        Map header = gVar.getHeader();
         if (header != null) {
-            String str = header.get(d.TRACK_ID_KEY);
+            String str = (String) header.get(d.TRACK_ID_KEY);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -92,7 +86,7 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
         }
     }
 
-    public void afterParseData(T t) {
+    public void afterParseData(BaseResultData baseResultData) {
     }
 
     @Override // com.kwad.sdk.core.network.a
@@ -106,12 +100,11 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
     }
 
     @Override // com.kwad.sdk.core.network.a
-    @WorkerThread
     public void fetchImpl() {
         try {
             try {
                 this.mMonitorRecorder.tQ();
-                R createRequest = createRequest();
+                g createRequest = createRequest();
                 notifyOnStartRequest(createRequest);
                 this.mMonitorRecorder.cc(createRequest.getUrl()).cd(createRequest.getUrl());
                 setMonitorRequestId(createRequest);
@@ -136,7 +129,7 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
                         com.kwad.sdk.core.e.b.printStackTraceOnly(e2);
                     }
                 } else {
-                    notifyOnErrorListener((m<R, T>) createRequest, f.Yb.errorCode, f.Yb.Qd);
+                    notifyOnErrorListener(createRequest, f.Yb.errorCode, f.Yb.Qd);
                     this.mMonitorRecorder.aB(f.Yb.errorCode).ce(f.Yb.Qd);
                 }
                 try {
@@ -175,10 +168,10 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
     }
 
     @Override // com.kwad.sdk.core.network.a
-    public void onResponse(R r, c cVar) {
+    public void onResponse(g gVar, c cVar) {
         if (cVar == null) {
             f fVar = f.Yb;
-            notifyOnErrorListener((m<R, T>) r, fVar.errorCode, fVar.Qd);
+            notifyOnErrorListener(gVar, fVar.errorCode, fVar.Qd);
             this.mMonitorRecorder.ce("responseBase is null");
             com.kwad.sdk.core.e.b.e(TAG, "request responseBase is null");
             return;
@@ -186,7 +179,7 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
         this.mMonitorRecorder.aB(cVar.code);
         checkIpDirect(cVar);
         if (TextUtils.isEmpty(cVar.XV) || !cVar.tx()) {
-            notifyOnErrorListener((m<R, T>) r, cVar, "网络错误");
+            notifyOnErrorListener(gVar, cVar, "网络错误");
             com.kwad.sdk.core.network.a.b bVar = this.mMonitorRecorder;
             bVar.ce("httpCodeError:" + cVar.code + ":" + cVar.XV);
             StringBuilder sb = new StringBuilder("request responseBase httpCodeError:");
@@ -195,8 +188,8 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
             return;
         }
         try {
-            parseCommonData(r.getUrl(), cVar.XV);
-            T parseData = parseData(cVar.XV);
+            parseCommonData(gVar.getUrl(), cVar.XV);
+            BaseResultData parseData = parseData(cVar.XV);
             afterParseData(parseData);
             String str = cVar.XV;
             if (str != null) {
@@ -205,29 +198,28 @@ public abstract class m<R extends g, T extends BaseResultData> extends a<R> {
             if (parseData.isResultOk()) {
                 if (parseData.isDataEmpty()) {
                     f fVar2 = f.Yd;
-                    notifyOnErrorListener((m<R, T>) r, fVar2.errorCode, fVar2.Qd);
+                    notifyOnErrorListener(gVar, fVar2.errorCode, fVar2.Qd);
                     return;
                 }
                 checkAndSetHasData(parseData);
-                notifyOnSuccess(r, parseData);
+                notifyOnSuccess(gVar, parseData);
                 return;
             }
-            notifyOnErrorListener((m<R, T>) r, parseData.result, parseData.errorMsg);
+            notifyOnErrorListener(gVar, parseData.result, parseData.errorMsg);
             com.kwad.sdk.core.network.a.b bVar2 = this.mMonitorRecorder;
             bVar2.ce("serverCodeError:" + parseData.result + ":" + parseData.errorMsg);
         } catch (Exception e) {
             f fVar3 = f.Yc;
-            notifyOnErrorListener((m<R, T>) r, fVar3.errorCode, fVar3.Qd);
+            notifyOnErrorListener(gVar, fVar3.errorCode, fVar3.Qd);
             com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             com.kwad.sdk.core.network.a.b bVar3 = this.mMonitorRecorder;
             bVar3.ce("parseDataError:" + e.getMessage());
         }
     }
 
-    @NonNull
-    public abstract T parseData(String str);
+    public abstract BaseResultData parseData(String str);
 
-    public void request(@NonNull h<R, T> hVar) {
+    public void request(h hVar) {
         onRequest(hVar);
         fetch();
     }

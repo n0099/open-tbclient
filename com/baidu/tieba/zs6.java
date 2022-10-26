@@ -1,38 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.widget.LinearGradientView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class zs6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public RelativeLayout b;
+    public LinearGradientView c;
+    public BarImageView d;
+    public TextView e;
+    public FrsHeaderBannerView f;
+    public LinearLayout g;
+    public ImageView h;
+    public View i;
+    public TbImageView j;
+    public ImageView k;
+    public ImageView l;
+    public ImageView m;
+    public ImageView n;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jh6 a;
+        public final /* synthetic */ Context a;
 
-        public a(jh6 jh6Var) {
+        public a(zs6 zs6Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jh6Var};
+                Object[] objArr = {zs6Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,52 +62,82 @@ public class zs6 {
                     return;
                 }
             }
-            this.a = jh6Var;
+            this.a = context;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.K0();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.a;
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
             }
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, jh6 jh6Var, FrsViewData frsViewData) {
-        List<DownloadData> data;
+    public zs6(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, responsedMessage, jh6Var, frsViewData) == null) || frsViewData == null || jh6Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
-            return;
-        }
-        boolean z = false;
-        Iterator<DownloadData> it = data.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().getStatus() == 0) {
-                z = true;
-                break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        if (z) {
-            gh.a().postDelayed(new a(jh6Var), TimeUnit.SECONDS.toMillis(2L));
-        }
-    }
-
-    public static void b(jh6 jh6Var) {
-        HashMap<Integer, ThreadData> h;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, jh6Var) == null) || jh6Var == null || jh6Var.X() == null || (h = jh6Var.X().h()) == null) {
+        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
+        UtilHelper.getStatusBarHeight();
+        if (context == null) {
             return;
         }
-        ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-        for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-            ThreadData value = entry.getValue();
-            if (value != null && (value instanceof AdvertAppInfo)) {
-                arrayList.add((AdvertAppInfo) value);
-            }
-        }
-        qe8.n().w(arrayList);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0303, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090d45);
+        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090d48);
+        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d46);
+        this.j = tbImageView;
+        tbImageView.setDefaultBgResource(R.color.transparent);
+        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080f4b);
+        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b6a);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a98);
+        this.e = textView;
+        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090b59);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090995);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090994);
+        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090d5e);
+        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090997);
+        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090999);
+        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090996);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090998);
+        this.k.setOnClickListener(new a(this, context));
+        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02e6));
+        this.d.setStrokeWith(fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+        this.d.setShowOval(true);
+        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+        this.d.setStrokeColorResId(R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+        nv4 d = nv4.d(this.i);
+        d.m(1);
+        d.n(R.string.J_X14);
+        d.f(R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
+        SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080629);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f08062b, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1c, SkinManager.getColor(R.color.CAM_X0101), null));
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f08062a, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802dc, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

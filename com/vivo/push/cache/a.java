@@ -16,9 +16,16 @@ import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public final class a extends c<com.vivo.push.model.a> {
+public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.vivo.push.cache.c
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "com.vivo.pushservice.back_up" : (String) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -41,14 +48,48 @@ public final class a extends c<com.vivo.push.model.a> {
     }
 
     @Override // com.vivo.push.cache.c
-    public final String a() {
-        InterceptResult invokeV;
+    public final String b(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "com.vivo.pushservice.back_up" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final com.vivo.push.model.a c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (c.a) {
+                for (com.vivo.push.model.a aVar : this.b) {
+                    if (!TextUtils.isEmpty(aVar.a()) && aVar.a().equals(str)) {
+                        return aVar;
+                    }
+                }
+                return null;
+            }
+        }
+        return (com.vivo.push.model.a) invokeL.objValue;
+    }
+
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != -1) {
+                if ((i & 1) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return z.b("persist.sys.log.ctrl", "no").equals("yes");
+        }
+        return invokeI.booleanValue;
     }
 
     @Override // com.vivo.push.cache.c
-    public final List<com.vivo.push.model.a> a(String str) {
+    public final List a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -74,29 +115,6 @@ public final class a extends c<com.vivo.push.model.a> {
         return (List) invokeL.objValue;
     }
 
-    @Override // com.vivo.push.cache.c
-    public final String b(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET) : (String) invokeL.objValue;
-    }
-
-    public final com.vivo.push.model.a c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (c.a) {
-                for (T t : this.b) {
-                    if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
-                        return t;
-                    }
-                }
-                return null;
-            }
-        }
-        return (com.vivo.push.model.a) invokeL.objValue;
-    }
-
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,17 +129,5 @@ public final class a extends c<com.vivo.push.model.a> {
             return -1;
         }
         return invokeV.intValue;
-    }
-
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != -1) {
-                return (i & 1) != 0;
-            }
-            return z.b("persist.sys.log.ctrl", "no").equals("yes");
-        }
-        return invokeI.booleanValue;
     }
 }

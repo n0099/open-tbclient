@@ -21,30 +21,30 @@ public class it {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return (short) (h.a(context, str, false).a() + 0 + (ak.b(context) ? 4 : 0) + (ak.a(context) ? 8 : 0) + (com.xiaomi.push.service.ax.m624a(context) ? 16 : 0));
+            return (short) (h.a(context, str, false).a() + 0 + (ak.b(context) ? 4 : 0) + (ak.a(context) ? 8 : 0) + (com.xiaomi.push.service.ax.m623a(context) ? 16 : 0));
         }
         return invokeLL.shortValue;
     }
 
-    public static <T extends iu<T, ?>> void a(T t, byte[] bArr) {
+    public static void a(iu iuVar, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, t, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, iuVar, bArr) == null) {
             if (bArr == null) {
                 throw new iz("the message byte is empty.");
             }
-            new iy(new jl.a(true, true, bArr.length)).a(t, bArr);
+            new iy(new jl.a(true, true, bArr.length)).a(iuVar, bArr);
         }
     }
 
-    public static <T extends iu<T, ?>> byte[] a(T t) {
+    public static byte[] a(iu iuVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
-            if (t == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iuVar)) == null) {
+            if (iuVar == null) {
                 return null;
             }
             try {
-                return new ja(new jb.a()).a(t);
+                return new ja(new jb.a()).a(iuVar);
             } catch (iz e) {
                 com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e);
                 return null;

@@ -4,13 +4,10 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
 import kotlin.NoWhenBranchMatchedException;
-import kotlin.SinceKotlin;
 import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.internal.LowPriorityInOverloadResolution;
 import kotlin.jvm.JvmClassMappingKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.KTypeBase;
@@ -42,8 +39,23 @@ public final class TypesJVMKt {
         }
     }
 
-    @ExperimentalStdlibApi
+    public static /* synthetic */ void getJavaType$annotations(KType kType) {
+    }
+
+    public static /* synthetic */ void getJavaType$annotations(KTypeProjection kTypeProjection) {
+    }
+
+    public static final Type getJavaType(KType javaType) {
+        Type javaType2;
+        Intrinsics.checkNotNullParameter(javaType, "$this$javaType");
+        if ((javaType instanceof KTypeBase) && (javaType2 = ((KTypeBase) javaType).getJavaType()) != null) {
+            return javaType2;
+        }
+        return computeJavaType$default(javaType, false, 1, null);
+    }
+
     public static final Type computeJavaType(KType kType, boolean z) {
+        Class javaClass;
         int i;
         KClassifier classifier = kType.getClassifier();
         if (classifier instanceof KTypeParameter) {
@@ -51,46 +63,45 @@ public final class TypesJVMKt {
         }
         if (classifier instanceof KClass) {
             KClass kClass = (KClass) classifier;
-            Class javaObjectType = z ? JvmClassMappingKt.getJavaObjectType(kClass) : JvmClassMappingKt.getJavaClass(kClass);
-            List<KTypeProjection> arguments = kType.getArguments();
-            if (arguments.isEmpty()) {
-                return javaObjectType;
+            if (z) {
+                javaClass = JvmClassMappingKt.getJavaObjectType(kClass);
+            } else {
+                javaClass = JvmClassMappingKt.getJavaClass(kClass);
             }
-            if (javaObjectType.isArray()) {
-                Class<?> componentType = javaObjectType.getComponentType();
+            List arguments = kType.getArguments();
+            if (arguments.isEmpty()) {
+                return javaClass;
+            }
+            if (javaClass.isArray()) {
+                Class<?> componentType = javaClass.getComponentType();
                 Intrinsics.checkNotNullExpressionValue(componentType, "jClass.componentType");
                 if (componentType.isPrimitive()) {
-                    return javaObjectType;
+                    return javaClass;
                 }
                 KTypeProjection kTypeProjection = (KTypeProjection) CollectionsKt___CollectionsKt.singleOrNull((List<? extends Object>) arguments);
                 if (kTypeProjection != null) {
                     KVariance component1 = kTypeProjection.component1();
                     KType component2 = kTypeProjection.component2();
-                    if (component1 == null || (i = WhenMappings.$EnumSwitchMapping$0[component1.ordinal()]) == 1) {
-                        return javaObjectType;
+                    if (component1 != null && (i = WhenMappings.$EnumSwitchMapping$0[component1.ordinal()]) != 1) {
+                        if (i != 2 && i != 3) {
+                            throw new NoWhenBranchMatchedException();
+                        }
+                        Intrinsics.checkNotNull(component2);
+                        Type computeJavaType$default = computeJavaType$default(component2, false, 1, null);
+                        if (!(computeJavaType$default instanceof Class)) {
+                            return new GenericArrayTypeImpl(computeJavaType$default);
+                        }
+                        return javaClass;
                     }
-                    if (i != 2 && i != 3) {
-                        throw new NoWhenBranchMatchedException();
-                    }
-                    Intrinsics.checkNotNull(component2);
-                    Type computeJavaType$default = computeJavaType$default(component2, false, 1, null);
-                    return computeJavaType$default instanceof Class ? javaObjectType : new GenericArrayTypeImpl(computeJavaType$default);
+                    return javaClass;
                 }
                 throw new IllegalArgumentException("kotlin.Array must have exactly one type argument: " + kType);
             }
-            return createPossiblyInnerType(javaObjectType, arguments);
+            return createPossiblyInnerType(javaClass, arguments);
         }
         throw new UnsupportedOperationException("Unsupported type classifier: " + kType);
     }
 
-    public static /* synthetic */ Type computeJavaType$default(KType kType, boolean z, int i, Object obj) {
-        if ((i & 1) != 0) {
-            z = false;
-        }
-        return computeJavaType(kType, z);
-    }
-
-    @ExperimentalStdlibApi
     public static final Type createPossiblyInnerType(Class<?> cls, List<KTypeProjection> list) {
         Class<?> declaringClass = cls.getDeclaringClass();
         if (declaringClass != null) {
@@ -117,36 +128,11 @@ public final class TypesJVMKt {
         return new ParameterizedTypeImpl(cls, null, arrayList3);
     }
 
-    public static final Type getJavaType(KType javaType) {
-        Type javaType2;
-        Intrinsics.checkNotNullParameter(javaType, "$this$javaType");
-        return (!(javaType instanceof KTypeBase) || (javaType2 = ((KTypeBase) javaType).getJavaType()) == null) ? computeJavaType$default(javaType, false, 1, null) : javaType2;
-    }
-
-    @LowPriorityInOverloadResolution
-    @SinceKotlin(version = "1.4")
-    @ExperimentalStdlibApi
-    public static /* synthetic */ void getJavaType$annotations(KType kType) {
-    }
-
-    @ExperimentalStdlibApi
-    public static /* synthetic */ void getJavaType$annotations(KTypeProjection kTypeProjection) {
-    }
-
-    public static final String typeToString(Type type) {
-        String name;
-        if (type instanceof Class) {
-            Class cls = (Class) type;
-            if (cls.isArray()) {
-                Sequence generateSequence = SequencesKt__SequencesKt.generateSequence(type, TypesJVMKt$typeToString$unwrap$1.INSTANCE);
-                name = ((Class) SequencesKt___SequencesKt.last(generateSequence)).getName() + StringsKt__StringsJVMKt.repeat("[]", SequencesKt___SequencesKt.count(generateSequence));
-            } else {
-                name = cls.getName();
-            }
-            Intrinsics.checkNotNullExpressionValue(name, "if (type.isArray) {\n    …\n        } else type.name");
-            return name;
+    public static /* synthetic */ Type computeJavaType$default(KType kType, boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
+            z = false;
         }
-        return type.toString();
+        return computeJavaType(kType, z);
     }
 
     public static final Type getJavaType(KTypeProjection kTypeProjection) {
@@ -167,5 +153,21 @@ public final class TypesJVMKt {
             return computeJavaType(type, true);
         }
         return WildcardTypeImpl.Companion.getSTAR();
+    }
+
+    public static final String typeToString(Type type) {
+        String name;
+        if (type instanceof Class) {
+            Class cls = (Class) type;
+            if (cls.isArray()) {
+                Sequence generateSequence = SequencesKt__SequencesKt.generateSequence(type, TypesJVMKt$typeToString$unwrap$1.INSTANCE);
+                name = ((Class) SequencesKt___SequencesKt.last(generateSequence)).getName() + StringsKt__StringsJVMKt.repeat("[]", SequencesKt___SequencesKt.count(generateSequence));
+            } else {
+                name = cls.getName();
+            }
+            Intrinsics.checkNotNullExpressionValue(name, "if (type.isArray) {\n    …\n        } else type.name");
+            return name;
+        }
+        return type.toString();
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.homepage.concern.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,13 +36,22 @@ public class CheckRedNotifySocketResMessage extends SocketResponsedMessage {
         }
     }
 
+    public boolean isShowRedNotify() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isShowRedNotify;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         RedNotify redNotify;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            boolean z = false;
             RedNotifyResIdl redNotifyResIdl = (RedNotifyResIdl) new Wire(new Class[0]).parseFrom(bArr, RedNotifyResIdl.class);
             if (redNotifyResIdl != null) {
                 Error error = redNotifyResIdl.error;
@@ -53,17 +61,14 @@ public class CheckRedNotifySocketResMessage extends SocketResponsedMessage {
                 }
                 DataRes dataRes = redNotifyResIdl.data;
                 if (dataRes != null && (redNotify = dataRes.notify_data) != null) {
-                    this.isShowRedNotify = redNotify.notify_status.intValue() == 1;
+                    if (redNotify.notify_status.intValue() == 1) {
+                        z = true;
+                    }
+                    this.isShowRedNotify = z;
                 }
             }
             return redNotifyResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public boolean isShowRedNotify() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isShowRedNotify : invokeV.booleanValue;
     }
 }

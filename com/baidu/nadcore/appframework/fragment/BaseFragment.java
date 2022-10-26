@@ -39,18 +39,67 @@ public class BaseFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onActivityCreated(bundle);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroy();
         }
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroyView();
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onDetach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = null;
+            super.onDetach();
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onPause();
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onResume();
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onStart();
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.onStop();
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onActivityCreated(bundle);
         }
     }
 
@@ -82,58 +131,10 @@ public class BaseFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) ? super.onCreateView(layoutInflater, viewGroup, bundle) : (View) invokeLLL.objValue;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDestroy();
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onDestroyView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDestroyView();
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = null;
-            super.onDetach();
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
     public void onHiddenChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             super.onHiddenChanged(z);
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onPause();
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onResume();
         }
     }
 
@@ -146,26 +147,28 @@ public class BaseFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onStart();
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.onStop();
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
     public void onViewStateRestored(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onViewStateRestored(bundle);
         }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            return super.onCreateView(layoutInflater, viewGroup, bundle);
+        }
+        return (View) invokeLLL.objValue;
     }
 }

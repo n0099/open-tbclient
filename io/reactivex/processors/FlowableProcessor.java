@@ -8,13 +8,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.annotations.CheckReturnValue;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.annotations.Nullable;
 import org.reactivestreams.Processor;
 /* loaded from: classes8.dex */
-public abstract class FlowableProcessor<T> extends Flowable<T> implements Processor<T, T>, FlowableSubscriber<T> {
+public abstract class FlowableProcessor extends Flowable implements Processor, FlowableSubscriber {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Throwable getThrowable();
+
+    public abstract boolean hasComplete();
+
+    public abstract boolean hasSubscribers();
+
+    public abstract boolean hasThrowable();
 
     public FlowableProcessor() {
         Interceptable interceptable = $ic;
@@ -30,20 +36,16 @@ public abstract class FlowableProcessor<T> extends Flowable<T> implements Proces
         }
     }
 
-    @Nullable
-    public abstract Throwable getThrowable();
-
-    public abstract boolean hasComplete();
-
-    public abstract boolean hasSubscribers();
-
-    public abstract boolean hasThrowable();
-
     @CheckReturnValue
-    @NonNull
-    public final FlowableProcessor<T> toSerialized() {
+    public final FlowableProcessor toSerialized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this instanceof SerializedProcessor ? this : new SerializedProcessor(this) : (FlowableProcessor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this instanceof SerializedProcessor) {
+                return this;
+            }
+            return new SerializedProcessor(this);
+        }
+        return (FlowableProcessor) invokeV.objValue;
     }
 }

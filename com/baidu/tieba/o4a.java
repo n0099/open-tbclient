@@ -1,142 +1,66 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class o4a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static PaysSettingInfo a = null;
-    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
-    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
-    public static String e = "https://web.yy.com/yy_wallet/help-faq.html?";
+public class o4a implements IYYPayResultView.a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public IYYPayResultView b;
+    public AbsViewEventHandler c;
+    public Dialog d;
+    public v3a e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947983661, "Lcom/baidu/tieba/o4a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public o4a(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler, Dialog dialog, v3a v3aVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947983661, "Lcom/baidu/tieba/o4a;");
-        }
-    }
-
-    public static String a(String str, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str);
-            sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
-            sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
-            sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
-            sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
-            sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
-            sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
-            sb.append("&sdkVersion=4.3.30-bdpay-fix.2-SNAPSHOT");
-            int i = 0;
-            ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
-            if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100154) {
-                i = 1;
-            }
-            sb.append("&theme=" + i);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(d, payUIKitConfig);
-            }
-            return d;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(e, payUIKitConfig);
-            }
-            return e;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static PaysSettingInfo d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (PaysSettingInfo) invokeV.objValue;
-    }
-
-    public static String e(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(c, payUIKitConfig);
-            }
-            return c;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-                return b;
-            }
-            return a(b, payUIKitConfig);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            if (z) {
-                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
-                e = "https://webtest.yy.com/yy_wallet/help-faq.html?";
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, iYYPayResultView, absViewEventHandler, dialog, v3aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-            c = "https://web.yy.com/yy_wallet/wallet.html?";
-            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
-            e = "https://web.yy.com/yy_wallet/help-faq.html?";
+        }
+        RLog.info("PayResultViewCallback", "create PayResultViewCallback");
+        this.a = activity;
+        this.b = iYYPayResultView;
+        this.c = absViewEventHandler;
+        this.d = dialog;
+        this.e = v3aVar;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info("PayResultViewCallback", "onBtnConfirm");
+            u5a.b(this.d, PayDialogType.PAY_RESULT_DIALOG);
         }
     }
 
-    public static void h(PaysSettingInfo paysSettingInfo, String str) {
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, paysSettingInfo, str) == null) {
-            RLog.info("PaySettingConfig", "setPaysSettingInfo info:" + paysSettingInfo + " from:" + str);
-            a = paysSettingInfo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e.k(this.a, this.b, this.c);
         }
+        return invokeV.booleanValue;
     }
 }

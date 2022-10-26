@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk.system;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,6 @@ import com.baidu.webkit.sdk.ServiceWorkerWebSettings;
 public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @TargetApi(24)
     public android.webkit.ServiceWorkerWebSettings mSettings;
 
     public ServiceWorkerWebSettingsImpl(android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings) {

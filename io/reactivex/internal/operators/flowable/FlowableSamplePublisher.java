@@ -19,15 +19,15 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSamplePublisher<T> extends Flowable<T> {
+public final class FlowableSamplePublisher extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean emitLast;
-    public final Publisher<?> other;
-    public final Publisher<T> source;
+    public final Publisher other;
+    public final Publisher source;
 
     /* loaded from: classes8.dex */
-    public static final class SampleMainEmitLast<T> extends SamplePublisherSubscriber<T> {
+    public final class SampleMainEmitLast extends SamplePublisherSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleMainEmitLast(Subscriber<? super T> subscriber, Publisher<?> publisher) {
+        public SampleMainEmitLast(Subscriber subscriber, Publisher publisher) {
             super(subscriber, publisher);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -97,13 +97,13 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SampleMainNoLast<T> extends SamplePublisherSubscriber<T> {
+    public final class SampleMainNoLast extends SamplePublisherSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleMainNoLast(Subscriber<? super T> subscriber, Publisher<?> publisher) {
+        public SampleMainNoLast(Subscriber subscriber, Publisher publisher) {
             super(subscriber, publisher);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -149,17 +149,23 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements FlowableSubscriber<T>, Subscription {
+    public abstract class SamplePublisherSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
-        public final AtomicReference<Subscription> other;
+        public final Subscriber actual;
+        public final AtomicReference other;
         public final AtomicLong requested;
         public Subscription s;
-        public final Publisher<?> sampler;
+        public final Publisher sampler;
 
-        public SamplePublisherSubscriber(Subscriber<? super T> subscriber, Publisher<?> publisher) {
+        public abstract void completeMain();
+
+        public abstract void completeOther();
+
+        public abstract void run();
+
+        public SamplePublisherSubscriber(Subscriber subscriber, Publisher publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,7 +181,7 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
                 }
             }
             this.requested = new AtomicLong();
-            this.other = new AtomicReference<>();
+            this.other = new AtomicReference();
             this.actual = subscriber;
             this.sampler = publisher;
         }
@@ -197,23 +203,27 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
             }
         }
 
-        public abstract void completeMain();
-
-        public abstract void completeOther();
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                SubscriptionHelper.cancel(this.other);
+                completeMain();
+            }
+        }
 
         public void emit() {
-            T andSet;
+            Object andSet;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (andSet = getAndSet(null)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (andSet = getAndSet(null)) != null) {
+                if (this.requested.get() != 0) {
+                    this.actual.onNext(andSet);
+                    BackpressureHelper.produced(this.requested, 1L);
+                    return;
+                }
+                cancel();
+                this.actual.onError(new MissingBackpressureException("Couldn't emit value due to lack of requests!"));
             }
-            if (this.requested.get() != 0) {
-                this.actual.onNext(andSet);
-                BackpressureHelper.produced(this.requested, 1L);
-                return;
-            }
-            cancel();
-            this.actual.onError(new MissingBackpressureException("Couldn't emit value due to lack of requests!"));
         }
 
         public void error(Throwable th) {
@@ -221,15 +231,6 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
                 this.s.cancel();
                 this.actual.onError(th);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                SubscriptionHelper.cancel(this.other);
-                completeMain();
             }
         }
 
@@ -243,10 +244,25 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-                lazySet(t);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+                lazySet(obj);
+            }
+        }
+
+        @Override // org.reactivestreams.Subscription
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
+            }
+        }
+
+        public void setOther(Subscription subscription) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, subscription) == null) {
+                SubscriptionHelper.setOnce(this.other, subscription, Long.MAX_VALUE);
             }
         }
 
@@ -262,32 +278,15 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
                 }
             }
         }
-
-        @Override // org.reactivestreams.Subscription
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
-            }
-        }
-
-        public abstract void run();
-
-        public void setOther(Subscription subscription) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, subscription) == null) {
-                SubscriptionHelper.setOnce(this.other, subscription, Long.MAX_VALUE);
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class SamplerSubscriber<T> implements FlowableSubscriber<Object> {
+    public final class SamplerSubscriber implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SamplePublisherSubscriber<T> parent;
+        public final SamplePublisherSubscriber parent;
 
-        public SamplerSubscriber(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
+        public SamplerSubscriber(SamplePublisherSubscriber samplePublisherSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -303,14 +302,6 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
                 }
             }
             this.parent = samplePublisherSubscriber;
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.parent.complete();
-            }
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -336,9 +327,17 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
                 this.parent.setOther(subscription);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.parent.complete();
+            }
+        }
     }
 
-    public FlowableSamplePublisher(Publisher<T> publisher, Publisher<?> publisher2, boolean z) {
+    public FlowableSamplePublisher(Publisher publisher, Publisher publisher2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -359,7 +358,7 @@ public final class FlowableSamplePublisher<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);

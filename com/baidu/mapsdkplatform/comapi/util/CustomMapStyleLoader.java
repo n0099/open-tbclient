@@ -83,7 +83,7 @@ public class CustomMapStyleLoader {
     }
 
     /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public static final CustomMapStyleLoader a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class CustomMapStyleLoader {
         this();
     }
 
-    private String a(Map<String, String> map) {
+    private String a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, map)) == null) {
@@ -151,7 +151,7 @@ public class CustomMapStyleLoader {
             StringBuilder sb = new StringBuilder();
             int i = 0;
             for (String str : map.keySet()) {
-                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(map.get(str));
+                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue((String) map.get(str));
                 if (i != 0) {
                     sb.append("&");
                 }

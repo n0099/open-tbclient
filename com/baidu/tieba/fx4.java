@@ -1,94 +1,162 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fx4 {
+public class fx4 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<String> a;
-    public static final LinkedList<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ex4 a;
+    public int b;
+    public int c;
+    public int d;
+    public View e;
+    public View f;
+    public Activity g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779495, "Lcom/baidu/tieba/fx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fx4 a;
+
+        public a(fx4 fx4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fx4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947779495, "Lcom/baidu/tieba/fx4;");
+            this.a = fx4Var;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fx4(Activity activity) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new LinkedList<>();
-        b = new LinkedList<>();
+        this.g = activity;
+        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d03fb, (ViewGroup) null, false);
+        this.e = inflate;
+        setContentView(inflate);
+        setSoftInputMode(21);
+        setInputMethodMode(1);
+        this.f = activity.findViewById(16908290);
+        setWidth(0);
+        setHeight(-1);
+        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
-    public static JSONObject a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void g(ex4 ex4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
-            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
-            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
-            b(jSONObject, "continuous_crash_times", String.valueOf(lx4.q().o()));
-            b(jSONObject, "trigger_safe_mode_status", String.valueOf(lx4.q().s()));
-            b(jSONObject, "fid_info", String.valueOf(a));
-            b(jSONObject, "tid_info", String.valueOf(b));
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            if (str != null && str2 != null) {
-                try {
-                    jSONObject.put(str, str2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.offer(str);
-            if (a.size() > 10) {
-                a.poll();
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, ex4Var) == null) {
+            this.a = ex4Var;
         }
     }
 
-    public static void d(String str) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b.offer(str);
-            if (b.size() > 10) {
-                b.poll();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            dismiss();
+        }
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g.getResources().getConfiguration().orientation;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !isShowing() && this.f.getWindowToken() != null) {
+            setBackgroundDrawable(new ColorDrawable(0));
+            showAtLocation(this.f, 0, 0, 0);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Point point = new Point();
+            this.g.getWindowManager().getDefaultDisplay().getSize(point);
+            Rect rect = new Rect();
+            this.e.getWindowVisibleDisplayFrame(rect);
+            int d = d();
+            int i = point.y - rect.bottom;
+            if (i == 0) {
+                f(0, d);
+            } else if (d == 1) {
+                this.d = i;
+                f(i, d);
+            } else {
+                this.c = i;
+                f(i, d);
+            }
+        }
+    }
+
+    public final void f(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (i <= 0) {
+                this.b = i;
+                i3 = 0;
+            } else {
+                i3 = i - this.b;
+            }
+            ex4 ex4Var = this.a;
+            if (ex4Var != null) {
+                ex4Var.onKeyboardHeightChanged(i3, i2);
             }
         }
     }

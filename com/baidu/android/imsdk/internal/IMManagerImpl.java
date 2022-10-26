@@ -25,6 +25,12 @@ public class IMManagerImpl {
     public static Context sContext;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void stop(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -57,7 +63,16 @@ public class IMManagerImpl {
         loadClasses();
     }
 
-    private List<Integer> getIndex() {
+    public static String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(sContext));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private List getIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -93,16 +108,51 @@ public class IMManagerImpl {
         return (IMManagerImpl) invokeL.objValue;
     }
 
-    public static String getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(sContext)) : (String) invokeV.objValue;
-    }
-
     private boolean isKickOffMsg(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, chatMsg)) == null) ? chatMsg.getMsgType() == 3 && chatMsg.getNotifyCmd() == 50 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, chatMsg)) == null) {
+            if (chatMsg.getMsgType() == 3 && chatMsg.getNotifyCmd() == 50) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public ChatMsg checkKickOffMsg(ArrayList arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            if (arrayList == null) {
+                return null;
+            }
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ChatMsg chatMsg = (ChatMsg) it.next();
+                if (isKickOffMsg(chatMsg)) {
+                    return chatMsg;
+                }
+            }
+            return null;
+        }
+        return (ChatMsg) invokeL.objValue;
+    }
+
+    public boolean setProductLine(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return IMConfigInternal.getInstance().setProductLine(sContext, i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void start(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            Utility.startIMService(context);
+        }
     }
 
     private void loadClassForName(String str) {
@@ -122,52 +172,14 @@ public class IMManagerImpl {
     }
 
     private void loadClasses() {
-        List<Integer> index;
+        List index;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (index = getIndex()) == null) {
+        if ((interceptable != null && interceptable.invokeV(65543, this) != null) || (index = getIndex()) == null) {
             return;
         }
         String[] strArr = {"com.baidu.android.imsdk.account.AccountManager", "com.baidu.android.imsdk.chatmessage.ChatMsgManager", "com.baidu.android.imsdk.chatuser.ChatUserManager", "com.baidu.android.imsdk.friend.FriendManager", "com.baidu.android.imsdk.group.GroupManager", "com.baidu.android.imsdk.pubaccount.PaManager"};
-        for (int i = 0; i < index.size() && index.get(i).intValue() < 6; i++) {
-            loadClassForName(strArr[index.get(i).intValue()]);
-        }
-    }
-
-    public ChatMsg checkKickOffMsg(ArrayList<ChatMsg> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            if (arrayList == null) {
-                return null;
-            }
-            Iterator<ChatMsg> it = arrayList.iterator();
-            while (it.hasNext()) {
-                ChatMsg next = it.next();
-                if (isKickOffMsg(next)) {
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (ChatMsg) invokeL.objValue;
-    }
-
-    public boolean setProductLine(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? IMConfigInternal.getInstance().setProductLine(sContext, i) : invokeI.booleanValue;
-    }
-
-    public void start(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            Utility.startIMService(context);
-        }
-    }
-
-    public void stop(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+        for (int i = 0; i < index.size() && ((Integer) index.get(i)).intValue() < 6; i++) {
+            loadClassForName(strArr[((Integer) index.get(i)).intValue()]);
         }
     }
 }

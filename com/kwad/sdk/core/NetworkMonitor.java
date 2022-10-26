@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
@@ -16,7 +15,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class NetworkMonitor {
     public static volatile boolean Ti;
-    public final List<WeakReference<a>> Tj;
+    public final List Tj;
     public boolean Tk;
     public final BroadcastReceiver Tl;
 
@@ -51,7 +50,7 @@ public final class NetworkMonitor {
         this.Tk = false;
         this.Tl = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
             @Override // android.content.BroadcastReceiver
-            public final void onReceive(@NonNull Context context, Intent intent) {
+            public final void onReceive(Context context, Intent intent) {
                 ConnectivityManager connectivityManager;
                 NetworkMonitor networkMonitor;
                 NetworkState networkState;
@@ -100,10 +99,10 @@ public final class NetworkMonitor {
     public void b(NetworkState networkState) {
         a aVar;
         synchronized (this.Tj) {
-            Iterator<WeakReference<a>> it = this.Tj.iterator();
+            Iterator it = this.Tj.iterator();
             while (it.hasNext()) {
-                WeakReference<a> next = it.next();
-                if (next != null && (aVar = next.get()) != null) {
+                WeakReference weakReference = (WeakReference) it.next();
+                if (weakReference != null && (aVar = (a) weakReference.get()) != null) {
                     aVar.a(networkState);
                 }
                 it.remove();
@@ -115,21 +114,21 @@ public final class NetworkMonitor {
         return Holder.INSTANCE.getInstance();
     }
 
-    public final void a(Context context, @NonNull a aVar) {
+    public final void a(Context context, a aVar) {
         aR(context);
-        this.Tj.add(new WeakReference<>(aVar));
+        this.Tj.add(new WeakReference(aVar));
     }
 
     public final void a(a aVar) {
         a aVar2;
         synchronized (this.Tj) {
-            Iterator<WeakReference<a>> it = this.Tj.iterator();
+            Iterator it = this.Tj.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                WeakReference<a> next = it.next();
-                if (next != null && (aVar2 = next.get()) != null) {
+                WeakReference weakReference = (WeakReference) it.next();
+                if (weakReference != null && (aVar2 = (a) weakReference.get()) != null) {
                     if (aVar == aVar2) {
                         it.remove();
                         break;

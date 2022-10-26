@@ -31,7 +31,7 @@ public class AddressManagerStat implements NoProguard {
     public static final String VALUE_PAGE = "address_manager";
     public static final String VALUE_UNABLE = "0";
     public static String sValue;
-    public static Map<String, Object> statExtMap;
+    public static Map statExtMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

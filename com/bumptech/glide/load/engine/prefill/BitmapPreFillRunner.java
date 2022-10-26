@@ -5,8 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,7 +31,6 @@ public final class BitmapPreFillRunner implements Runnable {
     public static final long INITIAL_BACKOFF_MS = 40;
     public static final long MAX_BACKOFF_MS;
     public static final long MAX_DURATION_MS = 32;
-    @VisibleForTesting
     public static final String TAG = "PreFillRunner";
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool bitmapPool;
@@ -42,12 +39,11 @@ public final class BitmapPreFillRunner implements Runnable {
     public final Handler handler;
     public boolean isCancelled;
     public final MemoryCache memoryCache;
-    public final Set<PreFillType> seenTypes;
+    public final Set seenTypes;
     public final PreFillQueue toPrefill;
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static class Clock {
+    public class Clock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,12 +64,15 @@ public final class BitmapPreFillRunner implements Runnable {
         public long now() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SystemClock.currentThreadTimeMillis() : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return SystemClock.currentThreadTimeMillis();
+            }
+            return invokeV.longValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class UniqueKey implements Key {
+    public final class UniqueKey implements Key {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,7 +91,7 @@ public final class BitmapPreFillRunner implements Runnable {
         }
 
         @Override // com.bumptech.glide.load.Key
-        public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+        public void updateDiskCacheKey(MessageDigest messageDigest) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, messageDigest) == null) {
                 throw new UnsupportedOperationException();
@@ -117,6 +116,41 @@ public final class BitmapPreFillRunner implements Runnable {
         MAX_BACKOFF_MS = TimeUnit.SECONDS.toMillis(1L);
     }
 
+    private long getFreeMemoryCacheBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return this.memoryCache.getMaxSize() - this.memoryCache.getCurrentSize();
+        }
+        return invokeV.longValue;
+    }
+
+    private long getNextDelay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            long j = this.currentDelay;
+            this.currentDelay = Math.min(4 * j, MAX_BACKOFF_MS);
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.isCancelled = true;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && allocate()) {
+            this.handler.postDelayed(this, getNextDelay());
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BitmapPreFillRunner(BitmapPool bitmapPool, MemoryCache memoryCache, PreFillQueue preFillQueue) {
         this(bitmapPool, memoryCache, preFillQueue, DEFAULT_CLOCK, new Handler(Looper.getMainLooper()));
@@ -138,30 +172,42 @@ public final class BitmapPreFillRunner implements Runnable {
         }
     }
 
-    private long getFreeMemoryCacheBytes() {
-        InterceptResult invokeV;
+    public BitmapPreFillRunner(BitmapPool bitmapPool, MemoryCache memoryCache, PreFillQueue preFillQueue, Clock clock, Handler handler) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.memoryCache.getMaxSize() - this.memoryCache.getCurrentSize() : invokeV.longValue;
-    }
-
-    private long getNextDelay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            long j = this.currentDelay;
-            this.currentDelay = Math.min(4 * j, MAX_BACKOFF_MS);
-            return j;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmapPool, memoryCache, preFillQueue, clock, handler};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.longValue;
+        this.seenTypes = new HashSet();
+        this.currentDelay = 40L;
+        this.bitmapPool = bitmapPool;
+        this.memoryCache = memoryCache;
+        this.toPrefill = preFillQueue;
+        this.clock = clock;
+        this.handler = handler;
     }
 
     private boolean isGcDetected(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j)) == null) ? this.clock.now() - j >= 32 : invokeJ.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j)) == null) {
+            if (this.clock.now() - j >= 32) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 
-    @VisibleForTesting
     public boolean allocate() {
         InterceptResult invokeV;
         Bitmap createBitmap;
@@ -186,48 +232,11 @@ public final class BitmapPreFillRunner implements Runnable {
                     Log.d(TAG, "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize);
                 }
             }
-            return (this.isCancelled || this.toPrefill.isEmpty()) ? false : true;
+            if (!this.isCancelled && !this.toPrefill.isEmpty()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.isCancelled = true;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && allocate()) {
-            this.handler.postDelayed(this, getNextDelay());
-        }
-    }
-
-    @VisibleForTesting
-    public BitmapPreFillRunner(BitmapPool bitmapPool, MemoryCache memoryCache, PreFillQueue preFillQueue, Clock clock, Handler handler) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmapPool, memoryCache, preFillQueue, clock, handler};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.seenTypes = new HashSet();
-        this.currentDelay = 40L;
-        this.bitmapPool = bitmapPool;
-        this.memoryCache = memoryCache;
-        this.toPrefill = preFillQueue;
-        this.clock = clock;
-        this.handler = handler;
     }
 }

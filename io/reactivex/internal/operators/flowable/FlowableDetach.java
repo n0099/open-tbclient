@@ -12,18 +12,18 @@ import io.reactivex.internal.util.EmptyComponent;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDetach<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableDetach extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class DetachSubscriber<T> implements FlowableSubscriber<T>, Subscription {
+    public final class DetachSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Subscriber<? super T> actual;
+        public Subscriber actual;
         public Subscription s;
 
-        public DetachSubscriber(Subscriber<? super T> subscriber) {
+        public DetachSubscriber(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,33 +41,11 @@ public final class FlowableDetach<T> extends AbstractFlowableWithUpstream<T, T> 
             this.actual = subscriber;
         }
 
-        @Override // org.reactivestreams.Subscription
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Subscription subscription = this.s;
-                this.s = EmptyComponent.INSTANCE;
-                this.actual = EmptyComponent.asSubscriber();
-                subscription.cancel();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Subscriber<? super T> subscriber = this.actual;
-                this.s = EmptyComponent.INSTANCE;
-                this.actual = EmptyComponent.asSubscriber();
-                subscriber.onComplete();
-            }
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                Subscriber<? super T> subscriber = this.actual;
+                Subscriber subscriber = this.actual;
                 this.s = EmptyComponent.INSTANCE;
                 this.actual = EmptyComponent.asSubscriber();
                 subscriber.onError(th);
@@ -75,10 +53,10 @@ public final class FlowableDetach<T> extends AbstractFlowableWithUpstream<T, T> 
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -98,10 +76,32 @@ public final class FlowableDetach<T> extends AbstractFlowableWithUpstream<T, T> 
                 this.s.request(j);
             }
         }
+
+        @Override // org.reactivestreams.Subscription
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Subscription subscription = this.s;
+                this.s = EmptyComponent.INSTANCE;
+                this.actual = EmptyComponent.asSubscriber();
+                subscription.cancel();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                Subscriber subscriber = this.actual;
+                this.s = EmptyComponent.INSTANCE;
+                this.actual = EmptyComponent.asSubscriber();
+                subscriber.onComplete();
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDetach(Flowable<T> flowable) {
+    public FlowableDetach(Flowable flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -121,7 +121,7 @@ public final class FlowableDetach<T> extends AbstractFlowableWithUpstream<T, T> 
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new DetachSubscriber(subscriber));

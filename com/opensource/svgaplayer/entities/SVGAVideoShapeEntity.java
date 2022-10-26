@@ -7,9 +7,9 @@ import android.graphics.RectF;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.qs9;
-import com.baidu.tieba.ss9;
-import com.baidu.tieba.ts9;
+import com.baidu.tieba.it9;
+import com.baidu.tieba.kt9;
+import com.baidu.tieba.lt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public final class SVGAVideoShapeEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Type a;
-    public Map<String, ? extends Object> b;
+    public Map b;
     public a c;
     public Matrix d;
     public Path e;
@@ -42,7 +42,7 @@ public final class SVGAVideoShapeEntity {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007¨\u0006\b"}, d2 = {"Lcom/opensource/svgaplayer/entities/SVGAVideoShapeEntity$Type;", "Ljava/lang/Enum;", "<init>", "(Ljava/lang/String;I)V", "shape", "rect", "ellipse", "keep", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class Type {
+    public final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type ellipse;
@@ -75,6 +75,18 @@ public final class SVGAVideoShapeEntity {
             $VALUES = new Type[]{type, type2, type3, type4};
         }
 
+        public static Type valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+        }
+
+        public static Type[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+        }
+
         public Type(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,22 +105,10 @@ public final class SVGAVideoShapeEntity {
                 }
             }
         }
-
-        public static Type valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
-        }
-
-        public static Type[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -140,43 +140,64 @@ public final class SVGAVideoShapeEntity {
         public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
 
         public final String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d;
+            }
+            return (String) invokeV.objValue;
         }
 
         public final float[] c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (float[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.g;
+            }
+            return (float[]) invokeV.objValue;
         }
 
         public final String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.e;
+            }
+            return (String) invokeV.objValue;
         }
 
         public final int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.f;
+            }
+            return invokeV.intValue;
         }
 
         public final int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
         }
 
         public final float g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.c;
+            }
+            return invokeV.floatValue;
         }
 
         public final void h(int i) {
@@ -229,6 +250,75 @@ public final class SVGAVideoShapeEntity {
         }
     }
 
+    public SVGAVideoShapeEntity(ShapeEntity shapeEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {shapeEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = Type.shape;
+        l(shapeEntity);
+        f(shapeEntity);
+        h(shapeEntity);
+        j(shapeEntity);
+    }
+
+    public final void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            HashMap hashMap = new HashMap();
+            JSONObject optJSONObject = jSONObject.optJSONObject("args");
+            if (optJSONObject != null) {
+                Iterator<String> keys = optJSONObject.keys();
+                Intrinsics.checkExpressionValueIsNotNull(keys, "values.keys()");
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    Object obj = optJSONObject.get(next);
+                    if (obj != null) {
+                        hashMap.put(next, obj);
+                    }
+                }
+                this.b = hashMap;
+            }
+        }
+    }
+
+    public final void l(ShapeEntity shapeEntity) {
+        ShapeEntity.ShapeType shapeType;
+        Type type;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, shapeEntity) == null) && (shapeType = shapeEntity.type) != null) {
+            int i = kt9.$EnumSwitchMapping$0[shapeType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            type = Type.keep;
+                        } else {
+                            throw new NoWhenBranchMatchedException();
+                        }
+                    } else {
+                        type = Type.ellipse;
+                    }
+                } else {
+                    type = Type.rect;
+                }
+            } else {
+                type = Type.shape;
+            }
+            this.a = type;
+        }
+    }
+
     public SVGAVideoShapeEntity(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -252,136 +342,230 @@ public final class SVGAVideoShapeEntity {
     }
 
     public final void a() {
+        Object obj;
+        Object obj2;
+        Object obj3;
+        Object obj4;
+        Object obj5;
+        Object obj6;
+        Object obj7;
+        Object obj8;
+        Object obj9;
+        Object obj10;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
-            ts9.a().reset();
-            Type type = this.a;
-            if (type == Type.shape) {
-                Map<String, ? extends Object> map = this.b;
-                Object obj = map != null ? map.get("d") : null;
-                String str = obj instanceof String ? obj : null;
-                if (str != null) {
-                    new qs9(str).a(ts9.a());
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e != null) {
+            return;
+        }
+        lt9.a().reset();
+        Type type = this.a;
+        String str = null;
+        if (type == Type.shape) {
+            Map map = this.b;
+            if (map != null) {
+                obj10 = map.get("d");
+            } else {
+                obj10 = null;
+            }
+            if (obj10 instanceof String) {
+                str = obj10;
+            }
+            String str2 = str;
+            if (str2 != null) {
+                new it9(str2).a(lt9.a());
+            }
+        } else if (type == Type.ellipse) {
+            Map map2 = this.b;
+            if (map2 != null) {
+                obj6 = map2.get("x");
+            } else {
+                obj6 = null;
+            }
+            if (!(obj6 instanceof Number)) {
+                obj6 = null;
+            }
+            Number number = (Number) obj6;
+            if (number != null) {
+                Map map3 = this.b;
+                if (map3 != null) {
+                    obj7 = map3.get("y");
+                } else {
+                    obj7 = null;
                 }
-            } else if (type == Type.ellipse) {
-                Map<String, ? extends Object> map2 = this.b;
-                Object obj2 = map2 != null ? map2.get("x") : null;
-                if (!(obj2 instanceof Number)) {
-                    obj2 = null;
-                }
-                Number number = (Number) obj2;
-                if (number == null) {
-                    return;
-                }
-                Map<String, ? extends Object> map3 = this.b;
-                Object obj3 = map3 != null ? map3.get("y") : null;
-                if (!(obj3 instanceof Number)) {
-                    obj3 = null;
-                }
-                Number number2 = (Number) obj3;
-                if (number2 == null) {
-                    return;
-                }
-                Map<String, ? extends Object> map4 = this.b;
-                Object obj4 = map4 != null ? map4.get("radiusX") : null;
-                if (!(obj4 instanceof Number)) {
-                    obj4 = null;
-                }
-                Number number3 = (Number) obj4;
-                if (number3 == null) {
-                    return;
-                }
-                Map<String, ? extends Object> map5 = this.b;
-                Object obj5 = map5 != null ? map5.get("radiusY") : null;
-                Number number4 = (Number) (obj5 instanceof Number ? obj5 : null);
-                if (number4 == null) {
-                    return;
-                }
-                float floatValue = number.floatValue();
-                float floatValue2 = number2.floatValue();
-                float floatValue3 = number3.floatValue();
-                float floatValue4 = number4.floatValue();
-                ts9.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
-            } else if (type == Type.rect) {
-                Map<String, ? extends Object> map6 = this.b;
-                Object obj6 = map6 != null ? map6.get("x") : null;
-                if (!(obj6 instanceof Number)) {
-                    obj6 = null;
-                }
-                Number number5 = (Number) obj6;
-                if (number5 == null) {
-                    return;
-                }
-                Map<String, ? extends Object> map7 = this.b;
-                Object obj7 = map7 != null ? map7.get("y") : null;
                 if (!(obj7 instanceof Number)) {
                     obj7 = null;
                 }
-                Number number6 = (Number) obj7;
-                if (number6 == null) {
+                Number number2 = (Number) obj7;
+                if (number2 != null) {
+                    Map map4 = this.b;
+                    if (map4 != null) {
+                        obj8 = map4.get("radiusX");
+                    } else {
+                        obj8 = null;
+                    }
+                    if (!(obj8 instanceof Number)) {
+                        obj8 = null;
+                    }
+                    Number number3 = (Number) obj8;
+                    if (number3 != null) {
+                        Map map5 = this.b;
+                        if (map5 != null) {
+                            obj9 = map5.get("radiusY");
+                        } else {
+                            obj9 = null;
+                        }
+                        if (obj9 instanceof Number) {
+                            str = obj9;
+                        }
+                        Number number4 = (Number) str;
+                        if (number4 != null) {
+                            float floatValue = number.floatValue();
+                            float floatValue2 = number2.floatValue();
+                            float floatValue3 = number3.floatValue();
+                            float floatValue4 = number4.floatValue();
+                            lt9.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
+                        } else {
+                            return;
+                        }
+                    } else {
+                        return;
+                    }
+                } else {
                     return;
                 }
-                Map<String, ? extends Object> map8 = this.b;
-                Object obj8 = map8 != null ? map8.get("width") : null;
-                if (!(obj8 instanceof Number)) {
-                    obj8 = null;
-                }
-                Number number7 = (Number) obj8;
-                if (number7 == null) {
-                    return;
-                }
-                Map<String, ? extends Object> map9 = this.b;
-                Object obj9 = map9 != null ? map9.get("height") : null;
-                if (!(obj9 instanceof Number)) {
-                    obj9 = null;
-                }
-                Number number8 = (Number) obj9;
-                if (number8 == null) {
-                    return;
-                }
-                Map<String, ? extends Object> map10 = this.b;
-                Object obj10 = map10 != null ? map10.get("cornerRadius") : null;
-                Number number9 = obj10 instanceof Number ? obj10 : null;
-                if (number9 == null) {
-                    return;
-                }
-                float floatValue5 = number5.floatValue();
-                float floatValue6 = number6.floatValue();
-                float floatValue7 = number7.floatValue();
-                float floatValue8 = number8.floatValue();
-                float floatValue9 = number9.floatValue();
-                ts9.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
+            } else {
+                return;
             }
-            Path path = new Path();
-            this.e = path;
-            if (path != null) {
-                path.set(ts9.a());
+        } else if (type == Type.rect) {
+            Map map6 = this.b;
+            if (map6 != null) {
+                obj = map6.get("x");
+            } else {
+                obj = null;
             }
+            if (!(obj instanceof Number)) {
+                obj = null;
+            }
+            Number number5 = (Number) obj;
+            if (number5 != null) {
+                Map map7 = this.b;
+                if (map7 != null) {
+                    obj2 = map7.get("y");
+                } else {
+                    obj2 = null;
+                }
+                if (!(obj2 instanceof Number)) {
+                    obj2 = null;
+                }
+                Number number6 = (Number) obj2;
+                if (number6 != null) {
+                    Map map8 = this.b;
+                    if (map8 != null) {
+                        obj3 = map8.get("width");
+                    } else {
+                        obj3 = null;
+                    }
+                    if (!(obj3 instanceof Number)) {
+                        obj3 = null;
+                    }
+                    Number number7 = (Number) obj3;
+                    if (number7 != null) {
+                        Map map9 = this.b;
+                        if (map9 != null) {
+                            obj4 = map9.get("height");
+                        } else {
+                            obj4 = null;
+                        }
+                        if (!(obj4 instanceof Number)) {
+                            obj4 = null;
+                        }
+                        Number number8 = (Number) obj4;
+                        if (number8 != null) {
+                            Map map10 = this.b;
+                            if (map10 != null) {
+                                obj5 = map10.get("cornerRadius");
+                            } else {
+                                obj5 = null;
+                            }
+                            if (obj5 instanceof Number) {
+                                str = obj5;
+                            }
+                            Number number9 = str;
+                            if (number9 != null) {
+                                float floatValue5 = number5.floatValue();
+                                float floatValue6 = number6.floatValue();
+                                float floatValue7 = number7.floatValue();
+                                float floatValue8 = number8.floatValue();
+                                float floatValue9 = number9.floatValue();
+                                lt9.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
+                            } else {
+                                return;
+                            }
+                        } else {
+                            return;
+                        }
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            } else {
+                return;
+            }
+        }
+        Path path = new Path();
+        this.e = path;
+        if (path != null) {
+            path.set(lt9.a());
         }
     }
 
     public final Path b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (Path) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (Path) invokeV.objValue;
     }
 
     public final a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (a) invokeV.objValue;
     }
 
     public final Matrix d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (Matrix) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Matrix) invokeV.objValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a == Type.keep : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == Type.keep) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Type getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (Type) invokeV.objValue;
     }
 
     public final void f(ShapeEntity shapeEntity) {
@@ -448,103 +632,142 @@ public final class SVGAVideoShapeEntity {
         }
     }
 
-    public final void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            JSONObject optJSONObject = jSONObject.optJSONObject("args");
-            if (optJSONObject != null) {
-                Iterator<String> keys = optJSONObject.keys();
-                Intrinsics.checkExpressionValueIsNotNull(keys, "values.keys()");
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    Object obj = optJSONObject.get(next);
-                    if (obj != null) {
-                        hashMap.put(next, obj);
-                    }
-                }
-                this.b = hashMap;
-            }
-        }
-    }
-
-    public final Type getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Type) invokeV.objValue;
-    }
-
     public final void h(ShapeEntity shapeEntity) {
         ShapeEntity.ShapeStyle shapeStyle;
+        float f;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        float f6;
+        float f7;
+        float f8;
+        float f9;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shapeEntity) == null) || (shapeStyle = shapeEntity.styles) == null) {
-            return;
-        }
-        a aVar = new a();
-        ShapeEntity.ShapeStyle.RGBAColor rGBAColor = shapeStyle.fill;
-        if (rGBAColor != null) {
-            Float f = rGBAColor.a;
-            float f2 = 255;
-            int floatValue = (int) ((f != null ? f.floatValue() : 0.0f) * f2);
-            Float f3 = rGBAColor.r;
-            int floatValue2 = (int) ((f3 != null ? f3.floatValue() : 0.0f) * f2);
-            Float f4 = rGBAColor.g;
-            int floatValue3 = (int) ((f4 != null ? f4.floatValue() : 0.0f) * f2);
-            Float f5 = rGBAColor.b;
-            aVar.h(Color.argb(floatValue, floatValue2, floatValue3, (int) ((f5 != null ? f5.floatValue() : 0.0f) * f2)));
-        }
-        ShapeEntity.ShapeStyle.RGBAColor rGBAColor2 = shapeStyle.stroke;
-        if (rGBAColor2 != null) {
-            Float f6 = rGBAColor2.a;
-            float f7 = 255;
-            int floatValue4 = (int) ((f6 != null ? f6.floatValue() : 0.0f) * f7);
-            Float f8 = rGBAColor2.r;
-            int floatValue5 = (int) ((f8 != null ? f8.floatValue() : 0.0f) * f7);
-            Float f9 = rGBAColor2.g;
-            int floatValue6 = (int) ((f9 != null ? f9.floatValue() : 0.0f) * f7);
-            Float f10 = rGBAColor2.b;
-            aVar.m(Color.argb(floatValue4, floatValue5, floatValue6, (int) ((f10 != null ? f10.floatValue() : 0.0f) * f7)));
-        }
-        Float f11 = shapeStyle.strokeWidth;
-        aVar.n(f11 != null ? f11.floatValue() : 0.0f);
-        ShapeEntity.ShapeStyle.LineCap lineCap = shapeStyle.lineCap;
-        if (lineCap != null) {
-            int i = ss9.$EnumSwitchMapping$1[lineCap.ordinal()];
-            if (i == 1) {
-                aVar.i("butt");
-            } else if (i == 2) {
-                aVar.i("round");
-            } else if (i == 3) {
-                aVar.i("square");
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shapeEntity) == null) && (shapeStyle = shapeEntity.styles) != null) {
+            a aVar = new a();
+            ShapeEntity.ShapeStyle.RGBAColor rGBAColor = shapeStyle.fill;
+            float f10 = 0.0f;
+            if (rGBAColor != null) {
+                Float f11 = rGBAColor.a;
+                if (f11 != null) {
+                    f6 = f11.floatValue();
+                } else {
+                    f6 = 0.0f;
+                }
+                float f12 = 255;
+                int i = (int) (f6 * f12);
+                Float f13 = rGBAColor.r;
+                if (f13 != null) {
+                    f7 = f13.floatValue();
+                } else {
+                    f7 = 0.0f;
+                }
+                int i2 = (int) (f7 * f12);
+                Float f14 = rGBAColor.g;
+                if (f14 != null) {
+                    f8 = f14.floatValue();
+                } else {
+                    f8 = 0.0f;
+                }
+                int i3 = (int) (f8 * f12);
+                Float f15 = rGBAColor.b;
+                if (f15 != null) {
+                    f9 = f15.floatValue();
+                } else {
+                    f9 = 0.0f;
+                }
+                aVar.h(Color.argb(i, i2, i3, (int) (f9 * f12)));
             }
-        }
-        ShapeEntity.ShapeStyle.LineJoin lineJoin = shapeStyle.lineJoin;
-        if (lineJoin != null) {
-            int i2 = ss9.$EnumSwitchMapping$2[lineJoin.ordinal()];
-            if (i2 == 1) {
-                aVar.k("bevel");
-            } else if (i2 == 2) {
-                aVar.k("miter");
-            } else if (i2 == 3) {
-                aVar.k("round");
+            ShapeEntity.ShapeStyle.RGBAColor rGBAColor2 = shapeStyle.stroke;
+            if (rGBAColor2 != null) {
+                Float f16 = rGBAColor2.a;
+                if (f16 != null) {
+                    f2 = f16.floatValue();
+                } else {
+                    f2 = 0.0f;
+                }
+                float f17 = 255;
+                int i4 = (int) (f2 * f17);
+                Float f18 = rGBAColor2.r;
+                if (f18 != null) {
+                    f3 = f18.floatValue();
+                } else {
+                    f3 = 0.0f;
+                }
+                int i5 = (int) (f3 * f17);
+                Float f19 = rGBAColor2.g;
+                if (f19 != null) {
+                    f4 = f19.floatValue();
+                } else {
+                    f4 = 0.0f;
+                }
+                int i6 = (int) (f4 * f17);
+                Float f20 = rGBAColor2.b;
+                if (f20 != null) {
+                    f5 = f20.floatValue();
+                } else {
+                    f5 = 0.0f;
+                }
+                aVar.m(Color.argb(i4, i5, i6, (int) (f5 * f17)));
             }
+            Float f21 = shapeStyle.strokeWidth;
+            if (f21 != null) {
+                f = f21.floatValue();
+            } else {
+                f = 0.0f;
+            }
+            aVar.n(f);
+            ShapeEntity.ShapeStyle.LineCap lineCap = shapeStyle.lineCap;
+            if (lineCap != null) {
+                int i7 = kt9.$EnumSwitchMapping$1[lineCap.ordinal()];
+                if (i7 != 1) {
+                    if (i7 != 2) {
+                        if (i7 == 3) {
+                            aVar.i("square");
+                        }
+                    } else {
+                        aVar.i("round");
+                    }
+                } else {
+                    aVar.i("butt");
+                }
+            }
+            ShapeEntity.ShapeStyle.LineJoin lineJoin = shapeStyle.lineJoin;
+            if (lineJoin != null) {
+                int i8 = kt9.$EnumSwitchMapping$2[lineJoin.ordinal()];
+                if (i8 != 1) {
+                    if (i8 != 2) {
+                        if (i8 == 3) {
+                            aVar.k("round");
+                        }
+                    } else {
+                        aVar.k("miter");
+                    }
+                } else {
+                    aVar.k("bevel");
+                }
+            }
+            Float f22 = shapeStyle.miterLimit;
+            if (f22 != null) {
+                f10 = f22.floatValue();
+            }
+            aVar.l((int) f10);
+            aVar.j(new float[3]);
+            Float f23 = shapeStyle.lineDashI;
+            if (f23 != null) {
+                aVar.c()[0] = f23.floatValue();
+            }
+            Float f24 = shapeStyle.lineDashII;
+            if (f24 != null) {
+                aVar.c()[1] = f24.floatValue();
+            }
+            Float f25 = shapeStyle.lineDashIII;
+            if (f25 != null) {
+                aVar.c()[2] = f25.floatValue();
+            }
+            this.c = aVar;
         }
-        Float f12 = shapeStyle.miterLimit;
-        aVar.l((int) (f12 != null ? f12.floatValue() : 0.0f));
-        aVar.j(new float[3]);
-        Float f13 = shapeStyle.lineDashI;
-        if (f13 != null) {
-            aVar.c()[0] = f13.floatValue();
-        }
-        Float f14 = shapeStyle.lineDashII;
-        if (f14 != null) {
-            aVar.c()[1] = f14.floatValue();
-        }
-        Float f15 = shapeStyle.lineDashIII;
-        if (f15 != null) {
-            aVar.c()[2] = f15.floatValue();
-        }
-        this.c = aVar;
     }
 
     public final void i(JSONObject jSONObject) {
@@ -584,35 +807,64 @@ public final class SVGAVideoShapeEntity {
 
     public final void j(ShapeEntity shapeEntity) {
         Transform transform;
+        float f;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        float f6;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, shapeEntity) == null) || (transform = shapeEntity.transform) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, shapeEntity) == null) && (transform = shapeEntity.transform) != null) {
+            Matrix matrix = new Matrix();
+            float[] fArr = new float[9];
+            Float f7 = transform.a;
+            if (f7 != null) {
+                f = f7.floatValue();
+            } else {
+                f = 1.0f;
+            }
+            Float f8 = transform.b;
+            if (f8 != null) {
+                f2 = f8.floatValue();
+            } else {
+                f2 = 0.0f;
+            }
+            Float f9 = transform.c;
+            if (f9 != null) {
+                f3 = f9.floatValue();
+            } else {
+                f3 = 0.0f;
+            }
+            Float f10 = transform.d;
+            if (f10 != null) {
+                f4 = f10.floatValue();
+            } else {
+                f4 = 1.0f;
+            }
+            Float f11 = transform.tx;
+            if (f11 != null) {
+                f5 = f11.floatValue();
+            } else {
+                f5 = 0.0f;
+            }
+            Float f12 = transform.ty;
+            if (f12 != null) {
+                f6 = f12.floatValue();
+            } else {
+                f6 = 0.0f;
+            }
+            fArr[0] = f;
+            fArr[1] = f3;
+            fArr[2] = f5;
+            fArr[3] = f2;
+            fArr[4] = f4;
+            fArr[5] = f6;
+            fArr[6] = 0.0f;
+            fArr[7] = 0.0f;
+            fArr[8] = 1.0f;
+            matrix.setValues(fArr);
+            this.d = matrix;
         }
-        Matrix matrix = new Matrix();
-        float[] fArr = new float[9];
-        Float f = transform.a;
-        float floatValue = f != null ? f.floatValue() : 1.0f;
-        Float f2 = transform.b;
-        float floatValue2 = f2 != null ? f2.floatValue() : 0.0f;
-        Float f3 = transform.c;
-        float floatValue3 = f3 != null ? f3.floatValue() : 0.0f;
-        Float f4 = transform.d;
-        float floatValue4 = f4 != null ? f4.floatValue() : 1.0f;
-        Float f5 = transform.tx;
-        float floatValue5 = f5 != null ? f5.floatValue() : 0.0f;
-        Float f6 = transform.ty;
-        float floatValue6 = f6 != null ? f6.floatValue() : 0.0f;
-        fArr[0] = floatValue;
-        fArr[1] = floatValue3;
-        fArr[2] = floatValue5;
-        fArr[3] = floatValue2;
-        fArr[4] = floatValue4;
-        fArr[5] = floatValue6;
-        fArr[6] = 0.0f;
-        fArr[7] = 0.0f;
-        fArr[8] = 1.0f;
-        matrix.setValues(fArr);
-        this.d = matrix;
     }
 
     public final void k(JSONObject jSONObject) {
@@ -626,64 +878,19 @@ public final class SVGAVideoShapeEntity {
         }
     }
 
-    public final void l(ShapeEntity shapeEntity) {
-        ShapeEntity.ShapeType shapeType;
-        Type type;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, shapeEntity) == null) || (shapeType = shapeEntity.type) == null) {
-            return;
-        }
-        int i = ss9.$EnumSwitchMapping$0[shapeType.ordinal()];
-        if (i == 1) {
-            type = Type.shape;
-        } else if (i == 2) {
-            type = Type.rect;
-        } else if (i == 3) {
-            type = Type.ellipse;
-        } else if (i != 4) {
-            throw new NoWhenBranchMatchedException();
-        } else {
-            type = Type.keep;
-        }
-        this.a = type;
-    }
-
     public final void m(JSONObject jSONObject) {
         String optString;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) || (optString = jSONObject.optString("type")) == null) {
-            return;
-        }
-        if (StringsKt__StringsJVMKt.equals(optString, "shape", true)) {
-            this.a = Type.shape;
-        } else if (StringsKt__StringsJVMKt.equals(optString, "rect", true)) {
-            this.a = Type.rect;
-        } else if (StringsKt__StringsJVMKt.equals(optString, "ellipse", true)) {
-            this.a = Type.ellipse;
-        } else if (StringsKt__StringsJVMKt.equals(optString, "keep", true)) {
-            this.a = Type.keep;
-        }
-    }
-
-    public SVGAVideoShapeEntity(ShapeEntity shapeEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {shapeEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) && (optString = jSONObject.optString("type")) != null) {
+            if (StringsKt__StringsJVMKt.equals(optString, "shape", true)) {
+                this.a = Type.shape;
+            } else if (StringsKt__StringsJVMKt.equals(optString, "rect", true)) {
+                this.a = Type.rect;
+            } else if (StringsKt__StringsJVMKt.equals(optString, "ellipse", true)) {
+                this.a = Type.ellipse;
+            } else if (StringsKt__StringsJVMKt.equals(optString, "keep", true)) {
+                this.a = Type.keep;
             }
         }
-        this.a = Type.shape;
-        l(shapeEntity);
-        f(shapeEntity);
-        h(shapeEntity);
-        j(shapeEntity);
     }
 }

@@ -70,64 +70,69 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str2;
             String str3;
             String str4;
+            boolean z;
             String str5;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.m == null || this.a.m.getAuthor() == null || StringUtils.isNull(this.a.m.getAuthor().getName_show()) || StringUtils.isNull(this.a.m.getAuthor().getUserId())) {
-                return;
-            }
-            if (this.a.m.isFromHomPage) {
-                if (this.a.m.getThreadType() == 69) {
-                    str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
-                } else {
-                    str5 = this.a.m.getThreadType() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
-                }
-                str = str5;
-                str2 = AddFriendActivityConfig.TYPE_HOME_HEAD;
-            } else if (this.a.m.isFromConcern()) {
-                if (this.a.m.getThreadType() == 69) {
-                    str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
-                } else {
-                    str4 = this.a.m.getThreadType() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
-                }
-                str = str4;
-                str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-            } else if (this.a.m.isFromFrs()) {
-                if (this.a.m.getThreadType() == 69) {
-                    str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB;
-                } else {
-                    str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
-                }
-                str = str3;
-                str2 = AddFriendActivityConfig.TYPE_FRS_HEAD;
-            } else {
-                str = YYLiveUtil.SOURCE_NOT_DEFINE;
-                str2 = "";
-            }
-            AlaInfoData alaInfo = this.a.m.getAuthor().getAlaInfo();
-            if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
-                TbPageContext tbPageContext = this.a.getTbPageContext();
-                YyExtData yyExtData = alaInfo.mYyExtData;
-                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
-                HeadPendantClickableView headPendantClickableView = this.a;
-                headPendantClickableView.s(headPendantClickableView.m.getTid(), String.valueOf(this.a.m.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
-            } else {
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.n, this.a.m.getAuthor().getUserId(), this.a.m.getAuthor().getName_show(), this.a.m.getForum_name(), str2, this.a.m.getTid(), this.a.m.getNid());
-                personInfoActivityConfig.setIsVideoThread(this.a.m.getThreadVideoInfo() != null);
-                if (this.a.m.getResource() != 1) {
-                    if (this.a.m.getResource() != 2) {
-                        if (this.a.m.getResource() == 5) {
-                            personInfoActivityConfig.setVideoPersonFrom("topic_detail");
-                        }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.m != null && this.a.m.getAuthor() != null && !StringUtils.isNull(this.a.m.getAuthor().getName_show()) && !StringUtils.isNull(this.a.m.getAuthor().getUserId())) {
+                if (this.a.m.isFromHomPage) {
+                    if (this.a.m.getThreadType() == 69) {
+                        str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
+                    } else if (this.a.m.getThreadType() == 40) {
+                        str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD;
                     } else {
-                        personInfoActivityConfig.setVideoPersonFrom("frs");
+                        str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
                     }
+                    str = str5;
+                    str2 = AddFriendActivityConfig.TYPE_HOME_HEAD;
+                } else if (this.a.m.isFromConcern()) {
+                    if (this.a.m.getThreadType() == 69) {
+                        str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
+                    } else if (this.a.m.getThreadType() == 40) {
+                        str4 = YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD;
+                    } else {
+                        str4 = YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
+                    }
+                    str = str4;
+                    str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
+                } else if (this.a.m.isFromFrs()) {
+                    if (this.a.m.getThreadType() == 69) {
+                        str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB;
+                    } else {
+                        str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
+                    }
+                    str = str3;
+                    str2 = AddFriendActivityConfig.TYPE_FRS_HEAD;
                 } else {
-                    personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
+                    str = YYLiveUtil.SOURCE_NOT_DEFINE;
+                    str2 = "";
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
-            }
-            if (this.a.o != null) {
-                this.a.o.onClick(view2);
+                AlaInfoData alaInfo = this.a.m.getAuthor().getAlaInfo();
+                if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
+                    TbPageContext tbPageContext = this.a.getTbPageContext();
+                    YyExtData yyExtData = alaInfo.mYyExtData;
+                    YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
+                    HeadPendantClickableView headPendantClickableView = this.a;
+                    headPendantClickableView.s(headPendantClickableView.m.getTid(), String.valueOf(this.a.m.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                } else {
+                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.n, this.a.m.getAuthor().getUserId(), this.a.m.getAuthor().getName_show(), this.a.m.getForum_name(), str2, this.a.m.getTid(), this.a.m.getNid());
+                    if (this.a.m.getThreadVideoInfo() != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    personInfoActivityConfig.setIsVideoThread(z);
+                    if (this.a.m.getResource() == 1) {
+                        personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
+                    } else if (this.a.m.getResource() == 2) {
+                        personInfoActivityConfig.setVideoPersonFrom("frs");
+                    } else if (this.a.m.getResource() == 5) {
+                        personInfoActivityConfig.setVideoPersonFrom("topic_detail");
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
+                }
+                if (this.a.o != null) {
+                    this.a.o.onClick(view2);
+                }
             }
         }
     }
@@ -154,6 +159,45 @@ public class HeadPendantClickableView extends HeadPendantView {
         this.p = aVar;
         this.n = context;
         setOnClickListener(aVar);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HeadPendantClickableView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this);
+        this.p = aVar;
+        this.n = context;
+        setOnClickListener(aVar);
+    }
+
+    public void setAfterClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.o = onClickListener;
+        }
+    }
+
+    public void setData(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
+            setData(metaData, false);
+        }
     }
 
     public TbPageContext getTbPageContext() {
@@ -196,11 +240,14 @@ public class HeadPendantClickableView extends HeadPendantView {
         }
     }
 
-    public void setAfterClickListener(View.OnClickListener onClickListener) {
+    public void setData(MetaData metaData, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.o = onClickListener;
+        if ((interceptable != null && interceptable.invokeLZ(1048580, this, metaData, z) != null) || metaData == null) {
+            return;
         }
+        ThreadData threadData = new ThreadData();
+        threadData.setAuthor(metaData);
+        setData(threadData, z);
     }
 
     public void setData(ThreadData threadData) {
@@ -212,66 +259,23 @@ public class HeadPendantClickableView extends HeadPendantView {
 
     public void setData(ThreadData threadData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, threadData, z) == null) || threadData == null || threadData.getAuthor() == null) {
-            return;
-        }
-        this.m = threadData;
-        MetaData author = threadData.getAuthor();
-        setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f11cd));
-        getHeadView().setUserId(author.getUserId());
-        getHeadView().setUserName(author.getUserName());
-        getHeadView().setUrl(author.getAvater());
-        if (author.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
-            getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f69), 24, false);
-        } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
-            getHeadView().K(author.getAvater(), 10, false);
-        } else if (z) {
-            getHeadView().K(author.getAvater(), 25, false);
-        } else {
-            getHeadView().K(author.getAvater(), 28, false);
-        }
-        j(author, 0);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeadPendantClickableView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLZ(1048582, this, threadData, z) == null) && threadData != null && threadData.getAuthor() != null) {
+            this.m = threadData;
+            MetaData author = threadData.getAuthor();
+            setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f11e1));
+            getHeadView().setUserId(author.getUserId());
+            getHeadView().setUserName(author.getUserName());
+            getHeadView().setUrl(author.getAvater());
+            if (author.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
+                getHeadView().L(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f7a), 24, false);
+            } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
+                getHeadView().L(author.getAvater(), 10, false);
+            } else if (z) {
+                getHeadView().L(author.getAvater(), 25, false);
+            } else {
+                getHeadView().L(author.getAvater(), 28, false);
             }
+            j(author, 0);
         }
-        a aVar = new a(this);
-        this.p = aVar;
-        this.n = context;
-        setOnClickListener(aVar);
-    }
-
-    public void setData(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
-            setData(metaData, false);
-        }
-    }
-
-    public void setData(MetaData metaData, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, metaData, z) == null) || metaData == null) {
-            return;
-        }
-        ThreadData threadData = new ThreadData();
-        threadData.setAuthor(metaData);
-        setData(threadData, z);
     }
 }

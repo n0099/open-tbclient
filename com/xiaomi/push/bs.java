@@ -68,7 +68,7 @@ public class bs implements Runnable {
                     str = "perf_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 }
-                a.m212a("sp_client_report_status", str, currentTimeMillis);
+                a.m211a("sp_client_report_status", str, currentTimeMillis);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }

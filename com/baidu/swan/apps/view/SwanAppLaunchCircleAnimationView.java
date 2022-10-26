@@ -7,10 +7,9 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p94;
+import com.baidu.tieba.q94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,6 +100,64 @@ public class SwanAppLaunchCircleAnimationView extends View {
         this.i = null;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SwanAppLaunchCircleAnimationView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint();
+        this.b = new Paint();
+        this.i = null;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SwanAppLaunchCircleAnimationView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint();
+        this.b = new Paint();
+        this.i = null;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            int i = this.k;
+            canvas.drawCircle(i, i, this.l, this.a);
+            canvas.drawArc(this.i, this.m, this.j, false, this.b);
+        }
+    }
+
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -123,7 +180,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
             g();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.f = ofFloat;
-            ofFloat.setInterpolator(new p94(0.4f, 0.0f, 0.6f, 1.0f));
+            ofFloat.setInterpolator(new q94(0.4f, 0.0f, 0.6f, 1.0f));
             this.f.setRepeatCount(-1);
             this.f.setRepeatMode(1);
             this.f.setDuration(800L);
@@ -151,7 +208,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
 
     public void j(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048579, this, f) == null) || System.currentTimeMillis() - this.g < 1120) {
+        if ((interceptable != null && interceptable.invokeF(1048579, this, f) != null) || System.currentTimeMillis() - this.g < 1120) {
             return;
         }
         i();
@@ -172,74 +229,23 @@ public class SwanAppLaunchCircleAnimationView extends View {
     }
 
     @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            int i = this.k;
-            canvas.drawCircle(i, i, this.l, this.a);
-            canvas.drawArc(this.i, this.m, this.j, false, this.b);
-        }
-    }
-
-    @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             int width = getWidth() / 2;
             this.k = width;
-            this.a.setStrokeWidth(((float) width) > 99.0f ? (width * 1.0f) / 99.0f : 1.0f);
+            Paint paint = this.a;
+            if (width > 99.0f) {
+                f = (width * 1.0f) / 99.0f;
+            } else {
+                f = 1.0f;
+            }
+            paint.setStrokeWidth(f);
             this.b.setStrokeWidth((this.k * 6) / 99.0f);
             int i5 = this.k;
             this.i = new RectF(((i5 * 3.0f) / 96.0f) + 1.0f, ((i5 * 3.0f) / 96.0f) + 1.0f, (getWidth() - ((this.k * 3.0f) / 96.0f)) - 1.0f, (getHeight() - ((this.k * 3.0f) / 96.0f)) - 1.0f);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppLaunchCircleAnimationView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint();
-        this.b = new Paint();
-        this.i = null;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppLaunchCircleAnimationView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint();
-        this.b = new Paint();
-        this.i = null;
     }
 }

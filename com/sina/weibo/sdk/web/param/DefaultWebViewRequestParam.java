@@ -15,6 +15,27 @@ public class DefaultWebViewRequestParam extends BaseWebViewRequestParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public void childFillBundle(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public void transformChildBundle(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public void updateRequestUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
     public DefaultWebViewRequestParam() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,38 +51,23 @@ public class DefaultWebViewRequestParam extends BaseWebViewRequestParam {
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public void childFillBundle(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public String getRequestUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getBaseData().getUrl() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getBaseData().getUrl();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public boolean hasExtraTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.hasExtraTask() : invokeV.booleanValue;
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public void transformChildBundle(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.hasExtraTask();
         }
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public void updateRequestUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -29,6 +29,24 @@ public class RecentClientInfo implements Serializable {
         }
     }
 
+    public long getLastLoginTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.lastLoginTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getRegisterTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.registerTime;
+        }
+        return invokeV.longValue;
+    }
+
     public static RecentClientInfo parseJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -42,18 +60,6 @@ public class RecentClientInfo implements Serializable {
             return recentClientInfo;
         }
         return (RecentClientInfo) invokeL.objValue;
-    }
-
-    public long getLastLoginTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.lastLoginTime : invokeV.longValue;
-    }
-
-    public long getRegisterTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.registerTime : invokeV.longValue;
     }
 
     public void setLastLoginTime(long j) {

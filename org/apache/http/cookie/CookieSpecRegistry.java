@@ -31,18 +31,7 @@ public final class CookieSpecRegistry {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized CookieSpec getCookieSpec(String str, HttpParams httpParams) throws IllegalStateException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, httpParams)) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return (CookieSpec) invokeLL.objValue;
-    }
-
-    public synchronized List<String> getSpecNames() {
+    public synchronized List getSpecNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -53,16 +42,18 @@ public final class CookieSpecRegistry {
         return (List) invokeV.objValue;
     }
 
-    public synchronized void register(String str, CookieSpecFactory cookieSpecFactory) {
+    public synchronized CookieSpec getCookieSpec(String str) throws IllegalStateException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cookieSpecFactory) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
                 throw new RuntimeException("Stub!");
             }
         }
+        return (CookieSpec) invokeL.objValue;
     }
 
-    public synchronized void setItems(Map<String, CookieSpecFactory> map) {
+    public synchronized void setItems(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             synchronized (this) {
@@ -80,14 +71,23 @@ public final class CookieSpecRegistry {
         }
     }
 
-    public synchronized CookieSpec getCookieSpec(String str) throws IllegalStateException {
-        InterceptResult invokeL;
+    public synchronized CookieSpec getCookieSpec(String str, HttpParams httpParams) throws IllegalStateException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, httpParams)) == null) {
             synchronized (this) {
                 throw new RuntimeException("Stub!");
             }
         }
-        return (CookieSpec) invokeL.objValue;
+        return (CookieSpec) invokeLL.objValue;
+    }
+
+    public synchronized void register(String str, CookieSpecFactory cookieSpecFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cookieSpecFactory) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
     }
 }

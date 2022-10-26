@@ -3,17 +3,24 @@ package com.baidu.tieba.square;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.wj8;
+import com.baidu.tieba.gk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
+public class ForumSquareActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumSquareDelegate a;
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a073" : (String) invokeV.objValue;
+    }
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -29,11 +36,21 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onResume();
+        }
+    }
+
+    public ForumSquareDelegate y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a073" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (ForumSquareDelegate) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -41,9 +58,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            wj8 wj8Var = this.a.mForumSquareView;
-            if (wj8Var != null) {
-                wj8Var.a(i);
+            gk8 gk8Var = this.a.mForumSquareView;
+            if (gk8Var != null) {
+                gk8Var.a(i);
             }
         }
     }
@@ -59,19 +76,5 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
             setContentView(this.a.mForumSquareView.d());
             this.a.startLoadData();
         }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onResume();
-        }
-    }
-
-    public ForumSquareDelegate z1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ForumSquareDelegate) invokeV.objValue;
     }
 }

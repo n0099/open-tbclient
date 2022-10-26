@@ -8,34 +8,33 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.q83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cl3 extends i53 {
+public class cl3 extends j53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements ei3<o83<q83.e>> {
+    public class a implements fi3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ boolean d;
-        public final /* synthetic */ cl3 e;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ cl3 d;
 
-        public a(cl3 cl3Var, CallbackHandler callbackHandler, String str, Context context, boolean z) {
+        public a(cl3 cl3Var, Context context, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cl3Var, callbackHandler, str, context, Boolean.valueOf(z)};
+                Object[] objArr = {cl3Var, context, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,78 +44,31 @@ public class cl3 extends i53 {
                     return;
                 }
             }
-            this.e = cl3Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-            this.d = z;
+            this.d = cl3Var;
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ei3
+        @Override // com.baidu.tieba.fi3
         /* renamed from: b */
-        public void a(o83<q83.e> o83Var) {
+        public void a(p83 p83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
-                if (j83.h(o83Var)) {
-                    this.e.k((Activity) this.c, this.d, this.a, this.b);
-                } else {
-                    j83.q(o83Var, this.a, this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements ei3<x83> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-
-        public b(cl3 cl3Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cl3Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ei3
-        /* renamed from: b */
-        public void a(x83 x83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x83Var) == null) {
-                l02.i("OpenData", "onOpenDataCallback:: " + x83Var.toString());
-                if (!x83Var.E()) {
-                    j83.n(x83Var, this.a, this.b);
-                } else {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(x83Var.g, 0).toString());
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var) == null) {
+                this.d.k(p83Var, this.a, this.b, this.c);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cl3(i43 i43Var) {
-        super(i43Var, "/swanAPI/getRealNameInfo");
+    public cl3(j43 j43Var) {
+        super(j43Var, "/swanAPI/getBDUSS");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
+            Object[] objArr = {j43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -130,30 +82,29 @@ public class cl3 extends i53 {
         }
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+    @Override // com.baidu.tieba.j53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            if (l33Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
+            if (m33Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
             }
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             } else if (!(context instanceof Activity)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                boolean j = j83.j(optParamsAsJo);
-                l33Var.e0().h(context, "ppcert", j, new a(this, callbackHandler, optString, context, j));
+                m33Var.e0().g(context, "mapp_i_get_bduss", new a(this, context, callbackHandler, optString));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
@@ -161,10 +112,26 @@ public class cl3 extends i53 {
         return invokeLLLL.booleanValue;
     }
 
-    public final void k(Activity activity, boolean z, CallbackHandler callbackHandler, String str) {
+    public final void k(p83 p83Var, Context context, CallbackHandler callbackHandler, String str) {
+        JSONObject wrapCallbackParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), callbackHandler, str}) == null) {
-            x83.B(activity, "ppcert", null, z, "GetRealNameInfo", new b(this, callbackHandler, str));
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var, context, callbackHandler, str) == null) {
+            if (!k83.h(p83Var)) {
+                k83.q(p83Var, callbackHandler, str);
+                return;
+            }
+            String i = nj3.i(context);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", i);
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            } catch (JSONException e) {
+                if (j53.b) {
+                    e.printStackTrace();
+                }
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+            }
+            callbackHandler.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
         }
     }
 }

@@ -4,9 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f13;
+import com.baidu.tieba.g13;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SPSwitchRootLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f13 a;
+    public g13 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchRootLinearLayout(Context context) {
@@ -38,24 +37,8 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new f13(this);
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.a.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
-            super.onMeasure(i, i2);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public SPSwitchRootLinearLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +59,7 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SPSwitchRootLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,5 +78,21 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new g13(this);
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.a.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+            super.onMeasure(i, i2);
+        }
     }
 }

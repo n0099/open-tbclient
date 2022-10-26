@@ -3,7 +3,6 @@ package com.kwad.sdk.core.download.b;
 import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
-import androidx.annotation.Nullable;
 import com.baidu.nps.utils.Constant;
 import com.ksad.download.DownloadTask;
 import com.ksad.download.b;
@@ -29,7 +28,6 @@ public final class a implements AdDownloadProxy {
     }
 
     @Override // com.kwad.sdk.export.proxy.AdDownloadProxy
-    @Nullable
     public final String getDownloadFilePath(DownloadParams downloadParams) {
         if (TextUtils.isEmpty(downloadParams.mFileUrl)) {
             return null;

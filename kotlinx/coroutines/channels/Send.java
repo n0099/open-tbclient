@@ -10,7 +10,7 @@ public abstract class Send extends LockFreeLinkedListNode {
 
     public abstract Object getPollResult();
 
-    public abstract void resumeSendClosed(Closed<?> closed);
+    public abstract void resumeSendClosed(Closed closed);
 
     public abstract Symbol tryResumeSend(LockFreeLinkedListNode.PrepareOp prepareOp);
 }

@@ -41,7 +41,10 @@ public class MD5DigestCalculatingInputStream extends FilterInputStream {
     public byte[] getMd5Digest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.digest.digest() : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.digest.digest();
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

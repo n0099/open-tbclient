@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,6 +28,27 @@ public class ShareCardView extends LinearLayout {
     public TextView d;
     public TextView e;
     public ShareFromTopicMsgData f;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareCardView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        b(context);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareCardView(Context context, AttributeSet attributeSet) {
@@ -60,16 +81,38 @@ public class ShareCardView extends LinearLayout {
         }
     }
 
+    public EditText getChatMsgView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public String getLeaveMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            EditText editText = this.b;
+            if (editText == null) {
+                return null;
+            }
+            return ej.charSequence2String(editText.getText(), null);
+        }
+        return (String) invokeV.objValue;
+    }
+
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088b, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e81);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb2);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090609);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090602);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090601);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e7d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb1);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090612);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09060b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09060a);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
@@ -90,23 +133,15 @@ public class ShareCardView extends LinearLayout {
         }
     }
 
-    public EditText getChatMsgView() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.LinearLayout, android.view.ViewGroup
+    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (EditText) invokeV.objValue;
-    }
-
-    public String getLeaveMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            EditText editText = this.b;
-            if (editText != null) {
-                return dj.charSequence2String(editText.getText(), null);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new LinearLayout.LayoutParams(-1, -2);
         }
-        return (String) invokeV.objValue;
+        return (LinearLayout.LayoutParams) invokeV.objValue;
     }
 
     public void setData(ShareFromTopicMsgData shareFromTopicMsgData) {
@@ -115,34 +150,5 @@ public class ShareCardView extends LinearLayout {
             this.f = shareFromTopicMsgData;
             c();
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareCardView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b(context);
     }
 }

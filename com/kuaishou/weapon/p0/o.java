@@ -21,7 +21,7 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements RejectedExecutionHandler {
+    public final class a implements RejectedExecutionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,7 +48,7 @@ public class o {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements RejectedExecutionHandler {
+    public final class b implements RejectedExecutionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

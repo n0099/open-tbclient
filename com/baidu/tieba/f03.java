@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class f03 {
     public static /* synthetic */ Interceptable $ic;
@@ -32,51 +28,97 @@ public class f03 {
                 return;
             }
         }
-        a = vj1.a;
+        a = wj1.a;
     }
 
-    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends lz2> cls) {
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
-            Iterator<k03> it = m03.k().q().iterator();
-            while (it.hasNext()) {
-                k03 next = it.next();
-                if (next != null && next.T()) {
-                    b(next.b, bundle, cls, null);
-                }
-            }
-        }
-    }
-
-    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends lz2> cls, @Nullable sz2 sz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, sz2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
             if (a) {
-                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-            Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = m03.k().d;
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("ai_apps_delegation_name", cls.getName());
-            if (sz2Var != null) {
-                bundle2.putString("ai_apps_observer_id", sz2Var.b());
-                pz2.b().e(sz2Var);
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
             }
-            if (bundle != null) {
-                bundle2.putBundle("ai_apps_data", bundle);
-            }
-            obtain.obj = bundle2;
-            b03 e = b03.e();
-            d03 d03Var = new d03(obtain);
-            d03Var.b(swanAppProcessInfo);
-            e.h(d03Var);
+            nz2.a(i, str2, str, bundle);
         }
     }
 
-    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends lz2> cls, @Nullable sz2 sz2Var) {
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, sz2Var) == null) {
-            g03.Q().X(bundle, cls, sz2Var);
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            nz2.a(-1000, str2, str, bundle);
+        }
+    }
+
+    public static void c(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            pz2 pz2Var = new pz2(bundle.getString("key_observer_id", ""));
+            pz2Var.setResult(bundle.getBundle("key_result_data"));
+            qz2.b().c(pz2Var);
+        }
+    }
+
+    public static void d(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            pz2 pz2Var = new pz2(bundle.getString("key_observer_id", ""));
+            pz2Var.setResult(bundle.getBundle("key_result_data"));
+            qz2.b().c(pz2Var);
+        }
+    }
+
+    public static void e(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            c03 e = c03.e();
+            e03 e03Var = new e03(126, bundle);
+            e03Var.a(i);
+            e.h(e03Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            c03.e().h(new e03(21, bundle));
         }
     }
 }

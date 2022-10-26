@@ -47,7 +47,10 @@ public class CursorFilter extends Filter {
     public CharSequence convertResultToString(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.mClient.convertToString((Cursor) obj) : (CharSequence) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return this.mClient.convertToString((Cursor) obj);
+        }
+        return (CharSequence) invokeL.objValue;
     }
 
     @Override // android.widget.Filter
@@ -75,10 +78,9 @@ public class CursorFilter extends Filter {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, charSequence, filterResults) == null) {
             Cursor cursor = this.mClient.getCursor();
             Object obj = filterResults.values;
-            if (obj == null || obj == cursor) {
-                return;
+            if (obj != null && obj != cursor) {
+                this.mClient.changeCursor((Cursor) obj);
             }
-            this.mClient.changeCursor((Cursor) obj);
         }
     }
 }

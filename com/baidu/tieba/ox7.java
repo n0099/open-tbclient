@@ -1,60 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.RadioGroup;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.pb.pb.main.view.CustomBlueCheckRadioButton;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.ez;
+import com.baidu.tieba.ty;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ox7 implements z95 {
+public class ox7 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext a;
-    @NonNull
-    public ForumManageModel b;
-    @NonNull
-    public final q9 c;
-    public List<CustomBlueCheckRadioButton> d;
-    public Dialog e;
-    public View f;
-    public LinearLayout g;
-    public CompoundButton.OnCheckedChangeListener h;
-    public TextView i;
-    public TextView j;
-    public String k;
-    public ScrollView l;
-    public String m;
-    public String n;
-    public String o;
+    public BdUniqueId a;
+    public TbPageContext b;
+    public ko c;
+    public p26 d;
 
     /* loaded from: classes5.dex */
-    public class a extends q9 {
+    public class a extends p26 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ox7 a;
+        public final /* synthetic */ ox7 b;
 
         public a(ox7 ox7Var) {
             Interceptable interceptable = $ic;
@@ -71,33 +49,25 @@ public class ox7 implements z95 {
                     return;
                 }
             }
-            this.a = ox7Var;
+            this.b = ox7Var;
         }
 
-        @Override // com.baidu.tieba.q9
-        public void c(Object obj) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.p26
+        /* renamed from: d */
+        public void a(View view2, e36 e36Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || this.a.a.getPageActivity().isDestroyed()) {
-                return;
-            }
-            int loadDataMode = this.a.b.getLoadDataMode();
-            if (loadDataMode != 2 && loadDataMode != 3 && loadDataMode != 4 && loadDataMode != 5) {
-                if (loadDataMode != 6) {
-                    return;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, e36Var) == null) {
+                i26.b().d(true);
+                if (view2 != null && e36Var != null && e36Var.getThreadData() != null && !StringUtils.isNull(e36Var.getThreadData().getTid())) {
+                    this.b.w(view2, e36Var);
                 }
-                this.a.m(((ForumManageModel.g) obj).c);
-                return;
             }
-            ForumManageModel.g gVar = (ForumManageModel.g) obj;
-            if (TextUtils.isEmpty(gVar.b)) {
-                gVar.b = this.a.a.getString(gVar.a ? R.string.obfuscated_res_0x7f0f0d23 : R.string.obfuscated_res_0x7f0f0d22);
-            }
-            BarManageResultListener.k(this.a.b.Q(this.a.b.getLoadDataMode(), gVar));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements CompoundButton.OnCheckedChangeListener {
+    public class b implements oo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ox7 a;
@@ -120,224 +90,103 @@ public class ox7 implements z95 {
             this.a = ox7Var;
         }
 
-        @Override // android.widget.CompoundButton.OnCheckedChangeListener
-        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        @Override // com.baidu.tieba.oo
+        public void b(View view2, eo eoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
-                this.a.k = (String) compoundButton.getTag();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, eoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (eoVar instanceof e36) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                e36 e36Var = (e36) eoVar;
+                e36Var.f = 1;
                 if (this.a.d != null) {
-                    for (CustomBlueCheckRadioButton customBlueCheckRadioButton : this.a.d) {
-                        String str = (String) customBlueCheckRadioButton.getTag();
-                        if (str != null && this.a.k != null && !str.equals(this.a.k)) {
-                            customBlueCheckRadioButton.setChecked(false);
-                        }
-                    }
+                    this.a.d.a(threadCardViewHolder.getView(), e36Var);
                 }
+                ThreadCardUtils.jumpToPB((ar4) e36Var, view2.getContext(), e36Var.C, false, lx.a((ko) viewGroup, view2, i));
+                threadCardViewHolder.a().o(new ez.a(1));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ox7 a;
-
-        public c(ox7 ox7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ox7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ox7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.e instanceof Dialog)) {
-                ih.b(this.a.e, this.a.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ox7 a;
-
-        public d(ox7 ox7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ox7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ox7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.W(this.a.m, this.a.n, this.a.o, 2, this.a.k);
-                if (this.a.e instanceof Dialog) {
-                    ih.b(this.a.e, this.a.a);
-                }
-            }
-        }
-    }
-
-    public ox7(@NonNull TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ox7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.a = tbPageContext;
-        ForumManageModel forumManageModel = new ForumManageModel(tbPageContext);
-        this.b = forumManageModel;
-        forumManageModel.setLoadDataCallBack(this.c);
+        this.d = new a(this);
+        this.b = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.z95
-    public void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
+    public void x(ko koVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.b.S()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, koVar) == null) {
+            this.c = koVar;
         }
-        this.m = str;
-        this.n = str2;
-        this.o = str3;
-        this.b.W(str, str2, str3, z ? 3 : 6, null);
     }
 
-    @Override // com.baidu.tieba.z95
-    public void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: u */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.b.S()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ty.b bVar = new ty.b(this.b.getPageActivity());
+            bVar.l().j(true);
+            bVar.o(new tx(this.b.getPageActivity()));
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c));
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        this.b.W(str, str2, str3, z ? 5 : 4, null);
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public final CustomBlueCheckRadioButton l(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e36 e36Var, ThreadCardViewHolder threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Activity pageActivity = this.a.getPageActivity();
-            CustomBlueCheckRadioButton customBlueCheckRadioButton = new CustomBlueCheckRadioButton(pageActivity);
-            RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(-1, ej.f(pageActivity, R.dimen.obfuscated_res_0x7f07019a));
-            customBlueCheckRadioButton.setOnCheckedChangeListener(this.h);
-            customBlueCheckRadioButton.setTag(str);
-            customBlueCheckRadioButton.setText(str2);
-            customBlueCheckRadioButton.setLayoutParams(layoutParams);
-            return customBlueCheckRadioButton;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e36Var, threadCardViewHolder})) == null) {
+            if (e36Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || e36Var.a == null) {
+                return null;
+            }
+            e36Var.I(e36Var.position + 1);
+            threadCardViewHolder.a().q(i);
+            threadCardViewHolder.p(false, Align.ALIGN_RIGHT_TOP, null);
+            threadCardViewHolder.e(e36Var);
+            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.a().p(this.d);
+            return threadCardViewHolder.getView();
         }
-        return (CustomBlueCheckRadioButton) invokeLL.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final void m(ArrayList<ls4> arrayList) {
+    public final void w(View view2, e36 e36Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            if (this.f == null) {
-                this.f = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01e6, (ViewGroup) null);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, e36Var) == null) {
+            int id = view2.getId();
+            if (e36Var == null) {
+                return;
             }
-            if (this.e == null) {
-                Dialog dialog = new Dialog(this.a.getPageActivity());
-                this.e = dialog;
-                dialog.setCanceledOnTouchOutside(true);
-                this.e.setCancelable(true);
-                this.l = (ScrollView) this.f.findViewById(R.id.obfuscated_res_0x7f090cde);
-                this.e.setContentView(this.f);
-                WindowManager.LayoutParams attributes = this.e.getWindow().getAttributes();
-                attributes.width = ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702db);
-                this.e.getWindow().setAttributes(attributes);
-                this.h = new b(this);
-                this.g = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090cdd);
-                TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0907b8);
-                this.j = textView;
-                textView.setOnClickListener(new c(this));
-                TextView textView2 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0907b9);
-                this.i = textView2;
-                textView2.setOnClickListener(new d(this));
+            if (id != R.id.obfuscated_res_0x7f090a7c && id != R.id.obfuscated_res_0x7f090a7b && id != R.id.obfuscated_res_0x7f090a7d && id != R.id.obfuscated_res_0x7f090a7e) {
+                u28.m(e36Var, 1, this.b);
+            } else {
+                u28.m(e36Var, 2, this.b);
             }
-            this.g.removeAllViews();
-            this.d = new ArrayList();
-            CustomBlueCheckRadioButton l = l("0", this.a.getString(R.string.obfuscated_res_0x7f0f13ec));
-            this.d.add(l);
-            l.setChecked(true);
-            this.g.addView(l);
-            if (arrayList != null) {
-                for (int i = 0; i < arrayList.size(); i++) {
-                    ls4 ls4Var = arrayList.get(i);
-                    if (ls4Var != null && !TextUtils.isEmpty(ls4Var.b()) && ls4Var.a() > 0) {
-                        CustomBlueCheckRadioButton l2 = l(String.valueOf(ls4Var.a()), ls4Var.b());
-                        this.d.add(l2);
-                        View view2 = new View(this.a.getPageActivity());
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070198));
-                        SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-                        view2.setLayoutParams(layoutParams);
-                        this.g.addView(view2);
-                        this.g.addView(l2);
-                    }
-                }
-                ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
-                int size = arrayList.size();
-                if (size == 0 || size == 1) {
-                    layoutParams2.height = ej.d(this.a.getPageActivity(), 120.0f);
-                } else if (size != 2) {
-                    layoutParams2.height = ej.d(this.a.getPageActivity(), 220.0f);
-                } else {
-                    layoutParams2.height = ej.d(this.a.getPageActivity(), 186.0f);
-                }
-                this.l.setLayoutParams(layoutParams2);
-                this.l.removeAllViews();
-                LinearLayout linearLayout = this.g;
-                if (linearLayout != null && linearLayout.getParent() == null) {
-                    this.l.addView(this.g);
-                }
-            }
-            ih.j(this.e, this.a);
         }
     }
 }

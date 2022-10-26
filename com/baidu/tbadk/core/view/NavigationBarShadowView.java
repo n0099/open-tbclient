@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -27,6 +26,20 @@ public class NavigationBarShadowView extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NavigationBarShadowView a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
 
         public a(NavigationBarShadowView navigationBarShadowView) {
             Interceptable interceptable = $ic;
@@ -53,20 +66,6 @@ public class NavigationBarShadowView extends View {
                 this.a.setVisibility(8);
             }
         }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -90,49 +89,8 @@ public class NavigationBarShadowView extends View {
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getVisibility() == 0) {
-            if (this.c == null) {
-                AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                this.c = alphaAnimation;
-                alphaAnimation.setFillAfter(true);
-                this.c.setDuration(300L);
-                this.c.setAnimationListener(new a(this));
-            }
-            startAnimation(this.c);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == i) {
-            return;
-        }
-        SkinManager.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
-        this.a = i;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b(TbadkCoreApplication.getInst().getSkinType());
-            if (getVisibility() == 0) {
-                return;
-            }
-            setVisibility(0);
-            if (this.b == null) {
-                AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-                this.b = alphaAnimation;
-                alphaAnimation.setFillAfter(true);
-                this.b.setDuration(300L);
-            }
-            startAnimation(this.b);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NavigationBarShadowView(Context context, @Nullable AttributeSet attributeSet) {
+    public NavigationBarShadowView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -153,7 +111,7 @@ public class NavigationBarShadowView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NavigationBarShadowView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public NavigationBarShadowView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -174,5 +132,46 @@ public class NavigationBarShadowView extends View {
         this.a = 3;
         setVisibility(8);
         b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getVisibility() != 0) {
+            return;
+        }
+        if (this.c == null) {
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            this.c = alphaAnimation;
+            alphaAnimation.setFillAfter(true);
+            this.c.setDuration(300L);
+            this.c.setAnimationListener(new a(this));
+        }
+        startAnimation(this.c);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b(TbadkCoreApplication.getInst().getSkinType());
+            if (getVisibility() == 0) {
+                return;
+            }
+            setVisibility(0);
+            if (this.b == null) {
+                AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+                this.b = alphaAnimation;
+                alphaAnimation.setFillAfter(true);
+                this.b.setDuration(300L);
+            }
+            startAnimation(this.b);
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != i) {
+            SkinManager.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
+            this.a = i;
+        }
     }
 }

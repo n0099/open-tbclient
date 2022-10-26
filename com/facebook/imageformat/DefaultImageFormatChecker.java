@@ -1,6 +1,7 @@
 package com.facebook.imageformat;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,7 +55,7 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
                 return;
             }
         }
-        byte[] bArr = {-1, -40, -1};
+        byte[] bArr = {-1, ExifInterface.MARKER_SOI, -1};
         JPEG_HEADER = bArr;
         JPEG_HEADER_LENGTH = bArr.length;
         byte[] bArr2 = {-119, 80, 78, 71, StrictLineReader.CR, 10, 26, 10};
@@ -70,9 +71,9 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
         ICO_HEADER_LENGTH = bArr3.length;
         HEIF_HEADER_PREFIX = ImageFormatCheckerUtils.asciiBytes(FileTypeBox.TYPE);
         HEIF_HEADER_SUFFIXES = new byte[][]{ImageFormatCheckerUtils.asciiBytes("heic"), ImageFormatCheckerUtils.asciiBytes("heix"), ImageFormatCheckerUtils.asciiBytes("hevc"), ImageFormatCheckerUtils.asciiBytes("hevx"), ImageFormatCheckerUtils.asciiBytes("mif1"), ImageFormatCheckerUtils.asciiBytes("msf1")};
-        byte[] bArr4 = {73, 73, 42, 0};
+        byte[] bArr4 = {73, 73, ExifInterface.START_CODE, 0};
         DNG_HEADER_II = bArr4;
-        DNG_HEADER_MM = new byte[]{77, 77, 0, 42};
+        DNG_HEADER_MM = new byte[]{77, 77, 0, ExifInterface.START_CODE};
         DNG_HEADER_LENGTH = bArr4.length;
     }
 
@@ -117,87 +118,6 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
         return (ImageFormat) invokeLI.objValue;
     }
 
-    public static boolean isBmpHeader(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
-            byte[] bArr2 = BMP_HEADER;
-            if (i < bArr2.length) {
-                return false;
-            }
-            return ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2);
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean isDngHeader(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i)) == null) ? i >= DNG_HEADER_LENGTH && (ImageFormatCheckerUtils.startsWithPattern(bArr, DNG_HEADER_II) || ImageFormatCheckerUtils.startsWithPattern(bArr, DNG_HEADER_MM)) : invokeLI.booleanValue;
-    }
-
-    public static boolean isGifHeader(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i)) == null) {
-            if (i < 6) {
-                return false;
-            }
-            return ImageFormatCheckerUtils.startsWithPattern(bArr, GIF_HEADER_87A) || ImageFormatCheckerUtils.startsWithPattern(bArr, GIF_HEADER_89A);
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean isHeifHeader(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i)) == null) {
-            if (i >= 12 && bArr[3] >= 8 && ImageFormatCheckerUtils.hasPatternAt(bArr, HEIF_HEADER_PREFIX, 4)) {
-                for (byte[] bArr2 : HEIF_HEADER_SUFFIXES) {
-                    if (ImageFormatCheckerUtils.hasPatternAt(bArr, bArr2, 8)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean isIcoHeader(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) {
-            byte[] bArr2 = ICO_HEADER;
-            if (i < bArr2.length) {
-                return false;
-            }
-            return ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2);
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean isJpegHeader(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
-            byte[] bArr2 = JPEG_HEADER;
-            return i >= bArr2.length && ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2);
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean isPngHeader(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, bArr, i)) == null) {
-            byte[] bArr2 = PNG_HEADER;
-            return i >= bArr2.length && ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2);
-        }
-        return invokeLI.booleanValue;
-    }
-
     @Override // com.facebook.imageformat.ImageFormat.FormatChecker
     @Nullable
     public final ImageFormat determineFormat(byte[] bArr, int i) {
@@ -234,10 +154,109 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
         return (ImageFormat) invokeLI.objValue;
     }
 
+    public static boolean isBmpHeader(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            byte[] bArr2 = BMP_HEADER;
+            if (i < bArr2.length) {
+                return false;
+            }
+            return ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean isDngHeader(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i)) == null) {
+            if (i >= DNG_HEADER_LENGTH && (ImageFormatCheckerUtils.startsWithPattern(bArr, DNG_HEADER_II) || ImageFormatCheckerUtils.startsWithPattern(bArr, DNG_HEADER_MM))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean isGifHeader(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i)) == null) {
+            if (i < 6) {
+                return false;
+            }
+            if (!ImageFormatCheckerUtils.startsWithPattern(bArr, GIF_HEADER_87A) && !ImageFormatCheckerUtils.startsWithPattern(bArr, GIF_HEADER_89A)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean isIcoHeader(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) {
+            byte[] bArr2 = ICO_HEADER;
+            if (i < bArr2.length) {
+                return false;
+            }
+            return ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean isJpegHeader(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
+            byte[] bArr2 = JPEG_HEADER;
+            if (i >= bArr2.length && ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean isPngHeader(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, bArr, i)) == null) {
+            byte[] bArr2 = PNG_HEADER;
+            if (i >= bArr2.length && ImageFormatCheckerUtils.startsWithPattern(bArr, bArr2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean isHeifHeader(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i)) == null) {
+            if (i < 12 || bArr[3] < 8 || !ImageFormatCheckerUtils.hasPatternAt(bArr, HEIF_HEADER_PREFIX, 4)) {
+                return false;
+            }
+            for (byte[] bArr2 : HEIF_HEADER_SUFFIXES) {
+                if (ImageFormatCheckerUtils.hasPatternAt(bArr, bArr2, 8)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
     @Override // com.facebook.imageformat.ImageFormat.FormatChecker
     public int getHeaderSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.MAX_HEADER_LENGTH : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.MAX_HEADER_LENGTH;
+        }
+        return invokeV.intValue;
     }
 }

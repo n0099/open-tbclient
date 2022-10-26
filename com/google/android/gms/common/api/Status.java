@@ -5,8 +5,6 @@ import android.app.PendingIntent;
 import android.content.IntentSender;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,62 +15,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.ReflectedParcelable;
-import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.common.util.VisibleForTesting;
-@KeepForSdk
-@SafeParcelable.Class(creator = "StatusCreator")
 /* loaded from: classes7.dex */
 public final class Status extends AbstractSafeParcelable implements Result, ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
-    public static final Parcelable.Creator<Status> CREATOR;
-    @NonNull
-    @ShowFirstParty
-    @KeepForSdk
+    public static final Parcelable.Creator CREATOR;
     public static final Status RESULT_CANCELED;
-    @NonNull
-    @KeepForSdk
     public static final Status RESULT_DEAD_CLIENT;
-    @NonNull
-    @ShowFirstParty
-    @KeepForSdk
     public static final Status RESULT_INTERNAL_ERROR;
-    @NonNull
-    @ShowFirstParty
-    @KeepForSdk
     public static final Status RESULT_INTERRUPTED;
-    @NonNull
-    @VisibleForTesting
-    @ShowFirstParty
-    @KeepForSdk
     public static final Status RESULT_SUCCESS;
-    @NonNull
-    @ShowFirstParty
-    @KeepForSdk
     public static final Status RESULT_TIMEOUT;
-    @NonNull
-    @ShowFirstParty
     public static final Status zza;
     public transient /* synthetic */ FieldHolder $fh;
-    @SafeParcelable.VersionField(id = 1000)
     public final int zzb;
-    @SafeParcelable.Field(getter = "getStatusCode", id = 1)
     public final int zzc;
-    @Nullable
-    @SafeParcelable.Field(getter = "getStatusMessage", id = 2)
     public final String zzd;
-    @Nullable
-    @SafeParcelable.Field(getter = "getPendingIntent", id = 3)
     public final PendingIntent zze;
-    @Nullable
-    @SafeParcelable.Field(getter = "getConnectionResult", id = 4)
     public final ConnectionResult zzf;
 
     static {
@@ -98,31 +61,7 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
         CREATOR = new zzb();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @KeepForSdk
-    public Status(int i) {
-        this(i, (String) null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @SafeParcelable.Constructor
-    @KeepForSdk
-    public Status(@SafeParcelable.Param(id = 1000) int i, @SafeParcelable.Param(id = 1) int i2, @Nullable @SafeParcelable.Param(id = 2) String str, @Nullable @SafeParcelable.Param(id = 3) PendingIntent pendingIntent, @Nullable @SafeParcelable.Param(id = 4) ConnectionResult connectionResult) {
+    public Status(int i, int i2, String str, PendingIntent pendingIntent, ConnectionResult connectionResult) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,27 +83,12 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
         this.zzf = connectionResult;
     }
 
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof Status) {
-                Status status = (Status) obj;
-                return this.zzb == status.zzb && this.zzc == status.zzc && Objects.equal(this.zzd, status.zzd) && Objects.equal(this.zze, status.zze) && Objects.equal(this.zzf, status.zzf);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
     public ConnectionResult getConnectionResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzf : (ConnectionResult) invokeV.objValue;
     }
 
-    @Nullable
     public PendingIntent getResolution() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -172,8 +96,6 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
     }
 
     @Override // com.google.android.gms.common.api.Result
-    @NonNull
-    @KeepForSdk
     public Status getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -186,24 +108,16 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.zzc : invokeV.intValue;
     }
 
-    @Nullable
     public String getStatusMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zzd : (String) invokeV.objValue;
     }
 
-    @VisibleForTesting
     public boolean hasResolution() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.zze != null : invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hashCode(Integer.valueOf(this.zzb), Integer.valueOf(this.zzc), this.zzd, this.zze, this.zzf) : invokeV.intValue;
     }
 
     public boolean isCanceled() {
@@ -224,57 +138,45 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.zzc <= 0 : invokeV.booleanValue;
     }
 
-    public void startResolutionForResult(@NonNull Activity activity, int i) throws IntentSender.SendIntentException {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public Status(int i) {
+        this(i, (String) null);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048587, this, activity, i) == null) && hasResolution()) {
-            PendingIntent pendingIntent = this.zze;
-            Preconditions.checkNotNull(pendingIntent);
-            activity.startIntentSenderForResult(pendingIntent.getIntentSender(), i, null, 0, 0, 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
-            stringHelper.add("statusCode", zza());
-            stringHelper.add("resolution", this.zze);
-            return stringHelper.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof Status)) {
+                return false;
+            }
+            Status status = (Status) obj;
+            if (this.zzb != status.zzb || this.zzc != status.zzc || !Objects.equal(this.zzd, status.zzd) || !Objects.equal(this.zze, status.zze) || !Objects.equal(this.zzf, status.zzf)) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    @KeepForSdk
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
-            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
-            SafeParcelWriter.writeInt(parcel, 1, getStatusCode());
-            SafeParcelWriter.writeString(parcel, 2, getStatusMessage(), false);
-            SafeParcelWriter.writeParcelable(parcel, 3, this.zze, i, false);
-            SafeParcelWriter.writeParcelable(parcel, 4, getConnectionResult(), i, false);
-            SafeParcelWriter.writeInt(parcel, 1000, this.zzb);
-            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
-        }
-    }
-
-    @NonNull
-    public final String zza() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            String str = this.zzd;
-            return str != null ? str : CommonStatusCodes.getStatusCodeString(this.zzc);
-        }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @KeepForSdk
-    public Status(int i, int i2, @Nullable String str, @Nullable PendingIntent pendingIntent) {
+    public Status(int i, int i2, String str, PendingIntent pendingIntent) {
         this(i, i2, str, pendingIntent, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -295,8 +197,7 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @KeepForSdk
-    public Status(int i, @Nullable String str) {
+    public Status(int i, String str) {
         this(1, i, str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -317,8 +218,7 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @KeepForSdk
-    public Status(int i, @Nullable String str, @Nullable PendingIntent pendingIntent) {
+    public Status(int i, String str, PendingIntent pendingIntent) {
         this(1, i, str, pendingIntent);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -339,7 +239,7 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Status(@NonNull ConnectionResult connectionResult, @NonNull String str) {
+    public Status(ConnectionResult connectionResult, String str) {
         this(connectionResult, str, 17);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -360,9 +260,8 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @KeepForSdk
     @Deprecated
-    public Status(@NonNull ConnectionResult connectionResult, @NonNull String str, int i) {
+    public Status(ConnectionResult connectionResult, String str, int i) {
         this(1, i, str, connectionResult.getResolution(), connectionResult);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -379,6 +278,64 @@ public final class Status extends AbstractSafeParcelable implements Result, Refl
                 interceptable.invokeInitBody(65543, newInitContext);
                 return;
             }
+        }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return Objects.hashCode(Integer.valueOf(this.zzb), Integer.valueOf(this.zzc), this.zzd, this.zze, this.zzf);
+        }
+        return invokeV.intValue;
+    }
+
+    public void startResolutionForResult(Activity activity, int i) throws IntentSender.SendIntentException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048587, this, activity, i) != null) || !hasResolution()) {
+            return;
+        }
+        PendingIntent pendingIntent = this.zze;
+        Preconditions.checkNotNull(pendingIntent);
+        activity.startIntentSenderForResult(pendingIntent.getIntentSender(), i, null, 0, 0, 0);
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
+            stringHelper.add("statusCode", zza());
+            stringHelper.add("resolution", this.zze);
+            return stringHelper.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String zza() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            String str = this.zzd;
+            if (str != null) {
+                return str;
+            }
+            return CommonStatusCodes.getStatusCodeString(this.zzc);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeInt(parcel, 1, getStatusCode());
+            SafeParcelWriter.writeString(parcel, 2, getStatusMessage(), false);
+            SafeParcelWriter.writeParcelable(parcel, 3, this.zze, i, false);
+            SafeParcelWriter.writeParcelable(parcel, 4, getConnectionResult(), i, false);
+            SafeParcelWriter.writeInt(parcel, 1000, this.zzb);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 }

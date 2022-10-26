@@ -15,7 +15,7 @@ public class WeiboCallbackManager {
     public static /* synthetic */ Interceptable $ic;
     public static WeiboCallbackManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, WbAuthListener> mWeiboAuthListenerMap;
+    public Map mWeiboAuthListenerMap;
 
     public WeiboCallbackManager() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,10 @@ public class WeiboCallbackManager {
     public String genCallbackKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.valueOf(System.currentTimeMillis()) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return String.valueOf(System.currentTimeMillis());
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized WbAuthListener getWeiboAuthListener(String str) {
@@ -63,7 +66,7 @@ public class WeiboCallbackManager {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                return this.mWeiboAuthListenerMap.get(str);
+                return (WbAuthListener) this.mWeiboAuthListenerMap.get(str);
             }
         }
         return (WbAuthListener) invokeL.objValue;

@@ -2,35 +2,33 @@ package com.kwad.sdk.crash;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.down.utils.Constants;
 import com.kwad.sdk.utils.AbiUtil;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.ext.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static final AtomicBoolean ISLOADED = new AtomicBoolean(false);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void wu();
     }
 
-    public static void a(Context context, com.kwai.sodler.lib.c.b bVar, @Nullable final a aVar) {
+    public static void a(Context context, com.kwai.sodler.lib.c.b bVar, final a aVar) {
         com.kwai.sodler.kwai.a.a(context, bVar, new b.c() { // from class: com.kwad.sdk.crash.f.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar) {
-                super.a((AnonymousClass1) cVar);
+                super.a((com.kwai.sodler.lib.a.f) cVar);
                 com.kwad.sdk.core.e.b.d("ExceptionSoLoadHelper", "onCanceled thread=" + Thread.currentThread().getName());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
             /* renamed from: c */
             public void b(com.kwai.sodler.lib.b.c cVar) {
                 super.b(cVar);
@@ -49,19 +47,19 @@ public final class f {
                 com.kwad.sdk.core.e.b.d("ExceptionSoLoadHelper", "onFail thread=" + Thread.currentThread().getName());
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
             public final /* synthetic */ void a(com.kwai.sodler.lib.a.f fVar, com.kwai.sodler.lib.a.a aVar2) {
                 qB();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
             public final /* synthetic */ void a(com.kwai.sodler.lib.a.f fVar, PluginError pluginError) {
                 wH();
             }
         });
     }
 
-    public static void a(@NonNull b bVar, @Nullable a aVar) {
+    public static void a(b bVar, a aVar) {
         String str;
         String str2;
         if (ISLOADED.get()) {

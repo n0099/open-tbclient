@@ -31,6 +31,15 @@ public abstract class AbstractCookieSpec implements CookieSpec {
         throw new RuntimeException("Stub!");
     }
 
+    public Collection getAttribHandlers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Collection) invokeV.objValue;
+    }
+
     public CookieAttributeHandler findAttribHandler(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -47,15 +56,6 @@ public abstract class AbstractCookieSpec implements CookieSpec {
             throw new RuntimeException("Stub!");
         }
         return (CookieAttributeHandler) invokeL.objValue;
-    }
-
-    public Collection<CookieAttributeHandler> getAttribHandlers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Collection) invokeV.objValue;
     }
 
     public void registerAttribHandler(String str, CookieAttributeHandler cookieAttributeHandler) {

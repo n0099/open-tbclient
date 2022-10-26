@@ -1,32 +1,30 @@
 package com.baidu.searchbox.player.message;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.interfaces.InternalEventDispatcher;
 /* loaded from: classes2.dex */
 public interface IMessenger {
-    void addInterceptor(int i, @NonNull IVideoEventInterceptor iVideoEventInterceptor);
+    void addInterceptor(int i, IVideoEventInterceptor iVideoEventInterceptor);
 
-    void addInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor);
+    void addInterceptor(IVideoEventInterceptor iVideoEventInterceptor);
 
-    void addInternalDispatcher(@NonNull InternalEventDispatcher internalEventDispatcher);
+    void addInternalDispatcher(InternalEventDispatcher internalEventDispatcher);
 
     String getType();
 
-    void notifyEvent(@NonNull VideoEvent videoEvent);
+    void notifyEvent(VideoEvent videoEvent);
 
-    void register(int i, @NonNull INeuron iNeuron);
+    void register(int i, INeuron iNeuron);
 
     void release();
 
-    void removeInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor);
+    void removeInterceptor(IVideoEventInterceptor iVideoEventInterceptor);
 
-    void removeInternalDispatcher(@NonNull InternalEventDispatcher internalEventDispatcher);
+    void removeInternalDispatcher(InternalEventDispatcher internalEventDispatcher);
 
-    void setInterceptor(@Nullable IVideoEventInterceptor iVideoEventInterceptor);
+    void setInterceptor(IVideoEventInterceptor iVideoEventInterceptor);
 
     void unregister(INeuron iNeuron);
 }

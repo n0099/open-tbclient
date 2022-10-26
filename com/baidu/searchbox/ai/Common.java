@@ -31,6 +31,8 @@ public class Common {
         }
     }
 
+    public static native int getJniVersion();
+
     public Common() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,8 +46,6 @@ public class Common {
             }
         }
     }
-
-    public static native int getJniVersion();
 
     public static String getSDKVersion() {
         InterceptResult invokeV;

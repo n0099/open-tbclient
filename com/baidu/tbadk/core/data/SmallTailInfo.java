@@ -91,6 +91,25 @@ public class SmallTailInfo extends OrmObject implements Serializable {
         }
     }
 
+    private void updateColor() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            try {
+                this.showColorId = Color.parseColor(getShowColorText(this.color));
+            } catch (Exception unused) {
+                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1393)));
+            }
+        }
+    }
+
+    public void updateShowInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            updateTailSpannable();
+            updateColor();
+        }
+    }
+
     private String getShowColorText(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -99,27 +118,16 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0405) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1380) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040c) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1394) + str;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0405) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040c) + str;
         }
         return (String) invokeL.objValue;
     }
 
-    private void updateColor() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            try {
-                this.showColorId = Color.parseColor(getShowColorText(this.color));
-            } catch (Exception unused) {
-                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f137f)));
-            }
-        }
-    }
-
     private void updateTailSpannable() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.content == null) {
+        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || this.content == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -138,13 +146,5 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             }
         }
         this.tailSpannable = TbFaceManager.i().t(TbadkCoreApplication.getInst(), sb.toString(), null);
-    }
-
-    public void updateShowInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            updateTailSpannable();
-            updateColor();
-        }
     }
 }

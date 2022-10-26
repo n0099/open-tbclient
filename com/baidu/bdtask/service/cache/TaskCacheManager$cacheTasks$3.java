@@ -2,9 +2,9 @@ package com.baidu.bdtask.service.cache;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.ns;
-import com.baidu.tieba.qr;
-import com.baidu.tieba.tt;
+import com.baidu.tieba.os;
+import com.baidu.tieba.rr;
+import com.baidu.tieba.ut;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.text.Charsets;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Function0<Unit> {
+public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ com.baidu.bdtask.ctrl.b $state;
@@ -31,7 +31,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.service.cache.TaskCacheManager$cacheTasks$3$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends Lambda implements Function0<String> {
+    public final class AnonymousClass1 extends Lambda implements Function0 {
         public static /* synthetic */ Interceptable $ic;
         public static final AnonymousClass1 INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,10 +79,38 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TaskCacheManager$cacheTasks$3(b bVar, com.baidu.bdtask.ctrl.b bVar2) {
+        super(0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, bVar2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.this$0 = bVar;
+        this.$state = bVar2;
+    }
+
+    @Override // kotlin.jvm.functions.Function0
+    public /* bridge */ /* synthetic */ Object invoke() {
+        invoke();
+        return Unit.INSTANCE;
+    }
+
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.service.cache.TaskCacheManager$cacheTasks$3$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass2 extends Lambda implements Function0<String> {
+    public final class AnonymousClass2 extends Lambda implements Function0 {
         public static /* synthetic */ Interceptable $ic;
         public final /* synthetic */ String $data;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,38 +157,8 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskCacheManager$cacheTasks$3(b bVar, com.baidu.bdtask.ctrl.b bVar2) {
-        super(0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, bVar2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.this$0 = bVar;
-        this.$state = bVar2;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public /* bridge */ /* synthetic */ Unit invoke() {
-        invoke2();
-        return Unit.INSTANCE;
-    }
-
-    @Override // kotlin.jvm.functions.Function0
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2() {
+    public final void invoke() {
         String str;
         String str2;
         Interceptable interceptable = $ic;
@@ -170,7 +168,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
             if (m != null) {
                 byte[] bytes = m.getBytes(charset);
                 Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
-                String newFingerprint = tt.b(bytes, false);
+                String newFingerprint = ut.b(bytes, false);
                 str = this.this$0.c;
                 if (Intrinsics.areEqual(newFingerprint, str)) {
                     DebugTrace.a.c(AnonymousClass1.INSTANCE);
@@ -180,7 +178,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
                 Intrinsics.checkExpressionValueIsNotNull(newFingerprint, "newFingerprint");
                 bVar.c = newFingerprint;
                 DebugTrace.a.c(new AnonymousClass2(this, m));
-                ns c = qr.c.c();
+                os c = rr.c.c();
                 str2 = this.this$0.a;
                 c.a(m, str2);
                 return;

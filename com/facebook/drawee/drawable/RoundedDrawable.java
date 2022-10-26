@@ -8,9 +8,6 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,61 +16,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
     public final RectF mBitmapBounds;
     public int mBorderColor;
     public final Path mBorderPath;
-    @VisibleForTesting
     public final float[] mBorderRadii;
     public float mBorderWidth;
-    @VisibleForTesting
     public final Matrix mBoundsTransform;
     public final float[] mCornerRadii;
     public final Drawable mDelegate;
-    @VisibleForTesting
     public final RectF mDrawableBounds;
-    @Nullable
-    @VisibleForTesting
     public RectF mInsideBorderBounds;
-    @Nullable
-    @VisibleForTesting
     public float[] mInsideBorderRadii;
-    @Nullable
-    @VisibleForTesting
     public Matrix mInsideBorderTransform;
-    @VisibleForTesting
     public final Matrix mInverseParentTransform;
     public boolean mIsCircle;
     public boolean mIsPathDirty;
     public boolean mIsShaderTransformDirty;
     public float mPadding;
     public boolean mPaintFilterBitmap;
-    @VisibleForTesting
     public final Matrix mParentTransform;
     public final Path mPath;
-    @VisibleForTesting
     public final Matrix mPrevBoundsTransform;
-    @Nullable
-    @VisibleForTesting
     public Matrix mPrevInsideBorderTransform;
-    @VisibleForTesting
     public final Matrix mPrevParentTransform;
-    @VisibleForTesting
     public final RectF mPrevRootBounds;
     public boolean mRadiiNonZero;
-    @VisibleForTesting
     public final RectF mRootBounds;
     public boolean mScaleDownInsideBorders;
-    @VisibleForTesting
     public final Matrix mTransform;
-    @Nullable
     public TransformCallback mTransformCallback;
 
     public RoundedDrawable(Drawable drawable) {
@@ -126,7 +102,139 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
+    public int getAlpha() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDelegate.getAlpha();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public int getBorderColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mBorderColor;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public float getBorderWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mBorderWidth;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public ColorFilter getColorFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDelegate.getColorFilter();
+        }
+        return (ColorFilter) invokeV.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mDelegate.getIntrinsicHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mDelegate.getIntrinsicWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mDelegate.getOpacity();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public float getPadding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mPadding;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public boolean getPaintFilterBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mPaintFilterBitmap;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public float[] getRadii() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mCornerRadii;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public boolean getScaleDownInsideBorders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mScaleDownInsideBorders;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public boolean isCircle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mIsCircle;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean shouldRound() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (!this.mIsCircle && !this.mRadiiNonZero && this.mBorderWidth <= 0.0f) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             if (FrescoSystrace.isTracing()) {
@@ -137,93 +245,6 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
                 FrescoSystrace.endSection();
             }
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    @RequiresApi(api = 19)
-    public int getAlpha() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDelegate.getAlpha() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public int getBorderColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBorderColor : invokeV.intValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public float getBorderWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBorderWidth : invokeV.floatValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    @Nullable
-    @RequiresApi(api = 21)
-    public ColorFilter getColorFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDelegate.getColorFilter() : (ColorFilter) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDelegate.getIntrinsicHeight() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mDelegate.getIntrinsicWidth() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDelegate.getOpacity() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public float getPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPadding : invokeV.floatValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public boolean getPaintFilterBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mPaintFilterBitmap : invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public float[] getRadii() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCornerRadii : (float[]) invokeV.objValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public boolean getScaleDownInsideBorders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mScaleDownInsideBorders : invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public boolean isCircle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsCircle : invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -243,20 +264,6 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            if (this.mBorderColor == i && this.mBorderWidth == f) {
-                return;
-            }
-            this.mBorderColor = i;
-            this.mBorderWidth = f;
-            this.mIsPathDirty = true;
-            invalidateSelf();
-        }
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
     public void setCircle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
@@ -267,62 +274,50 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048594, this, i, mode) == null) {
-            this.mDelegate.setColorFilter(i, mode);
+        if (interceptable == null || interceptable.invokeL(1048595, this, colorFilter) == null) {
+            this.mDelegate.setColorFilter(colorFilter);
         }
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setPadding(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048596, this, f) == null) || this.mPadding == f) {
-            return;
-        }
-        this.mPadding = f;
-        this.mIsPathDirty = true;
-        invalidateSelf();
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public void setPaintFilterBitmap(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || this.mPaintFilterBitmap == z) {
-            return;
-        }
-        this.mPaintFilterBitmap = z;
-        invalidateSelf();
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public void setRadii(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, fArr) == null) {
-            if (fArr == null) {
-                Arrays.fill(this.mCornerRadii, 0.0f);
-                this.mRadiiNonZero = false;
-            } else {
-                Preconditions.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-                System.arraycopy(fArr, 0, this.mCornerRadii, 0, 8);
-                this.mRadiiNonZero = false;
-                for (int i = 0; i < 8; i++) {
-                    this.mRadiiNonZero |= fArr[i] > 0.0f;
-                }
-            }
+        if ((interceptable == null || interceptable.invokeF(1048596, this, f) == null) && this.mPadding != f) {
+            this.mPadding = f;
             this.mIsPathDirty = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
+    public void setPaintFilterBitmap(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048597, this, z) == null) && this.mPaintFilterBitmap != z) {
+            this.mPaintFilterBitmap = z;
+            invalidateSelf();
+        }
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
     public void setRadius(float f) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            boolean z2 = false;
             int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
-            Preconditions.checkState(i >= 0);
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkState(z);
             Arrays.fill(this.mCornerRadii, f);
-            this.mRadiiNonZero = i != 0;
+            if (i != 0) {
+                z2 = true;
+            }
+            this.mRadiiNonZero = z2;
             this.mIsPathDirty = true;
             invalidateSelf();
         }
@@ -331,37 +326,84 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     @Override // com.facebook.drawee.drawable.Rounded
     public void setScaleDownInsideBorders(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || this.mScaleDownInsideBorders == z) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048600, this, z) == null) && this.mScaleDownInsideBorders != z) {
+            this.mScaleDownInsideBorders = z;
+            this.mIsPathDirty = true;
+            invalidateSelf();
         }
-        this.mScaleDownInsideBorders = z;
-        this.mIsPathDirty = true;
-        invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.TransformAwareDrawable
-    public void setTransformCallback(@Nullable TransformCallback transformCallback) {
+    public void setTransformCallback(TransformCallback transformCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, transformCallback) == null) {
             this.mTransformCallback = transformCallback;
         }
     }
 
-    @VisibleForTesting
-    public boolean shouldRound() {
-        InterceptResult invokeV;
+    @Override // com.facebook.drawee.drawable.Rounded
+    public void setBorder(int i, float f) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mIsCircle || this.mRadiiNonZero || this.mBorderWidth > 0.0f : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            if (this.mBorderColor != i || this.mBorderWidth != f) {
+                this.mBorderColor = i;
+                this.mBorderWidth = f;
+                this.mIsPathDirty = true;
+                invalidateSelf();
+            }
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(int i, PorterDuff.Mode mode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, mode) == null) {
+            this.mDelegate.setColorFilter(i, mode);
+        }
+    }
+
+    @Override // com.facebook.drawee.drawable.Rounded
+    public void setRadii(float[] fArr) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, fArr) == null) {
+            if (fArr == null) {
+                Arrays.fill(this.mCornerRadii, 0.0f);
+                this.mRadiiNonZero = false;
+            } else {
+                if (fArr.length == 8) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z, "radii should have exactly 8 values");
+                System.arraycopy(fArr, 0, this.mCornerRadii, 0, 8);
+                this.mRadiiNonZero = false;
+                for (int i = 0; i < 8; i++) {
+                    boolean z3 = this.mRadiiNonZero;
+                    if (fArr[i] > 0.0f) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    this.mRadiiNonZero = z3 | z2;
+                }
+            }
+            this.mIsPathDirty = true;
+            invalidateSelf();
+        }
     }
 
     public void updatePath() {
         float[] fArr;
+        float f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && this.mIsPathDirty) {
             this.mBorderPath.reset();
             RectF rectF = this.mRootBounds;
-            float f = this.mBorderWidth;
-            rectF.inset(f / 2.0f, f / 2.0f);
+            float f2 = this.mBorderWidth;
+            rectF.inset(f2 / 2.0f, f2 / 2.0f);
             if (this.mIsCircle) {
                 this.mBorderPath.addCircle(this.mRootBounds.centerX(), this.mRootBounds.centerY(), Math.min(this.mRootBounds.width(), this.mRootBounds.height()) / 2.0f, Path.Direction.CW);
             } else {
@@ -377,11 +419,17 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
                 this.mBorderPath.addRoundRect(this.mRootBounds, fArr, Path.Direction.CW);
             }
             RectF rectF2 = this.mRootBounds;
-            float f2 = this.mBorderWidth;
-            rectF2.inset((-f2) / 2.0f, (-f2) / 2.0f);
+            float f3 = this.mBorderWidth;
+            rectF2.inset((-f3) / 2.0f, (-f3) / 2.0f);
             this.mPath.reset();
-            float f3 = this.mPadding + (this.mScaleDownInsideBorders ? this.mBorderWidth : 0.0f);
-            this.mRootBounds.inset(f3, f3);
+            float f4 = this.mPadding;
+            if (this.mScaleDownInsideBorders) {
+                f = this.mBorderWidth;
+            } else {
+                f = 0.0f;
+            }
+            float f5 = f4 + f;
+            this.mRootBounds.inset(f5, f5);
             if (this.mIsCircle) {
                 this.mPath.addCircle(this.mRootBounds.centerX(), this.mRootBounds.centerY(), Math.min(this.mRootBounds.width(), this.mRootBounds.height()) / 2.0f, Path.Direction.CW);
             } else if (this.mScaleDownInsideBorders) {
@@ -395,8 +443,8 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
             } else {
                 this.mPath.addRoundRect(this.mRootBounds, this.mCornerRadii, Path.Direction.CW);
             }
-            float f4 = -f3;
-            this.mRootBounds.inset(f4, f4);
+            float f6 = -f5;
+            this.mRootBounds.inset(f6, f6);
             this.mPath.setFillType(Path.FillType.WINDING);
             this.mIsPathDirty = false;
         }
@@ -461,19 +509,10 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
                     }
                 }
             }
-            if (this.mRootBounds.equals(this.mPrevRootBounds)) {
-                return;
+            if (!this.mRootBounds.equals(this.mPrevRootBounds)) {
+                this.mIsPathDirty = true;
+                this.mPrevRootBounds.set(this.mRootBounds);
             }
-            this.mIsPathDirty = true;
-            this.mPrevRootBounds.set(this.mRootBounds);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, colorFilter) == null) {
-            this.mDelegate.setColorFilter(colorFilter);
         }
     }
 }

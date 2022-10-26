@@ -57,61 +57,94 @@ public final class EncoderContext {
     private int getTotalMessageCharCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.msg.length() - this.skipAtEnd : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return this.msg.length() - this.skipAtEnd;
+        }
+        return invokeV.intValue;
     }
 
     public int getCodewordCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.codewords.length() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.codewords.length();
+        }
+        return invokeV.intValue;
     }
 
     public StringBuilder getCodewords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.codewords : (StringBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.codewords;
+        }
+        return (StringBuilder) invokeV.objValue;
     }
 
     public char getCurrent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.msg.charAt(this.pos) : invokeV.charValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.msg.charAt(this.pos);
+        }
+        return invokeV.charValue;
     }
 
     public char getCurrentChar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.msg.charAt(this.pos) : invokeV.charValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.msg.charAt(this.pos);
+        }
+        return invokeV.charValue;
     }
 
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.msg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.msg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getNewEncoding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.newEncoding : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.newEncoding;
+        }
+        return invokeV.intValue;
     }
 
     public int getRemainingCharacters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getTotalMessageCharCount() - this.pos : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return getTotalMessageCharCount() - this.pos;
+        }
+        return invokeV.intValue;
     }
 
     public SymbolInfo getSymbolInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.symbolInfo : (SymbolInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.symbolInfo;
+        }
+        return (SymbolInfo) invokeV.objValue;
     }
 
     public boolean hasMoreCharacters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.pos < getTotalMessageCharCount() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.pos < getTotalMessageCharCount()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void resetEncoderSignal() {
@@ -125,6 +158,13 @@ public final class EncoderContext {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.symbolInfo = null;
+        }
+    }
+
+    public void updateSymbolInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            updateSymbolInfo(getCodewordCount());
         }
     }
 
@@ -157,10 +197,13 @@ public final class EncoderContext {
         }
     }
 
-    public void updateSymbolInfo() {
+    public void updateSymbolInfo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            updateSymbolInfo(getCodewordCount());
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            SymbolInfo symbolInfo = this.symbolInfo;
+            if (symbolInfo == null || i > symbolInfo.getDataCapacity()) {
+                this.symbolInfo = SymbolInfo.lookup(i, this.shape, this.minSize, this.maxSize, true);
+            }
         }
     }
 
@@ -175,16 +218,6 @@ public final class EncoderContext {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.codewords.append(str);
-        }
-    }
-
-    public void updateSymbolInfo(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            SymbolInfo symbolInfo = this.symbolInfo;
-            if (symbolInfo == null || i > symbolInfo.getDataCapacity()) {
-                this.symbolInfo = SymbolInfo.lookup(i, this.shape, this.minSize, this.maxSize, true);
-            }
         }
     }
 }

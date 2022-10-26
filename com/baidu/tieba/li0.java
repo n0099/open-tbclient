@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public abstract class li0 {
+public class li0 implements qe1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +25,25 @@ public abstract class li0 {
         }
     }
 
-    @Nullable
-    public abstract String a();
-
-    public abstract String b();
-
-    public abstract boolean c(Context context, ni0 ni0Var, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var);
+    @Override // com.baidu.tieba.qe1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new tg0());
+            arrayList.add(new ug0());
+            arrayList.add(new vg0());
+            arrayList.add(new wg0());
+            arrayList.add(new xg0());
+            arrayList.add(new yg0());
+            arrayList.add(new ah0());
+            arrayList.add(new uh0());
+            arrayList.add(new un0());
+            arrayList.add(new x41());
+            arrayList.add(new mp5());
+            return arrayList;
+        }
+        return invokeV.objValue;
+    }
 }

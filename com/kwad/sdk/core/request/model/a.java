@@ -2,7 +2,6 @@ package com.kwad.sdk.core.request.model;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ba;
@@ -18,7 +17,7 @@ public final class a implements com.kwad.sdk.core.b {
     public String packageName;
     public String version;
 
-    public static boolean j(@Nullable JSONObject jSONObject) {
+    public static boolean j(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
@@ -55,7 +54,7 @@ public final class a implements com.kwad.sdk.core.b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(@Nullable JSONObject jSONObject) {
+    public final void parseJson(JSONObject jSONObject) {
     }
 
     @Override // com.kwad.sdk.core.b

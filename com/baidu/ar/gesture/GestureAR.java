@@ -73,7 +73,7 @@ public class GestureAR extends c {
         }
     }
 
-    private void a(Bundle bundle, HashMap<String, Object> hashMap) {
+    private void a(Bundle bundle, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, bundle, hashMap) == null) {
             bundle.putString(HttpConstants.FUNCTION_TYPE, com.baidu.ar.arplay.c.c.a(hashMap.get(HttpConstants.FUNCTION_TYPE), "gesture"));
@@ -164,7 +164,7 @@ public class GestureAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
             super.setup(hashMap);

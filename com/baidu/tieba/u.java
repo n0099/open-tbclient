@@ -45,6 +45,9 @@ public class u extends w {
     public Object d(Class cls, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, file)) == null) ? t.b(cls, new Class[]{File.class}, new Object[]{file}) : invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, file)) == null) {
+            return t.b(cls, new Class[]{File.class}, new Object[]{file});
+        }
+        return invokeLL.objValue;
     }
 }

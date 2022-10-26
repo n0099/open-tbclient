@@ -59,7 +59,10 @@ public final class BuilderAdapter<B extends Message.Builder> {
             public int compare(Field field, Field field2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, field, field2)) == null) ? field.getName().compareTo(field2.getName()) : invokeLL.intValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, field, field2)) == null) {
+                    return field.getName().compareTo(field2.getName());
+                }
+                return invokeLL.intValue;
             }
         };
     }

@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class f56 extends x46 {
+public abstract class f56 extends r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7<e56> b;
-    public final PointF c;
-    public float d;
-    public final PointF e;
-    public float f;
+    public final c56 d;
 
-    public f56() {
+    public abstract void j();
+
+    public f56(c56 danmakuContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {danmakuContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,82 +30,26 @@ public final class f56 extends x46 {
                 return;
             }
         }
-        this.b = new b7<>(0);
-        this.c = new PointF();
-        this.e = new PointF(1.0f, 1.0f);
-        this.f = 1.0f;
+        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
+        this.d = danmakuContext;
     }
 
-    public final void c(long j) {
+    @Override // com.baidu.tieba.r0
+    public void g(o0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            g();
-            b7.b<e56> it = this.b.iterator();
-            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
-            while (it.hasNext()) {
-                it.next().a(j);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            j();
         }
     }
 
-    public final void d(e56 action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            action.c(this);
-            action.b();
-            this.b.a(action);
-        }
-    }
-
-    public final float e() {
+    public final c56 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.floatValue;
-    }
-
-    public final PointF f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (PointF) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a().f().u();
-            this.c.set(0.0f, 0.0f);
-            this.d = 0.0f;
-            this.e.set(1.0f, 1.0f);
-            this.f = 1.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    public final void i(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
-            Intrinsics.checkNotNullParameter(matrix, "matrix");
-            PointF pointF = this.e;
-            matrix.setScale(pointF.x, pointF.y);
-            matrix.postRotate(this.d);
-            PointF pointF2 = this.c;
-            matrix.postTranslate(pointF2.x, pointF2.y);
-        }
-    }
-
-    @Override // com.baidu.tieba.x46, com.baidu.tieba.a8.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.reset();
-            g();
-            this.b.clear();
-        }
+        return (c56) invokeV.objValue;
     }
 }

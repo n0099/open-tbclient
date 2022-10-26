@@ -11,6 +11,19 @@ public class AccountRealNameCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Deprecated
+    public void onFinish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void onFinish(AccountRealNameResult accountRealNameResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountRealNameResult) == null) {
+        }
+    }
+
     public AccountRealNameCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,19 +35,6 @@ public class AccountRealNameCallback {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Deprecated
-    public void onFinish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void onFinish(AccountRealNameResult accountRealNameResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountRealNameResult) == null) {
         }
     }
 }

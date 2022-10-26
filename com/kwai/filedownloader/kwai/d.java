@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import com.kwai.filedownloader.e.f;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +28,12 @@ public class d {
         }
     }
 
-    public static b a(Map<String, List<String>> map, b bVar, List<String> list) {
+    public static b a(Map map, b bVar, List list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, map, bVar, list)) == null) {
             int responseCode = bVar.getResponseCode();
-            String p = bVar.p(Headers.LOCATION);
+            String p = bVar.p("Location");
             ArrayList arrayList = new ArrayList();
             int i = 0;
             while (cb(responseCode)) {
@@ -49,7 +48,7 @@ public class d {
                 arrayList.add(p);
                 bVar.execute();
                 responseCode = bVar.getResponseCode();
-                p = bVar.p(Headers.LOCATION);
+                p = bVar.p("Location");
                 i++;
                 if (i >= 10) {
                     throw new IllegalAccessException(f.h("redirect too many times! %s", arrayList));
@@ -63,17 +62,17 @@ public class d {
         return (b) invokeLLL.objValue;
     }
 
-    public static b b(Map<String, List<String>> map, String str) {
+    public static b b(Map map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
             b et = com.kwai.filedownloader.download.b.Dp().et(str);
-            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-                String key = entry.getKey();
-                List<String> value = entry.getValue();
-                if (value != null) {
-                    for (String str2 : value) {
-                        et.addHeader(key, str2);
+            for (Map.Entry entry : map.entrySet()) {
+                String str2 = (String) entry.getKey();
+                List<String> list = (List) entry.getValue();
+                if (list != null) {
+                    for (String str3 : list) {
+                        et.addHeader(str2, str3);
                     }
                 }
             }

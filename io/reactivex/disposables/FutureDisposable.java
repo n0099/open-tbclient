@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class FutureDisposable extends AtomicReference<Future<?>> implements Disposable {
+public final class FutureDisposable extends AtomicReference implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6545242830671168775L;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowInterrupt;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FutureDisposable(Future<?> future, boolean z) {
+    public FutureDisposable(Future future, boolean z) {
         super(future);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,12 +38,11 @@ public final class FutureDisposable extends AtomicReference<Future<?>> implement
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        Future<?> andSet;
+        Future future;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (andSet = getAndSet(null)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (future = (Future) getAndSet(null)) != null) {
+            future.cancel(this.allowInterrupt);
         }
-        andSet.cancel(this.allowInterrupt);
     }
 
     @Override // io.reactivex.disposables.Disposable
@@ -51,8 +50,11 @@ public final class FutureDisposable extends AtomicReference<Future<?>> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Future<?> future = get();
-            return future == null || future.isDone();
+            Future future = (Future) get();
+            if (future != null && !future.isDone()) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }

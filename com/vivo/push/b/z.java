@@ -12,26 +12,42 @@ import java.util.ArrayList;
 public final class z extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
+    public ArrayList a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z(boolean z, String str, ArrayList<String> arrayList) {
-        super(z ? 2004 : 2005, str);
+    @Override // com.vivo.push.b.c, com.vivo.push.o
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "TagCommand" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public z(boolean z, String str, ArrayList arrayList) {
+        super(r8, str);
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), str, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        if (z) {
+            i = 2004;
+        } else {
+            i = 2005;
         }
         this.a = arrayList;
     }
@@ -52,12 +68,5 @@ public final class z extends c {
             super.d(aVar);
             this.a = aVar.c("tags");
         }
-    }
-
-    @Override // com.vivo.push.b.c, com.vivo.push.o
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "TagCommand" : (String) invokeV.objValue;
     }
 }

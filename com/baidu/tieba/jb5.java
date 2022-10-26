@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jb5 implements ha5<SyncDataEvent> {
+public class jb5 implements la5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,19 +28,16 @@ public class jb5 implements ha5<SyncDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha5
+    @Override // com.baidu.tieba.la5
     /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
+    public boolean onEvent(PushRecevierEvent pushRecevierEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            if (syncDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pushRecevierEvent)) == null) {
+            if (pushRecevierEvent == null) {
                 return false;
             }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            qg5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921711, pushRecevierEvent.generalData));
             return true;
         }
         return invokeL.booleanValue;

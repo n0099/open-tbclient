@@ -32,7 +32,10 @@ public class PushGeneralData implements Serializable {
     public PushForegroundShowData getForegroundShowData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.foregroundShowData : (PushForegroundShowData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.foregroundShowData;
+        }
+        return (PushForegroundShowData) invokeV.objValue;
     }
 
     public void parseData(String str) throws JSONException {

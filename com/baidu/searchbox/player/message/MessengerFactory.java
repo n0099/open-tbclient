@@ -28,6 +28,9 @@ public class MessengerFactory implements IMessengerFactory {
     public IMessenger createMessenger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HandlerMessenger() : (IMessenger) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HandlerMessenger();
+        }
+        return (IMessenger) invokeV.objValue;
     }
 }

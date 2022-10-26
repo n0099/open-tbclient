@@ -5,9 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jj9 implements ij9 {
+public class jj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ue1 a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            se1 b = se1.b();
+            this.a = b;
+            b.a(new qj9());
+        }
+    }
 
     public jj9() {
         Interceptable interceptable = $ic;
@@ -19,7 +29,9 @@ public class jj9 implements ij9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a();
     }
 }

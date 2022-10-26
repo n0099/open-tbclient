@@ -6,7 +6,7 @@ import com.baidu.bdtask.framework.ui.toast.ToastViewData;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.tieba.mt;
+import com.baidu.tieba.nt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,36 +22,20 @@ public final class TaskToastViewData extends ToastViewData {
     public final TaskInfo taskInfo;
     public final TaskStatus taskStatus;
 
-    public /* synthetic */ TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, mt mtVar, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, taskStatus, i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, (i3 & 8192) != 0 ? null : mtVar);
-    }
-
-    public final TaskInfo getTaskInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.taskInfo : (TaskInfo) invokeV.objValue;
-    }
-
-    public final TaskStatus getTaskStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.taskStatus : (TaskStatus) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, mt mtVar) {
-        super(taskInfo.getSingleKey(), i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, mtVar);
+    public TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, nt ntVar) {
+        super(taskInfo.getSingleKey(), i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, ntVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {taskInfo, taskStatus, Integer.valueOf(i), str, str2, str3, Integer.valueOf(i2), str4, str5, str6, str7, str8, str9, mtVar};
+            Object[] objArr = {taskInfo, taskStatus, Integer.valueOf(i), str, str2, str3, Integer.valueOf(i2), str4, str5, str6, str7, str8, str9, ntVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], (String) objArr2[9], (String) objArr2[10], (String) objArr2[11], (mt) objArr2[12]);
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], (String) objArr2[9], (String) objArr2[10], (String) objArr2[11], (nt) objArr2[12]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,5 +43,37 @@ public final class TaskToastViewData extends ToastViewData {
         }
         this.taskInfo = taskInfo;
         this.taskStatus = taskStatus;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskToastViewData(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7, String str8, String str9, nt ntVar, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, taskStatus, i, str, str2, str3, i2, str4, str5, str6, str7, str8, str9, r15);
+        nt ntVar2;
+        if ((i3 & 8192) != 0) {
+            ntVar2 = null;
+        } else {
+            ntVar2 = ntVar;
+        }
+    }
+
+    public final TaskInfo getTaskInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.taskInfo;
+        }
+        return (TaskInfo) invokeV.objValue;
+    }
+
+    public final TaskStatus getTaskStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.taskStatus;
+        }
+        return (TaskStatus) invokeV.objValue;
     }
 }

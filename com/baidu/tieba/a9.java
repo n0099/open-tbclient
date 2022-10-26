@@ -36,68 +36,6 @@ public class a9 {
         this.b = i2;
     }
 
-    public static a9 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String[] split = str.split("_");
-            if (split.length == 2) {
-                return new a9(p20.d(split[0]), p20.d(split[1]), -1L, true);
-            }
-            return null;
-        }
-        return (a9) invokeL.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj instanceof a9) {
-                a9 a9Var = (a9) obj;
-                return this.a == a9Var.a && this.b == a9Var.b;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ExpInfo{expId=" + this.a + ", expComponentKey=" + this.b + ", mNeedUpload=" + this.c + ", mExpiredTime=" + this.d + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
     public a9(int i, int i2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -139,5 +77,82 @@ public class a9 {
         this.b = i2;
         this.d = j;
         this.c = z;
+    }
+
+    public static a9 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                String[] split = str.split("_");
+                if (split.length == 2) {
+                    return new a9(q20.d(split[0]), q20.d(split[1]), -1L, true);
+                }
+                return null;
+            }
+            return null;
+        }
+        return (a9) invokeL.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (!(obj instanceof a9)) {
+                return false;
+            }
+            a9 a9Var = (a9) obj;
+            if (this.a != a9Var.a || this.b != a9Var.b) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ExpInfo{expId=" + this.a + ", expComponentKey=" + this.b + ", mNeedUpload=" + this.c + ", mExpiredTime=" + this.d + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

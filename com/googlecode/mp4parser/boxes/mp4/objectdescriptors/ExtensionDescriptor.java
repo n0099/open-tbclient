@@ -80,29 +80,34 @@ public class ExtensionDescriptor extends BaseDescriptor {
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
-    public void parseDetail(ByteBuffer byteBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) || getSize() <= 0) {
-            return;
-        }
-        byte[] bArr = new byte[this.sizeOfInstance];
-        this.bytes = bArr;
-        byteBuffer.get(bArr);
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public String toString() {
         InterceptResult invokeV;
+        String encodeHex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("ExtensionDescriptor");
             sb.append("{bytes=");
             byte[] bArr = this.bytes;
-            sb.append(bArr == null ? StringUtil.NULL_STRING : Hex.encodeHex(bArr));
+            if (bArr == null) {
+                encodeHex = StringUtil.NULL_STRING;
+            } else {
+                encodeHex = Hex.encodeHex(bArr);
+            }
+            sb.append(encodeHex);
             sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
+    public void parseDetail(ByteBuffer byteBuffer) throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) && getSize() > 0) {
+            byte[] bArr = new byte[this.sizeOfInstance];
+            this.bytes = bArr;
+            byteBuffer.get(bArr);
+        }
     }
 }

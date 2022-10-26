@@ -62,15 +62,25 @@ public class AsyncHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
             Scanner useDelimiter = new Scanner(inputStream, "UTF-8").useDelimiter("\\A");
-            return useDelimiter.hasNext() ? useDelimiter.next() : "";
+            if (useDelimiter.hasNext()) {
+                return useDelimiter.next();
+            }
+            return "";
         }
         return (String) invokeL.objValue;
+    }
+
+    public void setContentType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.contentType = str;
+        }
     }
 
     public void request() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new Runnable() { // from class: com.baidu.tieba.lf1
+            new Thread(new Runnable() { // from class: com.baidu.tieba.mf1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,13 +147,6 @@ public class AsyncHttpRequest {
                 AsyncHttpEvents asyncHttpEvents3 = this.events;
                 asyncHttpEvents3.onHttpError("HTTP " + this.method + " to " + this.url + " error: " + e.getMessage());
             }
-        }
-    }
-
-    public void setContentType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.contentType = str;
         }
     }
 }

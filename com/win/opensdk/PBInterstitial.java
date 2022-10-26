@@ -16,6 +16,19 @@ public class PBInterstitial implements g {
     public R0 b;
     public PBInterstitialListener c;
 
+    public String getPid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pBInterstitialListener) == null) {
+            this.c = pBInterstitialListener;
+        }
+    }
+
     public PBInterstitial(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,19 +65,19 @@ public class PBInterstitial implements g {
         }
     }
 
-    public String getPid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
     public boolean isReady() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             R0 r0 = this.b;
             if (!r0.a()) {
-                if (!(r0.d && !r0.e && r0.b() && !r0.f.isShown() && r0.f.isEffective())) {
+                if (r0.d && !r0.e && r0.b() && !r0.f.isShown() && r0.f.isEffective()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
                     return false;
                 }
             }
@@ -86,13 +99,6 @@ public class PBInterstitial implements g {
             }
             r0.i.g = new P0(r0);
             r0.i.b();
-        }
-    }
-
-    public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pBInterstitialListener) == null) {
-            this.c = pBInterstitialListener;
         }
     }
 

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.write.write.work.selectview.SelectTopicView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,11 +42,11 @@ public class SelectTopicView extends LinearLayout {
     public AutoChangeLineView d;
     public ImageView e;
     public View f;
-    public ArrayList<String> g;
-    public AutoChangeLineView.b<String> h;
+    public ArrayList g;
+    public AutoChangeLineView.b h;
 
     /* loaded from: classes6.dex */
-    public static final class a implements AutoChangeLineView.b<String> {
+    public final class a implements AutoChangeLineView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,13 +73,13 @@ public class SelectTopicView extends LinearLayout {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label, i, data)) == null) {
                 Intrinsics.checkNotNullParameter(label, "label");
                 Intrinsics.checkNotNullParameter(data, "data");
-                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080617, R.color.CAM_X0109, null);
+                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080618, R.color.CAM_X0109, null);
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
                 pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
                 label.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 label.setCompoundDrawables(pureDrawable, null, null, null);
                 String cutData = StringHelper.cutChineseAndEnglishWithEmoji(data, 16, StringHelper.STRING_MORE);
-                hv4 d = hv4.d(label);
+                nv4 d = nv4.d(label);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0204);
                 Intrinsics.checkNotNullExpressionValue(cutData, "cutData");
@@ -107,7 +107,71 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.g = new ArrayList<>();
+        this.g = new ArrayList();
+        this.h = new a();
+        b();
+    }
+
+    public final void a(ArrayList bean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bean) == null) {
+            Intrinsics.checkNotNullParameter(bean, "bean");
+            this.g = bean;
+            if (bean.isEmpty()) {
+                getMCenterContent().setVisibility(8);
+                getMCenterContentTips().setVisibility(0);
+                return;
+            }
+            getMCenterContent().setVisibility(0);
+            getMCenterContentTips().setVisibility(8);
+            getMCenterContent().setLabels(bean, this.h);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SelectTopicView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = new ArrayList();
+        this.h = new a();
+        b();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SelectTopicView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.g = new ArrayList();
         this.h = new a();
         b();
     }
@@ -132,46 +196,30 @@ public class SelectTopicView extends LinearLayout {
         }
     }
 
-    public final void a(ArrayList<String> bean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bean) == null) {
-            Intrinsics.checkNotNullParameter(bean, "bean");
-            this.g = bean;
-            if (bean.isEmpty()) {
-                getMCenterContent().setVisibility(8);
-                getMCenterContentTips().setVisibility(0);
-                return;
-            }
-            getMCenterContent().setVisibility(0);
-            getMCenterContentTips().setVisibility(8);
-            getMCenterContent().setLabels(bean, this.h);
-        }
-    }
-
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f5, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0926a9);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f6, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092691);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
             setMTopicTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912da);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912ce);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905e0);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905e9);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905de);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905e7);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2f);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2b);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ee);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903f7);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.v79
+            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.n89
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +231,7 @@ public class SelectTopicView extends LinearLayout {
                     }
                 }
             });
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z79
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.r89
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -195,7 +243,7 @@ public class SelectTopicView extends LinearLayout {
                     }
                 }
             });
-            a(new ArrayList<>());
+            a(new ArrayList());
         }
     }
 
@@ -205,16 +253,19 @@ public class SelectTopicView extends LinearLayout {
             getMCenterContent().setLabelTextColor(SkinManager.getColor(R.color.CAM_X0105));
             getMCenterContent().setLabels(this.g, this.h);
             SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807ad, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
         }
     }
 
-    public final AutoChangeLineView.b<String> getLabelTextProvider() {
+    public final AutoChangeLineView.b getLabelTextProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (AutoChangeLineView.b) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return (AutoChangeLineView.b) invokeV.objValue;
     }
 
     public final View getMBottomLine() {
@@ -301,7 +352,7 @@ public class SelectTopicView extends LinearLayout {
         return (ImageView) invokeV.objValue;
     }
 
-    public final void setLabelTextProvider(AutoChangeLineView.b<String> bVar) {
+    public final void setLabelTextProvider(AutoChangeLineView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
             Intrinsics.checkNotNullParameter(bVar, "<set-?>");
@@ -355,53 +406,5 @@ public class SelectTopicView extends LinearLayout {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
             this.a = imageView;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectTopicView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = new ArrayList<>();
-        this.h = new a();
-        b();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectTopicView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.g = new ArrayList<>();
-        this.h = new a();
-        b();
     }
 }

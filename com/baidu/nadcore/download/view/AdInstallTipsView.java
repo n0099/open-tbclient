@@ -10,23 +10,22 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m31;
-import com.baidu.tieba.pn0;
+import com.baidu.tieba.n31;
 import com.baidu.tieba.qn0;
-import com.baidu.tieba.ul0;
-import com.baidu.tieba.wl0;
+import com.baidu.tieba.rn0;
+import com.baidu.tieba.vl0;
+import com.baidu.tieba.xl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdInstallTipsView extends LinearLayout implements wl0, View.OnClickListener {
+public class AdInstallTipsView extends LinearLayout implements xl0, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -37,14 +36,28 @@ public class AdInstallTipsView extends LinearLayout implements wl0, View.OnClick
     public FrameLayout f;
     public TextView g;
     public CountDownTextView h;
-    public ul0<AdInstallTipsView> i;
+    public vl0 i;
     public b j;
 
     /* loaded from: classes2.dex */
-    public class a implements qn0 {
+    public interface b {
+        void a(ClogBuilder.Area area, boolean z, long j, long j2);
+
+        void onCancel();
+    }
+
+    /* loaded from: classes2.dex */
+    public class a implements rn0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdInstallTipsView a;
+
+        @Override // com.baidu.tieba.rn0
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
 
         public a(AdInstallTipsView adInstallTipsView) {
             Interceptable interceptable = $ic;
@@ -64,27 +77,13 @@ public class AdInstallTipsView extends LinearLayout implements wl0, View.OnClick
             this.a = adInstallTipsView;
         }
 
-        @Override // com.baidu.tieba.qn0
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.qn0
+        @Override // com.baidu.tieba.rn0
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
                 this.a.a.setImageBitmap(bitmap);
             }
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a(ClogBuilder.Area area, boolean z, long j, long j2);
-
-        void onCancel();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -108,156 +107,33 @@ public class AdInstallTipsView extends LinearLayout implements wl0, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.wl0
+    @Override // com.baidu.tieba.xl0
     public void a(long j) {
+        boolean z;
+        ClogBuilder.Area area;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             e().a(j);
-            ClogBuilder.Area area = this.h.getVisibility() == 0 ? ClogBuilder.Area.INSTALL_NOW_BUTTON : ClogBuilder.Area.INSTALL_LATER_BUTTON;
-            b bVar = this.j;
-            if (bVar != null) {
-                bVar.a(area, false, this.i.e(), this.i.j());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wl0
-    public void b(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            e().b(j, j2);
-        }
-    }
-
-    @Override // com.baidu.tieba.wl0
-    public void c(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            e().c(j, j2);
-            b bVar = this.j;
-            if (bVar != null) {
-                bVar.onCancel();
-            }
-        }
-    }
-
-    public final CountDownTextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.h.getVisibility() == 0) {
-                return this.h;
-            }
-            return this.e;
-        }
-        return (CountDownTextView) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f3, this));
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd5));
-            setOrientation(0);
-            setGravity(16);
-            this.i = new ul0<>(this);
-        }
-    }
-
-    public final void g(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900ba);
-            this.e = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b8);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bd);
-            this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bb);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b9);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900bc);
-            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b7d));
-            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b8d));
-            this.e.setTimerTextFormat(null, "s");
-            this.h.setTimerTextFormat(null, "s");
-            this.e.setTextColor(Color.parseColor("#FF4141"));
-            this.h.setTextColor(Color.parseColor("#FFFFFF"));
-            this.e.setTextSize(12);
-            this.h.setTextSize(12);
-            this.a.setOnClickListener(this);
-            this.b.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.g.setOnClickListener(this);
-            this.h.setOnClickListener(this);
-            this.c.setOnClickListener(this);
-            this.f.setOnClickListener(this);
-            setOnClickListener(this);
-            m31.a(getContext(), this.c, 10.0f);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        ClogBuilder.Area area;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0900b5) {
-                area = ClogBuilder.Area.ICON;
-            } else if (id == R.id.obfuscated_res_0x7f0900b6) {
-                area = ClogBuilder.Area.NAME;
-            } else if (id == R.id.obfuscated_res_0x7f0900ba || id == R.id.obfuscated_res_0x7f0900b8 || id == R.id.obfuscated_res_0x7f0900b9) {
-                area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
-            } else if (id != R.id.obfuscated_res_0x7f0900bd && id != R.id.obfuscated_res_0x7f0900bb && id != R.id.obfuscated_res_0x7f0900bc) {
-                area = ClogBuilder.Area.HOTAREA;
+                z = true;
             } else {
+                z = false;
+            }
+            if (z) {
                 area = ClogBuilder.Area.INSTALL_NOW_BUTTON;
+            } else {
+                area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
             }
             ClogBuilder.Area area2 = area;
             b bVar = this.j;
             if (bVar != null) {
-                bVar.a(area2, true, this.i.e(), this.i.j());
+                bVar.a(area2, false, this.i.e(), this.i.j());
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.wl0
-    public void onProgress(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            e().onProgress(j, j2);
-        }
-    }
-
-    public void setAction(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.j = bVar;
-        }
-    }
-
-    public void update(String str, String str2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            pn0.a().c(str, new a(this));
-            this.b.setText(str2);
-            if (z) {
-                this.d.setVisibility(8);
-                this.e.setVisibility(0);
-                this.g.setVisibility(0);
-                this.h.setVisibility(8);
-            } else {
-                this.d.setVisibility(0);
-                this.e.setVisibility(8);
-                this.g.setVisibility(8);
-                this.h.setVisibility(0);
-            }
-            this.i.h(j);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdInstallTipsView(Context context, @Nullable AttributeSet attributeSet) {
+    public AdInstallTipsView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -278,7 +154,7 @@ public class AdInstallTipsView extends LinearLayout implements wl0, View.OnClick
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdInstallTipsView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AdInstallTipsView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -297,5 +173,142 @@ public class AdInstallTipsView extends LinearLayout implements wl0, View.OnClick
             }
         }
         f();
+    }
+
+    public void setAction(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.j = bVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.xl0
+    public void b(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            e().b(j, j2);
+        }
+    }
+
+    @Override // com.baidu.tieba.xl0
+    public void c(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            e().c(j, j2);
+            b bVar = this.j;
+            if (bVar != null) {
+                bVar.onCancel();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xl0
+    public void onProgress(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            e().onProgress(j, j2);
+        }
+    }
+
+    public final CountDownTextView e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.h.getVisibility() == 0) {
+                return this.h;
+            }
+            return this.e;
+        }
+        return (CountDownTextView) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f3, this));
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de6));
+            setOrientation(0);
+            setGravity(16);
+            this.i = new vl0(this);
+        }
+    }
+
+    public final void g(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900b5);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900ba);
+            this.e = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b8);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bd);
+            this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bb);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b9);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900bc);
+            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b8c));
+            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b9c));
+            this.e.setTimerTextFormat(null, "s");
+            this.h.setTimerTextFormat(null, "s");
+            this.e.setTextColor(Color.parseColor("#FF4141"));
+            this.h.setTextColor(Color.parseColor("#FFFFFF"));
+            this.e.setTextSize(12);
+            this.h.setTextSize(12);
+            this.a.setOnClickListener(this);
+            this.b.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            this.e.setOnClickListener(this);
+            this.g.setOnClickListener(this);
+            this.h.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            this.f.setOnClickListener(this);
+            setOnClickListener(this);
+            n31.a(getContext(), this.c, 10.0f);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        ClogBuilder.Area area;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f0900b5) {
+                area = ClogBuilder.Area.ICON;
+            } else if (id == R.id.obfuscated_res_0x7f0900b6) {
+                area = ClogBuilder.Area.NAME;
+            } else if (id != R.id.obfuscated_res_0x7f0900ba && id != R.id.obfuscated_res_0x7f0900b8 && id != R.id.obfuscated_res_0x7f0900b9) {
+                if (id != R.id.obfuscated_res_0x7f0900bd && id != R.id.obfuscated_res_0x7f0900bb && id != R.id.obfuscated_res_0x7f0900bc) {
+                    area = ClogBuilder.Area.HOTAREA;
+                } else {
+                    area = ClogBuilder.Area.INSTALL_NOW_BUTTON;
+                }
+            } else {
+                area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
+            }
+            ClogBuilder.Area area2 = area;
+            b bVar = this.j;
+            if (bVar != null) {
+                bVar.a(area2, true, this.i.e(), this.i.j());
+            }
+        }
+    }
+
+    public void update(String str, String str2, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            qn0.a().c(str, new a(this));
+            this.b.setText(str2);
+            if (z) {
+                this.d.setVisibility(8);
+                this.e.setVisibility(0);
+                this.g.setVisibility(0);
+                this.h.setVisibility(8);
+            } else {
+                this.d.setVisibility(0);
+                this.e.setVisibility(8);
+                this.g.setVisibility(8);
+                this.h.setVisibility(0);
+            }
+            this.i.h(j);
+        }
     }
 }

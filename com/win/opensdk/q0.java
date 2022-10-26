@@ -36,29 +36,6 @@ public class q0 {
         this.d = 0;
     }
 
-    public q0 a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr != null) {
-                ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                this.b = null;
-                Arrays.fill(this.a, (byte) 0);
-                this.c = new p0();
-                this.d = 0;
-                ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-                this.b = asReadOnlyBuffer;
-                asReadOnlyBuffer.position(0);
-                this.b.order(ByteOrder.LITTLE_ENDIAN);
-            } else {
-                this.b = null;
-                this.c.b = 2;
-            }
-            return this;
-        }
-        return (q0) invokeL.objValue;
-    }
-
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,5 +125,28 @@ public class q0 {
                 }
             } while (b > 0);
         }
+    }
+
+    public q0 a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null) {
+                ByteBuffer wrap = ByteBuffer.wrap(bArr);
+                this.b = null;
+                Arrays.fill(this.a, (byte) 0);
+                this.c = new p0();
+                this.d = 0;
+                ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
+                this.b = asReadOnlyBuffer;
+                asReadOnlyBuffer.position(0);
+                this.b.order(ByteOrder.LITTLE_ENDIAN);
+            } else {
+                this.b = null;
+                this.c.b = 2;
+            }
+            return this;
+        }
+        return (q0) invokeL.objValue;
     }
 }

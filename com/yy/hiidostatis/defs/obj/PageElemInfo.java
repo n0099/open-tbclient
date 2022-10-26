@@ -37,6 +37,85 @@ public class PageElemInfo extends ParamableElem implements Elem {
         }
     }
 
+    public long getDelayedTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dtime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getDestinationPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.npage;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getLingerTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.ltime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.page;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getStime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.stime;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!Util.empty(this.page) && !Util.empty(this.npage)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public PageElemInfo(String str, String str2, long j, long j2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.page = str;
+        this.npage = str2;
+        this.ltime = j;
+        this.dtime = j2;
+        this.stime = j3;
+    }
+
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, objectInputStream) == null) {
@@ -57,83 +136,6 @@ public class PageElemInfo extends ParamableElem implements Elem {
             objectOutputStream.writeLong(this.dtime);
             objectOutputStream.writeLong(this.stime);
         }
-    }
-
-    public PageElemInfo copy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PageElemInfo pageElemInfo = new PageElemInfo();
-            pageElemInfo.dtime = this.dtime;
-            pageElemInfo.ltime = this.ltime;
-            pageElemInfo.stime = this.stime;
-            pageElemInfo.page = this.page;
-            pageElemInfo.npage = this.npage;
-            pageElemInfo.addParams(new ArrayList(getParams()));
-            return pageElemInfo;
-        }
-        return (PageElemInfo) invokeV.objValue;
-    }
-
-    public long getDelayedTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dtime : invokeV.longValue;
-    }
-
-    public String getDestinationPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.npage : (String) invokeV.objValue;
-    }
-
-    public long getLingerTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ltime : invokeV.longValue;
-    }
-
-    public String getPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.page : (String) invokeV.objValue;
-    }
-
-    public long getStime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.stime : invokeV.longValue;
-    }
-
-    @Override // com.yy.hiidostatis.defs.obj.Elem
-    public String getStringRep() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(Util.replaceEncode(this.page, ":"));
-            sb.append(":");
-            sb.append(Util.replaceEncode(this.npage, ":"));
-            sb.append(":");
-            sb.append(this.stime);
-            sb.append(":");
-            sb.append(this.ltime);
-            sb.append(":");
-            sb.append(this.dtime);
-            sb.append(":");
-            String connectedParams = getConnectedParams();
-            if (!Util.empty(connectedParams)) {
-                sb.append(Util.replaceEncode(connectedParams, ":"));
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (Util.empty(this.page) || Util.empty(this.npage)) ? false : true : invokeV.booleanValue;
     }
 
     public void setDestinationPage(String str) {
@@ -171,6 +173,47 @@ public class PageElemInfo extends ParamableElem implements Elem {
         }
     }
 
+    public PageElemInfo copy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PageElemInfo pageElemInfo = new PageElemInfo();
+            pageElemInfo.dtime = this.dtime;
+            pageElemInfo.ltime = this.ltime;
+            pageElemInfo.stime = this.stime;
+            pageElemInfo.page = this.page;
+            pageElemInfo.npage = this.npage;
+            pageElemInfo.addParams(new ArrayList(getParams()));
+            return pageElemInfo;
+        }
+        return (PageElemInfo) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.defs.obj.Elem
+    public String getStringRep() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(Util.replaceEncode(this.page, ":"));
+            sb.append(":");
+            sb.append(Util.replaceEncode(this.npage, ":"));
+            sb.append(":");
+            sb.append(this.stime);
+            sb.append(":");
+            sb.append(this.ltime);
+            sb.append(":");
+            sb.append(this.dtime);
+            sb.append(":");
+            String connectedParams = getConnectedParams();
+            if (!Util.empty(connectedParams)) {
+                sb.append(Util.replaceEncode(connectedParams, ":"));
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,27 +221,5 @@ public class PageElemInfo extends ParamableElem implements Elem {
             return " page=" + this.page + ", dest page=" + this.npage + ", stime=" + this.stime + ", lingertime=" + this.ltime + ", dtime=" + this.dtime;
         }
         return (String) invokeV.objValue;
-    }
-
-    public PageElemInfo(String str, String str2, long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.page = str;
-        this.npage = str2;
-        this.ltime = j;
-        this.dtime = j2;
-        this.stime = j3;
     }
 }

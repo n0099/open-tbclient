@@ -58,23 +58,26 @@ public class b extends Dialog {
             this.a = (ViewSwitcher) findViewById(R.id.view_switcher);
             this.c = (TextView) findViewById(R.id.title_text);
             this.d = (TextView) findViewById(R.id.msg_text);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091a38);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091672);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091a34);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091664);
             this.g = (TextView) findViewById(R.id.neutral_btn);
         }
     }
 
-    public void b(String str) {
+    public void a(int i) {
+        int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c.setText(str);
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.c.setVisibility(i);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i < 1) {
+                min = 1;
+            } else {
+                min = Math.min(i, 2);
+            }
+            if (min == 2) {
+                this.a.setDisplayedChild(0);
+            } else {
+                this.a.setDisplayedChild(1);
+            }
         }
     }
 
@@ -85,11 +88,32 @@ public class b extends Dialog {
         }
     }
 
-    public void c(String str, View.OnClickListener onClickListener) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, onClickListener) == null) {
-            this.e.setText(str);
-            this.e.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.c.setVisibility(i);
+        }
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.d.setText(str);
+        }
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c.setText(str);
+        }
+    }
+
+    public void a(String str, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
+            this.f.setText(str);
+            this.f.setOnClickListener(onClickListener);
         }
     }
 
@@ -101,29 +125,11 @@ public class b extends Dialog {
         }
     }
 
-    public void a(int i) {
+    public void c(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
-                this.a.setDisplayedChild(0);
-            } else {
-                this.a.setDisplayedChild(1);
-            }
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d.setText(str);
-        }
-    }
-
-    public void a(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.f.setText(str);
-            this.f.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, onClickListener) == null) {
+            this.e.setText(str);
+            this.e.setOnClickListener(onClickListener);
         }
     }
 

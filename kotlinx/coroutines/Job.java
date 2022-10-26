@@ -6,7 +6,6 @@ import java.util.concurrent.CancellationException;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.functions.Function1;
@@ -19,17 +18,6 @@ import kotlinx.coroutines.selects.SelectClause0;
 public interface Job extends CoroutineContext.Element {
     public static final Key Key = Key.$$INSTANCE;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lkotlinx/coroutines/Job$Key;", "kotlin/coroutines/CoroutineContext$Key", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes8.dex */
-    public static final class Key implements CoroutineContext.Key<Job> {
-        public static final /* synthetic */ Key $$INSTANCE = new Key();
-
-        static {
-            CoroutineExceptionHandler.Key key = CoroutineExceptionHandler.Key;
-        }
-    }
-
-    @InternalCoroutinesApi
     ChildHandle attachChild(ChildJob childJob);
 
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
@@ -40,17 +28,15 @@ public interface Job extends CoroutineContext.Element {
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
     /* synthetic */ boolean cancel(Throwable th);
 
-    @InternalCoroutinesApi
     CancellationException getCancellationException();
 
-    Sequence<Job> getChildren();
+    Sequence getChildren();
 
     SelectClause0 getOnJoin();
 
-    DisposableHandle invokeOnCompletion(Function1<? super Throwable, Unit> function1);
+    DisposableHandle invokeOnCompletion(Function1 function1);
 
-    @InternalCoroutinesApi
-    DisposableHandle invokeOnCompletion(boolean z, boolean z2, Function1<? super Throwable, Unit> function1);
+    DisposableHandle invokeOnCompletion(boolean z, boolean z2, Function1 function1);
 
     boolean isActive();
 
@@ -58,7 +44,7 @@ public interface Job extends CoroutineContext.Element {
 
     boolean isCompleted();
 
-    Object join(Continuation<? super Unit> continuation);
+    Object join(Continuation continuation);
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Operator '+' on two Job objects is meaningless. Job is a coroutine context element and `+` is a set-sum operator for coroutine contexts. The job to the right of `+` just replaces the job the left of `+`.")
     Job plus(Job job);
@@ -67,7 +53,28 @@ public interface Job extends CoroutineContext.Element {
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class DefaultImpls {
+    public final class DefaultImpls {
+        public static Object fold(Job job, Object obj, Function2 function2) {
+            return CoroutineContext.Element.DefaultImpls.fold(job, obj, function2);
+        }
+
+        public static CoroutineContext.Element get(Job job, CoroutineContext.Key key) {
+            return CoroutineContext.Element.DefaultImpls.get(job, key);
+        }
+
+        public static CoroutineContext minusKey(Job job, CoroutineContext.Key key) {
+            return CoroutineContext.Element.DefaultImpls.minusKey(job, key);
+        }
+
+        public static CoroutineContext plus(Job job, CoroutineContext coroutineContext) {
+            return CoroutineContext.Element.DefaultImpls.plus(job, coroutineContext);
+        }
+
+        @Deprecated(level = DeprecationLevel.ERROR, message = "Operator '+' on two Job objects is meaningless. Job is a coroutine context element and `+` is a set-sum operator for coroutine contexts. The job to the right of `+` just replaces the job the left of `+`.")
+        public static Job plus(Job job, Job job2) {
+            return job2;
+        }
+
         public static /* synthetic */ void cancel$default(Job job, CancellationException cancellationException, int i, Object obj) {
             if (obj == null) {
                 if ((i & 1) != 0) {
@@ -79,12 +86,14 @@ public interface Job extends CoroutineContext.Element {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: cancel");
         }
 
-        public static <R> R fold(Job job, R r, Function2<? super R, ? super CoroutineContext.Element, ? extends R> function2) {
-            return (R) CoroutineContext.Element.DefaultImpls.fold(job, r, function2);
-        }
-
-        public static <E extends CoroutineContext.Element> E get(Job job, CoroutineContext.Key<E> key) {
-            return (E) CoroutineContext.Element.DefaultImpls.get(job, key);
+        public static /* synthetic */ boolean cancel$default(Job job, Throwable th, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 1) != 0) {
+                    th = null;
+                }
+                return job.cancel(th);
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: cancel");
         }
 
         public static /* synthetic */ DisposableHandle invokeOnCompletion$default(Job job, boolean z, boolean z2, Function1 function1, int i, Object obj) {
@@ -99,28 +108,15 @@ public interface Job extends CoroutineContext.Element {
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: invokeOnCompletion");
         }
+    }
 
-        public static CoroutineContext minusKey(Job job, CoroutineContext.Key<?> key) {
-            return CoroutineContext.Element.DefaultImpls.minusKey(job, key);
-        }
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lkotlinx/coroutines/Job$Key;", "kotlin/coroutines/CoroutineContext$Key", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes8.dex */
+    public static final class Key implements CoroutineContext.Key<Job> {
+        public static final /* synthetic */ Key $$INSTANCE = new Key();
 
-        public static CoroutineContext plus(Job job, CoroutineContext coroutineContext) {
-            return CoroutineContext.Element.DefaultImpls.plus(job, coroutineContext);
-        }
-
-        @Deprecated(level = DeprecationLevel.ERROR, message = "Operator '+' on two Job objects is meaningless. Job is a coroutine context element and `+` is a set-sum operator for coroutine contexts. The job to the right of `+` just replaces the job the left of `+`.")
-        public static Job plus(Job job, Job job2) {
-            return job2;
-        }
-
-        public static /* synthetic */ boolean cancel$default(Job job, Throwable th, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 1) != 0) {
-                    th = null;
-                }
-                return job.cancel(th);
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: cancel");
+        static {
+            CoroutineExceptionHandler.Key key = CoroutineExceptionHandler.Key;
         }
     }
 }

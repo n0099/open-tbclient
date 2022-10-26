@@ -1,8 +1,6 @@
 package com.kwad.components.core.c.kwai;
 
-import android.annotation.SuppressLint;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -32,9 +30,8 @@ import com.kwad.sdk.utils.u;
 public final class e extends c implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public b DG;
-    public b.C0572b DH;
+    public b.C0568b DH;
     public Runnable DP;
     public boolean DQ;
     public KsAdWebView bF;
@@ -218,7 +215,6 @@ public final class e extends c implements View.OnClickListener {
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -392,7 +388,7 @@ public final class e extends c implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910a6);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09109a);
         }
     }
 

@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ol8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,47 +50,12 @@ public class AdCloseReasonCheckBox extends CheckBox {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            b(R.string.J_X07, ej.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304, true);
+            b(R.string.J_X07, fj.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304, true);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
-            int f = ej.f(context, R.dimen.obfuscated_res_0x7f0701e8);
+            int f = fj.f(context, R.dimen.obfuscated_res_0x7f0701e8);
             setPadding(f, 0, f, 0);
             setGravity(17);
             setButtonDrawable((Drawable) null);
-        }
-    }
-
-    public void b(int i, int i2, int i3, int i4, boolean z) {
-        int a;
-        int color;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
-            int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            this.b = gradientDrawable;
-            gradientDrawable.setShape(0);
-            float f = parseInt;
-            this.b.setCornerRadius(f);
-            if (z) {
-                a = SkinManager.getColor(i3);
-            } else {
-                a = ol8.a(SkinManager.getColor(i3), 0.5f);
-            }
-            this.b.setStroke(i2, a);
-            GradientDrawable gradientDrawable2 = new GradientDrawable();
-            this.c = gradientDrawable2;
-            gradientDrawable2.setShape(0);
-            this.c.setCornerRadius(f);
-            if (z) {
-                color = ol8.a(SkinManager.getColor(i4), 0.5f);
-            } else {
-                color = SkinManager.getColor(i4);
-            }
-            this.c.setStroke(i2, color);
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            this.d = stateListDrawable;
-            stateListDrawable.addState(new int[]{-16842912}, this.b);
-            this.d.addState(new int[]{16842912}, this.c);
-            setBackgroundDrawable(this.d);
         }
     }
 
@@ -138,5 +103,40 @@ public class AdCloseReasonCheckBox extends CheckBox {
         }
         this.a = context;
         a(context);
+    }
+
+    public void b(int i, int i2, int i3, int i4, boolean z) {
+        int a;
+        int color;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
+            int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            this.b = gradientDrawable;
+            gradientDrawable.setShape(0);
+            float f = parseInt;
+            this.b.setCornerRadius(f);
+            if (z) {
+                a = SkinManager.getColor(i3);
+            } else {
+                a = vl8.a(SkinManager.getColor(i3), 0.5f);
+            }
+            this.b.setStroke(i2, a);
+            GradientDrawable gradientDrawable2 = new GradientDrawable();
+            this.c = gradientDrawable2;
+            gradientDrawable2.setShape(0);
+            this.c.setCornerRadius(f);
+            if (z) {
+                color = vl8.a(SkinManager.getColor(i4), 0.5f);
+            } else {
+                color = SkinManager.getColor(i4);
+            }
+            this.c.setStroke(i2, color);
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            this.d = stateListDrawable;
+            stateListDrawable.addState(new int[]{-16842912}, this.b);
+            this.d.addState(new int[]{16842912}, this.c);
+            setBackgroundDrawable(this.d);
+        }
     }
 }

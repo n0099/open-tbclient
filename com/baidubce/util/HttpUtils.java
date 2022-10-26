@@ -60,11 +60,12 @@ public class HttpUtils {
         int i4 = 0;
         while (true) {
             String[] strArr = PERCENT_ENCODED_STRINGS;
-            if (i4 >= strArr.length) {
+            if (i4 < strArr.length) {
+                strArr[i4] = String.format("%%%02X", Integer.valueOf(i4));
+                i4++;
+            } else {
                 return;
             }
-            strArr[i4] = String.format("%%%02X", Integer.valueOf(i4));
-            i4++;
         }
     }
 
@@ -122,7 +123,7 @@ public class HttpUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String getCanonicalQueryString(Map<String, String> map, boolean z) {
+    public static String getCanonicalQueryString(Map map, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, map, z)) == null) {
@@ -130,17 +131,19 @@ public class HttpUtils {
                 return "";
             }
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                if (!z || !"Authorization".equalsIgnoreCase(entry.getKey())) {
-                    String key = entry.getKey();
-                    CheckUtils.isNotNull(key, "parameter key should not be null");
-                    String value = entry.getValue();
-                    if (value != null) {
-                        arrayList.add(normalize(key) + '=' + normalize(value));
-                    } else if (z) {
-                        arrayList.add(normalize(key) + '=');
+            for (Map.Entry entry : map.entrySet()) {
+                if (!z || !"Authorization".equalsIgnoreCase((String) entry.getKey())) {
+                    String str = (String) entry.getKey();
+                    CheckUtils.isNotNull(str, "parameter key should not be null");
+                    String str2 = (String) entry.getValue();
+                    if (str2 == null) {
+                        if (z) {
+                            arrayList.add(normalize(str) + '=');
+                        } else {
+                            arrayList.add(normalize(str));
+                        }
                     } else {
-                        arrayList.add(normalize(key));
+                        arrayList.add(normalize(str) + '=' + normalize(str2));
                     }
                 }
             }
@@ -159,7 +162,16 @@ public class HttpUtils {
             if (port <= 0) {
                 return false;
             }
-            return lowerCase.equals(Protocol.HTTP.toString()) ? port != Protocol.HTTP.getDefaultPort() : lowerCase.equals(Protocol.HTTPS.toString()) && port != Protocol.HTTPS.getDefaultPort();
+            if (lowerCase.equals(Protocol.HTTP.toString())) {
+                if (port == Protocol.HTTP.getDefaultPort()) {
+                    return false;
+                }
+                return true;
+            } else if (!lowerCase.equals(Protocol.HTTPS.toString()) || port == Protocol.HTTPS.getDefaultPort()) {
+                return false;
+            } else {
+                return true;
+            }
         }
         return invokeL.booleanValue;
     }
@@ -193,30 +205,35 @@ public class HttpUtils {
     public static String normalizePath(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? normalize(str).replace("%2F", "/") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return normalize(str).replace("%2F", "/");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void printRequest(Request request) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, request) == null) && HTTP_VERBOSE) {
-            BLog.info("\n-------------> ");
-            BLog.info(request.method() + " " + request.url() + "");
-            Headers headers = request.headers();
-            for (int i = 0; i < headers.size(); i++) {
-                BLog.info(headers.name(i) + ":" + headers.value(i));
-            }
+        if ((interceptable != null && interceptable.invokeL(65544, null, request) != null) || !HTTP_VERBOSE) {
+            return;
+        }
+        BLog.info("\n-------------> ");
+        BLog.info(request.method() + " " + request.url() + "");
+        Headers headers = request.headers();
+        for (int i = 0; i < headers.size(); i++) {
+            BLog.info(headers.name(i) + ":" + headers.value(i));
         }
     }
 
     public static void printResponse(Response response) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, response) == null) && HTTP_VERBOSE) {
-            BLog.info("\n<------------- ");
-            BLog.info(response.code() + " - " + response.message());
-            Headers headers = response.headers();
-            for (int i = 0; i < headers.size(); i++) {
-                BLog.info(headers.name(i) + ":" + headers.value(i));
-            }
+        if ((interceptable != null && interceptable.invokeL(65545, null, response) != null) || !HTTP_VERBOSE) {
+            return;
+        }
+        BLog.info("\n<------------- ");
+        BLog.info(response.code() + " - " + response.message());
+        Headers headers = response.headers();
+        for (int i = 0; i < headers.size(); i++) {
+            BLog.info(headers.name(i) + ":" + headers.value(i));
         }
     }
 }

@@ -36,6 +36,31 @@ public class LogoActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LogoActivityConfig(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        isFirst = true;
+        setIntentAction(IntentAction.Activity);
+        if (!(context instanceof Activity)) {
+            getIntent().setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LogoActivityConfig(Context context, Intent intent) {
         super(context);
         Interceptable interceptable = $ic;
@@ -61,31 +86,5 @@ public class LogoActivityConfig extends IntentConfig {
         if (intent != null) {
             getIntent().putExtra(EXTRAINTENT, intent);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LogoActivityConfig(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        isFirst = true;
-        setIntentAction(IntentAction.Activity);
-        if (context instanceof Activity) {
-            return;
-        }
-        getIntent().setFlags(LaunchTaskConstants.OTHER_PROCESS);
     }
 }

@@ -54,6 +54,27 @@ public class a {
         }
     }
 
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        }
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            try {
+                return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
+            } catch (Exception e) {
+                String str2 = a;
+                com.sdk.n.a.c(str2, "out data error" + e, b);
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
     public static String a(String str) {
         InterceptResult invokeL;
         String optString;
@@ -85,27 +106,6 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-        }
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
-            } catch (Exception e) {
-                String str2 = a;
-                com.sdk.n.a.c(str2, "out data error" + e, b);
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
     public static void a(Context context) {
         ConnectivityManager.NetworkCallback networkCallback;
         Interceptable interceptable = $ic;
@@ -113,12 +113,11 @@ public class a {
             com.sdk.a.b bVar = new com.sdk.a.b();
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             bVar.g = connectivityManager;
-            if (connectivityManager == null || (networkCallback = com.sdk.a.b.e) == null) {
-                return;
+            if (connectivityManager != null && (networkCallback = com.sdk.a.b.e) != null) {
+                connectivityManager.unregisterNetworkCallback(networkCallback);
+                com.sdk.a.b.d = true;
+                com.sdk.a.b.e = null;
             }
-            connectivityManager.unregisterNetworkCallback(networkCallback);
-            com.sdk.a.b.d = true;
-            com.sdk.a.b.e = null;
         }
     }
 }

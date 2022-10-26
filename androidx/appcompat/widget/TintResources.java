@@ -3,7 +3,6 @@ package androidx.appcompat.widget;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ public class TintResources extends ResourcesWrapper {
     public final WeakReference<Context> mContextRef;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TintResources(@NonNull Context context, @NonNull Resources resources) {
+    public TintResources(Context context, Resources resources) {
         super(resources);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

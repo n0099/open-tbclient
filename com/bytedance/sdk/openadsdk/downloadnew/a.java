@@ -12,17 +12,17 @@ public abstract class a implements TTAdBridge {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
-    public <T> T callMethod(Class<T> cls, int i, Map<String, Object> map) {
+    public Object callMethod(Class cls, int i, Map map) {
         return null;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
-    public <T> T getObj(Class<T> cls) {
+    public Object getObj(Class cls) {
         return null;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
-    public <T> T getObj(Class<T> cls, int i, Map<String, Object> map) {
+    public Object getObj(Class cls, int i, Map map) {
         return null;
     }
 

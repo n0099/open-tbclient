@@ -40,63 +40,98 @@ public class ActivityPrizeData {
     public String getDotTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dotTimestamp : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dotTimestamp;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getEnterForumText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.enterForumText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.enterForumText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getFeedText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.feedText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.feedText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getH5Url() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h5Url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h5Url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getMyTabText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.myTabText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.myTabText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPersonItemText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.personItemText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.personItemText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isPersonItemSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.personItemSwitch : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.personItemSwitch;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSwitchTurn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.switchTurn : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.switchTurn;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isUserSatisfy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userSatisfy : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.userSatisfy;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parse(JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        setSwitchTurn(jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1);
+        boolean z3 = false;
+        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        setSwitchTurn(z);
         this.feedText = jSONObject.optString("feed_text");
         this.enterForumText = jSONObject.optString("enter_forum_text");
         this.myTabText = jSONObject.optString("my_tab_text");
@@ -106,9 +141,17 @@ public class ActivityPrizeData {
             str = optLong + "";
         }
         this.dotTimestamp = str;
-        this.userSatisfy = jSONObject.optInt("user_satisfy") == 1;
+        if (jSONObject.optInt("user_satisfy") == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.userSatisfy = z2;
         this.h5Url = jSONObject.optString("h5_url");
-        this.personItemSwitch = jSONObject.optInt("person_item_switch") == 1;
+        if (jSONObject.optInt("person_item_switch") == 1) {
+            z3 = true;
+        }
+        this.personItemSwitch = z3;
         this.personItemText = jSONObject.optString("person_item_text");
     }
 

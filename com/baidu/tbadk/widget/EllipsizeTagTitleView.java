@@ -10,17 +10,15 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ho5;
-import com.baidu.tieba.xx;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.oo5;
+import com.baidu.tieba.yx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements xx {
+public class EllipsizeTagTitleView extends View implements yx {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
@@ -84,13 +82,13 @@ public class EllipsizeTagTitleView extends View implements xx {
                 return;
             }
         }
-        B = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = ej.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = fj.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -114,46 +112,72 @@ public class EllipsizeTagTitleView extends View implements xx {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public EllipsizeTagTitleView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EllipsizeTagTitleView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = B;
+        this.b = 1;
+        this.c = CAM_X0105;
+        this.d = C;
+        this.e = 2;
+        this.f = D;
+        this.g = G;
+        this.h = H;
+        this.i = E;
+        this.j = F;
+        this.k = CAM_X0301;
+        this.l = "...#";
+        this.m = new float[1];
+        this.t = "";
+        this.x = new Paint.FontMetrics();
+        this.y = new RectF();
+        k(context, attributeSet);
+    }
+
     private float getSingleOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.o - this.v.getFontMetrics().descent : invokeV.floatValue;
-    }
-
-    public final int a(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            TextPaint textPaint = this.v;
-            String str = this.t;
-            return textPaint.breakText(str, i, str.length(), true, f, this.m);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return this.o - this.v.getFontMetrics().descent;
         }
-        return invokeCommon.intValue;
-    }
-
-    public final int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int length = this.t.length();
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                int a = a(i2, i3 == this.e + (-1) ? i - this.r : i);
-                i3++;
-                int i4 = this.e;
-                if (i3 >= i4) {
-                    return i4;
-                }
-                int i5 = a + i2;
-                if (i5 == length) {
-                    return ((int) (((float) i) - this.v.measureText(this.t, i2, length))) < this.r ? i3 + 1 : i3;
-                }
-                i2 = i5;
-            }
-            return i3;
-        }
-        return invokeI.intValue;
+        return invokeV.floatValue;
     }
 
     public final int c() {
@@ -180,9 +204,54 @@ public class EllipsizeTagTitleView extends View implements xx {
         return invokeV.intValue;
     }
 
+    public final int a(int i, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            TextPaint textPaint = this.v;
+            String str = this.t;
+            return textPaint.breakText(str, i, str.length(), true, f, this.m);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final int b(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int length = this.t.length();
+            int i3 = 0;
+            int i4 = 0;
+            while (i3 < length) {
+                if (i4 == this.e - 1) {
+                    i2 = i - this.r;
+                } else {
+                    i2 = i;
+                }
+                int a = a(i3, i2);
+                i4++;
+                int i5 = this.e;
+                if (i4 >= i5) {
+                    return i5;
+                }
+                int i6 = a + i3;
+                if (i6 == length) {
+                    if (((int) (i - this.v.measureText(this.t, i3, length))) < this.r) {
+                        return i4 + 1;
+                    }
+                    return i4;
+                }
+                i3 = i6;
+            }
+            return i4;
+        }
+        return invokeI.intValue;
+    }
+
     public final void e(Canvas canvas, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) || canvas == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) != null) || canvas == null) {
             return;
         }
         String str = this.l;
@@ -191,16 +260,36 @@ public class EllipsizeTagTitleView extends View implements xx {
 
     public final void f(Canvas canvas, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(1048581, this, canvas, f) == null) || canvas == null) {
+        if ((interceptable != null && interceptable.invokeLF(1048581, this, canvas, f) != null) || canvas == null) {
             return;
         }
         this.w.setStyle(Paint.Style.FILL);
         canvas.drawText(this.u, this.y.left + this.h, (f + (this.p / 2.0f)) - this.q, this.w);
     }
 
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
+            this.v.setColor(SkinManager.getColor(this.c));
+            this.w.setColor(SkinManager.getColor(this.k));
+            invalidate();
+        }
+    }
+
+    public void setTitleAndTag(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            this.t = str;
+            this.u = str2;
+            this.r = d();
+            this.s = c();
+        }
+    }
+
     public final void g(Canvas canvas, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) || canvas == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) != null) || canvas == null) {
             return;
         }
         RectF rectF = this.y;
@@ -220,7 +309,7 @@ public class EllipsizeTagTitleView extends View implements xx {
 
     public final void h(Canvas canvas, int i, int i2, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)}) == null) || canvas == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)}) != null) || canvas == null) {
             return;
         }
         canvas.drawText(this.t, i, i2, f, f2, (Paint) this.v);
@@ -307,7 +396,7 @@ public class EllipsizeTagTitleView extends View implements xx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.EllipsizeTagTitleView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.EllipsizeTagTitleView);
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
@@ -338,21 +427,11 @@ public class EllipsizeTagTitleView extends View implements xx {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
-            this.v.setColor(SkinManager.getColor(this.c));
-            this.w.setColor(SkinManager.getColor(this.k));
-            invalidate();
         }
     }
 
@@ -398,74 +477,5 @@ public class EllipsizeTagTitleView extends View implements xx {
             }
             setMeasuredDimension(size, size2);
         }
-    }
-
-    public void setTitleAndTag(@NonNull String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            this.t = str;
-            this.u = str2;
-            this.r = d();
-            this.s = c();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EllipsizeTagTitleView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EllipsizeTagTitleView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = B;
-        this.b = 1;
-        this.c = CAM_X0105;
-        this.d = C;
-        this.e = 2;
-        this.f = D;
-        this.g = G;
-        this.h = H;
-        this.i = E;
-        this.j = F;
-        this.k = CAM_X0301;
-        this.l = "...#";
-        this.m = new float[1];
-        this.t = "";
-        this.x = new Paint.FontMetrics();
-        this.y = new RectF();
-        k(context, attributeSet);
     }
 }

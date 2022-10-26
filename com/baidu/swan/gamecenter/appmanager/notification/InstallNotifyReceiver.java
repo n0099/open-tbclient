@@ -9,10 +9,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.tieba.iv3;
-import com.baidu.tieba.ku3;
-import com.baidu.tieba.mv3;
-import com.baidu.tieba.sm2;
+import com.baidu.tieba.jv3;
+import com.baidu.tieba.lu3;
+import com.baidu.tieba.nv3;
+import com.baidu.tieba.tm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,6 +40,38 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public static Intent createIntent(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
+            intent.setAction(str);
+            return intent;
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    private void startInstall(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
+            String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
+            if (TextUtils.isEmpty(stringExtra)) {
+                return;
+            }
+            lu3.n().q(stringExtra, this.mOpportunity);
+        }
+    }
+
+    private void startInstallPage(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, intent) == null) {
+            if (!TextUtils.isEmpty(this.mOpportunity)) {
+                nv3.b("notifyList", this.mOpportunity);
+            }
+            SchemeRouter.invoke(tm2.c(), getInstallPageUrlScheme());
         }
     }
 
@@ -75,7 +107,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String a = sm2.n().a();
+            String a = tm2.n().a();
             if (!TextUtils.isEmpty(a)) {
                 if (a.equals("baiduboxapp")) {
                     return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
@@ -98,74 +130,45 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         return (String) invokeV.objValue;
     }
 
-    private void startInstall(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
-            String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
-            if (TextUtils.isEmpty(stringExtra)) {
-                return;
-            }
-            ku3.n().q(stringExtra, this.mOpportunity);
-        }
-    }
-
-    private void startInstallPage(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, intent) == null) {
-            if (!TextUtils.isEmpty(this.mOpportunity)) {
-                mv3.b("notifyList", this.mOpportunity);
-            }
-            SchemeRouter.invoke(sm2.c(), getInstallPageUrlScheme());
-        }
-    }
-
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getAction())) {
-            return;
-        }
-        this.mOpportunity = intent.getStringExtra(OPPORTUNITY);
-        String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
-        String action = intent.getAction();
-        char c = 65535;
-        int hashCode = action.hashCode();
-        if (hashCode != -1289150944) {
-            if (hashCode != -344997951) {
-                if (hashCode == 1169620469 && action.equals(NOTIFICATION_INSTALL_ACTION_ONE)) {
-                    c = 0;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && !TextUtils.isEmpty(intent.getAction())) {
+            this.mOpportunity = intent.getStringExtra(OPPORTUNITY);
+            String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
+            String action = intent.getAction();
+            char c = 65535;
+            int hashCode = action.hashCode();
+            if (hashCode != -1289150944) {
+                if (hashCode != -344997951) {
+                    if (hashCode == 1169620469 && action.equals(NOTIFICATION_INSTALL_ACTION_ONE)) {
+                        c = 0;
+                    }
+                } else if (action.equals(NOTIFICATION_INSTALL_ACTION_MULTIPLE)) {
+                    c = 1;
                 }
-            } else if (action.equals(NOTIFICATION_INSTALL_ACTION_MULTIPLE)) {
-                c = 1;
+            } else if (action.equals(NOTIFICATION_INSTALL_ACTION_ALARM)) {
+                c = 2;
             }
-        } else if (action.equals(NOTIFICATION_INSTALL_ACTION_ALARM)) {
-            c = 2;
-        }
-        if (c == 0) {
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        jv3.f().l();
+                        jv3.f().n("todayfirst");
+                        return;
+                    }
+                    return;
+                }
+                if (!TextUtils.isEmpty(this.mOpportunity)) {
+                    nv3.b("notifyClick", this.mOpportunity);
+                }
+                startInstallPage(intent);
+                return;
+            }
             if (!TextUtils.isEmpty(this.mOpportunity) && !TextUtils.isEmpty(stringExtra)) {
-                mv3.c("notifyClick", this.mOpportunity, stringExtra);
+                nv3.c("notifyClick", this.mOpportunity, stringExtra);
             }
             startInstall(intent);
-        } else if (c == 1) {
-            if (!TextUtils.isEmpty(this.mOpportunity)) {
-                mv3.b("notifyClick", this.mOpportunity);
-            }
-            startInstallPage(intent);
-        } else if (c != 2) {
-        } else {
-            iv3.f().l();
-            iv3.f().n("todayfirst");
         }
-    }
-
-    public static Intent createIntent(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
-            intent.setAction(str);
-            return intent;
-        }
-        return (Intent) invokeL.objValue;
     }
 }

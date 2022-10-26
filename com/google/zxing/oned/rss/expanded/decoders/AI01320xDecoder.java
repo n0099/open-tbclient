@@ -12,6 +12,13 @@ public final class AI01320xDecoder extends AI013x0xDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
+    public int checkWeight(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i < 10000 ? i : i - 10000 : invokeI.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AI01320xDecoder(BitArray bitArray) {
         super(bitArray);
@@ -42,12 +49,5 @@ public final class AI01320xDecoder extends AI013x0xDecoder {
                 sb.append("(3203)");
             }
         }
-    }
-
-    @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public int checkWeight(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i < 10000 ? i : i - 10000 : invokeI.intValue;
     }
 }

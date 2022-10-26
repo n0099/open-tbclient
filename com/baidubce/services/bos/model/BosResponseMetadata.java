@@ -31,13 +31,19 @@ public class BosResponseMetadata extends BceResponseMetadata {
     public String getBosDebugId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.debugId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.debugId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Long getNextAppendOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nextAppendOffset : (Long) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.nextAppendOffset;
+        }
+        return (Long) invokeV.objValue;
     }
 
     public void setBosDebugId(String str) {

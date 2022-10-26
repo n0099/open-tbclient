@@ -9,7 +9,7 @@ public final class b {
     public static boolean XL = true;
     public static boolean XM;
     public static final com.kwad.sdk.core.e.kwai.a XN = new com.kwad.sdk.core.e.a();
-    public static final List<com.kwad.sdk.core.e.kwai.a> XO = new CopyOnWriteArrayList();
+    public static final List XO = new CopyOnWriteArrayList();
 
     /* loaded from: classes7.dex */
     public interface a {

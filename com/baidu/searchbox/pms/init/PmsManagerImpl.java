@@ -1,11 +1,7 @@
 package com.baidu.searchbox.pms.init;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DownloadCallback;
@@ -26,8 +22,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes2.dex */
 public class PmsManagerImpl implements IPmsManager {
     public static /* synthetic */ Interceptable $ic;
@@ -56,11 +50,58 @@ public class PmsManagerImpl implements IPmsManager {
     }
 
     @Override // com.baidu.searchbox.pms.init.IPmsManager
-    @NonNull
-    public IDownloadManager download(@NonNull PackageInfo packageInfo, @Nullable DownloadOptions downloadOptions, @Nullable DownloadCallback downloadCallback) {
+    public Map getPackageInfo(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            return PackageManager.getFinishedPackageInfo(str, str2);
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.init.IPmsManager
+    public boolean isInDegradeList(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (!RequestDataUtils.isPackageNameDegrade("aps", str, str2) && !RequestDataUtils.isPackageNameDegrade(ApsCloudControlProcessor.SERVER_DPM, str, str2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.init.IPmsManager
+    public int resetUpdateVersion(String str, List list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, list)) == null) {
+            return PackageManager.resetUpdateVersion(str, list);
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.init.IPmsManager
+    public IDownloadManager download(PackageInfo packageInfo, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, downloadOptions, downloadCallback)) == null) ? download(Collections.singletonList(packageInfo), downloadOptions, downloadCallback) : (IDownloadManager) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, downloadOptions, downloadCallback)) == null) {
+            return download(Collections.singletonList(packageInfo), downloadOptions, downloadCallback);
+        }
+        return (IDownloadManager) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.init.IPmsManager
+    public IDownloadManager download(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, list, downloadOptions, downloadCallback)) == null) {
+            IDownloadManager downloadManager = DownloadManager.getInstance();
+            downloadManager.start(list, downloadOptions, downloadCallback);
+            return downloadManager;
+        }
+        return (IDownloadManager) invokeLLL.objValue;
     }
 
     @Override // com.baidu.searchbox.pms.init.IPmsManager
@@ -78,39 +119,5 @@ public class PmsManagerImpl implements IPmsManager {
                 CommonUtils.postThread(new RequestTask(requestParams), "pms_execute");
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.pms.init.IPmsManager
-    public Map<String, PackageInfo> getPackageInfo(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) ? PackageManager.getFinishedPackageInfo(str, str2) : (Map) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.pms.init.IPmsManager
-    public boolean isInDegradeList(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) ? RequestDataUtils.isPackageNameDegrade("aps", str, str2) || RequestDataUtils.isPackageNameDegrade(ApsCloudControlProcessor.SERVER_DPM, str, str2) : invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.pms.init.IPmsManager
-    public int resetUpdateVersion(String str, List<String> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, list)) == null) ? PackageManager.resetUpdateVersion(str, list) : invokeLL.intValue;
-    }
-
-    @Override // com.baidu.searchbox.pms.init.IPmsManager
-    @NonNull
-    public IDownloadManager download(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @Nullable DownloadCallback downloadCallback) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, list, downloadOptions, downloadCallback)) == null) {
-            IDownloadManager downloadManager = DownloadManager.getInstance();
-            downloadManager.start(list, downloadOptions, downloadCallback);
-            return downloadManager;
-        }
-        return (IDownloadManager) invokeLLL.objValue;
     }
 }

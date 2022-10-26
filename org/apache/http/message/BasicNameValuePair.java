@@ -40,15 +40,6 @@ public class BasicNameValuePair implements NameValuePair {
         return invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // org.apache.http.NameValuePair
     public String getName() {
         InterceptResult invokeV;
@@ -85,5 +76,14 @@ public class BasicNameValuePair implements NameValuePair {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 }

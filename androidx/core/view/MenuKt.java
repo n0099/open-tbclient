@@ -72,69 +72,93 @@ public final class MenuKt {
         return (MenuItem) invokeLI.objValue;
     }
 
-    public static final Sequence<MenuItem> getChildren(final Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, menu)) == null) ? new Sequence<MenuItem>(menu) { // from class: androidx.core.view.MenuKt$children$1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Menu $this_children;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {menu};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.$this_children = menu;
-            }
-
-            @Override // kotlin.sequences.Sequence
-            public Iterator<MenuItem> iterator() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? MenuKt.iterator(this.$this_children) : (Iterator) invokeV.objValue;
-            }
-        } : (Sequence) invokeL.objValue;
-    }
-
-    public static final int getSize(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, menu)) == null) ? menu.size() : invokeL.intValue;
-    }
-
-    public static final boolean isEmpty(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, menu)) == null) ? menu.size() == 0 : invokeL.booleanValue;
-    }
-
-    public static final boolean isNotEmpty(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, menu)) == null) ? menu.size() != 0 : invokeL.booleanValue;
-    }
-
-    public static final Iterator<MenuItem> iterator(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, menu)) == null) ? new MenuKt$iterator$1(menu) : (Iterator) invokeL.objValue;
-    }
-
     public static final void minusAssign(Menu menu, MenuItem menuItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, menu, menuItem) == null) {
             menu.removeItem(menuItem.getItemId());
         }
+    }
+
+    public static final Sequence<MenuItem> getChildren(final Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, menu)) == null) {
+            return new Sequence<MenuItem>(menu) { // from class: androidx.core.view.MenuKt$children$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Menu $this_children;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {menu};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$this_children = menu;
+                }
+
+                @Override // kotlin.sequences.Sequence
+                public Iterator<MenuItem> iterator() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return MenuKt.iterator(this.$this_children);
+                    }
+                    return (Iterator) invokeV.objValue;
+                }
+            };
+        }
+        return (Sequence) invokeL.objValue;
+    }
+
+    public static final int getSize(Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, menu)) == null) {
+            return menu.size();
+        }
+        return invokeL.intValue;
+    }
+
+    public static final boolean isEmpty(Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, menu)) == null) {
+            if (menu.size() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean isNotEmpty(Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, menu)) == null) {
+            if (menu.size() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final Iterator<MenuItem> iterator(Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, menu)) == null) {
+            return new MenuKt$iterator$1(menu);
+        }
+        return (Iterator) invokeL.objValue;
     }
 }

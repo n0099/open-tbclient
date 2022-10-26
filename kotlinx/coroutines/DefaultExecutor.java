@@ -19,6 +19,9 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
     public static volatile Thread _thread;
     public static volatile int debugStatus;
 
+    public static /* synthetic */ void _thread$annotations() {
+    }
+
     static {
         Long l;
         DefaultExecutor defaultExecutor = new DefaultExecutor();
@@ -33,15 +36,13 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         KEEP_ALIVE_NANOS = timeUnit.toNanos(l.longValue());
     }
 
-    public static /* synthetic */ void _thread$annotations() {
-    }
-
     private final synchronized void acknowledgeShutdownIfNeeded() {
-        if (isShutdownRequested()) {
-            debugStatus = 3;
-            resetAll();
-            notifyAll();
+        if (!isShutdownRequested()) {
+            return;
         }
+        debugStatus = 3;
+        resetAll();
+        notifyAll();
     }
 
     private final synchronized Thread createThreadSync() {
@@ -58,7 +59,10 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
 
     private final boolean isShutdownRequested() {
         int i = debugStatus;
-        return i == 2 || i == 3;
+        if (i != 2 && i != 3) {
+            return false;
+        }
+        return true;
     }
 
     private final synchronized boolean notifyStartup() {
@@ -70,16 +74,31 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         return true;
     }
 
+    @Override // kotlinx.coroutines.EventLoopImplPlatform
+    public Thread getThread() {
+        Thread thread = _thread;
+        if (thread == null) {
+            return createThreadSync();
+        }
+        return thread;
+    }
+
     public final synchronized void ensureStarted$kotlinx_coroutines_core() {
-        boolean z = true;
+        boolean z;
+        boolean z2 = true;
         if (DebugKt.getASSERTIONS_ENABLED()) {
-            if (!(_thread == null)) {
+            if (_thread == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
                 throw new AssertionError();
             }
         }
         if (DebugKt.getASSERTIONS_ENABLED()) {
             if (debugStatus != 0 && debugStatus != 3) {
-                z = false;
+                z2 = false;
             }
             throw new AssertionError();
         }
@@ -90,12 +109,6 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         }
     }
 
-    @Override // kotlinx.coroutines.EventLoopImplPlatform
-    public Thread getThread() {
-        Thread thread = _thread;
-        return thread != null ? thread : createThreadSync();
-    }
-
     @Override // kotlinx.coroutines.EventLoopImplBase, kotlinx.coroutines.Delay
     public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
         return scheduleInvokeOnTimeout(j, runnable);
@@ -104,6 +117,7 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
     /* JADX DEBUG: Another duplicated slice has different insns count: {[SPUT, INVOKE, INVOKE]}, finally: {[SPUT, INVOKE, INVOKE, INVOKE, IF, INVOKE, INVOKE, INVOKE, IF, INVOKE, IF] complete} */
     @Override // java.lang.Runnable
     public void run() {
+        long nanoTime;
         boolean isEmpty;
         ThreadLocalEventLoop.INSTANCE.setEventLoop$kotlinx_coroutines_core(this);
         TimeSource timeSource = TimeSourceKt.getTimeSource();
@@ -112,7 +126,7 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
         }
         try {
             if (!notifyStartup()) {
-                if (isEmpty) {
+                if (!isEmpty) {
                     return;
                 }
                 return;
@@ -125,7 +139,11 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
                     int i = (j > Long.MAX_VALUE ? 1 : (j == Long.MAX_VALUE ? 0 : -1));
                     if (i == 0) {
                         TimeSource timeSource2 = TimeSourceKt.getTimeSource();
-                        long nanoTime = timeSource2 != null ? timeSource2.nanoTime() : System.nanoTime();
+                        if (timeSource2 != null) {
+                            nanoTime = timeSource2.nanoTime();
+                        } else {
+                            nanoTime = System.nanoTime();
+                        }
                         if (i == 0) {
                             j = KEEP_ALIVE_NANOS + nanoTime;
                         }
@@ -137,10 +155,10 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
                             if (timeSource3 != null) {
                                 timeSource3.unregisterTimeLoopThread();
                             }
-                            if (isEmpty()) {
+                            if (!isEmpty()) {
+                                getThread();
                                 return;
                             }
-                            getThread();
                             return;
                         }
                         processNextEvent = RangesKt___RangesKt.coerceAtMost(processNextEvent, j2);
@@ -156,10 +174,10 @@ public final class DefaultExecutor extends EventLoopImplBase implements Runnable
                         if (timeSource4 != null) {
                             timeSource4.unregisterTimeLoopThread();
                         }
-                        if (isEmpty()) {
+                        if (!isEmpty()) {
+                            getThread();
                             return;
                         }
-                        getThread();
                         return;
                     }
                     TimeSource timeSource5 = TimeSourceKt.getTimeSource();

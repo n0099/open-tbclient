@@ -1,7 +1,5 @@
 package com.baidu.tbadk.module.hottopic;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
@@ -21,7 +19,7 @@ public final class HotTopicStat {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class Locate {
+    public final class Locate {
         public static final /* synthetic */ Locate[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final Locate HOT_RANK;
@@ -58,7 +56,7 @@ public final class HotTopicStat {
             $VALUES = new Locate[]{UNDEFINED, HOT_RANK, TOPIC_RANK, VIDEO_MIDDLE, THREAD_CARD, locate};
         }
 
-        public Locate(String str, @NonNull int i, int i2, String str2) {
+        public Locate(String str, int i, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,11 +81,13 @@ public final class HotTopicStat {
         public static Locate valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Locate) Enum.valueOf(Locate.class, str) : (Locate) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (Locate) Enum.valueOf(Locate.class, str);
+            }
+            return (Locate) invokeL.objValue;
         }
 
-        @NonNull
-        public static Locate valueOfIgnoreCase(@NonNull String str) {
+        public static Locate valueOfIgnoreCase(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -103,17 +103,23 @@ public final class HotTopicStat {
         public static Locate[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (Locate[]) $VALUES.clone() : (Locate[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (Locate[]) $VALUES.clone();
+            }
+            return (Locate[]) invokeV.objValue;
         }
 
         public int getStatValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.statValue : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.statValue;
+            }
+            return invokeV.intValue;
         }
     }
 
-    public static void a(@NonNull String str, @NonNull String str2, @NonNull Locate locate, @Nullable String str3, @Nullable String str4) {
+    public static void a(String str, String str2, Locate locate, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65536, null, str, str2, locate, str3, str4) == null) {
             StatisticItem addParam = new StatisticItem(CommonStatisticKey.KEY_CLICK_VIDEO_TOPIC).addParam("uid", TbadkCoreApplication.getCurrentAccountId()).addParam("topic_id", str).addParam("topic_id", str2).addParam("obj_locate", locate.statValue);

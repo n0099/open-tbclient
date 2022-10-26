@@ -13,10 +13,20 @@ import io.reactivex.internal.fuseable.ScalarCallable;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableEmpty extends Flowable<Object> implements ScalarCallable<Object> {
+public final class FlowableEmpty extends Flowable implements ScalarCallable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Flowable<Object> INSTANCE;
+    public static final Flowable INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
+    public Object call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,18 +58,8 @@ public final class FlowableEmpty extends Flowable<Object> implements ScalarCalla
         }
     }
 
-    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
-    public Object call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
-    }
-
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super Object> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
             EmptySubscription.complete(subscriber);

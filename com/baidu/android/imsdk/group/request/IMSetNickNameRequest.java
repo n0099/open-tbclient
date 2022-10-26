@@ -35,6 +35,38 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public String mNickName;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-819694079, "Lcom/baidu/android/imsdk/group/request/IMSetNickNameRequest;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-819694079, "Lcom/baidu/android/imsdk/group/request/IMSetNickNameRequest;");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
@@ -99,21 +131,6 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-819694079, "Lcom/baidu/android/imsdk/group/request/IMSetNickNameRequest;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-819694079, "Lcom/baidu/android/imsdk/group/request/IMSetNickNameRequest;");
-        }
-    }
-
     public IMSetNickNameRequest(Context context, String str, long j, boolean z, String str2, String str3, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,6 +155,19 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         this.mNickName = str3;
     }
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mIsFansGroup) {
+                return getFansGroupRequestParam().getBytes();
+            }
+            return getNormalGroupRequestParam().getBytes();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     private String getFansGroupRequestParam() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,13 +188,6 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.group.request.FansGroupBaseHttpRequest, com.baidu.android.imsdk.group.request.GroupBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
@@ -181,24 +204,11 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mIsFansGroup) {
-                return getFansGroupRequestParam().getBytes();
-            }
-            return getNormalGroupRequestParam().getBytes();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
@@ -215,15 +225,5 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
             LogUtils.d(str2, "json is groupid " + this.mGroupId + str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

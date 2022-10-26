@@ -31,6 +31,9 @@ public class DynamicDefaultDiskStorageFactory implements DiskStorageFactory {
     public DiskStorage get(DiskCacheConfig diskCacheConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskCacheConfig)) == null) ? new DynamicDefaultDiskStorage(diskCacheConfig.getVersion(), diskCacheConfig.getBaseDirectoryPathSupplier(), diskCacheConfig.getBaseDirectoryName(), diskCacheConfig.getCacheErrorLogger()) : (DiskStorage) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskCacheConfig)) == null) {
+            return new DynamicDefaultDiskStorage(diskCacheConfig.getVersion(), diskCacheConfig.getBaseDirectoryPathSupplier(), diskCacheConfig.getBaseDirectoryName(), diskCacheConfig.getCacheErrorLogger());
+        }
+        return (DiskStorage) invokeL.objValue;
     }
 }

@@ -1,86 +1,195 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
+import com.baidu.tieba.d86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class io6 extends l95 {
+public class io6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public boolean b;
+    public e86 c;
+    public boolean d;
+    public VelocityTracker e;
+    public d86.b f;
 
-    public io6(int i, String str) {
+    /* loaded from: classes4.dex */
+    public class a implements d86.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ io6 a;
+
+        @Override // com.baidu.tieba.d86.b
+        public void c(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.d86.b
+        public void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            }
+        }
+
+        public a(io6 io6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {io6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = io6Var;
+        }
+
+        public final boolean e(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+                if (Math.abs(f) >= 10.0f) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeF.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.d86.b
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2)) {
+                this.a.e(true);
+            }
+        }
+
+        @Override // com.baidu.tieba.d86.b
+        public void b(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && e(i2)) {
+                this.a.e(false);
+            }
+        }
+    }
+
+    public io6(Context context, BdUniqueId bdUniqueId, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        m95 m95Var = this.a;
-        m95Var.e = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) m95Var.a;
-        specialFrsWebFragment.j2(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
+        this.b = false;
+        this.f = new a(this);
+        this.a = bdUniqueId;
+        this.d = z;
+        if (z) {
+            e86 e86Var = new e86(context);
+            this.c = e86Var;
+            e86Var.d(this.f);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
+        if (r5 != 3) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(View view2, MotionEvent motionEvent) {
+        e86 e86Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
+            if (this.e == null) {
+                this.e = VelocityTracker.obtain();
+            }
+            this.e.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 1) {
+                if (action == 2) {
+                    this.e.computeCurrentVelocity(1000);
+                    if (Math.abs(this.e.getXVelocity()) > Math.abs(this.e.getYVelocity())) {
+                        this.d = false;
+                    } else {
+                        this.d = true;
+                    }
+                }
+                if (!this.d && (e86Var = this.c) != null) {
+                    e86Var.c(motionEvent);
+                    return;
+                }
+            }
+            c();
+            if (!this.d) {
             }
         }
-        specialFrsWebFragment.z1(str);
     }
 
-    @Override // com.baidu.tieba.l95
-    public m95 a() {
-        InterceptResult invokeV;
+    public final void c() {
+        VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            m95 m95Var = new m95();
-            m95Var.a = new SpecialFrsWebFragment();
-            m95Var.e = 101;
-            m95Var.i = m95.k;
-            return m95Var;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.e) != null) {
+            velocityTracker.clear();
+            this.e.recycle();
+            this.e = null;
         }
-        return (m95) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l95
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public final void d(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ee, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                CustomMessage customMessage = new CustomMessage(2001617);
+                customMessage.setTag(this.a);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
+                customResponsedMessage.setOrginalMessage(customMessage);
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                return;
+            }
+            CustomMessage customMessage2 = new CustomMessage(2001618);
+            customMessage2.setTag(this.a);
+            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
+            customResponsedMessage2.setOrginalMessage(customMessage2);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l95
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+            if (this.d) {
+                d(!z, true);
+            }
         }
-        return invokeV.booleanValue;
     }
 }

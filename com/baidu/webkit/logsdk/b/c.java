@@ -14,8 +14,8 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public HashSet<String> b;
-    public HashSet<String> c;
+    public HashSet b;
+    public HashSet c;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class c {
         }
         this.a = "full";
         this.a = str;
-        this.b = new HashSet<>();
-        this.c = new HashSet<>();
+        this.b = new HashSet();
+        this.c = new HashSet();
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {

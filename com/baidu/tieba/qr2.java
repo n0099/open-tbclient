@@ -1,39 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qr2<T> implements rr2<T> {
+public final class qr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class<? extends T> a;
 
-    public qr2(@NonNull Class<? extends T> cls) {
+    public static int d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return 0;
         }
-        this.a = cls;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.rr2
-    public T make() throws IllegalAccessException, InstantiationException {
-        InterceptResult invokeV;
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.newInstance() : (T) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
+            int d = d(context);
+            if (i >= 0 && i < 255) {
+                d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
+            }
+            drawable.setColorFilter(d, mode);
+        }
+    }
+
+    public static void b(Context context, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, drawable) == null) {
+            c(context, drawable, 255);
+        }
+    }
+
+    public static void c(Context context, Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        }
     }
 }

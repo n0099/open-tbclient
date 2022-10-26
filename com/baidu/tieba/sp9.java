@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsSplashScreenAd;
 /* loaded from: classes5.dex */
-public class sp9 extends wp9 {
+public class sp9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsSplashScreenAd c;
-    public final /* synthetic */ rp9 d;
+    public final ModuleConfigKs a;
 
-    public sp9(rp9 rp9Var, KsSplashScreenAd ksSplashScreenAd) {
+    public sp9(ModuleConfigKs moduleConfigKs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rp9Var, ksSplashScreenAd};
+            Object[] objArr = {moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,54 +32,98 @@ public class sp9 extends wp9 {
                 return;
             }
         }
-        this.d = rp9Var;
-        this.c = ksSplashScreenAd;
+        this.a = moduleConfigKs;
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdClicked() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
+        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
+     */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            char c = 0;
+            try {
+                Long.parseLong(pid.pid);
+                String str = pid.type;
+                str.hashCode();
+                switch (str.hashCode()) {
+                    case -1377301807:
+                        break;
+                    case -1291455752:
+                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1187931233:
+                        if (str.equals(FunAdType.KS_NATIVE)) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1106926588:
+                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1031178769:
+                        if (str.equals(FunAdType.KS_SPLASH)) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1860126748:
+                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 2017609999:
+                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        return new cq9(pid);
+                    case 1:
+                        return new yp9(pid, this.a);
+                    case 2:
+                        return new eq9(pid);
+                    case 3:
+                        return new hq9(pid, this.a);
+                    case 4:
+                        return new jq9(pid);
+                    case 5:
+                        return new aq9(pid, this.a);
+                    case 6:
+                        return new vp9(pid);
+                    default:
+                        return null;
+                }
+            } catch (NumberFormatException unused) {
+                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
+                return null;
+            }
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowError(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
-            this.d.onAdError(this.c, i, str);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

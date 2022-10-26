@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class a<T> implements Runnable {
+public abstract class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mPriority;
@@ -27,7 +27,7 @@ public abstract class a<T> implements Runnable {
         this.mPriority = 5;
     }
 
-    public abstract T ay();
+    public abstract Object ay();
 
     public abstract String getTag();
 

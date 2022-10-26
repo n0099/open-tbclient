@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 public final class g {
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public String a;
         public String b;
         public Drawable c;
@@ -55,12 +55,8 @@ public final class g {
             return this.e;
         }
 
-        public String toString() {
-            return "{\n  pkg name: " + c() + "\n  app icon: " + a() + "\n  app name: " + d() + "\n  app path: " + e() + "\n  app v name: " + g() + "\n  app v code: " + f() + "\n  is system: " + b() + "}";
-        }
-
-        public void a(Drawable drawable) {
-            this.c = drawable;
+        public void a(int i) {
+            this.f = i;
         }
 
         public void b(String str) {
@@ -75,16 +71,20 @@ public final class g {
             this.e = str;
         }
 
-        public void a(boolean z) {
-            this.g = z;
+        public void a(Drawable drawable) {
+            this.c = drawable;
         }
 
         public void a(String str) {
             this.a = str;
         }
 
-        public void a(int i) {
-            this.f = i;
+        public void a(boolean z) {
+            this.g = z;
+        }
+
+        public String toString() {
+            return "{\n  pkg name: " + c() + "\n  app icon: " + a() + "\n  app name: " + d() + "\n  app path: " + e() + "\n  app v name: " + g() + "\n  app v code: " + f() + "\n  is system: " + b() + "}";
         }
     }
 
@@ -131,6 +131,7 @@ public final class g {
     }
 
     public static a a(PackageManager packageManager, PackageInfo packageInfo) {
+        boolean z;
         Drawable drawable = null;
         if (packageInfo == null) {
             return null;
@@ -142,6 +143,15 @@ public final class g {
             drawable = applicationInfo.loadIcon(packageManager);
         } catch (Exception unused) {
         }
-        return new a(str, charSequence, drawable, applicationInfo.sourceDir, packageInfo.versionName, packageInfo.versionCode, (applicationInfo.flags & 1) != 0);
+        Drawable drawable2 = drawable;
+        String str2 = applicationInfo.sourceDir;
+        String str3 = packageInfo.versionName;
+        int i = packageInfo.versionCode;
+        if ((applicationInfo.flags & 1) != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        return new a(str, charSequence, drawable2, str2, str3, i, z);
     }
 }

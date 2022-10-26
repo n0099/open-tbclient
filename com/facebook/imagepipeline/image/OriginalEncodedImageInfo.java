@@ -41,6 +41,62 @@ public class OriginalEncodedImageInfo {
         EMPTY = new OriginalEncodedImageInfo();
     }
 
+    @Nullable
+    public Object getCallerContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCallerContext;
+        }
+        return invokeV.objValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mHeight;
+        }
+        return invokeV.intValue;
+    }
+
+    public EncodedImageOrigin getOrigin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mOrigin;
+        }
+        return (EncodedImageOrigin) invokeV.objValue;
+    }
+
+    public int getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSize;
+        }
+        return invokeV.intValue;
+    }
+
+    @Nullable
+    public Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mUri;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mWidth;
+        }
+        return invokeV.intValue;
+    }
+
     public OriginalEncodedImageInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,44 +116,6 @@ public class OriginalEncodedImageInfo {
         this.mWidth = -1;
         this.mHeight = -1;
         this.mSize = -1;
-    }
-
-    @Nullable
-    public Object getCallerContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCallerContext : invokeV.objValue;
-    }
-
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHeight : invokeV.intValue;
-    }
-
-    public EncodedImageOrigin getOrigin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mOrigin : (EncodedImageOrigin) invokeV.objValue;
-    }
-
-    public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSize : invokeV.intValue;
-    }
-
-    @Nullable
-    public Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUri : (Uri) invokeV.objValue;
-    }
-
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mWidth : invokeV.intValue;
     }
 
     public OriginalEncodedImageInfo(Uri uri, EncodedImageOrigin encodedImageOrigin, @Nullable Object obj, int i, int i2, int i3) {

@@ -42,16 +42,14 @@ public final class CompletableFromAction extends Completable {
             completableObserver.onSubscribe(empty);
             try {
                 this.run.run();
-                if (empty.isDisposed()) {
-                    return;
+                if (!empty.isDisposed()) {
+                    completableObserver.onComplete();
                 }
-                completableObserver.onComplete();
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                if (empty.isDisposed()) {
-                    return;
+                if (!empty.isDisposed()) {
+                    completableObserver.onError(th);
                 }
-                completableObserver.onError(th);
             }
         }
     }

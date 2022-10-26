@@ -32,12 +32,12 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public transient /* synthetic */ FieldHolder $fh;
     public String bubbleActMsg;
     public int cmd;
-    public List<ProductInfo> confList;
+    public List confList;
     public String currencyName;
     public int currencyType;
     public int defaultCid;
     public String expend;
-    public List<PayWayInfo> payWayInfoList;
+    public List payWayInfoList;
     public PaysSettingInfo paysSettingInfo;
     public int result;
     public String seq;
@@ -64,7 +64,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         parserResponse(str);
     }
 
-    private List<CurrencyInfo> optOtherCurrencies(JSONArray jSONArray) {
+    private List optOtherCurrencies(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
@@ -88,7 +88,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    private List<PropsInfo> optProps(JSONArray jSONArray) {
+    private List optProps(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONArray)) == null) {
@@ -112,7 +112,57 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List<GiftBagItemInfo> optGiftBagItemInfoList(JSONArray jSONArray) {
+    public List optGiftBagTagInfoList(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
+                    giftBagTagInfo.tag = optJSONObject.optString("tag", "");
+                    giftBagTagInfo.tagPos = optJSONObject.optInt("tagPos");
+                    arrayList.add(giftBagTagInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List optPayWayInfoList(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    PayWayInfo payWayInfo = new PayWayInfo();
+                    payWayInfo.id = optJSONObject.optString("id");
+                    payWayInfo.name = optJSONObject.optString("name");
+                    payWayInfo.payChannel = optJSONObject.optString("payChannel");
+                    payWayInfo.payMethod = optJSONObject.optString("payMethod");
+                    payWayInfo.tips = optJSONObject.optString("tips");
+                    payWayInfo.payMethod = optJSONObject.optString("payMethod");
+                    arrayList.add(payWayInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List optGiftBagItemInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
@@ -140,30 +190,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List<GiftBagTagInfo> optGiftBagTagInfoList(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray == null) {
-                return arrayList;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-                    giftBagTagInfo.tag = optJSONObject.optString("tag", "");
-                    giftBagTagInfo.tagPos = optJSONObject.optInt("tagPos");
-                    arrayList.add(giftBagTagInfo);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<GiftBagsInfo> optGiftBagsInfoList(JSONArray jSONArray) {
+    public List optGiftBagsInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
@@ -192,34 +219,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List<PayWayInfo> optPayWayInfoList(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray == null) {
-                return arrayList;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    PayWayInfo payWayInfo = new PayWayInfo();
-                    payWayInfo.id = optJSONObject.optString("id");
-                    payWayInfo.name = optJSONObject.optString("name");
-                    payWayInfo.payChannel = optJSONObject.optString("payChannel");
-                    payWayInfo.payMethod = optJSONObject.optString("payMethod");
-                    payWayInfo.tips = optJSONObject.optString("tips");
-                    payWayInfo.payMethod = optJSONObject.optString("payMethod");
-                    arrayList.add(payWayInfo);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<ProductInfo> optProductList(JSONArray jSONArray) {
+    public List optProductList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONArray)) == null) {

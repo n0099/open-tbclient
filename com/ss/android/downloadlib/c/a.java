@@ -16,6 +16,25 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class a implements m {
+    private void a(Context context, final DownloadInfo downloadInfo) {
+        String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();
+        Cursor query = context.getContentResolver().query(MediaStore.Files.getContentUri(LaunchStatsUtils.EXTERNAL_LAUNCH), new String[]{"_id"}, "_data=? ", new String[]{str}, null);
+        if (query != null && query.moveToFirst()) {
+            downloadInfo.safePutToDBJsonData("file_content_uri", ContentUris.withAppendedId(MediaStore.Files.getContentUri(LaunchStatsUtils.EXTERNAL_LAUNCH), query.getInt(query.getColumnIndex("_id"))).toString());
+        } else {
+            MediaScannerConnection.scanFile(context, new String[]{str}, new String[]{"application/vnd.android.package-archive"}, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.ss.android.downloadlib.c.a.1
+                @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+                public void onScanCompleted(String str2, Uri uri) {
+                    if (uri != null) {
+                        downloadInfo.safePutToDBJsonData("file_content_uri", uri.toString());
+                        com.ss.android.socialbase.downloader.downloader.c.x().a(downloadInfo);
+                    }
+                }
+            });
+        }
+        com.ss.android.socialbase.downloader.i.f.a(query);
+    }
+
     private boolean c(DownloadInfo downloadInfo) {
         String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();
         File file = new File(str);
@@ -40,10 +59,9 @@ public class a implements m {
 
     @Override // com.ss.android.socialbase.downloader.depend.m
     public void a(DownloadInfo downloadInfo) throws BaseException {
-        if (downloadInfo == null || !c(downloadInfo)) {
-            return;
+        if (downloadInfo != null && c(downloadInfo)) {
+            a(j.getContext(), downloadInfo);
         }
-        a(j.getContext(), downloadInfo);
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.m
@@ -52,24 +70,5 @@ public class a implements m {
             return com.ss.android.downloadlib.g.e.b(com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()));
         }
         return false;
-    }
-
-    private void a(Context context, final DownloadInfo downloadInfo) {
-        String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();
-        Cursor query = context.getContentResolver().query(MediaStore.Files.getContentUri(LaunchStatsUtils.EXTERNAL_LAUNCH), new String[]{"_id"}, "_data=? ", new String[]{str}, null);
-        if (query != null && query.moveToFirst()) {
-            downloadInfo.safePutToDBJsonData("file_content_uri", ContentUris.withAppendedId(MediaStore.Files.getContentUri(LaunchStatsUtils.EXTERNAL_LAUNCH), query.getInt(query.getColumnIndex("_id"))).toString());
-        } else {
-            MediaScannerConnection.scanFile(context, new String[]{str}, new String[]{"application/vnd.android.package-archive"}, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.ss.android.downloadlib.c.a.1
-                @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-                public void onScanCompleted(String str2, Uri uri) {
-                    if (uri != null) {
-                        downloadInfo.safePutToDBJsonData("file_content_uri", uri.toString());
-                        com.ss.android.socialbase.downloader.downloader.c.x().a(downloadInfo);
-                    }
-                }
-            });
-        }
-        com.ss.android.socialbase.downloader.i.f.a(query);
     }
 }

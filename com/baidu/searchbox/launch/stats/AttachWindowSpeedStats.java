@@ -141,17 +141,148 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void addStatsTimeStamp(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.addStatsTimeStamp(i, j);
+            if (i != 5020) {
+                if (i != 5021) {
+                    if (i != 5026) {
+                        if (i != 5027) {
+                            if (i != 5046) {
+                                if (i != 5047) {
+                                    switch (i) {
+                                        case 4000:
+                                            this.mHomeTabOnAttachStartStamp = j;
+                                            return;
+                                        case 4001:
+                                            this.mHomeTabOnAttachEndStamp = j;
+                                            return;
+                                        case 4002:
+                                            this.mHomeTabOnCreateStartStamp = j;
+                                            return;
+                                        case 4003:
+                                            this.mHomeTabOnCreateEndStamp = j;
+                                            return;
+                                        case 4004:
+                                            this.mHomeFragmentOnCreateViewStartStamp = j;
+                                            return;
+                                        case 4005:
+                                            this.mHomeFragmentOnCreateViewEndStamp = j;
+                                            return;
+                                        case 4006:
+                                            this.mScrollFragmentTabHostInitStartStamp = j;
+                                            return;
+                                        case 4007:
+                                            this.mScrollFragmentTabHostInitEndStamp = j;
+                                            return;
+                                        case 4008:
+                                            this.mHomeTabBarViewInitStartStamp = j;
+                                            return;
+                                        case 4009:
+                                            this.mHomeTabBarViewInitEndStamp = j;
+                                            return;
+                                        case 4010:
+                                            this.mCustomViewPagerStartStamp = j;
+                                            return;
+                                        case 4011:
+                                            this.mCustomViewPagerEndStamp = j;
+                                            return;
+                                        case 4012:
+                                            this.mNestedScrollHeaderStartStamp = j;
+                                            return;
+                                        case 4013:
+                                            this.mNestedScrollHeaderEndStamp = j;
+                                            return;
+                                        case 4014:
+                                            this.mHomeFragmentOnActivityCreatedStartStamp = j;
+                                            return;
+                                        case 4015:
+                                            this.mHomeFragmentInitModelStartStamp = j;
+                                            return;
+                                        case 4016:
+                                            this.mHomeFragmentInitModelEndStamp = j;
+                                            return;
+                                        case 4017:
+                                            this.mHomeFragmentInitTableStartStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_INIT_TABLE_END_STAMP_KEY /* 4018 */:
+                                            this.mHomeFragmentInitTableEndStamp = j;
+                                            return;
+                                        case 4019:
+                                            this.mHomeFragmentInitViewPaperStartStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_INIT_VIEW_PAPER_END_STAMP_KEY /* 4020 */:
+                                            this.mHomeFragmentInitViewPaperEndStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY /* 4021 */:
+                                            this.mHomeFragmentStartFirstLoadStartStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY /* 4022 */:
+                                            this.mHomeFragmentStartFirstLoadPaperEndStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY /* 4023 */:
+                                            this.mHomeFragmentCheckConcernRedTipStartStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY /* 4024 */:
+                                            this.mHomeFragmentCheckConcernRedTipEndStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY /* 4025 */:
+                                            this.mHomeFragmentShowConcernTabTipsStartStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY /* 4026 */:
+                                            this.mHomeFragmentShowConcernTabTipsEndStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY /* 4027 */:
+                                            this.mHomeFragmentOnActivityCreatedEndStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY /* 4028 */:
+                                            this.mHomeFragmentOnResumeStartStamp = j;
+                                            return;
+                                        case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY /* 4029 */:
+                                            this.mHomeFragmentOnResumeEndStamp = j;
+                                            return;
+                                        default:
+                                            return;
+                                    }
+                                }
+                                this.mPersonalizeTabFragmentEndTimeStamp = j;
+                                return;
+                            }
+                            this.mPersonalizeTabFragmentStartTimeStamp = j;
+                            return;
+                        }
+                        this.mHotTopicTabFragmentEndTimeStamp = j;
+                        return;
+                    }
+                    this.mHotTopicTabFragmentStartTimeStamp = j;
+                    return;
+                }
+                this.mConcernTabFragmentEndTimeStamp = j;
+                return;
+            }
+            this.mConcernTabFragmentStartTimeStamp = j;
+        }
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsEndTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Math.max(this.mHomeFragmentOnResumeEndStamp, this.mHomeFragmentOnActivityCreatedStartStamp) : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Math.max(this.mHomeFragmentOnResumeEndStamp, this.mHomeFragmentOnActivityCreatedStartStamp);
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsStartTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHomeTabOnAttachStartStamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mHomeTabOnAttachStartStamp;
+        }
+        return invokeV.longValue;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -507,122 +638,6 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             this.mHotTopicTabFragmentEndTimeStamp = -1L;
             this.mPersonalizeTabFragmentStartTimeStamp = -1L;
             this.mPersonalizeTabFragmentEndTimeStamp = -1L;
-        }
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.addStatsTimeStamp(i, j);
-            if (i == 5020) {
-                this.mConcernTabFragmentStartTimeStamp = j;
-            } else if (i == 5021) {
-                this.mConcernTabFragmentEndTimeStamp = j;
-            } else if (i == 5026) {
-                this.mHotTopicTabFragmentStartTimeStamp = j;
-            } else if (i == 5027) {
-                this.mHotTopicTabFragmentEndTimeStamp = j;
-            } else if (i == 5046) {
-                this.mPersonalizeTabFragmentStartTimeStamp = j;
-            } else if (i != 5047) {
-                switch (i) {
-                    case 4000:
-                        this.mHomeTabOnAttachStartStamp = j;
-                        return;
-                    case 4001:
-                        this.mHomeTabOnAttachEndStamp = j;
-                        return;
-                    case 4002:
-                        this.mHomeTabOnCreateStartStamp = j;
-                        return;
-                    case 4003:
-                        this.mHomeTabOnCreateEndStamp = j;
-                        return;
-                    case 4004:
-                        this.mHomeFragmentOnCreateViewStartStamp = j;
-                        return;
-                    case 4005:
-                        this.mHomeFragmentOnCreateViewEndStamp = j;
-                        return;
-                    case 4006:
-                        this.mScrollFragmentTabHostInitStartStamp = j;
-                        return;
-                    case 4007:
-                        this.mScrollFragmentTabHostInitEndStamp = j;
-                        return;
-                    case 4008:
-                        this.mHomeTabBarViewInitStartStamp = j;
-                        return;
-                    case 4009:
-                        this.mHomeTabBarViewInitEndStamp = j;
-                        return;
-                    case 4010:
-                        this.mCustomViewPagerStartStamp = j;
-                        return;
-                    case 4011:
-                        this.mCustomViewPagerEndStamp = j;
-                        return;
-                    case 4012:
-                        this.mNestedScrollHeaderStartStamp = j;
-                        return;
-                    case 4013:
-                        this.mNestedScrollHeaderEndStamp = j;
-                        return;
-                    case 4014:
-                        this.mHomeFragmentOnActivityCreatedStartStamp = j;
-                        return;
-                    case 4015:
-                        this.mHomeFragmentInitModelStartStamp = j;
-                        return;
-                    case 4016:
-                        this.mHomeFragmentInitModelEndStamp = j;
-                        return;
-                    case 4017:
-                        this.mHomeFragmentInitTableStartStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_INIT_TABLE_END_STAMP_KEY /* 4018 */:
-                        this.mHomeFragmentInitTableEndStamp = j;
-                        return;
-                    case 4019:
-                        this.mHomeFragmentInitViewPaperStartStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_INIT_VIEW_PAPER_END_STAMP_KEY /* 4020 */:
-                        this.mHomeFragmentInitViewPaperEndStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY /* 4021 */:
-                        this.mHomeFragmentStartFirstLoadStartStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY /* 4022 */:
-                        this.mHomeFragmentStartFirstLoadPaperEndStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY /* 4023 */:
-                        this.mHomeFragmentCheckConcernRedTipStartStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY /* 4024 */:
-                        this.mHomeFragmentCheckConcernRedTipEndStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY /* 4025 */:
-                        this.mHomeFragmentShowConcernTabTipsStartStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY /* 4026 */:
-                        this.mHomeFragmentShowConcernTabTipsEndStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY /* 4027 */:
-                        this.mHomeFragmentOnActivityCreatedEndStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY /* 4028 */:
-                        this.mHomeFragmentOnResumeStartStamp = j;
-                        return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY /* 4029 */:
-                        this.mHomeFragmentOnResumeEndStamp = j;
-                        return;
-                    default:
-                        return;
-                }
-            } else {
-                this.mPersonalizeTabFragmentEndTimeStamp = j;
-            }
         }
     }
 }

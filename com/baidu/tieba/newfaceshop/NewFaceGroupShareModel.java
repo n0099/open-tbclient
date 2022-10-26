@@ -17,6 +17,16 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public NewFaceGroupShareModel() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,16 +50,6 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SHARE_FACE_GROUP);
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

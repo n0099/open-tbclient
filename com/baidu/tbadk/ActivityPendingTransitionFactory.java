@@ -60,51 +60,69 @@ public class ActivityPendingTransitionFactory {
         }
     }
 
-    public static void closeAnimation(TbPageContext<?> tbPageContext, int i) {
+    public static void closeAnimation(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65538, null, tbPageContext, i) == null) || tbPageContext == null) {
+        if ((interceptable != null && interceptable.invokeLI(65538, null, tbPageContext, i) != null) || tbPageContext == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();
         if (IS_CUSTOM_FROM_THIRD_PARTY) {
             i = 3;
         }
-        if (i == 0) {
-            pageActivity.overridePendingTransition(0, 0);
-        } else if (i == 1) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_RIGHT);
+                            return;
+                        } else {
+                            pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_BOTTOM);
+                            return;
+                        }
+                    }
+                    pageActivity.overridePendingTransition(RES_CUSTOM_FADE_IN, RES_CUSTOM_OUT_TO_RIGHT);
+                    return;
+                }
+                pageActivity.overridePendingTransition(RES_NFADE_IN, RES_BIG_IMAGE_OUT_TO_RIGHT);
+                return;
+            }
             pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_RIGHT);
-        } else if (i == 2) {
-            pageActivity.overridePendingTransition(RES_NFADE_IN, RES_BIG_IMAGE_OUT_TO_RIGHT);
-        } else if (i == 3) {
-            pageActivity.overridePendingTransition(RES_CUSTOM_FADE_IN, RES_CUSTOM_OUT_TO_RIGHT);
-        } else if (i != 4) {
-            pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_RIGHT);
-        } else {
-            pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_BOTTOM);
+            return;
         }
+        pageActivity.overridePendingTransition(0, 0);
     }
 
-    public static void enterExitAnimation(TbPageContext<?> tbPageContext, int i) {
+    public static void enterExitAnimation(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, tbPageContext, i) == null) || tbPageContext == null) {
+        if ((interceptable != null && interceptable.invokeLI(65539, null, tbPageContext, i) != null) || tbPageContext == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();
         if (IS_CUSTOM_FROM_THIRD_PARTY) {
             i = 3;
         }
-        if (i == 0) {
-            pageActivity.overridePendingTransition(0, 0);
-        } else if (i == 1) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_RIGHT, RES_FADE_OUT);
+                            return;
+                        } else {
+                            pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_BOTTOM, RES_FADE_OUT);
+                            return;
+                        }
+                    }
+                    pageActivity.overridePendingTransition(RES_CUSTOM_IN_FROM_RIGHT, RES_CUSTOM_FADE_OUT);
+                    return;
+                }
+                pageActivity.overridePendingTransition(RES_BIG_IMAGE_IN_FROM_RIGHT, RES_FADE_OUT);
+                return;
+            }
             pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_RIGHT, RES_FADE_OUT);
-        } else if (i == 2) {
-            pageActivity.overridePendingTransition(RES_BIG_IMAGE_IN_FROM_RIGHT, RES_FADE_OUT);
-        } else if (i == 3) {
-            pageActivity.overridePendingTransition(RES_CUSTOM_IN_FROM_RIGHT, RES_CUSTOM_FADE_OUT);
-        } else if (i != 4) {
-            pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_RIGHT, RES_FADE_OUT);
-        } else {
-            pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_BOTTOM, RES_FADE_OUT);
+            return;
         }
+        pageActivity.overridePendingTransition(0, 0);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ws7;
+import com.baidu.tieba.ht7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
 public class InterestedForumHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ws7 pageData;
+    public ht7 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumHttpResMsg() {
@@ -36,10 +36,13 @@ public class InterestedForumHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public ws7 getPageData() {
+    public ht7 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (ws7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.pageData;
+        }
+        return (ht7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +50,7 @@ public class InterestedForumHttpResMsg extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetVerticalForumListResIdl getVerticalForumListResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getVerticalForumListResIdl = (GetVerticalForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVerticalForumListResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getVerticalForumListResIdl = (GetVerticalForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVerticalForumListResIdl.class)) == null) {
             return;
         }
         Error error = getVerticalForumListResIdl.error;
@@ -58,8 +61,8 @@ public class InterestedForumHttpResMsg extends HttpResponsedMessage {
             }
             setErrorString(getVerticalForumListResIdl.error.usermsg);
         }
-        ws7 ws7Var = new ws7();
-        this.pageData = ws7Var;
-        ws7Var.a(getVerticalForumListResIdl.data);
+        ht7 ht7Var = new ht7();
+        this.pageData = ht7Var;
+        ht7Var.a(getVerticalForumListResIdl.data);
     }
 }

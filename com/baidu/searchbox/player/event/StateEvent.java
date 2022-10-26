@@ -34,10 +34,31 @@ public class StateEvent extends VideoEvent {
         setType(5);
     }
 
+    public PlayerStatus getOldStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getStatus(1);
+        }
+        return (PlayerStatus) invokeV.objValue;
+    }
+
+    public PlayerStatus getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getStatus(2);
+        }
+        return (PlayerStatus) invokeV.objValue;
+    }
+
     private PlayerStatus getStatus(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? (PlayerStatus) getExtra(i) : (PlayerStatus) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            return (PlayerStatus) getExtra(i);
+        }
+        return (PlayerStatus) invokeI.objValue;
     }
 
     public static VideoEvent obtainEvent(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
@@ -52,23 +73,11 @@ public class StateEvent extends VideoEvent {
         return (VideoEvent) invokeLL.objValue;
     }
 
-    public PlayerStatus getOldStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getStatus(1) : (PlayerStatus) invokeV.objValue;
-    }
-
     public void setStatus(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, playerStatus, playerStatus2) == null) {
             putExtra(1, playerStatus);
             putExtra(2, playerStatus2);
         }
-    }
-
-    public PlayerStatus getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getStatus(2) : (PlayerStatus) invokeV.objValue;
     }
 }

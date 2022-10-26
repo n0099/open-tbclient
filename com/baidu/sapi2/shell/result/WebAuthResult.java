@@ -25,9 +25,21 @@ public class WebAuthResult extends SapiResult {
     public Activity activity;
     public boolean isAccountFreeze;
 
+    public void finishActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void finishActivity(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LoginType {
+    public final class LoginType {
         public static /* synthetic */ Interceptable $ic;
         public static final LoginType FORCE_BIND;
         public static final LoginType GUIDE_BIND;
@@ -88,19 +100,28 @@ public class WebAuthResult extends SapiResult {
         public static LoginType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LoginType) Enum.valueOf(LoginType.class, str) : (LoginType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LoginType) Enum.valueOf(LoginType.class, str);
+            }
+            return (LoginType) invokeL.objValue;
         }
 
         public static LoginType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) b.clone() : (LoginType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LoginType[]) b.clone();
+            }
+            return (LoginType[]) invokeV.objValue;
         }
 
         public String getLoginType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -122,21 +143,12 @@ public class WebAuthResult extends SapiResult {
         this.msgMap.put(12, ERROR_MSG_NEED_BACK_PHONE_NO_REG);
     }
 
-    public void finishActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void finishActivity(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
-
     public String getLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? SapiUtils.getLoginType() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return SapiUtils.getLoginType();
+        }
+        return (String) invokeV.objValue;
     }
 }

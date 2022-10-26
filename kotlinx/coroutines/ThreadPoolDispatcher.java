@@ -49,10 +49,11 @@ public final class ThreadPoolDispatcher extends ExecutorCoroutineDispatcherBase 
     @Override // kotlinx.coroutines.ExecutorCoroutineDispatcherBase, kotlinx.coroutines.ExecutorCoroutineDispatcher, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         Executor executor = getExecutor();
-        if (executor == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.util.concurrent.ExecutorService");
+        if (executor != null) {
+            ((ExecutorService) executor).shutdown();
+            return;
         }
-        ((ExecutorService) executor).shutdown();
+        throw new TypeCastException("null cannot be cast to non-null type java.util.concurrent.ExecutorService");
     }
 
     @Override // kotlinx.coroutines.ExecutorCoroutineDispatcher

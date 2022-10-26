@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ef3;
-import com.baidu.tieba.io2;
+import com.baidu.tieba.ff3;
+import com.baidu.tieba.jo2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,22 +16,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ForbiddenInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ForbiddenInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int ENABLE_SLIDING_DEFAULT_FLAG = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public ef3 errCode;
+    public ff3 errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
     public String launchPath;
     public String launchSource;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<ForbiddenInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +65,10 @@ public class ForbiddenInfo implements Parcelable {
         public ForbiddenInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ForbiddenInfo(parcel, null) : (ForbiddenInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ForbiddenInfo(parcel, null);
+            }
+            return (ForbiddenInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +77,10 @@ public class ForbiddenInfo implements Parcelable {
         public ForbiddenInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ForbiddenInfo[i] : (ForbiddenInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ForbiddenInfo[i];
+            }
+            return (ForbiddenInfo[]) invokeI.objValue;
         }
     }
 
@@ -84,62 +100,6 @@ public class ForbiddenInfo implements Parcelable {
         CREATOR = new a();
     }
 
-    public /* synthetic */ ForbiddenInfo(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    private void convertToForbiddenModel(io2 io2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, io2Var) == null) || io2Var == null) {
-            return;
-        }
-        this.appId = io2Var.H();
-        this.appKey = io2Var.I();
-        this.appTitle = io2Var.K();
-        this.launchPath = io2Var.e0();
-        this.launchSource = io2Var.T();
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean enableSliding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.enableSlidingFlag == 0 : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + enableSliding() + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.appId);
-            parcel.writeString(this.appKey);
-            parcel.writeString(this.forbiddenReason);
-            parcel.writeString(this.forbiddenDetail);
-            parcel.writeString(this.appTitle);
-            parcel.writeString(this.launchPath);
-            parcel.writeString(this.launchSource);
-            parcel.writeInt(this.enableSlidingFlag);
-        }
-    }
-
     public ForbiddenInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,25 +116,16 @@ public class ForbiddenInfo implements Parcelable {
         this.enableSlidingFlag = 0;
     }
 
-    public ForbiddenInfo(io2 io2Var, String str, String str2) {
+    public boolean enableSliding() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {io2Var, str, str2};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.enableSlidingFlag == 0) {
+                return true;
             }
+            return false;
         }
-        this.enableSlidingFlag = 0;
-        convertToForbiddenModel(io2Var);
-        this.forbiddenReason = str;
-        this.forbiddenDetail = str2;
+        return invokeV.booleanValue;
     }
 
     public ForbiddenInfo(Parcel parcel) {
@@ -201,5 +152,66 @@ public class ForbiddenInfo implements Parcelable {
         this.launchPath = parcel.readString();
         this.launchSource = parcel.readString();
         this.enableSlidingFlag = parcel.readInt();
+    }
+
+    public /* synthetic */ ForbiddenInfo(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    public ForbiddenInfo(jo2 jo2Var, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jo2Var, str, str2};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.enableSlidingFlag = 0;
+        convertToForbiddenModel(jo2Var);
+        this.forbiddenReason = str;
+        this.forbiddenDetail = str2;
+    }
+
+    private void convertToForbiddenModel(jo2 jo2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, this, jo2Var) != null) || jo2Var == null) {
+            return;
+        }
+        this.appId = jo2Var.H();
+        this.appKey = jo2Var.I();
+        this.appTitle = jo2Var.K();
+        this.launchPath = jo2Var.e0();
+        this.launchSource = jo2Var.T();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + enableSliding() + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.appId);
+            parcel.writeString(this.appKey);
+            parcel.writeString(this.forbiddenReason);
+            parcel.writeString(this.forbiddenDetail);
+            parcel.writeString(this.appTitle);
+            parcel.writeString(this.launchPath);
+            parcel.writeString(this.launchSource);
+            parcel.writeInt(this.enableSlidingFlag);
+        }
     }
 }

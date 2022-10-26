@@ -16,10 +16,6 @@ public final class EmptySet implements Set, Serializable, KMappedMarker {
     public static final EmptySet INSTANCE = new EmptySet();
     public static final long serialVersionUID = 3406603774387020532L;
 
-    private final Object readResolve() {
-        return INSTANCE;
-    }
-
     @Override // java.util.Set, java.util.Collection
     public /* synthetic */ boolean add(Object obj) {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
@@ -39,28 +35,9 @@ public final class EmptySet implements Set, Serializable, KMappedMarker {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
-    @Override // java.util.Set, java.util.Collection
-    public final /* bridge */ boolean contains(Object obj) {
-        if (obj instanceof Void) {
-            return contains((Void) obj);
-        }
-        return false;
-    }
-
     public boolean contains(Void element) {
         Intrinsics.checkNotNullParameter(element, "element");
         return false;
-    }
-
-    @Override // java.util.Set, java.util.Collection
-    public boolean containsAll(Collection elements) {
-        Intrinsics.checkNotNullParameter(elements, "elements");
-        return elements.isEmpty();
-    }
-
-    @Override // java.util.Set, java.util.Collection
-    public boolean equals(Object obj) {
-        return (obj instanceof Set) && ((Set) obj).isEmpty();
     }
 
     public int getSize() {
@@ -75,11 +52,6 @@ public final class EmptySet implements Set, Serializable, KMappedMarker {
     @Override // java.util.Set, java.util.Collection
     public boolean isEmpty() {
         return true;
-    }
-
-    @Override // java.util.Set, java.util.Collection, java.lang.Iterable
-    public Iterator iterator() {
-        return EmptyIterator.INSTANCE;
     }
 
     @Override // java.util.Set, java.util.Collection
@@ -98,11 +70,6 @@ public final class EmptySet implements Set, Serializable, KMappedMarker {
     }
 
     @Override // java.util.Set, java.util.Collection
-    public final /* bridge */ int size() {
-        return getSize();
-    }
-
-    @Override // java.util.Set, java.util.Collection
     public Object[] toArray() {
         return CollectionToArray.toArray(this);
     }
@@ -114,5 +81,41 @@ public final class EmptySet implements Set, Serializable, KMappedMarker {
 
     public String toString() {
         return "[]";
+    }
+
+    private final Object readResolve() {
+        return INSTANCE;
+    }
+
+    @Override // java.util.Set, java.util.Collection, java.lang.Iterable
+    public Iterator iterator() {
+        return EmptyIterator.INSTANCE;
+    }
+
+    @Override // java.util.Set, java.util.Collection
+    public final /* bridge */ int size() {
+        return getSize();
+    }
+
+    @Override // java.util.Set, java.util.Collection
+    public final /* bridge */ boolean contains(Object obj) {
+        if (obj instanceof Void) {
+            return contains((Void) obj);
+        }
+        return false;
+    }
+
+    @Override // java.util.Set, java.util.Collection
+    public boolean containsAll(Collection elements) {
+        Intrinsics.checkNotNullParameter(elements, "elements");
+        return elements.isEmpty();
+    }
+
+    @Override // java.util.Set, java.util.Collection
+    public boolean equals(Object obj) {
+        if ((obj instanceof Set) && ((Set) obj).isEmpty()) {
+            return true;
+        }
+        return false;
     }
 }

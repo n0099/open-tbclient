@@ -7,11 +7,6 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
@@ -22,7 +17,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ComplexColorCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -32,7 +26,7 @@ public final class ComplexColorCompat {
     public final ColorStateList mColorStateList;
     public final Shader mShader;
 
-    public ComplexColorCompat(Shader shader, ColorStateList colorStateList, @ColorInt int i) {
+    public ComplexColorCompat(Shader shader, ColorStateList colorStateList, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,8 +46,7 @@ public final class ComplexColorCompat {
         this.mColor = i;
     }
 
-    @NonNull
-    public static ComplexColorCompat createFromXml(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
+    public static ComplexColorCompat createFromXml(Resources resources, int i, Resources.Theme theme) throws IOException, XmlPullParserException {
         InterceptResult invokeLIL;
         int next;
         Interceptable interceptable = $ic;
@@ -90,52 +83,13 @@ public final class ComplexColorCompat {
         return (ComplexColorCompat) invokeLIL.objValue;
     }
 
-    public static ComplexColorCompat from(@NonNull Shader shader) {
-        InterceptResult invokeL;
+    public static ComplexColorCompat from(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shader)) == null) ? new ComplexColorCompat(shader, null, 0) : (ComplexColorCompat) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ComplexColorCompat inflate(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, resources, i, theme)) == null) {
-            try {
-                return createFromXml(resources, i, theme);
-            } catch (Exception e) {
-                Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e);
-                return null;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return new ComplexColorCompat(null, null, i);
         }
-        return (ComplexColorCompat) invokeLIL.objValue;
-    }
-
-    @ColorInt
-    public int getColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mColor : invokeV.intValue;
-    }
-
-    @Nullable
-    public Shader getShader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mShader : (Shader) invokeV.objValue;
-    }
-
-    public boolean isGradient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mShader != null : invokeV.booleanValue;
-    }
-
-    public boolean isStateful() {
-        InterceptResult invokeV;
-        ColorStateList colorStateList;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mShader == null && (colorStateList = this.mColorStateList) != null && colorStateList.isStateful() : invokeV.booleanValue;
+        return (ComplexColorCompat) invokeI.objValue;
     }
 
     public boolean onStateChanged(int[] iArr) {
@@ -155,28 +109,97 @@ public final class ComplexColorCompat {
         return invokeL.booleanValue;
     }
 
-    public void setColor(@ColorInt int i) {
+    public void setColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.mColor = i;
         }
     }
 
+    public static ComplexColorCompat from(ColorStateList colorStateList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, colorStateList)) == null) {
+            return new ComplexColorCompat(null, colorStateList, colorStateList.getDefaultColor());
+        }
+        return (ComplexColorCompat) invokeL.objValue;
+    }
+
+    public static ComplexColorCompat from(Shader shader) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shader)) == null) {
+            return new ComplexColorCompat(shader, null, 0);
+        }
+        return (ComplexColorCompat) invokeL.objValue;
+    }
+
+    public static ComplexColorCompat inflate(Resources resources, int i, Resources.Theme theme) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, resources, i, theme)) == null) {
+            try {
+                return createFromXml(resources, i, theme);
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e);
+                return null;
+            }
+        }
+        return (ComplexColorCompat) invokeLIL.objValue;
+    }
+
+    public int getColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mColor;
+        }
+        return invokeV.intValue;
+    }
+
+    public Shader getShader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mShader;
+        }
+        return (Shader) invokeV.objValue;
+    }
+
+    public boolean isGradient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mShader != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        ColorStateList colorStateList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mShader == null && (colorStateList = this.mColorStateList) != null && colorStateList.isStateful()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean willDraw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? isGradient() || this.mColor != 0 : invokeV.booleanValue;
-    }
-
-    public static ComplexColorCompat from(@NonNull ColorStateList colorStateList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, colorStateList)) == null) ? new ComplexColorCompat(null, colorStateList, colorStateList.getDefaultColor()) : (ComplexColorCompat) invokeL.objValue;
-    }
-
-    public static ComplexColorCompat from(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? new ComplexColorCompat(null, null, i) : (ComplexColorCompat) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!isGradient() && this.mColor == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,131 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class dt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
 
-    public dt6() {
+    public static void a(pn5 pn5Var, ForumData forumData, List list, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{pn5Var, forumData, list, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+        xn5 xn5Var = new xn5(pn5Var, 5);
+        xn5Var.G(list);
+        if (forumData != null) {
+            xn5Var.w(forumData.getId());
+            xn5Var.v(forumData.getFirst_class());
+            xn5Var.E(forumData.getSecond_class());
+        }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            xn5Var.B(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+        }
+        xn5Var.A(z);
+        xn5Var.C(i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, xn5Var));
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void b(pn5 pn5Var, FrsViewData frsViewData, List list, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true : invokeLL.booleanValue;
+        if ((interceptable == null || interceptable.invokeLLLI(65537, null, pn5Var, frsViewData, list, i) == null) && frsViewData != null) {
+            a(pn5Var, frsViewData.getForum(), list, false, i);
+        }
     }
 
-    public void b(String str, String str2) {
+    public static void c(in8 in8Var, List list, List list2) {
+        int[] iArr;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2;
-            Set<String> keySet = this.a.getAll().keySet();
-            SharedPreferences.Editor edit = this.a.edit();
-            for (String str4 : keySet) {
-                if (str4.startsWith(str3)) {
-                    edit.remove(str4);
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, in8Var, list, list2) == null) && in8Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
+            for (int i : in8.f) {
+                eo eoVar = (eo) ListUtils.getItem(list, i);
+                if (eoVar != null && (indexOf = list2.indexOf(eoVar)) >= 0) {
+                    in8Var.a(i, indexOf);
                 }
             }
-            edit.apply();
-        }
-    }
-
-    public long c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getLong(str + '_' + str2 + "_visit_time", 0L);
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getBoolean(str + '_' + str2 + "_show", false);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getInt(str + '_' + str2 + "_show_cnt", 0);
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    public long f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getLong(str + '_' + str2 + "_show_time", 0L);
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public void g(String str, String str2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2 + "_show_time";
-            String str4 = str + '_' + str2 + "_show_cnt";
-            int i = this.a.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.a.edit();
-            if (i > 3) {
-                edit.putInt(str4, i + 1);
-            }
-            edit.putLong(str3, j);
-            if (z) {
-                edit.putBoolean(str + '_' + str2 + "_show", true);
-            }
-            edit.apply();
-        }
-    }
-
-    public void h(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2 + "_visit_time";
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putLong(str3, j);
-            edit.apply();
         }
     }
 }

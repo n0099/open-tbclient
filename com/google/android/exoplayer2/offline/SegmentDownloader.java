@@ -1,8 +1,6 @@
 package com.google.android.exoplayer2.offline;
 
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +19,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class SegmentDownloader<M, K> implements Downloader {
+public abstract class SegmentDownloader implements Downloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE_BYTES = 131072;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,15 +27,21 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
     public final CacheDataSource dataSource;
     public volatile long downloadedBytes;
     public volatile int downloadedSegments;
-    public K[] keys;
-    public M manifest;
+    public Object[] keys;
+    public Object manifest;
     public final Uri manifestUri;
     public final CacheDataSource offlineDataSource;
     public final PriorityTaskManager priorityTaskManager;
     public volatile int totalSegments;
 
+    public abstract List getAllSegments(DataSource dataSource, Object obj, boolean z) throws InterruptedException, IOException;
+
+    public abstract Object getManifest(DataSource dataSource, Uri uri) throws IOException;
+
+    public abstract List getSegments(DataSource dataSource, Object obj, Object[] objArr, boolean z) throws InterruptedException, IOException;
+
     /* loaded from: classes7.dex */
-    public static class Segment implements Comparable<Segment> {
+    public class Segment implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSpec dataSpec;
@@ -64,7 +68,7 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(@NonNull Segment segment) {
+        public int compareTo(Segment segment) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, segment)) == null) {
@@ -72,7 +76,10 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
                 if (i == 0) {
                     return 0;
                 }
-                return i < 0 ? -1 : 1;
+                if (i < 0) {
+                    return -1;
+                }
+                return 1;
             }
             return invokeL.intValue;
         }
@@ -104,10 +111,16 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
     private DataSource getDataSource(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) ? z ? this.offlineDataSource : this.dataSource : (DataSource) invokeZ.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) {
+            if (z) {
+                return this.offlineDataSource;
+            }
+            return this.dataSource;
+        }
+        return (DataSource) invokeZ.objValue;
     }
 
-    private M getManifestIfNeeded(boolean z) throws IOException {
+    private Object getManifestIfNeeded(boolean z) throws IOException {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, this, z)) == null) {
@@ -116,12 +129,40 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
             }
             return this.manifest;
         }
-        return (M) invokeZ.objValue;
+        return invokeZ.objValue;
     }
 
-    private synchronized List<Segment> initStatus(boolean z) throws IOException, InterruptedException {
+    private void notifyListener(Downloader.ProgressListener progressListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, progressListener) == null) && progressListener != null) {
+            progressListener.onDownloadProgress(this, getDownloadPercentage(), this.downloadedBytes);
+        }
+    }
+
+    private void remove(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, uri) == null) {
+            CacheUtil.remove(this.cache, CacheUtil.generateKey(uri));
+        }
+    }
+
+    public final void selectRepresentations(Object[] objArr) {
+        Object[] objArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, objArr) == null) {
+            if (objArr != null) {
+                objArr2 = (Object[]) objArr.clone();
+            } else {
+                objArr2 = null;
+            }
+            this.keys = objArr2;
+            resetCounters();
+        }
+    }
+
+    private synchronized List initStatus(boolean z) throws IOException, InterruptedException {
         InterceptResult invokeZ;
-        List<Segment> allSegments;
+        List allSegments;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, this, z)) == null) {
             synchronized (this) {
@@ -136,7 +177,7 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
                 this.downloadedSegments = 0;
                 this.downloadedBytes = 0L;
                 for (int size = allSegments.size() - 1; size >= 0; size--) {
-                    CacheUtil.getCached(allSegments.get(size).dataSpec, this.cache, cachingCounters);
+                    CacheUtil.getCached(((Segment) allSegments.get(size)).dataSpec, this.cache, cachingCounters);
                     this.downloadedBytes += cachingCounters.alreadyCachedBytes;
                     if (cachingCounters.alreadyCachedBytes == cachingCounters.contentLength) {
                         this.downloadedSegments++;
@@ -149,12 +190,27 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
         return (List) invokeZ.objValue;
     }
 
-    private void notifyListener(Downloader.ProgressListener progressListener) {
+    @Override // com.google.android.exoplayer2.offline.Downloader
+    public final synchronized void download(Downloader.ProgressListener progressListener) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, progressListener) == null) || progressListener == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, progressListener) == null) {
+            synchronized (this) {
+                this.priorityTaskManager.add(-1000);
+                getManifestIfNeeded(false);
+                List initStatus = initStatus(false);
+                notifyListener(progressListener);
+                Collections.sort(initStatus);
+                byte[] bArr = new byte[131072];
+                CacheUtil.CachingCounters cachingCounters = new CacheUtil.CachingCounters();
+                for (int i = 0; i < initStatus.size(); i++) {
+                    CacheUtil.cache(((Segment) initStatus.get(i)).dataSpec, this.cache, this.dataSource, bArr, this.priorityTaskManager, -1000, cachingCounters, true);
+                    this.downloadedBytes += cachingCounters.newlyCachedBytes;
+                    this.downloadedSegments++;
+                    notifyListener(progressListener);
+                }
+                this.priorityTaskManager.remove(-1000);
+            }
         }
-        progressListener.onDownloadProgress(this, getDownloadPercentage(), this.downloadedBytes);
     }
 
     private void resetCounters() {
@@ -167,44 +223,19 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
     }
 
     @Override // com.google.android.exoplayer2.offline.Downloader
-    public final synchronized void download(@Nullable Downloader.ProgressListener progressListener) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, progressListener) == null) {
-            synchronized (this) {
-                this.priorityTaskManager.add(-1000);
-                getManifestIfNeeded(false);
-                List<Segment> initStatus = initStatus(false);
-                notifyListener(progressListener);
-                Collections.sort(initStatus);
-                byte[] bArr = new byte[131072];
-                CacheUtil.CachingCounters cachingCounters = new CacheUtil.CachingCounters();
-                for (int i = 0; i < initStatus.size(); i++) {
-                    CacheUtil.cache(initStatus.get(i).dataSpec, this.cache, this.dataSource, bArr, this.priorityTaskManager, -1000, cachingCounters, true);
-                    this.downloadedBytes += cachingCounters.newlyCachedBytes;
-                    this.downloadedSegments++;
-                    notifyListener(progressListener);
-                }
-                this.priorityTaskManager.remove(-1000);
-            }
-        }
-    }
-
-    public abstract List<Segment> getAllSegments(DataSource dataSource, M m, boolean z) throws InterruptedException, IOException;
-
-    @Override // com.google.android.exoplayer2.offline.Downloader
     public float getDownloadPercentage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int i = this.totalSegments;
             int i2 = this.downloadedSegments;
-            if (i == -1 || i2 == -1) {
-                return Float.NaN;
+            if (i != -1 && i2 != -1) {
+                if (i == 0) {
+                    return 100.0f;
+                }
+                return (i2 * 100.0f) / i;
             }
-            if (i == 0) {
-                return 100.0f;
-            }
-            return (i2 * 100.0f) / i;
+            return Float.NaN;
         }
         return invokeV.floatValue;
     }
@@ -213,29 +244,37 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
     public final long getDownloadedBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.downloadedBytes : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.downloadedBytes;
+        }
+        return invokeV.longValue;
     }
 
     public final int getDownloadedSegments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.downloadedSegments : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.downloadedSegments;
+        }
+        return invokeV.intValue;
     }
 
-    public final M getManifest() throws IOException {
+    public final Object getManifest() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getManifestIfNeeded(false) : (M) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getManifestIfNeeded(false);
+        }
+        return invokeV.objValue;
     }
-
-    public abstract M getManifest(DataSource dataSource, Uri uri) throws IOException;
-
-    public abstract List<Segment> getSegments(DataSource dataSource, M m, K[] kArr, boolean z) throws InterruptedException, IOException;
 
     public final int getTotalSegments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.totalSegments : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.totalSegments;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.offline.Downloader
@@ -257,7 +296,7 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
 
     @Override // com.google.android.exoplayer2.offline.Downloader
     public final void remove() throws InterruptedException {
-        List<Segment> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             try {
@@ -265,36 +304,21 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
             } catch (IOException unused) {
             }
             resetCounters();
-            M m = this.manifest;
-            if (m != null) {
+            Object obj = this.manifest;
+            if (obj != null) {
                 try {
-                    list = getAllSegments(this.offlineDataSource, m, true);
+                    list = getAllSegments(this.offlineDataSource, obj, true);
                 } catch (IOException unused2) {
                     list = null;
                 }
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
-                        remove(list.get(i).dataSpec.uri);
+                        remove(((Segment) list.get(i)).dataSpec.uri);
                     }
                 }
                 this.manifest = null;
             }
             remove(this.manifestUri);
-        }
-    }
-
-    public final void selectRepresentations(K[] kArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, kArr) == null) {
-            this.keys = kArr != null ? (K[]) ((Object[]) kArr.clone()) : null;
-            resetCounters();
-        }
-    }
-
-    private void remove(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, uri) == null) {
-            CacheUtil.remove(this.cache, CacheUtil.generateKey(uri));
         }
     }
 }

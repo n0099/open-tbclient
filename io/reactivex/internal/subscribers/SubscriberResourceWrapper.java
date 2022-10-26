@@ -15,14 +15,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposable> implements FlowableSubscriber<T>, Disposable, Subscription {
+public final class SubscriberResourceWrapper extends AtomicReference implements FlowableSubscriber, Disposable, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8612022020200669122L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber<? super T> actual;
-    public final AtomicReference<Subscription> subscription;
+    public final Subscriber actual;
+    public final AtomicReference subscription;
 
-    public SubscriberResourceWrapper(Subscriber<? super T> subscriber) {
+    public SubscriberResourceWrapper(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +37,7 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposab
                 return;
             }
         }
-        this.subscription = new AtomicReference<>();
+        this.subscription = new AtomicReference();
         this.actual = subscriber;
     }
 
@@ -62,7 +62,13 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposab
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.subscription.get() == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.subscription.get() == SubscriptionHelper.CANCELLED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // org.reactivestreams.Subscriber
@@ -84,10 +90,10 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposab
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-            this.actual.onNext(t);
+        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            this.actual.onNext(obj);
         }
     }
 
@@ -103,7 +109,7 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposab
     public void request(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
-            this.subscription.get().request(j);
+            ((Subscription) this.subscription.get()).request(j);
         }
     }
 

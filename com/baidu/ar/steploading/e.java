@@ -24,11 +24,11 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e extends com.baidu.ar.e.a<String, String> {
+public class e extends com.baidu.ar.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHttpRequest bR;
-    public WeakReference<Context> wn;
+    public WeakReference wn;
     public ARCaseBundleInfo xx;
     public a xz;
 
@@ -47,7 +47,7 @@ public class e extends com.baidu.ar.e.a<String, String> {
                 return;
             }
         }
-        this.wn = new WeakReference<>(context);
+        this.wn = new WeakReference(context);
         this.xx = aRCaseBundleInfo;
         this.xz = aVar;
     }
@@ -88,11 +88,11 @@ public class e extends com.baidu.ar.e.a<String, String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.ar.e.a
-    public void a(String str, ICallbackWith<String> iCallbackWith, IError iError) {
+    public void a(String str, ICallbackWith iCallbackWith, IError iError) {
         Context context;
         ARCaseBundleInfo aRCaseBundleInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iError) == null) || (context = this.wn.get()) == null || (aRCaseBundleInfo = this.xx) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iError) == null) || (context = (Context) this.wn.get()) == null || (aRCaseBundleInfo = this.xx) == null) {
             return;
         }
         String str2 = aRCaseBundleInfo.arKey;

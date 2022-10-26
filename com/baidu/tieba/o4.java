@@ -17,14 +17,29 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
-public class o4 extends u1<b> {
+public class o4 extends u1 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean h;
     public transient /* synthetic */ FieldHolder $fh;
     public final j7 d;
     public final j7 e;
     public final j7 f;
-    public final b7<a> g;
+    public final b7 g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448311464, "Lcom/baidu/tieba/o4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448311464, "Lcom/baidu/tieba/o4;");
+        }
+    }
 
     /* loaded from: classes5.dex */
     public class a {
@@ -32,7 +47,7 @@ public class o4 extends u1<b> {
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
         public String b;
-        public b7<Integer> c;
+        public b7 c;
         public int d;
         public boolean e;
         public boolean f;
@@ -53,7 +68,7 @@ public class o4 extends u1<b> {
                 }
             }
             this.a = str;
-            this.c = new b7<>(200);
+            this.c = new b7(200);
             this.d = 0;
             new g4("");
             this.b = "default";
@@ -61,7 +76,7 @@ public class o4 extends u1<b> {
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends u1.a {
+    public class b extends u1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean c;
@@ -78,21 +93,6 @@ public class o4 extends u1<b> {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448311464, "Lcom/baidu/tieba/o4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448311464, "Lcom/baidu/tieba/o4;");
         }
     }
 
@@ -117,18 +117,21 @@ public class o4 extends u1<b> {
         this.d = new j7(300);
         this.e = new j7(300);
         this.f = new j7(200);
-        this.g = new b7<>(10);
+        this.g = new b7(10);
     }
 
     public final int j(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0;
+            if (str != null && str.length() != 0) {
+                int parseInt = Integer.parseInt(str);
+                if (parseInt < 0) {
+                    return i + parseInt;
+                }
+                return parseInt - 1;
             }
-            int parseInt = Integer.parseInt(str);
-            return parseInt < 0 ? i + parseInt : parseInt - 1;
+            return 0;
         }
         return invokeLI.intValue;
     }
@@ -138,9 +141,15 @@ public class o4 extends u1<b> {
     /* renamed from: k */
     public w4 h(k3 k3Var, b bVar) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k3Var, bVar)) == null) {
-            return l(k3Var, bVar != null && bVar.c);
+            if (bVar != null && bVar.c) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return l(k3Var, z);
         }
         return (w4) invokeLL.objValue;
     }
@@ -149,7 +158,12 @@ public class o4 extends u1<b> {
         InterceptResult invokeLZ;
         int i;
         int i2;
+        int i3;
+        String str;
+        String str2;
+        int i4;
         char charAt;
+        float parseFloat;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, k3Var, z)) == null) {
             if (h) {
@@ -180,28 +194,34 @@ public class o4 extends u1<b> {
                                 this.e.a(Float.parseFloat(split[3]));
                             } else if (split[0].charAt(1) == 't') {
                                 this.f.a(Float.parseFloat(split[1]));
-                                this.f.a(z ? 1.0f - Float.parseFloat(split[2]) : Float.parseFloat(split[2]));
+                                j7 j7Var = this.f;
+                                if (z) {
+                                    parseFloat = 1.0f - Float.parseFloat(split[2]);
+                                } else {
+                                    parseFloat = Float.parseFloat(split[2]);
+                                }
+                                j7Var.a(parseFloat);
                             }
                         } else if (charAt == 'f') {
-                            b7<Integer> b7Var = aVar.c;
-                            int i3 = 1;
-                            while (i3 < split.length - 2) {
+                            b7 b7Var = aVar.c;
+                            int i5 = 1;
+                            while (i5 < split.length - 2) {
                                 String[] split2 = split[1].split("/");
                                 b7Var.a(Integer.valueOf(j(split2[0], this.d.b)));
                                 if (split2.length > 2) {
-                                    if (i3 == 1) {
+                                    if (i5 == 1) {
                                         aVar.e = true;
                                     }
                                     b7Var.a(Integer.valueOf(j(split2[2], this.e.b)));
                                 }
                                 if (split2.length > 1 && split2[1].length() > 0) {
-                                    if (i3 == 1) {
+                                    if (i5 == 1) {
                                         aVar.f = true;
                                     }
                                     b7Var.a(Integer.valueOf(j(split2[1], this.f.b)));
                                 }
-                                int i4 = i3 + 1;
-                                String[] split3 = split[i4].split("/");
+                                int i6 = i5 + 1;
+                                String[] split3 = split[i6].split("/");
                                 b7Var.a(Integer.valueOf(j(split3[0], this.d.b)));
                                 if (split3.length > 2) {
                                     b7Var.a(Integer.valueOf(j(split3[2], this.e.b)));
@@ -209,8 +229,8 @@ public class o4 extends u1<b> {
                                 if (split3.length > 1 && split3[1].length() > 0) {
                                     b7Var.a(Integer.valueOf(j(split3[1], this.f.b)));
                                 }
-                                int i5 = i4 + 1;
-                                String[] split4 = split[i5].split("/");
+                                int i7 = i6 + 1;
+                                String[] split4 = split[i7].split("/");
                                 b7Var.a(Integer.valueOf(j(split4[0], this.d.b)));
                                 if (split4.length > 2) {
                                     b7Var.a(Integer.valueOf(j(split4[2], this.e.b)));
@@ -219,7 +239,7 @@ public class o4 extends u1<b> {
                                     b7Var.a(Integer.valueOf(j(split4[1], this.f.b)));
                                 }
                                 aVar.d++;
-                                i3 = i5 - 1;
+                                i5 = i7 - 1;
                             }
                         } else {
                             if (charAt != 'o' && charAt != 'g') {
@@ -245,88 +265,99 @@ public class o4 extends u1<b> {
                 }
             }
             bufferedReader.close();
-            int i6 = 0;
+            int i8 = 0;
             while (true) {
-                b7<a> b7Var2 = this.g;
+                b7 b7Var2 = this.g;
                 i = b7Var2.b;
-                if (i6 >= i) {
+                if (i8 >= i) {
                     break;
                 }
-                if (b7Var2.get(i6).d < 1) {
-                    this.g.i(i6);
-                    i6--;
+                if (((a) b7Var2.get(i8)).d < 1) {
+                    this.g.i(i8);
+                    i8--;
                 }
-                i6++;
+                i8++;
             }
             if (i < 1) {
                 return null;
             }
             w4 w4Var = new w4();
-            int i7 = 0;
-            int i8 = 0;
-            while (i7 < i) {
-                a aVar2 = this.g.get(i7);
-                b7<Integer> b7Var3 = aVar2.c;
-                int i9 = b7Var3.b;
-                int i10 = aVar2.d;
+            int i9 = 0;
+            int i10 = 0;
+            while (i9 < i) {
+                a aVar2 = (a) this.g.get(i9);
+                b7 b7Var3 = aVar2.c;
+                int i11 = b7Var3.b;
+                int i12 = aVar2.d;
                 boolean z2 = aVar2.e;
                 boolean z3 = aVar2.f;
-                int i11 = i10 * 3;
-                float[] fArr = new float[i11 * ((z2 ? 3 : 0) + 3 + (z3 ? 2 : 0))];
-                int i12 = 0;
-                int i13 = 0;
-                while (i12 < i9) {
-                    int i14 = i12 + 1;
-                    int intValue = b7Var3.get(i12).intValue() * 3;
-                    int i15 = i13 + 1;
-                    int i16 = i;
-                    int i17 = i9;
-                    int i18 = intValue + 1;
-                    fArr[i13] = this.d.c(intValue);
-                    int i19 = i15 + 1;
-                    int i20 = i7;
-                    fArr[i15] = this.d.c(i18);
-                    int i21 = i19 + 1;
-                    fArr[i19] = this.d.c(i18 + 1);
+                int i13 = i12 * 3;
+                if (z2) {
+                    i2 = 3;
+                } else {
+                    i2 = 0;
+                }
+                int i14 = i2 + 3;
+                if (z3) {
+                    i3 = 2;
+                } else {
+                    i3 = 0;
+                }
+                float[] fArr = new float[i13 * (i14 + i3)];
+                int i15 = 0;
+                int i16 = 0;
+                while (i15 < i11) {
+                    int i17 = i15 + 1;
+                    int intValue = ((Integer) b7Var3.get(i15)).intValue() * 3;
+                    int i18 = i16 + 1;
+                    int i19 = i;
+                    int i20 = i11;
+                    int i21 = intValue + 1;
+                    fArr[i16] = this.d.c(intValue);
+                    int i22 = i18 + 1;
+                    int i23 = i9;
+                    fArr[i18] = this.d.c(i21);
+                    int i24 = i22 + 1;
+                    fArr[i22] = this.d.c(i21 + 1);
                     if (z2) {
-                        int i22 = i14 + 1;
-                        int intValue2 = b7Var3.get(i14).intValue() * 3;
-                        int i23 = i21 + 1;
-                        int i24 = intValue2 + 1;
-                        fArr[i21] = this.e.c(intValue2);
-                        int i25 = i23 + 1;
-                        fArr[i23] = this.e.c(i24);
-                        i21 = i25 + 1;
-                        fArr[i25] = this.e.c(i24 + 1);
-                        i14 = i22;
+                        int i25 = i17 + 1;
+                        int intValue2 = ((Integer) b7Var3.get(i17)).intValue() * 3;
+                        int i26 = i24 + 1;
+                        int i27 = intValue2 + 1;
+                        fArr[i24] = this.e.c(intValue2);
+                        int i28 = i26 + 1;
+                        fArr[i26] = this.e.c(i27);
+                        i24 = i28 + 1;
+                        fArr[i28] = this.e.c(i27 + 1);
+                        i17 = i25;
                     }
                     if (z3) {
-                        int i26 = i14 + 1;
-                        int intValue3 = b7Var3.get(i14).intValue() * 2;
-                        int i27 = i21 + 1;
-                        int i28 = intValue3 + 1;
-                        fArr[i21] = this.f.c(intValue3);
-                        i2 = i27 + 1;
-                        fArr[i27] = this.f.c(i28);
-                        i12 = i26;
+                        int i29 = i17 + 1;
+                        int intValue3 = ((Integer) b7Var3.get(i17)).intValue() * 2;
+                        int i30 = i24 + 1;
+                        int i31 = intValue3 + 1;
+                        fArr[i24] = this.f.c(intValue3);
+                        i4 = i30 + 1;
+                        fArr[i30] = this.f.c(i31);
+                        i15 = i29;
                     } else {
-                        i2 = i21;
-                        i12 = i14;
+                        i4 = i24;
+                        i15 = i17;
                     }
-                    i9 = i17;
-                    i7 = i20;
-                    i13 = i2;
-                    i = i16;
+                    i11 = i20;
+                    i9 = i23;
+                    i16 = i4;
+                    i = i19;
                 }
-                int i29 = i7;
-                int i30 = i;
-                if (i11 >= 32767) {
-                    i11 = 0;
+                int i32 = i9;
+                int i33 = i;
+                if (i13 >= 32767) {
+                    i13 = 0;
                 }
-                short[] sArr = new short[i11];
-                if (i11 > 0) {
-                    for (int i31 = 0; i31 < i11; i31++) {
-                        sArr[i31] = (short) i31;
+                short[] sArr = new short[i13];
+                if (i13 > 0) {
+                    for (int i34 = 0; i34 < i13; i34++) {
+                        sArr[i34] = (short) i34;
                     }
                 }
                 b7 b7Var4 = new b7();
@@ -337,26 +368,34 @@ public class o4 extends u1<b> {
                 if (z3) {
                     b7Var4.a(new t3(16, 2, "a_texCoord0"));
                 }
-                i8++;
-                String num = Integer.toString(i8);
-                String str = "default".equals(aVar2.a) ? "node" + num : aVar2.a;
+                i10++;
+                String num = Integer.toString(i10);
                 if ("default".equals(aVar2.a)) {
-                    String str2 = "mesh" + num;
+                    str = "node" + num;
                 } else {
-                    String str3 = aVar2.a;
+                    str = aVar2.a;
                 }
-                String str4 = "default".equals(aVar2.a) ? "part" + num : aVar2.a;
+                if ("default".equals(aVar2.a)) {
+                    String str3 = "mesh" + num;
+                } else {
+                    String str4 = aVar2.a;
+                }
+                if ("default".equals(aVar2.a)) {
+                    str2 = "part" + num;
+                } else {
+                    str2 = aVar2.a;
+                }
                 z4 z4Var = new z4();
                 z4Var.a = str;
                 z4Var.d = new Vector3(1.0f, 1.0f, 1.0f);
                 z4Var.b = new Vector3();
                 z4Var.c = new Quaternion();
                 c5 c5Var = new c5();
-                c5Var.b = str4;
+                c5Var.b = str2;
                 c5Var.a = aVar2.b;
                 z4Var.e = new c5[]{c5Var};
                 y4 y4Var = new y4();
-                y4Var.a = str4;
+                y4Var.a = str2;
                 y4Var.b = sArr;
                 y4Var.c = 4;
                 x4 x4Var = new x4();
@@ -366,22 +405,22 @@ public class o4 extends u1<b> {
                 w4Var.d.a(z4Var);
                 w4Var.b.a(x4Var);
                 w4Var.c.a(n4Var.a(aVar2.b));
-                i7 = i29 + 1;
-                i = i30;
+                i9 = i32 + 1;
+                i = i33;
             }
-            j7 j7Var = this.d;
-            if (j7Var.b > 0) {
-                j7Var.b();
-            }
-            j7 j7Var2 = this.e;
+            j7 j7Var2 = this.d;
             if (j7Var2.b > 0) {
                 j7Var2.b();
             }
-            j7 j7Var3 = this.f;
+            j7 j7Var3 = this.e;
             if (j7Var3.b > 0) {
                 j7Var3.b();
             }
-            b7<a> b7Var5 = this.g;
+            j7 j7Var4 = this.f;
+            if (j7Var4.b > 0) {
+                j7Var4.b();
+            }
+            b7 b7Var5 = this.g;
             if (b7Var5.b > 0) {
                 b7Var5.clear();
             }
@@ -394,16 +433,16 @@ public class o4 extends u1<b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            b7.b<a> it = this.g.iterator();
+            b7.b it = this.g.iterator();
             while (it.hasNext()) {
-                a next = it.next();
-                if (next.a.equals(str)) {
-                    return next;
+                a aVar = (a) it.next();
+                if (aVar.a.equals(str)) {
+                    return aVar;
                 }
             }
-            a aVar = new a(this, str);
-            this.g.a(aVar);
-            return aVar;
+            a aVar2 = new a(this, str);
+            this.g.a(aVar2);
+            return aVar2;
         }
         return (a) invokeL.objValue;
     }

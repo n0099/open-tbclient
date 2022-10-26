@@ -12,6 +12,10 @@ public abstract class GroupEntry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract ByteBuffer get();
+
+    public abstract void parse(ByteBuffer byteBuffer);
+
     public GroupEntry() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,13 +30,12 @@ public abstract class GroupEntry {
         }
     }
 
-    public abstract ByteBuffer get();
-
-    public abstract void parse(ByteBuffer byteBuffer);
-
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get().limit() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return get().limit();
+        }
+        return invokeV.intValue;
     }
 }

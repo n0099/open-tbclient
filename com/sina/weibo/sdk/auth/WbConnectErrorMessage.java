@@ -34,27 +34,19 @@ public class WbConnectErrorMessage {
     public String getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errorCode : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.errorCode;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getErrorMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorMessage : (String) invokeV.objValue;
-    }
-
-    public void setErrorCode(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.errorCode = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errorMessage;
         }
-    }
-
-    public void setErrorMessage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.errorMessage = str;
-        }
+        return (String) invokeV.objValue;
     }
 
     public WbConnectErrorMessage(String str, String str2) {
@@ -76,5 +68,19 @@ public class WbConnectErrorMessage {
         this.errorCode = WbAuthConstants.AUTH_FAILED_NOT_INSTALL_CODE;
         this.errorMessage = str;
         this.errorCode = str2;
+    }
+
+    public void setErrorCode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.errorCode = str;
+        }
+    }
+
+    public void setErrorMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.errorMessage = str;
+        }
     }
 }

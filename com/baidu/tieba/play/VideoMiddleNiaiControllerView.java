@@ -67,100 +67,6 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         }
     }
 
-    @Override // com.baidu.tieba.play.VideoControllerView
-    public View f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d08d8, null);
-            this.o = inflate;
-            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f091890);
-            return this.o;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public SeekBar getSeekBar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (SeekBar) invokeV.objValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (i == 1) {
-                t();
-            } else {
-                r();
-            }
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.o.getLayoutParams().height = r;
-            SeekBar seekBar = this.g;
-            seekBar.setPadding(seekBar.getPaddingLeft(), t, this.g.getPaddingRight(), u);
-            this.o.requestLayout();
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.o.getLayoutParams().height = q;
-            SeekBar seekBar = this.g;
-            seekBar.setPadding(seekBar.getPaddingLeft(), t, this.g.getPaddingRight(), this.g.getPaddingBottom());
-            this.o.requestLayout();
-        }
-    }
-
-    public void setBottomBarShow(boolean z, int i) {
-        SeekBar seekBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (seekBar = this.g) == null) {
-            return;
-        }
-        if (z) {
-            seekBar.setThumb(null);
-            if (i == 1) {
-                t();
-            } else {
-                r();
-            }
-            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08128c));
-            return;
-        }
-        seekBar.setThumb(null);
-        if (i == 1) {
-            s();
-        } else {
-            r();
-        }
-        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08128a));
-    }
-
-    public void setLoading(boolean z) {
-        LinearVideoLoadingSeekBar linearVideoLoadingSeekBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (linearVideoLoadingSeekBar = this.p) == null) {
-            return;
-        }
-        linearVideoLoadingSeekBar.setLoading(z);
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.o.getLayoutParams().height = q;
-            SeekBar seekBar = this.g;
-            seekBar.setPadding(seekBar.getPaddingLeft(), s, this.g.getPaddingRight(), 0);
-            this.o.requestLayout();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoMiddleNiaiControllerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -201,5 +107,101 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public View f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d08d9, null);
+            this.o = inflate;
+            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f091883);
+            return this.o;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i == 1) {
+                t();
+            } else {
+                r();
+            }
+        }
+    }
+
+    public void setLoading(boolean z) {
+        LinearVideoLoadingSeekBar linearVideoLoadingSeekBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (linearVideoLoadingSeekBar = this.p) != null) {
+            linearVideoLoadingSeekBar.setLoading(z);
+        }
+    }
+
+    public SeekBar getSeekBar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.p;
+        }
+        return (SeekBar) invokeV.objValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.o.getLayoutParams().height = r;
+            SeekBar seekBar = this.g;
+            seekBar.setPadding(seekBar.getPaddingLeft(), t, this.g.getPaddingRight(), u);
+            this.o.requestLayout();
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.o.getLayoutParams().height = q;
+            SeekBar seekBar = this.g;
+            seekBar.setPadding(seekBar.getPaddingLeft(), s, this.g.getPaddingRight(), 0);
+            this.o.requestLayout();
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.o.getLayoutParams().height = q;
+            SeekBar seekBar = this.g;
+            seekBar.setPadding(seekBar.getPaddingLeft(), t, this.g.getPaddingRight(), this.g.getPaddingBottom());
+            this.o.requestLayout();
+        }
+    }
+
+    public void setBottomBarShow(boolean z, int i) {
+        SeekBar seekBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || (seekBar = this.g) == null) {
+            return;
+        }
+        if (z) {
+            seekBar.setThumb(null);
+            if (i == 1) {
+                t();
+            } else {
+                r();
+            }
+            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08129d));
+            return;
+        }
+        seekBar.setThumb(null);
+        if (i == 1) {
+            s();
+        } else {
+            r();
+        }
+        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08129b));
     }
 }

@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class anim {
+    public final class anim {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int slide_right_in = 0x7f01012e;
         public static final int slide_up = 0x7f01012f;
@@ -35,7 +35,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int alpha = 0x7f04008a;
         public static final int coordinatorLayoutStyle = 0x7f04019d;
@@ -76,7 +76,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int notification_action_color_filter = 0x7f0608b4;
         public static final int notification_icon_bg_color = 0x7f0608b5;
@@ -103,7 +103,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class dimen {
+    public final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int compat_button_inset_horizontal_material = 0x7f0701ca;
         public static final int compat_button_inset_vertical_material = 0x7f0701cb;
@@ -145,49 +145,49 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class drawable {
+    public final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int fun_btn_bg_creative = 0x7f0805a8;
-        public static final int gdt_ic_back = 0x7f0805b2;
-        public static final int gdt_ic_browse = 0x7f0805b3;
-        public static final int gdt_ic_download = 0x7f0805b4;
-        public static final int gdt_ic_enter_fullscreen = 0x7f0805b5;
-        public static final int gdt_ic_exit_fullscreen = 0x7f0805b6;
-        public static final int gdt_ic_express_back_to_port = 0x7f0805b7;
-        public static final int gdt_ic_express_close = 0x7f0805b8;
-        public static final int gdt_ic_express_enter_fullscreen = 0x7f0805b9;
-        public static final int gdt_ic_express_pause = 0x7f0805ba;
-        public static final int gdt_ic_express_play = 0x7f0805bb;
-        public static final int gdt_ic_express_volume_off = 0x7f0805bc;
-        public static final int gdt_ic_express_volume_on = 0x7f0805bd;
-        public static final int gdt_ic_gesture_arrow_down = 0x7f0805be;
-        public static final int gdt_ic_gesture_arrow_right = 0x7f0805bf;
-        public static final int gdt_ic_gesture_hand = 0x7f0805c0;
-        public static final int gdt_ic_native_back = 0x7f0805c1;
-        public static final int gdt_ic_native_download = 0x7f0805c2;
-        public static final int gdt_ic_native_volume_off = 0x7f0805c3;
-        public static final int gdt_ic_native_volume_on = 0x7f0805c4;
-        public static final int gdt_ic_pause = 0x7f0805c5;
-        public static final int gdt_ic_play = 0x7f0805c6;
-        public static final int gdt_ic_progress_thumb_normal = 0x7f0805c7;
-        public static final int gdt_ic_replay = 0x7f0805c8;
-        public static final int gdt_ic_seekbar_background = 0x7f0805c9;
-        public static final int gdt_ic_seekbar_progress = 0x7f0805ca;
-        public static final int gdt_ic_video_detail_close = 0x7f0805cb;
-        public static final int gdt_ic_volume_off = 0x7f0805cc;
-        public static final int gdt_ic_volume_on = 0x7f0805cd;
-        public static final int notification_action_background = 0x7f080e6d;
-        public static final int notification_bg = 0x7f080e6e;
-        public static final int notification_bg_low = 0x7f080e6f;
-        public static final int notification_bg_low_normal = 0x7f080e70;
-        public static final int notification_bg_low_pressed = 0x7f080e71;
-        public static final int notification_bg_normal = 0x7f080e72;
-        public static final int notification_bg_normal_pressed = 0x7f080e73;
-        public static final int notification_icon_background = 0x7f080e74;
-        public static final int notification_template_icon_bg = 0x7f080e75;
-        public static final int notification_template_icon_low_bg = 0x7f080e76;
-        public static final int notification_tile_bg = 0x7f080e77;
-        public static final int notify_panel_notification_icon_bg = 0x7f080e79;
+        public static final int fun_btn_bg_creative = 0x7f0805a9;
+        public static final int gdt_ic_back = 0x7f0805b3;
+        public static final int gdt_ic_browse = 0x7f0805b4;
+        public static final int gdt_ic_download = 0x7f0805b5;
+        public static final int gdt_ic_enter_fullscreen = 0x7f0805b6;
+        public static final int gdt_ic_exit_fullscreen = 0x7f0805b7;
+        public static final int gdt_ic_express_back_to_port = 0x7f0805b8;
+        public static final int gdt_ic_express_close = 0x7f0805b9;
+        public static final int gdt_ic_express_enter_fullscreen = 0x7f0805ba;
+        public static final int gdt_ic_express_pause = 0x7f0805bb;
+        public static final int gdt_ic_express_play = 0x7f0805bc;
+        public static final int gdt_ic_express_volume_off = 0x7f0805bd;
+        public static final int gdt_ic_express_volume_on = 0x7f0805be;
+        public static final int gdt_ic_gesture_arrow_down = 0x7f0805bf;
+        public static final int gdt_ic_gesture_arrow_right = 0x7f0805c0;
+        public static final int gdt_ic_gesture_hand = 0x7f0805c1;
+        public static final int gdt_ic_native_back = 0x7f0805c2;
+        public static final int gdt_ic_native_download = 0x7f0805c3;
+        public static final int gdt_ic_native_volume_off = 0x7f0805c4;
+        public static final int gdt_ic_native_volume_on = 0x7f0805c5;
+        public static final int gdt_ic_pause = 0x7f0805c6;
+        public static final int gdt_ic_play = 0x7f0805c7;
+        public static final int gdt_ic_progress_thumb_normal = 0x7f0805c8;
+        public static final int gdt_ic_replay = 0x7f0805c9;
+        public static final int gdt_ic_seekbar_background = 0x7f0805ca;
+        public static final int gdt_ic_seekbar_progress = 0x7f0805cb;
+        public static final int gdt_ic_video_detail_close = 0x7f0805cc;
+        public static final int gdt_ic_volume_off = 0x7f0805cd;
+        public static final int gdt_ic_volume_on = 0x7f0805ce;
+        public static final int notification_action_background = 0x7f080e7e;
+        public static final int notification_bg = 0x7f080e7f;
+        public static final int notification_bg_low = 0x7f080e80;
+        public static final int notification_bg_low_normal = 0x7f080e81;
+        public static final int notification_bg_low_pressed = 0x7f080e82;
+        public static final int notification_bg_normal = 0x7f080e83;
+        public static final int notification_bg_normal_pressed = 0x7f080e84;
+        public static final int notification_icon_background = 0x7f080e85;
+        public static final int notification_template_icon_bg = 0x7f080e86;
+        public static final int notification_template_icon_low_bg = 0x7f080e87;
+        public static final int notification_tile_bg = 0x7f080e88;
+        public static final int notify_panel_notification_icon_bg = 0x7f080e8a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -206,7 +206,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int accessibility_action_clickable_span = 0x7f090030;
         public static final int accessibility_custom_action_0 = 0x7f090031;
@@ -259,46 +259,46 @@ public final class R {
         public static final int ad_title = 0x7f0900f9;
         public static final int ad_video = 0x7f0900fd;
         public static final int async = 0x7f0902ca;
-        public static final int blocking = 0x7f0903b0;
-        public static final int bottom = 0x7f0903d6;
-        public static final int cancel_action = 0x7f090498;
-        public static final int chronometer = 0x7f09063e;
-        public static final int dialog_button = 0x7f0907b7;
-        public static final int end = 0x7f0908f5;
-        public static final int end_padder = 0x7f0908f7;
-        public static final int forever = 0x7f090a42;
-        public static final int glide_custom_view_target_tag = 0x7f090cc9;
-        public static final int icon = 0x7f090e20;
-        public static final int icon_group = 0x7f090e28;
-        public static final int info = 0x7f090f25;
-        public static final int italic = 0x7f090f8d;
-        public static final int left = 0x7f0912bd;
-        public static final int line1 = 0x7f091308;
-        public static final int line3 = 0x7f09130a;
-        public static final int media_actions = 0x7f0914d4;
-        public static final int none = 0x7f0916ea;
-        public static final int normal = 0x7f0916f0;
-        public static final int notification_background = 0x7f091704;
-        public static final int notification_main_column = 0x7f091706;
-        public static final int notification_main_column_container = 0x7f091707;
-        public static final int right = 0x7f091c24;
-        public static final int right_icon = 0x7f091c3c;
-        public static final int right_side = 0x7f091c42;
-        public static final int start = 0x7f091f73;
-        public static final int status_bar_latest_event_content = 0x7f091f87;
-        public static final int tag_accessibility_actions = 0x7f092035;
-        public static final int tag_accessibility_clickable_spans = 0x7f092036;
-        public static final int tag_accessibility_heading = 0x7f092037;
-        public static final int tag_accessibility_pane_title = 0x7f092038;
-        public static final int tag_screen_reader_focusable = 0x7f092080;
-        public static final int tag_transition_group = 0x7f09208e;
-        public static final int tag_unhandled_key_event_manager = 0x7f092090;
-        public static final int tag_unhandled_key_listeners = 0x7f092091;
-        public static final int text = 0x7f092100;
-        public static final int text2 = 0x7f092101;
-        public static final int time = 0x7f0921e8;
-        public static final int title = 0x7f092219;
-        public static final int top = 0x7f092287;
+        public static final int blocking = 0x7f0903b9;
+        public static final int bottom = 0x7f0903df;
+        public static final int cancel_action = 0x7f0904a1;
+        public static final int chronometer = 0x7f090647;
+        public static final int dialog_button = 0x7f0907c0;
+        public static final int end = 0x7f0908ff;
+        public static final int end_padder = 0x7f090901;
+        public static final int forever = 0x7f090a4c;
+        public static final int glide_custom_view_target_tag = 0x7f090cd3;
+        public static final int icon = 0x7f090e14;
+        public static final int icon_group = 0x7f090e1c;
+        public static final int info = 0x7f090f19;
+        public static final int italic = 0x7f090f81;
+        public static final int left = 0x7f0912b1;
+        public static final int line1 = 0x7f0912fe;
+        public static final int line3 = 0x7f091300;
+        public static final int media_actions = 0x7f0914c6;
+        public static final int none = 0x7f0916dc;
+        public static final int normal = 0x7f0916e2;
+        public static final int notification_background = 0x7f0916f6;
+        public static final int notification_main_column = 0x7f0916f8;
+        public static final int notification_main_column_container = 0x7f0916f9;
+        public static final int right = 0x7f091c20;
+        public static final int right_icon = 0x7f091c38;
+        public static final int right_side = 0x7f091c3e;
+        public static final int start = 0x7f091f72;
+        public static final int status_bar_latest_event_content = 0x7f091f86;
+        public static final int tag_accessibility_actions = 0x7f092034;
+        public static final int tag_accessibility_clickable_spans = 0x7f092035;
+        public static final int tag_accessibility_heading = 0x7f092036;
+        public static final int tag_accessibility_pane_title = 0x7f092037;
+        public static final int tag_screen_reader_focusable = 0x7f09207f;
+        public static final int tag_transition_group = 0x7f09208d;
+        public static final int tag_unhandled_key_event_manager = 0x7f09208f;
+        public static final int tag_unhandled_key_listeners = 0x7f092090;
+        public static final int text = 0x7f0920ff;
+        public static final int text2 = 0x7f092100;
+        public static final int time = 0x7f0921d2;
+        public static final int title = 0x7f092203;
+        public static final int top = 0x7f092271;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -317,7 +317,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class integer {
+    public final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cancel_button_image_alpha = 0x7f0a0008;
         public static final int google_play_services_version = 0x7f0a000e;
@@ -340,13 +340,13 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class layout {
+    public final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int custom_dialog = 0x7f0d0208;
-        public static final int fun_gdt_ad_native_unified_img2_view = 0x7f0d0368;
-        public static final int fun_gdt_ad_native_unified_img3_view = 0x7f0d0369;
-        public static final int fun_gdt_ad_native_unified_img_view = 0x7f0d036a;
-        public static final int fun_gdt_ad_native_unified_video_view = 0x7f0d036b;
+        public static final int custom_dialog = 0x7f0d0207;
+        public static final int fun_gdt_ad_native_unified_img2_view = 0x7f0d0367;
+        public static final int fun_gdt_ad_native_unified_img3_view = 0x7f0d0368;
+        public static final int fun_gdt_ad_native_unified_img_view = 0x7f0d0369;
+        public static final int fun_gdt_ad_native_unified_video_view = 0x7f0d036a;
         public static final int notification_action = 0x7f0d0669;
         public static final int notification_action_tombstone = 0x7f0d066a;
         public static final int notification_media_action = 0x7f0d066b;
@@ -380,27 +380,27 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class string {
+    public final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int common_google_play_services_unknown_issue = 0x7f0f041b;
-        public static final int fun_ad_interaction_type_browser = 0x7f0f078a;
-        public static final int fun_ad_interaction_type_dial = 0x7f0f078b;
-        public static final int fun_ad_interaction_type_download = 0x7f0f078c;
-        public static final int fun_ad_interaction_type_downloading = 0x7f0f078d;
-        public static final int fun_ad_interaction_type_downloading_without_progress = 0x7f0f078e;
-        public static final int fun_ad_interaction_type_install = 0x7f0f078f;
-        public static final int fun_ad_interaction_type_open = 0x7f0f0790;
-        public static final int fun_ad_interaction_type_redownload = 0x7f0f0791;
-        public static final int fun_ad_interaction_type_resume_download = 0x7f0f0792;
-        public static final int fun_ad_interaction_type_start = 0x7f0f0793;
-        public static final int fun_ad_interaction_type_tap_download = 0x7f0f0794;
-        public static final int fun_ad_interaction_type_tap_install = 0x7f0f0795;
-        public static final int fun_ad_interaction_type_tap_open = 0x7f0f0796;
-        public static final int fun_ad_interaction_type_update = 0x7f0f0797;
-        public static final int fun_ad_interaction_type_view = 0x7f0f0798;
-        public static final int fun_ad_title_favourite = 0x7f0f079f;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1212;
+        public static final int common_google_play_services_unknown_issue = 0x7f0f0422;
+        public static final int fun_ad_interaction_type_browser = 0x7f0f0796;
+        public static final int fun_ad_interaction_type_dial = 0x7f0f0797;
+        public static final int fun_ad_interaction_type_download = 0x7f0f0798;
+        public static final int fun_ad_interaction_type_downloading = 0x7f0f0799;
+        public static final int fun_ad_interaction_type_downloading_without_progress = 0x7f0f079a;
+        public static final int fun_ad_interaction_type_install = 0x7f0f079b;
+        public static final int fun_ad_interaction_type_open = 0x7f0f079c;
+        public static final int fun_ad_interaction_type_redownload = 0x7f0f079d;
+        public static final int fun_ad_interaction_type_resume_download = 0x7f0f079e;
+        public static final int fun_ad_interaction_type_start = 0x7f0f079f;
+        public static final int fun_ad_interaction_type_tap_download = 0x7f0f07a0;
+        public static final int fun_ad_interaction_type_tap_install = 0x7f0f07a1;
+        public static final int fun_ad_interaction_type_tap_open = 0x7f0f07a2;
+        public static final int fun_ad_interaction_type_update = 0x7f0f07a3;
+        public static final int fun_ad_interaction_type_view = 0x7f0f07a4;
+        public static final int fun_ad_title_favourite = 0x7f0f07ab;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1226;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -419,7 +419,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class style {
+    public final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DialogAnimationRight = 0x7f100104;
         public static final int DialogAnimationUp = 0x7f100105;
@@ -455,7 +455,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] ColorStateListItem;
         public static final int ColorStateListItem_alpha = 0x00000002;
@@ -546,7 +546,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class xml {
+    public final class xml {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int fun_gdt_file_path = 0x7f130004;
         public static final int gdt_file_path = 0x7f130005;

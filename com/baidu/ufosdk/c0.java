@@ -36,11 +36,17 @@ public class c0 implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
+        Class<?> cls;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent();
             ScreenCapEditActivity screenCapEditActivity = this.b;
-            intent.setClass(screenCapEditActivity, screenCapEditActivity.G ? FeedbackInputActivity.class : FeedbackEditActivity.class);
+            if (screenCapEditActivity.G) {
+                cls = FeedbackInputActivity.class;
+            } else {
+                cls = FeedbackEditActivity.class;
+            }
+            intent.setClass(screenCapEditActivity, cls);
             intent.putExtra("shot", this.b.H.toByteArray());
             intent.putExtra("extend_feedback_channel", this.a);
             intent.putExtra("come_from", 3);

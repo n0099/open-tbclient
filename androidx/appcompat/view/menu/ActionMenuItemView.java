@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuView;
@@ -25,7 +24,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionMenuItemView extends AppCompatTextView implements MenuView.ItemView, View.OnClickListener, ActionMenuView.ActionMenuChildView {
     public static /* synthetic */ Interceptable $ic = null;
@@ -43,6 +41,47 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     public PopupCallback mPopupCallback;
     public int mSavedPaddingLeft;
     public CharSequence mTitle;
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public boolean prefersCondensedTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public void setCheckable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public void setChecked(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public void setShortcut(boolean z, char c) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c)}) == null) {
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public boolean showsIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes.dex */
     public class ActionMenuItemForwardingListener extends ForwardingListener {
@@ -93,7 +132,10 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 ActionMenuItemView actionMenuItemView = this.this$0;
                 MenuBuilder.ItemInvoker itemInvoker = actionMenuItemView.mItemInvoker;
-                return itemInvoker != null && itemInvoker.invokeItem(actionMenuItemView.mItemData) && (popup = getPopup()) != null && popup.isShowing();
+                if (itemInvoker == null || !itemInvoker.invokeItem(actionMenuItemView.mItemData) || (popup = getPopup()) == null || !popup.isShowing()) {
+                    return false;
+                }
+                return true;
             }
             return invokeV.booleanValue;
         }
@@ -103,6 +145,8 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     public static abstract class PopupCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract ShowableListMenu getPopup();
 
         public PopupCallback() {
             Interceptable interceptable = $ic;
@@ -117,8 +161,6 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
                 }
             }
         }
-
-        public abstract ShowableListMenu getPopup();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -139,192 +181,6 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    private boolean shouldAllowTextWithIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            Configuration configuration = getContext().getResources().getConfiguration();
-            int i = configuration.screenWidthDp;
-            return i >= 480 || (i >= 640 && configuration.screenHeightDp >= 480) || configuration.orientation == 2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void updateTextButtonVisibility() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            boolean z = true;
-            boolean z2 = !TextUtils.isEmpty(this.mTitle);
-            if (this.mIcon != null && (!this.mItemData.showsTextAsAction() || (!this.mAllowTextWithIcon && !this.mExpandedFormat))) {
-                z = false;
-            }
-            boolean z3 = z2 & z;
-            setText(z3 ? this.mTitle : null);
-            CharSequence contentDescription = this.mItemData.getContentDescription();
-            if (TextUtils.isEmpty(contentDescription)) {
-                setContentDescription(z3 ? null : this.mItemData.getTitle());
-            } else {
-                setContentDescription(contentDescription);
-            }
-            CharSequence tooltipText = this.mItemData.getTooltipText();
-            if (TextUtils.isEmpty(tooltipText)) {
-                TooltipCompat.setTooltipText(this, z3 ? null : this.mItemData.getTitle());
-            } else {
-                TooltipCompat.setTooltipText(this, tooltipText);
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public MenuItemImpl getItemData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mItemData : (MenuItemImpl) invokeV.objValue;
-    }
-
-    public boolean hasText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(getText()) : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void initialize(MenuItemImpl menuItemImpl, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl, i) == null) {
-            this.mItemData = menuItemImpl;
-            setIcon(menuItemImpl.getIcon());
-            setTitle(menuItemImpl.getTitleForItemView(this));
-            setId(menuItemImpl.getItemId());
-            setVisibility(menuItemImpl.isVisible() ? 0 : 8);
-            setEnabled(menuItemImpl.isEnabled());
-            if (menuItemImpl.hasSubMenu() && this.mForwardingListener == null) {
-                this.mForwardingListener = new ActionMenuItemForwardingListener(this);
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
-    public boolean needsDividerAfter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? hasText() : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
-    public boolean needsDividerBefore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? hasText() && this.mItemData.getIcon() == null : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        MenuBuilder.ItemInvoker itemInvoker;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (itemInvoker = this.mItemInvoker) == null) {
-            return;
-        }
-        itemInvoker.invokeItem(this.mItemData);
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            this.mAllowTextWithIcon = shouldAllowTextWithIcon();
-            updateTextButtonVisibility();
-        }
-    }
-
-    @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            boolean hasText = hasText();
-            if (hasText && (i4 = this.mSavedPaddingLeft) >= 0) {
-                super.setPadding(i4, getPaddingTop(), getPaddingRight(), getPaddingBottom());
-            }
-            super.onMeasure(i, i2);
-            int mode = View.MeasureSpec.getMode(i);
-            int size = View.MeasureSpec.getSize(i);
-            int measuredWidth = getMeasuredWidth();
-            if (mode == Integer.MIN_VALUE) {
-                i3 = Math.min(size, this.mMinWidth);
-            } else {
-                i3 = this.mMinWidth;
-            }
-            if (mode != 1073741824 && this.mMinWidth > 0 && measuredWidth < i3) {
-                super.onMeasure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), i2);
-            }
-            if (hasText || this.mIcon == null) {
-                return;
-            }
-            super.setPadding((getMeasuredWidth() - this.mIcon.getBounds().width()) / 2, getPaddingTop(), getPaddingRight(), getPaddingBottom());
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcelable) == null) {
-            super.onRestoreInstanceState(null);
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        ForwardingListener forwardingListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            if (this.mItemData.hasSubMenu() && (forwardingListener = this.mForwardingListener) != null && forwardingListener.onTouch(this, motionEvent)) {
-                return true;
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public boolean prefersCondensedTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setCheckable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setChecked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-        }
-    }
-
-    public void setExpandedFormat(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || this.mExpandedFormat == z) {
-            return;
-        }
-        this.mExpandedFormat = z;
-        MenuItemImpl menuItemImpl = this.mItemData;
-        if (menuItemImpl != null) {
-            menuItemImpl.actionFormatChanged();
         }
     }
 
@@ -353,55 +209,6 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         }
     }
 
-    public void setItemInvoker(MenuBuilder.ItemInvoker itemInvoker) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, itemInvoker) == null) {
-            this.mItemInvoker = itemInvoker;
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void setPadding(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
-            this.mSavedPaddingLeft = i;
-            super.setPadding(i, i2, i3, i4);
-        }
-    }
-
-    public void setPopupCallback(PopupCallback popupCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, popupCallback) == null) {
-            this.mPopupCallback = popupCallback;
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setShortcut(boolean z, char c) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c)}) == null) {
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setTitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, charSequence) == null) {
-            this.mTitle = charSequence;
-            updateTextButtonVisibility();
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public boolean showsIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ActionMenuItemView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -419,6 +226,28 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public void initialize(MenuItemImpl menuItemImpl, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl, i) == null) {
+            this.mItemData = menuItemImpl;
+            setIcon(menuItemImpl.getIcon());
+            setTitle(menuItemImpl.getTitleForItemView(this));
+            setId(menuItemImpl.getItemId());
+            if (menuItemImpl.isVisible()) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            setVisibility(i2);
+            setEnabled(menuItemImpl.isEnabled());
+            if (menuItemImpl.hasSubMenu() && this.mForwardingListener == null) {
+                this.mForwardingListener = new ActionMenuItemForwardingListener(this);
             }
         }
     }
@@ -451,5 +280,215 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         setOnClickListener(this);
         this.mSavedPaddingLeft = -1;
         setSaveEnabled(false);
+    }
+
+    private boolean shouldAllowTextWithIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            Configuration configuration = getContext().getResources().getConfiguration();
+            int i = configuration.screenWidthDp;
+            int i2 = configuration.screenHeightDp;
+            if (i < 480 && ((i < 640 || i2 < 480) && configuration.orientation != 2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void updateTextButtonVisibility() {
+        CharSequence charSequence;
+        CharSequence title;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            boolean z = true;
+            boolean z2 = !TextUtils.isEmpty(this.mTitle);
+            if (this.mIcon != null && (!this.mItemData.showsTextAsAction() || (!this.mAllowTextWithIcon && !this.mExpandedFormat))) {
+                z = false;
+            }
+            boolean z3 = z2 & z;
+            CharSequence charSequence2 = null;
+            if (z3) {
+                charSequence = this.mTitle;
+            } else {
+                charSequence = null;
+            }
+            setText(charSequence);
+            CharSequence contentDescription = this.mItemData.getContentDescription();
+            if (TextUtils.isEmpty(contentDescription)) {
+                if (z3) {
+                    title = null;
+                } else {
+                    title = this.mItemData.getTitle();
+                }
+                setContentDescription(title);
+            } else {
+                setContentDescription(contentDescription);
+            }
+            CharSequence tooltipText = this.mItemData.getTooltipText();
+            if (TextUtils.isEmpty(tooltipText)) {
+                if (!z3) {
+                    charSequence2 = this.mItemData.getTitle();
+                }
+                TooltipCompat.setTooltipText(this, charSequence2);
+                return;
+            }
+            TooltipCompat.setTooltipText(this, tooltipText);
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public MenuItemImpl getItemData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mItemData;
+        }
+        return (MenuItemImpl) invokeV.objValue;
+    }
+
+    public boolean hasText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(getText());
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
+    public boolean needsDividerAfter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return hasText();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
+    public boolean needsDividerBefore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (hasText() && this.mItemData.getIcon() == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        MenuBuilder.ItemInvoker itemInvoker;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (itemInvoker = this.mItemInvoker) != null) {
+            itemInvoker.invokeItem(this.mItemData);
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            this.mAllowTextWithIcon = shouldAllowTextWithIcon();
+            updateTextButtonVisibility();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcelable) == null) {
+            super.onRestoreInstanceState(null);
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        ForwardingListener forwardingListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            if (this.mItemData.hasSubMenu() && (forwardingListener = this.mForwardingListener) != null && forwardingListener.onTouch(this, motionEvent)) {
+                return true;
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setExpandedFormat(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && this.mExpandedFormat != z) {
+            this.mExpandedFormat = z;
+            MenuItemImpl menuItemImpl = this.mItemData;
+            if (menuItemImpl != null) {
+                menuItemImpl.actionFormatChanged();
+            }
+        }
+    }
+
+    public void setItemInvoker(MenuBuilder.ItemInvoker itemInvoker) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, itemInvoker) == null) {
+            this.mItemInvoker = itemInvoker;
+        }
+    }
+
+    public void setPopupCallback(PopupCallback popupCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, popupCallback) == null) {
+            this.mPopupCallback = popupCallback;
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView.ItemView
+    public void setTitle(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, charSequence) == null) {
+            this.mTitle = charSequence;
+            updateTextButtonVisibility();
+        }
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            boolean hasText = hasText();
+            if (hasText && (i4 = this.mSavedPaddingLeft) >= 0) {
+                super.setPadding(i4, getPaddingTop(), getPaddingRight(), getPaddingBottom());
+            }
+            super.onMeasure(i, i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            int measuredWidth = getMeasuredWidth();
+            if (mode == Integer.MIN_VALUE) {
+                i3 = Math.min(size, this.mMinWidth);
+            } else {
+                i3 = this.mMinWidth;
+            }
+            if (mode != 1073741824 && this.mMinWidth > 0 && measuredWidth < i3) {
+                super.onMeasure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), i2);
+            }
+            if (!hasText && this.mIcon != null) {
+                super.setPadding((getMeasuredWidth() - this.mIcon.getBounds().width()) / 2, getPaddingTop(), getPaddingRight(), getPaddingBottom());
+            }
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void setPadding(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
+            this.mSavedPaddingLeft = i;
+            super.setPadding(i, i2, i3, i4);
+        }
     }
 }

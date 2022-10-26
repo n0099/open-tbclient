@@ -26,15 +26,16 @@ import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.fc0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.gc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class Live16Ratio9TopicView extends LiveBaseItemView {
@@ -53,7 +54,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
     public float[] r;
     public Context s;
     public LeftLableInfo t;
-    public List<LiveRoomEntity> u;
+    public List u;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -82,10 +83,9 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null || this.a.t == null || TextUtils.isEmpty(this.a.t.cmd)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null && this.a.t != null && !TextUtils.isEmpty(this.a.t.cmd)) {
+                this.a.f.a(this.a.t.cmd);
             }
-            this.a.f.a(this.a.t.cmd);
         }
     }
 
@@ -116,10 +116,9 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null) {
+                this.a.g.a(this.a.h.getCurrentPosition());
             }
-            this.a.g.a(this.a.h.getCurrentPosition());
         }
     }
 
@@ -150,10 +149,9 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         @Override // com.baidu.live.business.view.banner.BannerView.i
         public void onBannerShow(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) || this.a.g == null || liveBannerEntity == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) && this.a.g != null && liveBannerEntity != null) {
+                this.a.g.b(this.a.h.getCurrentPosition());
             }
-            this.a.g.b(this.a.h.getCurrentPosition());
         }
     }
 
@@ -184,7 +182,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         @Override // com.baidu.live.business.view.banner.BannerView.j
         public void a(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.u == null) {
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.u == null) {
                 return;
             }
             int i2 = i + 1;
@@ -228,7 +226,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 textView.setLineSpacing(3.0f, 1.0f);
                 textView.setMaxLines(2);
                 textView.setTextSize(1, 14.0f);
-                textView.setTextColor(uc0.f().a(this.a.getContext(), this.a.c, "color_white4"));
+                textView.setTextColor(vc0.f().a(this.a.getContext(), this.a.c, "color_white4"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -268,7 +266,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 TextView textView = new TextView(this.a.getContext());
                 textView.setMaxLines(1);
                 textView.setTextSize(1, 10.0f);
-                textView.setTextColor(uc0.f().a(this.a.getContext(), this.a.c, "color_858585"));
+                textView.setTextColor(vc0.f().a(this.a.getContext(), this.a.c, "color_858585"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -308,7 +306,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 TextView textView = new TextView(this.a.getContext());
                 textView.setMaxLines(1);
                 textView.setTextSize(1, 10.0f);
-                textView.setTextColor(uc0.f().a(this.a.getContext(), this.a.c, "color_858585"));
+                textView.setTextColor(vc0.f().a(this.a.getContext(), this.a.c, "color_858585"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -338,12 +336,37 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         r(context);
     }
 
-    private void setCoverBannerData(List<LiveRoomEntity> list) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Live16Ratio9TopicView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.n = false;
+        r(context);
+    }
+
+    private void setCoverBannerData(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, list) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!fc0.c(list)) {
-                for (LiveRoomEntity liveRoomEntity : list) {
+            if (!gc0.c(list)) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    LiveRoomEntity liveRoomEntity = (LiveRoomEntity) it.next();
                     LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
                     liveBannerEntity.pic = liveRoomEntity.cover;
                     liveBannerEntity.liveStatus = liveRoomEntity.liveStatus;
@@ -356,6 +379,30 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 bannerEntity.mBannerList = arrayList;
                 bannerEntity.mBroadcastInterval = 2000;
                 this.h.setBannerEntity(bannerEntity);
+            }
+        }
+    }
+
+    @Override // com.baidu.live.business.base.LiveBaseItemView
+    public void setIsCurViewing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (z) {
+                View view2 = this.p;
+                if (view2 == null) {
+                    View inflate = this.o.inflate();
+                    this.p = inflate;
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091364);
+                    this.q = liveBaseLottieView;
+                    liveBaseLottieView.setRepeatCount(-1);
+                    this.q.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
+                } else {
+                    view2.setVisibility(0);
+                }
+                this.q.playAnimation();
+            } else if (this.p != null) {
+                this.q.cancelAnimation();
+                this.p.setVisibility(8);
             }
         }
     }
@@ -374,10 +421,21 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 this.i.c();
             }
             View view2 = this.p;
-            if (view2 == null || view2.getVisibility() != 0 || (liveBaseLottieView = this.q) == null) {
-                return;
+            if (view2 != null && view2.getVisibility() == 0 && (liveBaseLottieView = this.q) != null) {
+                liveBaseLottieView.playAnimation();
             }
-            liveBaseLottieView.playAnimation();
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.h.setHasIndicator(false);
+            this.h.setCanTouchScroll(false);
+            this.h.setSwitchDuration(300);
+            this.h.setAspectRatio(0.5625f);
+            this.h.setOnBannerShowListener(new c(this));
+            this.h.setOnBannerSwitchListener(new d(this));
         }
     }
 
@@ -421,18 +479,6 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         }
     }
 
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.setHasIndicator(false);
-            this.h.setCanTouchScroll(false);
-            this.h.setSwitchDuration(300);
-            this.h.setAspectRatio(0.5625f);
-            this.h.setOnBannerShowListener(new c(this));
-            this.h.setOnBannerSwitchListener(new d(this));
-        }
-    }
-
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -459,21 +505,21 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             this.s = context;
             setNeedRatio(false);
-            int e2 = (int) (((da0.e(context) - (da0.b(context, 12.0f) * 2)) - da0.b(context, 7.0f)) / 2.0d);
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0530, this);
-            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091358);
-            this.o = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091374);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091359);
+            int e2 = (int) (((ea0.e(context) - (ea0.b(context, 12.0f) * 2)) - ea0.b(context, 7.0f)) / 2.0d);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d052f, this);
+            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091349);
+            this.o = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091365);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09134a);
             this.m = frameLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = e2;
             layoutParams.height = (int) ((e2 * 9) / 16.0d);
             this.m.setLayoutParams(layoutParams);
-            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09135a);
-            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091360);
-            this.j = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09135c);
-            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091356);
-            float b2 = da0.b(getContext(), 10.0f);
+            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09134b);
+            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091351);
+            this.j = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09134d);
+            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091347);
+            float b2 = ea0.b(getContext(), 10.0f);
             this.r = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
             q();
             p();
@@ -486,7 +532,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(uc0.f().a(getContext(), this.c, "color_white2"));
+            gradientDrawable.setColor(vc0.f().a(getContext(), this.c, "color_white2"));
             gradientDrawable.setCornerRadii(this.r);
             setBackgroundDrawable(gradientDrawable);
             BannerView bannerView = this.h;
@@ -495,17 +541,16 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             }
             TextSwitcher textSwitcher = this.k;
             if (textSwitcher != null && textSwitcher.getCurrentView() != null) {
-                ((TextView) this.k.getCurrentView()).setTextColor(uc0.f().a(getContext(), this.c, "color_white4"));
+                ((TextView) this.k.getCurrentView()).setTextColor(vc0.f().a(getContext(), this.c, "color_white4"));
             }
             TextSwitcher textSwitcher2 = this.j;
             if (textSwitcher2 != null && textSwitcher2.getCurrentView() != null) {
-                ((TextView) this.j.getCurrentView()).setTextColor(uc0.f().a(getContext(), this.c, "color_858585"));
+                ((TextView) this.j.getCurrentView()).setTextColor(vc0.f().a(getContext(), this.c, "color_858585"));
             }
             TextSwitcher textSwitcher3 = this.l;
-            if (textSwitcher3 == null || textSwitcher3.getCurrentView() == null) {
-                return;
+            if (textSwitcher3 != null && textSwitcher3.getCurrentView() != null) {
+                ((TextView) this.l.getCurrentView()).setTextColor(vc0.f().a(getContext(), this.c, "color_858585"));
             }
-            ((TextView) this.l.getCurrentView()).setTextColor(uc0.f().a(getContext(), this.c, "color_858585"));
         }
     }
 
@@ -538,32 +583,8 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                     }
                 }
             }
-            t(this.u.get(this.h.getCurrentPosition()), false);
+            t((LiveRoomEntity) this.u.get(this.h.getCurrentPosition()), false);
             s("day");
-        }
-    }
-
-    @Override // com.baidu.live.business.base.LiveBaseItemView
-    public void setIsCurViewing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            if (z) {
-                View view2 = this.p;
-                if (view2 == null) {
-                    View inflate = this.o.inflate();
-                    this.p = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091373);
-                    this.q = liveBaseLottieView;
-                    liveBaseLottieView.setRepeatCount(-1);
-                    this.q.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
-                } else {
-                    view2.setVisibility(0);
-                }
-                this.q.playAnimation();
-            } else if (this.p != null) {
-                this.q.cancelAnimation();
-                this.p.setVisibility(8);
-            }
         }
     }
 
@@ -589,33 +610,10 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             }
             this.l.setVisibility(0);
             if (z) {
-                this.l.setText(da0.a(this.s, liveRoomEntity.audienceCount));
+                this.l.setText(ea0.a(this.s, liveRoomEntity.audienceCount));
             } else {
-                this.l.setCurrentText(da0.a(this.s, liveRoomEntity.audienceCount));
+                this.l.setCurrentText(ea0.a(this.s, liveRoomEntity.audienceCount));
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Live16Ratio9TopicView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.n = false;
-        r(context);
     }
 }

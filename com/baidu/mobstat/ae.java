@@ -1,135 +1,71 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class ae extends bn {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "baidu_mtj_sdk_record";
-    public static ae b;
+public class ae extends TextView {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint a;
+    public PaintFlagsDrawFilter b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581656974, "Lcom/baidu/mobstat/ae;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(581656974, "Lcom/baidu/mobstat/ae;");
-                return;
-            }
-        }
-        b = new ae();
-    }
-
-    public ae() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new Paint();
+        this.b = new PaintFlagsDrawFilter(0, 3);
+        this.a.setColor(-1);
+        this.a.setAntiAlias(true);
     }
 
-    public static ae a() {
-        InterceptResult invokeV;
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (ae) invokeV.objValue;
-    }
-
-    public Long b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? Long.valueOf(a(context, "session_first_visit_time", 0L)) : (Long) invokeL.objValue;
-    }
-
-    public Long c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? Long.valueOf(a(context, "session_last_visit_time", 0L)) : (Long) invokeL.objValue;
-    }
-
-    public Long d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? Long.valueOf(a(context, "session_visit_interval", 0L)) : (Long) invokeL.objValue;
-    }
-
-    public String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? a(context, "session_today_visit_count", "") : (String) invokeL.objValue;
-    }
-
-    public String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? a(context, "session_recent_visit", "") : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.mobstat.bn
-    public SharedPreferences a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                return context.getSharedPreferences(a, 4);
-            }
-            return context.getSharedPreferences(a, 0);
-        }
-        return (SharedPreferences) invokeL.objValue;
-    }
-
-    public void b(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, context, j) == null) {
-            b(context, "session_last_visit_time", j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            canvas.setDrawFilter(this.b);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.a);
+            super.draw(canvas);
         }
     }
 
-    public void c(Context context, long j) {
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) {
-            b(context, "session_visit_interval", j);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int max = Math.max(getMeasuredWidth(), getMeasuredHeight());
+            setMeasuredDimension(max, max);
         }
     }
 
-    public void b(Context context, String str) {
+    @Override // android.view.View
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
-            b(context, "session_recent_visit", str);
-        }
-    }
-
-    public void a(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j) == null) {
-            b(context, "session_first_visit_time", j);
-        }
-    }
-
-    public void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-            b(context, "session_today_visit_count", str);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.setColor(i);
         }
     }
 }

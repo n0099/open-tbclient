@@ -46,31 +46,67 @@ public final class WavHeader {
     public int getBitrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sampleRateHz * this.bitsPerSample * this.numChannels : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sampleRateHz * this.bitsPerSample * this.numChannels;
+        }
+        return invokeV.intValue;
     }
 
     public int getBytesPerFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.blockAlignment : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.blockAlignment;
+        }
+        return invokeV.intValue;
     }
 
     public long getDurationUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((this.dataSize / this.blockAlignment) * 1000000) / this.sampleRateHz : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((this.dataSize / this.blockAlignment) * 1000000) / this.sampleRateHz;
+        }
+        return invokeV.longValue;
     }
 
     public int getEncoding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.encoding : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.encoding;
+        }
+        return invokeV.intValue;
     }
 
     public int getNumChannels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.numChannels : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.numChannels;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSampleRateHz() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.sampleRateHz;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean hasDataBounds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.dataStartPosition != 0 && this.dataSize != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public long getPosition(long j) {
@@ -83,22 +119,13 @@ public final class WavHeader {
         return invokeJ.longValue;
     }
 
-    public int getSampleRateHz() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.sampleRateHz : invokeV.intValue;
-    }
-
     public long getTimeUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? (j * 1000000) / this.averageBytesPerSecond : invokeJ.longValue;
-    }
-
-    public boolean hasDataBounds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.dataStartPosition == 0 || this.dataSize == 0) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            return (j * 1000000) / this.averageBytesPerSecond;
+        }
+        return invokeJ.longValue;
     }
 
     public void setDataBounds(long j, long j2) {

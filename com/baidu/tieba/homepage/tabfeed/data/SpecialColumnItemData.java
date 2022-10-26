@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
+import com.baidu.tieba.eo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ActivityPage.SpecialColumn;
 /* loaded from: classes4.dex */
-public class SpecialColumnItemData implements Cdo, Parcelable {
+public class SpecialColumnItemData implements eo, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<SpecialColumnItemData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final BdUniqueId TYPE;
     public static final int TYPE_LIVE = 3;
     public static final int TYPE_LIVE_RE = 4;
@@ -32,8 +32,18 @@ public class SpecialColumnItemData implements Cdo, Parcelable {
     public long threadId;
     public String title;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes4.dex */
-    public static class a implements Parcelable.Creator<SpecialColumnItemData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +67,10 @@ public class SpecialColumnItemData implements Cdo, Parcelable {
         public SpecialColumnItemData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SpecialColumnItemData(parcel) : (SpecialColumnItemData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new SpecialColumnItemData(parcel);
+            }
+            return (SpecialColumnItemData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +79,10 @@ public class SpecialColumnItemData implements Cdo, Parcelable {
         public SpecialColumnItemData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SpecialColumnItemData[i] : (SpecialColumnItemData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new SpecialColumnItemData[i];
+            }
+            return (SpecialColumnItemData[]) invokeI.objValue;
         }
     }
 
@@ -101,21 +117,39 @@ public class SpecialColumnItemData implements Cdo, Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.eo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TYPE : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TYPE;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public SpecialColumnItemData(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.specialType = parcel.readInt();
+        this.threadId = parcel.readLong();
+        this.liveId = parcel.readLong();
+        this.title = parcel.readString();
+        this.image = parcel.readString();
+        this.text = parcel.readString();
+        this.freq_num = parcel.readInt();
+        this.agree_num = parcel.readInt();
     }
 
     public void parserProtobuf(SpecialColumn specialColumn) {
@@ -145,30 +179,5 @@ public class SpecialColumnItemData implements Cdo, Parcelable {
             parcel.writeInt(this.freq_num);
             parcel.writeInt(this.agree_num);
         }
-    }
-
-    public SpecialColumnItemData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.specialType = parcel.readInt();
-        this.threadId = parcel.readLong();
-        this.liveId = parcel.readLong();
-        this.title = parcel.readString();
-        this.image = parcel.readString();
-        this.text = parcel.readString();
-        this.freq_num = parcel.readInt();
-        this.agree_num = parcel.readInt();
     }
 }

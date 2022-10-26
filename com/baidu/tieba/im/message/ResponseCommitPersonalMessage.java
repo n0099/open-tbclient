@@ -1,11 +1,10 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tieba.sc7;
+import com.baidu.tieba.ad7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +43,6 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -59,7 +57,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
             }
             long longValue = dataRes.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(sc7.a(longValue));
+            setMsgId(ad7.a(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));
@@ -81,13 +79,19 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public String getToUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.toUserId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.toUserId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getToUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.toUserType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.toUserType;
+        }
+        return invokeV.intValue;
     }
 
     public void setToUserId(String str) {

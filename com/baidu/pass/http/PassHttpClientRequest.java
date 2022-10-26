@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
+public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PassHttpClientRequest";
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,6 +51,22 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(PassHttpClientRequest passHttpClientRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
+            ReqPriority reqPriority = this.paramDTO.priority;
+            ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
+            if (reqPriority == reqPriority2) {
+                return this.b - passHttpClientRequest.b;
+            }
+            return reqPriority2.ordinal() - reqPriority.ordinal();
+        }
+        return invokeL.intValue;
+    }
+
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
@@ -74,18 +90,5 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
                 httpResponseHandler3.a();
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(PassHttpClientRequest passHttpClientRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
-            ReqPriority reqPriority = this.paramDTO.priority;
-            ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-            return reqPriority == reqPriority2 ? this.b - passHttpClientRequest.b : reqPriority2.ordinal() - reqPriority.ordinal();
-        }
-        return invokeL.intValue;
     }
 }

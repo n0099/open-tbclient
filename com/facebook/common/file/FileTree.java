@@ -90,23 +90,49 @@ public class FileTree {
     public static String getSubFilePath(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) ? str.isEmpty() ? str2 : str2.isEmpty() ? str : join(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str.isEmpty()) {
+                return str2;
+            }
+            if (str2.isEmpty()) {
+                return str;
+            }
+            return join(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static File[] listFiles(File file, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, strArr)) == null) {
+            if (file != null && strArr != null && strArr.length != 0) {
+                return filenamesToFiles(file, strArr);
+            }
+            return null;
+        }
+        return (File[]) invokeLL.objValue;
     }
 
     public static String join(String str, String str2) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             int length = str.length();
-            boolean z = false;
-            boolean z2 = length > 0 && str.charAt(length - 1) == File.separatorChar;
-            if (!z2) {
-                if (str2.length() > 0 && str2.charAt(0) == File.separatorChar) {
-                    z = true;
-                }
-                z2 = z;
+            boolean z2 = false;
+            if (length > 0 && str.charAt(length - 1) == File.separatorChar) {
+                z = true;
+            } else {
+                z = false;
             }
-            if (z2) {
+            if (!z) {
+                if (str2.length() > 0 && str2.charAt(0) == File.separatorChar) {
+                    z2 = true;
+                }
+                z = z2;
+            }
+            if (z) {
                 StringBuilder sb = new StringBuilder(str.length() + str2.length());
                 sb.append(str);
                 sb.append(str2);
@@ -119,18 +145,6 @@ public class FileTree {
             return sb2.toString();
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static File[] listFiles(File file, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, strArr)) == null) {
-            if (file == null || strArr == null || strArr.length == 0) {
-                return null;
-            }
-            return filenamesToFiles(file, strArr);
-        }
-        return (File[]) invokeLL.objValue;
     }
 
     public static void walkFileTree(File file, FileTreeVisitor fileTreeVisitor) {

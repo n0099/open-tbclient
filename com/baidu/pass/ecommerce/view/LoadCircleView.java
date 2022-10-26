@@ -56,10 +56,10 @@ public class LoadCircleView extends View {
     public int mWidth;
 
     /* loaded from: classes2.dex */
-    public static class MainThreadHandler extends Handler {
+    public class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<LoadCircleView> mWeakLoadCircleView;
+        public WeakReference mWeakLoadCircleView;
 
         public MainThreadHandler(LoadCircleView loadCircleView) {
             Interceptable interceptable = $ic;
@@ -76,14 +76,14 @@ public class LoadCircleView extends View {
                     return;
                 }
             }
-            this.mWeakLoadCircleView = new WeakReference<>(loadCircleView);
+            this.mWeakLoadCircleView = new WeakReference(loadCircleView);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             LoadCircleView loadCircleView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 4097 && (loadCircleView = this.mWeakLoadCircleView.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 4097 && (loadCircleView = (LoadCircleView) this.mWeakLoadCircleView.get()) != null) {
                 loadCircleView.invalidate();
             }
         }
@@ -111,6 +111,65 @@ public class LoadCircleView extends View {
         this.mEndRadius = f;
         this.mMaskColor = i;
         initialize();
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LoadCircleView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LoadCircleView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mPrimaryWidth = 2;
+        this.mSecondaryWidth = 2;
+        this.mMaxInterval = 1.0f;
+        this.mSecondaryAlphaRatio = 0.25f;
+        this.mAlphaRatio = 0.0f;
+        this.mDegree = 0.0f;
+        this.mSizeIncreaseTime = 175L;
+        this.mSizeDecreaseTime = 105L;
+        this.mAlphaAnimatorTime = 280L;
+        this.mIsBegin = false;
+    }
+
+    public void setMaskColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mMaskColor = i;
+        }
     }
 
     private void initialize() {
@@ -152,7 +211,7 @@ public class LoadCircleView extends View {
 
     public void begin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mIsBegin) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.mIsBegin) {
             return;
         }
         this.mIsBegin = true;
@@ -275,61 +334,61 @@ public class LoadCircleView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) || this.this$0.mTimer == null) {
-                    return;
-                }
-                this.this$0.mTimer.schedule(new TimerTask(this) { // from class: com.baidu.pass.ecommerce.view.LoadCircleView.3.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AnonymousClass3 this$1;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) && this.this$0.mTimer != null) {
+                    this.this$0.mTimer.schedule(new TimerTask(this) { // from class: com.baidu.pass.ecommerce.view.LoadCircleView.3.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AnonymousClass3 this$1;
 
-                    {
-                        Interceptable interceptable3 = $ic;
-                        if (interceptable3 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable3.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable3.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable3.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                        }
+
+                        @Override // java.util.TimerTask, java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                this.this$1.this$0.mMainHandler.sendEmptyMessage(4097);
                             }
                         }
-                        this.this$1 = this;
-                    }
-
-                    @Override // java.util.TimerTask, java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable3 = $ic;
-                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                            this.this$1.this$0.mMainHandler.sendEmptyMessage(4097);
-                        }
-                    }
-                }, 0L, 16L);
+                    }, 0L, 16L);
+                }
             }
         });
     }
 
     public void finish() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIsBegin) {
-            this.mIsBegin = false;
-            AnimatorSet animatorSet = this.mAnimatorSet;
-            if (animatorSet != null) {
-                animatorSet.cancel();
-                this.mAnimatorSet = null;
-            }
-            Timer timer = this.mTimer;
-            if (timer != null) {
-                timer.cancel();
-                this.mTimer = null;
-            }
-            this.mMainHandler.removeMessages(4097);
-            reset();
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.mIsBegin) {
+            return;
         }
+        this.mIsBegin = false;
+        AnimatorSet animatorSet = this.mAnimatorSet;
+        if (animatorSet != null) {
+            animatorSet.cancel();
+            this.mAnimatorSet = null;
+        }
+        Timer timer = this.mTimer;
+        if (timer != null) {
+            timer.cancel();
+            this.mTimer = null;
+        }
+        this.mMainHandler.removeMessages(4097);
+        reset();
     }
 
     @Override // android.view.View
@@ -361,64 +420,5 @@ public class LoadCircleView extends View {
             canvas.rotate(this.mDegree, this.mWidth / 2, (this.mHeight / 2) - (SapiUtils.dip2px(getContext(), this.mMaxInterval) - 1.0f));
             canvas.drawCircle(this.mWidth / 2, this.mHeight / 2, this.mCurrentRadius, this.mSecondaryPaint);
         }
-    }
-
-    public void setMaskColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.mMaskColor = i;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoadCircleView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoadCircleView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mPrimaryWidth = 2;
-        this.mSecondaryWidth = 2;
-        this.mMaxInterval = 1.0f;
-        this.mSecondaryAlphaRatio = 0.25f;
-        this.mAlphaRatio = 0.0f;
-        this.mDegree = 0.0f;
-        this.mSizeIncreaseTime = 175L;
-        this.mSizeDecreaseTime = 105L;
-        this.mAlphaAnimatorTime = 280L;
-        this.mIsBegin = false;
     }
 }

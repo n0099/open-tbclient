@@ -1,6 +1,5 @@
 package com.baidu.tieba.setting.im.more;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -39,7 +38,6 @@ public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage 
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -54,7 +52,10 @@ public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage 
             }
             setError(error.errorno.intValue());
             setErrorString(closeAdResIdl.error.usermsg);
-            if (getError() == 0 && closeAdResIdl.data != null) {
+            if (getError() != 0) {
+                return closeAdResIdl;
+            }
+            if (closeAdResIdl.data != null) {
                 CloseAdData closeAdData = new CloseAdData();
                 this.mData = closeAdData;
                 closeAdData.B(closeAdResIdl.data.vip_close_ad);
@@ -67,6 +68,9 @@ public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage 
     public CloseAdData getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (CloseAdData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (CloseAdData) invokeV.objValue;
     }
 }

@@ -14,16 +14,43 @@ public class DownloadShortInfo {
     public long currentBytes = -1;
     public int failStatus = 0;
 
-    public boolean equals(Object obj) {
-        if ((obj instanceof DownloadShortInfo) && obj != null) {
-            DownloadShortInfo downloadShortInfo = (DownloadShortInfo) obj;
-            return ((this.id > downloadShortInfo.id ? 1 : (this.id == downloadShortInfo.id ? 0 : -1)) == 0) && (this.status == downloadShortInfo.status) && ((this.totalBytes > downloadShortInfo.totalBytes ? 1 : (this.totalBytes == downloadShortInfo.totalBytes ? 0 : -1)) == 0) && ((TextUtils.isEmpty(this.fileName) && TextUtils.isEmpty(downloadShortInfo.fileName)) || (!TextUtils.isEmpty(this.fileName) && !TextUtils.isEmpty(downloadShortInfo.fileName) && this.fileName.equals(downloadShortInfo.fileName)));
-        }
-        return super.equals(obj);
-    }
-
     public int hashCode() {
         return Arrays.hashCode(new Object[]{Long.valueOf(this.id), Integer.valueOf(this.status), Long.valueOf(this.totalBytes), this.fileName});
+    }
+
+    public boolean equals(Object obj) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        if ((obj instanceof DownloadShortInfo) && obj != null) {
+            DownloadShortInfo downloadShortInfo = (DownloadShortInfo) obj;
+            if (this.id == downloadShortInfo.id) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.status == downloadShortInfo.status) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (this.totalBytes == downloadShortInfo.totalBytes) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if ((TextUtils.isEmpty(this.fileName) && TextUtils.isEmpty(downloadShortInfo.fileName)) || (!TextUtils.isEmpty(this.fileName) && !TextUtils.isEmpty(downloadShortInfo.fileName) && this.fileName.equals(downloadShortInfo.fileName))) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            if (z && z2 && z3 && z4) {
+                return true;
+            }
+            return false;
+        }
+        return super.equals(obj);
     }
 
     public void updateFromNewDownloadInfo(DownloadInfo downloadInfo) {

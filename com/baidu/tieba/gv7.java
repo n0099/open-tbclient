@@ -1,26 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import tbclient.ExcPbPage.UserInfo;
 /* loaded from: classes4.dex */
-public class gv7 extends PostData {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gv7 {
+    int getErroCode();
 
-    public gv7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String getErrorText();
+
+    List getPostList();
+
+    ExcellentPbThreadInfo getThreadInfo();
+
+    UserInfo getUserInfo();
+
+    List getUserList();
+
+    boolean isEmpty();
 }

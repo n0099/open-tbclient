@@ -8,10 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.Metadata;
-import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000e\u001a!\u0010\u0005\u001a\u00020\u0004*\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001¢\u0006\u0004\b\u0005\u0010\u0006\u001a!\u0010\b\u001a\u00020\u0007*\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001¢\u0006\u0004\b\b\u0010\t\u001a\u0011\u0010\u000b\u001a\u00020\n*\u00020\u0000¢\u0006\u0004\b\u000b\u0010\f\u001a+\u0010\u0011\u001a\u00020\u0010*\u00020\u00002\u0006\u0010\r\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\u00012\b\b\u0002\u0010\u000f\u001a\u00020\u0004¢\u0006\u0004\b\u0011\u0010\u0012\u001a\u0011\u0010\u0013\u001a\u00020\u0004*\u00020\u0000¢\u0006\u0004\b\u0013\u0010\u0014\u001a\u0011\u0010\u0016\u001a\u00020\u0015*\u00020\u0000¢\u0006\u0004\b\u0016\u0010\u0017\"\u0016\u0010\u0019\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0019\u0010\u001a\"\u0016\u0010\u001c\u001a\u00020\u001b8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001c\u0010\u001d\"\u0016\u0010\u001e\u001a\u00020\u00158\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001e\u0010\u001f\"\u0016\u0010 \u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b \u0010!\"\u0016\u0010\"\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\"\u0010!\"\u0016\u0010#\u001a\u00020\u00158\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b#\u0010\u001f\"\u0016\u0010$\u001a\u00020\u00158\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b$\u0010\u001f\"\u0016\u0010%\u001a\u00020\u00158\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b%\u0010\u001f\"\u0016\u0010&\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b&\u0010!\"\u0016\u0010'\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b'\u0010!\"\u0016\u0010(\u001a\u00020\u00158\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b(\u0010\u001f¨\u0006)"}, d2 = {"Landroid/view/View;", "", "dx", "dy", "", "actionMoveEnabled", "(Landroid/view/View;FF)Z", "", "fixScaleTranslate", "(Landroid/view/View;FF)V", "Landroid/graphics/RectF;", "getRelativeToParentOffset", "(Landroid/view/View;)Landroid/graphics/RectF;", "offsetX", "offsetY", "isRestore", "Landroid/graphics/PointF;", "getScaleMovePointF", "(Landroid/view/View;FFZ)Landroid/graphics/PointF;", "isVideoViewMatrixChanged", "(Landroid/view/View;)Z", "", "touchSlop", "(Landroid/view/View;)I", "", "ANIMATION_DURATION", "J", "", "GESTURE_TAG", "Ljava/lang/String;", "MIN_POINTER_COUNT", "I", "MOVE_SLOP", "F", "OFFSET_BORDER", "ROTATION_180", "ROTATION_45", "ROTATION_90", "ROTATION_MAX", "ROTATION_SLOP", "TWO_POINTER", "framework_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-@JvmName(name = BdGestureHelper.GESTURE_TAG)
 /* loaded from: classes2.dex */
 public final class BdGestureHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,7 +31,10 @@ public final class BdGestureHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{actionMoveEnabled, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             Intrinsics.checkNotNullParameter(actionMoveEnabled, "$this$actionMoveEnabled");
-            return ((float) Math.sqrt((double) ((f * f) + (f2 * f2)))) >= ((float) touchSlop(actionMoveEnabled));
+            if (((float) Math.sqrt((f * f) + (f2 * f2))) >= touchSlop(actionMoveEnabled)) {
+                return true;
+            }
+            return false;
         }
         return invokeCommon.booleanValue;
     }
@@ -125,7 +126,10 @@ public final class BdGestureHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, isVideoViewMatrixChanged)) == null) {
             Intrinsics.checkNotNullParameter(isVideoViewMatrixChanged, "$this$isVideoViewMatrixChanged");
-            return (isVideoViewMatrixChanged.getScaleX() == 1.0f && isVideoViewMatrixChanged.getScaleY() == 1.0f && (isVideoViewMatrixChanged.getRotation() == 0.0f || isVideoViewMatrixChanged.getRotation() == 360.0f)) ? false : true;
+            if (isVideoViewMatrixChanged.getScaleX() == 1.0f && isVideoViewMatrixChanged.getScaleY() == 1.0f && (isVideoViewMatrixChanged.getRotation() == 0.0f || isVideoViewMatrixChanged.getRotation() == 360.0f)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

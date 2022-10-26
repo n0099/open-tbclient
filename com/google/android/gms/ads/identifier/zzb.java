@@ -4,18 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.util.VisibleForTesting;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-@VisibleForTesting
 /* loaded from: classes7.dex */
 public final class zzb extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CountDownLatch zza;
     public boolean zzb;
-    public final WeakReference<AdvertisingIdClient> zzc;
+    public final WeakReference zzc;
     public final long zzd;
 
     public zzb(AdvertisingIdClient advertisingIdClient, long j) {
@@ -33,7 +31,7 @@ public final class zzb extends Thread {
                 return;
             }
         }
-        this.zzc = new WeakReference<>(advertisingIdClient);
+        this.zzc = new WeakReference(advertisingIdClient);
         this.zzd = j;
         this.zza = new CountDownLatch(1);
         this.zzb = false;
@@ -43,11 +41,10 @@ public final class zzb extends Thread {
     private final void zza() {
         AdvertisingIdClient advertisingIdClient;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (advertisingIdClient = this.zzc.get()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (advertisingIdClient = (AdvertisingIdClient) this.zzc.get()) != null) {
+            advertisingIdClient.zza();
+            this.zzb = true;
         }
-        advertisingIdClient.zza();
-        this.zzb = true;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -55,10 +52,9 @@ public final class zzb extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.zza.await(this.zzd, TimeUnit.MILLISECONDS)) {
-                    return;
+                if (!this.zza.await(this.zzd, TimeUnit.MILLISECONDS)) {
+                    zza();
                 }
-                zza();
             } catch (InterruptedException unused) {
                 zza();
             }

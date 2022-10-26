@@ -38,10 +38,40 @@ public class MovieFragmentBox extends AbstractContainerBox {
     public DataSource getFileChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dataSource : (DataSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dataSource;
+        }
+        return (DataSource) invokeV.objValue;
     }
 
-    public List<Long> getSyncSamples(SampleDependencyTypeBox sampleDependencyTypeBox) {
+    public int getTrackCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getBoxes(TrackFragmentBox.class, false).size();
+        }
+        return invokeV.intValue;
+    }
+
+    public List getTrackFragmentHeaderBoxes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getBoxes(TrackFragmentHeaderBox.class, true);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getTrackRunBoxes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getBoxes(TrackRunBox.class, true);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getSyncSamples(SampleDependencyTypeBox sampleDependencyTypeBox) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sampleDependencyTypeBox)) == null) {
@@ -58,18 +88,6 @@ public class MovieFragmentBox extends AbstractContainerBox {
         return (List) invokeL.objValue;
     }
 
-    public int getTrackCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getBoxes(TrackFragmentBox.class, false).size() : invokeV.intValue;
-    }
-
-    public List<TrackFragmentHeaderBox> getTrackFragmentHeaderBoxes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getBoxes(TrackFragmentHeaderBox.class, true) : (List) invokeV.objValue;
-    }
-
     public long[] getTrackNumbers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,11 +100,5 @@ public class MovieFragmentBox extends AbstractContainerBox {
             return jArr;
         }
         return (long[]) invokeV.objValue;
-    }
-
-    public List<TrackRunBox> getTrackRunBoxes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getBoxes(TrackRunBox.class, true) : (List) invokeV.objValue;
     }
 }

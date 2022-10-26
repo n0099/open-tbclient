@@ -15,6 +15,8 @@ public abstract class Tracer {
     public volatile boolean b;
     public g c;
 
+    public abstract void doTrace(int i, Thread thread, long j, String str, String str2, Throwable th);
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Tracer() {
         this(c.a, true, g.a);
@@ -32,27 +34,6 @@ public abstract class Tracer {
                 return;
             }
         }
-    }
-
-    public void a(int i, Thread thread, long j, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), thread, Long.valueOf(j), str, str2, th}) == null) && d() && d.a.a(this.a, i)) {
-            doTrace(i, thread, j, str, str2, th);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public abstract void doTrace(int i, Thread thread, long j, String str, String str2, Throwable th);
-
-    public g e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (g) invokeV.objValue;
     }
 
     public Tracer(int i, boolean z, g gVar) {
@@ -85,10 +66,10 @@ public abstract class Tracer {
         }
     }
 
-    public void a(boolean z) {
+    public void a(int i, Thread thread, long j, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), thread, Long.valueOf(j), str, str2, th}) == null) && d() && d.a.a(this.a, i)) {
+            doTrace(i, thread, j, str, str2, th);
         }
     }
 
@@ -97,5 +78,30 @@ public abstract class Tracer {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
             this.c = gVar;
         }
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public g e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (g) invokeV.objValue;
     }
 }

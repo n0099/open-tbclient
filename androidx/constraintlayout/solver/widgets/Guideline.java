@@ -32,6 +32,23 @@ public class Guideline extends ConstraintWidget {
     public float mRelativePercent;
     public boolean resolved;
 
+    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
+    public boolean allowedInBarrier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "Guideline" : (String) invokeV.objValue;
+    }
+
     /* renamed from: androidx.constraintlayout.solver.widgets.Guideline$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
@@ -123,29 +140,34 @@ public class Guideline extends ConstraintWidget {
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
     public void addToSolver(LinearSystem linearSystem, boolean z) {
         ConstraintWidgetContainer constraintWidgetContainer;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, linearSystem, z) == null) || (constraintWidgetContainer = (ConstraintWidgetContainer) getParent()) == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048576, this, linearSystem, z) != null) || (constraintWidgetContainer = (ConstraintWidgetContainer) getParent()) == null) {
             return;
         }
         ConstraintAnchor anchor = constraintWidgetContainer.getAnchor(ConstraintAnchor.Type.LEFT);
         ConstraintAnchor anchor2 = constraintWidgetContainer.getAnchor(ConstraintAnchor.Type.RIGHT);
         ConstraintWidget constraintWidget = this.mParent;
-        boolean z2 = true;
-        boolean z3 = constraintWidget != null && constraintWidget.mListDimensionBehaviors[0] == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT;
+        boolean z3 = true;
+        if (constraintWidget != null && constraintWidget.mListDimensionBehaviors[0] == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
         if (this.mOrientation == 0) {
             anchor = constraintWidgetContainer.getAnchor(ConstraintAnchor.Type.TOP);
             anchor2 = constraintWidgetContainer.getAnchor(ConstraintAnchor.Type.BOTTOM);
             ConstraintWidget constraintWidget2 = this.mParent;
-            z3 = (constraintWidget2 == null || constraintWidget2.mListDimensionBehaviors[1] != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT) ? false : false;
+            z2 = (constraintWidget2 == null || constraintWidget2.mListDimensionBehaviors[1] != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT) ? false : false;
         }
         if (this.resolved && this.mAnchor.hasFinalValue()) {
             SolverVariable createObjectVariable = linearSystem.createObjectVariable(this.mAnchor);
             linearSystem.addEquality(createObjectVariable, this.mAnchor.getFinalValue());
             if (this.mRelativeBegin != -1) {
-                if (z3) {
+                if (z2) {
                     linearSystem.addGreaterThan(linearSystem.createObjectVariable(anchor2), createObjectVariable, 0, 5);
                 }
-            } else if (this.mRelativeEnd != -1 && z3) {
+            } else if (this.mRelativeEnd != -1 && z2) {
                 SolverVariable createObjectVariable2 = linearSystem.createObjectVariable(anchor2);
                 linearSystem.addGreaterThan(createObjectVariable, linearSystem.createObjectVariable(anchor), 0, 5);
                 linearSystem.addGreaterThan(createObjectVariable2, createObjectVariable, 0, 5);
@@ -154,30 +176,20 @@ public class Guideline extends ConstraintWidget {
         } else if (this.mRelativeBegin != -1) {
             SolverVariable createObjectVariable3 = linearSystem.createObjectVariable(this.mAnchor);
             linearSystem.addEquality(createObjectVariable3, linearSystem.createObjectVariable(anchor), this.mRelativeBegin, 8);
-            if (z3) {
+            if (z2) {
                 linearSystem.addGreaterThan(linearSystem.createObjectVariable(anchor2), createObjectVariable3, 0, 5);
             }
         } else if (this.mRelativeEnd != -1) {
             SolverVariable createObjectVariable4 = linearSystem.createObjectVariable(this.mAnchor);
             SolverVariable createObjectVariable5 = linearSystem.createObjectVariable(anchor2);
             linearSystem.addEquality(createObjectVariable4, createObjectVariable5, -this.mRelativeEnd, 8);
-            if (z3) {
+            if (z2) {
                 linearSystem.addGreaterThan(createObjectVariable4, linearSystem.createObjectVariable(anchor), 0, 5);
                 linearSystem.addGreaterThan(createObjectVariable5, createObjectVariable4, 0, 5);
             }
         } else if (this.mRelativePercent != -1.0f) {
             linearSystem.addConstraint(LinearSystem.createRowDimensionPercent(linearSystem, linearSystem.createObjectVariable(this.mAnchor), linearSystem.createObjectVariable(anchor2), this.mRelativePercent));
         }
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public boolean allowedInBarrier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
@@ -209,19 +221,28 @@ public class Guideline extends ConstraintWidget {
     public ConstraintAnchor getAnchor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAnchor : (ConstraintAnchor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAnchor;
+        }
+        return (ConstraintAnchor) invokeV.objValue;
     }
 
     public int getOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOrientation : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mOrientation;
+        }
+        return invokeV.intValue;
     }
 
     public int getRelativeBegin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRelativeBegin : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mRelativeBegin;
+        }
+        return invokeV.intValue;
     }
 
     public int getRelativeBehaviour() {
@@ -234,7 +255,10 @@ public class Guideline extends ConstraintWidget {
             if (this.mRelativeBegin != -1) {
                 return 1;
             }
-            return this.mRelativeEnd != -1 ? 2 : -1;
+            if (this.mRelativeEnd == -1) {
+                return -1;
+            }
+            return 2;
         }
         return invokeV.intValue;
     }
@@ -242,20 +266,19 @@ public class Guideline extends ConstraintWidget {
     public int getRelativeEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mRelativeEnd : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mRelativeEnd;
+        }
+        return invokeV.intValue;
     }
 
     public float getRelativePercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mRelativePercent : invokeV.floatValue;
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "Guideline" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mRelativePercent;
+        }
+        return invokeV.floatValue;
     }
 
     public void inferRelativeBeginPosition() {
@@ -280,116 +303,36 @@ public class Guideline extends ConstraintWidget {
         }
     }
 
-    public void inferRelativePercentPosition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            float x = getX() / getParent().getWidth();
-            if (this.mOrientation == 0) {
-                x = getY() / getParent().getHeight();
-            }
-            setGuidePercent(x);
-        }
-    }
-
     public boolean isPercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mRelativePercent != -1.0f && this.mRelativeBegin == -1 && this.mRelativeEnd == -1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.mRelativePercent != -1.0f && this.mRelativeBegin == -1 && this.mRelativeEnd == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
     public boolean isResolvedHorizontally() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.resolved : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.resolved;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
     public boolean isResolvedVertically() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.resolved : invokeV.booleanValue;
-    }
-
-    public void setFinalValue(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.mAnchor.setFinalValue(i);
-            this.resolved = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.resolved;
         }
-    }
-
-    public void setGuideBegin(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || i <= -1) {
-            return;
-        }
-        this.mRelativePercent = -1.0f;
-        this.mRelativeBegin = i;
-        this.mRelativeEnd = -1;
-    }
-
-    public void setGuideEnd(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || i <= -1) {
-            return;
-        }
-        this.mRelativePercent = -1.0f;
-        this.mRelativeBegin = -1;
-        this.mRelativeEnd = i;
-    }
-
-    public void setGuidePercent(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            setGuidePercent(i / 100.0f);
-        }
-    }
-
-    public void setMinimumPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.mMinimumPosition = i;
-        }
-    }
-
-    public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048600, this, i) == null) || this.mOrientation == i) {
-            return;
-        }
-        this.mOrientation = i;
-        this.mAnchors.clear();
-        if (this.mOrientation == 1) {
-            this.mAnchor = this.mLeft;
-        } else {
-            this.mAnchor = this.mTop;
-        }
-        this.mAnchors.add(this.mAnchor);
-        int length = this.mListAnchors.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            this.mListAnchors[i2] = this.mAnchor;
-        }
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void updateFromSolver(LinearSystem linearSystem, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048601, this, linearSystem, z) == null) || getParent() == null) {
-            return;
-        }
-        int objectVariableValue = linearSystem.getObjectVariableValue(this.mAnchor);
-        if (this.mOrientation == 1) {
-            setX(objectVariableValue);
-            setY(0);
-            setHeight(getParent().getHeight());
-            setWidth(0);
-            return;
-        }
-        setX(0);
-        setY(objectVariableValue);
-        setWidth(getParent().getWidth());
-        setHeight(0);
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
@@ -422,13 +365,102 @@ public class Guideline extends ConstraintWidget {
         return (ConstraintAnchor) invokeL.objValue;
     }
 
+    public void inferRelativePercentPosition() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            float x = getX() / getParent().getWidth();
+            if (this.mOrientation == 0) {
+                x = getY() / getParent().getHeight();
+            }
+            setGuidePercent(x);
+        }
+    }
+
+    public void setFinalValue(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mAnchor.setFinalValue(i);
+            this.resolved = true;
+        }
+    }
+
+    public void setGuideBegin(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i > -1) {
+            this.mRelativePercent = -1.0f;
+            this.mRelativeBegin = i;
+            this.mRelativeEnd = -1;
+        }
+    }
+
+    public void setGuideEnd(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048596, this, i) == null) && i > -1) {
+            this.mRelativePercent = -1.0f;
+            this.mRelativeBegin = -1;
+            this.mRelativeEnd = i;
+        }
+    }
+
     public void setGuidePercent(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048597, this, f) == null) || f <= -1.0f) {
+        if ((interceptable == null || interceptable.invokeF(1048597, this, f) == null) && f > -1.0f) {
+            this.mRelativePercent = f;
+            this.mRelativeBegin = -1;
+            this.mRelativeEnd = -1;
+        }
+    }
+
+    public void setMinimumPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mMinimumPosition = i;
+        }
+    }
+
+    public void setGuidePercent(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            setGuidePercent(i / 100.0f);
+        }
+    }
+
+    public void setOrientation(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048600, this, i) != null) || this.mOrientation == i) {
             return;
         }
-        this.mRelativePercent = f;
-        this.mRelativeBegin = -1;
-        this.mRelativeEnd = -1;
+        this.mOrientation = i;
+        this.mAnchors.clear();
+        if (this.mOrientation == 1) {
+            this.mAnchor = this.mLeft;
+        } else {
+            this.mAnchor = this.mTop;
+        }
+        this.mAnchors.add(this.mAnchor);
+        int length = this.mListAnchors.length;
+        for (int i2 = 0; i2 < length; i2++) {
+            this.mListAnchors[i2] = this.mAnchor;
+        }
+    }
+
+    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
+    public void updateFromSolver(LinearSystem linearSystem, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048601, this, linearSystem, z) != null) || getParent() == null) {
+            return;
+        }
+        int objectVariableValue = linearSystem.getObjectVariableValue(this.mAnchor);
+        if (this.mOrientation == 1) {
+            setX(objectVariableValue);
+            setY(0);
+            setHeight(getParent().getHeight());
+            setWidth(0);
+            return;
+        }
+        setX(0);
+        setY(objectVariableValue);
+        setWidth(getParent().getWidth());
+        setHeight(0);
     }
 }

@@ -1,7 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.util;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -30,7 +28,7 @@ public final class h {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean b;
     public boolean c;
-    public final List<g> d;
+    public final List d;
     public g e;
     public String f;
 
@@ -106,8 +104,6 @@ public final class h {
         return invokeL.booleanValue;
     }
 
-    @SuppressLint({"NewApi"})
-    @TargetApi(14)
     private void c(Context context) {
         boolean z;
         Object[] objArr;
@@ -158,10 +154,10 @@ public final class h {
                         arrayList.addAll(this.d);
                         for (int i3 = 0; i3 < externalFilesDirs.length && externalFilesDirs[i3] != null; i3++) {
                             String absolutePath = externalFilesDirs[i3].getAbsolutePath();
-                            Iterator<g> it = this.d.iterator();
+                            Iterator it = this.d.iterator();
                             while (true) {
                                 if (it.hasNext()) {
-                                    if (absolutePath.startsWith(it.next().a())) {
+                                    if (absolutePath.startsWith(((g) it.next()).a())) {
                                         z = true;
                                         break;
                                     }
@@ -304,7 +300,7 @@ public final class h {
                     }
                 }
                 if (this.e == null) {
-                    this.e = this.d.get(0);
+                    this.e = (g) this.d.get(0);
                 }
             } else {
                 if (i != 1) {

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public static final int QUERY_TYPE_BCASTID = 2;
     public static final int QUERY_TYPE_FORUMID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> bcastIds;
+    public List bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
     public CommonReq f1053common;
@@ -65,7 +65,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
             builder.bcast_ids = this.bcastIds;
             builder.staff_id64 = Long.valueOf(this.lastId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             GetForumBroadcastListReqIdl.Builder builder2 = new GetForumBroadcastListReqIdl.Builder();
             builder2.data = builder.build(false);

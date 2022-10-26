@@ -1,122 +1,201 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.param.CommonUrlParamManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pa9 implements ka9 {
+public class pa9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public pa9() {
+    public static void a() {
+        eb9 c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = kb9.c()) != null) {
+            c.b();
+        }
+    }
+
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.getAppContext();
             }
+            return null;
         }
+        return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ka9
-    public void a(int i) {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ka9
-    public String b(boolean z) {
+    public static ea9 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return kb9.e();
+        }
+        return (ea9) invokeV.objValue;
+    }
+
+    public static ia9 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return kb9.f();
+        }
+        return (ia9) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            db9 b = kb9.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.c(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            eb9 c = kb9.c();
+            if (c != null) {
+                return c.a(str);
+            }
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.e(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? z ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc" : "https://tcbox.baidu.com/ztbox?action=zubc" : (String) invokeZ.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.ka9
-    public String c(String str) {
-        InterceptResult invokeL;
+    public static void q(int i) {
+        cb9 a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? CommonUrlParamManager.getInstance().processUrl(str) : (String) invokeL.objValue;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = kb9.a()) != null) {
+            a.a(i);
+        }
     }
 
-    @Override // com.baidu.tieba.ka9
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0) : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ka9
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? CommonUrlParamManager.getInstance().spliceNoPrivacyParams(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ka9
-    public Context getAppContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ka9
-    public int getInt(String str, int i) {
+    public static int f(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) ? ja9.d().getInt(str, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.getInt(str, i);
+            }
+            return i;
+        }
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.ka9
-    public long getLong(String str, long j) {
+    public static long g(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? ja9.d().getLong(str, j) : invokeLJ.longValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            cb9 a = kb9.a();
+            if (a != null) {
+                return a.getLong(str, j);
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
     }
 
-    @Override // com.baidu.tieba.ka9
-    public boolean isDebug() {
-        InterceptResult invokeV;
+    public static void n(String str, int i) {
+        cb9 a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? AppConfig.isDebug() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ka9
-    public void putInt(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            ja9.d().putInt(str, i);
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = kb9.a()) != null) {
+            a.putInt(str, i);
         }
     }
 
-    @Override // com.baidu.tieba.ka9
-    public void putLong(String str, long j) {
+    public static void o(String str, long j) {
+        cb9 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            ja9.d().putLong(str, j);
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = kb9.a()) != null) {
+            a.putLong(str, j);
         }
     }
 
-    @Override // com.baidu.tieba.ka9
-    public void putString(String str, String str2) {
+    public static void p(String str, String str2) {
+        cb9 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            ja9.d().putString(str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = kb9.a()) != null) {
+            a.putString(str, str2);
         }
     }
 }

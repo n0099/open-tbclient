@@ -26,7 +26,7 @@ public class a implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0107a {
+    public class C0107a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;

@@ -22,10 +22,10 @@ public final class DvbSubtitleReader implements ElementaryStreamReader {
     public final TrackOutput[] outputs;
     public int sampleBytesWritten;
     public long sampleTimeUs;
-    public final List<TsPayloadReader.DvbSubtitleInfo> subtitleInfos;
+    public final List subtitleInfos;
     public boolean writingSample;
 
-    public DvbSubtitleReader(List<TsPayloadReader.DvbSubtitleInfo> list) {
+    public DvbSubtitleReader(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,21 +61,35 @@ public final class DvbSubtitleReader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void packetStarted(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) != null) || !z) {
+            return;
+        }
+        this.writingSample = true;
+        this.sampleTimeUs = j;
+        this.sampleBytesWritten = 0;
+        this.bytesToCheck = 2;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void consume(ParsableByteArray parsableByteArray) {
         TrackOutput[] trackOutputArr;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) && this.writingSample) {
-            if (this.bytesToCheck != 2 || checkNextByte(parsableByteArray, 32)) {
-                if (this.bytesToCheck != 1 || checkNextByte(parsableByteArray, 0)) {
-                    int position = parsableByteArray.getPosition();
-                    int bytesLeft = parsableByteArray.bytesLeft();
-                    for (TrackOutput trackOutput : this.outputs) {
-                        parsableByteArray.setPosition(position);
-                        trackOutput.sampleData(parsableByteArray, bytesLeft);
-                    }
-                    this.sampleBytesWritten += bytesLeft;
-                }
+            if (this.bytesToCheck == 2 && !checkNextByte(parsableByteArray, 32)) {
+                return;
             }
+            if (this.bytesToCheck == 1 && !checkNextByte(parsableByteArray, 0)) {
+                return;
+            }
+            int position = parsableByteArray.getPosition();
+            int bytesLeft = parsableByteArray.bytesLeft();
+            for (TrackOutput trackOutput : this.outputs) {
+                parsableByteArray.setPosition(position);
+                trackOutput.sampleData(parsableByteArray, bytesLeft);
+            }
+            this.sampleBytesWritten += bytesLeft;
         }
     }
 
@@ -84,7 +98,7 @@ public final class DvbSubtitleReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorOutput, trackIdGenerator) == null) {
             for (int i = 0; i < this.outputs.length; i++) {
-                TsPayloadReader.DvbSubtitleInfo dvbSubtitleInfo = this.subtitleInfos.get(i);
+                TsPayloadReader.DvbSubtitleInfo dvbSubtitleInfo = (TsPayloadReader.DvbSubtitleInfo) this.subtitleInfos.get(i);
                 trackIdGenerator.generateNewId();
                 TrackOutput track = extractorOutput.track(trackIdGenerator.getTrackId(), 3);
                 track.format(Format.createImageSampleFormat(trackIdGenerator.getFormatId(), MimeTypes.APPLICATION_DVBSUBS, null, -1, Collections.singletonList(dvbSubtitleInfo.initializationData), dvbSubtitleInfo.language, null));
@@ -101,17 +115,6 @@ public final class DvbSubtitleReader implements ElementaryStreamReader {
                 trackOutput.sampleMetadata(this.sampleTimeUs, 1, this.sampleBytesWritten, 0, null);
             }
             this.writingSample = false;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetStarted(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) && z) {
-            this.writingSample = true;
-            this.sampleTimeUs = j;
-            this.sampleBytesWritten = 0;
-            this.bytesToCheck = 2;
         }
     }
 

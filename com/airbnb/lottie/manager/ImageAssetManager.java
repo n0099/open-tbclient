@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.View;
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.ImageAssetDelegate;
 import com.airbnb.lottie.LottieImageAsset;
 import com.airbnb.lottie.utils.Logger;
@@ -22,12 +21,11 @@ import java.util.Map;
 public class ImageAssetManager {
     public static final Object bitmapHashLock = new Object();
     public final Context context;
-    @Nullable
     public ImageAssetDelegate delegate;
-    public final Map<String, LottieImageAsset> imageAssets;
+    public final Map imageAssets;
     public String imagesFolder;
 
-    public ImageAssetManager(Drawable.Callback callback, String str, ImageAssetDelegate imageAssetDelegate, Map<String, LottieImageAsset> map) {
+    public ImageAssetManager(Drawable.Callback callback, String str, ImageAssetDelegate imageAssetDelegate, Map map) {
         String str2;
         this.imagesFolder = str;
         if (!TextUtils.isEmpty(str)) {
@@ -46,16 +44,27 @@ public class ImageAssetManager {
         setDelegate(imageAssetDelegate);
     }
 
-    private Bitmap putBitmap(String str, @Nullable Bitmap bitmap) {
+    private Bitmap putBitmap(String str, Bitmap bitmap) {
         synchronized (bitmapHashLock) {
-            this.imageAssets.get(str).setBitmap(bitmap);
+            ((LottieImageAsset) this.imageAssets.get(str)).setBitmap(bitmap);
         }
         return bitmap;
     }
 
-    @Nullable
+    public Bitmap updateBitmap(String str, Bitmap bitmap) {
+        if (bitmap == null) {
+            LottieImageAsset lottieImageAsset = (LottieImageAsset) this.imageAssets.get(str);
+            Bitmap bitmap2 = lottieImageAsset.getBitmap();
+            lottieImageAsset.setBitmap(null);
+            return bitmap2;
+        }
+        Bitmap bitmap3 = ((LottieImageAsset) this.imageAssets.get(str)).getBitmap();
+        putBitmap(str, bitmap);
+        return bitmap3;
+    }
+
     public Bitmap bitmapForId(String str) {
-        LottieImageAsset lottieImageAsset = this.imageAssets.get(str);
+        LottieImageAsset lottieImageAsset = (LottieImageAsset) this.imageAssets.get(str);
         if (lottieImageAsset == null) {
             return null;
         }
@@ -97,23 +106,13 @@ public class ImageAssetManager {
     }
 
     public boolean hasSameContext(Context context) {
-        return (context == null && this.context == null) || this.context.equals(context);
-    }
-
-    public void setDelegate(@Nullable ImageAssetDelegate imageAssetDelegate) {
-        this.delegate = imageAssetDelegate;
-    }
-
-    @Nullable
-    public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
-        if (bitmap == null) {
-            LottieImageAsset lottieImageAsset = this.imageAssets.get(str);
-            Bitmap bitmap2 = lottieImageAsset.getBitmap();
-            lottieImageAsset.setBitmap(null);
-            return bitmap2;
+        if ((context == null && this.context == null) || this.context.equals(context)) {
+            return true;
         }
-        Bitmap bitmap3 = this.imageAssets.get(str).getBitmap();
-        putBitmap(str, bitmap);
-        return bitmap3;
+        return false;
+    }
+
+    public void setDelegate(ImageAssetDelegate imageAssetDelegate) {
+        this.delegate = imageAssetDelegate;
     }
 }

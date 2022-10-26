@@ -9,14 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cq2 implements kt2 {
+public class cq2 extends yp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eq2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
+    public fq2 z;
 
     public cq2() {
         Interceptable interceptable = $ic;
@@ -28,48 +24,39 @@ public class cq2 implements kt2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
-    }
-
-    @Override // com.baidu.tieba.kt2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("radius")) {
-            eq2 eq2Var = new eq2();
-            this.a = eq2Var;
-            eq2Var.a(jSONObject);
-            if (this.a.isValid()) {
-                this.b = yp2.a(jSONObject.optString("color"), 0);
-                this.c = yp2.a(jSONObject.optString("fillColor"), -16777216);
-                this.d = jSONObject.optInt("radius", -1);
-                this.e = Math.abs(yp2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
             }
         }
     }
 
-    @Override // com.baidu.tieba.kt2
+    @Override // com.baidu.tieba.cz1, com.baidu.tieba.lt2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            eq2 eq2Var = this.a;
-            return (eq2Var == null || !eq2Var.isValid() || this.d == -1) ? false : true;
+            if (this.z != null) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yp2, com.baidu.tieba.cz1, com.baidu.tieba.lt2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        super.a(jSONObject);
+        jSONObject.optString("cb");
+        double optDouble = jSONObject.optDouble("latitude");
+        double optDouble2 = jSONObject.optDouble("longitude");
+        jSONObject.optString("guideKey");
+        jSONObject.optString("guideIcon");
+        if (!Double.isNaN(optDouble) && !Double.isNaN(optDouble2) && optDouble >= -90.0d && optDouble <= 90.0d && optDouble2 >= -180.0d && optDouble2 <= 180.0d) {
+            fq2 fq2Var = new fq2();
+            this.z = fq2Var;
+            fq2Var.a(jSONObject);
+        }
     }
 }

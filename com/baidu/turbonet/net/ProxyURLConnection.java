@@ -1,13 +1,12 @@
 package com.baidu.turbonet.net;
 
-import android.annotation.TargetApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h89;
-import com.baidu.tieba.k89;
-import com.baidu.tieba.n89;
-import com.baidu.tieba.o89;
-import com.baidu.tieba.s89;
+import com.baidu.tieba.c99;
+import com.baidu.tieba.f99;
+import com.baidu.tieba.g99;
+import com.baidu.tieba.k99;
+import com.baidu.tieba.z89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,294 +20,45 @@ import java.net.URL;
 import java.security.Permission;
 import java.security.Principal;
 import java.security.cert.Certificate;
-import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes6.dex */
-public class ProxyURLConnection extends HttpsURLConnection implements o89 {
+public class ProxyURLConnection extends HttpsURLConnection implements g99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k89 a;
+    public c99 a;
     public HttpURLConnection b;
-    public s89 c;
+    public k99 c;
     public TurbonetEngine d;
     public ProxyConfig e;
 
-    @Override // com.baidu.tieba.o89
+    @Override // com.baidu.tieba.g99
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            k89 k89Var = this.a;
-            k89Var.e = j;
-            k89Var.c();
-            k89 k89Var2 = this.a;
-            k89Var2.c = -12;
-            k89Var2.d(this.d);
+            c99 c99Var = this.a;
+            c99Var.e = j;
+            c99Var.c();
+            c99 c99Var2 = this.a;
+            c99Var2.c = -12;
+            c99Var2.d(this.d);
         }
-    }
-
-    @Override // java.net.URLConnection
-    public final void addRequestProperty(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (!this.e.a()) {
-                this.c.addRequestProperty(str, str2);
-            } else {
-                this.b.addRequestProperty(str, str2);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.o89
-    public void b(Exception exc, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, exc, j) == null) {
-            k89 k89Var = this.a;
-            k89Var.e = j;
-            k89Var.c();
-            this.a.a(exc);
-            this.a.d(this.d);
-        }
-    }
-
-    @Override // java.net.URLConnection
-    public void connect() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            h89.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
-            if (!this.e.a()) {
-                this.c.connect();
-                return;
-            }
-            try {
-                this.b.connect();
-            } catch (IOException e) {
-                b(e, 0L);
-                throw e;
-            }
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public void disconnect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            h89.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
-            if (!this.e.a()) {
-                this.c.disconnect();
-            } else {
-                this.b.disconnect();
-            }
-        }
-    }
-
-    @Override // javax.net.ssl.HttpsURLConnection
-    public String getCipherSuite() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HttpURLConnection httpURLConnection = this.b;
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                return ((HttpsURLConnection) httpURLConnection).getCipherSuite();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public int getConnectTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getConnectTimeout();
-            }
-            return this.b.getConnectTimeout();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Object getContent() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getContent();
-            }
-            try {
-                long contentLength = this.b.getContentLength();
-                this.a.e = contentLength;
-                onComplete(contentLength);
-                return this.b.getContent();
-            } catch (IOException e) {
-                b(e, 0L);
-                throw e;
-            }
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public String getContentEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getContentEncoding();
-            }
-            return this.b.getContentEncoding();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public int getContentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getContentLength();
-            }
-            return this.b.getContentLength();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.net.URLConnection
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getContentType();
-            }
-            return this.b.getContentType();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public long getDate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getDate();
-            }
-            return this.b.getDate();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.net.URLConnection
-    public boolean getDefaultUseCaches() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getDefaultUseCaches();
-            }
-            return this.b.getDefaultUseCaches();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.net.URLConnection
-    public boolean getDoInput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getDoInput();
-            }
-            return this.b.getDoInput();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.net.URLConnection
-    public boolean getDoOutput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getDoOutput();
-            }
-            return this.b.getDoOutput();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    public InputStream getErrorStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getErrorStream();
-            }
-            return this.b.getErrorStream();
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public long getExpiration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getExpiration();
-            }
-            return this.b.getExpiration();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.net.URLConnection
-    public final String getHeaderField(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            if (!this.e.a()) {
-                return this.c.getHeaderField(str);
-            }
-            String headerField = this.b.getHeaderField(str);
-            this.a.b();
-            return headerField;
-        }
-        return (String) invokeL.objValue;
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public long getHeaderFieldDate(String str, long j) {
-        InterceptResult invokeLJ;
+    public final String getHeaderField(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
             if (!this.e.a()) {
-                return this.c.getHeaderFieldDate(str, j);
+                return this.c.getHeaderField(i);
             }
-            return this.b.getHeaderFieldDate(str, j);
+            return this.b.getHeaderField(i);
         }
-        return invokeLJ.longValue;
-    }
-
-    @Override // java.net.URLConnection
-    public int getHeaderFieldInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i)) == null) {
-            if (!this.e.a()) {
-                return this.c.getHeaderFieldInt(str, i);
-            }
-            return this.b.getHeaderFieldInt(str, i);
-        }
-        return invokeLI.intValue;
+        return (String) invokeI.objValue;
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
@@ -325,198 +75,6 @@ public class ProxyURLConnection extends HttpsURLConnection implements o89 {
     }
 
     @Override // java.net.URLConnection
-    public Map<String, List<String>> getHeaderFields() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getHeaderFields();
-            }
-            return this.b.getHeaderFields();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.HttpsURLConnection
-    public HostnameVerifier getHostnameVerifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            HttpURLConnection httpURLConnection = this.b;
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                return ((HttpsURLConnection) httpURLConnection).getHostnameVerifier();
-            }
-            return null;
-        }
-        return (HostnameVerifier) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public long getIfModifiedSince() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getIfModifiedSince();
-            }
-            return this.b.getIfModifiedSince();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.net.URLConnection
-    public InputStream getInputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            h89.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
-            if (!this.e.a()) {
-                return this.c.getInputStream();
-            }
-            try {
-                return new n89(this.b.getInputStream(), this);
-            } catch (IOException e) {
-                b(e, 0L);
-                throw e;
-            }
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    public boolean getInstanceFollowRedirects() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getInstanceFollowRedirects();
-            }
-            return this.b.getInstanceFollowRedirects();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.net.URLConnection
-    public long getLastModified() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getLastModified();
-            }
-            return this.b.getLastModified();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // javax.net.ssl.HttpsURLConnection
-    public Certificate[] getLocalCertificates() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            HttpURLConnection httpURLConnection = this.b;
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                return ((HttpsURLConnection) httpURLConnection).getLocalCertificates();
-            }
-            return null;
-        }
-        return (Certificate[]) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.HttpsURLConnection
-    public Principal getLocalPrincipal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            HttpURLConnection httpURLConnection = this.b;
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                return ((HttpsURLConnection) httpURLConnection).getLocalPrincipal();
-            }
-            return null;
-        }
-        return (Principal) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public OutputStream getOutputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getOutputStream();
-            }
-            return this.b.getOutputStream();
-        }
-        return (OutputStream) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.HttpsURLConnection
-    public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            HttpURLConnection httpURLConnection = this.b;
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                return ((HttpsURLConnection) httpURLConnection).getPeerPrincipal();
-            }
-            return null;
-        }
-        return (Principal) invokeV.objValue;
-    }
-
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public Permission getPermission() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getPermission();
-            }
-            return this.b.getPermission();
-        }
-        return (Permission) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public int getReadTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getReadTimeout();
-            }
-            return this.b.getReadTimeout();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    public String getRequestMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getRequestMethod();
-            }
-            return this.b.getRequestMethod();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Map<String, List<String>> getRequestProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getRequestProperties();
-            }
-            return this.b.getRequestProperties();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
     public String getRequestProperty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -529,115 +87,16 @@ public class ProxyURLConnection extends HttpsURLConnection implements o89 {
         return (String) invokeL.objValue;
     }
 
-    @Override // java.net.HttpURLConnection
-    public int getResponseCode() throws IOException {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            if (!this.e.a()) {
-                i = this.c.getResponseCode();
-            } else {
-                try {
-                    int responseCode = this.b.getResponseCode();
-                    this.a.d = responseCode;
-                    this.a.b();
-                    if (responseCode != 200) {
-                        onComplete(0L);
-                    }
-                    i = responseCode;
-                } catch (IOException e) {
-                    b(e, 0L);
-                    throw e;
-                }
-            }
-            h89.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    public String getResponseMessage() throws IOException {
-        InterceptResult invokeV;
-        String responseMessage;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            if (!this.e.a()) {
-                responseMessage = this.c.getResponseMessage();
-            } else {
-                responseMessage = this.b.getResponseMessage();
-            }
-            h89.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
-            return responseMessage;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.HttpsURLConnection
-    public SSLSocketFactory getSSLSocketFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            HttpURLConnection httpURLConnection = this.b;
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                return ((HttpsURLConnection) httpURLConnection).getSSLSocketFactory();
-            }
-            return null;
-        }
-        return (SSLSocketFactory) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.HttpsURLConnection
-    public Certificate[] getServerCertificates() throws SSLPeerUnverifiedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            HttpURLConnection httpURLConnection = this.b;
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                return ((HttpsURLConnection) httpURLConnection).getServerCertificates();
-            }
-            return null;
-        }
-        return (Certificate[]) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public URL getURL() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getURL();
-            }
-            return this.b.getURL();
-        }
-        return (URL) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public boolean getUseCaches() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            if (!this.e.a()) {
-                return this.c.getUseCaches();
-            }
-            return this.b.getUseCaches();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.o89
+    @Override // com.baidu.tieba.g99
     public void onComplete(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            k89 k89Var = this.a;
-            k89Var.e = j;
-            k89Var.c();
-            k89 k89Var2 = this.a;
-            k89Var2.c = 0;
-            k89Var2.d(this.d);
+            c99 c99Var = this.a;
+            c99Var.e = j;
+            c99Var.c();
+            c99 c99Var2 = this.a;
+            c99Var2.c = 0;
+            c99Var2.d(this.d);
         }
     }
 
@@ -773,18 +232,6 @@ public class ProxyURLConnection extends HttpsURLConnection implements o89 {
         }
     }
 
-    @Override // java.net.URLConnection
-    public final void setRequestProperty(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048633, this, str, str2) == null) {
-            if (!this.e.a()) {
-                this.c.setRequestProperty(str, str2);
-            } else {
-                this.b.setRequestProperty(str, str2);
-            }
-        }
-    }
-
     @Override // javax.net.ssl.HttpsURLConnection
     public void setSSLSocketFactory(SSLSocketFactory sSLSocketFactory) {
         Interceptable interceptable = $ic;
@@ -808,6 +255,491 @@ public class ProxyURLConnection extends HttpsURLConnection implements o89 {
         }
     }
 
+    @Override // java.net.URLConnection
+    public final void addRequestProperty(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            if (!this.e.a()) {
+                this.c.addRequestProperty(str, str2);
+            } else {
+                this.b.addRequestProperty(str, str2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g99
+    public void b(Exception exc, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, exc, j) == null) {
+            c99 c99Var = this.a;
+            c99Var.e = j;
+            c99Var.c();
+            this.a.a(exc);
+            this.a.d(this.d);
+        }
+    }
+
+    @Override // java.net.HttpURLConnection, java.net.URLConnection
+    public long getHeaderFieldDate(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j)) == null) {
+            if (!this.e.a()) {
+                return this.c.getHeaderFieldDate(str, j);
+            }
+            return this.b.getHeaderFieldDate(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // java.net.URLConnection
+    public int getHeaderFieldInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i)) == null) {
+            if (!this.e.a()) {
+                return this.c.getHeaderFieldInt(str, i);
+            }
+            return this.b.getHeaderFieldInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // java.net.URLConnection
+    public final void setRequestProperty(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048633, this, str, str2) == null) {
+            if (!this.e.a()) {
+                this.c.setRequestProperty(str, str2);
+            } else {
+                this.b.setRequestProperty(str, str2);
+            }
+        }
+    }
+
+    @Override // java.net.URLConnection
+    public void connect() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            z89.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
+            if (!this.e.a()) {
+                this.c.connect();
+                return;
+            }
+            try {
+                this.b.connect();
+            } catch (IOException e) {
+                b(e, 0L);
+                throw e;
+            }
+        }
+    }
+
+    @Override // java.net.HttpURLConnection
+    public void disconnect() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            z89.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
+            if (!this.e.a()) {
+                this.c.disconnect();
+            } else {
+                this.b.disconnect();
+            }
+        }
+    }
+
+    @Override // java.net.URLConnection
+    public Object getContent() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getContent();
+            }
+            try {
+                long contentLength = this.b.getContentLength();
+                this.a.e = contentLength;
+                onComplete(contentLength);
+                return this.b.getContent();
+            } catch (IOException e) {
+                b(e, 0L);
+                throw e;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.HttpsURLConnection
+    public String getCipherSuite() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection instanceof HttpsURLConnection) {
+                return ((HttpsURLConnection) httpURLConnection).getCipherSuite();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public int getConnectTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getConnectTimeout();
+            }
+            return this.b.getConnectTimeout();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.net.URLConnection
+    public String getContentEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getContentEncoding();
+            }
+            return this.b.getContentEncoding();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public int getContentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getContentLength();
+            }
+            return this.b.getContentLength();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.net.URLConnection
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getContentType();
+            }
+            return this.b.getContentType();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public long getDate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getDate();
+            }
+            return this.b.getDate();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.net.URLConnection
+    public boolean getDefaultUseCaches() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getDefaultUseCaches();
+            }
+            return this.b.getDefaultUseCaches();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.net.URLConnection
+    public boolean getDoInput() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getDoInput();
+            }
+            return this.b.getDoInput();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.net.URLConnection
+    public boolean getDoOutput() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getDoOutput();
+            }
+            return this.b.getDoOutput();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public InputStream getErrorStream() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getErrorStream();
+            }
+            return this.b.getErrorStream();
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public long getExpiration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getExpiration();
+            }
+            return this.b.getExpiration();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.net.URLConnection
+    public Map getHeaderFields() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getHeaderFields();
+            }
+            return this.b.getHeaderFields();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.HttpsURLConnection
+    public HostnameVerifier getHostnameVerifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection instanceof HttpsURLConnection) {
+                return ((HttpsURLConnection) httpURLConnection).getHostnameVerifier();
+            }
+            return null;
+        }
+        return (HostnameVerifier) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public long getIfModifiedSince() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getIfModifiedSince();
+            }
+            return this.b.getIfModifiedSince();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public boolean getInstanceFollowRedirects() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getInstanceFollowRedirects();
+            }
+            return this.b.getInstanceFollowRedirects();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.net.URLConnection
+    public long getLastModified() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getLastModified();
+            }
+            return this.b.getLastModified();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // javax.net.ssl.HttpsURLConnection
+    public Certificate[] getLocalCertificates() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection instanceof HttpsURLConnection) {
+                return ((HttpsURLConnection) httpURLConnection).getLocalCertificates();
+            }
+            return null;
+        }
+        return (Certificate[]) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.HttpsURLConnection
+    public Principal getLocalPrincipal() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection instanceof HttpsURLConnection) {
+                return ((HttpsURLConnection) httpURLConnection).getLocalPrincipal();
+            }
+            return null;
+        }
+        return (Principal) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public OutputStream getOutputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getOutputStream();
+            }
+            return this.b.getOutputStream();
+        }
+        return (OutputStream) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.HttpsURLConnection
+    public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection instanceof HttpsURLConnection) {
+                return ((HttpsURLConnection) httpURLConnection).getPeerPrincipal();
+            }
+            return null;
+        }
+        return (Principal) invokeV.objValue;
+    }
+
+    @Override // java.net.HttpURLConnection, java.net.URLConnection
+    public Permission getPermission() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getPermission();
+            }
+            return this.b.getPermission();
+        }
+        return (Permission) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public int getReadTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getReadTimeout();
+            }
+            return this.b.getReadTimeout();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public String getRequestMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getRequestMethod();
+            }
+            return this.b.getRequestMethod();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public Map getRequestProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getRequestProperties();
+            }
+            return this.b.getRequestProperties();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.HttpsURLConnection
+    public SSLSocketFactory getSSLSocketFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection instanceof HttpsURLConnection) {
+                return ((HttpsURLConnection) httpURLConnection).getSSLSocketFactory();
+            }
+            return null;
+        }
+        return (SSLSocketFactory) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.HttpsURLConnection
+    public Certificate[] getServerCertificates() throws SSLPeerUnverifiedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection instanceof HttpsURLConnection) {
+                return ((HttpsURLConnection) httpURLConnection).getServerCertificates();
+            }
+            return null;
+        }
+        return (Certificate[]) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public URL getURL() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getURL();
+            }
+            return this.b.getURL();
+        }
+        return (URL) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public boolean getUseCaches() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            if (!this.e.a()) {
+                return this.c.getUseCaches();
+            }
+            return this.b.getUseCaches();
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // java.net.HttpURLConnection
     public boolean usingProxy() {
         InterceptResult invokeV;
@@ -819,32 +751,6 @@ public class ProxyURLConnection extends HttpsURLConnection implements o89 {
             return this.b.usingProxy();
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    @TargetApi(19)
-    public void setFixedLengthStreamingMode(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
-            if (!this.e.a()) {
-                this.c.setFixedLengthStreamingMode(j);
-            } else {
-                this.b.setFixedLengthStreamingMode(j);
-            }
-        }
-    }
-
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public final String getHeaderField(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            if (!this.e.a()) {
-                return this.c.getHeaderField(i);
-            }
-            return this.b.getHeaderField(i);
-        }
-        return (String) invokeI.objValue;
     }
 
     @Override // java.net.URLConnection
@@ -866,5 +772,96 @@ public class ProxyURLConnection extends HttpsURLConnection implements o89 {
             }
         }
         return invokeL.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public final String getHeaderField(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (!this.e.a()) {
+                return this.c.getHeaderField(str);
+            }
+            String headerField = this.b.getHeaderField(str);
+            this.a.b();
+            return headerField;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public void setFixedLengthStreamingMode(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+            if (!this.e.a()) {
+                this.c.setFixedLengthStreamingMode(j);
+            } else {
+                this.b.setFixedLengthStreamingMode(j);
+            }
+        }
+    }
+
+    @Override // java.net.URLConnection
+    public InputStream getInputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            z89.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
+            if (!this.e.a()) {
+                return this.c.getInputStream();
+            }
+            try {
+                return new f99(this.b.getInputStream(), this);
+            } catch (IOException e) {
+                b(e, 0L);
+                throw e;
+            }
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public int getResponseCode() throws IOException {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (!this.e.a()) {
+                i = this.c.getResponseCode();
+            } else {
+                try {
+                    int responseCode = this.b.getResponseCode();
+                    this.a.d = responseCode;
+                    this.a.b();
+                    if (responseCode != 200) {
+                        onComplete(0L);
+                    }
+                    i = responseCode;
+                } catch (IOException e) {
+                    b(e, 0L);
+                    throw e;
+                }
+            }
+            z89.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public String getResponseMessage() throws IOException {
+        InterceptResult invokeV;
+        String responseMessage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            if (!this.e.a()) {
+                responseMessage = this.c.getResponseMessage();
+            } else {
+                responseMessage = this.b.getResponseMessage();
+            }
+            z89.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
+            return responseMessage;
+        }
+        return (String) invokeV.objValue;
     }
 }

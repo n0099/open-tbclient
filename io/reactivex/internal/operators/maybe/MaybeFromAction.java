@@ -15,7 +15,7 @@ import io.reactivex.functions.Action;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class MaybeFromAction<T> extends Maybe<T> implements Callable<T> {
+public final class MaybeFromAction extends Maybe implements Callable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action action;
@@ -39,37 +39,35 @@ public final class MaybeFromAction<T> extends Maybe<T> implements Callable<T> {
     }
 
     @Override // java.util.concurrent.Callable
-    public T call() throws Exception {
+    public Object call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.action.run();
             return null;
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             Disposable empty = Disposables.empty();
             maybeObserver.onSubscribe(empty);
-            if (empty.isDisposed()) {
-                return;
-            }
-            try {
-                this.action.run();
-                if (empty.isDisposed()) {
-                    return;
-                }
-                maybeObserver.onComplete();
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                if (!empty.isDisposed()) {
-                    maybeObserver.onError(th);
-                } else {
-                    RxJavaPlugins.onError(th);
+            if (!empty.isDisposed()) {
+                try {
+                    this.action.run();
+                    if (!empty.isDisposed()) {
+                        maybeObserver.onComplete();
+                    }
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    if (!empty.isDisposed()) {
+                        maybeObserver.onError(th);
+                    } else {
+                        RxJavaPlugins.onError(th);
+                    }
                 }
             }
         }

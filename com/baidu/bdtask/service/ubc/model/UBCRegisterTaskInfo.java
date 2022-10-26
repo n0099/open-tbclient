@@ -5,7 +5,7 @@ import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.tieba.cw;
+import com.baidu.tieba.dw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,8 +28,24 @@ public final class UBCRegisterTaskInfo extends UBCTaskStatusInfo {
     public final TaskStatus taskInfoStatus;
     public final String type;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1976679262, "Lcom/baidu/bdtask/service/ubc/model/UBCRegisterTaskInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1976679262, "Lcom/baidu/bdtask/service/ubc/model/UBCRegisterTaskInfo;");
+                return;
+            }
+        }
+        Companion = new a(null);
+    }
+
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,6 +61,10 @@ public final class UBCRegisterTaskInfo extends UBCTaskStatusInfo {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         public static /* bridge */ /* synthetic */ UBCRegisterTaskInfo c(a aVar, TaskInfo taskInfo, TaskStatus taskStatus, String str, int i, int i2, Object obj) {
@@ -67,57 +87,29 @@ public final class UBCRegisterTaskInfo extends UBCTaskStatusInfo {
         public final UBCRegisterTaskInfo a(TaskInfo taskInfo, TaskStatus taskStatus) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, taskStatus)) == null) ? new UBCRegisterTaskInfo(UBCRegisterTaskInfo.TASK_REGISTER_COMMON_TYPE, taskInfo, taskStatus, 0, null, 24, null) : (UBCRegisterTaskInfo) invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, taskStatus)) == null) {
+                return new UBCRegisterTaskInfo(UBCRegisterTaskInfo.TASK_REGISTER_COMMON_TYPE, taskInfo, taskStatus, 0, null, 24, null);
+            }
+            return (UBCRegisterTaskInfo) invokeLL.objValue;
         }
 
         public final UBCRegisterTaskInfo b(TaskInfo taskInfo, TaskStatus taskStatus, String str, int i) {
             InterceptResult invokeLLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus, str, i)) == null) ? new UBCRegisterTaskInfo(UBCRegisterTaskInfo.TASK_REGISTER_RECOVERY_TYPE, taskInfo, taskStatus, i, str) : (UBCRegisterTaskInfo) invokeLLLI.objValue;
+            if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus, str, i)) == null) {
+                return new UBCRegisterTaskInfo(UBCRegisterTaskInfo.TASK_REGISTER_RECOVERY_TYPE, taskInfo, taskStatus, i, str);
+            }
+            return (UBCRegisterTaskInfo) invokeLLLI.objValue;
         }
 
         public final UBCRegisterTaskInfo d(TaskInfo taskInfo, TaskStatus taskStatus, String str, int i) {
             InterceptResult invokeLLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, taskInfo, taskStatus, str, i)) == null) ? new UBCRegisterTaskInfo(UBCRegisterTaskInfo.TASK_REGISTER_PASSIVE_TYPE, taskInfo, taskStatus, i, str) : (UBCRegisterTaskInfo) invokeLLLI.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1976679262, "Lcom/baidu/bdtask/service/ubc/model/UBCRegisterTaskInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, taskInfo, taskStatus, str, i)) == null) {
+                return new UBCRegisterTaskInfo(UBCRegisterTaskInfo.TASK_REGISTER_PASSIVE_TYPE, taskInfo, taskStatus, i, str);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1976679262, "Lcom/baidu/bdtask/service/ubc/model/UBCRegisterTaskInfo;");
-                return;
-            }
+            return (UBCRegisterTaskInfo) invokeLLLI.objValue;
         }
-        Companion = new a(null);
-    }
-
-    public /* synthetic */ UBCRegisterTaskInfo(String str, TaskInfo taskInfo, TaskStatus taskStatus, int i, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, taskInfo, taskStatus, (i2 & 8) != 0 ? taskStatus.getCurStatusCode() : i, (i2 & 16) != 0 ? taskStatus.getCurStatusCodeMsg() : str2);
-    }
-
-    @Override // com.baidu.bdtask.service.ubc.model.UBCTaskStatusInfo, com.baidu.bdtask.model.ITaskModelData
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject json = super.toJson();
-            json.put("type", this.type);
-            json.put("timestamp", cw.a.a());
-            return json;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -141,5 +133,22 @@ public final class UBCRegisterTaskInfo extends UBCTaskStatusInfo {
         }
         this.type = str;
         this.taskInfoStatus = taskStatus;
+    }
+
+    public /* synthetic */ UBCRegisterTaskInfo(String str, TaskInfo taskInfo, TaskStatus taskStatus, int i, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, taskInfo, taskStatus, (i2 & 8) != 0 ? taskStatus.getCurStatusCode() : i, (i2 & 16) != 0 ? taskStatus.getCurStatusCodeMsg() : str2);
+    }
+
+    @Override // com.baidu.bdtask.service.ubc.model.UBCTaskStatusInfo, com.baidu.bdtask.model.ITaskModelData
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject json = super.toJson();
+            json.put("type", this.type);
+            json.put("timestamp", dw.a.a());
+            return json;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

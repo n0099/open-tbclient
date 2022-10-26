@@ -20,6 +20,26 @@ public class PropertyPair implements Serializable {
     public int type;
     public String value;
 
+    public PropertyPair(String str, double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Double.valueOf(d)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.key = str;
+        this.value = String.valueOf(d);
+        this.type = 0;
+    }
+
     public PropertyPair(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,25 +76,5 @@ public class PropertyPair implements Serializable {
             return this.key + "=" + this.value + "=" + this.type;
         }
         return (String) invokeV.objValue;
-    }
-
-    public PropertyPair(String str, double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Double.valueOf(d)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.key = str;
-        this.value = String.valueOf(d);
-        this.type = 0;
     }
 }

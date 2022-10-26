@@ -19,6 +19,13 @@ public class QualifiedResourceFetchProducer extends LocalFetchProducer {
     public transient /* synthetic */ FieldHolder $fh;
     public final ContentResolver mContentResolver;
 
+    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QualifiedResourceFetchProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, ContentResolver contentResolver) {
         super(executor, pooledByteBufferFactory);
@@ -45,13 +52,9 @@ public class QualifiedResourceFetchProducer extends LocalFetchProducer {
     public EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) ? getEncodedImage(this.mContentResolver.openInputStream(imageRequest.getSourceUri()), -1) : (EncodedImage) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
-    public String getProducerName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) {
+            return getEncodedImage(this.mContentResolver.openInputStream(imageRequest.getSourceUri()), -1);
+        }
+        return (EncodedImage) invokeL.objValue;
     }
 }

@@ -43,7 +43,7 @@ public final class AI013x0x1xDecoder extends AI01weightDecoder {
     private void encodeCompressedDate(StringBuilder sb, int i) {
         int extractNumericValueFromBitArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, this, sb, i) == null) || (extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i, 16)) == 38400) {
+        if ((interceptable != null && interceptable.invokeLI(65537, this, sb, i) != null) || (extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i, 16)) == 38400) {
             return;
         }
         sb.append('(');
@@ -82,7 +82,10 @@ public final class AI013x0x1xDecoder extends AI01weightDecoder {
     public int checkWeight(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i % 100000 : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return i % 100000;
+        }
+        return invokeI.intValue;
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder

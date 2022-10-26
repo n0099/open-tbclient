@@ -8,6 +8,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.down.manage.DownloadConstants;
@@ -73,18 +74,62 @@ public final class Cea608Decoder extends CeaDecoder {
     public int captionMode;
     public int captionRowCount;
     public final ParsableByteArray ccData;
-    public final LinkedList<CueBuilder> cueBuilders;
-    public List<Cue> cues;
+    public final LinkedList cueBuilders;
+    public List cues;
     public CueBuilder currentCueBuilder;
-    public List<Cue> lastCues;
+    public List lastCues;
     public final int packetLength;
     public byte repeatableControlCc1;
     public byte repeatableControlCc2;
     public boolean repeatableControlSet;
     public final int selectedField;
 
+    public static boolean isMidrowCtrlCode(byte b, byte b2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 17 && (b2 & 240) == 32 : invokeCommon.booleanValue;
+    }
+
+    public static boolean isMiscCode(byte b, byte b2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 20 && (b2 & 240) == 32 : invokeCommon.booleanValue;
+    }
+
+    public static boolean isPreambleAddressCode(byte b, byte b2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 240) == 16 && (b2 & ExifInterface.MARKER_SOF0) == 64 : invokeCommon.booleanValue;
+    }
+
+    public static boolean isRepeatable(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65550, null, b)) == null) ? (b & 240) == 16 : invokeB.booleanValue;
+    }
+
+    public static boolean isTabCtrlCode(byte b, byte b2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 23 && b2 >= 33 && b2 <= 35 : invokeCommon.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "Cea608Decoder" : (String) invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static class CueBuilder {
+    public class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BASE_ROW = 15;
         public static final int POSITION_UNSET = -1;
@@ -94,15 +139,15 @@ public final class Cea608Decoder extends CeaDecoder {
         public int captionRowCount;
         public final SpannableStringBuilder captionStringBuilder;
         public int indent;
-        public final List<CueStyle> midrowStyles;
-        public final List<CharacterStyle> preambleStyles;
-        public final List<SpannableString> rolledUpCaptions;
+        public final List midrowStyles;
+        public final List preambleStyles;
+        public final List rolledUpCaptions;
         public int row;
         public int tabOffset;
         public int underlineStartPosition;
 
         /* loaded from: classes7.dex */
-        public static class CueStyle {
+        public class CueStyle {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final int nextStyleIncrement;
@@ -159,13 +204,58 @@ public final class Cea608Decoder extends CeaDecoder {
             }
         }
 
+        public void setIndent(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.indent = i;
+            }
+        }
+
+        public void setPreambleStyle(CharacterStyle characterStyle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, characterStyle) == null) {
+                this.preambleStyles.add(characterStyle);
+            }
+        }
+
+        public void setRow(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                this.row = i;
+            }
+        }
+
+        public void setTab(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+                this.tabOffset = i;
+            }
+        }
+
         public void backspace() {
             int length;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (length = this.captionStringBuilder.length()) <= 0) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (length = this.captionStringBuilder.length()) > 0) {
+                this.captionStringBuilder.delete(length - 1, length);
             }
-            this.captionStringBuilder.delete(length - 1, length);
+        }
+
+        public int getRow() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.row;
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.captionStringBuilder.toString();
+            }
+            return (String) invokeV.objValue;
         }
 
         public Cue build() {
@@ -191,18 +281,18 @@ public final class Cea608Decoder extends CeaDecoder {
                 if (this.captionMode == 2 && Math.abs(length2) < 3) {
                     f = 0.5f;
                     i = 1;
-                } else if (this.captionMode != 2 || length2 <= 0) {
-                    f = ((i5 / 32.0f) * 0.8f) + 0.1f;
-                    i = 0;
-                } else {
+                } else if (this.captionMode == 2 && length2 > 0) {
                     f = (((32 - length) / 32.0f) * 0.8f) + 0.1f;
                     i = 2;
+                } else {
+                    f = ((i5 / 32.0f) * 0.8f) + 0.1f;
+                    i = 0;
                 }
-                if (this.captionMode == 1 || (i2 = this.row) > 7) {
+                if (this.captionMode != 1 && (i2 = this.row) <= 7) {
+                    i3 = 0;
+                } else {
                     i2 = (this.row - 15) - 2;
                     i3 = 2;
-                } else {
-                    i3 = 0;
                 }
                 return new Cue(spannableStringBuilder, Layout.Alignment.ALIGN_NORMAL, i2, 1, i3, f, i, Float.MIN_VALUE);
             }
@@ -211,19 +301,23 @@ public final class Cea608Decoder extends CeaDecoder {
 
         public SpannableString buildSpannableString() {
             InterceptResult invokeV;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 int length = this.captionStringBuilder.length();
-                int i = 0;
                 for (int i2 = 0; i2 < this.preambleStyles.size(); i2++) {
                     this.captionStringBuilder.setSpan(this.preambleStyles.get(i2), 0, length, 33);
                 }
-                while (i < this.midrowStyles.size()) {
-                    CueStyle cueStyle = this.midrowStyles.get(i);
+                for (int i3 = 0; i3 < this.midrowStyles.size(); i3++) {
+                    CueStyle cueStyle = (CueStyle) this.midrowStyles.get(i3);
                     int size = this.midrowStyles.size();
-                    int i3 = cueStyle.nextStyleIncrement;
-                    this.captionStringBuilder.setSpan(cueStyle.style, cueStyle.start, i < size - i3 ? this.midrowStyles.get(i3 + i).start : length, 33);
-                    i++;
+                    int i4 = cueStyle.nextStyleIncrement;
+                    if (i3 < size - i4) {
+                        i = ((CueStyle) this.midrowStyles.get(i4 + i3)).start;
+                    } else {
+                        i = length;
+                    }
+                    this.captionStringBuilder.setSpan(cueStyle.style, cueStyle.start, i, 33);
                 }
                 if (this.underlineStartPosition != -1) {
                     this.captionStringBuilder.setSpan(new UnderlineSpan(), this.underlineStartPosition, length, 33);
@@ -233,16 +327,31 @@ public final class Cea608Decoder extends CeaDecoder {
             return (SpannableString) invokeV.objValue;
         }
 
-        public int getRow() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.row : invokeV.intValue;
-        }
-
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.preambleStyles.isEmpty() && this.midrowStyles.isEmpty() && this.rolledUpCaptions.isEmpty() && this.captionStringBuilder.length() == 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.preambleStyles.isEmpty() && this.midrowStyles.isEmpty() && this.rolledUpCaptions.isEmpty() && this.captionStringBuilder.length() == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void rollUp() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.rolledUpCaptions.add(buildSpannableString());
+                this.captionStringBuilder.clear();
+                this.preambleStyles.clear();
+                this.midrowStyles.clear();
+                this.underlineStartPosition = -1;
+                int min = Math.min(this.captionRowCount, this.row);
+                while (this.rolledUpCaptions.size() >= min) {
+                    this.rolledUpCaptions.remove(0);
+                }
+            }
         }
 
         public void reset(int i, int i2) {
@@ -261,53 +370,10 @@ public final class Cea608Decoder extends CeaDecoder {
             }
         }
 
-        public void rollUp() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.rolledUpCaptions.add(buildSpannableString());
-                this.captionStringBuilder.clear();
-                this.preambleStyles.clear();
-                this.midrowStyles.clear();
-                this.underlineStartPosition = -1;
-                int min = Math.min(this.captionRowCount, this.row);
-                while (this.rolledUpCaptions.size() >= min) {
-                    this.rolledUpCaptions.remove(0);
-                }
-            }
-        }
-
-        public void setIndent(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-                this.indent = i;
-            }
-        }
-
         public void setMidrowStyle(CharacterStyle characterStyle, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048585, this, characterStyle, i) == null) {
                 this.midrowStyles.add(new CueStyle(characterStyle, this.captionStringBuilder.length(), i));
-            }
-        }
-
-        public void setPreambleStyle(CharacterStyle characterStyle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, characterStyle) == null) {
-                this.preambleStyles.add(characterStyle);
-            }
-        }
-
-        public void setRow(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-                this.row = i;
-            }
-        }
-
-        public void setTab(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-                this.tabOffset = i;
             }
         }
 
@@ -321,12 +387,6 @@ public final class Cea608Decoder extends CeaDecoder {
                     this.underlineStartPosition = -1;
                 }
             }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.captionStringBuilder.toString() : (String) invokeV.objValue;
         }
     }
 
@@ -353,24 +413,30 @@ public final class Cea608Decoder extends CeaDecoder {
     }
 
     public Cea608Decoder(String str, int i) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.ccData = new ParsableByteArray();
-        this.cueBuilders = new LinkedList<>();
+        this.cueBuilders = new LinkedList();
         this.currentCueBuilder = new CueBuilder(0, 4);
-        this.packetLength = MimeTypes.APPLICATION_MP4CEA608.equals(str) ? 2 : 3;
+        if (MimeTypes.APPLICATION_MP4CEA608.equals(str)) {
+            i2 = 2;
+        } else {
+            i2 = 3;
+        }
+        this.packetLength = i2;
         if (i != 3 && i != 4) {
             this.selectedField = 1;
         } else {
@@ -378,46 +444,6 @@ public final class Cea608Decoder extends CeaDecoder {
         }
         setCaptionMode(0);
         resetCueBuilders();
-    }
-
-    public static char getChar(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? (char) BASIC_CHARACTER_SET[(b & ByteCompanionObject.MAX_VALUE) - 32] : invokeB.charValue;
-    }
-
-    private List<Cue> getDisplayCues() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.cueBuilders.size(); i++) {
-                Cue build = this.cueBuilders.get(i).build();
-                if (build != null) {
-                    arrayList.add(build);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static char getExtendedEsFrChar(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(InputDeviceCompat.SOURCE_TRACKBALL, null, b)) == null) ? (char) SPECIAL_ES_FR_CHARACTER_SET[b & 31] : invokeB.charValue;
-    }
-
-    public static char getExtendedPtDeChar(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65541, null, b)) == null) ? (char) SPECIAL_PT_DE_CHARACTER_SET[b & 31] : invokeB.charValue;
-    }
-
-    public static char getSpecialChar(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65542, null, b)) == null) ? (char) SPECIAL_CHARACTER_SET[b & 15] : invokeB.charValue;
     }
 
     private boolean handleCtrl(byte b, byte b2) {
@@ -448,10 +474,91 @@ public final class Cea608Decoder extends CeaDecoder {
         return invokeCommon.booleanValue;
     }
 
+    public static char getChar(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) {
+            return (char) BASIC_CHARACTER_SET[(b & ByteCompanionObject.MAX_VALUE) - 32];
+        }
+        return invokeB.charValue;
+    }
+
+    public static char getExtendedEsFrChar(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(InputDeviceCompat.SOURCE_TRACKBALL, null, b)) == null) {
+            return (char) SPECIAL_ES_FR_CHARACTER_SET[b & 31];
+        }
+        return invokeB.charValue;
+    }
+
+    public static char getExtendedPtDeChar(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65541, null, b)) == null) {
+            return (char) SPECIAL_PT_DE_CHARACTER_SET[b & 31];
+        }
+        return invokeB.charValue;
+    }
+
+    public static char getSpecialChar(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65542, null, b)) == null) {
+            return (char) SPECIAL_CHARACTER_SET[b & 15];
+        }
+        return invokeB.charValue;
+    }
+
+    private void setCaptionMode(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65553, this, i) != null) || (i2 = this.captionMode) == i) {
+            return;
+        }
+        this.captionMode = i;
+        resetCueBuilders();
+        if (i2 == 3 || i == 1 || i == 0) {
+            this.cues = null;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder
+    public /* bridge */ /* synthetic */ void queueInputBuffer(SubtitleInputBuffer subtitleInputBuffer) throws SubtitleDecoderException {
+        super.queueInputBuffer(subtitleInputBuffer);
+    }
+
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.text.SubtitleDecoder
+    public /* bridge */ /* synthetic */ void setPositionUs(long j) {
+        super.setPositionUs(j);
+    }
+
+    private List getDisplayCues() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < this.cueBuilders.size(); i++) {
+                Cue build = ((CueBuilder) this.cueBuilders.get(i)).build();
+                if (build != null) {
+                    arrayList.add(build);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
     private void handleMidrowCtrl(byte b) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(65544, this, b) == null) {
-            this.currentCueBuilder.setUnderline((b & 1) == 1);
+            if ((b & 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.currentCueBuilder.setUnderline(z);
             int i = (b >> 1) & 15;
             if (i == 7) {
                 this.currentCueBuilder.setMidrowStyle(new StyleSpan(2), 2);
@@ -465,67 +572,74 @@ public final class Cea608Decoder extends CeaDecoder {
     private void handleMiscCode(byte b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(65545, this, b) == null) {
-            if (b == 32) {
-                setCaptionMode(2);
-            } else if (b != 41) {
-                switch (b) {
-                    case 37:
-                        this.captionRowCount = 2;
-                        setCaptionMode(1);
-                        return;
-                    case 38:
-                        this.captionRowCount = 3;
-                        setCaptionMode(1);
-                        return;
-                    case 39:
-                        this.captionRowCount = 4;
-                        setCaptionMode(1);
-                        return;
-                    default:
-                        int i = this.captionMode;
-                        if (i == 0) {
+            if (b != 32) {
+                if (b != 41) {
+                    switch (b) {
+                        case 37:
+                            this.captionRowCount = 2;
+                            setCaptionMode(1);
                             return;
-                        }
-                        if (b != 33) {
-                            switch (b) {
-                                case 44:
-                                    this.cues = null;
-                                    if (i == 1 || i == 3) {
+                        case 38:
+                            this.captionRowCount = 3;
+                            setCaptionMode(1);
+                            return;
+                        case 39:
+                            this.captionRowCount = 4;
+                            setCaptionMode(1);
+                            return;
+                        default:
+                            int i = this.captionMode;
+                            if (i == 0) {
+                                return;
+                            }
+                            if (b != 33) {
+                                switch (b) {
+                                    case 44:
+                                        this.cues = null;
+                                        if (i == 1 || i == 3) {
+                                            resetCueBuilders();
+                                            return;
+                                        }
+                                        return;
+                                    case 45:
+                                        if (i == 1 && !this.currentCueBuilder.isEmpty()) {
+                                            this.currentCueBuilder.rollUp();
+                                            return;
+                                        }
+                                        return;
+                                    case 46:
                                         resetCueBuilders();
                                         return;
-                                    }
-                                    return;
-                                case 45:
-                                    if (i != 1 || this.currentCueBuilder.isEmpty()) {
+                                    case 47:
+                                        this.cues = getDisplayCues();
+                                        resetCueBuilders();
                                         return;
-                                    }
-                                    this.currentCueBuilder.rollUp();
-                                    return;
-                                case 46:
-                                    resetCueBuilders();
-                                    return;
-                                case 47:
-                                    this.cues = getDisplayCues();
-                                    resetCueBuilders();
-                                    return;
-                                default:
-                                    return;
+                                    default:
+                                        return;
+                                }
                             }
-                        }
-                        this.currentCueBuilder.backspace();
-                        return;
+                            this.currentCueBuilder.backspace();
+                            return;
+                    }
                 }
-            } else {
                 setCaptionMode(3);
+                return;
             }
+            setCaptionMode(2);
         }
     }
 
     private void handlePreambleAddressCode(byte b, byte b2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)}) == null) {
             int i = ROW_INDICES[b & 7];
             if ((b2 & 32) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 i++;
             }
             if (i != this.currentCueBuilder.getRow()) {
@@ -540,45 +654,17 @@ public final class Cea608Decoder extends CeaDecoder {
                 this.currentCueBuilder.setPreambleStyle(new UnderlineSpan());
             }
             int i2 = (b2 >> 1) & 15;
-            if (i2 > 7) {
-                this.currentCueBuilder.setIndent(COLUMN_INDICES[i2 & 7]);
-            } else if (i2 == 7) {
-                this.currentCueBuilder.setPreambleStyle(new StyleSpan(2));
-                this.currentCueBuilder.setPreambleStyle(new ForegroundColorSpan(-1));
-            } else {
+            if (i2 <= 7) {
+                if (i2 == 7) {
+                    this.currentCueBuilder.setPreambleStyle(new StyleSpan(2));
+                    this.currentCueBuilder.setPreambleStyle(new ForegroundColorSpan(-1));
+                    return;
+                }
                 this.currentCueBuilder.setPreambleStyle(new ForegroundColorSpan(COLORS[i2]));
+                return;
             }
+            this.currentCueBuilder.setIndent(COLUMN_INDICES[i2 & 7]);
         }
-    }
-
-    public static boolean isMidrowCtrlCode(byte b, byte b2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 17 && (b2 & 240) == 32 : invokeCommon.booleanValue;
-    }
-
-    public static boolean isMiscCode(byte b, byte b2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 20 && (b2 & 240) == 32 : invokeCommon.booleanValue;
-    }
-
-    public static boolean isPreambleAddressCode(byte b, byte b2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 240) == 16 && (b2 & 192) == 64 : invokeCommon.booleanValue;
-    }
-
-    public static boolean isRepeatable(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65550, null, b)) == null) ? (b & 240) == 16 : invokeB.booleanValue;
-    }
-
-    public static boolean isTabCtrlCode(byte b, byte b2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 23 && b2 >= 33 && b2 <= 35 : invokeCommon.booleanValue;
     }
 
     private void resetCueBuilders() {
@@ -590,33 +676,60 @@ public final class Cea608Decoder extends CeaDecoder {
         }
     }
 
-    private void setCaptionMode(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65553, this, i) == null) || (i2 = this.captionMode) == i) {
-            return;
-        }
-        this.captionMode = i;
-        resetCueBuilders();
-        if (i2 == 3 || i == 1 || i == 0) {
-            this.cues = null;
-        }
-    }
-
     @Override // com.google.android.exoplayer2.text.cea.CeaDecoder
     public Subtitle createSubtitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Cue> list = this.cues;
+            List list = this.cues;
             this.lastCues = list;
             return new CeaSubtitle(list);
         }
         return (Subtitle) invokeV.objValue;
     }
 
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
+    public /* bridge */ /* synthetic */ SubtitleInputBuffer dequeueInputBuffer() throws SubtitleDecoderException {
+        return super.dequeueInputBuffer();
+    }
+
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
+    public /* bridge */ /* synthetic */ SubtitleOutputBuffer dequeueOutputBuffer() throws SubtitleDecoderException {
+        return super.dequeueOutputBuffer();
+    }
+
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
+    public void flush() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.flush();
+            this.cues = null;
+            this.lastCues = null;
+            setCaptionMode(0);
+            resetCueBuilders();
+            this.captionRowCount = 4;
+            this.repeatableControlSet = false;
+            this.repeatableControlCc1 = (byte) 0;
+            this.repeatableControlCc2 = (byte) 0;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder
+    public boolean isNewSubtitleDataAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.cues != this.lastCues) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.google.android.exoplayer2.text.cea.CeaDecoder
     public void decode(SubtitleInputBuffer subtitleInputBuffer) {
+        byte readUnsignedByte;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subtitleInputBuffer) == null) {
             this.ccData.reset(subtitleInputBuffer.data.array(), subtitleInputBuffer.data.limit());
@@ -628,7 +741,11 @@ public final class Cea608Decoder extends CeaDecoder {
                 if (bytesLeft < i) {
                     break;
                 }
-                byte readUnsignedByte = i == 2 ? (byte) -4 : (byte) this.ccData.readUnsignedByte();
+                if (i == 2) {
+                    readUnsignedByte = -4;
+                } else {
+                    readUnsignedByte = (byte) this.ccData.readUnsignedByte();
+                }
                 byte readUnsignedByte2 = (byte) (this.ccData.readUnsignedByte() & 127);
                 byte readUnsignedByte3 = (byte) (this.ccData.readUnsignedByte() & 127);
                 if ((readUnsignedByte & 6) == 4 && (this.selectedField != 1 || (readUnsignedByte & 1) == 0)) {
@@ -666,62 +783,5 @@ public final class Cea608Decoder extends CeaDecoder {
                 }
             }
         }
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
-    public /* bridge */ /* synthetic */ SubtitleInputBuffer dequeueInputBuffer() throws SubtitleDecoderException {
-        return super.dequeueInputBuffer();
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
-    public /* bridge */ /* synthetic */ SubtitleOutputBuffer dequeueOutputBuffer() throws SubtitleDecoderException {
-        return super.dequeueOutputBuffer();
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
-    public void flush() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.flush();
-            this.cues = null;
-            this.lastCues = null;
-            setCaptionMode(0);
-            resetCueBuilders();
-            this.captionRowCount = 4;
-            this.repeatableControlSet = false;
-            this.repeatableControlCc1 = (byte) 0;
-            this.repeatableControlCc2 = (byte) 0;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "Cea608Decoder" : (String) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder
-    public boolean isNewSubtitleDataAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.cues != this.lastCues : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder
-    public /* bridge */ /* synthetic */ void queueInputBuffer(SubtitleInputBuffer subtitleInputBuffer) throws SubtitleDecoderException {
-        super.queueInputBuffer(subtitleInputBuffer);
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.decoder.Decoder
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.text.SubtitleDecoder
-    public /* bridge */ /* synthetic */ void setPositionUs(long j) {
-        super.setPositionUs(j);
     }
 }

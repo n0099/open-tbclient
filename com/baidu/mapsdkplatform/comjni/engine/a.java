@@ -17,7 +17,7 @@ import java.util.List;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
-    public static SparseArray<List<Handler>> b;
+    public static SparseArray b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        b = new SparseArray<>();
+        b = new SparseArray();
     }
 
     public a() {
@@ -54,7 +54,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
             synchronized (b) {
-                List<Handler> list = b.get(i);
+                List<Handler> list = (List) b.get(i);
                 if (list != null && !list.isEmpty()) {
                     for (Handler handler : list) {
                         Message.obtain(handler, i, i2, i3, Long.valueOf(j)).sendToTarget();
@@ -71,7 +71,7 @@ public class a {
                 if (handler == null) {
                     return;
                 }
-                List<Handler> list = b.get(i);
+                List list = (List) b.get(i);
                 if (list == null) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(handler);
@@ -89,7 +89,7 @@ public class a {
             synchronized (b) {
                 if (handler != null) {
                     handler.removeCallbacksAndMessages(null);
-                    List<Handler> list = b.get(i);
+                    List list = (List) b.get(i);
                     if (list != null) {
                         list.remove(handler);
                     }

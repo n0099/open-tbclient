@@ -5,32 +5,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes7.dex */
-public class DiskCacheWriteProducer implements Producer<EncodedImage> {
+public class DiskCacheWriteProducer implements Producer {
     public static /* synthetic */ Interceptable $ic = null;
-    @VisibleForTesting
     public static final String PRODUCER_NAME = "DiskCacheWriteProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
     public final BufferedDiskCache mDefaultBufferedDiskCache;
-    public final Producer<EncodedImage> mInputProducer;
+    public final Producer mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
     /* renamed from: com.facebook.imagepipeline.producers.DiskCacheWriteProducer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class DiskCacheWriteConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
+    public class DiskCacheWriteConsumer extends DelegatingConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CacheKeyFactory mCacheKeyFactory;
@@ -38,12 +36,8 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
         public final ProducerContext mProducerContext;
         public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
-        public /* synthetic */ DiskCacheWriteConsumer(Consumer consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, AnonymousClass1 anonymousClass1) {
-            this(consumer, producerContext, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory);
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DiskCacheWriteConsumer(Consumer<EncodedImage> consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory) {
+        public DiskCacheWriteConsumer(Consumer consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -64,6 +58,10 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
             this.mDefaultBufferedDiskCache = bufferedDiskCache;
             this.mSmallImageBufferedDiskCache = bufferedDiskCache2;
             this.mCacheKeyFactory = cacheKeyFactory;
+        }
+
+        public /* synthetic */ DiskCacheWriteConsumer(Consumer consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, AnonymousClass1 anonymousClass1) {
+            this(consumer, producerContext, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +88,7 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
         }
     }
 
-    public DiskCacheWriteProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, Producer<EncodedImage> producer) {
+    public DiskCacheWriteProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, Producer producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +109,7 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
         this.mInputProducer = producer;
     }
 
-    private void maybeStartInputProducer(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    private void maybeStartInputProducer(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, consumer, producerContext) == null) {
             if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
@@ -127,7 +125,7 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             maybeStartInputProducer(consumer, producerContext);

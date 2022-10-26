@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class RequestSubLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
     public CommonReq f1056common;
-    public List<Integer> labelList;
+    public List labelList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestSubLabelMessage() {
@@ -53,7 +53,7 @@ public class RequestSubLabelMessage extends NetMessage {
             builder.f1364common = this.f1056common;
             builder.arr_tag_id = this.labelList;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             SubTagListReqIdl.Builder builder2 = new SubTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -69,11 +69,11 @@ public class RequestSubLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelList(List<Integer> list) {
+    public void setLabelList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             if (ListUtils.isEmpty(list)) {
-                list = new ArrayList<>();
+                list = new ArrayList();
             }
             this.labelList = list;
         }

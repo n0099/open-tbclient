@@ -35,16 +35,6 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void applyTheme(Resources.Theme theme) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, theme) == null) || (drawable = this.mDelegateDrawable) == null) {
-            return;
-        }
-        DrawableCompat.applyTheme(drawable, theme);
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public void clearColorFilter() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -100,20 +90,6 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean getPadding(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rect)) == null) {
-            Drawable drawable = this.mDelegateDrawable;
-            if (drawable != null) {
-                return drawable.getPadding(rect);
-            }
-            return super.getPadding(rect);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public int[] getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -145,10 +121,32 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     public void jumpToCurrentState() {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (drawable = this.mDelegateDrawable) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (drawable = this.mDelegateDrawable) != null) {
+            DrawableCompat.jumpToCurrentState(drawable);
         }
-        DrawableCompat.jumpToCurrentState(drawable);
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void applyTheme(Resources.Theme theme) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, theme) == null) && (drawable = this.mDelegateDrawable) != null) {
+            DrawableCompat.applyTheme(drawable, theme);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean getPadding(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rect)) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                return drawable.getPadding(rect);
+            }
+            return super.getPadding(rect);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -192,46 +190,12 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i, PorterDuff.Mode mode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, mode) == null) {
-            Drawable drawable = this.mDelegateDrawable;
-            if (drawable != null) {
-                drawable.setColorFilter(i, mode);
-            } else {
-                super.setColorFilter(i, mode);
-            }
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (drawable = this.mDelegateDrawable) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (drawable = this.mDelegateDrawable) != null) {
+            drawable.setFilterBitmap(z);
         }
-        drawable.setFilterBitmap(z);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setHotspot(float f, float f2) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (drawable = this.mDelegateDrawable) == null) {
-            return;
-        }
-        DrawableCompat.setHotspot(drawable, f, f2);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048591, this, i, i2, i3, i4) == null) || (drawable = this.mDelegateDrawable) == null) {
-            return;
-        }
-        DrawableCompat.setHotspotBounds(drawable, i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -246,5 +210,36 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
             return super.setState(iArr);
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(int i, PorterDuff.Mode mode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, mode) == null) {
+            Drawable drawable = this.mDelegateDrawable;
+            if (drawable != null) {
+                drawable.setColorFilter(i, mode);
+            } else {
+                super.setColorFilter(i, mode);
+            }
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setHotspot(float f, float f2) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && (drawable = this.mDelegateDrawable) != null) {
+            DrawableCompat.setHotspot(drawable, f, f2);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setHotspotBounds(int i, int i2, int i3, int i4) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048591, this, i, i2, i3, i4) == null) && (drawable = this.mDelegateDrawable) != null) {
+            DrawableCompat.setHotspotBounds(drawable, i, i2, i3, i4);
+        }
     }
 }

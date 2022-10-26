@@ -1,7 +1,6 @@
 package com.kwad.components.offline.tk;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.components.core.k.e;
 import com.kwad.components.offline.api.tk.ITkOfflineCompo;
 import com.kwad.sdk.KsAdSDKImpl;
@@ -24,7 +22,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
 
     /* renamed from: com.kwad.components.offline.tk.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0596a {
+    public final class C0592a {
         public static /* synthetic */ Interceptable $ic;
         public static final a Ql;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +62,6 @@ public final class a extends com.kwad.components.core.offline.init.a {
         this();
     }
 
-    @InvokeBy(invokerClass = com.kwad.components.core.offline.init.b.class, methodId = "initOC")
     public static void aC(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
@@ -75,7 +72,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
     public static a qy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0596a.Ql : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0592a.Ql : (a) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
@@ -125,7 +122,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
                 }
 
                 @Override // com.kwad.components.core.k.e.a
-                public final void a(@NonNull SdkConfigData sdkConfigData) {
+                public final void a(SdkConfigData sdkConfigData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, sdkConfigData) == null) {
                         this.Qj.onConfigRefresh(this.gC, sdkConfigData.toJson());

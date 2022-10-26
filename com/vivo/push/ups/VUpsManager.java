@@ -16,8 +16,14 @@ public class VUpsManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void onCommandResult(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bundle) == null) {
+        }
+    }
+
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static VUpsManager a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,13 +62,10 @@ public class VUpsManager {
     public static VUpsManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (VUpsManager) invokeV.objValue;
-    }
-
-    public void onCommandResult(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bundle) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
+        return (VUpsManager) invokeV.objValue;
     }
 
     public void registerToken(Context context, String str, String str2, String str3, UPSRegisterCallback uPSRegisterCallback) {

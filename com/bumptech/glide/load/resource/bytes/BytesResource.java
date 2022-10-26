@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.resource.bytes;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +9,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
-public class BytesResource implements Resource<byte[]> {
+public class BytesResource implements Resource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] bytes;
+
+    @Override // com.bumptech.glide.load.engine.Resource
+    public void recycle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
 
     public BytesResource(byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -34,33 +40,33 @@ public class BytesResource implements Resource<byte[]> {
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public Class<byte[]> getResourceClass() {
+    public Class getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? byte[].class : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return byte[].class;
+        }
+        return (Class) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
     public int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bytes.length : invokeV.intValue;
-    }
-
-    @Override // com.bumptech.glide.load.engine.Resource
-    public void recycle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.bytes.length;
         }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
     public byte[] get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bytes : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bytes;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

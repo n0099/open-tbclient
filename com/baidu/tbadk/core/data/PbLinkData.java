@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tieba.q26;
+import com.baidu.tieba.x26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbLinkInfo;
 /* loaded from: classes3.dex */
-public class PbLinkData extends q26 implements Serializable {
+public class PbLinkData extends x26 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String extTxt;
@@ -38,6 +38,16 @@ public class PbLinkData extends q26 implements Serializable {
         }
     }
 
+    @Override // com.baidu.tieba.x26
+    public int sort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sort;
+        }
+        return invokeV.intValue;
+    }
+
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -57,7 +67,7 @@ public class PbLinkData extends q26 implements Serializable {
 
     public void parseProto(PbLinkInfo pbLinkInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbLinkInfo) == null) || pbLinkInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbLinkInfo) != null) || pbLinkInfo == null) {
             return;
         }
         this.title = pbLinkInfo.title;
@@ -67,12 +77,5 @@ public class PbLinkData extends q26 implements Serializable {
         this.extTxt = pbLinkInfo.ext_txt;
         this.sort = pbLinkInfo.sort.intValue();
         this.urlType = pbLinkInfo.url_type.intValue();
-    }
-
-    @Override // com.baidu.tieba.q26
-    public int sort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sort : invokeV.intValue;
     }
 }

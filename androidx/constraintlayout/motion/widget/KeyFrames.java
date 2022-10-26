@@ -130,7 +130,10 @@ public class KeyFrames {
     public static String name(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) ? context.getResources().getResourceEntryName(i) : (String) invokeIL.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
+            return context.getResources().getResourceEntryName(i);
+        }
+        return (String) invokeIL.objValue;
     }
 
     public void addFrames(MotionController motionController) {
@@ -156,12 +159,18 @@ public class KeyFrames {
     public ArrayList<Key> getKeyFramesForView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mFramesMap.get(Integer.valueOf(i)) : (ArrayList) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.mFramesMap.get(Integer.valueOf(i));
+        }
+        return (ArrayList) invokeI.objValue;
     }
 
     public Set<Integer> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFramesMap.keySet() : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFramesMap.keySet();
+        }
+        return (Set) invokeV.objValue;
     }
 }

@@ -28,24 +28,6 @@ public class a7 extends z6 {
         this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z6
-    /* renamed from: q */
-    public a7 p(l3 l3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l3Var)) == null) {
-            a7 a7Var = new a7(this);
-            a7Var.i.e(l3Var);
-            a7Var.b(l());
-            a7Var.c(g());
-            a7Var.f(i());
-            a7Var.d(e());
-            return a7Var;
-        }
-        return (a7) invokeL.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a7(z6 z6Var) {
         super(z6Var);
@@ -65,5 +47,23 @@ public class a7 extends z6 {
             }
         }
         this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.z6
+    /* renamed from: q */
+    public a7 p(l3 l3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l3Var)) == null) {
+            a7 a7Var = new a7(this);
+            a7Var.i.e(l3Var);
+            a7Var.b(l());
+            a7Var.c(g());
+            a7Var.f(i());
+            a7Var.d(e());
+            return a7Var;
+        }
+        return (a7) invokeL.objValue;
     }
 }

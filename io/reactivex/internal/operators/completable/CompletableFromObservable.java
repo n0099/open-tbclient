@@ -11,16 +11,23 @@ import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 /* loaded from: classes8.dex */
-public final class CompletableFromObservable<T> extends Completable {
+public final class CompletableFromObservable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<T> observable;
+    public final ObservableSource observable;
 
     /* loaded from: classes8.dex */
-    public static final class CompletableFromObservableObserver<T> implements Observer<T> {
+    public final class CompletableFromObservableObserver implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver co;
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
 
         public CompletableFromObservableObserver(CompletableObserver completableObserver) {
             Interceptable interceptable = $ic;
@@ -41,25 +48,10 @@ public final class CompletableFromObservable<T> extends Completable {
         }
 
         @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.co.onComplete();
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 this.co.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
             }
         }
 
@@ -70,9 +62,17 @@ public final class CompletableFromObservable<T> extends Completable {
                 this.co.onSubscribe(disposable);
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.co.onComplete();
+            }
+        }
     }
 
-    public CompletableFromObservable(ObservableSource<T> observableSource) {
+    public CompletableFromObservable(ObservableSource observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

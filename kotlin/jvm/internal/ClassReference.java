@@ -17,7 +17,6 @@ import kotlin.Function;
 import kotlin.KotlinNothingValueException;
 import kotlin.Metadata;
 import kotlin.Pair;
-import kotlin.SinceKotlin;
 import kotlin.TuplesKt;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt__IterablesKt;
@@ -66,10 +65,53 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
     public static final Map<String, String> simpleNames;
     public final Class<?> jClass;
 
+    public static /* synthetic */ void getSealedSubclasses$annotations() {
+    }
+
+    public static /* synthetic */ void getSupertypes$annotations() {
+    }
+
+    public static /* synthetic */ void getTypeParameters$annotations() {
+    }
+
+    public static /* synthetic */ void getVisibility$annotations() {
+    }
+
+    public static /* synthetic */ void isAbstract$annotations() {
+    }
+
+    public static /* synthetic */ void isCompanion$annotations() {
+    }
+
+    public static /* synthetic */ void isData$annotations() {
+    }
+
+    public static /* synthetic */ void isFinal$annotations() {
+    }
+
+    public static /* synthetic */ void isFun$annotations() {
+    }
+
+    public static /* synthetic */ void isInner$annotations() {
+    }
+
+    public static /* synthetic */ void isOpen$annotations() {
+    }
+
+    public static /* synthetic */ void isSealed$annotations() {
+    }
+
+    public static /* synthetic */ void isValue$annotations() {
+    }
+
     @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0014\u0010\u000f\u001a\u0004\u0018\u00010\n2\n\u0010\u0010\u001a\u0006\u0012\u0002\b\u00030\u0005J\u0014\u0010\u0011\u001a\u0004\u0018\u00010\n2\n\u0010\u0010\u001a\u0006\u0012\u0002\b\u00030\u0005J\u001c\u0010\u0012\u001a\u00020\u00132\b\u0010\u0014\u001a\u0004\u0018\u00010\u00012\n\u0010\u0010\u001a\u0006\u0012\u0002\b\u00030\u0005R&\u0010\u0003\u001a\u001a\u0012\u0010\u0012\u000e\u0012\n\b\u0001\u0012\u0006\u0012\u0002\b\u00030\u00060\u0005\u0012\u0004\u0012\u00020\u00070\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010\b\u001a\u001e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0\tj\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n`\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010\f\u001a\u001e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0\tj\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n`\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010\r\u001a\u001e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0\tj\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n`\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lkotlin/jvm/internal/ClassReference$Companion;", "", "()V", "FUNCTION_CLASSES", "", "Ljava/lang/Class;", "Lkotlin/Function;", "", "classFqNames", "Ljava/util/HashMap;", "", "Lkotlin/collections/HashMap;", "primitiveFqNames", "primitiveWrapperFqNames", "simpleNames", "getClassQualifiedName", "jClass", "getClassSimpleName", "isInstance", "", "value", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes8.dex */
     public static final class Companion {
         public Companion() {
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         public final String getClassQualifiedName(Class<?> jClass) {
@@ -79,16 +121,22 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
             if (jClass.isAnonymousClass() || jClass.isLocalClass()) {
                 return null;
             }
-            if (!jClass.isArray()) {
-                String str3 = (String) ClassReference.classFqNames.get(jClass.getName());
-                return str3 != null ? str3 : jClass.getCanonicalName();
+            if (jClass.isArray()) {
+                Class<?> componentType = jClass.getComponentType();
+                Intrinsics.checkNotNullExpressionValue(componentType, "componentType");
+                if (componentType.isPrimitive() && (str = (String) ClassReference.classFqNames.get(componentType.getName())) != null) {
+                    str2 = str + "Array";
+                }
+                if (str2 == null) {
+                    return "kotlin.Array";
+                }
+                return str2;
             }
-            Class<?> componentType = jClass.getComponentType();
-            Intrinsics.checkNotNullExpressionValue(componentType, "componentType");
-            if (componentType.isPrimitive() && (str = (String) ClassReference.classFqNames.get(componentType.getName())) != null) {
-                str2 = str + "Array";
+            String str3 = (String) ClassReference.classFqNames.get(jClass.getName());
+            if (str3 == null) {
+                return jClass.getCanonicalName();
             }
-            return str2 != null ? str2 : "kotlin.Array";
+            return str3;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:10:0x0040, code lost:
@@ -117,15 +165,12 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
                     } else {
                         str2 = null;
                     }
-                    if (str2 != null) {
-                        return str2;
+                    if (str2 == null) {
+                        Intrinsics.checkNotNullExpressionValue(name, "name");
+                        return StringsKt__StringsKt.substringAfter$default(name, '$', (String) null, 2, (Object) null);
                     }
-                    Intrinsics.checkNotNullExpressionValue(name, "name");
-                    return StringsKt__StringsKt.substringAfter$default(name, '$', (String) null, 2, (Object) null);
-                } else if (!jClass.isArray()) {
-                    String str4 = (String) ClassReference.simpleNames.get(jClass.getName());
-                    return str4 != null ? str4 : jClass.getSimpleName();
-                } else {
+                    return str2;
+                } else if (jClass.isArray()) {
                     Class<?> componentType = jClass.getComponentType();
                     Intrinsics.checkNotNullExpressionValue(componentType, "componentType");
                     if (componentType.isPrimitive() && (str = (String) ClassReference.simpleNames.get(componentType.getName())) != null) {
@@ -134,6 +179,12 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
                     if (str3 == null) {
                         return "Array";
                     }
+                } else {
+                    String str4 = (String) ClassReference.simpleNames.get(jClass.getName());
+                    if (str4 == null) {
+                        return jClass.getSimpleName();
+                    }
+                    return str4;
                 }
             }
             return str3;
@@ -153,10 +204,6 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
                 return jClass.isInstance(obj);
             }
             throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.Map<K, V>");
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
@@ -245,65 +292,21 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
         this.jClass = jClass;
     }
 
-    private final Void error() {
-        throw new KotlinReflectionNotSupportedError();
-    }
-
-    @SinceKotlin(version = "1.3")
-    public static /* synthetic */ void getSealedSubclasses$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void getSupertypes$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void getTypeParameters$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void getVisibility$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void isAbstract$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void isCompanion$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void isData$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void isFinal$annotations() {
-    }
-
-    @SinceKotlin(version = "1.4")
-    public static /* synthetic */ void isFun$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void isInner$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void isOpen$annotations() {
-    }
-
-    @SinceKotlin(version = "1.1")
-    public static /* synthetic */ void isSealed$annotations() {
-    }
-
-    @SinceKotlin(version = "1.5")
-    public static /* synthetic */ void isValue$annotations() {
+    @Override // kotlin.reflect.KClass
+    public boolean equals(Object obj) {
+        if ((obj instanceof ClassReference) && Intrinsics.areEqual(JvmClassMappingKt.getJavaObjectType(this), JvmClassMappingKt.getJavaObjectType((KClass) obj))) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlin.reflect.KClass
-    public boolean equals(Object obj) {
-        return (obj instanceof ClassReference) && Intrinsics.areEqual(JvmClassMappingKt.getJavaObjectType(this), JvmClassMappingKt.getJavaObjectType((KClass) obj));
+    public boolean isInstance(Object obj) {
+        return Companion.isInstance(obj, getJClass());
+    }
+
+    private final Void error() {
+        throw new KotlinReflectionNotSupportedError();
     }
 
     @Override // kotlin.reflect.KAnnotatedElement
@@ -414,12 +417,6 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
     public boolean isInner() {
         error();
         throw new KotlinNothingValueException();
-    }
-
-    @Override // kotlin.reflect.KClass
-    @SinceKotlin(version = "1.1")
-    public boolean isInstance(Object obj) {
-        return Companion.isInstance(obj, getJClass());
     }
 
     @Override // kotlin.reflect.KClass

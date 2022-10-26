@@ -6,7 +6,6 @@ import com.baidu.pass.ecommerce.common.mvp.BasePresenter;
 import com.baidu.pass.ecommerce.common.request.NetCallback;
 import com.baidu.pass.ecommerce.request.AddressRequestFactory;
 import com.baidu.pass.ecommerce.view.addressdialog.ElementNode;
-import com.baidu.pass.ecommerce.view.addressdialog.ListPagerView;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorRequestParam;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorResponseParam;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
@@ -20,9 +19,15 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
+public class AddrListPagerPresenter extends BasePresenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public String getErrorMsg(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? "网络不给力，请稍后重试" : (String) invokeI.objValue;
+    }
 
     public AddrListPagerPresenter() {
         Interceptable interceptable = $ic;
@@ -69,9 +74,10 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
                 public void onFailure(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.this$0.doFailure(this.val$action, i2, str);
+                    if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i2, str) != null) {
+                        return;
                     }
+                    this.this$0.doFailure(this.val$action, i2, str);
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -132,27 +138,21 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
         }
     }
 
-    public String getErrorMsg(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? "网络不给力，请稍后重试" : (String) invokeI.objValue;
-    }
-
-    public List<AddressBean> makeSelectedEntity(ElementNode.AddressEntity addressEntity, String str) {
+    public List makeSelectedEntity(ElementNode.AddressEntity addressEntity, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, addressEntity, str)) == null) {
             if (addressEntity == null) {
                 return null;
             }
-            List<AddressBean> list = addressEntity.list;
+            List list = addressEntity.list;
             if (list != null && !list.isEmpty() && !TextUtils.isEmpty(str)) {
                 int i = 0;
                 while (true) {
                     if (i >= list.size()) {
                         break;
                     }
-                    AddressBean addressBean = list.get(i);
+                    AddressBean addressBean = (AddressBean) list.get(i);
                     if (addressBean != null && str.equals(addressBean.id)) {
                         addressEntity.selectedId = addressBean.id;
                         addressEntity.selectedName = addressBean.name;

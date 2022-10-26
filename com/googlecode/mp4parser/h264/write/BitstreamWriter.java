@@ -54,6 +54,13 @@ public class BitstreamWriter {
         }
     }
 
+    public void writeRemainingZero() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            writeNBit(0L, 8 - this.curBit);
+        }
+    }
+
     public void write1Bit(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -82,13 +89,6 @@ public class BitstreamWriter {
             for (int i2 = 0; i2 < i; i2++) {
                 write1Bit(((int) (j >> ((i - i2) - 1))) & 1);
             }
-        }
-    }
-
-    public void writeRemainingZero() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            writeNBit(0L, 8 - this.curBit);
         }
     }
 }

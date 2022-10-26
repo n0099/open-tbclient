@@ -13,7 +13,7 @@ public class EffectInfoWrapper implements Serializable {
     public static final int TYPE_KSONG_MUSIC = 2;
     public static final int TYPE_STICKING_POINT = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<EffectInfo> data;
+    public List data;
     public String name;
     public int type;
 

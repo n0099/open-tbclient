@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.mr7;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
+import com.baidu.tieba.xr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,6 +21,16 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpMessageListener a;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -52,15 +62,15 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                mr7 mr7Var = null;
+                xr7 xr7Var = null;
                 if (httpResponsedMessage.getOrginalMessage() != null) {
                     Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof mr7) {
-                        mr7Var = (mr7) extra;
+                    if (extra instanceof xr7) {
+                        xr7Var = (xr7) extra;
                     }
                 }
-                if (mr7Var != null) {
-                    mr7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
+                if (xr7Var != null) {
+                    xr7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
@@ -98,16 +108,6 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -117,11 +117,11 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         }
     }
 
-    public void z(mr7 mr7Var) {
+    public void z(xr7 xr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mr7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, xr7Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-            httpMessage.setExtra(mr7Var);
+            httpMessage.setExtra(xr7Var);
             sendMessage(httpMessage);
         }
     }

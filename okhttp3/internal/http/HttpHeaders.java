@@ -61,10 +61,74 @@ public final class HttpHeaders {
         }
     }
 
+    public static long contentLength(Headers headers) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, headers)) == null) {
+            return stringToLong(headers.get("Content-Length"));
+        }
+        return invokeL.longValue;
+    }
+
+    public static boolean hasVaryAll(Headers headers) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, headers)) == null) {
+            return varyFields(headers).contains("*");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static long stringToLong(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (str == null) {
+                return -1L;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (NumberFormatException unused) {
+                return -1L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public static Set<String> varyFields(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, response)) == null) {
+            return varyFields(response.headers());
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public static Headers varyHeaders(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, response)) == null) {
+            return varyHeaders(response.networkResponse().request().headers(), response.headers());
+        }
+        return (Headers) invokeL.objValue;
+    }
+
     public static long contentLength(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, response)) == null) ? contentLength(response.headers()) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, response)) == null) {
+            return contentLength(response.headers());
+        }
+        return invokeL.longValue;
+    }
+
+    public static boolean hasVaryAll(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) {
+            return hasVaryAll(response.headers());
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean hasBody(Response response) {
@@ -75,15 +139,34 @@ public final class HttpHeaders {
                 return false;
             }
             int code = response.code();
-            return (((code >= 100 && code < 200) || code == 204 || code == 304) && contentLength(response) == -1 && !"chunked".equalsIgnoreCase(response.header("Transfer-Encoding"))) ? false : true;
+            if (((code >= 100 && code < 200) || code == 204 || code == 304) && contentLength(response) == -1 && !"chunked".equalsIgnoreCase(response.header("Transfer-Encoding"))) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean hasVaryAll(Response response) {
+    public static Set<String> varyFields(Headers headers) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) ? hasVaryAll(response.headers()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, headers)) == null) {
+            Set<String> emptySet = Collections.emptySet();
+            int size = headers.size();
+            for (int i = 0; i < size; i++) {
+                if ("Vary".equalsIgnoreCase(headers.name(i))) {
+                    String value = headers.value(i);
+                    if (emptySet.isEmpty()) {
+                        emptySet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+                    }
+                    for (String str : value.split(",")) {
+                        emptySet.add(str.trim());
+                    }
+                }
+            }
+            return emptySet;
+        }
+        return (Set) invokeL.objValue;
     }
 
     public static List<Challenge> parseChallenges(Headers headers, String str) {
@@ -145,9 +228,22 @@ public final class HttpHeaders {
         return invokeLI.intValue;
     }
 
+    public static int skipWhitespace(String str, int i) {
+        char charAt;
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
+            while (i < str.length() && ((charAt = str.charAt(i)) == ' ' || charAt == '\t')) {
+                i++;
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
     public static void receiveHeaders(CookieJar cookieJar, HttpUrl httpUrl, Headers headers) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65545, null, cookieJar, httpUrl, headers) == null) || cookieJar == CookieJar.NO_COOKIES) {
+        if ((interceptable != null && interceptable.invokeLLL(65545, null, cookieJar, httpUrl, headers) != null) || cookieJar == CookieJar.NO_COOKIES) {
             return;
         }
         List<Cookie> parseAll = Cookie.parseAll(httpUrl, headers);
@@ -169,95 +265,6 @@ public final class HttpHeaders {
         return invokeLIL.intValue;
     }
 
-    public static int skipWhitespace(String str, int i) {
-        char charAt;
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
-            while (i < str.length() && ((charAt = str.charAt(i)) == ' ' || charAt == '\t')) {
-                i++;
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long stringToLong(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (str == null) {
-                return -1L;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (NumberFormatException unused) {
-                return -1L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public static Set<String> varyFields(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, response)) == null) ? varyFields(response.headers()) : (Set) invokeL.objValue;
-    }
-
-    public static Headers varyHeaders(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, response)) == null) ? varyHeaders(response.networkResponse().request().headers(), response.headers()) : (Headers) invokeL.objValue;
-    }
-
-    public static boolean varyMatches(Response response, Headers headers, Request request) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, response, headers, request)) == null) {
-            for (String str : varyFields(response)) {
-                if (!Util.equal(headers.values(str), request.headers(str))) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static long contentLength(Headers headers) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, headers)) == null) ? stringToLong(headers.get("Content-Length")) : invokeL.longValue;
-    }
-
-    public static boolean hasVaryAll(Headers headers) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, headers)) == null) ? varyFields(headers).contains("*") : invokeL.booleanValue;
-    }
-
-    public static Set<String> varyFields(Headers headers) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, headers)) == null) {
-            Set<String> emptySet = Collections.emptySet();
-            int size = headers.size();
-            for (int i = 0; i < size; i++) {
-                if ("Vary".equalsIgnoreCase(headers.name(i))) {
-                    String value = headers.value(i);
-                    if (emptySet.isEmpty()) {
-                        emptySet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-                    }
-                    for (String str : value.split(",")) {
-                        emptySet.add(str.trim());
-                    }
-                }
-            }
-            return emptySet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
     public static Headers varyHeaders(Headers headers, Headers headers2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -277,5 +284,19 @@ public final class HttpHeaders {
             return builder.build();
         }
         return (Headers) invokeLL.objValue;
+    }
+
+    public static boolean varyMatches(Response response, Headers headers, Request request) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, response, headers, request)) == null) {
+            for (String str : varyFields(response)) {
+                if (!Util.equal(headers.values(str), request.headers(str))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

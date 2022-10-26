@@ -26,6 +26,13 @@ public final class AztecReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     public AztecReader() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,14 +51,10 @@ public final class AztecReader implements Reader {
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decode(binaryBitmap, null) : (Result) invokeL.objValue;
-    }
-
-    @Override // com.google.zxing.Reader
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decode(binaryBitmap, null);
         }
+        return (Result) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0035  */
@@ -63,13 +66,13 @@ public final class AztecReader implements Reader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, FormatException {
         InterceptResult invokeLL;
         ResultPoint[] resultPointArr;
         ResultPoint[] resultPointArr2;
         FormatException formatException;
         ResultPoint[] resultPointArr3;
-        List<byte[]> byteSegments;
+        List byteSegments;
         String eCLevel;
         ResultPointCallback resultPointCallback;
         AztecDetectorResult detect;

@@ -61,12 +61,18 @@ public final class IRefreshable$State {
     public static IRefreshable$State valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (IRefreshable$State) Enum.valueOf(IRefreshable$State.class, str) : (IRefreshable$State) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (IRefreshable$State) Enum.valueOf(IRefreshable$State.class, str);
+        }
+        return (IRefreshable$State) invokeL.objValue;
     }
 
     public static IRefreshable$State[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (IRefreshable$State[]) $VALUES.clone() : (IRefreshable$State[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (IRefreshable$State[]) $VALUES.clone();
+        }
+        return (IRefreshable$State[]) invokeV.objValue;
     }
 }

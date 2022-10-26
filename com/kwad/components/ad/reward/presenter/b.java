@@ -97,7 +97,7 @@ public class b extends a {
             super.aq();
             AdTemplate adTemplate = this.nM.mAdTemplate;
             if (adTemplate.adInfoList.size() > 0) {
-                String K = com.kwad.sdk.core.response.a.a.K(adTemplate.adInfoList.get(0));
+                String K = com.kwad.sdk.core.response.a.a.K((AdInfo) adTemplate.adInfoList.get(0));
                 this.px.setVisibility(gT());
                 a(this.px, K);
             }
@@ -107,7 +107,7 @@ public class b extends a {
     public int gS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.id.obfuscated_res_0x7f091072 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.id.obfuscated_res_0x7f091066 : invokeV.intValue;
     }
 
     public int gT() {

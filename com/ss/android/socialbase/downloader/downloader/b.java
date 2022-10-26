@@ -15,86 +15,12 @@ public class b {
     public String globalDefaultSavePath;
     public String globalDefaultSaveTempPath;
 
-    public static DownloadTask with(Context context) {
-        Downloader.getInstance(context);
-        return new DownloadTask();
-    }
-
-    public void addMainThreadListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.MAIN, false);
-    }
-
-    public void addNotificationListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, false);
-    }
-
-    public void addSubThreadListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.SUB, false);
-    }
-
-    public boolean canResume(int i) {
-        return d.a().e(i);
-    }
-
-    public void cancel(int i) {
-        cancel(i, true);
-    }
-
-    public void clearDownloadData(int i) {
-        d.a().d(i, true);
-    }
-
     public void destoryDownloader() {
         c.a();
     }
 
-    public void forceDownloadIngoreRecommendSize(int i) {
-        d.a().n(i);
-    }
-
-    public List<DownloadInfo> getAllDownloadInfo() {
+    public List getAllDownloadInfo() {
         return d.a().e();
-    }
-
-    public long getCurBytes(int i) {
-        return d.a().h(i);
-    }
-
-    public IDownloadFileUriProvider getDownloadFileUriProvider(int i) {
-        return d.a().r(i);
-    }
-
-    public int getDownloadId(String str, String str2) {
-        return d.a().a(str, str2);
-    }
-
-    public DownloadInfo getDownloadInfo(int i) {
-        return d.a().k(i);
-    }
-
-    public List<DownloadInfo> getDownloadInfoList(String str) {
-        return d.a().a(str);
-    }
-
-    public z getDownloadNotificationEventListener(int i) {
-        return d.a().l(i);
-    }
-
-    public List<DownloadInfo> getDownloadingDownloadInfosWithMimeType(String str) {
-        return d.a().e(str);
-    }
-
-    public List<DownloadInfo> getFailedDownloadInfosWithMimeType(String str) {
-        return d.a().b(str);
     }
 
     public File getGlobalSaveDir() {
@@ -109,125 +35,16 @@ public class b {
         return c.Q();
     }
 
-    public int getStatus(int i) {
-        return d.a().i(i);
-    }
-
-    public List<DownloadInfo> getSuccessedDownloadInfosWithMimeType(String str) {
-        return d.a().c(str);
-    }
-
-    public List<DownloadInfo> getUnCompletedDownloadInfosWithMimeType(String str) {
-        return d.a().d(str);
-    }
-
     public boolean isDownloadCacheSyncSuccess() {
         return d.a().f();
-    }
-
-    public boolean isDownloadServiceForeground(int i) {
-        return d.a().c(i).b();
-    }
-
-    public boolean isDownloadSuccessAndFileNotExist(DownloadInfo downloadInfo) {
-        return d.a().a(downloadInfo);
-    }
-
-    public boolean isDownloading(int i) {
-        boolean j;
-        if (com.ss.android.socialbase.downloader.i.a.a(4194304)) {
-            synchronized (this) {
-                j = d.a().j(i);
-            }
-            return j;
-        }
-        return d.a().j(i);
     }
 
     public boolean isHttpServiceInit() {
         return d.a().d();
     }
 
-    public void pause(int i) {
-        d.a().d(i);
-    }
-
     public void pauseAll() {
         d.a().c();
-    }
-
-    public void registerDownloadCacheSyncListener(com.ss.android.socialbase.downloader.depend.k kVar) {
-        d.a().a(kVar);
-    }
-
-    public void registerDownloaderProcessConnectedListener(ac acVar) {
-        d.a().a(acVar);
-    }
-
-    public void removeMainThreadListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().a(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.MAIN, false);
-    }
-
-    public void removeNotificationListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().a(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, false);
-    }
-
-    public void removeSubThreadListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().a(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.SUB, false);
-    }
-
-    @Deprecated
-    public void removeTaskMainListener(int i) {
-        d.a().a(i, null, com.ss.android.socialbase.downloader.constants.f.MAIN, true);
-    }
-
-    @Deprecated
-    public void removeTaskNotificationListener(int i) {
-        d.a().a(i, null, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, true);
-    }
-
-    @Deprecated
-    public void removeTaskSubListener(int i) {
-        d.a().a(i, null, com.ss.android.socialbase.downloader.constants.f.SUB, true);
-    }
-
-    public void restart(int i) {
-        d.a().g(i);
-    }
-
-    public void restartAllFailedDownloadTasks(List<String> list) {
-        d.a().a(list);
-    }
-
-    public void restartAllPauseReserveOnWifiDownloadTasks(List<String> list) {
-        d.a().b(list);
-    }
-
-    public void resume(int i) {
-        d.a().f(i);
-    }
-
-    public void setDefaultSavePath(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.globalDefaultSavePath = str;
-    }
-
-    public void setDefaultSaveTempPath(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.globalDefaultSaveTempPath = str;
     }
 
     public void setDownloadInMultiProcess() {
@@ -238,54 +55,6 @@ public class b {
             return;
         }
         c.b();
-    }
-
-    public void setDownloadNotificationEventListener(int i, z zVar) {
-        d.a().a(i, zVar);
-    }
-
-    public void setLogLevel(int i) {
-        d.a().p(i);
-    }
-
-    @Deprecated
-    public void setMainThreadListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.MAIN, true);
-    }
-
-    @Deprecated
-    public void setNotificationListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, true);
-    }
-
-    public void setReserveWifiStatusListener(r rVar) {
-        c.a(rVar);
-    }
-
-    @Deprecated
-    public void setSubThreadListener(int i, IDownloadListener iDownloadListener) {
-        if (iDownloadListener == null) {
-            return;
-        }
-        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.SUB, true);
-    }
-
-    public void setThrottleNetSpeed(int i, long j) {
-        d.a().a(i, j);
-    }
-
-    public void unRegisterDownloadCacheSyncListener(com.ss.android.socialbase.downloader.depend.k kVar) {
-        d.a().b(kVar);
-    }
-
-    public void unRegisterDownloaderProcessConnectedListener(ac acVar) {
-        d.a().b(acVar);
     }
 
     private File getGlobalSaveDir(String str, boolean z) {
@@ -314,6 +83,27 @@ public class b {
         }
     }
 
+    public void addMainThreadListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.MAIN, false);
+    }
+
+    public void addNotificationListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, false);
+    }
+
+    public void addSubThreadListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.SUB, false);
+    }
+
     public void cancel(int i, boolean z) {
         d.a().c(i, z);
     }
@@ -322,8 +112,216 @@ public class b {
         d.a().d(i, z);
     }
 
+    public int getDownloadId(String str, String str2) {
+        return d.a().a(str, str2);
+    }
+
     public DownloadInfo getDownloadInfo(String str, String str2) {
         return d.a().b(str, str2);
+    }
+
+    public void removeMainThreadListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().a(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.MAIN, false);
+    }
+
+    public void removeNotificationListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().a(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, false);
+    }
+
+    public void removeSubThreadListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().a(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.SUB, false);
+    }
+
+    public void setDownloadNotificationEventListener(int i, z zVar) {
+        d.a().a(i, zVar);
+    }
+
+    @Deprecated
+    public void setMainThreadListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.MAIN, true);
+    }
+
+    @Deprecated
+    public void setNotificationListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, true);
+    }
+
+    @Deprecated
+    public void setSubThreadListener(int i, IDownloadListener iDownloadListener) {
+        if (iDownloadListener == null) {
+            return;
+        }
+        d.a().b(i, iDownloadListener, com.ss.android.socialbase.downloader.constants.f.SUB, true);
+    }
+
+    public void setThrottleNetSpeed(int i, long j) {
+        d.a().a(i, j);
+    }
+
+    public static DownloadTask with(Context context) {
+        Downloader.getInstance(context);
+        return new DownloadTask();
+    }
+
+    public boolean canResume(int i) {
+        return d.a().e(i);
+    }
+
+    public void cancel(int i) {
+        cancel(i, true);
+    }
+
+    public void clearDownloadData(int i) {
+        d.a().d(i, true);
+    }
+
+    public void forceDownloadIngoreRecommendSize(int i) {
+        d.a().n(i);
+    }
+
+    public long getCurBytes(int i) {
+        return d.a().h(i);
+    }
+
+    public IDownloadFileUriProvider getDownloadFileUriProvider(int i) {
+        return d.a().r(i);
+    }
+
+    public DownloadInfo getDownloadInfo(int i) {
+        return d.a().k(i);
+    }
+
+    public List getDownloadInfoList(String str) {
+        return d.a().a(str);
+    }
+
+    public z getDownloadNotificationEventListener(int i) {
+        return d.a().l(i);
+    }
+
+    public List getDownloadingDownloadInfosWithMimeType(String str) {
+        return d.a().e(str);
+    }
+
+    public List getFailedDownloadInfosWithMimeType(String str) {
+        return d.a().b(str);
+    }
+
+    public int getStatus(int i) {
+        return d.a().i(i);
+    }
+
+    public List getSuccessedDownloadInfosWithMimeType(String str) {
+        return d.a().c(str);
+    }
+
+    public List getUnCompletedDownloadInfosWithMimeType(String str) {
+        return d.a().d(str);
+    }
+
+    public boolean isDownloadServiceForeground(int i) {
+        return d.a().c(i).b();
+    }
+
+    public boolean isDownloadSuccessAndFileNotExist(DownloadInfo downloadInfo) {
+        return d.a().a(downloadInfo);
+    }
+
+    public boolean isDownloading(int i) {
+        boolean j;
+        if (com.ss.android.socialbase.downloader.i.a.a(4194304)) {
+            synchronized (this) {
+                j = d.a().j(i);
+            }
+            return j;
+        }
+        return d.a().j(i);
+    }
+
+    public void pause(int i) {
+        d.a().d(i);
+    }
+
+    public void registerDownloadCacheSyncListener(com.ss.android.socialbase.downloader.depend.k kVar) {
+        d.a().a(kVar);
+    }
+
+    public void registerDownloaderProcessConnectedListener(ac acVar) {
+        d.a().a(acVar);
+    }
+
+    @Deprecated
+    public void removeTaskMainListener(int i) {
+        d.a().a(i, null, com.ss.android.socialbase.downloader.constants.f.MAIN, true);
+    }
+
+    @Deprecated
+    public void removeTaskNotificationListener(int i) {
+        d.a().a(i, null, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION, true);
+    }
+
+    @Deprecated
+    public void removeTaskSubListener(int i) {
+        d.a().a(i, null, com.ss.android.socialbase.downloader.constants.f.SUB, true);
+    }
+
+    public void restart(int i) {
+        d.a().g(i);
+    }
+
+    public void restartAllFailedDownloadTasks(List list) {
+        d.a().a(list);
+    }
+
+    public void restartAllPauseReserveOnWifiDownloadTasks(List list) {
+        d.a().b(list);
+    }
+
+    public void resume(int i) {
+        d.a().f(i);
+    }
+
+    public void setDefaultSavePath(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.globalDefaultSavePath = str;
+        }
+    }
+
+    public void setDefaultSaveTempPath(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.globalDefaultSaveTempPath = str;
+        }
+    }
+
+    public void setLogLevel(int i) {
+        d.a().p(i);
+    }
+
+    public void setReserveWifiStatusListener(r rVar) {
+        c.a(rVar);
+    }
+
+    public void unRegisterDownloadCacheSyncListener(com.ss.android.socialbase.downloader.depend.k kVar) {
+        d.a().b(kVar);
+    }
+
+    public void unRegisterDownloaderProcessConnectedListener(ac acVar) {
+        d.a().b(acVar);
     }
 
     @Deprecated

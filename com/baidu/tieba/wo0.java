@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,65 +11,43 @@ import org.json.JSONObject;
 public final class wo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a a(@Nullable JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                a aVar = new a();
-                if (jSONObject != null) {
-                    jSONObject.optInt("count");
-                    jSONObject.optInt("type");
-                    jSONObject.optString("ext");
-                    jSONObject.optString("id");
-                }
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    public wo0() {
+    public wo0(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = jSONObject.optString("url");
+        jSONObject.optInt("width");
+        this.b = jSONObject.optInt("height");
     }
 
-    public static wo0 a(@Nullable JSONObject jSONObject) {
+    public static wo0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            wo0 wo0Var = new wo0();
-            a.a(jSONObject);
-            return wo0Var;
+            return new wo0(jSONObject);
         }
         return (wo0) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.isEmpty(this.a)) {
+            return;
+        }
+        qn0.a().d(this.a);
     }
 }

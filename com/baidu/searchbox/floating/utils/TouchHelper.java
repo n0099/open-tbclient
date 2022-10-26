@@ -38,6 +38,30 @@ public final class TouchHelper {
     public final Lazy mTouchSlop$delegate;
     public final Lazy navigationBarHeight$delegate;
 
+    private final Rect getMBlockOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (Rect) this.mBlockOffset$delegate.getValue() : (Rect) invokeV.objValue;
+    }
+
+    private final int getMScreenHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? ((Number) this.mScreenHeight$delegate.getValue()).intValue() : invokeV.intValue;
+    }
+
+    private final int getMTouchSlop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? ((Number) this.mTouchSlop$delegate.getValue()).intValue() : invokeV.intValue;
+    }
+
+    private final int getNavigationBarHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? ((Number) this.navigationBarHeight$delegate.getValue()).intValue() : invokeV.intValue;
+    }
+
     public TouchHelper(Context context, Config config) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,7 +96,13 @@ public final class TouchHelper {
             int i4 = i + i3;
             int i5 = getMBlockOffset().left;
             int i6 = (this.mDisplayWidth - i2) - getMBlockOffset().right;
-            return i4 < i5 ? i5 : i4 > i6 ? i6 : i4;
+            if (i4 < i5) {
+                return i5;
+            }
+            if (i4 > i6) {
+                return i6;
+            }
+            return i4;
         }
         return invokeIII.intValue;
     }
@@ -84,39 +114,45 @@ public final class TouchHelper {
             int i3 = i + i2;
             int i4 = getMBlockOffset().top;
             int i5 = this.mEmptyHeight - getMBlockOffset().bottom;
-            return i3 < i4 ? i4 : i3 > i5 ? i5 : i3;
+            if (i3 < i4) {
+                return i4;
+            }
+            if (i3 > i5) {
+                return i5;
+            }
+            return i3;
         }
         return invokeII.intValue;
-    }
-
-    private final Rect getMBlockOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (Rect) this.mBlockOffset$delegate.getValue() : (Rect) invokeV.objValue;
-    }
-
-    private final int getMScreenHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? ((Number) this.mScreenHeight$delegate.getValue()).intValue() : invokeV.intValue;
-    }
-
-    private final int getMTouchSlop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? ((Number) this.mTouchSlop$delegate.getValue()).intValue() : invokeV.intValue;
-    }
-
-    private final int getNavigationBarHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? ((Number) this.navigationBarHeight$delegate.getValue()).intValue() : invokeV.intValue;
     }
 
     private final boolean hasStatusBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.mDisplayHeight == getMScreenHeight() || this.mDisplayHeight + getNavigationBarHeight() == getMScreenHeight() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            if (this.mDisplayHeight != getMScreenHeight() && this.mDisplayHeight + getNavigationBarHeight() != getMScreenHeight()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Config getConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.config;
+        }
+        return (Config) invokeV.objValue;
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.context;
+        }
+        return (Context) invokeV.objValue;
     }
 
     private final void recordLocation(MotionEvent motionEvent) {
@@ -136,18 +172,6 @@ public final class TouchHelper {
         }
     }
 
-    public final Config getConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.config : (Config) invokeV.objValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.context : (Context) invokeV.objValue;
-    }
-
     public final void onTouch(View view2, MotionEvent event, WindowManager windowManager, WindowManager.LayoutParams params) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, view2, event, windowManager, params) == null) {
@@ -157,22 +181,16 @@ public final class TouchHelper {
             Intrinsics.checkNotNullParameter(params, "params");
             if (this.config.getCanDrag() && !this.config.isAnimating()) {
                 int action = event.getAction() & 255;
-                if (action == 0) {
-                    this.config.setDragging(false);
-                    recordLocation(event);
-                    updateDisplayInfo(windowManager);
-                    this.mHasStatusBar = hasStatusBar();
-                    this.mEmptyHeight = this.mDisplayHeight - view2.getHeight();
-                    return;
-                } else if (action == 1) {
-                    this.config.setDragging(false);
-                    return;
-                } else if (action != 2) {
-                    return;
-                } else {
-                    float rawX = event.getRawX() - this.mLastX;
-                    float rawY = event.getRawY() - this.mLastY;
-                    if (this.config.isDragging() || (rawX * rawX) + (rawY * rawY) >= getMTouchSlop()) {
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action != 2) {
+                            return;
+                        }
+                        float rawX = event.getRawX() - this.mLastX;
+                        float rawY = event.getRawY() - this.mLastY;
+                        if (!this.config.isDragging() && (rawX * rawX) + (rawY * rawY) < getMTouchSlop()) {
+                            return;
+                        }
                         this.config.setDragging(true);
                         params.x = calculateX(params.x, view2.getWidth(), (int) rawX);
                         params.y = calculateY(params.y, (int) rawY);
@@ -180,8 +198,15 @@ public final class TouchHelper {
                         recordLocation(event);
                         return;
                     }
+                    this.config.setDragging(false);
                     return;
                 }
+                this.config.setDragging(false);
+                recordLocation(event);
+                updateDisplayInfo(windowManager);
+                this.mHasStatusBar = hasStatusBar();
+                this.mEmptyHeight = this.mDisplayHeight - view2.getHeight();
+                return;
             }
             this.config.setDragging(false);
         }

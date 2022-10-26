@@ -1,65 +1,99 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gu1 extends or1 {
+public abstract class gu1 implements iu1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gu1(@NonNull mr1 mr1Var) {
-        super(mr1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mr1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((mr1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    public abstract mv1 c(s22 s22Var);
+
+    public abstract mv1 d(int i);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806310, "Lcom/baidu/tieba/gu1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806310, "Lcom/baidu/tieba/gu1;");
                 return;
             }
         }
+        a = m33.v;
     }
 
-    @Override // com.baidu.tieba.or1
-    public String h() {
-        InterceptResult invokeV;
+    public gu1() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Menu" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.or1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "MenuButtonBoundsApi" : (String) invokeV.objValue;
-    }
-
-    public lv1 x() {
-        InterceptResult invokeV;
-        hu1 iu1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#getMenuButtonBoundingClientRect", false);
-            l33 b0 = l33.b0();
-            if (b0 != null ? b0.w0() : false) {
-                iu1Var = new ju1();
-            } else {
-                iu1Var = new iu1();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return iu1Var.a();
         }
-        return (lv1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iu1
+    public mv1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (m33.b0() == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
+                }
+                return d(1001);
+            }
+            v22 V = zo2.U().V();
+            if (V == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
+                }
+                return d(1001);
+            }
+            s22 m = V.m();
+            if (m == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
+                }
+                return d(1001);
+            }
+            return c(m);
+        }
+        return (mv1) invokeV.objValue;
+    }
+
+    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
+            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
+            jSONObject.putOpt("left", Integer.valueOf(i));
+            jSONObject.putOpt("right", Integer.valueOf(i3));
+            jSONObject.putOpt("top", Integer.valueOf(i2));
+            jSONObject.putOpt("bottom", Integer.valueOf(i4));
+            return jSONObject;
+        }
+        return (JSONObject) invokeIIII.objValue;
     }
 }

@@ -45,6 +45,15 @@ public class VersionInfo {
         return (VersionInfo) invokeLLL.objValue;
     }
 
+    public static final VersionInfo loadVersionInfo(String str, ClassLoader classLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, classLoader)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (VersionInfo) invokeLL.objValue;
+    }
+
     public static final VersionInfo[] loadVersionInfo(String[] strArr, ClassLoader classLoader) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -106,14 +115,5 @@ public class VersionInfo {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
-    }
-
-    public static final VersionInfo loadVersionInfo(String str, ClassLoader classLoader) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, classLoader)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (VersionInfo) invokeLL.objValue;
     }
 }

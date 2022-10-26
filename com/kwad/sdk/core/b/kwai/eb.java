@@ -3,9 +3,8 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class eb implements com.kwad.sdk.core.d<PhotoInfo> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(PhotoInfo photoInfo, JSONObject jSONObject) {
+public final class eb implements com.kwad.sdk.core.d {
+    public static void a(PhotoInfo photoInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -21,8 +20,7 @@ public final class eb implements com.kwad.sdk.core.d<PhotoInfo> {
         videoInfo.parseJson(jSONObject.optJSONObject("videoInfo"));
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(PhotoInfo photoInfo, JSONObject jSONObject) {
+    public static JSONObject b(PhotoInfo photoInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -35,15 +33,13 @@ public final class eb implements com.kwad.sdk.core.d<PhotoInfo> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(PhotoInfo photoInfo, JSONObject jSONObject) {
-        a2(photoInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((PhotoInfo) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(PhotoInfo photoInfo, JSONObject jSONObject) {
-        return b2(photoInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((PhotoInfo) bVar, jSONObject);
     }
 }

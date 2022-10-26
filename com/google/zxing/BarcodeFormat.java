@@ -87,12 +87,18 @@ public final class BarcodeFormat {
     public static BarcodeFormat valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BarcodeFormat) Enum.valueOf(BarcodeFormat.class, str) : (BarcodeFormat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BarcodeFormat) Enum.valueOf(BarcodeFormat.class, str);
+        }
+        return (BarcodeFormat) invokeL.objValue;
     }
 
     public static BarcodeFormat[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BarcodeFormat[]) $VALUES.clone() : (BarcodeFormat[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BarcodeFormat[]) $VALUES.clone();
+        }
+        return (BarcodeFormat[]) invokeV.objValue;
     }
 }

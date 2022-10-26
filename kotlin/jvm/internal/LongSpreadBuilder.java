@@ -19,14 +19,14 @@ public final class LongSpreadBuilder extends PrimitiveSpreadBuilder<long[]> {
         jArr[position] = j;
     }
 
-    public final long[] toArray() {
-        return toArray(this.values, new long[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(long[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final long[] toArray() {
+        return toArray(this.values, new long[size()]);
     }
 }

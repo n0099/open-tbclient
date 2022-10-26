@@ -1,8 +1,6 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,10 +19,9 @@ public class LogPipelineSingleton {
     public static final String TAG = "LogPipelineSingleton";
     public static volatile LogPipelineSingleton sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public LogSystemConfig mLogSystemConfig;
 
-    public LogPipelineSingleton(@NonNull LogSystemConfig logSystemConfig) {
+    public LogPipelineSingleton(LogSystemConfig logSystemConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +39,28 @@ public class LogPipelineSingleton {
         this.mLogSystemConfig = logSystemConfig;
     }
 
-    @NonNull
+    public static synchronized void initialize(LogSystemConfig logSystemConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, logSystemConfig) == null) {
+            synchronized (LogPipelineSingleton.class) {
+                sInstance = new LogPipelineSingleton(logSystemConfig);
+            }
+        }
+    }
+
+    public File getProcessCrashpadDir(CrashUtil.CrashTAG crashTAG) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, crashTAG)) == null) {
+            String crashTAG2 = CrashUtil.CrashTAG.getCrashTAG(crashTAG);
+            if (!TextUtils.isEmpty(crashTAG2)) {
+                return new File(getCrashRootDir(), crashTAG2);
+            }
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
     public static LogPipelineSingleton getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,61 +93,47 @@ public class LogPipelineSingleton {
         }
     }
 
-    public static File obtainFileDirWithProcessName(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            File file = getInstance().getLogStoreDirSupplier().get();
-            return TextUtils.isEmpty(str) ? file : new File(file, str.replace(":", "_"));
-        }
-        return (File) invokeL.objValue;
-    }
-
     public File getCrashRootDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(getLogStoreDirSupplier().get(), CRASH_PAD_DIR) : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new File((File) getLogStoreDirSupplier().get(), CRASH_PAD_DIR);
+        }
+        return (File) invokeV.objValue;
     }
 
-    @NonNull
-    public Supplier<File> getLogStoreDirSupplier() {
+    public Supplier getLogStoreDirSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLogSystemConfig.getLogDiskStoreConfig().getLogStoreRootDirSupplier() : (Supplier) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLogSystemConfig.getLogDiskStoreConfig().getLogStoreRootDirSupplier();
+        }
+        return (Supplier) invokeV.objValue;
     }
 
-    @NonNull
     public File getProcessCrashpadDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new File(getCrashRootDir(), CrashUtil.getCrashTAG()) : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new File(getCrashRootDir(), CrashUtil.getCrashTAG());
+        }
+        return (File) invokeV.objValue;
     }
 
-    @Nullable
-    public File getProcessCrashpadDir(@NonNull CrashUtil.CrashTAG crashTAG) {
+    public static File obtainFileDirWithProcessName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, crashTAG)) == null) {
-            String crashTAG2 = CrashUtil.CrashTAG.getCrashTAG(crashTAG);
-            if (TextUtils.isEmpty(crashTAG2)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            File file = (File) getInstance().getLogStoreDirSupplier().get();
+            if (TextUtils.isEmpty(str)) {
+                return file;
             }
-            return new File(getCrashRootDir(), crashTAG2);
+            return new File(file, str.replace(":", "_"));
         }
         return (File) invokeL.objValue;
     }
 
-    public static synchronized void initialize(@NonNull LogSystemConfig logSystemConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, logSystemConfig) == null) {
-            synchronized (LogPipelineSingleton.class) {
-                sInstance = new LogPipelineSingleton(logSystemConfig);
-            }
-        }
-    }
-
-    @Nullable
-    public File getProcessCrashpadDir(@NonNull String str) {
+    public File getProcessCrashpadDir(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {

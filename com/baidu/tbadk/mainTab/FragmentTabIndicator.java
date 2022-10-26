@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fh;
-import com.baidu.tieba.ol8;
-import com.baidu.tieba.on;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.pn;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.vl8;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,11 +55,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public int s;
     public int t;
     public boolean u;
-    public HashMap<String, TbFragmentTabIndicator.a> v;
-    public final yg<on> w;
+    public HashMap v;
+    public final zg w;
 
     /* loaded from: classes3.dex */
-    public class a extends fh {
+    public class a extends gh {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -82,17 +82,18 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.a = fragmentTabIndicator;
         }
 
-        @Override // com.baidu.tieba.fh
+        @Override // com.baidu.tieba.gh
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.l = true;
+            if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
+                return;
             }
+            this.a.l = true;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends yg<on> {
+    public class b extends zg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -116,18 +117,18 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        public void onLoaded(on onVar, String str, int i) {
+        @Override // com.baidu.tieba.zg
+        public void onLoaded(pn pnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
-                super.onLoaded((b) onVar, str, i);
-                if (this.a.q == null || onVar == null || !onVar.w()) {
-                    this.a.l();
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, pnVar, str, i) == null) {
+                super.onLoaded((b) pnVar, str, i);
+                if (this.a.q != null && pnVar != null && pnVar.w()) {
+                    this.a.q.setBackgroundResource(0);
+                    this.a.q.setImageDrawable(null);
+                    pnVar.h(this.a.q);
                     return;
                 }
-                this.a.q.setBackgroundResource(0);
-                this.a.q.setImageDrawable(null);
-                onVar.h(this.a.q);
+                this.a.l();
             }
         }
     }
@@ -154,59 +155,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         this.k = 0;
         this.l = true;
         this.u = true;
-        this.v = new HashMap<>();
+        this.v = new HashMap();
         this.w = new b(this);
         j();
-    }
-
-    private BdUniqueId getBdUniqueId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            BdUniqueId bdUniqueId = this.p;
-            if (bdUniqueId != null) {
-                return bdUniqueId;
-            }
-            r9<?> a2 = w9.a(getContext());
-            if (a2 != null) {
-                this.p = a2.getUniqueId();
-            }
-            return this.p;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void a(String str, TbFragmentTabIndicator.a aVar) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || (view2 = aVar.a) == null) {
-            return;
-        }
-        addView(view2);
-        this.v.put(str, aVar);
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.k > 0 && this.l) {
-            try {
-                this.l = false;
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.q.getContext(), this.k);
-                loadAnimation.setAnimationListener(new a(this));
-                this.q.startAnimation(loadAnimation);
-            } catch (Exception unused) {
-                this.l = true;
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.v.get(str) : (TbFragmentTabIndicator.a) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -222,62 +173,114 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 this.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.i), SkinManager.getSkinDrawable(null, this.j), (Drawable) null);
             }
             k();
-            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.v.entrySet()) {
-                entry.getValue().b(i);
+            for (Map.Entry entry : this.v.entrySet()) {
+                ((TbFragmentTabIndicator.a) entry.getValue()).b(i);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void f(boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            super.f(z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.g = 0;
+        this.k = 0;
+        this.l = true;
+        this.u = true;
+        this.v = new HashMap();
+        this.w = new b(this);
+        j();
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void setIconViewWithText(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            this.r.setVisibility(0);
+            this.q.setVisibility(0);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(12, -1);
+            layoutParams.addRule(14, -1);
+            this.r.setLayoutParams(layoutParams);
+            if (i > 0) {
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams2.width = i;
+                layoutParams2.height = i;
+                layoutParams2.bottomMargin = i2;
+                layoutParams2.addRule(2, this.q.getId());
+                layoutParams2.addRule(14, -1);
+                this.q.setLayoutParams(layoutParams2);
+            }
+            k();
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void a(String str, TbFragmentTabIndicator.a aVar) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) && (view2 = aVar.a) != null) {
+            addView(view2);
+            this.v.put(str, aVar);
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void setTextSize(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.r.setTextSize(i, f);
+        }
+    }
+
+    private BdUniqueId getBdUniqueId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            BdUniqueId bdUniqueId = this.p;
+            if (bdUniqueId != null) {
+                return bdUniqueId;
+            }
+            r9 a2 = w9.a(getContext());
+            if (a2 != null) {
+                this.p = a2.getUniqueId();
+            }
+            return this.p;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public View getContentTv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.r : (View) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
-            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d4, this);
-            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925a9);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925aa);
-            this.r = textView;
-            textView.setDuplicateParentStateEnabled(true);
-            l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.r;
         }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.i > 0 || this.j > 0) {
-            return;
-        }
-        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.o)) {
-            zg.h().m(this.o, 10, this.w, getBdUniqueId());
-        } else if (!TextUtils.isEmpty(this.n)) {
-            zg.h().m(this.n, 10, this.w, getBdUniqueId());
-        } else {
-            l();
-        }
+        return (View) invokeV.objValue;
     }
 
     public final void l() {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (i = this.m) <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (i = this.m) > 0) {
+            SkinManager.setImageResource(this.q, i);
         }
-        SkinManager.setImageResource(this.q, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -289,59 +292,30 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int measuredWidth;
-        int measuredHeight;
+    public void setContentWidthWrapContent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.v.entrySet().iterator();
-            while (it.hasNext() && this.r.getText() != null) {
-                TbFragmentTabIndicator.a value = it.next().getValue();
-                int measuredWidth2 = value.a.getMeasuredWidth();
-                int measuredHeight2 = value.a.getMeasuredHeight();
-                int measureText = (int) this.r.getPaint().measureText(this.r.getText().toString());
-                if (value.b) {
-                    measuredWidth = (getMeasuredWidth() / 2) + value.c + (measureText / 2);
-                } else {
-                    measuredWidth = ((getMeasuredWidth() / 2) - value.c) - (measureText / 2);
-                }
-                if (this.g == 1) {
-                    measuredWidth -= this.t;
-                    measuredHeight = this.s;
-                } else {
-                    measuredHeight = (getMeasuredHeight() / 2) - (value.a.getMeasuredHeight() / 2);
-                }
-                value.a.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
-            }
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
+            layoutParams.width = -2;
+            this.r.setLayoutParams(layoutParams);
         }
     }
 
-    @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public TbFragmentTabIndicator.a d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int size = View.MeasureSpec.getSize(i);
-            int size2 = View.MeasureSpec.getSize(i2);
-            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.v.entrySet()) {
-                TbFragmentTabIndicator.a value = entry.getValue();
-                ViewGroup.LayoutParams layoutParams = value.a.getLayoutParams();
-                int i3 = layoutParams.width;
-                if (i3 == -2) {
-                    value.a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
-                } else {
-                    if (i3 > size) {
-                        i3 = size;
-                    }
-                    int i4 = layoutParams.height;
-                    if (i4 > size2) {
-                        i4 = size2;
-                    }
-                    value.a.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return (TbFragmentTabIndicator.a) this.v.get(str);
+        }
+        return (TbFragmentTabIndicator.a) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.f(z);
         }
     }
 
@@ -350,18 +324,6 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.k = i;
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setCheckDescriptionText(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            String charSequence = this.r.getText().toString();
-            if (z) {
-                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f138c) + charSequence;
-            }
-            this.r.setContentDescription(charSequence);
         }
     }
 
@@ -407,65 +369,12 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    public void setContentWidthWrapContent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
-            layoutParams.width = -2;
-            this.r.setLayoutParams(layoutParams);
-        }
-    }
-
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconResourceId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.m = i;
             l();
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setIconViewWithText(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
-            this.r.setVisibility(0);
-            this.q.setVisibility(0);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(12, -1);
-            layoutParams.addRule(14, -1);
-            this.r.setLayoutParams(layoutParams);
-            if (i > 0) {
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams2.width = i;
-                layoutParams2.height = i;
-                layoutParams2.bottomMargin = i2;
-                layoutParams2.addRule(2, this.q.getId());
-                layoutParams2.addRule(14, -1);
-                this.q.setLayoutParams(layoutParams2);
-            }
-            k();
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setIconViewWithoutText(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
-            setClipToPadding(false);
-            setClipChildren(false);
-            this.r.setVisibility(8);
-            this.q.setVisibility(0);
-            if (i > 0) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.width = i;
-                layoutParams.height = i;
-                layoutParams.bottomMargin = i2;
-                layoutParams.addRule(12, -1);
-                layoutParams.addRule(14, -1);
-                this.q.setLayoutParams(layoutParams);
-            }
-            k();
         }
     }
 
@@ -484,51 +393,6 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 SkinManager.setViewTextColor(this.r, this.h, 1, 0);
             }
             this.u = z;
-        }
-    }
-
-    @Override // android.view.View
-    public void setSelected(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            super.setSelected(z);
-            if (this.a) {
-                this.r.getPaint().setFakeBoldText(z);
-            }
-            if (z) {
-                float f = this.b;
-                if (f != 0.0f) {
-                    this.r.setTextSize(0, f);
-                }
-                ThemeColorInfo themeColorInfo = this.f;
-                if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
-                    int skinType = TbadkCoreApplication.getInst().getSkinType();
-                    if (skinType == 4) {
-                        this.r.setTextColor(ol8.f(this.f.dark.font_color));
-                        return;
-                    } else if (skinType == 1) {
-                        this.r.setTextColor(ol8.f(this.f.night.font_color));
-                        return;
-                    } else {
-                        this.r.setTextColor(ol8.f(this.f.day.font_color));
-                        return;
-                    }
-                }
-                int i = this.d;
-                if (i != 0) {
-                    SkinManager.setViewTextColor(this.r, i);
-                    return;
-                }
-                return;
-            }
-            float f2 = this.c;
-            if (f2 != 0.0f) {
-                this.r.setTextSize(0, f2);
-            }
-            int i2 = this.e;
-            if (i2 != 0) {
-                SkinManager.setViewTextColor(this.r, i2);
-            }
         }
     }
 
@@ -588,47 +452,191 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.k > 0 && this.l) {
+            try {
+                this.l = false;
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.q.getContext(), this.k);
+                loadAnimation.setAnimationListener(new a(this));
+                this.q.startAnimation(loadAnimation);
+            } catch (Exception unused) {
+                this.l = true;
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
+            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d3, this);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092591);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092592);
+            this.r = textView;
+            textView.setDuplicateParentStateEnabled(true);
+            l();
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.i <= 0 && this.j <= 0) {
+            boolean z = true;
+            if (TbadkCoreApplication.getInst().getSkinType() != 1) {
+                z = false;
+            }
+            if (z && !TextUtils.isEmpty(this.o)) {
+                ah.h().m(this.o, 10, this.w, getBdUniqueId());
+            } else if (!TextUtils.isEmpty(this.n)) {
+                ah.h().m(this.n, 10, this.w, getBdUniqueId());
+            } else {
+                l();
+            }
+        }
+    }
+
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int measuredWidth;
+        int measuredHeight;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            Iterator it = this.v.entrySet().iterator();
+            while (it.hasNext() && this.r.getText() != null) {
+                TbFragmentTabIndicator.a aVar = (TbFragmentTabIndicator.a) ((Map.Entry) it.next()).getValue();
+                int measuredWidth2 = aVar.a.getMeasuredWidth();
+                int measuredHeight2 = aVar.a.getMeasuredHeight();
+                int measureText = (int) this.r.getPaint().measureText(this.r.getText().toString());
+                if (aVar.b) {
+                    measuredWidth = (getMeasuredWidth() / 2) + aVar.c + (measureText / 2);
+                } else {
+                    measuredWidth = ((getMeasuredWidth() / 2) - aVar.c) - (measureText / 2);
+                }
+                if (this.g == 1) {
+                    measuredWidth -= this.t;
+                    measuredHeight = this.s;
+                } else {
+                    measuredHeight = (getMeasuredHeight() / 2) - (aVar.a.getMeasuredHeight() / 2);
+                }
+                aVar.a.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
+            }
+        }
+    }
+
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int size = View.MeasureSpec.getSize(i);
+            int size2 = View.MeasureSpec.getSize(i2);
+            for (Map.Entry entry : this.v.entrySet()) {
+                TbFragmentTabIndicator.a aVar = (TbFragmentTabIndicator.a) entry.getValue();
+                ViewGroup.LayoutParams layoutParams = aVar.a.getLayoutParams();
+                int i3 = layoutParams.width;
+                if (i3 == -2) {
+                    aVar.a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+                } else {
+                    if (i3 > size) {
+                        i3 = size;
+                    }
+                    int i4 = layoutParams.height;
+                    if (i4 > size2) {
+                        i4 = size2;
+                    }
+                    aVar.a.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void setCheckDescriptionText(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            String charSequence = this.r.getText().toString();
+            if (z) {
+                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f13a0) + charSequence;
+            }
+            this.r.setContentDescription(charSequence);
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void setIconViewWithoutText(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
+            setClipToPadding(false);
+            setClipChildren(false);
+            this.r.setVisibility(8);
+            this.q.setVisibility(0);
+            if (i > 0) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams.width = i;
+                layoutParams.height = i;
+                layoutParams.bottomMargin = i2;
+                layoutParams.addRule(12, -1);
+                layoutParams.addRule(14, -1);
+                this.q.setLayoutParams(layoutParams);
+            }
+            k();
+        }
+    }
+
+    @Override // android.view.View
+    public void setSelected(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            super.setSelected(z);
+            if (this.a) {
+                this.r.getPaint().setFakeBoldText(z);
+            }
+            if (z) {
+                float f = this.b;
+                if (f != 0.0f) {
+                    this.r.setTextSize(0, f);
+                }
+                ThemeColorInfo themeColorInfo = this.f;
+                if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
+                    int skinType = TbadkCoreApplication.getInst().getSkinType();
+                    if (skinType == 4) {
+                        this.r.setTextColor(vl8.f(this.f.dark.font_color));
+                        return;
+                    } else if (skinType == 1) {
+                        this.r.setTextColor(vl8.f(this.f.night.font_color));
+                        return;
+                    } else {
+                        this.r.setTextColor(vl8.f(this.f.day.font_color));
+                        return;
+                    }
+                }
+                int i = this.d;
+                if (i != 0) {
+                    SkinManager.setViewTextColor(this.r, i);
+                    return;
+                }
+                return;
+            }
+            float f2 = this.c;
+            if (f2 != 0.0f) {
+                this.r.setTextSize(0, f2);
+            }
+            int i2 = this.e;
+            if (i2 != 0) {
+                SkinManager.setViewTextColor(this.r, i2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             this.r.setText(str);
             this.r.setContentDescription(str);
         }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setTextSize(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            this.r.setTextSize(i, f);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = 0;
-        this.k = 0;
-        this.l = true;
-        this.u = true;
-        this.v = new HashMap<>();
-        this.w = new b(this);
-        j();
     }
 }

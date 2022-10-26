@@ -89,6 +89,20 @@ public class CommonFiller {
         return (String) invokeLL.objValue;
     }
 
+    public static BaseStatisContent fillKey(BaseStatisContent baseStatisContent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, baseStatisContent, str)) == null) {
+            String valueOf = String.valueOf(Util.wallTimeSec());
+            baseStatisContent.put("act", str);
+            baseStatisContent.put("time", valueOf);
+            baseStatisContent.put("key", calKey(str, valueOf));
+            baseStatisContent.put(BaseStatisContent.GUID, StringUtil.geneGuid());
+            return baseStatisContent;
+        }
+        return (BaseStatisContent) invokeLL.objValue;
+    }
+
     public static BaseStatisContent fillCommonAll(Context context, BaseStatisContent baseStatisContent, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -132,20 +146,6 @@ public class CommonFiller {
             baseStatisContent.put(BaseStatisContent.SR, ArdUtil.getScreenResolution(context));
             baseStatisContent.put(BaseStatisContent.NTM, ArdUtil.getNtm(context));
         }
-    }
-
-    public static BaseStatisContent fillKey(BaseStatisContent baseStatisContent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, baseStatisContent, str)) == null) {
-            String valueOf = String.valueOf(Util.wallTimeSec());
-            baseStatisContent.put("act", str);
-            baseStatisContent.put("time", valueOf);
-            baseStatisContent.put("key", calKey(str, valueOf));
-            baseStatisContent.put(BaseStatisContent.GUID, StringUtil.geneGuid());
-            return baseStatisContent;
-        }
-        return (BaseStatisContent) invokeLL.objValue;
     }
 
     public static String getAndroidId(Context context) {
@@ -224,7 +224,10 @@ public class CommonFiller {
                     return mMacAddress;
                 }
                 String str = mMacAddress;
-                return str == null ? "" : str;
+                if (str == null) {
+                    return "";
+                }
+                return str;
             }
         }
         return (String) invokeL.objValue;

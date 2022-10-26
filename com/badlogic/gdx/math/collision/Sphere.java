@@ -48,7 +48,10 @@ public class Sphere implements Serializable {
                 return false;
             }
             Sphere sphere = (Sphere) obj;
-            return this.radius == sphere.radius && this.center.equals(sphere.center);
+            if (this.radius == sphere.radius && this.center.equals(sphere.center)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -56,19 +59,10 @@ public class Sphere implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.center.hashCode() + 71) * 71) + u7.b(this.radius) : invokeV.intValue;
-    }
-
-    public boolean overlaps(Sphere sphere) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sphere)) == null) {
-            float dst2 = this.center.dst2(sphere.center);
-            float f = this.radius;
-            float f2 = sphere.radius;
-            return dst2 < (f + f2) * (f + f2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((this.center.hashCode() + 71) * 71) + u7.b(this.radius);
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
     public float surfaceArea() {
@@ -89,5 +83,20 @@ public class Sphere implements Serializable {
             return 4.1887903f * f * f * f;
         }
         return invokeV.floatValue;
+    }
+
+    public boolean overlaps(Sphere sphere) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sphere)) == null) {
+            float dst2 = this.center.dst2(sphere.center);
+            float f = this.radius;
+            float f2 = sphere.radius;
+            if (dst2 < (f + f2) * (f + f2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

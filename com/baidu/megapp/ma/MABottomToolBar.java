@@ -19,10 +19,32 @@ public class MABottomToolBar {
     public OnCommonToolBarItemClickListener mOnCommonToolBarItemClickListener;
     public OnCommonToolMenuClickListener mOnCommonToolMenuClickListener;
 
+    @Deprecated
+    /* loaded from: classes2.dex */
+    public interface OnCommonToolBarClickListener {
+        void onBackClick();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface OnCommonToolBarItemClickListener {
+        public static final int TOOL_ITEM_BACK = 1;
+        public static final int TOOL_ITEM_SHARE = 2;
+
+        boolean onItemClick(int i);
+    }
+
+    @Deprecated
+    /* loaded from: classes2.dex */
+    public interface OnCommonToolMenuClickListener {
+        void onRefreshClick();
+
+        void onShareClick();
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
     /* loaded from: classes2.dex */
-    public static final class CommonMenuType {
+    public final class CommonMenuType {
         public static final /* synthetic */ CommonMenuType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CommonMenuType MENU_STYLE_AD_IMMERSIVE_LANDING_PAGE;
@@ -74,19 +96,25 @@ public class MABottomToolBar {
         public static CommonMenuType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CommonMenuType) Enum.valueOf(CommonMenuType.class, str) : (CommonMenuType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CommonMenuType) Enum.valueOf(CommonMenuType.class, str);
+            }
+            return (CommonMenuType) invokeL.objValue;
         }
 
         public static CommonMenuType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CommonMenuType[]) $VALUES.clone() : (CommonMenuType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CommonMenuType[]) $VALUES.clone();
+            }
+            return (CommonMenuType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class CommonToolBarType {
+    public final class CommonToolBarType {
         public static final /* synthetic */ CommonToolBarType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CommonToolBarType TOOL_BAR_STYLE_AD_IMMERSIVE_LANDING_PAGE;
@@ -138,36 +166,20 @@ public class MABottomToolBar {
         public static CommonToolBarType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CommonToolBarType) Enum.valueOf(CommonToolBarType.class, str) : (CommonToolBarType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CommonToolBarType) Enum.valueOf(CommonToolBarType.class, str);
+            }
+            return (CommonToolBarType) invokeL.objValue;
         }
 
         public static CommonToolBarType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CommonToolBarType[]) $VALUES.clone() : (CommonToolBarType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CommonToolBarType[]) $VALUES.clone();
+            }
+            return (CommonToolBarType[]) invokeV.objValue;
         }
-    }
-
-    @Deprecated
-    /* loaded from: classes2.dex */
-    public interface OnCommonToolBarClickListener {
-        void onBackClick();
-    }
-
-    /* loaded from: classes2.dex */
-    public interface OnCommonToolBarItemClickListener {
-        public static final int TOOL_ITEM_BACK = 1;
-        public static final int TOOL_ITEM_SHARE = 2;
-
-        boolean onItemClick(int i);
-    }
-
-    @Deprecated
-    /* loaded from: classes2.dex */
-    public interface OnCommonToolMenuClickListener {
-        void onRefreshClick();
-
-        void onShareClick();
     }
 
     public MABottomToolBar() {
@@ -194,33 +206,48 @@ public class MABottomToolBar {
     public OnCommonToolMenuClickListener getOnCommonToolMenuClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mOnCommonToolMenuClickListener : (OnCommonToolMenuClickListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mOnCommonToolMenuClickListener;
+        }
+        return (OnCommonToolMenuClickListener) invokeV.objValue;
     }
 
     @Deprecated
     public OnCommonToolBarClickListener getOnToolBarClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mOnCommonToolBarClickListener : (OnCommonToolBarClickListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mOnCommonToolBarClickListener;
+        }
+        return (OnCommonToolBarClickListener) invokeV.objValue;
     }
 
     public OnCommonToolBarItemClickListener getOnToolBarItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mOnCommonToolBarItemClickListener : (OnCommonToolBarItemClickListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mOnCommonToolBarItemClickListener;
+        }
+        return (OnCommonToolBarItemClickListener) invokeV.objValue;
     }
 
     @Deprecated
     public CommonMenuType getToolBarMenuStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCommonMenuType : (CommonMenuType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCommonMenuType;
+        }
+        return (CommonMenuType) invokeV.objValue;
     }
 
     public CommonToolBarType getToolBarStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCommonToolBarType : (CommonToolBarType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCommonToolBarType;
+        }
+        return (CommonToolBarType) invokeV.objValue;
     }
 
     @Deprecated

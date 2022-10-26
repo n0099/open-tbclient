@@ -70,18 +70,27 @@ public final class MusicStyle {
     public static MusicStyle valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MusicStyle) Enum.valueOf(MusicStyle.class, str) : (MusicStyle) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (MusicStyle) Enum.valueOf(MusicStyle.class, str);
+        }
+        return (MusicStyle) invokeL.objValue;
     }
 
     public static MusicStyle[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MusicStyle[]) $VALUES.clone() : (MusicStyle[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (MusicStyle[]) $VALUES.clone();
+        }
+        return (MusicStyle[]) invokeV.objValue;
     }
 
     public int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 }

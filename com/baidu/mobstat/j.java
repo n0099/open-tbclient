@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,20 +11,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
-import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public abstract class j implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m a;
+    public l a;
 
-    public j(String str, String str2) {
+    public abstract long a(String str, String str2);
+
+    public abstract ArrayList a(int i, int i2);
+
+    public abstract boolean b(long j);
+
+    public j(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,13 +39,13 @@ public abstract class j implements Closeable {
                 return;
             }
         }
-        l lVar = new l();
-        this.a = new m(lVar, str);
-        File databasePath = lVar.getDatabasePath(".confd");
-        if (databasePath == null || !databasePath.canWrite()) {
-            return;
+        try {
+            this.a = new l(context, str);
+            if (context.getDatabasePath(y.e) != null) {
+                a(str2);
+            }
+        } catch (Exception unused) {
         }
-        a(str2);
     }
 
     private void a(String str) {
@@ -49,48 +55,13 @@ public abstract class j implements Closeable {
         }
     }
 
-    public abstract long a(String str, String str2);
-
-    public abstract ArrayList<i> a(int i, int i2);
-
-    public int b() {
-        InterceptResult invokeV;
+    public long a(ContentValues contentValues) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.b() : invokeV.intValue;
-    }
-
-    public abstract boolean b(long j);
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public synchronized void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this) {
-                try {
-                    this.a.close();
-                } catch (Exception e) {
-                    bb.c().b(e);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contentValues)) == null) {
+            return this.a.a((String) null, contentValues);
         }
-    }
-
-    public synchronized boolean a() {
-        InterceptResult invokeV;
-        boolean a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                try {
-                    a = this.a.a();
-                } catch (Exception e) {
-                    bb.c().b(e);
-                    return false;
-                }
-            }
-            return a;
-        }
-        return invokeV.booleanValue;
+        return invokeL.longValue;
     }
 
     public Cursor a(String str, int i, int i2) {
@@ -113,20 +84,55 @@ public abstract class j implements Closeable {
         return (Cursor) invokeLLLI.objValue;
     }
 
-    public long a(ContentValues contentValues) {
-        InterceptResult invokeL;
+    public synchronized boolean a() {
+        InterceptResult invokeV;
+        boolean a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contentValues)) == null) ? this.a.a((String) null, contentValues) : invokeL.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                try {
+                    a = this.a.a();
+                } catch (Exception e) {
+                    ba.c().b(e);
+                    return false;
+                }
+            }
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.b();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public synchronized void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this) {
+                try {
+                    this.a.close();
+                } catch (Exception e) {
+                    ba.c().b(e);
+                }
+            }
+        }
     }
 
     public boolean a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(j);
-            sb.append("");
-            return this.a.a("_id=? ", new String[]{sb.toString()}) > 0;
+            if (this.a.a("_id=? ", new String[]{j + ""}) > 0) {
+                return true;
+            }
+            return false;
         }
         return invokeJ.booleanValue;
     }

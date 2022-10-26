@@ -1,52 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.app.Activity;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.widget.ListView;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.xf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cj5 extends fj5 implements View.OnTouchListener, GestureDetector.OnGestureListener {
+public class cj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public ListView B;
-    public bj5 C;
-    public int D;
-    public GestureDetector.OnGestureListener E;
-    public int e;
-    public boolean f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public GestureDetector j;
-    public GestureDetector k;
-    public GestureDetector l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public boolean v;
-    public float w;
-    public int x;
-    public int y;
-    public int z;
+    public wf a;
+    public Activity b;
+    public ViewGroup c;
+    public h d;
+    public g e;
+    public vf f;
+    public final Handler g;
+    public Runnable h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public TextView m;
+    public TextView n;
+    public TbImageView o;
+    public View p;
+    public ImageView q;
+    public TBSpecificationBtn r;
 
     /* loaded from: classes3.dex */
-    public class a implements GestureDetector.OnGestureListener {
+    public interface g {
+        void dismiss();
+    }
+
+    /* loaded from: classes3.dex */
+    public interface h {
+        void a(int i);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cj5 a;
@@ -69,73 +81,27 @@ public class cj5 extends fj5 implements View.OnTouchListener, GestureDetector.On
             this.a = cj5Var;
         }
 
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onDown(MotionEvent motionEvent) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (!this.a.C.g0() || this.a.C.h0()) {
-                    return false;
-                }
-                this.a.onDown(motionEvent);
-                this.a.t = (int) motionEvent.getX();
-                this.a.u = (int) motionEvent.getY();
-                return true;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.e(this.a.c);
             }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public void onLongPress(MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
-                this.a.onLongPress(motionEvent);
-            }
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public void onShowPress(MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) {
-            }
-        }
-
-        @Override // android.view.GestureDetector.OnGestureListener
-        public boolean onSingleTapUp(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends GestureDetector.SimpleOnGestureListener {
+    public class b implements xf.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cj5 a;
+
+        @Override // com.baidu.tieba.xf.a
+        public void onShown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public b(cj5 cj5Var) {
             Interceptable interceptable = $ic;
@@ -155,361 +121,402 @@ public class cj5 extends fj5 implements View.OnTouchListener, GestureDetector.On
             this.a = cj5Var;
         }
 
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
+        @Override // com.baidu.tieba.xf.a
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                if (this.a.h && this.a.i) {
-                    int width = this.a.B.getWidth() / 5;
-                    if (f > this.a.w) {
-                        if (this.a.D > (-width)) {
-                            this.a.C.A0(true, f);
-                        }
-                    } else if (f < (-this.a.w) && this.a.D < width) {
-                        this.a.C.A0(true, f);
-                    }
-                    this.a.i = false;
-                }
-                return false;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-            return invokeCommon.booleanValue;
+            this.a.a = null;
+            this.a.g.removeCallbacks(this.a.h);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public cj5(bj5 bj5Var, ListView listView, int i, int i2, int i3) {
-        this(bj5Var, listView, i, i2, i3, 0);
+    /* loaded from: classes3.dex */
+    public class c implements vf {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cj5 a;
+
+        @Override // com.baidu.tieba.vf
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 3;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.vf
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 32;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.vf
+        public int getXOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.vf
+        public int getYOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public c(cj5 cj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cj5Var;
+        }
+
+        @Override // com.baidu.tieba.vf
+        public View c(LayoutInflater layoutInflater) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) != null) {
+                return (View) invokeL.objValue;
+            }
+            return this.a.k(layoutInflater);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cj5 a;
+
+        public d(cj5 cj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cj5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.d != null) {
+                    this.a.d.a(1);
+                }
+                this.a.r.setClickable(false);
+                if (this.a.h != null) {
+                    this.a.g.removeCallbacks(this.a.h);
+                    this.a.g.postDelayed(this.a.h, 1000L);
+                }
+                this.a.c = null;
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cj5 a;
+
+        public e(cj5 cj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cj5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                this.a.d.a(3);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cj5 a;
+
+        public f(cj5 cj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cj5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.l();
+                if (this.a.d != null) {
+                    this.a.d.a(2);
+                }
+            }
+        }
+    }
+
+    public cj5(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bj5Var, listView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((bj5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.g = new Handler();
+        this.b = activity;
+        this.c = m(activity);
     }
 
-    @Override // com.baidu.tieba.bj5.j
-    public void c(View view2, Point point, Point point2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, point, point2) == null) && this.h && this.i) {
-            this.D = point.x;
-        }
-    }
-
-    public int n(MotionEvent motionEvent) {
+    public cj5 o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? y(motionEvent, this.x) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.j = str;
+            return this;
+        }
+        return (cj5) invokeL.objValue;
     }
 
-    public int o(MotionEvent motionEvent) {
+    public void p(g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) {
+            this.e = gVar;
+        }
+    }
+
+    public cj5 q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? y(motionEvent, this.z) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.k = str;
+            return this;
+        }
+        return (cj5) invokeL.objValue;
     }
 
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
+    public cj5 r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (this.h && this.g == 0) {
-                this.p = y(motionEvent, this.y);
-            }
-            int w = w(motionEvent);
-            this.n = w;
-            if (w != -1 && this.e == 0) {
-                v(w, ((int) motionEvent.getX()) - this.r, ((int) motionEvent.getY()) - this.s);
-            }
-            this.i = false;
-            this.A = true;
-            this.D = 0;
-            this.o = x(motionEvent);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.l = str;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (cj5) invokeL.objValue;
     }
 
-    @Override // android.view.GestureDetector.OnGestureListener
-    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
+    public void s(h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) && this.n != -1 && this.e == 2) {
-            this.B.performHapticFeedback(0);
-            v(this.n, this.t - this.r, this.u - this.s);
+        if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
+            this.d = hVar;
         }
     }
 
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (motionEvent != null && motionEvent2 != null) {
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                int x2 = (int) motionEvent2.getX();
-                int y2 = (int) motionEvent2.getY();
-                int i = x2 - this.r;
-                int i2 = y2 - this.s;
-                if (this.A && !this.v && (this.n != -1 || this.o != -1)) {
-                    if (this.n != -1) {
-                        if (this.e == 1 && Math.abs(y2 - y) > this.m && this.f) {
-                            v(this.n, i, i2);
-                        } else if (this.e != 0 && Math.abs(x2 - x) > this.m && this.h) {
-                            this.i = true;
-                            v(this.o, i, i2);
-                        }
-                    } else if (this.o != -1) {
-                        if (Math.abs(x2 - x) > this.m && this.h) {
-                            this.i = true;
-                            v(this.o, i, i2);
-                        } else if (Math.abs(y2 - y) > this.m) {
-                            this.A = false;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
+    public cj5 t(String str) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            if (this.h && this.g == 0 && (i = this.p) != -1) {
-                this.C.l0(i - this.B.getHeaderViewsCount());
-                return true;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            this.i = str;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (cj5) invokeL.objValue;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, view2, motionEvent)) == null) {
-            if (this.C.g0() && !this.C.h0()) {
-                this.j.onTouchEvent(motionEvent);
-                if (this.h && this.v && this.g == 1) {
-                    this.l.onTouchEvent(motionEvent);
-                }
-                int action = motionEvent.getAction() & 255;
-                if (action == 0) {
-                    this.t = (int) motionEvent.getX();
-                    this.u = (int) motionEvent.getY();
-                } else if (action == 1) {
-                    if (this.h && this.i) {
-                        int i = this.D;
-                        if (i < 0) {
-                            i = -i;
-                        }
-                        if (i > this.B.getWidth() / 2) {
-                            this.C.A0(true, 0.0f);
-                        }
-                    }
-                    this.i = false;
-                    this.v = false;
-                } else if (action == 3) {
-                    this.i = false;
-                    this.v = false;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public GestureDetector p() {
+    public final vf j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (GestureDetector) invokeV.objValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new c(this);
         }
+        return (vf) invokeV.objValue;
     }
 
-    public void s(boolean z) {
+    public void l() {
+        wf wfVar;
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public boolean v(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048591, this, i, i2, i3)) == null) {
-            int i4 = (!this.f || this.i) ? 0 : 12;
-            if (this.h && this.i) {
-                i4 = i4 | 1 | 2;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (wfVar = this.a) != null && (viewGroup = this.c) != null) {
+            wfVar.e(viewGroup);
+            this.c.setVisibility(8);
+            this.c = null;
+            g gVar = this.e;
+            if (gVar != null) {
+                gVar.dismiss();
             }
-            boolean w0 = this.C.w0(i - this.B.getHeaderViewsCount(), i4, i2, i3);
-            this.v = w0;
-            return w0;
         }
-        return invokeIII.booleanValue;
     }
 
-    public int w(MotionEvent motionEvent) {
+    public final View k(LayoutInflater layoutInflater) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) ? n(motionEvent) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d028f, (ViewGroup) null);
+            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f090a08);
+            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a07);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a0a);
+            this.o = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a05);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a06);
+            this.r = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090a09);
+            this.o.L(this.k, 10, false);
+            this.n.setText(this.i);
+            this.m.setText(this.j);
+            this.r.setText(this.l);
+            this.r.setOnClickListener(new d(this));
+            this.p.setOnClickListener(new e(this));
+            ImageView imageView = this.q;
+            if (imageView != null) {
+                imageView.setOnClickListener(new f(this));
+            }
+            n();
+            return inflate;
+        }
+        return (View) invokeL.objValue;
     }
 
-    public int x(MotionEvent motionEvent) {
+    public final ViewGroup m(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
-            if (this.g == 1) {
-                return o(motionEvent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            if (activity == null) {
+                return null;
             }
-            return -1;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.gravity = 80;
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds146) + UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            layoutParams.bottomMargin = dimenPixelSize;
+            layoutParams.leftMargin = dimenPixelSize2;
+            layoutParams.rightMargin = dimenPixelSize3;
+            FrameLayout frameLayout = new FrameLayout(activity);
+            ((FrameLayout) activity.findViewById(16908290)).addView(frameLayout, layoutParams);
+            return frameLayout;
         }
-        return invokeL.intValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public int y(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, motionEvent, i)) == null) {
-            int pointToPosition = this.B.pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
-            int headerViewsCount = this.B.getHeaderViewsCount();
-            int footerViewsCount = this.B.getFooterViewsCount();
-            int count = this.B.getCount();
-            if (pointToPosition != -1 && pointToPosition >= headerViewsCount && pointToPosition < count - footerViewsCount) {
-                ListView listView = this.B;
-                View childAt = listView.getChildAt(pointToPosition - listView.getFirstVisiblePosition());
-                int rawX = (int) motionEvent.getRawX();
-                int rawY = (int) motionEvent.getRawY();
-                View findViewById = i == 0 ? childAt : childAt.findViewById(i);
-                if (findViewById != null) {
-                    findViewById.getLocationOnScreen(this.q);
-                    int[] iArr = this.q;
-                    if (rawX > iArr[0] && rawY > iArr[1] && rawX < iArr[0] + findViewById.getWidth() && rawY < this.q[1] + findViewById.getHeight()) {
-                        this.r = childAt.getLeft();
-                        this.s = childAt.getTop();
-                        return pointToPosition;
-                    }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(fj.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(fj.f(this.b, R.dimen.tbds10)).setOffsetX(0).setOffsetY(fj.f(this.b, R.dimen.tbds5)).into(this.p);
+            View view2 = this.p;
+            if (view2 != null) {
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                if (layoutParams instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
+                    layoutParams2.leftMargin = -fj.f(this.b, R.dimen.tbds10);
+                    layoutParams2.rightMargin = -fj.f(this.b, R.dimen.tbds10);
                 }
             }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public cj5(bj5 bj5Var, ListView listView, int i, int i2, int i3, int i4) {
-        this(bj5Var, listView, i, i2, i3, i4, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bj5Var, listView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((bj5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            sy4 sy4Var = new sy4();
+            sy4Var.p(R.color.CAM_X0302);
+            this.r.setConfig(sy4Var);
+            ImageView imageView = this.q;
+            if (imageView != null) {
+                WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cj5(bj5 bj5Var, ListView listView, int i, int i2, int i3, int i4, int i5) {
-        super(listView);
+    public boolean u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bj5Var, listView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                super((ListView) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ViewGroup viewGroup = this.c;
+            if (viewGroup == null) {
+                return false;
             }
+            viewGroup.setVisibility(0);
+            wf wfVar = this.a;
+            if (wfVar != null) {
+                wfVar.e(this.c);
+            }
+            this.h = new a(this);
+            xf xfVar = new xf();
+            xfVar.d(true);
+            xfVar.h(new b(this));
+            if (this.f == null) {
+                this.f = j();
+            }
+            xfVar.a(this.f);
+            xfVar.e(R.anim.obfuscated_res_0x7f0100fe);
+            xfVar.f(R.anim.obfuscated_res_0x7f0100ff);
+            wf b2 = xfVar.b();
+            this.a = b2;
+            b2.q(this.b, this.c, false);
+            return true;
         }
-        this.e = 0;
-        this.f = true;
-        this.h = false;
-        this.i = false;
-        this.n = -1;
-        this.o = -1;
-        this.p = -1;
-        this.q = new int[2];
-        this.v = false;
-        this.w = 500.0f;
-        this.E = new b(this);
-        this.C = bj5Var;
-        this.B = listView;
-        this.j = new GestureDetector(listView.getContext(), this);
-        this.k = new GestureDetector(listView.getContext(), new a(this));
-        GestureDetector gestureDetector = new GestureDetector(listView.getContext(), this.E);
-        this.l = gestureDetector;
-        gestureDetector.setIsLongpressEnabled(false);
-        this.m = ViewConfiguration.get(listView.getContext()).getScaledTouchSlop();
-        this.x = i;
-        this.y = i4;
-        this.z = i5;
-        t(i3);
-        q(i2);
+        return invokeV.booleanValue;
     }
 }

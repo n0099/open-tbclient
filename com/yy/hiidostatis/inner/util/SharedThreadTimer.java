@@ -44,7 +44,7 @@ public class SharedThreadTimer {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.this$0.canceled) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.this$0.canceled) {
                 return;
             }
             try {
@@ -81,6 +81,13 @@ public class SharedThreadTimer {
         this.canceled = false;
     }
 
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.canceled = true;
+        }
+    }
+
     private void sched(SharedTimerTask sharedTimerTask, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{sharedTimerTask, Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -93,10 +100,17 @@ public class SharedThreadTimer {
         }
     }
 
-    public void cancel() {
+    public void schedule(SharedTimerTask sharedTimerTask, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.canceled = true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sharedTimerTask, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            if (j >= 0) {
+                if (j2 > 0) {
+                    sched(sharedTimerTask, j, j2);
+                    return;
+                }
+                throw new IllegalArgumentException("Non-positive period.");
+            }
+            throw new IllegalArgumentException("Negative delay.");
         }
     }
 
@@ -112,33 +126,31 @@ public class SharedThreadTimer {
     }
 
     public void schedule(SharedTimerTask sharedTimerTask, Date date) {
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, sharedTimerTask, date) == null) {
             long time = date.getTime() - System.currentTimeMillis();
-            sched(sharedTimerTask, time < 0 ? 0L : time, 0L);
-        }
-    }
-
-    public void schedule(SharedTimerTask sharedTimerTask, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sharedTimerTask, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            if (j < 0) {
-                throw new IllegalArgumentException("Negative delay.");
+            if (time < 0) {
+                j = 0;
+            } else {
+                j = time;
             }
-            if (j2 > 0) {
-                sched(sharedTimerTask, j, j2);
-                return;
-            }
-            throw new IllegalArgumentException("Non-positive period.");
+            sched(sharedTimerTask, j, 0L);
         }
     }
 
     public void schedule(SharedTimerTask sharedTimerTask, Date date, long j) {
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{sharedTimerTask, date, Long.valueOf(j)}) == null) {
             if (j > 0) {
                 long time = date.getTime() - System.currentTimeMillis();
-                sched(sharedTimerTask, time < 0 ? 0L : time, j);
+                if (time < 0) {
+                    j2 = 0;
+                } else {
+                    j2 = time;
+                }
+                sched(sharedTimerTask, j2, j);
                 return;
             }
             throw new IllegalArgumentException("Non-positive period.");

@@ -1,6 +1,5 @@
 package com.baidu.ar.filter;
 
-import android.graphics.Point;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface IFilter {
@@ -16,7 +15,7 @@ public interface IFilter {
 
     void updateFilter(FilterParam filterParam, String str);
 
-    void updateFilter(FilterParam filterParam, List<Point> list);
+    void updateFilter(FilterParam filterParam, List list);
 
     void updateFilter(FilterParam filterParam, float[] fArr);
 

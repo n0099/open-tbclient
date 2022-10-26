@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.ubc;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,6 +30,13 @@ public class FloatingStatPlugin extends AbsPlugin {
     public transient /* synthetic */ FieldHolder $fh;
     public Flow mFlow;
     public BDVideoPlayerUbcContent mUBCContent;
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +70,7 @@ public class FloatingStatPlugin extends AbsPlugin {
         this.mUBCContent = new BDVideoPlayerUbcContent.Builder().buildEmpty();
     }
 
-    private void onFloatingClick(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    private void onFloatingClick(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, bDVideoPlayerUbcContent) == null) {
             try {
@@ -79,7 +84,7 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onFloatingDismiss(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    private void onFloatingDismiss(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bDVideoPlayerUbcContent) == null) {
             try {
@@ -93,13 +98,19 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onFloatingScale(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, Boolean bool) {
+    private void onFloatingScale(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, Boolean bool) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDVideoPlayerUbcContent, bool) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", "click");
-                jSONObject.put("value", bool.booleanValue() ? "enlarge" : "reduce");
+                if (bool.booleanValue()) {
+                    str = "enlarge";
+                } else {
+                    str = "reduce";
+                }
+                jSONObject.put("value", str);
                 UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -107,7 +118,7 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onFloatingShow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    private void onFloatingShow(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, bDVideoPlayerUbcContent) == null) {
             try {
@@ -133,17 +144,9 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
-    }
-
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onVideoEventNotify(VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) {
@@ -189,32 +192,39 @@ public class FloatingStatPlugin extends AbsPlugin {
                     c = 65535;
                     break;
             }
-            if (c == 0) {
-                this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
-            } else if (c == 1) {
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c == 4) {
+                                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                                onFloatingClick(this.mUBCContent);
+                                return;
+                            }
+                            return;
+                        }
+                        updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                        onFloatingScale(this.mUBCContent, Boolean.valueOf(videoEvent.getBooleanExtra(10)));
+                        return;
+                    }
+                    updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
+                    onFloatingDismiss(this.mUBCContent);
+                    String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(this.mUBCContent.getExtStatisticsLog(), this.mUBCContent, (JSONObject) null);
+                    Flow flow = this.mFlow;
+                    if (flow != null) {
+                        UBC_MANAGER.flowSetValueWithDuration(flow, ubcContent);
+                        UBC_MANAGER.flowEnd(this.mFlow);
+                        this.mFlow = null;
+                        return;
+                    }
+                    return;
+                }
                 updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
                 onFloatingShow(this.mUBCContent);
                 this.mFlow = UBC_MANAGER.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING_DURATION);
-            } else if (c != 2) {
-                if (c == 3) {
-                    updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
-                    onFloatingScale(this.mUBCContent, Boolean.valueOf(videoEvent.getBooleanExtra(10)));
-                } else if (c != 4) {
-                } else {
-                    updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
-                    onFloatingClick(this.mUBCContent);
-                }
-            } else {
-                updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
-                onFloatingDismiss(this.mUBCContent);
-                String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(this.mUBCContent.getExtStatisticsLog(), this.mUBCContent, (JSONObject) null);
-                Flow flow = this.mFlow;
-                if (flow != null) {
-                    UBC_MANAGER.flowSetValueWithDuration(flow, ubcContent);
-                    UBC_MANAGER.flowEnd(this.mFlow);
-                    this.mFlow = null;
-                }
+                return;
             }
+            this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
         }
     }
 }

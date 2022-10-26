@@ -12,15 +12,19 @@ public interface f extends IInterface {
     void a(DownloadInfo downloadInfo, BaseException baseException, int i) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements f {
+    public abstract class a extends Binder implements f {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0678a implements f {
+        public class C0674a implements f {
             public static f a;
             public IBinder b;
 
-            public C0678a(IBinder iBinder) {
+            public C0674a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -64,6 +68,10 @@ public interface f extends IInterface {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlDepend");
         }
 
+        public static f a() {
+            return C0674a.a;
+        }
+
         public static f a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -72,16 +80,12 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C0678a(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+            return new C0674a(iBinder);
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            DownloadInfo downloadInfo;
             if (i != 1) {
                 if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
@@ -90,13 +94,18 @@ public interface f extends IInterface {
                 return true;
             }
             parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlDepend");
-            a(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null, parcel.readInt() != 0 ? BaseException.CREATOR.createFromParcel(parcel) : null, parcel.readInt());
+            BaseException baseException = null;
+            if (parcel.readInt() != 0) {
+                downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+            } else {
+                downloadInfo = null;
+            }
+            if (parcel.readInt() != 0) {
+                baseException = (BaseException) BaseException.CREATOR.createFromParcel(parcel);
+            }
+            a(downloadInfo, baseException, parcel.readInt());
             parcel2.writeNoException();
             return true;
-        }
-
-        public static f a() {
-            return C0678a.a;
         }
     }
 }

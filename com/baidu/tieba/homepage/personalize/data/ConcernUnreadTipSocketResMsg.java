@@ -1,8 +1,7 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.o27;
+import com.baidu.tieba.w27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import tbclient.UnreadTip.UnreadTipResIdl;
 public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o27 mData;
+    public w27 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipSocketResMsg() {
@@ -36,7 +35,6 @@ public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -49,9 +47,9 @@ public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
                     setErrorString(unreadTipResIdl.error.errmsg);
                 }
                 if (unreadTipResIdl.data != null) {
-                    o27 o27Var = new o27();
-                    this.mData = o27Var;
-                    o27Var.b(unreadTipResIdl.data);
+                    w27 w27Var = new w27();
+                    this.mData = w27Var;
+                    w27Var.b(unreadTipResIdl.data);
                 }
             }
             return unreadTipResIdl;

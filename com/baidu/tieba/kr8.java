@@ -12,16 +12,16 @@ public class kr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final lq8 b;
+    public final pq8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2001437);
+    public kr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+        super(2921543);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity, eq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,11 +38,11 @@ public class kr8 extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        lq8 lq8Var;
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        pq8 pq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ip8) && ((ip8) customResponsedMessage.getData()).b && this.a.B == 0 && (lq8Var = this.b) != null && lq8Var.a() != null) {
-            this.b.a().f();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (pq8Var = this.b) != null && pq8Var.i() != null) {
+            this.b.i().a();
         }
     }
 }

@@ -52,6 +52,9 @@ public class RelevanceItemSearchResponse extends JsonHttpResponsedMessage {
     public RelevanceItemSearchData getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRelevanceItemSearchData : (RelevanceItemSearchData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRelevanceItemSearchData;
+        }
+        return (RelevanceItemSearchData) invokeV.objValue;
     }
 }

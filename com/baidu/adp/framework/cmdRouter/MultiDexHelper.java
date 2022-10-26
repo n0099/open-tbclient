@@ -67,19 +67,31 @@ public class MultiDexHelper {
         public boolean loadingClass(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? (str == null || !str.equals(this.loading) || this.finished) ? false : true : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (str == null || !str.equals(this.loading) || this.finished) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(List<String>... listArr) throws IOException {
             InterceptResult invokeL;
+            DexFile dexFile;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listArr)) == null) {
                 Looper.prepare();
                 for (String str : this.mPath) {
                     try {
-                        Enumeration<String> entries = (str.endsWith(".zip") ? DexFile.loadDex(str, str + ".tmp", 0) : new DexFile(str)).entries();
+                        if (str.endsWith(".zip")) {
+                            dexFile = DexFile.loadDex(str, str + ".tmp", 0);
+                        } else {
+                            dexFile = new DexFile(str);
+                        }
+                        Enumeration<String> entries = dexFile.entries();
                         while (entries.hasMoreElements()) {
                             String nextElement = entries.nextElement();
                             if (nextElement.endsWith(MultiDexHelper.SUFFIX)) {
@@ -141,11 +153,26 @@ public class MultiDexHelper {
 
     public static SharedPreferences getMultiDexPreferences(Context context) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
+            if (Build.VERSION.SDK_INT < 11) {
+                i = 0;
+            } else {
+                i = 4;
+            }
+            return context.getSharedPreferences("multidex.version", i);
         }
         return (SharedPreferences) invokeL.objValue;
+    }
+
+    public static void loadClass(Context context) throws PackageManager.NameNotFoundException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            StaticLoadAsyncTask staticLoadAsyncTask = new StaticLoadAsyncTask(getSourcePaths(context));
+            task = staticLoadAsyncTask;
+            staticLoadAsyncTask.execute(new List[0]);
+        }
     }
 
     public static List<String> getSourcePaths(Context context) throws PackageManager.NameNotFoundException, IOException {
@@ -172,21 +199,18 @@ public class MultiDexHelper {
         return (List) invokeL.objValue;
     }
 
-    public static void loadClass(Context context) throws PackageManager.NameNotFoundException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            StaticLoadAsyncTask staticLoadAsyncTask = new StaticLoadAsyncTask(getSourcePaths(context));
-            task = staticLoadAsyncTask;
-            staticLoadAsyncTask.execute(new List[0]);
-        }
-    }
-
     public static void loadStaticClass(Context context) throws PackageManager.NameNotFoundException, IOException {
+        DexFile dexFile;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             for (String str : getSourcePaths(context)) {
                 try {
-                    Enumeration<String> entries = (str.endsWith(".zip") ? DexFile.loadDex(str, str + ".tmp", 0) : new DexFile(str)).entries();
+                    if (str.endsWith(".zip")) {
+                        dexFile = DexFile.loadDex(str, str + ".tmp", 0);
+                    } else {
+                        dexFile = new DexFile(str);
+                    }
+                    Enumeration<String> entries = dexFile.entries();
                     while (entries.hasMoreElements()) {
                         String nextElement = entries.nextElement();
                         if (nextElement.endsWith(SUFFIX)) {

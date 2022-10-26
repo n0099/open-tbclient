@@ -14,14 +14,14 @@ import java.util.List;
 public final class HlsMasterPlaylist extends HlsPlaylist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<HlsUrl> audios;
+    public final List audios;
     public final Format muxedAudioFormat;
-    public final List<Format> muxedCaptionFormats;
-    public final List<HlsUrl> subtitles;
-    public final List<HlsUrl> variants;
+    public final List muxedCaptionFormats;
+    public final List subtitles;
+    public final List variants;
 
     /* loaded from: classes7.dex */
-    public static final class HlsUrl {
+    public final class HlsUrl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Format format;
@@ -49,13 +49,17 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
         public static HlsUrl createMediaPlaylistHlsUrl(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new HlsUrl(str, Format.createContainerFormat("0", MimeTypes.APPLICATION_M3U8, null, null, -1, 0, null)) : (HlsUrl) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return new HlsUrl(str, Format.createContainerFormat("0", MimeTypes.APPLICATION_M3U8, null, null, -1, 0, null));
+            }
+            return (HlsUrl) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HlsMasterPlaylist(String str, List<String> list, List<HlsUrl> list2, List<HlsUrl> list3, List<HlsUrl> list4, Format format, List<Format> list5) {
+    public HlsMasterPlaylist(String str, List list, List list2, List list3, List list4, Format format, List list5) {
         super(str, list);
+        List list6;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,16 +80,21 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
         this.audios = Collections.unmodifiableList(list3);
         this.subtitles = Collections.unmodifiableList(list4);
         this.muxedAudioFormat = format;
-        this.muxedCaptionFormats = list5 != null ? Collections.unmodifiableList(list5) : null;
+        if (list5 != null) {
+            list6 = Collections.unmodifiableList(list5);
+        } else {
+            list6 = null;
+        }
+        this.muxedCaptionFormats = list6;
     }
 
-    public static List<HlsUrl> copyRenditionsList(List<HlsUrl> list, List<String> list2) {
+    public static List copyRenditionsList(List list, List list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, list2)) == null) {
             ArrayList arrayList = new ArrayList(list2.size());
             for (int i = 0; i < list.size(); i++) {
-                HlsUrl hlsUrl = list.get(i);
+                HlsUrl hlsUrl = (HlsUrl) list.get(i);
                 if (list2.contains(hlsUrl.url)) {
                     arrayList.add(hlsUrl);
                 }
@@ -106,9 +115,12 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
         return (HlsMasterPlaylist) invokeL.objValue;
     }
 
-    public HlsMasterPlaylist copy(List<String> list) {
+    public HlsMasterPlaylist copy(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) ? new HlsMasterPlaylist(this.baseUri, this.tags, copyRenditionsList(this.variants, list), copyRenditionsList(this.audios, list), copyRenditionsList(this.subtitles, list), this.muxedAudioFormat, this.muxedCaptionFormats) : (HlsMasterPlaylist) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            return new HlsMasterPlaylist(this.baseUri, this.tags, copyRenditionsList(this.variants, list), copyRenditionsList(this.audios, list), copyRenditionsList(this.subtitles, list), this.muxedAudioFormat, this.muxedCaptionFormats);
+        }
+        return (HlsMasterPlaylist) invokeL.objValue;
     }
 }

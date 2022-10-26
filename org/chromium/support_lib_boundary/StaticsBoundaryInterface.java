@@ -8,9 +8,9 @@ import java.util.List;
 public interface StaticsBoundaryInterface {
     Uri getSafeBrowsingPrivacyPolicyUrl();
 
-    void initSafeBrowsing(Context context, ValueCallback<Boolean> valueCallback);
+    void initSafeBrowsing(Context context, ValueCallback valueCallback);
 
     boolean isMultiProcessEnabled();
 
-    void setSafeBrowsingWhitelist(List<String> list, ValueCallback<Boolean> valueCallback);
+    void setSafeBrowsingWhitelist(List list, ValueCallback valueCallback);
 }

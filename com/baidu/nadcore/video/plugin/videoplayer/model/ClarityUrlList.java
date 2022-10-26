@@ -1,18 +1,16 @@
 package com.baidu.nadcore.video.plugin.videoplayer.model;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kx0;
-import com.baidu.tieba.rr0;
-import com.baidu.tieba.vr0;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.lx0;
+import com.baidu.tieba.sr0;
 import com.baidu.tieba.wr0;
-import com.baidu.tieba.xy0;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.xr0;
+import com.baidu.tieba.yy0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +26,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClarityUrlList extends ArrayList<c> {
+public class ClarityUrlList extends ArrayList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mClarityInfoStr;
@@ -38,7 +36,13 @@ public class ClarityUrlList extends ArrayList<c> {
     public int mSelectType;
 
     /* loaded from: classes2.dex */
-    public class a implements Comparator<c> {
+    public class b extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes2.dex */
+    public class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ClarityUrlList a;
@@ -67,37 +71,44 @@ public class ClarityUrlList extends ArrayList<c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 int hashCode = str.hashCode();
-                if (hashCode == 3324) {
+                if (hashCode != 3324) {
+                    if (hashCode != 46737913) {
+                        if (hashCode != 3664) {
+                            if (hashCode == 3665 && str.equals("sd")) {
+                                c = 0;
+                            }
+                            c = 65535;
+                        } else {
+                            if (str.equals(Config.STAT_SDK_CHANNEL)) {
+                                c = 2;
+                            }
+                            c = 65535;
+                        }
+                    } else {
+                        if (str.equals("1080p")) {
+                            c = 3;
+                        }
+                        c = 65535;
+                    }
+                } else {
                     if (str.equals("hd")) {
                         c = 1;
                     }
                     c = 65535;
-                } else if (hashCode == 46737913) {
-                    if (str.equals("1080p")) {
-                        c = 3;
-                    }
-                    c = 65535;
-                } else if (hashCode != 3664) {
-                    if (hashCode == 3665 && str.equals("sd")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals(Config.STAT_SDK_CHANNEL)) {
-                        c = 2;
-                    }
-                    c = 65535;
                 }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            return c != 3 ? Integer.MAX_VALUE : 4;
-                        }
-                        return 3;
-                    }
+                if (c == 0) {
+                    return 1;
+                }
+                if (c == 1) {
                     return 2;
                 }
-                return 1;
+                if (c == 2) {
+                    return 3;
+                }
+                if (c != 3) {
+                    return Integer.MAX_VALUE;
+                }
+                return 4;
             }
             return invokeL.intValue;
         }
@@ -108,272 +119,15 @@ public class ClarityUrlList extends ArrayList<c> {
         public int compare(c cVar, c cVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2)) == null) ? a(cVar.c()) - a(cVar2.c()) : invokeLL.intValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2)) == null) {
+                return a(cVar.c()) - a(cVar2.c());
+            }
+            return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public ClarityUrlList() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    private void convert(@NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, jSONArray) == null) {
-            convert(jSONArray, false);
-        }
-    }
-
-    @Nullable
-    public b getAutoClarity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            for (int i = 0; i < size(); i++) {
-                c cVar = get(i);
-                if (cVar instanceof b) {
-                    return (b) cVar;
-                }
-            }
-            return null;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    @Nullable
-    public c getClarityByIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.mDefaultClarity;
-            if (i < 0 || i >= size()) {
-                return null;
-            }
-            return get(this.mDefaultClarity);
-        }
-        return (c) invokeV.objValue;
-    }
-
-    public c getClarityByOriginRank(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            for (int i2 = 0; i2 < size(); i2++) {
-                c cVar = get(i2);
-                if (cVar.e() == i) {
-                    return cVar;
-                }
-            }
-            return null;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public String getClarityInfoStr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mClarityInfoStr : (String) invokeV.objValue;
-    }
-
-    public c getCurrentClarityUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCurrentClarityUrl : (c) invokeV.objValue;
-    }
-
-    @NonNull
-    public String getCurrentKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c cVar = this.mCurrentClarityUrl;
-            if (cVar != null) {
-                String c2 = cVar.c();
-                return !TextUtils.isEmpty(c2) ? c2 : c2;
-            }
-            return "sd";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getCurrentRank() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            for (int i = 0; i < size(); i++) {
-                c cVar = get(i);
-                if (cVar != null && cVar.compareTo(this.mCurrentClarityUrl) == 0) {
-                    return cVar.c;
-                }
-            }
-            return this.mDefaultClarity;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getDefaultClarity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mDefaultClarity : invokeV.intValue;
-    }
-
-    public String getDefaultTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? get(this.mDefaultClarity).f() : (String) invokeV.objValue;
-    }
-
-    public String getDefaultUrl() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.mDefaultClarity >= size() || (i = this.mDefaultClarity) < 0) {
-                return "";
-            }
-            if (!"auto".equals(get(i).c())) {
-                return get(this.mDefaultClarity).g();
-            }
-            return get(0).g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getMultiRateSwitchRank() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mMultiRateSwitchRank : invokeV.intValue;
-    }
-
-    public int getSelectType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mSelectType : invokeV.intValue;
-    }
-
-    public void setCurrentClarityUrl(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.mCurrentClarityUrl = cVar;
-        }
-    }
-
-    public void setDefaultClarity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            if (i >= 0 && i < size()) {
-                this.mDefaultClarity = i;
-            } else {
-                this.mDefaultClarity = 0;
-            }
-        }
-    }
-
-    public void setMultiRateSwitchRank(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.mMultiRateSwitchRank = i;
-        }
-    }
-
-    public void updateCurrentClarityToLowest() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || isEmpty()) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList(this);
-        Collections.sort(arrayList, new a(this));
-        setCurrentClarityUrl((c) arrayList.get(0));
-        if (rr0.b()) {
-            setMultiRateSwitchRank(((c) arrayList.get(0)).c);
-        }
-    }
-
-    public ClarityUrlList(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        convert(jSONArray, false);
-    }
-
-    private void convert(@NonNull JSONArray jSONArray, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONArray, z) == null) {
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    add(new c(optJSONObject, length));
-                }
-            }
-            if (size() <= 0) {
-                return;
-            }
-            Collections.sort(this);
-            kx0 b2 = xy0.b(this, get(size() - 1).i());
-            this.mSelectType = b2.b;
-            int i2 = b2.a;
-            this.mDefaultClarity = i2;
-            c cVar = get(i2);
-            this.mCurrentClarityUrl = cVar;
-            this.mMultiRateSwitchRank = cVar.c;
-        }
-    }
-
-    public ClarityUrlList(JSONArray jSONArray, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        if (jSONArray == null) {
-            return;
-        }
-        this.mClarityInfoStr = jSONArray.toString();
-        if (z) {
-            convert(jSONArray, true);
-        } else {
-            convert(jSONArray);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class c implements Comparable<c> {
+    public class c implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -382,11 +136,11 @@ public class ClarityUrlList extends ArrayList<c> {
         public String d;
         public String e;
         public float f;
-        public HashMap<String, String> g;
+        public HashMap g;
         public float h;
         public int i;
         public int j;
-        public vr0 k;
+        public wr0 k;
 
         static {
             InterceptResult invokeClinit;
@@ -401,11 +155,119 @@ public class ClarityUrlList extends ArrayList<c> {
                     return;
                 }
             }
-            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c2c);
-            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c2a);
-            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c2b);
-            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c28);
-            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c29);
+            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c3b);
+            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c39);
+            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c3a);
+            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c37);
+            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c38);
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.b = -1;
+            this.c = -1;
+            this.f = -1.0f;
+        }
+
+        public wr0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.k;
+            }
+            return (wr0) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.j;
+            }
+            return invokeV.intValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        public String f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.d;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.e;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.i;
+            }
+            return invokeV.intValue;
+        }
+
+        public float i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.h;
+            }
+            return invokeV.floatValue;
+        }
+
+        public HashMap j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.g;
+            }
+            return (HashMap) invokeV.objValue;
+        }
+
+        public float k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.f;
+            }
+            return invokeV.floatValue;
         }
 
         public c(JSONObject jSONObject, int i) {
@@ -447,7 +309,7 @@ public class ClarityUrlList extends ArrayList<c> {
             this.g = null;
             this.i = jSONObject.optInt("videoBps");
             this.j = jSONObject.optInt("vodMoovSize");
-            this.k = wr0.b(jSONObject.optString("auth"));
+            this.k = xr0.b(jSONObject.optString("auth"));
             jSONObject.optLong("expire_date");
             jSONObject.optString("interact_url");
             jSONObject.optInt("prefetch_size");
@@ -465,69 +327,12 @@ public class ClarityUrlList extends ArrayList<c> {
                 if (i == i2) {
                     return 0;
                 }
-                return i > i2 ? 1 : -1;
+                if (i > i2) {
+                    return 1;
+                }
+                return -1;
             }
             return invokeL.intValue;
-        }
-
-        public vr0 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (vr0) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.intValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public String g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (String) invokeV.objValue;
-        }
-
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : invokeV.intValue;
-        }
-
-        public float i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : invokeV.floatValue;
-        }
-
-        public HashMap<String, String> j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : (HashMap) invokeV.objValue;
-        }
-
-        public float k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.floatValue;
         }
 
         public String toString() {
@@ -538,23 +343,277 @@ public class ClarityUrlList extends ArrayList<c> {
             }
             return (String) invokeV.objValue;
         }
+    }
 
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+    public ClarityUrlList() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public b getAutoClarity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            for (int i = 0; i < size(); i++) {
+                c cVar = (c) get(i);
+                if (cVar instanceof b) {
+                    return (b) cVar;
                 }
             }
-            this.b = -1;
-            this.c = -1;
-            this.f = -1.0f;
+            return null;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public c getClarityByIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.mDefaultClarity;
+            if (i >= 0 && i < size()) {
+                return (c) get(this.mDefaultClarity);
+            }
+            return null;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public String getClarityInfoStr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mClarityInfoStr;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public c getCurrentClarityUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCurrentClarityUrl;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public String getCurrentKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            c cVar = this.mCurrentClarityUrl;
+            if (cVar != null) {
+                String c2 = cVar.c();
+                if (!TextUtils.isEmpty(c2)) {
+                    return c2;
+                }
+                return c2;
+            }
+            return "sd";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getCurrentRank() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            for (int i = 0; i < size(); i++) {
+                c cVar = (c) get(i);
+                if (cVar != null && cVar.compareTo(this.mCurrentClarityUrl) == 0) {
+                    return cVar.c;
+                }
+            }
+            return this.mDefaultClarity;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDefaultClarity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mDefaultClarity;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getDefaultTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ((c) get(this.mDefaultClarity)).f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getMultiRateSwitchRank() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mMultiRateSwitchRank;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSelectType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mSelectType;
+        }
+        return invokeV.intValue;
+    }
+
+    public ClarityUrlList(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        convert(jSONArray, false);
+    }
+
+    private void convert(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, jSONArray) == null) {
+            convert(jSONArray, false);
+        }
+    }
+
+    public c getClarityByOriginRank(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            for (int i2 = 0; i2 < size(); i2++) {
+                c cVar = (c) get(i2);
+                if (cVar.e() == i) {
+                    return cVar;
+                }
+            }
+            return null;
+        }
+        return (c) invokeI.objValue;
+    }
+
+    public void setCurrentClarityUrl(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
+            this.mCurrentClarityUrl = cVar;
+        }
+    }
+
+    public void setDefaultClarity(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (i >= 0 && i < size()) {
+                this.mDefaultClarity = i;
+            } else {
+                this.mDefaultClarity = 0;
+            }
+        }
+    }
+
+    public void setMultiRateSwitchRank(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mMultiRateSwitchRank = i;
+        }
+    }
+
+    public ClarityUrlList(JSONArray jSONArray, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        if (jSONArray == null) {
+            return;
+        }
+        this.mClarityInfoStr = jSONArray.toString();
+        if (z) {
+            convert(jSONArray, true);
+        } else {
+            convert(jSONArray);
+        }
+    }
+
+    private void convert(JSONArray jSONArray, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONArray, z) == null) {
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    add(new c(optJSONObject, length));
+                }
+            }
+            if (size() <= 0) {
+                return;
+            }
+            Collections.sort(this);
+            lx0 b2 = yy0.b(this, ((c) get(size() - 1)).i());
+            this.mSelectType = b2.b;
+            int i2 = b2.a;
+            this.mDefaultClarity = i2;
+            c cVar = (c) get(i2);
+            this.mCurrentClarityUrl = cVar;
+            this.mMultiRateSwitchRank = cVar.c;
+        }
+    }
+
+    public String getDefaultUrl() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mDefaultClarity < size() && (i = this.mDefaultClarity) >= 0) {
+                if (!"auto".equals(((c) get(i)).c())) {
+                    return ((c) get(this.mDefaultClarity)).g();
+                }
+                return ((c) get(0)).g();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void updateCurrentClarityToLowest() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || isEmpty()) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList(this);
+        Collections.sort(arrayList, new a(this));
+        setCurrentClarityUrl((c) arrayList.get(0));
+        if (sr0.b()) {
+            setMultiRateSwitchRank(((c) arrayList.get(0)).c);
         }
     }
 }

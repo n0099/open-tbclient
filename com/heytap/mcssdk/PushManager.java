@@ -73,8 +73,8 @@ public class PushManager implements b {
     public String mAppSecret;
     public Context mContext;
     public final Object mMcsServiceLock;
-    public List<com.heytap.mcssdk.a.d> mParsers;
-    public List<com.heytap.mcssdk.b.c> mProcessors;
+    public List mParsers;
+    public List mProcessors;
     public PushCallback mPushCallback;
     public String mRegisterID;
 
@@ -365,7 +365,7 @@ public class PushManager implements b {
         }
     }
 
-    public static void statisticMessage(Context context, List<MessageStat> list) {
+    public static void statisticMessage(Context context, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, null, context, list) == null) {
             StatUtil.statisticMessage(context, list);
@@ -468,13 +468,13 @@ public class PushManager implements b {
         }
     }
 
-    public List<com.heytap.mcssdk.a.d> getParsers() {
+    public List getParsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mParsers : (List) invokeV.objValue;
     }
 
-    public List<com.heytap.mcssdk.b.c> getProcessors() {
+    public List getProcessors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mProcessors : (List) invokeV.objValue;
@@ -708,7 +708,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void setAliases(List<String> list) {
+    public void setAliases(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, list) == null) {
             setAliases(list, null);
@@ -716,7 +716,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.c
-    public void setAliases(List<String> list, JSONObject jSONObject) {
+    public void setAliases(List list, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048608, this, list, jSONObject) == null) {
             try {
@@ -769,7 +769,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void setPushTime(List<Integer> list, int i, int i2, int i3, int i4) {
+    public void setPushTime(List list, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             setPushTime(list, i, i2, i3, i4, null);
@@ -777,7 +777,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.c
-    public void setPushTime(List<Integer> list, int i, int i2, int i3, int i4, JSONObject jSONObject) {
+    public void setPushTime(List list, int i, int i2, int i3, int i4, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), jSONObject}) == null) {
             try {
@@ -813,7 +813,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void setTags(List<String> list) {
+    public void setTags(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, list) == null) {
             setTags(list, null);
@@ -821,7 +821,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.c
-    public void setTags(List<String> list, JSONObject jSONObject) {
+    public void setTags(List list, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048617, this, list, jSONObject) == null) {
             try {
@@ -863,7 +863,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void setUserAccounts(List<String> list) {
+    public void setUserAccounts(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, list) == null) {
             setUserAccounts(list, null);
@@ -872,7 +872,7 @@ public class PushManager implements b {
 
     @Override // com.heytap.mcssdk.c
     @Deprecated
-    public void setUserAccounts(List<String> list, JSONObject jSONObject) {
+    public void setUserAccounts(List list, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048621, this, list, jSONObject) == null) {
             try {
@@ -948,7 +948,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void unsetAliases(List<String> list) {
+    public void unsetAliases(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             unsetAliases(list, null);
@@ -957,7 +957,7 @@ public class PushManager implements b {
 
     @Override // com.heytap.mcssdk.c
     @Deprecated
-    public void unsetAliases(List<String> list, JSONObject jSONObject) {
+    public void unsetAliases(List list, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048628, this, list, jSONObject) == null) {
             try {
@@ -974,7 +974,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void unsetTags(List<String> list) {
+    public void unsetTags(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, list) == null) {
             unsetTags(list, null);
@@ -982,7 +982,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.c
-    public void unsetTags(List<String> list, JSONObject jSONObject) {
+    public void unsetTags(List list, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048630, this, list, jSONObject) == null) {
             try {
@@ -999,7 +999,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.b
-    public void unsetUserAccounts(List<String> list) {
+    public void unsetUserAccounts(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, list) == null) {
             unsetUserAccounts(list, null);
@@ -1007,7 +1007,7 @@ public class PushManager implements b {
     }
 
     @Override // com.heytap.mcssdk.c
-    public void unsetUserAccounts(List<String> list, JSONObject jSONObject) {
+    public void unsetUserAccounts(List list, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048632, this, list, jSONObject) == null) {
             try {

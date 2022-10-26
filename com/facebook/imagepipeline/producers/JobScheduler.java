@@ -11,43 +11,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.instrumentation.FrescoInstrumenter;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
     public transient /* synthetic */ FieldHolder $fh;
     public final Runnable mDoJobRunnable;
-    @VisibleForTesting
-    @GuardedBy("this")
     public EncodedImage mEncodedImage;
     public final Executor mExecutor;
     public final JobRunnable mJobRunnable;
-    @VisibleForTesting
-    @GuardedBy("this")
     public long mJobStartTime;
-    @VisibleForTesting
-    @GuardedBy("this")
     public JobState mJobState;
-    @VisibleForTesting
-    @GuardedBy("this")
     public long mJobSubmitTime;
     public final int mMinimumJobIntervalMs;
-    @VisibleForTesting
-    @GuardedBy("this")
     public int mStatus;
     public final Runnable mSubmitJobRunnable;
 
+    /* loaded from: classes7.dex */
+    public interface JobRunnable {
+        void run(EncodedImage encodedImage, int i);
+    }
+
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    public /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,13 +80,7 @@ public class JobScheduler {
     }
 
     /* loaded from: classes7.dex */
-    public interface JobRunnable {
-        void run(EncodedImage encodedImage, int i);
-    }
-
-    @VisibleForTesting
-    /* loaded from: classes7.dex */
-    public static class JobStartExecutorSupplier {
+    public class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,9 +113,8 @@ public class JobScheduler {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static final class JobState {
+    public final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final JobState IDLE;
@@ -180,13 +166,19 @@ public class JobScheduler {
         public static JobState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (JobState) Enum.valueOf(JobState.class, str) : (JobState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (JobState) Enum.valueOf(JobState.class, str);
+            }
+            return (JobState) invokeL.objValue;
         }
 
         public static JobState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (JobState[]) $VALUES.clone() : (JobState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (JobState[]) $VALUES.clone();
+            }
+            return (JobState[]) invokeV.objValue;
         }
     }
 
@@ -277,6 +269,18 @@ public class JobScheduler {
         this.mJobStartTime = 0L;
     }
 
+    private void enqueueJob(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            Runnable decorateRunnable = FrescoInstrumenter.decorateRunnable(this.mSubmitJobRunnable, "JobScheduler_enqueueJob");
+            if (j > 0) {
+                JobStartExecutorSupplier.get().schedule(decorateRunnable, j, TimeUnit.MILLISECONDS);
+            } else {
+                decorateRunnable.run();
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void doJob() {
         EncodedImage encodedImage;
@@ -299,18 +303,6 @@ public class JobScheduler {
             } finally {
                 EncodedImage.closeSafely(encodedImage);
                 onJobFinished();
-            }
-        }
-    }
-
-    private void enqueueJob(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            Runnable decorateRunnable = FrescoInstrumenter.decorateRunnable(this.mSubmitJobRunnable, "JobScheduler_enqueueJob");
-            if (j > 0) {
-                JobStartExecutorSupplier.get().schedule(decorateRunnable, j, TimeUnit.MILLISECONDS);
-            } else {
-                decorateRunnable.run();
             }
         }
     }
@@ -342,7 +334,32 @@ public class JobScheduler {
     public static boolean shouldProcess(EncodedImage encodedImage, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, encodedImage, i)) == null) ? BaseConsumer.isLast(i) || BaseConsumer.statusHasFlag(i, 4) || EncodedImage.isValid(encodedImage) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, encodedImage, i)) == null) {
+            if (!BaseConsumer.isLast(i) && !BaseConsumer.statusHasFlag(i, 4) && !EncodedImage.isValid(encodedImage)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public boolean updateJob(EncodedImage encodedImage, int i) {
+        InterceptResult invokeLI;
+        EncodedImage encodedImage2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, encodedImage, i)) == null) {
+            if (!shouldProcess(encodedImage, i)) {
+                return false;
+            }
+            synchronized (this) {
+                encodedImage2 = this.mEncodedImage;
+                this.mEncodedImage = EncodedImage.cloneOrNull(encodedImage);
+                this.mStatus = i;
+            }
+            EncodedImage.closeSafely(encodedImage2);
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -387,46 +404,27 @@ public class JobScheduler {
             long uptimeMillis = SystemClock.uptimeMillis();
             synchronized (this) {
                 boolean z = false;
-                if (shouldProcess(this.mEncodedImage, this.mStatus)) {
-                    int i = AnonymousClass3.$SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[this.mJobState.ordinal()];
-                    if (i != 1) {
-                        if (i == 3) {
-                            this.mJobState = JobState.RUNNING_AND_PENDING;
-                        }
-                        max = 0;
-                    } else {
-                        max = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
-                        this.mJobSubmitTime = uptimeMillis;
-                        this.mJobState = JobState.QUEUED;
-                        z = true;
-                    }
-                    if (z) {
-                        enqueueJob(max - uptimeMillis);
-                    }
-                    return true;
+                if (!shouldProcess(this.mEncodedImage, this.mStatus)) {
+                    return false;
                 }
-                return false;
+                int i = AnonymousClass3.$SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[this.mJobState.ordinal()];
+                if (i != 1) {
+                    if (i == 3) {
+                        this.mJobState = JobState.RUNNING_AND_PENDING;
+                    }
+                    max = 0;
+                } else {
+                    max = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
+                    this.mJobSubmitTime = uptimeMillis;
+                    this.mJobState = JobState.QUEUED;
+                    z = true;
+                }
+                if (z) {
+                    enqueueJob(max - uptimeMillis);
+                }
+                return true;
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public boolean updateJob(EncodedImage encodedImage, int i) {
-        InterceptResult invokeLI;
-        EncodedImage encodedImage2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, encodedImage, i)) == null) {
-            if (shouldProcess(encodedImage, i)) {
-                synchronized (this) {
-                    encodedImage2 = this.mEncodedImage;
-                    this.mEncodedImage = EncodedImage.cloneOrNull(encodedImage);
-                    this.mStatus = i;
-                }
-                EncodedImage.closeSafely(encodedImage2);
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
     }
 }

@@ -35,7 +35,7 @@ public class PlainRequest extends AbstractRequest {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PlainRequest(String str, Map<String, String> map, Request.Method method) {
+    public PlainRequest(String str, Map map, Request.Method method) {
         super(str, map, method);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

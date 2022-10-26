@@ -1,178 +1,153 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class zn5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpMessageListener a;
-    public c b;
-    public CustomMessageListener c;
+    public long a;
+    public ao5 b;
+    public BaseFragmentActivity c;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zn5 zn5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zn5Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948365736, "Lcom/baidu/tieba/zn5;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                this.a.c((JSONObject) customResponsedMessage.getData());
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948365736, "Lcom/baidu/tieba/zn5;");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zn5 zn5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zn5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && this.a.b != null) {
-                this.a.b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(DeleteThreadHttpResponseMessage deleteThreadHttpResponseMessage);
-    }
-
-    public zn5(String str) {
+    public zn5(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = new a(this, 2016489);
-        if (this.a == null) {
-            this.a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
-        }
-        MessageManager.getInstance().registerListener(this.a);
-        MessageManager.getInstance().registerListener(this.c);
+        this.a = -1L;
+        this.c = baseFragmentActivity;
     }
 
-    public final void c(JSONObject jSONObject) {
+    public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-            try {
-                int i = jSONObject.getInt("type");
-                String JsonArrayToString = StringHelper.JsonArrayToString(jSONObject.getJSONArray("thread_ids"));
-                String JsonArrayToString2 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("reason"));
-                String JsonArrayToString3 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("is_frs_masks"));
-                String string = jSONObject.getString("forum_id");
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
-                httpMessage.addParam("type", i);
-                httpMessage.addParam("thread_ids", JsonArrayToString);
-                httpMessage.addParam("is_frs_masks", JsonArrayToString3);
-                httpMessage.addParam("reason", JsonArrayToString2);
-                httpMessage.addParam("forum_id", string);
-                httpMessage.addParam(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
-                MessageManager.getInstance().sendMessage(httpMessage);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (yj8.a(this.c.getIntent())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
+            }
+            if (bundle != null) {
+                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
+            } else {
+                LogoActivityConfig.isFirst = true;
             }
         }
     }
 
-    public void d() {
+    public final void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
-            MessageManager.getInstance().unRegisterListener(this.a);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
+            if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
+                Intent intent2 = new Intent();
+                intent2.putExtra(DealIntentService.KEY_CLASS, 2);
+                intent2.putExtra("fname", intent.getStringExtra("fname"));
+                intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
+                intent2.putExtra("back_special", true);
+                intent2.putExtra("from", "short_cut");
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+            }
+            TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
+        }
+    }
+
+    public void c(Configuration configuration) {
+        ao5 ao5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) && (ao5Var = this.b) != null) {
+            ao5Var.d(configuration);
+        }
+    }
+
+    public void d(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            this.a = System.currentTimeMillis();
+            if ("MuMu".equals(hj.g()) && "6.0.1".equals(hj.k())) {
+                this.c.finish();
+                return;
+            }
+            b(bundle);
+            if (!yj8.a(this.c.getIntent()) && (yj8.b(this.c.getIntent()) || this.c.isTaskRoot())) {
+                a(this.c.getIntent());
+            }
+            sl8.g().i(this.c.getUniqueId());
+            ao5 ao5Var = new ao5(this.c);
+            this.b = ao5Var;
+            ao5Var.i(d);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
-            MessageManager.getInstance().registerListener(this.c);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            sl8.g().k(this.c.getUniqueId());
+            d = false;
+            ao5 ao5Var = this.b;
+            if (ao5Var != null) {
+                ao5Var.g();
+            }
         }
     }
 
-    public void f(c cVar) {
+    public void f() {
+        ao5 ao5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.b = cVar;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ao5Var = this.b) != null) {
+            ao5Var.e();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (LogoActivityConfig.isFirst && this.a >= 0) {
+                yd5.b().v(System.currentTimeMillis() - this.a);
+            }
+            ao5 ao5Var = this.b;
+            if (ao5Var != null) {
+                ao5Var.f();
+            }
         }
     }
 }

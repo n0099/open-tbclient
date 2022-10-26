@@ -82,6 +82,15 @@ public class WeiboAppManager {
         return (WeiboAppManager) invokeL.objValue;
     }
 
+    public static WbAppInfo queryWbInfoInternal(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return queryWbInfoByAsset(context);
+        }
+        return (WbAppInfo) invokeL.objValue;
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:29:0x007b, code lost:
         r0.close();
      */
@@ -99,79 +108,80 @@ public class WeiboAppManager {
         InterceptResult invokeLL;
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, context, str)) != null) {
-            return (WbAppInfo) invokeLL.objValue;
-        }
-        InputStream inputStream2 = null;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            byte[] bArr = new byte[4096];
-            inputStream = context.createPackageContext(str, 2).getAssets().open(SDK_INT_FILE_NAME);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
             try {
+                byte[] bArr = new byte[4096];
+                inputStream = context.createPackageContext(str, 2).getAssets().open(SDK_INT_FILE_NAME);
                 try {
-                    StringBuilder sb = new StringBuilder();
-                    while (true) {
-                        int read = inputStream.read(bArr, 0, 4096);
-                        if (read == -1) {
-                            break;
+                    try {
+                        StringBuilder sb = new StringBuilder();
+                        while (true) {
+                            int read = inputStream.read(bArr, 0, 4096);
+                            if (read == -1) {
+                                break;
+                            }
+                            sb.append(new String(bArr, 0, read));
                         }
-                        sb.append(new String(bArr, 0, read));
-                    }
-                    if (!TextUtils.isEmpty(sb.toString())) {
-                        ApiUtils.validateWeiboSign(context, str);
-                    }
-                    JSONObject jSONObject = new JSONObject(sb.toString());
-                    int optInt = jSONObject.optInt("support_api", -1);
-                    String optString = jSONObject.optString("authActivityName", null);
-                    if (optInt != -1 && !TextUtils.isEmpty(optString)) {
-                        WbAppInfo wbAppInfo = new WbAppInfo();
-                        wbAppInfo.setPackageName(str);
-                        wbAppInfo.setSupportVersion(optInt);
-                        wbAppInfo.setAuthActivityName(optString);
+                        if (!TextUtils.isEmpty(sb.toString())) {
+                            ApiUtils.validateWeiboSign(context, str);
+                        }
+                        JSONObject jSONObject = new JSONObject(sb.toString());
+                        int optInt = jSONObject.optInt("support_api", -1);
+                        String optString = jSONObject.optString("authActivityName", null);
+                        if (optInt != -1 && !TextUtils.isEmpty(optString)) {
+                            WbAppInfo wbAppInfo = new WbAppInfo();
+                            wbAppInfo.setPackageName(str);
+                            wbAppInfo.setSupportVersion(optInt);
+                            wbAppInfo.setAuthActivityName(optString);
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            return wbAppInfo;
+                        }
+                        return null;
+                    } catch (Exception e2) {
+                        e = e2;
+                        LogUtil.e(TAG, e.getMessage());
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
-                        return wbAppInfo;
+                        return null;
                     }
-                    return null;
-                } catch (Exception e2) {
-                    e = e2;
-                    LogUtil.e(TAG, e.getMessage());
-                    if (inputStream != null) {
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    if (inputStream2 != null) {
                         try {
-                            inputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                            inputStream2.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                     }
-                    return null;
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
-                inputStream2 = inputStream;
+            } catch (Exception e5) {
+                e = e5;
+                inputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
                 if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            e = e5;
-            inputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (inputStream2 != null) {
-            }
-            throw th;
+        } else {
+            return (WbAppInfo) invokeLL.objValue;
         }
     }
 
@@ -203,12 +213,6 @@ public class WeiboAppManager {
         return (WbAppInfo) invokeL.objValue;
     }
 
-    public static WbAppInfo queryWbInfoInternal(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? queryWbInfoByAsset(context) : (WbAppInfo) invokeL.objValue;
-    }
-
     public synchronized WbAppInfo getWbAppInfo() {
         InterceptResult invokeV;
         WbAppInfo queryWbInfoInternal;
@@ -230,7 +234,10 @@ public class WeiboAppManager {
             Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
             intent.addCategory("android.intent.category.DEFAULT");
             List<ResolveInfo> queryIntentServices = this.mContext.getPackageManager().queryIntentServices(intent, 0);
-            return (queryIntentServices == null || queryIntentServices.isEmpty()) ? false : true;
+            if (queryIntentServices == null || queryIntentServices.isEmpty()) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }

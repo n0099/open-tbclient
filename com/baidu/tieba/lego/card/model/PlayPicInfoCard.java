@@ -5,13 +5,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bh7;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh7;
+import com.baidu.tieba.ih7;
+import com.baidu.tieba.jh7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.wg7;
-import com.baidu.tieba.xg7;
-import com.baidu.tieba.yg7;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.mh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,25 +23,34 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
     public final long duration;
-    public final List<b> imageResList;
+    public final List imageResList;
     public final a mBottomInfo;
     public final c mWaterMark;
     public final double ratio;
     public final int showDot;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public yg7 c;
-        public xg7 d;
+        public jh7 c;
+        public ih7 d;
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -61,20 +70,19 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                yg7 yg7Var = new yg7();
-                this.c = yg7Var;
-                yg7Var.d = jSONObject.optString("rText");
+                jh7 jh7Var = new jh7();
+                this.c = jh7Var;
+                jh7Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    xg7 xg7Var = new xg7(optJSONObject);
-                    this.d = xg7Var;
-                    if (xg7Var.k()) {
-                        return;
+                    ih7 ih7Var = new ih7(optJSONObject);
+                    this.d = ih7Var;
+                    if (!ih7Var.k()) {
+                        this.d = null;
                     }
-                    this.d = null;
                 }
             }
         }
@@ -82,21 +90,15 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
         public static a a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new a(jSONObject) : (a) invokeL.objValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                return new a(jSONObject);
             }
-            return invokeV.booleanValue;
+            return (a) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -125,7 +127,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
     }
 
     /* loaded from: classes4.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -161,10 +163,10 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
                 c cVar = new c(jSONObject);
-                if (cVar.b()) {
-                    return cVar;
+                if (!cVar.b()) {
+                    return null;
                 }
-                return null;
+                return cVar;
             }
             return (c) invokeL.objValue;
         }
@@ -172,13 +174,20 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) && TextUtils.isEmpty(this.b) && this.c == 0 && this.d == 0) ? false : true : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (TextUtils.isEmpty(this.a) && TextUtils.isEmpty(this.b) && this.c == 0 && this.d == 0) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlayPicInfoCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,7 +208,11 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
         this.descOnPic = jSONObject.optInt("descOnPic", 1);
         this.showDot = jSONObject.optInt("show_dot", 1);
         JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE);
-        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
         this.imageResList = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
@@ -212,8 +225,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = bh7.b(optJSONObject.optString("descColor", ""));
-                bVar.f = bh7.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = mh7.b(optJSONObject.optString("descColor", ""));
+                bVar.f = mh7.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -233,28 +246,53 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hh7
+    public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {
+            int k = fj.k(TbadkCoreApplication.getInst());
+            int i = (int) (k * playPicInfoCard.ratio);
+            for (b bVar : this.imageResList) {
+                ah.h().k(bVar.b, 17, null, k, i, tbPageContext.getUniqueId(), new Object[0]);
+            }
+        }
+    }
+
     public a getBottomInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBottomInfo : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBottomInfo;
+        }
+        return (a) invokeV.objValue;
     }
 
     public int getDescOnPic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.descOnPic : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.descOnPic;
+        }
+        return invokeV.intValue;
     }
 
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.duration : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.duration;
+        }
+        return invokeV.longValue;
     }
 
-    public List<b> getImageResList() {
+    public List getImageResList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.imageResList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.imageResList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getMaxLineForToptitle() {
@@ -277,39 +315,40 @@ public class PlayPicInfoCard extends BaseCardInfo implements wg7<PlayPicInfoCard
     public double getRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.ratio : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.ratio;
+        }
+        return invokeV.doubleValue;
     }
 
     public int getShowDot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.showDot : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.showDot;
+        }
+        return invokeV.intValue;
     }
 
     public c getWaterMark() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mWaterMark : (c) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mWaterMark;
+        }
+        return (c) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.imageResList.size() != 0 && super.isValid() : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wg7
-    public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) || playPicInfoCard == null || tbPageContext == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.imageResList.size() != 0 && super.isValid()) {
+                return true;
+            }
+            return false;
         }
-        int k = ej.k(TbadkCoreApplication.getInst());
-        int i = (int) (k * playPicInfoCard.ratio);
-        for (b bVar : this.imageResList) {
-            zg.h().k(bVar.b, 17, null, k, i, tbPageContext.getUniqueId(), new Object[0]);
-        }
+        return invokeV.booleanValue;
     }
 }

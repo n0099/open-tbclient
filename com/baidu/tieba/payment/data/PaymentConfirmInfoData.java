@@ -23,146 +23,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public UserInfo user_info;
 
     /* loaded from: classes5.dex */
-    public static final class GoodsInfo extends OrmObject implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int NAME_LENGTH_MAX = 7;
-        public static final long serialVersionUID = 3616864478965520380L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int currency;
-        public int goods_duration;
-        public String goods_name;
-        public int goods_num;
-        public String goods_pic;
-        public String goods_unit;
-        public int goods_user_level;
-        public long tdou_num;
-
-        public GoodsInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int getCurrency() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.currency : invokeV.intValue;
-        }
-
-        public int getGoods_duration() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.goods_duration : invokeV.intValue;
-        }
-
-        public String getGoods_name() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String fixedText = UtilHelper.getFixedText(this.goods_name, 7);
-                this.goods_name = fixedText;
-                return fixedText;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public int getGoods_num() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.goods_num : invokeV.intValue;
-        }
-
-        public String getGoods_pic() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.goods_pic : (String) invokeV.objValue;
-        }
-
-        public String getGoods_unit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.goods_unit : (String) invokeV.objValue;
-        }
-
-        public int getGoods_user_level() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.goods_user_level : invokeV.intValue;
-        }
-
-        public long getTdou_num() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tdou_num : invokeV.longValue;
-        }
-
-        public void setCurrency(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-                this.currency = i;
-            }
-        }
-
-        public void setGoods_duration(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-                this.goods_duration = i;
-            }
-        }
-
-        public void setGoods_name(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-                this.goods_name = str;
-            }
-        }
-
-        public void setGoods_num(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-                this.goods_num = i;
-            }
-        }
-
-        public void setGoods_pic(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-                this.goods_pic = str;
-            }
-        }
-
-        public void setGoods_unit(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-                this.goods_unit = str;
-            }
-        }
-
-        public void setGoods_user_level(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-                this.goods_user_level = i;
-            }
-        }
-
-        public void setTdou_num(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-                this.tdou_num = j;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class OrderInfo extends OrmObject implements Serializable {
+    public final class OrderInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2732450616226807443L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,7 +36,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public long timestamp;
 
         /* loaded from: classes5.dex */
-        public static final class Cpath extends OrmObject implements Serializable {
+        public final class Cpath extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7950965099930244673L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +48,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public int tip_exist;
 
             /* loaded from: classes5.dex */
-            public static final class Member extends OrmObject implements Serializable {
+            public final class Member extends OrmObject implements Serializable {
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final long serialVersionUID = 8094155826429200428L;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -211,13 +72,19 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 public String getDesc() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.desc : (String) invokeV.objValue;
+                    if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                        return this.desc;
+                    }
+                    return (String) invokeV.objValue;
                 }
 
                 public String getIcon() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.icon : (String) invokeV.objValue;
+                    if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return this.icon;
+                    }
+                    return (String) invokeV.objValue;
                 }
 
                 public void setDesc(String str) {
@@ -252,37 +119,55 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public int getGettdou_cashier() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.gettdou_cashier : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.gettdou_cashier;
+                }
+                return invokeV.intValue;
             }
 
             public Member getMember() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.member : (Member) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.member;
+                }
+                return (Member) invokeV.objValue;
             }
 
             public int getPay_cashier() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pay_cashier : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.pay_cashier;
+                }
+                return invokeV.intValue;
             }
 
             public int getPurchase() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.purchase : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.purchase;
+                }
+                return invokeV.intValue;
             }
 
             public int getTip_days() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tip_days : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    return this.tip_days;
+                }
+                return invokeV.intValue;
             }
 
             public int getTip_exist() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tip_exist : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                    return this.tip_exist;
+                }
+                return invokeV.intValue;
             }
 
             public void setGettdou_cashier(int i) {
@@ -345,43 +230,64 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public Cpath getCpath() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cpath : (Cpath) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.cpath;
+            }
+            return (Cpath) invokeV.objValue;
         }
 
         public String getFrom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.from : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.from;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getOpen_id() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.open_id : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.open_id;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getOrder_id() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.order_id : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.order_id;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getPay_type() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pay_type : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.pay_type;
+            }
+            return invokeV.intValue;
         }
 
         public long getScene_id() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.scene_id : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.scene_id;
+            }
+            return invokeV.longValue;
         }
 
         public long getTimestamp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.timestamp : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.timestamp;
+            }
+            return invokeV.longValue;
         }
 
         public void setCpath(Cpath cpath) {
@@ -435,7 +341,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public static final class UserInfo extends OrmObject implements Serializable {
+    public final class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4710995963160510207L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -449,7 +355,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public String user_nickname;
 
         /* loaded from: classes5.dex */
-        public static final class UserScores extends OrmObject implements Serializable {
+        public final class UserScores extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -667999598567432177L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -479,49 +385,73 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public int getCurrency() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.currency : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.currency;
+                }
+                return invokeV.intValue;
             }
 
             public int getLevel() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.level : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.level;
+                }
+                return invokeV.intValue;
             }
 
             public int getLimit() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.limit : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.limit;
+                }
+                return invokeV.intValue;
             }
 
             public int getScores_fetch() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.scores_fetch : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.scores_fetch;
+                }
+                return invokeV.intValue;
             }
 
             public long getScores_money() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.scores_money : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    return this.scores_money;
+                }
+                return invokeV.longValue;
             }
 
             public long getScores_other() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.scores_other : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                    return this.scores_other;
+                }
+                return invokeV.longValue;
             }
 
             public long getScores_total() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.scores_total : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                    return this.scores_total;
+                }
+                return invokeV.longValue;
             }
 
             public long getUpdate_time() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.update_time : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                    return this.update_time;
+                }
+                return invokeV.longValue;
             }
 
             public void setCurrency(int i) {
@@ -598,49 +528,73 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public String getEmail() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.email : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.email;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getMobile() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mobile : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mobile;
+            }
+            return (String) invokeV.objValue;
         }
 
         public UserScores getParr_scores() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Parr_scores : (UserScores) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.Parr_scores;
+            }
+            return (UserScores) invokeV.objValue;
         }
 
         public String getPortrait() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.portrait : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.portrait;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUser_id() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.user_id : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.user_id;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUser_name() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.user_name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.user_name;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUser_name_utf8() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.user_name_utf8 : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.user_name_utf8;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUser_nickname() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.user_nickname : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.user_nickname;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void setEmail(String str) {
@@ -700,6 +654,166 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         }
     }
 
+    /* loaded from: classes5.dex */
+    public final class GoodsInfo extends OrmObject implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int NAME_LENGTH_MAX = 7;
+        public static final long serialVersionUID = 3616864478965520380L;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int currency;
+        public int goods_duration;
+        public String goods_name;
+        public int goods_num;
+        public String goods_pic;
+        public String goods_unit;
+        public int goods_user_level;
+        public long tdou_num;
+
+        public GoodsInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public int getCurrency() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.currency;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getGoods_duration() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.goods_duration;
+            }
+            return invokeV.intValue;
+        }
+
+        public String getGoods_name() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String fixedText = UtilHelper.getFixedText(this.goods_name, 7);
+                this.goods_name = fixedText;
+                return fixedText;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getGoods_num() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.goods_num;
+            }
+            return invokeV.intValue;
+        }
+
+        public String getGoods_pic() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.goods_pic;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getGoods_unit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.goods_unit;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getGoods_user_level() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.goods_user_level;
+            }
+            return invokeV.intValue;
+        }
+
+        public long getTdou_num() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.tdou_num;
+            }
+            return invokeV.longValue;
+        }
+
+        public void setCurrency(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.currency = i;
+            }
+        }
+
+        public void setGoods_duration(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.goods_duration = i;
+            }
+        }
+
+        public void setGoods_name(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+                this.goods_name = str;
+            }
+        }
+
+        public void setGoods_num(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                this.goods_num = i;
+            }
+        }
+
+        public void setGoods_pic(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+                this.goods_pic = str;
+            }
+        }
+
+        public void setGoods_unit(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+                this.goods_unit = str;
+            }
+        }
+
+        public void setGoods_user_level(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+                this.goods_user_level = i;
+            }
+        }
+
+        public void setTdou_num(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+                this.tdou_num = j;
+            }
+        }
+    }
+
     public PaymentConfirmInfoData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -717,25 +831,37 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public GoodsInfo getGoods_info() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.goods_info : (GoodsInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.goods_info;
+        }
+        return (GoodsInfo) invokeV.objValue;
     }
 
     public OrderInfo getOrder_info() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.order_info : (OrderInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.order_info;
+        }
+        return (OrderInfo) invokeV.objValue;
     }
 
     public String getTbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tbs : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.tbs;
+        }
+        return (String) invokeV.objValue;
     }
 
     public UserInfo getUser_info() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.user_info : (UserInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.user_info;
+        }
+        return (UserInfo) invokeV.objValue;
     }
 
     public void setGoods_info(GoodsInfo goodsInfo) {

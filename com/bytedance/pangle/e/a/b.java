@@ -42,17 +42,6 @@ public final class b {
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long skip = this.a.skip(4L);
-            this.b = (int) (this.b + skip);
-            if (skip != 4) {
-                throw new EOFException();
-            }
-        }
-    }
-
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,22 +49,27 @@ public final class b {
             int i = 0;
             for (int i2 = 0; i2 != 32; i2 += 8) {
                 int read = this.a.read();
-                if (read == -1) {
+                if (read != -1) {
+                    this.b++;
+                    i |= read << i2;
+                } else {
                     throw new EOFException();
                 }
-                this.b++;
-                i |= read << i2;
             }
             return i;
         }
         return invokeV.intValue;
     }
 
-    public final void b(int i) {
-        int a;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (a = a()) != i) {
-            throw new IOException(String.format("Expected: 0x%08x got: 0x%08x", Integer.valueOf(i), Integer.valueOf(a)));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long skip = this.a.skip(4L);
+            this.b = (int) (this.b + skip);
+            if (skip == 4) {
+                return;
+            }
+            throw new EOFException();
         }
     }
 
@@ -93,5 +87,14 @@ public final class b {
             return iArr;
         }
         return (int[]) invokeI.objValue;
+    }
+
+    public final void b(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || (a = a()) == i) {
+            return;
+        }
+        throw new IOException(String.format("Expected: 0x%08x got: 0x%08x", Integer.valueOf(i), Integer.valueOf(a)));
     }
 }

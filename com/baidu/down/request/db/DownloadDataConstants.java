@@ -22,7 +22,7 @@ public final class DownloadDataConstants {
     public Context mContext;
 
     /* loaded from: classes2.dex */
-    public static final class Columns implements BaseColumns {
+    public final class Columns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CURRENT_BYTES = "current_bytes";
         public static final String COLUMN_ETAG = "etag";
@@ -75,13 +75,19 @@ public final class DownloadDataConstants {
     public int delete(SQLiteDatabase sQLiteDatabase, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, sQLiteDatabase, str, strArr)) == null) ? sQLiteDatabase.delete("downloads", str, strArr) : invokeLLL.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, sQLiteDatabase, str, strArr)) == null) {
+            return sQLiteDatabase.delete("downloads", str, strArr);
+        }
+        return invokeLLL.intValue;
     }
 
     public long insert(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, contentValues)) == null) ? sQLiteDatabase.insert("downloads", null, contentValues) : invokeLL.longValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, contentValues)) == null) {
+            return sQLiteDatabase.insert("downloads", null, contentValues);
+        }
+        return invokeLL.longValue;
     }
 
     public int insertOrUpdate(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
@@ -100,12 +106,18 @@ public final class DownloadDataConstants {
     public Cursor query(SQLiteDatabase sQLiteDatabase, String[] strArr, String str, String[] strArr2, String str2, String str3, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{sQLiteDatabase, strArr, str, strArr2, str2, str3, str4})) == null) ? sQLiteDatabase.query("downloads", strArr, str, strArr2, str2, str3, str4) : (Cursor) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{sQLiteDatabase, strArr, str, strArr2, str2, str3, str4})) == null) {
+            return sQLiteDatabase.query("downloads", strArr, str, strArr2, str2, str3, str4);
+        }
+        return (Cursor) invokeCommon.objValue;
     }
 
     public int update(SQLiteDatabase sQLiteDatabase, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, sQLiteDatabase, contentValues, str, strArr)) == null) ? sQLiteDatabase.update("downloads", contentValues, str, strArr) : invokeLLLL.intValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, sQLiteDatabase, contentValues, str, strArr)) == null) {
+            return sQLiteDatabase.update("downloads", contentValues, str, strArr);
+        }
+        return invokeLLLL.intValue;
     }
 }

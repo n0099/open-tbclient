@@ -34,7 +34,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     public LoginManager o;
 
     /* loaded from: classes2.dex */
-    public class a implements FacebookCallback<LoginResult> {
+    public class a implements FacebookCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacebookSSOLoginActivity a;
@@ -57,6 +57,15 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             this.a = facebookSSOLoginActivity;
         }
 
+        public void onError(FacebookException facebookException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, facebookException) == null) {
+                Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
+                FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).g);
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: a */
         public void onSuccess(LoginResult loginResult) {
@@ -77,7 +86,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                 hashMap.put("supportGuestAccount", "1");
                 String addExtras = ParamsUtil.addExtras(urlBind, hashMap);
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1081));
+                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1093));
             }
         }
 
@@ -85,15 +94,6 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login cancel");
-                FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).g);
-            }
-        }
-
-        public void onError(FacebookException facebookException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, facebookException) == null) {
-                Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
                 facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).g);
             }
@@ -130,6 +130,34 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void setupViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.setupViews();
+            setTitleText(R.string.obfuscated_res_0x7f0f10a7);
+            RelativeLayout relativeLayout = this.rootView;
+            if (relativeLayout != null) {
+                relativeLayout.setVisibility(4);
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                e();
+                setupViews();
+            } catch (Exception e) {
+                e.printStackTrace();
+                finish();
+            }
+        }
+    }
+
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -150,34 +178,6 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
             this.n.onActivityResult(i, i2, intent);
             super.onActivityResult(i, i2, intent);
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            try {
-                e();
-                setupViews();
-            } catch (Exception e) {
-                e.printStackTrace();
-                finish();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void setupViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1095);
-            RelativeLayout relativeLayout = this.rootView;
-            if (relativeLayout != null) {
-                relativeLayout.setVisibility(4);
-            }
         }
     }
 }

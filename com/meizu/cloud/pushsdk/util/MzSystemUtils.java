@@ -112,7 +112,7 @@ public class MzSystemUtils {
         }
     }
 
-    public static List<String> getInstalledPackage(Context context) {
+    public static List getInstalledPackage(Context context) {
         ArrayList arrayList = new ArrayList();
         try {
             return (List) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getInstalledPackage", Context.class).invoke(null, context);
@@ -260,7 +260,7 @@ public class MzSystemUtils {
         }
     }
 
-    public static List<String> getWifiList(Context context) {
+    public static List getWifiList(Context context) {
         ArrayList arrayList = new ArrayList();
         try {
             return (List) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getWifiList", Context.class).invoke(null, context);
@@ -299,7 +299,7 @@ public class MzSystemUtils {
 
     public static boolean isInternational() {
         if (com.meizu.cloud.pushsdk.base.a.a().a) {
-            return com.meizu.cloud.pushsdk.base.a.a().b.booleanValue();
+            return ((Boolean) com.meizu.cloud.pushsdk.base.a.a().b).booleanValue();
         }
         return false;
     }

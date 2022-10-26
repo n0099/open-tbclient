@@ -164,16 +164,19 @@ public class ConstraintLayoutStates {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                if (Float.isNaN(this.mMinWidth) || f >= this.mMinWidth) {
-                    if (Float.isNaN(this.mMinHeight) || f2 >= this.mMinHeight) {
-                        if (Float.isNaN(this.mMaxWidth) || f <= this.mMaxWidth) {
-                            return Float.isNaN(this.mMaxHeight) || f2 <= this.mMaxHeight;
-                        }
-                        return false;
-                    }
+                if (!Float.isNaN(this.mMinWidth) && f < this.mMinWidth) {
                     return false;
                 }
-                return false;
+                if (!Float.isNaN(this.mMinHeight) && f2 < this.mMinHeight) {
+                    return false;
+                }
+                if (!Float.isNaN(this.mMaxWidth) && f > this.mMaxWidth) {
+                    return false;
+                }
+                if (!Float.isNaN(this.mMaxHeight) && f2 > this.mMaxHeight) {
+                    return false;
+                }
+                return true;
             }
             return invokeCommon.booleanValue;
         }
@@ -203,6 +206,30 @@ public class ConstraintLayoutStates {
         load(context, i);
     }
 
+    public boolean needsToChange(int i, float f, float f2) {
+        InterceptResult invokeCommon;
+        State state;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            int i2 = this.mCurrentStateId;
+            if (i2 != i) {
+                return true;
+            }
+            if (i == -1) {
+                state = this.mStateList.valueAt(0);
+            } else {
+                state = this.mStateList.get(i2);
+            }
+            State state2 = state;
+            int i3 = this.mCurrentConstraintNumber;
+            if ((i3 == -1 || !state2.mVariants.get(i3).match(f, f2)) && this.mCurrentConstraintNumber != state2.findMatch(f, f2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     private void load(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, this, context, i) == null) {
@@ -210,67 +237,73 @@ public class ConstraintLayoutStates {
             State state = null;
             try {
                 for (int eventType = xml.getEventType(); eventType != 1; eventType = xml.next()) {
-                    if (eventType == 0) {
-                        xml.getName();
-                        continue;
-                    } else if (eventType != 2) {
-                        continue;
-                    } else {
-                        String name = xml.getName();
-                        char c = 65535;
-                        switch (name.hashCode()) {
-                            case -1349929691:
-                                if (name.equals(ConstraintSet.TAG)) {
-                                    c = 4;
+                    if (eventType != 0) {
+                        if (eventType != 2) {
+                            continue;
+                        } else {
+                            String name = xml.getName();
+                            char c = 65535;
+                            switch (name.hashCode()) {
+                                case -1349929691:
+                                    if (name.equals(ConstraintSet.TAG)) {
+                                        c = 4;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 80204913:
-                                if (name.equals("State")) {
-                                    c = 2;
+                                case 80204913:
+                                    if (name.equals("State")) {
+                                        c = 2;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 1382829617:
-                                if (name.equals("StateSet")) {
-                                    c = 1;
+                                case 1382829617:
+                                    if (name.equals("StateSet")) {
+                                        c = 1;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 1657696882:
-                                if (name.equals("layoutDescription")) {
-                                    c = 0;
+                                case 1657696882:
+                                    if (name.equals("layoutDescription")) {
+                                        c = 0;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 1901439077:
-                                if (name.equals("Variant")) {
-                                    c = 3;
+                                case 1901439077:
+                                    if (name.equals("Variant")) {
+                                        c = 3;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                        }
-                        if (c != 0 && c != 1) {
-                            if (c == 2) {
-                                state = new State(context, xml);
-                                this.mStateList.put(state.mId, state);
-                                continue;
-                            } else if (c == 3) {
-                                Variant variant = new Variant(context, xml);
-                                if (state != null) {
-                                    state.add(variant);
-                                    continue;
+                            }
+                            if (c != 0 && c != 1) {
+                                if (c != 2) {
+                                    if (c != 3) {
+                                        if (c != 4) {
+                                            Log.v("ConstraintLayoutStates", "unknown tag " + name);
+                                            continue;
+                                        } else {
+                                            parseConstraintSet(context, xml);
+                                            continue;
+                                        }
+                                    } else {
+                                        Variant variant = new Variant(context, xml);
+                                        if (state != null) {
+                                            state.add(variant);
+                                            continue;
+                                        } else {
+                                            continue;
+                                        }
+                                    }
                                 } else {
+                                    state = new State(context, xml);
+                                    this.mStateList.put(state.mId, state);
                                     continue;
                                 }
-                            } else if (c != 4) {
-                                Log.v("ConstraintLayoutStates", "unknown tag " + name);
-                                continue;
-                            } else {
-                                parseConstraintSet(context, xml);
-                                continue;
                             }
                         }
+                    } else {
+                        xml.getName();
+                        continue;
                     }
                 }
             } catch (IOException e) {
@@ -282,42 +315,32 @@ public class ConstraintLayoutStates {
     }
 
     private void parseConstraintSet(Context context, XmlPullParser xmlPullParser) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, xmlPullParser) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             int attributeCount = xmlPullParser.getAttributeCount();
-            for (int i = 0; i < attributeCount; i++) {
-                if ("id".equals(xmlPullParser.getAttributeName(i))) {
-                    String attributeValue = xmlPullParser.getAttributeValue(i);
-                    int identifier = attributeValue.contains("/") ? context.getResources().getIdentifier(attributeValue.substring(attributeValue.indexOf(47) + 1), "id", context.getPackageName()) : -1;
-                    if (identifier == -1) {
+            for (int i2 = 0; i2 < attributeCount; i2++) {
+                if ("id".equals(xmlPullParser.getAttributeName(i2))) {
+                    String attributeValue = xmlPullParser.getAttributeValue(i2);
+                    if (attributeValue.contains("/")) {
+                        i = context.getResources().getIdentifier(attributeValue.substring(attributeValue.indexOf(47) + 1), "id", context.getPackageName());
+                    } else {
+                        i = -1;
+                    }
+                    if (i == -1) {
                         if (attributeValue != null && attributeValue.length() > 1) {
-                            identifier = Integer.parseInt(attributeValue.substring(1));
+                            i = Integer.parseInt(attributeValue.substring(1));
                         } else {
                             Log.e("ConstraintLayoutStates", "error in parsing id");
                         }
                     }
                     constraintSet.load(context, xmlPullParser);
-                    this.mConstraintSetMap.put(identifier, constraintSet);
+                    this.mConstraintSetMap.put(i, constraintSet);
                     return;
                 }
             }
         }
-    }
-
-    public boolean needsToChange(int i, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            int i2 = this.mCurrentStateId;
-            if (i2 != i) {
-                return true;
-            }
-            State valueAt = i == -1 ? this.mStateList.valueAt(0) : this.mStateList.get(i2);
-            int i3 = this.mCurrentConstraintNumber;
-            return (i3 == -1 || !valueAt.mVariants.get(i3).match(f, f2)) && this.mCurrentConstraintNumber != valueAt.findMatch(f, f2);
-        }
-        return invokeCommon.booleanValue;
     }
 
     public void setOnConstraintsChanged(ConstraintsChangedListener constraintsChangedListener) {
@@ -344,31 +367,31 @@ public class ConstraintLayoutStates {
                     state = this.mStateList.get(i4);
                 }
                 int i5 = this.mCurrentConstraintNumber;
-                if ((i5 == -1 || !state.mVariants.get(i5).match(f, f2)) && this.mCurrentConstraintNumber != (findMatch = state.findMatch(f, f2))) {
-                    if (findMatch == -1) {
-                        constraintSet2 = this.mDefaultConstraintSet;
-                    } else {
-                        constraintSet2 = state.mVariants.get(findMatch).mConstraintSet;
-                    }
-                    if (findMatch == -1) {
-                        i3 = state.mConstraintID;
-                    } else {
-                        i3 = state.mVariants.get(findMatch).mConstraintID;
-                    }
-                    if (constraintSet2 == null) {
-                        return;
-                    }
-                    this.mCurrentConstraintNumber = findMatch;
-                    ConstraintsChangedListener constraintsChangedListener = this.mConstraintsChangedListener;
-                    if (constraintsChangedListener != null) {
-                        constraintsChangedListener.preLayoutChange(-1, i3);
-                    }
-                    constraintSet2.applyTo(this.mConstraintLayout);
-                    ConstraintsChangedListener constraintsChangedListener2 = this.mConstraintsChangedListener;
-                    if (constraintsChangedListener2 != null) {
-                        constraintsChangedListener2.postLayoutChange(-1, i3);
-                        return;
-                    }
+                if ((i5 != -1 && state.mVariants.get(i5).match(f, f2)) || this.mCurrentConstraintNumber == (findMatch = state.findMatch(f, f2))) {
+                    return;
+                }
+                if (findMatch == -1) {
+                    constraintSet2 = this.mDefaultConstraintSet;
+                } else {
+                    constraintSet2 = state.mVariants.get(findMatch).mConstraintSet;
+                }
+                if (findMatch == -1) {
+                    i3 = state.mConstraintID;
+                } else {
+                    i3 = state.mVariants.get(findMatch).mConstraintID;
+                }
+                if (constraintSet2 == null) {
+                    return;
+                }
+                this.mCurrentConstraintNumber = findMatch;
+                ConstraintsChangedListener constraintsChangedListener = this.mConstraintsChangedListener;
+                if (constraintsChangedListener != null) {
+                    constraintsChangedListener.preLayoutChange(-1, i3);
+                }
+                constraintSet2.applyTo(this.mConstraintLayout);
+                ConstraintsChangedListener constraintsChangedListener2 = this.mConstraintsChangedListener;
+                if (constraintsChangedListener2 != null) {
+                    constraintsChangedListener2.postLayoutChange(-1, i3);
                     return;
                 }
                 return;

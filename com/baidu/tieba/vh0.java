@@ -1,29 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.utils.LruCache;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vh0 extends c81 {
+public class vh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdBaseModel a;
-    public View b;
-    public View.OnClickListener c;
+    public final LruCache a;
 
-    public vh0(AdBaseModel adBaseModel, View view2) {
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vh0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-346494482, "Lcom/baidu/tieba/vh0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-346494482, "Lcom/baidu/tieba/vh0$a;");
+                    return;
+                }
+            }
+            a = new vh0();
+        }
+    }
+
+    public vh0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adBaseModel, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,67 +50,24 @@ public class vh0 extends c81 {
                 return;
             }
         }
-        this.a = adBaseModel;
-        this.b = view2;
+        this.a = new LruCache(8);
     }
 
-    @Override // com.baidu.tieba.c81
-    public void a(String str) {
-        AdBaseModel adBaseModel;
-        cp0 cp0Var;
-        xo0 xo0Var;
+    public static vh0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (adBaseModel = this.a) == null || (cp0Var = adBaseModel.f) == null || TextUtils.isEmpty(cp0Var.d)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
-        clogBuilder.j(str);
-        yo0 yo0Var = adBaseModel.m;
-        if (yo0Var != null && (xo0Var = yo0Var.f) != null) {
-            clogBuilder.v(xo0Var.a);
-        }
-        clogBuilder.p(adBaseModel.f.d);
-        h01.b(clogBuilder);
+        return (vh0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c81
-    public void b(@NonNull ip0 ip0Var) {
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ip0Var) == null) {
-            if (ip0Var.c) {
-                ii0.b(ip0Var.a);
-                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
-            }
-            View.OnClickListener onClickListener = this.c;
-            if (onClickListener != null) {
-                onClickListener.onClick(this.b);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return (String) this.a.get(str);
         }
-    }
-
-    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        cp0 cp0Var;
-        xo0 xo0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) || adBaseModel == null || (cp0Var = adBaseModel.f) == null || TextUtils.isEmpty(cp0Var.d)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(logType);
-        clogBuilder.j(str);
-        yo0 yo0Var = adBaseModel.m;
-        if (yo0Var != null && (xo0Var = yo0Var.f) != null) {
-            clogBuilder.v(xo0Var.a);
-        }
-        clogBuilder.p(adBaseModel.f.d);
-        h01.b(clogBuilder);
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
+        return (String) invokeL.objValue;
     }
 }

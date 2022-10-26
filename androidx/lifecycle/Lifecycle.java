@@ -1,8 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +12,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public abstract class Lifecycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public AtomicReference<Object> mInternalScopeRef;
+
+    public abstract void addObserver(LifecycleObserver lifecycleObserver);
+
+    public abstract State getCurrentState();
+
+    public abstract void removeObserver(LifecycleObserver lifecycleObserver);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -79,13 +80,19 @@ public abstract class Lifecycle {
         public static Event valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Event) Enum.valueOf(Event.class, str) : (Event) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Event) Enum.valueOf(Event.class, str);
+            }
+            return (Event) invokeL.objValue;
         }
 
         public static Event[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Event[]) $VALUES.clone() : (Event[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Event[]) $VALUES.clone();
+            }
+            return (Event[]) invokeV.objValue;
         }
     }
 
@@ -145,19 +152,31 @@ public abstract class Lifecycle {
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
+        }
+
+        public boolean isAtLeast(State state) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, state)) == null) {
+                if (compareTo(state) >= 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
-        }
-
-        public boolean isAtLeast(@NonNull State state) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, state)) == null) ? compareTo(state) >= 0 : invokeL.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
@@ -176,14 +195,4 @@ public abstract class Lifecycle {
         }
         this.mInternalScopeRef = new AtomicReference<>();
     }
-
-    @MainThread
-    public abstract void addObserver(@NonNull LifecycleObserver lifecycleObserver);
-
-    @NonNull
-    @MainThread
-    public abstract State getCurrentState();
-
-    @MainThread
-    public abstract void removeObserver(@NonNull LifecycleObserver lifecycleObserver);
 }

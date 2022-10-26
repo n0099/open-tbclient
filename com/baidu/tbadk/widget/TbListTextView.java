@@ -1,6 +1,5 @@
 package com.baidu.tbadk.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -17,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@SuppressLint({"WrongCall"})
 /* loaded from: classes3.dex */
 public class TbListTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -25,14 +23,14 @@ public class TbListTextView extends TextView {
     public boolean a;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
-        public final List<Object> b;
-        public final List<Object> c;
+        public final List b;
+        public final List c;
 
-        public a(boolean z, List<Object> list, List<Object> list2) {
+        public a(boolean z, List list, List list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,16 +50,22 @@ public class TbListTextView extends TextView {
             this.c = list2;
         }
 
-        public static a a(List<Object> list, List<Object> list2) {
+        public static a a(List list, List list2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, list2)) == null) ? new a(true, list, list2) : (a) invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, list2)) == null) {
+                return new a(true, list, list2);
+            }
+            return (a) invokeLL.objValue;
         }
 
         public static a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new a(false, null, null) : (a) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return new a(false, null, null);
+            }
+            return (a) invokeV.objValue;
         }
     }
 
@@ -80,6 +84,50 @@ public class TbListTextView extends TextView {
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TbListTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TbListTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -135,6 +183,30 @@ public class TbListTextView extends TextView {
         }
     }
 
+    public final boolean e(CharSequence charSequence, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, charSequence, i)) == null) {
+            if (charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ') {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            try {
+                super.onMeasure(i, i2);
+            } catch (IndexOutOfBoundsException unused) {
+                c(i, i2);
+            }
+        }
+    }
+
     public final void d(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, spannableStringBuilder, i, i2) == null) {
@@ -147,10 +219,12 @@ public class TbListTextView extends TextView {
         }
     }
 
-    public final boolean e(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
+    public final void g(CharSequence charSequence, int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, charSequence, i)) == null) ? charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ' : invokeLI.booleanValue;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, charSequence, i, i2) == null) {
+            setText(charSequence);
+            super.onMeasure(i, i2);
+        }
     }
 
     public final void f(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
@@ -188,26 +262,6 @@ public class TbListTextView extends TextView {
         }
     }
 
-    public final void g(CharSequence charSequence, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, charSequence, i, i2) == null) {
-            setText(charSequence);
-            super.onMeasure(i, i2);
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            try {
-                super.onMeasure(i, i2);
-            } catch (IndexOutOfBoundsException unused) {
-                c(i, i2);
-            }
-        }
-    }
-
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
@@ -218,7 +272,10 @@ public class TbListTextView extends TextView {
             }
             setLongClickable(false);
             super.onTouchEvent(motionEvent);
-            return motionEvent.getAction() == 0 && hasSelection();
+            if (motionEvent.getAction() != 0 || !hasSelection()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -228,49 +285,5 @@ public class TbListTextView extends TextView {
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.a = z;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbListTextView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = true;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbListTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = true;
     }
 }

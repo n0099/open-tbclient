@@ -14,6 +14,7 @@ import com.qq.e.ads.NativeAbstractAD;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
+import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.pi.NUADI;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.AdErrorConvertor;
@@ -21,20 +22,20 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
+public class NativeUnifiedAD extends NativeAbstractAD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdListenerAdapter g;
     public NativeADUnifiedListener h;
-    public List<Integer> i;
-    public List<String> j;
+    public List i;
+    public List j;
     public volatile int k;
     public volatile int l;
     public String m;
     public LoadAdParams n;
 
     /* loaded from: classes8.dex */
-    public static class AdListenerAdapter implements ADListener {
+    public class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NativeADUnifiedListener a;
@@ -164,10 +165,10 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 }
                 return;
             }
-            T t = this.a;
-            if (t != 0) {
+            Object obj = this.a;
+            if (obj != null) {
                 LoadAdParams loadAdParams = this.n;
-                NUADI nuadi = (NUADI) t;
+                NUADI nuadi = (NUADI) obj;
                 if (loadAdParams != null) {
                     nuadi.loadData(i, loadAdParams);
                 } else {
@@ -177,23 +178,16 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         }
     }
 
-    @Override // com.qq.e.ads.AbstractAD
-    public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.g) : invokeLLLLL.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.qq.e.ads.NativeAbstractAD, com.qq.e.ads.AbstractAD
     public void a(NUADI nuadi) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nuadi) == null) {
-            super.a((NativeUnifiedAD) nuadi);
+            super.a((ADI) nuadi);
             nuadi.setMinVideoDuration(this.k);
             nuadi.setMaxVideoDuration(this.l);
             nuadi.setVastClassName(this.m);
-            List<String> list = this.j;
+            List list = this.j;
             if (list != null) {
                 setCategories(list);
             }
@@ -217,9 +211,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((NUADI) t).getAdNetWorkName();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((NUADI) obj).getAdNetWorkName();
             }
             a("getAdNetWorkName");
             return null;
@@ -242,15 +236,15 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         }
     }
 
-    public void setCategories(List<String> list) {
+    public void setCategories(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.j = list;
-            T t = this.a;
-            if (t == 0 || list == null) {
+            Object obj = this.a;
+            if (obj == null || list == null) {
                 return;
             }
-            ((NUADI) t).setCategories(list);
+            ((NUADI) obj).setCategories(list);
         }
     }
 
@@ -261,9 +255,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
-            T t = this.a;
-            if (t != 0) {
-                ((NUADI) t).setMaxVideoDuration(this.l);
+            Object obj = this.a;
+            if (obj != null) {
+                ((NUADI) obj).setMaxVideoDuration(this.l);
             }
         }
     }
@@ -275,9 +269,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
-            T t = this.a;
-            if (t != 0) {
-                ((NUADI) t).setMinVideoDuration(this.k);
+            Object obj = this.a;
+            if (obj != null) {
+                ((NUADI) obj).setMinVideoDuration(this.k);
             }
         }
     }
@@ -290,9 +284,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 return;
             }
             this.m = str;
-            T t = this.a;
-            if (t != 0) {
-                ((NUADI) t).setVastClassName(str);
+            Object obj = this.a;
+            if (obj != null) {
+                ((NUADI) obj).setVastClassName(str);
             }
         }
     }
@@ -309,5 +303,15 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
         }
+    }
+
+    @Override // com.qq.e.ads.AbstractAD
+    public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) {
+            return pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.g);
+        }
+        return invokeLLLLL.objValue;
     }
 }

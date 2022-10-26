@@ -65,7 +65,10 @@ public final class SubripDecoder extends SimpleSubtitleDecoder {
     public static long parseTimecode(Matcher matcher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) ? ((Long.parseLong(matcher.group(i + 1)) * 60 * 60 * 1000) + (Long.parseLong(matcher.group(i + 2)) * 60 * 1000) + (Long.parseLong(matcher.group(i + 3)) * 1000) + Long.parseLong(matcher.group(i + 4))) * 1000 : invokeLI.longValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) {
+            return ((Long.parseLong(matcher.group(i + 1)) * 60 * 60 * 1000) + (Long.parseLong(matcher.group(i + 2)) * 60 * 1000) + (Long.parseLong(matcher.group(i + 3)) * 1000) + Long.parseLong(matcher.group(i + 4))) * 1000;
+        }
+        return invokeLI.longValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -93,10 +96,10 @@ public final class SubripDecoder extends SimpleSubtitleDecoder {
                         if (matcher.matches()) {
                             boolean z2 = true;
                             longArray.add(parseTimecode(matcher, 1));
-                            if (TextUtils.isEmpty(matcher.group(6))) {
-                                z2 = false;
-                            } else {
+                            if (!TextUtils.isEmpty(matcher.group(6))) {
                                 longArray.add(parseTimecode(matcher, 6));
+                            } else {
+                                z2 = false;
                             }
                             this.textBuilder.setLength(0);
                             while (true) {

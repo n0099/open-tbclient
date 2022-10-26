@@ -1,558 +1,346 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class jh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jh1 e;
+    public static volatile jh1 a;
+    public static String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final SharedPreferences b;
-    public SharedPreferences.Editor c;
-    public Context d;
 
-    public jh1(Context context) {
+    /* loaded from: classes4.dex */
+    public interface a {
+        void onFinish(String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ jh1 b;
+
+        public b(jh1 jh1Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh1Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jh1Var;
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    oh1.a("sso onekey init");
+                    this.b.f(this.a.getApplicationContext());
+                    xh1.j().d(this.a.getApplicationContext());
+                } catch (Throwable th) {
+                    wi1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ a b;
+        public final /* synthetic */ long c;
+
+        public c(jh1 jh1Var, Context context, a aVar, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh1Var, context, aVar, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = aVar;
+            this.c = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    oh1.a("sso onekey preLogin");
+                    if (!kh1.f(this.a.getApplicationContext()).d()) {
+                        vh1.b(this.b, sh1.a(), -1, null, false);
+                        oh1.d("sso onekey preLogin fail, user not auth");
+                        return;
+                    }
+                    xh1.j().e(this.a.getApplicationContext(), 0, null, this.c, this.b);
+                } catch (Throwable th) {
+                    wi1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ a b;
+        public final /* synthetic */ long c;
+
+        public d(jh1 jh1Var, Context context, a aVar, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh1Var, context, aVar, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = aVar;
+            this.c = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    oh1.a("sso onekey login");
+                    if (!kh1.f(this.a.getApplicationContext()).d()) {
+                        vh1.b(this.b, sh1.a(), -1, null, false);
+                        oh1.d("sso onekey login fail, user not auth");
+                        return;
+                    }
+                    xh1.j().f(this.a.getApplicationContext(), this.c, this.b);
+                } catch (Throwable th) {
+                    wi1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ a b;
+        public final /* synthetic */ long c;
+
+        public e(jh1 jh1Var, Context context, a aVar, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh1Var, context, aVar, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = aVar;
+            this.c = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    oh1.a("sso onekey verifyPhoneNum");
+                    if (!kh1.f(this.a.getApplicationContext()).d()) {
+                        vh1.b(this.b, sh1.a(), -1, null, false);
+                        oh1.d("sso onekey verifyPhoneNum fail, user not auth");
+                        return;
+                    }
+                    xh1.j().l(this.a.getApplicationContext(), this.c, this.b);
+                } catch (Throwable th) {
+                    wi1.d(th);
+                }
+            }
+        }
+    }
+
+    public jh1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = context.getSharedPreferences("once_login_config", 0);
-        context.getSharedPreferences("leroadcfg", 0);
-        this.c = this.b.edit();
-        this.d = context.getApplicationContext();
     }
 
-    public static jh1 f(Context context) {
+    public static jh1 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (jh1.class) {
+                    if (a == null) {
+                        a = new jh1();
+                    }
+                }
+            }
+            return a;
+        }
+        return (jh1) invokeV.objValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            oh1.b(z);
+        }
+    }
+
+    public String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (e == null) {
-                synchronized (jh1.class) {
-                    if (e == null) {
-                        e = new jh1(context);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            oh1.a("getCurrentOperatorName");
+            if (!kh1.f(context.getApplicationContext()).d()) {
+                oh1.d("getCurrentOperatorName fail, user not auth");
+                return null;
             }
-            return e;
-        }
-        return (jh1) invokeL.objValue;
-    }
-
-    public void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            R("last_al_rp_d", str);
-        }
-    }
-
-    public final void B(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-            this.c.putInt(str, i);
-            this.c.commit();
-        }
-    }
-
-    public void C(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || str2 == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            str2 = Base64.encodeToString(str2.getBytes(), 0);
-        }
-        R(str, str2);
-    }
-
-    public void D(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            v("k_sdk_cu_s", z);
-        }
-    }
-
-    public long E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e("ky_cfo_t", vi1.f) : invokeV.longValue;
-    }
-
-    public void F(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            t("rp_last_off_ti", j);
-        }
-    }
-
-    public void G(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            R("last_Rp_d", str);
-        }
-    }
-
-    public void H(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            R("k_sdk_a_s", str + "_" + str2);
-        }
-    }
-
-    public void I(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            v("k_is_ig_env", z);
-        }
-    }
-
-    public String J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!TextUtils.isEmpty(this.a)) {
-                return this.a;
+            int intValue = ((Integer) ej1.c(context.getApplicationContext()).second).intValue();
+            if (intValue == 1) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
             }
-            String K = K("xyus", "");
-            this.a = K;
-            if (TextUtils.isEmpty(K)) {
-                String b = zi1.b(UUID.randomUUID().toString());
-                this.a = b;
-                R("xyus", b);
+            if (intValue == 3) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
             }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String K(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.b.getString(str, str2) : (String) invokeLL.objValue;
-    }
-
-    public void L(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            t("ky_lvt", j);
-        }
-    }
-
-    public void M(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            u("ky_ltc", str);
-        }
-    }
-
-    public void N(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            v("k_retry_switch", z);
-        }
-    }
-
-    public String O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? g("ky_dxc", "") : (String) invokeV.objValue;
-    }
-
-    public void P(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            t("ky_cfs_t", j);
-        }
-    }
-
-    public void Q(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        R("k_sdk_ra_k", str);
-    }
-
-    public final void R(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
-            this.c.putString(str, str2);
-            this.c.commit();
-        }
-    }
-
-    public void S(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            v("k_sdk_s", z);
-        }
-    }
-
-    public long T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? e("k_last_a_ts", 0L) : invokeV.longValue;
-    }
-
-    public void U(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            t("t_con_3g", j);
-        }
-    }
-
-    public void V(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            R("ky_sg", str);
-        }
-    }
-
-    public void W(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            v("k_u_a_pr", z);
-        }
-    }
-
-    public String X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? K("last_al_rp_d", "") : (String) invokeV.objValue;
-    }
-
-    public void Y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            u("ky_ydc", str);
-        }
-    }
-
-    public int Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? o("ky_lls", -1) : invokeV.intValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? n("k_sdk_cu_s", true) : invokeV.booleanValue;
-    }
-
-    public long a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? e("ky_llt", 0L) : invokeV.longValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? n("k_retry_switch", false) : invokeV.booleanValue;
-    }
-
-    public String b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? K("last_Rp_d", "") : (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? n("k_sdk_s", true) : invokeV.booleanValue;
-    }
-
-    public long c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? e("rp_last_off_ti", 0L) : invokeV.longValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? n("k_u_a_pr", false) : invokeV.booleanValue;
-    }
-
-    public int d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? o("ky_lvs", -1) : invokeV.intValue;
-    }
-
-    public final long e(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048610, this, str, j)) == null) ? this.b.getLong(str, j) : invokeLJ.longValue;
-    }
-
-    public long e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? e("ky_lvt", 0L) : invokeV.longValue;
-    }
-
-    public String f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? g("ky_ltc", "") : (String) invokeV.objValue;
-    }
-
-    public String g(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, str, str2)) == null) {
-            String string = this.b.getString(str, str2);
-            return !TextUtils.isEmpty(string) ? xi1.a(this.d, string) : "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public int g0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            int o = o("k_mask_num", 4);
-            if (o <= 4) {
-                return 4;
+            if (intValue != 2) {
+                return null;
             }
-            if (o >= 8) {
-                return 8;
-            }
-            return o;
+            return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public void h() {
+    public synchronized void e(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            R("k_sdk_a_s", "");
-        }
-    }
-
-    public int h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? o("one_d_3g_con", 50) : invokeV.intValue;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
-            B("ky_lls", i);
-        }
-    }
-
-    public long i0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? e("ky_cfs_t", 0L) : invokeV.longValue;
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048619, this, j) == null) {
-            t("ky_cfo_t", j);
-        }
-    }
-
-    public int j0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? o("rp_off_gap", 3) : invokeV.intValue;
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
-            R("ky_aid", str);
-        }
-    }
-
-    public String k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? K("k_sdk_ra_k", "") : (String) invokeV.objValue;
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-            v("k_sdk_cm_s", z);
-        }
-    }
-
-    public String l0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? K("k_sdk_a_s", "") : (String) invokeV.objValue;
-    }
-
-    public boolean m(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, str, i)) == null) {
-            String K = K(str, "");
-            if (!TextUtils.isEmpty(K)) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
+            synchronized (this) {
                 try {
-                    JSONArray jSONArray = new JSONArray(new String(Base64.decode(K, 0)));
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        if (jSONArray.getString(i2).equals(String.valueOf(i))) {
-                            return true;
-                        }
-                    }
+                    b = str;
+                    c = str2;
+                    qi1.a().post(new b(this, context));
                 } catch (Throwable th) {
-                    vi1.d(th);
+                    wi1.d(th);
                 }
             }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public String m0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? K("ky_sg", "") : (String) invokeV.objValue;
-    }
-
-    public final boolean n(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048627, this, str, z)) == null) ? this.b.getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    public long n0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? e("t_con_3g", 0L) : invokeV.longValue;
-    }
-
-    public final int o(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048629, this, str, i)) == null) ? this.b.getInt(str, i) : invokeLI.intValue;
-    }
-
-    public String o0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? g("ky_ydc", "") : (String) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? K("ky_aid", "") : (String) invokeV.objValue;
-    }
-
-    public boolean p0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? n("k_sdk_cm_s", true) : invokeV.booleanValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
-            B("ky_lvs", i);
         }
     }
 
-    public boolean q0() {
-        InterceptResult invokeV;
+    public final void f(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? n("k_sdk_ct_s", true) : invokeV.booleanValue;
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
-            t("k_last_a_ts", j);
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            String l0 = kh1.f(context).l0();
+            if (TextUtils.isEmpty(l0)) {
+                return;
+            }
+            String[] split = l0.split("_");
+            if (split.length != 2) {
+                kh1.f(context).h();
+            }
+            b = split[0];
+            c = split[1];
         }
     }
 
-    public void s(String str) {
+    public void g(Context context, long j, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
-            u("ky_dxc", str);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                qi1.a().post(new d(this, context, aVar, j));
+            } catch (Throwable th) {
+                wi1.d(th);
+            }
         }
     }
 
-    public final void t(String str, long j) {
+    public void h(Context context, long j, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048637, this, str, j) == null) {
-            this.c.putLong(str, j);
-            this.c.commit();
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                qi1.a().post(new c(this, context, aVar, j));
+            } catch (Throwable th) {
+                wi1.d(th);
+            }
         }
     }
 
-    public void u(String str, String str2) {
+    public void j(Context context, long j, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048638, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        this.c.putString(str, xi1.b(this.d, str2.getBytes()));
-        this.c.commit();
-    }
-
-    public final void v(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048639, this, str, z) == null) {
-            this.c.putBoolean(str, z);
-            this.c.commit();
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                qi1.a().post(new e(this, context, aVar, j));
+            } catch (Throwable th) {
+                wi1.d(th);
+            }
         }
     }
 
-    public void w(boolean z) {
+    public void i(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
-            v("k_sdk_ct_s", z);
-        }
-    }
-
-    public long x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? e("k_a_itl", ui1.b * 24) : invokeV.longValue;
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048642, this, i) == null) || i <= 4) {
-            return;
-        }
-        B("k_mask_num", i);
-    }
-
-    public void z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
-            t("ky_llt", j);
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, context, z) == null) {
+            try {
+                StringBuilder sb = new StringBuilder();
+                sb.append("setUserAuthPrivacyState, value:");
+                sb.append(z);
+                oh1.a(sb.toString());
+                kh1.f(context.getApplicationContext()).W(z);
+            } catch (Throwable th) {
+                wi1.d(th);
+            }
         }
     }
 }

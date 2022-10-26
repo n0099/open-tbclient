@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
+public class LiveRoomClosedQueryMessage extends CustomMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> mIds;
-    public List<Object> mOriginData;
+    public List mIds;
+    public List mOriginData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveRoomClosedQueryMessage(List<Long> list, List<Object> list2) {
+    public LiveRoomClosedQueryMessage(List list, List list2) {
         super(2921025);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,22 +37,27 @@ public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
         }
         this.mOriginData = new ArrayList();
         this.mIds = new ArrayList();
-        if (ListUtils.isEmpty(list2) || ListUtils.isEmpty(list)) {
-            return;
+        if (!ListUtils.isEmpty(list2) && !ListUtils.isEmpty(list)) {
+            this.mOriginData.addAll(list2);
+            this.mIds.addAll(list);
         }
-        this.mOriginData.addAll(list2);
-        this.mIds.addAll(list);
     }
 
-    public List<Long> getIds() {
+    public List getIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIds : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mIds;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<Object> getOriginData() {
+    public List getOriginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mOriginData : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mOriginData;
+        }
+        return (List) invokeV.objValue;
     }
 }

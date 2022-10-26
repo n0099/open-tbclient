@@ -19,6 +19,16 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public PersonThreadFragment b;
     public PersonReplyFragment c;
 
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
@@ -38,9 +48,9 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
             }
         }
         Bundle bundle = new Bundle();
-        bundle.putString("key_uid", personPostActivity.T0());
-        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.S0());
-        bundle.putString("key_empty_view_text", personPostActivity.R0());
+        bundle.putString("key_uid", personPostActivity.S0());
+        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.R0());
+        bundle.putString("key_empty_view_text", personPostActivity.O0());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
         this.c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
@@ -56,23 +66,10 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a[i] : invokeI.intValue;
-    }
-
-    public PersonThreadFragment c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (PersonThreadFragment) invokeV.objValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a[i];
         }
-        return invokeV.intValue;
+        return invokeI.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -89,5 +86,14 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
             return this.b;
         }
         return (Fragment) invokeI.objValue;
+    }
+
+    public PersonThreadFragment c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (PersonThreadFragment) invokeV.objValue;
     }
 }

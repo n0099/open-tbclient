@@ -36,7 +36,7 @@ public class RelevanceItemSearchActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void setSelectedIds(ArrayList<Long> arrayList) {
+    public void setSelectedIds(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
             getIntent().putExtra(SELECTED_IDS_KEY, arrayList);

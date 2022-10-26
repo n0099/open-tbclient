@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes8.dex */
 public class a {
-    public static Map<String, String> a = a();
-    public static final List<String> b = new ArrayList(a.keySet());
+    public static Map a = a();
+    public static final List b = new ArrayList(a.keySet());
 
     public static String a(String str) {
         String str2;
@@ -20,7 +20,7 @@ public class a {
             if (str.length() > 3) {
                 String substring = str.substring(0, 3);
                 if (a.containsKey(substring)) {
-                    String str3 = a.get(substring);
+                    String str3 = (String) a.get(substring);
                     str2 = str.substring(3, str.length());
                     try {
                         char[] cArr = new char[str2.length() / 2];
@@ -49,7 +49,7 @@ public class a {
         }
     }
 
-    public static Map<String, String> a() {
+    public static Map a() {
         if (a(a)) {
             synchronized (a.class) {
                 if (a(a)) {
@@ -81,7 +81,7 @@ public class a {
         return a;
     }
 
-    public static <K, V> boolean a(Map<K, V> map) {
+    public static boolean a(Map map) {
         return map == null || map.isEmpty();
     }
 }

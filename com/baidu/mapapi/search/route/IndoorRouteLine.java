@@ -1,6 +1,5 @@
 package com.baidu.mapapi.search.route;
 
-import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
@@ -18,15 +17,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@SuppressLint({"ParcelCreator"})
 /* loaded from: classes2.dex */
-public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
+public class IndoorRouteLine extends RouteLine {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<IndoorRouteLine> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class IndoorRouteStep extends RouteStep {
+    public class IndoorRouteStep extends RouteStep {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RouteNode d;
@@ -34,11 +32,11 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         public String f;
         public String g;
         public String h;
-        public List<IndoorStepNode> i;
-        public List<Double> j;
+        public List i;
+        public List j;
 
         /* loaded from: classes2.dex */
-        public static class IndoorStepNode {
+        public class IndoorStepNode {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -127,13 +125,13 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             }
         }
 
-        private List<LatLng> a(List<Double> list) {
+        private List a(List list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, list)) == null) {
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < list.size(); i += 2) {
-                    arrayList.add(new LatLng(list.get(i).doubleValue(), list.get(i + 1).doubleValue()));
+                    arrayList.add(new LatLng(((Double) list.get(i)).doubleValue(), ((Double) list.get(i + 1)).doubleValue()));
                 }
                 return arrayList;
             }
@@ -170,14 +168,14 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
         }
 
-        public List<IndoorStepNode> getStepNodes() {
+        public List getStepNodes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (List) invokeV.objValue;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
-        public List<LatLng> getWayPoints() {
+        public List getWayPoints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -224,14 +222,14 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             }
         }
 
-        public void setPath(List<Double> list) {
+        public void setPath(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
                 this.j = list;
             }
         }
 
-        public void setStepNodes(List<IndoorStepNode> list) {
+        public void setStepNodes(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
                 this.i = list;
@@ -302,7 +300,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine
-    public List<IndoorRouteStep> getAllStep() {
+    public List getAllStep() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.getAllStep() : (List) invokeV.objValue;

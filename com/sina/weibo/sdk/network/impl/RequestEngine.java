@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.base.RequestBodyHelper;
@@ -53,8 +52,11 @@ public class RequestEngine {
             String url = iRequestParam.getUrl();
             if (!TextUtils.isEmpty(url) && (url.startsWith("http") || url.startsWith("https"))) {
                 String buildCompleteUri = UriUtils.buildCompleteUri(url, iRequestParam.getGetBundle());
-                Pair<String, Integer> apn = NetStateManager.getAPN();
-                Proxy proxy = apn != null ? new Proxy(Proxy.Type.HTTP, new InetSocketAddress((String) apn.first, ((Integer) apn.second).intValue())) : null;
+                Pair apn = NetStateManager.getAPN();
+                Proxy proxy = null;
+                if (apn != null) {
+                    proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress((String) apn.first, ((Integer) apn.second).intValue()));
+                }
                 try {
                     URL url2 = new URL(buildCompleteUri);
                     if ("https".startsWith(buildCompleteUri)) {
@@ -105,7 +107,7 @@ public class RequestEngine {
                         WbResponseBody wbResponseBody = new WbResponseBody(httpURLConnection.getErrorStream(), httpURLConnection.getContentLength());
                         throw new RequestException("服务器异常" + wbResponseBody.string());
                     }
-                    iRequestParam.setUrl(httpURLConnection.getHeaderField(Headers.LOCATION));
+                    iRequestParam.setUrl(httpURLConnection.getHeaderField("Location"));
                     return request(iRequestParam);
                 } catch (MalformedURLException e) {
                     LogUtil.v("weibosdk", e.toString());
@@ -122,7 +124,7 @@ public class RequestEngine {
 
     public static void setRequestHeader(HttpURLConnection httpURLConnection, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, httpURLConnection, bundle) == null) || bundle == null) {
+        if ((interceptable != null && interceptable.invokeLL(65538, null, httpURLConnection, bundle) != null) || bundle == null) {
             return;
         }
         for (String str : bundle.keySet()) {

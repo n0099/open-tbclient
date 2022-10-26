@@ -37,7 +37,7 @@ public class MangaBrowserActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("cartoon_id", j);
+        getIntent().putExtra(CARTOON_ID, j);
         getIntent().putExtra(CHAPTER_ID, i);
         getIntent().putExtra("from", i2);
     }

@@ -7,7 +7,7 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fh3;
+import com.baidu.tieba.gh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,9 +69,9 @@ public class LoginServiceAgreementActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = fh3.c0(this);
+            int c0 = gh3.c0(this);
             super.onCreate(bundle);
-            fh3.g(this, c0);
+            gh3.g(this, c0);
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
@@ -87,7 +87,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
             this.b = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
             this.b.setLeftBackViewClickListener(new a(this));
-            this.b.setTitle(R.string.obfuscated_res_0x7f0f1317);
+            this.b.setTitle(R.string.obfuscated_res_0x7f0f132b);
             this.b.setRightZoneVisibility(false);
         }
     }

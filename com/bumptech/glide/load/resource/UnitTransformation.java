@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.resource;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,10 +13,24 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
-public final class UnitTransformation<T> implements Transformation<T> {
+public final class UnitTransformation implements Transformation {
     public static /* synthetic */ Interceptable $ic;
-    public static final Transformation<?> TRANSFORMATION;
+    public static final Transformation TRANSFORMATION;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.bumptech.glide.load.Transformation
+    public Resource transform(Context context, Resource resource, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, context, resource, i, i2)) == null) ? resource : (Resource) invokeLLII.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageDigest) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,25 +62,12 @@ public final class UnitTransformation<T> implements Transformation<T> {
         }
     }
 
-    @NonNull
-    public static <T> UnitTransformation<T> get() {
+    public static UnitTransformation get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (UnitTransformation) TRANSFORMATION : (UnitTransformation) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Transformation
-    @NonNull
-    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, context, resource, i, i2)) == null) ? resource : (Resource) invokeLLII.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageDigest) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (UnitTransformation) TRANSFORMATION;
         }
+        return (UnitTransformation) invokeV.objValue;
     }
 }

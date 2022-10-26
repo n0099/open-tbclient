@@ -1,7 +1,5 @@
 package com.baidu.pass.main.facesdk.utils;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class PreferencesUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,7 +42,7 @@ public class PreferencesUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? getPreferences().contains(str) : invokeL.booleanValue;
     }
 
-    public static Map<String, ?> getAll() {
+    public static Map getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? getPreferences().getAll() : (Map) invokeV.objValue;
@@ -93,8 +91,7 @@ public class PreferencesUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? getPreferences().getString(str, str2) : (String) invokeLL.objValue;
     }
 
-    @TargetApi(11)
-    public static Set<String> getStringSet(String str, Set<String> set) {
+    public static Set getStringSet(String str, Set set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, set)) == null) {
@@ -103,7 +100,7 @@ public class PreferencesUtil {
                 return preferences.getStringSet(str, set);
             }
             if (preferences.contains(str + LENGTH_SUFFIX)) {
-                set = new HashSet<>();
+                set = new HashSet();
                 int i = preferences.getInt(str + LENGTH_SUFFIX, -1);
                 if (i >= 0) {
                     for (int i2 = 0; i2 < i; i2++) {
@@ -192,8 +189,7 @@ public class PreferencesUtil {
         }
     }
 
-    @TargetApi(11)
-    public static void putStringSet(String str, Set<String> set) {
+    public static void putStringSet(String str, Set set) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, str, set) == null) {
@@ -211,8 +207,9 @@ public class PreferencesUtil {
                     i = 0;
                 }
                 edit.putInt(str + LENGTH_SUFFIX, set.size());
-                for (String str2 : set) {
-                    edit.putString(str + LEFT_MOUNT + i2 + RIGHT_MOUNT, str2);
+                Iterator it = set.iterator();
+                while (it.hasNext()) {
+                    edit.putString(str + LEFT_MOUNT + i2 + RIGHT_MOUNT, (String) it.next());
                     i2++;
                 }
                 while (i2 < i) {

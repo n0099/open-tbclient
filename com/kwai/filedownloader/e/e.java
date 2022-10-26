@@ -24,7 +24,7 @@ public class e {
     public final boolean awS;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e awT;
         public transient /* synthetic */ FieldHolder $fh;

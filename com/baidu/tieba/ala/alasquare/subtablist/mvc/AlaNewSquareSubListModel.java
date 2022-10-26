@@ -11,13 +11,12 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.bw5;
-import com.baidu.tieba.cw5;
-import com.baidu.tieba.mt5;
+import com.baidu.tieba.iw5;
+import com.baidu.tieba.jw5;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.tt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public static final int FIRST_PN = 0;
     public static final int LIVE_FEED_LOAD_MORE = 1;
     public static final int LIVE_FEED_REFRESH_NEW = 0;
-    public static HashMap<Integer, Integer> u;
+    public static HashMap u;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
@@ -48,15 +47,42 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public boolean i;
     public boolean j;
     public int k;
-    public List<String> l;
-    public List<ThreadData> m;
-    public List<Cdo> n;
+    public List l;
+    public List m;
+    public List n;
     public boolean o;
     public b p;
     public BdUniqueId q;
     public long r;
     public int s;
     public HttpMessageListener t;
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z);
+
+        void onLoadError(int i, String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -89,48 +115,43 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNewSquareSubListResponseMessage)) {
-                AlaNewSquareSubListResponseMessage alaNewSquareSubListResponseMessage = (AlaNewSquareSubListResponseMessage) httpResponsedMessage;
-                if (httpResponsedMessage.getOrginalMessage() instanceof AlaNewSquareSubListRequestMessage) {
-                    AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = (AlaNewSquareSubListRequestMessage) httpResponsedMessage.getOrginalMessage();
-                    if (httpResponsedMessage.hasError()) {
-                        if (this.a.p != null) {
-                            this.a.p.onLoadError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                            return;
-                        }
-                        return;
-                    }
-                    List<ThreadData> liveList = alaNewSquareSubListResponseMessage.getLiveList();
-                    this.a.j = alaNewSquareSubListResponseMessage.hasMore();
-                    this.a.a = alaNewSquareSubListRequestMessage.getPn();
-                    if (this.a.a != 0 && ListUtils.getCount(this.a.m) != 0) {
-                        if (ListUtils.getCount(liveList) > 0) {
-                            this.a.T(liveList);
-                        }
-                    } else {
-                        AlaNewSquareSubListModel.L(alaNewSquareSubListRequestMessage.tabId);
-                        this.a.m.clear();
-                        this.a.n.clear();
-                        this.a.m = liveList;
-                        this.a.k = alaNewSquareSubListResponseMessage.getLiveCount();
-                        this.a.l = alaNewSquareSubListResponseMessage.getSortTypeList();
-                    }
-                    AlaNewSquareSubListModel.E(this.a);
-                    AlaNewSquareSubListModel alaNewSquareSubListModel = this.a;
-                    alaNewSquareSubListModel.M(alaNewSquareSubListModel.m, this.a.j);
-                    if (this.a.p != null) {
-                        this.a.p.a(this.a.j);
-                    }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || !(httpResponsedMessage instanceof AlaNewSquareSubListResponseMessage)) {
+                return;
+            }
+            AlaNewSquareSubListResponseMessage alaNewSquareSubListResponseMessage = (AlaNewSquareSubListResponseMessage) httpResponsedMessage;
+            if (!(httpResponsedMessage.getOrginalMessage() instanceof AlaNewSquareSubListRequestMessage)) {
+                return;
+            }
+            AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = (AlaNewSquareSubListRequestMessage) httpResponsedMessage.getOrginalMessage();
+            if (httpResponsedMessage.hasError()) {
+                if (this.a.p != null) {
+                    this.a.p.onLoadError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    return;
                 }
+                return;
+            }
+            List liveList = alaNewSquareSubListResponseMessage.getLiveList();
+            this.a.j = alaNewSquareSubListResponseMessage.hasMore();
+            this.a.a = alaNewSquareSubListRequestMessage.getPn();
+            if (this.a.a != 0 && ListUtils.getCount(this.a.m) != 0) {
+                if (ListUtils.getCount(liveList) > 0) {
+                    this.a.T(liveList);
+                }
+            } else {
+                AlaNewSquareSubListModel.L(alaNewSquareSubListRequestMessage.tabId);
+                this.a.m.clear();
+                this.a.n.clear();
+                this.a.m = liveList;
+                this.a.k = alaNewSquareSubListResponseMessage.getLiveCount();
+                this.a.l = alaNewSquareSubListResponseMessage.getSortTypeList();
+            }
+            AlaNewSquareSubListModel.E(this.a);
+            AlaNewSquareSubListModel alaNewSquareSubListModel = this.a;
+            alaNewSquareSubListModel.M(alaNewSquareSubListModel.m, this.a.j);
+            if (this.a.p != null) {
+                this.a.p.a(this.a.j);
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(boolean z);
-
-        void onLoadError(int i, String str);
     }
 
     static {
@@ -146,7 +167,68 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                 return;
             }
         }
-        u = new HashMap<>();
+        u = new HashMap();
+    }
+
+    public List N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.n;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public List P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.m;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.l;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getPn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.q);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -190,188 +272,6 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return i;
     }
 
-    public static void L(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
-            if (u.containsKey(Integer.valueOf(i))) {
-                u.put(Integer.valueOf(i), Integer.valueOf(u.get(Integer.valueOf(i)).intValue() + 1));
-            } else {
-                u.put(Integer.valueOf(i), 2);
-            }
-        }
-    }
-
-    public static int Q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
-            if (u.containsKey(Integer.valueOf(i))) {
-                return u.get(Integer.valueOf(i)).intValue();
-            }
-            u.put(Integer.valueOf(i), 1);
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void M(List<ThreadData> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.n = new ArrayList();
-        int size = list.size();
-        for (int i = 0; i < size; i += 2) {
-            if (this.o) {
-                bw5 bw5Var = new bw5();
-                mt5 mt5Var = new mt5();
-                mt5Var.e = this.i;
-                mt5Var.b = this.e;
-                mt5Var.c = this.d;
-                mt5Var.d = list.get(i);
-                bw5Var.a = mt5Var;
-                int i2 = i + 1;
-                if (i2 < size) {
-                    mt5 mt5Var2 = new mt5();
-                    mt5Var2.e = this.i;
-                    mt5Var2.b = this.e;
-                    mt5Var2.c = this.d;
-                    mt5Var2.d = list.get(i2);
-                    bw5Var.b = mt5Var2;
-                }
-                this.n.add(bw5Var);
-            } else {
-                cw5 cw5Var = new cw5();
-                mt5 mt5Var3 = new mt5();
-                mt5Var3.e = this.i;
-                mt5Var3.b = this.e;
-                mt5Var3.c = this.d;
-                mt5Var3.d = list.get(i);
-                cw5Var.a = mt5Var3;
-                int i3 = i + 1;
-                if (i3 < size) {
-                    mt5 mt5Var4 = new mt5();
-                    mt5Var4.e = this.i;
-                    mt5Var4.b = this.e;
-                    mt5Var4.c = this.d;
-                    mt5Var4.d = list.get(i3);
-                    cw5Var.b = mt5Var4;
-                }
-                this.n.add(cw5Var);
-            }
-        }
-    }
-
-    public List<Cdo> N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : (List) invokeV.objValue;
-    }
-
-    public int O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public List<ThreadData> P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : (List) invokeV.objValue;
-    }
-
-    public List<String> R() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : (List) invokeV.objValue;
-    }
-
-    public boolean S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
-    public final void T(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            for (ThreadData threadData : list) {
-                String tid = threadData.getTid();
-                if (!TextUtils.isEmpty(tid)) {
-                    boolean z = false;
-                    Iterator<ThreadData> it = this.m.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (tid.equals(it.next().getTid())) {
-                                z = true;
-                                break;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        this.m.add(threadData);
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.j) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.r >= this.s * 30 * 1000) {
-                    this.r = currentTimeMillis;
-                }
-                AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = new AlaNewSquareSubListRequestMessage();
-                alaNewSquareSubListRequestMessage.setPn(this.a);
-                alaNewSquareSubListRequestMessage.setPs(this.b);
-                alaNewSquareSubListRequestMessage.setSortType(this.c);
-                alaNewSquareSubListRequestMessage.setEntryName(this.e);
-                alaNewSquareSubListRequestMessage.setLableName(this.d);
-                alaNewSquareSubListRequestMessage.setLat(this.h);
-                alaNewSquareSubListRequestMessage.setLng(this.g);
-                int i = this.f;
-                alaNewSquareSubListRequestMessage.tabId = i;
-                alaNewSquareSubListRequestMessage.sessionId = this.r;
-                alaNewSquareSubListRequestMessage.refreshType = 1;
-                alaNewSquareSubListRequestMessage.refreshCount = Q(i) - 1;
-                alaNewSquareSubListRequestMessage.setHttpParams();
-                sendMessage(alaNewSquareSubListRequestMessage);
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void V() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = 0;
-            this.r = System.currentTimeMillis();
-            AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = new AlaNewSquareSubListRequestMessage();
-            alaNewSquareSubListRequestMessage.setPn(this.a);
-            alaNewSquareSubListRequestMessage.setPs(this.b);
-            alaNewSquareSubListRequestMessage.setSortType(this.c);
-            alaNewSquareSubListRequestMessage.setEntryName(this.e);
-            alaNewSquareSubListRequestMessage.setLableName(this.d);
-            alaNewSquareSubListRequestMessage.setLat(this.h);
-            alaNewSquareSubListRequestMessage.setLng(this.g);
-            int i = this.f;
-            alaNewSquareSubListRequestMessage.tabId = i;
-            alaNewSquareSubListRequestMessage.sessionId = this.r;
-            alaNewSquareSubListRequestMessage.refreshType = 0;
-            alaNewSquareSubListRequestMessage.refreshCount = Q(i);
-            alaNewSquareSubListRequestMessage.setHttpParams();
-            sendMessage(alaNewSquareSubListRequestMessage);
-        }
-    }
-
     public void W(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
@@ -390,39 +290,6 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.i = z;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getPn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.q);
         }
     }
 
@@ -458,6 +325,157 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.c = str;
+        }
+    }
+
+    public static void L(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            if (u.containsKey(Integer.valueOf(i))) {
+                u.put(Integer.valueOf(i), Integer.valueOf(((Integer) u.get(Integer.valueOf(i))).intValue() + 1));
+            } else {
+                u.put(Integer.valueOf(i), 2);
+            }
+        }
+    }
+
+    public final void T(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                ThreadData threadData = (ThreadData) it.next();
+                String tid = threadData.getTid();
+                if (!TextUtils.isEmpty(tid)) {
+                    boolean z = false;
+                    Iterator it2 = this.m.iterator();
+                    while (true) {
+                        if (!it2.hasNext()) {
+                            break;
+                        } else if (tid.equals(((ThreadData) it2.next()).getTid())) {
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (!z) {
+                        this.m.add(threadData);
+                    }
+                }
+            }
+        }
+    }
+
+    public static int Q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
+            if (u.containsKey(Integer.valueOf(i))) {
+                return ((Integer) u.get(Integer.valueOf(i))).intValue();
+            }
+            u.put(Integer.valueOf(i), 1);
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void M(List list, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) && !ListUtils.isEmpty(list)) {
+            this.n = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i += 2) {
+                if (this.o) {
+                    iw5 iw5Var = new iw5();
+                    tt5 tt5Var = new tt5();
+                    tt5Var.e = this.i;
+                    tt5Var.b = this.e;
+                    tt5Var.c = this.d;
+                    tt5Var.d = (ThreadData) list.get(i);
+                    iw5Var.a = tt5Var;
+                    int i2 = i + 1;
+                    if (i2 < size) {
+                        tt5 tt5Var2 = new tt5();
+                        tt5Var2.e = this.i;
+                        tt5Var2.b = this.e;
+                        tt5Var2.c = this.d;
+                        tt5Var2.d = (ThreadData) list.get(i2);
+                        iw5Var.b = tt5Var2;
+                    }
+                    this.n.add(iw5Var);
+                } else {
+                    jw5 jw5Var = new jw5();
+                    tt5 tt5Var3 = new tt5();
+                    tt5Var3.e = this.i;
+                    tt5Var3.b = this.e;
+                    tt5Var3.c = this.d;
+                    tt5Var3.d = (ThreadData) list.get(i);
+                    jw5Var.a = tt5Var3;
+                    int i3 = i + 1;
+                    if (i3 < size) {
+                        tt5 tt5Var4 = new tt5();
+                        tt5Var4.e = this.i;
+                        tt5Var4.b = this.e;
+                        tt5Var4.c = this.d;
+                        tt5Var4.d = (ThreadData) list.get(i3);
+                        jw5Var.b = tt5Var4;
+                    }
+                    this.n.add(jw5Var);
+                }
+            }
+        }
+    }
+
+    public boolean U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!this.j) {
+                return false;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.r >= this.s * 30 * 1000) {
+                this.r = currentTimeMillis;
+            }
+            AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = new AlaNewSquareSubListRequestMessage();
+            alaNewSquareSubListRequestMessage.setPn(this.a);
+            alaNewSquareSubListRequestMessage.setPs(this.b);
+            alaNewSquareSubListRequestMessage.setSortType(this.c);
+            alaNewSquareSubListRequestMessage.setEntryName(this.e);
+            alaNewSquareSubListRequestMessage.setLableName(this.d);
+            alaNewSquareSubListRequestMessage.setLat(this.h);
+            alaNewSquareSubListRequestMessage.setLng(this.g);
+            int i = this.f;
+            alaNewSquareSubListRequestMessage.tabId = i;
+            alaNewSquareSubListRequestMessage.sessionId = this.r;
+            alaNewSquareSubListRequestMessage.refreshType = 1;
+            alaNewSquareSubListRequestMessage.refreshCount = Q(i) - 1;
+            alaNewSquareSubListRequestMessage.setHttpParams();
+            sendMessage(alaNewSquareSubListRequestMessage);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void V() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = 0;
+            this.r = System.currentTimeMillis();
+            AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = new AlaNewSquareSubListRequestMessage();
+            alaNewSquareSubListRequestMessage.setPn(this.a);
+            alaNewSquareSubListRequestMessage.setPs(this.b);
+            alaNewSquareSubListRequestMessage.setSortType(this.c);
+            alaNewSquareSubListRequestMessage.setEntryName(this.e);
+            alaNewSquareSubListRequestMessage.setLableName(this.d);
+            alaNewSquareSubListRequestMessage.setLat(this.h);
+            alaNewSquareSubListRequestMessage.setLng(this.g);
+            int i = this.f;
+            alaNewSquareSubListRequestMessage.tabId = i;
+            alaNewSquareSubListRequestMessage.sessionId = this.r;
+            alaNewSquareSubListRequestMessage.refreshType = 0;
+            alaNewSquareSubListRequestMessage.refreshCount = Q(i);
+            alaNewSquareSubListRequestMessage.setHttpParams();
+            sendMessage(alaNewSquareSubListRequestMessage);
         }
     }
 }

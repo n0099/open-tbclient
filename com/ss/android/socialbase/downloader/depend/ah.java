@@ -10,15 +10,19 @@ public interface ah extends IInterface {
     long a(int i, int i2) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements ah {
+    public abstract class a extends Binder implements ah {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ah$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0675a implements ah {
+        public class C0671a implements ah {
             public static ah a;
             public IBinder b;
 
-            public C0675a(IBinder iBinder) {
+            public C0671a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -51,6 +55,10 @@ public interface ah extends IInterface {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
         }
 
+        public static ah a() {
+            return C0671a.a;
+        }
+
         public static ah a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -59,12 +67,7 @@ public interface ah extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ah)) {
                 return (ah) queryLocalInterface;
             }
-            return new C0675a(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+            return new C0671a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -81,10 +84,6 @@ public interface ah extends IInterface {
             parcel2.writeNoException();
             parcel2.writeLong(a);
             return true;
-        }
-
-        public static ah a() {
-            return C0675a.a;
         }
     }
 }

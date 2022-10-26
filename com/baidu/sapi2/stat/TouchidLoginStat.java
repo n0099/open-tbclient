@@ -31,7 +31,7 @@ public class TouchidLoginStat implements NoProguard {
     public static final String VALUE_PAGE = "native_guide_finger";
     public static final String VALUE_UNABLE = "0";
     public static String sValue;
-    public static Map<String, Object> statExtMap;
+    public static Map statExtMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

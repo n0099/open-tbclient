@@ -91,9 +91,30 @@ public class AdapterHelper implements OpReorderer.Callback {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 int i = this.cmd;
-                return i != 1 ? i != 2 ? i != 4 ? i != 8 ? "??" : "mv" : "up" : u.B : "add";
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 4) {
+                            if (i != 8) {
+                                return "??";
+                            }
+                            return "mv";
+                        }
+                        return "up";
+                    }
+                    return u.B;
+                }
+                return "add";
             }
             return (String) invokeV.objValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return (((this.cmd * 31) + this.positionStart) * 31) + this.itemCount;
+            }
+            return invokeV.intValue;
         }
 
         public boolean equals(Object obj) {
@@ -114,26 +135,20 @@ public class AdapterHelper implements OpReorderer.Callback {
                 if (i == 8 && Math.abs(this.itemCount - this.positionStart) == 1 && this.itemCount == updateOp.positionStart && this.positionStart == updateOp.itemCount) {
                     return true;
                 }
-                if (this.itemCount == updateOp.itemCount && this.positionStart == updateOp.positionStart) {
-                    Object obj2 = this.payload;
-                    if (obj2 != null) {
-                        if (!obj2.equals(updateOp.payload)) {
-                            return false;
-                        }
-                    } else if (updateOp.payload != null) {
+                if (this.itemCount != updateOp.itemCount || this.positionStart != updateOp.positionStart) {
+                    return false;
+                }
+                Object obj2 = this.payload;
+                if (obj2 != null) {
+                    if (!obj2.equals(updateOp.payload)) {
                         return false;
                     }
-                    return true;
+                } else if (updateOp.payload != null) {
+                    return false;
                 }
-                return false;
+                return true;
             }
             return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((this.cmd * 31) + this.positionStart) * 31) + this.itemCount : invokeV.intValue;
         }
 
         public String toString() {
@@ -167,6 +182,71 @@ public class AdapterHelper implements OpReorderer.Callback {
         }
     }
 
+    public AdapterHelper(Callback callback, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callback, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mUpdateOpPool = new Pools.SimplePool(30);
+        this.mPendingUpdates = new ArrayList<>();
+        this.mPostponedList = new ArrayList<>();
+        this.mExistingUpdateTypes = 0;
+        this.mCallback = callback;
+        this.mDisableRecycler = z;
+        this.mOpReorderer = new OpReorderer(this);
+    }
+
+    public int findPositionOffset(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
+            int size = this.mPostponedList.size();
+            while (i2 < size) {
+                UpdateOp updateOp = this.mPostponedList.get(i2);
+                int i3 = updateOp.cmd;
+                if (i3 == 8) {
+                    int i4 = updateOp.positionStart;
+                    if (i4 == i) {
+                        i = updateOp.itemCount;
+                    } else {
+                        if (i4 < i) {
+                            i--;
+                        }
+                        if (updateOp.itemCount <= i) {
+                            i++;
+                        }
+                    }
+                } else {
+                    int i5 = updateOp.positionStart;
+                    if (i5 > i) {
+                        continue;
+                    } else if (i3 == 2) {
+                        int i6 = updateOp.itemCount;
+                        if (i < i5 + i6) {
+                            return -1;
+                        }
+                        i -= i6;
+                    } else if (i3 == 1) {
+                        i += updateOp.itemCount;
+                    }
+                }
+                i2++;
+            }
+            return i;
+        }
+        return invokeII.intValue;
+    }
+
     private void applyAdd(UpdateOp updateOp) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, updateOp) == null) {
@@ -181,6 +261,57 @@ public class AdapterHelper implements OpReorderer.Callback {
         }
     }
 
+    public AdapterHelper addUpdateOp(UpdateOp... updateOpArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, updateOpArr)) == null) {
+            Collections.addAll(this.mPendingUpdates, updateOpArr);
+            return this;
+        }
+        return (AdapterHelper) invokeL.objValue;
+    }
+
+    public int findPositionOffset(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return findPositionOffset(i, 0);
+        }
+        return invokeI.intValue;
+    }
+
+    public boolean hasAnyUpdateTypes(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if ((i & this.mExistingUpdateTypes) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // androidx.recyclerview.widget.OpReorderer.Callback
+    public void recycleUpdateOp(UpdateOp updateOp) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, updateOp) == null) && !this.mDisableRecycler) {
+            updateOp.payload = null;
+            this.mUpdateOpPool.release(updateOp);
+        }
+    }
+
+    public void recycleUpdateOpsAndClearList(List<UpdateOp> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                recycleUpdateOp(list.get(i));
+            }
+            list.clear();
+        }
+    }
+
     private void applyRemove(UpdateOp updateOp) {
         boolean z;
         char c;
@@ -192,15 +323,7 @@ public class AdapterHelper implements OpReorderer.Callback {
             int i3 = i;
             int i4 = 0;
             while (i3 < i2) {
-                if (this.mCallback.findViewHolder(i3) != null || canFindInPreLayout(i3)) {
-                    if (c2 == 0) {
-                        dispatchAndUpdateViewHolders(obtainUpdateOp(2, i, i4, null));
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    c = 1;
-                } else {
+                if (this.mCallback.findViewHolder(i3) == null && !canFindInPreLayout(i3)) {
                     if (c2 == 1) {
                         postponeAndUpdateViewHolders(obtainUpdateOp(2, i, i4, null));
                         z = true;
@@ -208,6 +331,14 @@ public class AdapterHelper implements OpReorderer.Callback {
                         z = false;
                     }
                     c = 0;
+                } else {
+                    if (c2 == 0) {
+                        dispatchAndUpdateViewHolders(obtainUpdateOp(2, i, i4, null));
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    c = 1;
                 }
                 if (z) {
                     i3 -= i4;
@@ -240,20 +371,20 @@ public class AdapterHelper implements OpReorderer.Callback {
             char c = 65535;
             int i4 = 0;
             while (i < i2) {
-                if (this.mCallback.findViewHolder(i) != null || canFindInPreLayout(i)) {
-                    if (c == 0) {
-                        dispatchAndUpdateViewHolders(obtainUpdateOp(4, i3, i4, updateOp.payload));
-                        i3 = i;
-                        i4 = 0;
-                    }
-                    c = 1;
-                } else {
+                if (this.mCallback.findViewHolder(i) == null && !canFindInPreLayout(i)) {
                     if (c == 1) {
                         postponeAndUpdateViewHolders(obtainUpdateOp(4, i3, i4, updateOp.payload));
                         i3 = i;
                         i4 = 0;
                     }
                     c = 0;
+                } else {
+                    if (c == 0) {
+                        dispatchAndUpdateViewHolders(obtainUpdateOp(4, i3, i4, updateOp.payload));
+                        i3 = i;
+                        i4 = 0;
+                    }
+                    c = 1;
                 }
                 i4++;
                 i++;
@@ -302,8 +433,77 @@ public class AdapterHelper implements OpReorderer.Callback {
         return invokeI.booleanValue;
     }
 
+    private void postponeAndUpdateViewHolders(UpdateOp updateOp) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, updateOp) == null) {
+            this.mPostponedList.add(updateOp);
+            int i = updateOp.cmd;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 4) {
+                        if (i == 8) {
+                            this.mCallback.offsetPositionsForMove(updateOp.positionStart, updateOp.itemCount);
+                            return;
+                        }
+                        throw new IllegalArgumentException("Unknown update op type for " + updateOp);
+                    }
+                    this.mCallback.markViewHoldersUpdated(updateOp.positionStart, updateOp.itemCount, updateOp.payload);
+                    return;
+                }
+                this.mCallback.offsetPositionsForRemovingLaidOutOrNewView(updateOp.positionStart, updateOp.itemCount);
+                return;
+            }
+            this.mCallback.offsetPositionsForAdd(updateOp.positionStart, updateOp.itemCount);
+        }
+    }
+
+    public int applyPendingUpdatesToPosition(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int size = this.mPendingUpdates.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                UpdateOp updateOp = this.mPendingUpdates.get(i2);
+                int i3 = updateOp.cmd;
+                if (i3 != 1) {
+                    if (i3 != 2) {
+                        if (i3 == 8) {
+                            int i4 = updateOp.positionStart;
+                            if (i4 == i) {
+                                i = updateOp.itemCount;
+                            } else {
+                                if (i4 < i) {
+                                    i--;
+                                }
+                                if (updateOp.itemCount <= i) {
+                                    i++;
+                                }
+                            }
+                        }
+                    } else {
+                        int i5 = updateOp.positionStart;
+                        if (i5 <= i) {
+                            int i6 = updateOp.itemCount;
+                            if (i5 + i6 > i) {
+                                return -1;
+                            }
+                            i -= i6;
+                        } else {
+                            continue;
+                        }
+                    }
+                } else if (updateOp.positionStart <= i) {
+                    i += updateOp.itemCount;
+                }
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
     private void dispatchAndUpdateViewHolders(UpdateOp updateOp) {
         int i;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, updateOp) == null) {
             int i2 = updateOp.cmd;
@@ -311,18 +511,25 @@ public class AdapterHelper implements OpReorderer.Callback {
                 int updatePositionWithPostponed = updatePositionWithPostponed(updateOp.positionStart, i2);
                 int i3 = updateOp.positionStart;
                 int i4 = updateOp.cmd;
-                if (i4 == 2) {
-                    i = 0;
-                } else if (i4 != 4) {
-                    throw new IllegalArgumentException("op should be remove or update." + updateOp);
+                if (i4 != 2) {
+                    if (i4 == 4) {
+                        i = 1;
+                    } else {
+                        throw new IllegalArgumentException("op should be remove or update." + updateOp);
+                    }
                 } else {
-                    i = 1;
+                    i = 0;
                 }
                 int i5 = 1;
                 for (int i6 = 1; i6 < updateOp.itemCount; i6++) {
                     int updatePositionWithPostponed2 = updatePositionWithPostponed(updateOp.positionStart + (i * i6), updateOp.cmd);
                     int i7 = updateOp.cmd;
-                    if (i7 == 2 ? updatePositionWithPostponed2 == updatePositionWithPostponed : i7 == 4 && updatePositionWithPostponed2 == updatePositionWithPostponed + 1) {
+                    if (i7 == 2 ? updatePositionWithPostponed2 != updatePositionWithPostponed : i7 != 4 || updatePositionWithPostponed2 != updatePositionWithPostponed + 1) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (z) {
                         i5++;
                     } else {
                         UpdateOp obtainUpdateOp = obtainUpdateOp(updateOp.cmd, updatePositionWithPostponed, i5, updateOp.payload);
@@ -346,25 +553,6 @@ public class AdapterHelper implements OpReorderer.Callback {
                 return;
             }
             throw new IllegalArgumentException("should not dispatch add or move for pre layout");
-        }
-    }
-
-    private void postponeAndUpdateViewHolders(UpdateOp updateOp) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, updateOp) == null) {
-            this.mPostponedList.add(updateOp);
-            int i = updateOp.cmd;
-            if (i == 1) {
-                this.mCallback.offsetPositionsForAdd(updateOp.positionStart, updateOp.itemCount);
-            } else if (i == 2) {
-                this.mCallback.offsetPositionsForRemovingLaidOutOrNewView(updateOp.positionStart, updateOp.itemCount);
-            } else if (i == 4) {
-                this.mCallback.markViewHoldersUpdated(updateOp.positionStart, updateOp.itemCount, updateOp.payload);
-            } else if (i == 8) {
-                this.mCallback.offsetPositionsForMove(updateOp.positionStart, updateOp.itemCount);
-            } else {
-                throw new IllegalArgumentException("Unknown update op type for " + updateOp);
-            }
         }
     }
 
@@ -444,58 +632,6 @@ public class AdapterHelper implements OpReorderer.Callback {
         return invokeII.intValue;
     }
 
-    public AdapterHelper addUpdateOp(UpdateOp... updateOpArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, updateOpArr)) == null) {
-            Collections.addAll(this.mPendingUpdates, updateOpArr);
-            return this;
-        }
-        return (AdapterHelper) invokeL.objValue;
-    }
-
-    public int applyPendingUpdatesToPosition(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int size = this.mPendingUpdates.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                UpdateOp updateOp = this.mPendingUpdates.get(i2);
-                int i3 = updateOp.cmd;
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        int i4 = updateOp.positionStart;
-                        if (i4 <= i) {
-                            int i5 = updateOp.itemCount;
-                            if (i4 + i5 > i) {
-                                return -1;
-                            }
-                            i -= i5;
-                        } else {
-                            continue;
-                        }
-                    } else if (i3 == 8) {
-                        int i6 = updateOp.positionStart;
-                        if (i6 == i) {
-                            i = updateOp.itemCount;
-                        } else {
-                            if (i6 < i) {
-                                i--;
-                            }
-                            if (updateOp.itemCount <= i) {
-                                i++;
-                            }
-                        }
-                    }
-                } else if (updateOp.positionStart <= i) {
-                    i += updateOp.itemCount;
-                }
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
     public void consumePostponedUpdates() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -503,6 +639,39 @@ public class AdapterHelper implements OpReorderer.Callback {
             for (int i = 0; i < size; i++) {
                 this.mCallback.onDispatchSecondPass(this.mPostponedList.get(i));
             }
+            recycleUpdateOpsAndClearList(this.mPostponedList);
+            this.mExistingUpdateTypes = 0;
+        }
+    }
+
+    public boolean hasPendingUpdates() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.mPendingUpdates.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasUpdates() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (!this.mPostponedList.isEmpty() && !this.mPendingUpdates.isEmpty()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            recycleUpdateOpsAndClearList(this.mPendingUpdates);
             recycleUpdateOpsAndClearList(this.mPostponedList);
             this.mExistingUpdateTypes = 0;
         }
@@ -516,18 +685,24 @@ public class AdapterHelper implements OpReorderer.Callback {
             for (int i = 0; i < size; i++) {
                 UpdateOp updateOp = this.mPendingUpdates.get(i);
                 int i2 = updateOp.cmd;
-                if (i2 == 1) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 4) {
+                            if (i2 == 8) {
+                                this.mCallback.onDispatchSecondPass(updateOp);
+                                this.mCallback.offsetPositionsForMove(updateOp.positionStart, updateOp.itemCount);
+                            }
+                        } else {
+                            this.mCallback.onDispatchSecondPass(updateOp);
+                            this.mCallback.markViewHoldersUpdated(updateOp.positionStart, updateOp.itemCount, updateOp.payload);
+                        }
+                    } else {
+                        this.mCallback.onDispatchSecondPass(updateOp);
+                        this.mCallback.offsetPositionsForRemovingInvisible(updateOp.positionStart, updateOp.itemCount);
+                    }
+                } else {
                     this.mCallback.onDispatchSecondPass(updateOp);
                     this.mCallback.offsetPositionsForAdd(updateOp.positionStart, updateOp.itemCount);
-                } else if (i2 == 2) {
-                    this.mCallback.onDispatchSecondPass(updateOp);
-                    this.mCallback.offsetPositionsForRemovingInvisible(updateOp.positionStart, updateOp.itemCount);
-                } else if (i2 == 4) {
-                    this.mCallback.onDispatchSecondPass(updateOp);
-                    this.mCallback.markViewHoldersUpdated(updateOp.positionStart, updateOp.itemCount, updateOp.payload);
-                } else if (i2 == 8) {
-                    this.mCallback.onDispatchSecondPass(updateOp);
-                    this.mCallback.offsetPositionsForMove(updateOp.positionStart, updateOp.itemCount);
                 }
                 Runnable runnable = this.mOnItemProcessedCallback;
                 if (runnable != null) {
@@ -544,38 +719,15 @@ public class AdapterHelper implements OpReorderer.Callback {
         if (interceptable == null || interceptable.invokeLI(1048580, this, updateOp, i) == null) {
             this.mCallback.onDispatchFirstPass(updateOp);
             int i2 = updateOp.cmd;
-            if (i2 == 2) {
-                this.mCallback.offsetPositionsForRemovingInvisible(i, updateOp.itemCount);
-            } else if (i2 == 4) {
-                this.mCallback.markViewHoldersUpdated(i, updateOp.itemCount, updateOp.payload);
-            } else {
+            if (i2 != 2) {
+                if (i2 == 4) {
+                    this.mCallback.markViewHoldersUpdated(i, updateOp.itemCount, updateOp.payload);
+                    return;
+                }
                 throw new IllegalArgumentException("only remove and update ops can be dispatched in first pass");
             }
+            this.mCallback.offsetPositionsForRemovingInvisible(i, updateOp.itemCount);
         }
-    }
-
-    public int findPositionOffset(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? findPositionOffset(i, 0) : invokeI.intValue;
-    }
-
-    public boolean hasAnyUpdateTypes(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (i & this.mExistingUpdateTypes) != 0 : invokeI.booleanValue;
-    }
-
-    public boolean hasPendingUpdates() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPendingUpdates.size() > 0 : invokeV.booleanValue;
-    }
-
-    public boolean hasUpdates() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (this.mPostponedList.isEmpty() || this.mPendingUpdates.isEmpty()) ? false : true : invokeV.booleanValue;
     }
 
     @Override // androidx.recyclerview.widget.OpReorderer.Callback
@@ -583,15 +735,15 @@ public class AdapterHelper implements OpReorderer.Callback {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj})) == null) {
-            UpdateOp acquire = this.mUpdateOpPool.acquire();
-            if (acquire == null) {
+            UpdateOp updateOp = (UpdateOp) this.mUpdateOpPool.acquire();
+            if (updateOp == null) {
                 return new UpdateOp(i, i2, i3, obj);
             }
-            acquire.cmd = i;
-            acquire.positionStart = i2;
-            acquire.itemCount = i3;
-            acquire.payload = obj;
-            return acquire;
+            updateOp.cmd = i;
+            updateOp.positionStart = i2;
+            updateOp.itemCount = i3;
+            updateOp.payload = obj;
+            return updateOp;
         }
         return (UpdateOp) invokeCommon.objValue;
     }
@@ -605,7 +757,10 @@ public class AdapterHelper implements OpReorderer.Callback {
             }
             this.mPendingUpdates.add(obtainUpdateOp(4, i, i2, obj));
             this.mExistingUpdateTypes |= 4;
-            return this.mPendingUpdates.size() == 1;
+            if (this.mPendingUpdates.size() != 1) {
+                return false;
+            }
+            return true;
         }
         return invokeIIL.booleanValue;
     }
@@ -619,7 +774,27 @@ public class AdapterHelper implements OpReorderer.Callback {
             }
             this.mPendingUpdates.add(obtainUpdateOp(1, i, i2, null));
             this.mExistingUpdateTypes |= 1;
-            return this.mPendingUpdates.size() == 1;
+            if (this.mPendingUpdates.size() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public boolean onItemRangeRemoved(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i, i2)) == null) {
+            if (i2 < 1) {
+                return false;
+            }
+            this.mPendingUpdates.add(obtainUpdateOp(2, i, i2, null));
+            this.mExistingUpdateTypes |= 2;
+            if (this.mPendingUpdates.size() != 1) {
+                return false;
+            }
+            return true;
         }
         return invokeII.booleanValue;
     }
@@ -634,25 +809,14 @@ public class AdapterHelper implements OpReorderer.Callback {
             if (i3 == 1) {
                 this.mPendingUpdates.add(obtainUpdateOp(8, i, i2, null));
                 this.mExistingUpdateTypes |= 8;
-                return this.mPendingUpdates.size() == 1;
+                if (this.mPendingUpdates.size() != 1) {
+                    return false;
+                }
+                return true;
             }
             throw new IllegalArgumentException("Moving more than 1 item is not supported yet");
         }
         return invokeIII.booleanValue;
-    }
-
-    public boolean onItemRangeRemoved(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i, i2)) == null) {
-            if (i2 < 1) {
-                return false;
-            }
-            this.mPendingUpdates.add(obtainUpdateOp(2, i, i2, null));
-            this.mExistingUpdateTypes |= 2;
-            return this.mPendingUpdates.size() == 1;
-        }
-        return invokeII.booleanValue;
     }
 
     public void preProcess() {
@@ -663,14 +827,20 @@ public class AdapterHelper implements OpReorderer.Callback {
             for (int i = 0; i < size; i++) {
                 UpdateOp updateOp = this.mPendingUpdates.get(i);
                 int i2 = updateOp.cmd;
-                if (i2 == 1) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 4) {
+                            if (i2 == 8) {
+                                applyMove(updateOp);
+                            }
+                        } else {
+                            applyUpdate(updateOp);
+                        }
+                    } else {
+                        applyRemove(updateOp);
+                    }
+                } else {
                     applyAdd(updateOp);
-                } else if (i2 == 2) {
-                    applyRemove(updateOp);
-                } else if (i2 == 4) {
-                    applyUpdate(updateOp);
-                } else if (i2 == 8) {
-                    applyMove(updateOp);
                 }
                 Runnable runnable = this.mOnItemProcessedCallback;
                 if (runnable != null) {
@@ -679,100 +849,5 @@ public class AdapterHelper implements OpReorderer.Callback {
             }
             this.mPendingUpdates.clear();
         }
-    }
-
-    @Override // androidx.recyclerview.widget.OpReorderer.Callback
-    public void recycleUpdateOp(UpdateOp updateOp) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, updateOp) == null) || this.mDisableRecycler) {
-            return;
-        }
-        updateOp.payload = null;
-        this.mUpdateOpPool.release(updateOp);
-    }
-
-    public void recycleUpdateOpsAndClearList(List<UpdateOp> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                recycleUpdateOp(list.get(i));
-            }
-            list.clear();
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            recycleUpdateOpsAndClearList(this.mPendingUpdates);
-            recycleUpdateOpsAndClearList(this.mPostponedList);
-            this.mExistingUpdateTypes = 0;
-        }
-    }
-
-    public AdapterHelper(Callback callback, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callback, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mUpdateOpPool = new Pools.SimplePool(30);
-        this.mPendingUpdates = new ArrayList<>();
-        this.mPostponedList = new ArrayList<>();
-        this.mExistingUpdateTypes = 0;
-        this.mCallback = callback;
-        this.mDisableRecycler = z;
-        this.mOpReorderer = new OpReorderer(this);
-    }
-
-    public int findPositionOffset(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
-            int size = this.mPostponedList.size();
-            while (i2 < size) {
-                UpdateOp updateOp = this.mPostponedList.get(i2);
-                int i3 = updateOp.cmd;
-                if (i3 == 8) {
-                    int i4 = updateOp.positionStart;
-                    if (i4 == i) {
-                        i = updateOp.itemCount;
-                    } else {
-                        if (i4 < i) {
-                            i--;
-                        }
-                        if (updateOp.itemCount <= i) {
-                            i++;
-                        }
-                    }
-                } else {
-                    int i5 = updateOp.positionStart;
-                    if (i5 > i) {
-                        continue;
-                    } else if (i3 == 2) {
-                        int i6 = updateOp.itemCount;
-                        if (i < i5 + i6) {
-                            return -1;
-                        }
-                        i -= i6;
-                    } else if (i3 == 1) {
-                        i += updateOp.itemCount;
-                    }
-                }
-                i2++;
-            }
-            return i;
-        }
-        return invokeII.intValue;
     }
 }

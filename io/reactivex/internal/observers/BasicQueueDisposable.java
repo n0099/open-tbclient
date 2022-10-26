@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.internal.fuseable.QueueDisposable;
 /* loaded from: classes8.dex */
-public abstract class BasicQueueDisposable<T> implements QueueDisposable<T> {
+public abstract class BasicQueueDisposable implements QueueDisposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,20 +27,20 @@ public abstract class BasicQueueDisposable<T> implements QueueDisposable<T> {
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(T t) {
+    public final boolean offer(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             throw new UnsupportedOperationException("Should not be called");
         }
         return invokeL.booleanValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(T t, T t2) {
+    public final boolean offer(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, t2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, obj2)) == null) {
             throw new UnsupportedOperationException("Should not be called");
         }
         return invokeLL.booleanValue;

@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
+public class DeleteRequest extends HttpCommonRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class DeleteRequestBuilder extends HttpCommonRequestBuilder<DeleteRequestBuilder> {
+    public class DeleteRequestBuilder extends HttpCommonRequestBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,14 +60,6 @@ public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public DeleteRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DeleteRequest(this) : (DeleteRequest) invokeV.objValue;
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public DeleteRequestBuilder(DeleteRequest deleteRequest, AbstractHttpManager abstractHttpManager) {
             super(deleteRequest, abstractHttpManager);
@@ -87,6 +79,17 @@ public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
                     return;
                 }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public DeleteRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new DeleteRequest(this);
+            }
+            return (DeleteRequest) invokeV.objValue;
         }
     }
 
@@ -114,15 +117,10 @@ public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? this.okRequestBuilder.delete(requestBody).build() : (Request) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public DeleteRequestBuilder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new DeleteRequestBuilder(this) : (DeleteRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
+            return this.okRequestBuilder.delete(requestBody).build();
+        }
+        return (Request) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -130,6 +128,20 @@ public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
     public DeleteRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, abstractHttpManager)) == null) ? new DeleteRequestBuilder(this, abstractHttpManager) : (DeleteRequestBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, abstractHttpManager)) == null) {
+            return new DeleteRequestBuilder(this, abstractHttpManager);
+        }
+        return (DeleteRequestBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public DeleteRequestBuilder newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new DeleteRequestBuilder(this);
+        }
+        return (DeleteRequestBuilder) invokeV.objValue;
     }
 }

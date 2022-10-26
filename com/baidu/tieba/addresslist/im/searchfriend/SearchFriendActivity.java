@@ -22,11 +22,10 @@ import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.coreExtra.search.ResponseSearchFriendMessage;
 import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq5;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.v25;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.iq5;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,19 +35,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.c {
+public class SearchFriendActivity extends BaseActivity implements UserIconBox.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq5 a;
+    public iq5 a;
     public NavigationBar b;
     public View c;
     public View d;
-    public bq5.c e;
+    public iq5.c e;
     public CustomMessageListener f;
     public final HttpMessageListener g;
 
     /* loaded from: classes3.dex */
-    public class a implements bq5.c {
+    public class a implements iq5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchFriendActivity a;
@@ -71,7 +70,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // com.baidu.tieba.bq5.c
+        @Override // com.baidu.tieba.iq5.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -111,28 +110,30 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             SearchFriendResult.UserInfo userInfo;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ArrayList) && (customResponsedMessage.getOrginalMessage() instanceof CustomMessage)) {
-                CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                if ((customMessage.getData() instanceof SearchFriendResult.UserInfo) && (userInfo = (SearchFriendResult.UserInfo) customMessage.getData()) != null) {
-                    ArrayList arrayList = (ArrayList) customResponsedMessage.getData();
-                    if (arrayList != null && arrayList.size() != 0) {
-                        Iterator it = arrayList.iterator();
-                        while (it.hasNext()) {
-                            Object next = it.next();
-                            if ((next instanceof v25) && userInfo.getUserId() == ((v25) next).d()) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
-                                return;
-                            }
-                        }
-                        this.a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ArrayList) || !(customResponsedMessage.getOrginalMessage() instanceof CustomMessage)) {
+                return;
+            }
+            CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
+            if (!(customMessage.getData() instanceof SearchFriendResult.UserInfo) || (userInfo = (SearchFriendResult.UserInfo) customMessage.getData()) == null) {
+                return;
+            }
+            ArrayList arrayList = (ArrayList) customResponsedMessage.getData();
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    Object next = it.next();
+                    if ((next instanceof b35) && userInfo.getUserId() == ((b35) next).d()) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                         return;
                     }
-                    this.a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
                 }
+                this.a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
+                return;
             }
+            this.a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
         }
     }
 
@@ -171,29 +172,30 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 this.a.a.j(true);
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
-                if (httpResponsedMessage instanceof ResponseSearchFriendMessage) {
-                    ResponseSearchFriendMessage responseSearchFriendMessage = (ResponseSearchFriendMessage) httpResponsedMessage;
-                    if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
-                        List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
-                        if (userInfo != null && userInfo.size() > 0) {
-                            this.a.a.k(null);
-                            SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
-                            if (userInfo2 == null) {
-                                SearchFriendActivity searchFriendActivity = this.a;
-                                searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c59));
-                                return;
-                            }
-                            this.a.sendMessage(new CustomMessage(2001265, userInfo2));
+                if (!(httpResponsedMessage instanceof ResponseSearchFriendMessage)) {
+                    return;
+                }
+                ResponseSearchFriendMessage responseSearchFriendMessage = (ResponseSearchFriendMessage) httpResponsedMessage;
+                if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
+                    List userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
+                    if (userInfo != null && userInfo.size() > 0) {
+                        this.a.a.k(null);
+                        SearchFriendResult.UserInfo userInfo2 = (SearchFriendResult.UserInfo) userInfo.get(0);
+                        if (userInfo2 == null) {
+                            SearchFriendActivity searchFriendActivity = this.a;
+                            searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c68));
                             return;
                         }
-                        SearchFriendActivity searchFriendActivity2 = this.a;
-                        searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c59));
-                    } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        SearchFriendActivity searchFriendActivity3 = this.a;
-                        searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c59));
-                    } else {
-                        this.a.showToast(httpResponsedMessage.getErrorString());
+                        this.a.sendMessage(new CustomMessage(2001265, userInfo2));
+                        return;
                     }
+                    SearchFriendActivity searchFriendActivity2 = this.a;
+                    searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c68));
+                } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                    SearchFriendActivity searchFriendActivity3 = this.a;
+                    searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c68));
+                } else {
+                    this.a.showToast(httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -283,9 +285,9 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         this.g = new c(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
     }
 
-    public final void A1() {
+    public final void z1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SEARCH_FRIEND_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SEARCH_FRIEND);
             tbHttpMessageTask.setResponsedClass(ResponseSearchFriendMessage.class);
@@ -295,16 +297,28 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public ug<TbImageView> H() {
+    public vg H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UserIconBox.c(getPageContext().getPageActivity(), 8) : (ug) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return UserIconBox.c(getPageContext().getPageActivity(), 8);
+        }
+        return (vg) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+            this.a.h();
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
             this.b.onChangeSkinType(getPageContext(), i);
             this.a.f(i);
@@ -316,32 +330,23 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004f);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09169a);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09168c);
             d dVar = new d(this);
             this.c.setOnClickListener(dVar);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091699);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09168b);
             this.b = navigationBar;
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0640);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0649);
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-            this.d = findViewById(R.id.obfuscated_res_0x7f09169c);
-            this.a = new bq5(getPageContext(), this.d);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09168e);
+            this.a = new iq5(getPageContext(), this.d);
             this.d.setOnClickListener(dVar);
             this.a.l(this.e);
             TiebaStatic.log("add_new");
             registerListener(this.f);
-            A1();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDestroy();
-            this.a.h();
+            z1();
         }
     }
 }

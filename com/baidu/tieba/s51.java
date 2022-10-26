@@ -1,44 +1,119 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.webkit.WebView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.util.NetUtil;
+import com.baidu.nadcore.webview.container.BaseNativeBrowserContainer;
+import com.baidu.searchbox.perfframe.ioc.Constant;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tieba.j41;
+import com.baidu.tieba.m51;
+import com.baidu.tieba.q51;
+import com.baidu.tieba.r51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class s51 {
+public class s51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public long b;
-    public final t51 c;
-    public boolean d;
-    public final p51 e;
+    public BaseNativeBrowserContainer a;
+    public WebView b;
+    public q51 c;
+    public n51 d;
+    public final l51 e;
+    public w41 f;
+    public boolean g;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
+    public View.OnLayoutChangeListener i;
+    public boolean j;
+    public final Object k;
+    public long l;
+    public int m;
+    public t51 n;
+    public final v51 o;
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void y(WebView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048603, this, webView, str, bitmap) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class d implements r51.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ s51 b;
 
-        public a() {
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.a.b.b.canGoBack()) {
+                        this.a.b.b.goBack();
+                    } else {
+                        this.a.a.finish();
+                    }
+                }
+            }
+        }
+
+        public d(s51 s51Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s51Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,135 +123,204 @@ public final class s51 {
                     return;
                 }
             }
-            this.a = "";
-            this.b = "";
-            this.c = "";
-            this.d = "";
-            this.e = "";
-            this.f = "";
-            this.g = "";
-            this.h = "";
+            this.b = s51Var;
+            this.a = activity;
         }
 
-        public final String a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.r51.a
+        public void a() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
-        }
-
-        public final String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
-        }
-
-        public final String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (String) invokeV.objValue;
-        }
-
-        public final String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        public final String g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public final String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (String) invokeV.objValue;
-        }
-
-        public final void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.d = str;
-            }
-        }
-
-        public final void j(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.c = str;
-            }
-        }
-
-        public final void k(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.f = str;
-            }
-        }
-
-        public final void l(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.e = str;
-            }
-        }
-
-        public final void m(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.h = str;
-            }
-        }
-
-        public final void n(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.b = str;
-            }
-        }
-
-        public final void o(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.a = str;
-            }
-        }
-
-        public final void p(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.g = str;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b.post(new a(this));
             }
         }
     }
 
-    public s51(p51 p51Var) {
+    /* loaded from: classes5.dex */
+    public class a implements v51 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s51 a;
+
+        public a(s51 s51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s51Var;
+        }
+
+        @Override // com.baidu.tieba.v51
+        public void loadUrl(String str, Map map) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && this.a.b != null) {
+                this.a.b.loadUrl(str, map);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements j41.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s51 a;
+
+        public b(s51 s51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s51Var;
+        }
+
+        @Override // com.baidu.tieba.j41.b
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.a.n(str);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements m51.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebView a;
+        public final /* synthetic */ s51 b;
+
+        public c(s51 s51Var, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s51Var, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = s51Var;
+            this.a = webView;
+        }
+
+        @Override // com.baidu.tieba.m51.a
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Rect rect = new Rect();
+                this.a.getWindowVisibleDisplayFrame(rect);
+                int i = this.b.a.getResources().getDisplayMetrics().heightPixels - rect.bottom;
+                if (i < 0) {
+                    i = 0;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("visibleHeight", this.a.getHeight() - i);
+                    jSONObject.put("keyboardHeight", i);
+                    jSONObject.put("webviewHeight", this.a.getHeight());
+                    jSONObject.put("videoHeight", 0);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements View.OnLayoutChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ s51 b;
+
+        public e(s51 s51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = s51Var;
+        }
+
+        @Override // android.view.View.OnLayoutChangeListener
+        public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+                Rect rect = new Rect();
+                view2.getWindowVisibleDisplayFrame(rect);
+                int i9 = rect.bottom;
+                int i10 = this.a;
+                if (i9 != i10 && i10 != 0) {
+                    LinearLayout Q = this.b.a.Q();
+                    int i11 = this.a - rect.bottom;
+                    if (i11 <= 200) {
+                        if (i3 == i7 && this.b.j) {
+                            Q.setPadding(Q.getPaddingLeft(), Q.getPaddingTop(), Q.getPaddingRight(), 0);
+                            b51.b(this.b.o, Q.getHeight(), 0, Q.getHeight(), 0);
+                            s51 s51Var = this.b;
+                            s51Var.F(s51Var.b, -1, -1);
+                        }
+                        this.b.j = false;
+                    } else {
+                        this.b.j = true;
+                        if (i3 == i7) {
+                            Q.setPadding(Q.getPaddingLeft(), Q.getPaddingTop(), Q.getPaddingRight(), i11);
+                            b51.b(this.b.o, Q.getHeight() - i11, i11, Q.getHeight(), 0);
+                            s51 s51Var2 = this.b;
+                            s51Var2.F(s51Var2.b, -1, -1);
+                        }
+                    }
+                    this.a = rect.bottom;
+                    return;
+                }
+                this.a = rect.bottom;
+            }
+        }
+    }
+
+    public s51(BaseNativeBrowserContainer baseNativeBrowserContainer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p51Var};
+            Object[] objArr = {baseNativeBrowserContainer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -186,132 +330,372 @@ public final class s51 {
                 return;
             }
         }
-        this.e = p51Var;
-        this.a = new a();
-        this.b = -1L;
-        this.c = new t51();
+        this.e = new l51();
+        this.g = true;
+        this.h = null;
+        this.k = new Object();
+        this.l = 0L;
+        this.n = null;
+        this.o = new a(this);
+        this.a = baseNativeBrowserContainer;
     }
 
-    public final void a() {
-        String str;
-        String jSONObject;
+    public void B(String str) {
+        q51 q51Var;
+        q51.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a aVar = this.a;
-            p51 p51Var = this.e;
-            if (p51Var == null || (str = p51Var.h) == null) {
-                p51 p51Var2 = this.e;
-                str = p51Var2 != null ? p51Var2.a : null;
-            }
-            if (str == null) {
-                str = "";
-            }
-            aVar.o(str);
-            this.a.i(String.valueOf(this.b));
-            this.a.k(String.valueOf((((float) ((System.currentTimeMillis() - this.c.c()) + this.c.b())) * 1.0f) / ((float) 1000)));
-            this.a.p(vq0.a() ? "1" : "0");
-            a aVar2 = this.a;
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("Nairobi", "0");
-                Unit unit = Unit.INSTANCE;
-                jSONObject = jSONObject2.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …\n            }.toString()");
-            } catch (JSONException unused) {
-                jSONObject = new JSONObject().toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().toString()");
-            }
-            aVar2.m(jSONObject);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (q51Var = this.c) != null && (cVar = q51Var.b) != null && !TextUtils.isEmpty(cVar.a)) {
+            this.a.n(this.c.b.a);
         }
     }
 
-    public final void b() {
+    public void n(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a aVar = this.a;
-            p51 p51Var = this.e;
-            aVar.n((p51Var == null || (r1 = p51Var.f) == null) ? "" : "");
+        if (interceptable == null || interceptable.invokeL(1048592, this, intent) == null) {
+            this.c = q51.b(intent);
         }
     }
 
-    public final void c() {
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            if (this.l == 0) {
+                this.l = System.currentTimeMillis();
+            }
+            t51 t51Var = this.n;
+            if (t51Var != null) {
+                t51Var.e(this.b);
+            }
+        }
+    }
+
+    public void A(WebView webView, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i, str, str2) == null) {
+            if (!NetUtil.a(this.a.Q().getContext())) {
+                this.m = -1000;
+            } else {
+                this.m = i;
+            }
+            t51 t51Var = this.n;
+            if (t51Var != null) {
+                t51Var.g(this.m);
+            }
+        }
+    }
+
+    public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.j(String.valueOf(System.currentTimeMillis()));
-            this.c.f(System.currentTimeMillis());
-            b();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            i();
-            this.c.e();
-        }
-    }
-
-    public final void e(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            this.b = System.currentTimeMillis();
-            Object tag = webView.getTag(R.id.obfuscated_res_0x7f09161f);
-            this.a.l(tag == null ? "0" : tag.toString());
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.h(System.currentTimeMillis());
-            long c = this.c.c() - this.c.d();
-            if (c < 0) {
-                c = 0;
+            n51 n51Var = this.d;
+            if (n51Var != null) {
+                n51Var.e();
             }
-            t51 t51Var = this.c;
-            t51Var.g(t51Var.b() + c);
+            t51 t51Var = this.n;
+            if (t51Var != null) {
+                t51Var.h();
+            }
         }
     }
 
-    public final void g(int i) {
+    public void D() {
+        n51 n51Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a.l(String.valueOf(i));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (n51Var = this.d) != null) {
+            n51Var.f();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a.Q() != null && this.i != null) {
+            this.a.Q().removeOnLayoutChangeListener(this.i);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.i(System.currentTimeMillis());
-            if (this.d) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.d = null;
+            w41 w41Var = this.f;
+            if (w41Var != null) {
+                w41Var.d();
+                this.f = null;
             }
-            long d = this.c.d() - this.c.a();
-            if (d < 0) {
-                d = 0;
-            }
-            this.c.g(d);
-            this.d = true;
         }
     }
 
-    public final void i() {
+    public n51 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            a();
-            o01 g = new o01().g("1029");
-            Intrinsics.checkNotNullExpressionValue(g, "PlogBuilder().setCID(Plo…lder.C_ID_LP_PERFORMANCE)");
-            g.b("f2", this.a.g());
-            g.b("f14", this.a.f());
-            g.b("ef2", this.a.b());
-            g.b("ef3", this.a.a());
-            g.b("ef4", this.a.d());
-            g.b("ef5", this.a.c());
-            g.b("ef12", this.a.h());
-            g.b("ef15", this.a.e());
-            h01.b(g);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return (n51) invokeV.objValue;
+    }
+
+    public final Intent j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.a.j();
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            q51 q51Var = this.c;
+            if (q51Var == null) {
+                return null;
+            }
+            return q51Var.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            q51 q51Var = this.c;
+            if (q51Var == null) {
+                return null;
+            }
+            return q51Var.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (this.f == null) {
+                this.f = new w41();
+            }
+            q51 q51Var = this.c;
+            if (q51Var != null) {
+                this.f.b(q51Var.j);
+            }
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.i = new e(this);
+            if (this.a.Q() != null) {
+                this.a.Q().addOnLayoutChangeListener(this.i);
+            }
+        }
+    }
+
+    public final void t() {
+        Intent j;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || (j = j()) == null) {
+            return;
+        }
+        n(j);
+        o();
+        this.d = new n51();
+        o41.a().a(this.k, new b(this));
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            t();
+            t51 t51Var = new t51(this.c);
+            this.n = t51Var;
+            t51Var.c();
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            n51 n51Var = this.d;
+            if (n51Var != null) {
+                n51Var.d();
+            }
+            t51 t51Var = this.n;
+            if (t51Var != null) {
+                t51Var.f();
+            }
+        }
+    }
+
+    public void F(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
+            if (view2.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                view2.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
+            } else if (view2.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                view2.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+            } else if (view2.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                view2.setLayoutParams(new RelativeLayout.LayoutParams(i, i2));
+            } else if (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                view2.setLayoutParams(new ViewGroup.MarginLayoutParams(i, i2));
+            } else if (view2.getLayoutParams() instanceof ViewGroup.LayoutParams) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(i, i2));
+            }
+        }
+    }
+
+    public boolean G(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, webView, str, str2)) == null) {
+            H(webView, str2);
+            q51 q51Var = this.c;
+            if (q51Var == null || !q51Var.a()) {
+                return true;
+            }
+            return !vi0.a(webView.getContext(), str2);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void H(WebView webView, String str) {
+        q51 q51Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.startsWith("tel:") && webView.getContext() != null && (q51Var = this.c) != null && !TextUtils.isEmpty(q51Var.f)) {
+            new g81().p(webView.getContext(), this.c.f, "tel");
+        }
+    }
+
+    public void q(Activity activity, WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, activity, webView) == null) {
+            m51 m51Var = new m51(0);
+            m51Var.a(this.e);
+            m51Var.b(new c(this, webView));
+            this.a.I(m51Var, "NadJsControl");
+            this.a.I(new r51(new d(this, activity)), "go_back_js_interface_name");
+        }
+    }
+
+    public final void f() {
+        ViewTreeObserver viewTreeObserver;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a.Q() != null && this.h != null && (viewTreeObserver = this.a.Q().getViewTreeObserver()) != null && viewTreeObserver.isAlive()) {
+            viewTreeObserver.removeOnGlobalLayoutListener(this.h);
+        }
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            this.d.g();
+            if (j() != null) {
+                String k = k();
+                if (!TextUtils.isEmpty(k)) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("Referer", k);
+                    this.a.i0(hashMap);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || this.a.Q() == null) {
+            return;
+        }
+        if (this.h == null) {
+            this.h = new a61(this.a.Q());
+        }
+        ViewTreeObserver viewTreeObserver = this.a.Q().getViewTreeObserver();
+        if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
+            viewTreeObserver.addOnGlobalLayoutListener(this.h);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || this.a.O() == null) {
+            return;
+        }
+        RelativeLayout relativeLayout = new RelativeLayout(this.a.Q().getContext());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+        layoutParams.gravity = 80;
+        relativeLayout.setBackgroundColor(0);
+        relativeLayout.setVisibility(8);
+        this.a.O().addView(relativeLayout, layoutParams);
+        this.a.n0(relativeLayout);
+        String str = null;
+        if (this.c != null) {
+            JSONObject jSONObject = new JSONObject();
+            yz0.f(jSONObject, LegoListActivityConfig.AD_ID, this.c.c);
+            yz0.f(jSONObject, "lp_url", this.c.a);
+            yz0.f(jSONObject, "log_ext", this.c.f);
+            yz0.f(jSONObject, Constant.KEY_BUSINESS, "native_ads");
+            q51.b bVar = this.c.k;
+            if (bVar != null) {
+                yz0.f(jSONObject, "key", bVar.e);
+                yz0.f(jSONObject, "url", this.c.k.a);
+                yz0.f(jSONObject, "close_v_dl", this.c.k.b);
+                yz0.f(jSONObject, "app_icon", this.c.k.d);
+                yz0.f(jSONObject, "app_name", this.c.k.c);
+            }
+            str = jSONObject.toString();
+        }
+        if (!TextUtils.isEmpty(str)) {
+            this.a.q0(str);
+        }
+    }
+
+    public void u(Context context, ViewGroup viewGroup, WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048599, this, context, viewGroup, webView) == null) {
+            this.b = webView;
+            p();
+            if (d51.g()) {
+                f();
+                g();
+            } else if (this.g) {
+                f();
+                s();
+            } else {
+                r();
+                g();
+            }
+        }
+    }
+
+    public void w() {
+        n51 n51Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            q51 q51Var = this.c;
+            if (q51Var != null && TextUtils.equals(q51Var.i, "1") && (n51Var = this.d) != null) {
+                this.d.b(this.e.a(), n51Var.a(this.c.f, this.l, this.m, false), this.c.a, this.a.M(), 0L);
+            }
+            n51 n51Var2 = this.d;
+            if (n51Var2 != null) {
+                n51Var2.c();
+            }
+            o41.a().release();
+            h();
+            f();
+            g();
+            if (this.i != null) {
+                this.a.Q().removeOnLayoutChangeListener(this.i);
+            }
+            cm0.a().unregister(this.k);
+            t51 t51Var = this.n;
+            if (t51Var != null) {
+                t51Var.d();
+            }
         }
     }
 }

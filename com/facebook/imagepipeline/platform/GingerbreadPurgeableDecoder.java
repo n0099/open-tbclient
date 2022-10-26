@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ByteStreams;
 import com.facebook.common.internal.Closeables;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Throwables;
 import com.facebook.common.memory.PooledByteBuffer;
@@ -27,7 +26,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-@DoNotStrip
 /* loaded from: classes7.dex */
 public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +34,6 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     @Nullable
     public final WebpBitmapFactory mWebpBitmapFactory;
 
-    @DoNotStrip
     public GingerbreadPurgeableDecoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,19 +50,25 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
         this.mWebpBitmapFactory = WebpSupportStatus.loadWebpBitmapFactoryIfExists();
     }
 
-    public static MemoryFile copyToMemoryFile(CloseableReference<PooledByteBuffer> closeableReference, int i, @Nullable byte[] bArr) throws IOException {
+    public static MemoryFile copyToMemoryFile(CloseableReference closeableReference, int i, @Nullable byte[] bArr) throws IOException {
         InterceptResult invokeLIL;
+        int length;
         OutputStream outputStream;
         LimitedInputStream limitedInputStream;
         PooledByteBufferInputStream pooledByteBufferInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, closeableReference, i, bArr)) == null) {
+            if (bArr == null) {
+                length = 0;
+            } else {
+                length = bArr.length;
+            }
             PooledByteBufferInputStream pooledByteBufferInputStream2 = null;
             OutputStream outputStream2 = null;
-            MemoryFile memoryFile = new MemoryFile(null, (bArr == null ? 0 : bArr.length) + i);
+            MemoryFile memoryFile = new MemoryFile(null, length + i);
             memoryFile.allowPurging(false);
             try {
-                pooledByteBufferInputStream = new PooledByteBufferInputStream(closeableReference.get());
+                pooledByteBufferInputStream = new PooledByteBufferInputStream((PooledByteBuffer) closeableReference.get());
                 try {
                     limitedInputStream = new LimitedInputStream(pooledByteBufferInputStream, i);
                 } catch (Throwable th) {
@@ -103,7 +106,7 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
         return (MemoryFile) invokeLIL.objValue;
     }
 
-    private Bitmap decodeFileDescriptorAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, byte[] bArr, BitmapFactory.Options options) {
+    private Bitmap decodeFileDescriptorAsPurgeable(CloseableReference closeableReference, int i, byte[] bArr, BitmapFactory.Options options) {
         InterceptResult invokeLILL;
         MemoryFile copyToMemoryFile;
         Interceptable interceptable = $ic;
@@ -177,18 +180,27 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, BitmapFactory.Options options) {
+    public Bitmap decodeByteArrayAsPurgeable(CloseableReference closeableReference, BitmapFactory.Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, closeableReference, options)) == null) ? decodeFileDescriptorAsPurgeable(closeableReference, closeableReference.get().size(), null, options) : (Bitmap) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, closeableReference, options)) == null) {
+            return decodeFileDescriptorAsPurgeable(closeableReference, ((PooledByteBuffer) closeableReference.get()).size(), null, options);
+        }
+        return (Bitmap) invokeLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options) {
+    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference closeableReference, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
+        byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableReference, i, options)) == null) {
-            return decodeFileDescriptorAsPurgeable(closeableReference, i, DalvikPurgeableDecoder.endsWithEOI(closeableReference, i) ? null : DalvikPurgeableDecoder.EOI, options);
+            if (DalvikPurgeableDecoder.endsWithEOI(closeableReference, i)) {
+                bArr = null;
+            } else {
+                bArr = DalvikPurgeableDecoder.EOI;
+            }
+            return decodeFileDescriptorAsPurgeable(closeableReference, i, bArr, options);
         }
         return (Bitmap) invokeLIL.objValue;
     }

@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import java.io.File;
 /* loaded from: classes4.dex */
-public interface lo1 {
-    boolean a(Message message);
+public interface lo1 extends dx2 {
+    File a();
+
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

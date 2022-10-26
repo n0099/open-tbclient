@@ -92,30 +92,16 @@ public class DynamicFile implements NoProGuard {
     }
 
     @Deprecated
-    public boolean equals(Object obj) {
+    public boolean equalsDynamicFile(DynamicFile dynamicFile) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj != null && (obj instanceof DynamicFile)) {
-                return equalsDynamicFile((DynamicFile) obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dynamicFile)) == null) {
+            if (this.channelId.equals(dynamicFile.channelId) && this.packageName.equals(dynamicFile.packageName) && this.version == dynamicFile.version && this.md5.equals(dynamicFile.md5)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public boolean equalsDynamicFile(DynamicFile dynamicFile) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dynamicFile)) == null) ? this.channelId.equals(dynamicFile.channelId) && this.packageName.equals(dynamicFile.packageName) && this.version == dynamicFile.version && this.md5.equals(dynamicFile.md5) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public boolean isOlderThan(DynamicFile dynamicFile) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dynamicFile)) == null) ? this.version < dynamicFile.version : invokeL.booleanValue;
     }
 
     @Deprecated
@@ -134,6 +120,32 @@ public class DynamicFile implements NoProGuard {
             dynamicFile.downloadUrl = this.downloadUrl;
             dynamicFile.packageName = this.packageName;
         }
+    }
+
+    @Deprecated
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == null || !(obj instanceof DynamicFile)) {
+                return false;
+            }
+            return equalsDynamicFile((DynamicFile) obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public boolean isOlderThan(DynamicFile dynamicFile) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dynamicFile)) == null) {
+            if (this.version < dynamicFile.version) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Deprecated

@@ -60,20 +60,21 @@ public final class WebvttParserUtil {
         }
         while (true) {
             String readLine2 = parsableByteArray.readLine();
-            if (readLine2 == null) {
-                return null;
-            }
-            if (COMMENT.matcher(readLine2).matches()) {
-                do {
-                    readLine = parsableByteArray.readLine();
-                    if (readLine != null) {
+            if (readLine2 != null) {
+                if (COMMENT.matcher(readLine2).matches()) {
+                    do {
+                        readLine = parsableByteArray.readLine();
+                        if (readLine != null) {
+                        }
+                    } while (!readLine.isEmpty());
+                } else {
+                    Matcher matcher = WebvttCueParser.CUE_HEADER_PATTERN.matcher(readLine2);
+                    if (matcher.matches()) {
+                        return matcher;
                     }
-                } while (!readLine.isEmpty());
-            } else {
-                Matcher matcher = WebvttCueParser.CUE_HEADER_PATTERN.matcher(readLine2);
-                if (matcher.matches()) {
-                    return matcher;
                 }
+            } else {
+                return null;
             }
         }
     }
@@ -88,6 +89,17 @@ public final class WebvttParserUtil {
             throw new NumberFormatException("Percentages must end with %");
         }
         return invokeL.floatValue;
+    }
+
+    public static void validateWebvttHeaderLine(ParsableByteArray parsableByteArray) throws SubtitleDecoderException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, parsableByteArray) == null) {
+            String readLine = parsableByteArray.readLine();
+            if (readLine != null && HEADER.matcher(readLine).matches()) {
+                return;
+            }
+            throw new SubtitleDecoderException("Expected WEBVTT. Got " + readLine);
+        }
     }
 
     public static long parseTimestampUs(String str) throws NumberFormatException {
@@ -106,15 +118,5 @@ public final class WebvttParserUtil {
             return j2 * 1000;
         }
         return invokeL.longValue;
-    }
-
-    public static void validateWebvttHeaderLine(ParsableByteArray parsableByteArray) throws SubtitleDecoderException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, parsableByteArray) == null) {
-            String readLine = parsableByteArray.readLine();
-            if (readLine == null || !HEADER.matcher(readLine).matches()) {
-                throw new SubtitleDecoderException("Expected WEBVTT. Got " + readLine);
-            }
-        }
     }
 }

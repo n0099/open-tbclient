@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.web.client;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -66,22 +65,22 @@ public class AuthWebViewClient extends BaseWebViewClient {
             String string = parseUrl.getString("error");
             String string2 = parseUrl.getString("error_code");
             String string3 = parseUrl.getString("error_description");
-            if (this.param.getBaseData() == null || TextUtils.isEmpty(this.param.getBaseData().getCallback())) {
-                wbAuthListener = null;
-            } else {
+            if (this.param.getBaseData() != null && !TextUtils.isEmpty(this.param.getBaseData().getCallback())) {
                 String callback = this.param.getBaseData().getCallback();
                 WeiboCallbackManager weiboCallbackManager = WeiboCallbackManager.getInstance();
                 wbAuthListener = weiboCallbackManager.getWeiboAuthListener(callback);
                 weiboCallbackManager.removeWeiboAuthListener(callback);
+            } else {
+                wbAuthListener = null;
             }
-            if (string != null || string2 != null) {
+            if (string == null && string2 == null) {
                 if (wbAuthListener != null) {
-                    wbAuthListener.onFailure(new WbConnectErrorMessage(string2, string3));
+                    Oauth2AccessToken parseAccessToken = Oauth2AccessToken.parseAccessToken(parseUrl);
+                    AccessTokenKeeper.writeAccessToken(this.context, parseAccessToken);
+                    wbAuthListener.onSuccess(parseAccessToken);
                 }
             } else if (wbAuthListener != null) {
-                Oauth2AccessToken parseAccessToken = Oauth2AccessToken.parseAccessToken(parseUrl);
-                AccessTokenKeeper.writeAccessToken(this.context, parseAccessToken);
-                wbAuthListener.onSuccess(parseAccessToken);
+                wbAuthListener.onFailure(new WbConnectErrorMessage(string2, string3));
             }
         }
     }
@@ -93,7 +92,10 @@ public class AuthWebViewClient extends BaseWebViewClient {
             Uri parse = Uri.parse(this.param.getBaseData().getAuthInfo().getRedirectUrl());
             Uri parse2 = Uri.parse(str);
             String host = parse.getHost();
-            return !TextUtils.isEmpty(host) && host.equals(parse2.getHost());
+            if (!TextUtils.isEmpty(host) && host.equals(parse2.getHost())) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -112,9 +114,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
                 } catch (Exception unused) {
                     return false;
                 }
-            } else if (!str.startsWith(WeiboSdkWebActivity.BROWSER_CLOSE_SCHEME)) {
-                return isMatchWithRedirectUrl(str) && !TextUtils.isEmpty(Utility.parseUrl(str).getString("access_token"));
-            } else {
+            } else if (str.startsWith(WeiboSdkWebActivity.BROWSER_CLOSE_SCHEME)) {
                 if (this.param.getBaseData() != null && !TextUtils.isEmpty(this.param.getBaseData().getCallback())) {
                     String callback = this.param.getBaseData().getCallback();
                     WeiboCallbackManager weiboCallbackManager = WeiboCallbackManager.getInstance();
@@ -124,6 +124,10 @@ public class AuthWebViewClient extends BaseWebViewClient {
                     weiboCallbackManager.removeWeiboAuthListener(callback);
                 }
                 return true;
+            } else if (isMatchWithRedirectUrl(str) && !TextUtils.isEmpty(Utility.parseUrl(str).getString("access_token"))) {
+                return true;
+            } else {
+                return false;
             }
         }
         return invokeLL.booleanValue;
@@ -134,15 +138,14 @@ public class AuthWebViewClient extends BaseWebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.closeWeb();
-            if (this.param.getBaseData() == null || TextUtils.isEmpty(this.param.getBaseData().getCallback())) {
-                return;
+            if (this.param.getBaseData() != null && !TextUtils.isEmpty(this.param.getBaseData().getCallback())) {
+                String callback = this.param.getBaseData().getCallback();
+                WeiboCallbackManager weiboCallbackManager = WeiboCallbackManager.getInstance();
+                if (weiboCallbackManager.getWeiboAuthListener(callback) != null) {
+                    weiboCallbackManager.getWeiboAuthListener(callback).cancel();
+                }
+                weiboCallbackManager.removeWeiboAuthListener(callback);
             }
-            String callback = this.param.getBaseData().getCallback();
-            WeiboCallbackManager weiboCallbackManager = WeiboCallbackManager.getInstance();
-            if (weiboCallbackManager.getWeiboAuthListener(callback) != null) {
-                weiboCallbackManager.getWeiboAuthListener(callback).cancel();
-            }
-            weiboCallbackManager.removeWeiboAuthListener(callback);
         }
     }
 
@@ -172,15 +175,14 @@ public class AuthWebViewClient extends BaseWebViewClient {
             if (webViewRequestCallback != null) {
                 webViewRequestCallback.onPageFinishedCallBack(webView, str);
             }
-            if (!isMatchWithRedirectUrl(str) || this.authed) {
-                return;
-            }
-            this.authed = true;
-            handleRedirectUrl(str);
-            webView.stopLoading();
-            WebViewRequestCallback webViewRequestCallback2 = this.requestCallback;
-            if (webViewRequestCallback2 != null) {
-                webViewRequestCallback2.closePage();
+            if (isMatchWithRedirectUrl(str) && !this.authed) {
+                this.authed = true;
+                handleRedirectUrl(str);
+                webView.stopLoading();
+                WebViewRequestCallback webViewRequestCallback2 = this.requestCallback;
+                if (webViewRequestCallback2 != null) {
+                    webViewRequestCallback2.closePage();
+                }
             }
         }
     }
@@ -199,7 +201,19 @@ public class AuthWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    @TargetApi(24)
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i, str, str2) == null) {
+            super.onReceivedError(webView, i, str, str2);
+            LogUtil.d(TAG, "onReceivedError");
+            WebViewRequestCallback webViewRequestCallback = this.requestCallback;
+            if (webViewRequestCallback != null) {
+                webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, webResourceRequest, webResourceError) == null) {
@@ -213,7 +227,6 @@ public class AuthWebViewClient extends BaseWebViewClient {
     }
 
     @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient, android.webkit.WebViewClient
-    @TargetApi(24)
     public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -233,18 +246,5 @@ public class AuthWebViewClient extends BaseWebViewClient {
             return needOverLoad(webView, str);
         }
         return invokeLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i, str, str2) == null) {
-            super.onReceivedError(webView, i, str, str2);
-            LogUtil.d(TAG, "onReceivedError");
-            WebViewRequestCallback webViewRequestCallback = this.requestCallback;
-            if (webViewRequestCallback != null) {
-                webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
-            }
-        }
     }
 }

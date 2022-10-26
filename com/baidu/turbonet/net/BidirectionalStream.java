@@ -14,7 +14,7 @@ public abstract class BidirectionalStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,24 +24,14 @@ public abstract class BidirectionalStream {
         }
     }
 
+    public abstract void a(ByteBuffer byteBuffer);
+
+    public abstract void b(ByteBuffer byteBuffer, boolean z);
+
     /* loaded from: classes6.dex */
-    public static abstract class Callback {
+    public abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public Callback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         public void a(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo) {
             Interceptable interceptable = $ic;
@@ -66,6 +56,20 @@ public abstract class BidirectionalStream {
         public abstract void g(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo);
 
         public abstract void h(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer, boolean z) throws Exception;
+
+        public Callback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public BidirectionalStream() {
@@ -81,8 +85,4 @@ public abstract class BidirectionalStream {
             }
         }
     }
-
-    public abstract void a(ByteBuffer byteBuffer);
-
-    public abstract void b(ByteBuffer byteBuffer, boolean z);
 }

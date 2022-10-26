@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.og6;
+import com.baidu.tieba.vg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.SearchPostForum.SearchPostForumResIdl;
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public og6 mSearchData;
+    public vg6 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumHttpResponseMessage(int i) {
@@ -37,30 +37,31 @@ public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public og6 getSearchData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSearchData : (og6) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         SearchPostForumResIdl searchPostForumResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (searchPostForumResIdl = (SearchPostForumResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchPostForumResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (searchPostForumResIdl = (SearchPostForumResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchPostForumResIdl.class)) != null) {
+            Error error = searchPostForumResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(searchPostForumResIdl.error.usermsg);
+            }
+            if (getError() == 0 && getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) && searchPostForumResIdl.data != null) {
+                vg6 vg6Var = new vg6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+                this.mSearchData = vg6Var;
+                vg6Var.b(searchPostForumResIdl.data);
+            }
         }
-        Error error = searchPostForumResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(searchPostForumResIdl.error.usermsg);
+    }
+
+    public vg6 getSearchData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSearchData;
         }
-        if (getError() != 0 || getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) || searchPostForumResIdl.data == null) {
-            return;
-        }
-        og6 og6Var = new og6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-        this.mSearchData = og6Var;
-        og6Var.b(searchPostForumResIdl.data);
+        return (vg6) invokeV.objValue;
     }
 }

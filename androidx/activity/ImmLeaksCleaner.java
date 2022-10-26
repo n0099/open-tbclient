@@ -3,9 +3,6 @@ package androidx.activity;
 import android.app.Activity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -17,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-@RequiresApi(19)
 /* loaded from: classes.dex */
 public final class ImmLeaksCleaner implements LifecycleEventObserver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -64,7 +60,6 @@ public final class ImmLeaksCleaner implements LifecycleEventObserver {
         this.mActivity = activity;
     }
 
-    @MainThread
     public static void initializeReflectiveFields() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
@@ -86,43 +81,44 @@ public final class ImmLeaksCleaner implements LifecycleEventObserver {
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
+    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_DESTROY) {
-            if (sReflectedFieldsInitialized == 0) {
-                initializeReflectiveFields();
-            }
-            if (sReflectedFieldsInitialized == 1) {
-                InputMethodManager inputMethodManager = (InputMethodManager) this.mActivity.getSystemService("input_method");
-                try {
-                    Object obj = sHField.get(inputMethodManager);
-                    if (obj == null) {
-                        return;
-                    }
-                    synchronized (obj) {
-                        try {
-                            try {
-                                View view2 = (View) sServedViewField.get(inputMethodManager);
-                                if (view2 == null) {
-                                    return;
-                                }
-                                if (view2.isAttachedToWindow()) {
-                                    return;
-                                }
-                                try {
-                                    sNextServedViewField.set(inputMethodManager, null);
-                                    inputMethodManager.isActive();
-                                } catch (IllegalAccessException unused) {
-                                }
-                            } catch (ClassCastException unused2) {
-                            } catch (IllegalAccessException unused3) {
-                            }
-                        } catch (Throwable th) {
-                            throw th;
-                        }
-                    }
-                } catch (IllegalAccessException unused4) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, lifecycleOwner, event) != null) || event != Lifecycle.Event.ON_DESTROY) {
+            return;
+        }
+        if (sReflectedFieldsInitialized == 0) {
+            initializeReflectiveFields();
+        }
+        if (sReflectedFieldsInitialized == 1) {
+            InputMethodManager inputMethodManager = (InputMethodManager) this.mActivity.getSystemService("input_method");
+            try {
+                Object obj = sHField.get(inputMethodManager);
+                if (obj == null) {
+                    return;
                 }
+                synchronized (obj) {
+                    try {
+                        try {
+                            View view2 = (View) sServedViewField.get(inputMethodManager);
+                            if (view2 == null) {
+                                return;
+                            }
+                            if (view2.isAttachedToWindow()) {
+                                return;
+                            }
+                            try {
+                                sNextServedViewField.set(inputMethodManager, null);
+                                inputMethodManager.isActive();
+                            } catch (IllegalAccessException unused) {
+                            }
+                        } catch (ClassCastException unused2) {
+                        } catch (IllegalAccessException unused3) {
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+            } catch (IllegalAccessException unused4) {
             }
         }
     }

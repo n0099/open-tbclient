@@ -13,7 +13,7 @@ import java.util.List;
 public interface m {
     int a(String str, String str2);
 
-    List<DownloadInfo> a(String str);
+    List a(String str);
 
     void a();
 
@@ -37,7 +37,7 @@ public interface m {
 
     void a(int i, z zVar);
 
-    void a(int i, List<com.ss.android.socialbase.downloader.model.b> list);
+    void a(int i, List list);
 
     void a(int i, boolean z);
 
@@ -47,7 +47,7 @@ public interface m {
 
     void a(com.ss.android.socialbase.downloader.model.b bVar);
 
-    void a(List<String> list);
+    void a(List list);
 
     void a(boolean z, boolean z2);
 
@@ -55,11 +55,11 @@ public interface m {
 
     DownloadInfo b(String str, String str2);
 
-    List<DownloadInfo> b(String str);
+    List b(String str);
 
     void b(int i, int i2, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
 
-    void b(int i, List<com.ss.android.socialbase.downloader.model.b> list);
+    void b(int i, List list);
 
     void b(int i, boolean z);
 
@@ -67,13 +67,13 @@ public interface m {
 
     void b(DownloadTask downloadTask);
 
-    void b(List<String> list);
+    void b(List list);
 
     boolean b();
 
     boolean b(int i);
 
-    List<DownloadInfo> c(String str);
+    List c(String str);
 
     void c(int i);
 
@@ -83,15 +83,15 @@ public interface m {
 
     boolean c(DownloadInfo downloadInfo);
 
-    List<DownloadInfo> d();
+    List d();
 
-    List<DownloadInfo> d(String str);
+    List d(String str);
 
     void d(int i);
 
     long e(int i);
 
-    List<DownloadInfo> e(String str);
+    List e(String str);
 
     boolean e();
 
@@ -105,7 +105,7 @@ public interface m {
 
     DownloadInfo h(int i);
 
-    List<com.ss.android.socialbase.downloader.model.b> i(int i);
+    List i(int i);
 
     void j(int i);
 

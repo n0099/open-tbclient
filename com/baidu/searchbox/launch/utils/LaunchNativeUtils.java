@@ -14,6 +14,8 @@ public class LaunchNativeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native long getClkTck();
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -43,6 +45,4 @@ public class LaunchNativeUtils {
             }
         }
     }
-
-    public static native long getClkTck();
 }

@@ -31,7 +31,6 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.log.TraceLog;
 import com.yy.hiidostatis.message.module.sessionreport.CalAction;
-import com.yy.hiidostatis.message.module.sessionreport.EventValue;
 import com.yy.hiidostatis.message.utils.AndroidUtil;
 import com.yy.hiidostatis.message.utils.KVIO;
 import com.yy.hiidostatis.message.utils.NoNull;
@@ -68,7 +67,7 @@ public class HiidoSDK {
     }
 
     /* loaded from: classes8.dex */
-    public static class Options {
+    public class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BEHAVIOR_SEND_THRESHOLD_DEFAULT = 10;
         public static final int BEHAVIOR_SEND_THRESHOLD_MAX = 100;
@@ -90,7 +89,7 @@ public class HiidoSDK {
         public int defaultMetricsInterval;
         public boolean gaidEnable;
         public float gyroscopeThreshold;
-        public Set<String> ignoreActivity;
+        public Set ignoreActivity;
         public int interval;
         @Deprecated
         public boolean isAbroad;
@@ -164,126 +163,6 @@ public class HiidoSDK {
                 return this;
             }
             return (Options) invokeL.objValue;
-        }
-
-        public long getBackgroundDurationMillisAsQuit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.backgroundDurationMillisAsQuit : invokeV.longValue;
-        }
-
-        public String getBdCuid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bdCuid : (String) invokeV.objValue;
-        }
-
-        public int getBehaviorSendThreshold() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.behaviorSendThreshold : invokeV.intValue;
-        }
-
-        public int getDefaultMetricsExpire() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.defaultMetricsExpire : invokeV.intValue;
-        }
-
-        public int getDefaultMetricsInterval() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.defaultMetricsInterval : invokeV.intValue;
-        }
-
-        public Set<String> getIgnoreActivity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.ignoreActivity : (Set) invokeV.objValue;
-        }
-
-        public int getInterval() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.interval : invokeV.intValue;
-        }
-
-        @Deprecated
-        public boolean isAbroad() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isAbroad : invokeV.booleanValue;
-        }
-
-        public boolean isGaidEnable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.gaidEnable : invokeV.booleanValue;
-        }
-
-        public boolean isLogOn() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isLogOn : invokeV.booleanValue;
-        }
-
-        public boolean isOpenAutoTrack() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.openAutoTrack : invokeV.booleanValue;
-        }
-
-        public boolean isOpenCrashMonitor() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.isOpenCrashMonitor : invokeV.booleanValue;
-        }
-
-        @Deprecated
-        public boolean isOpenDoShort() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isOpenDoShort : invokeV.booleanValue;
-        }
-
-        public boolean isOpenSDKMetrics() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.openSDKMetrics : invokeV.booleanValue;
-        }
-
-        public boolean isOpenSensorMonitor() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.openSensorMonitor : invokeV.booleanValue;
-        }
-
-        public boolean isShowFloatingDialog() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? FloatingService.INSTANCT.isDebug() : invokeV.booleanValue;
-        }
-
-        public boolean isUseOaid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.useOaid : invokeV.booleanValue;
-        }
-
-        public boolean isWaitGrant() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.waitGrant : invokeV.booleanValue;
-        }
-
-        public Options needUserAgree() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                HiidoSDK.instance().setUserAgreed(false);
-                return this;
-            }
-            return (Options) invokeV.objValue;
         }
 
         @Deprecated
@@ -383,7 +262,7 @@ public class HiidoSDK {
                 if (strArr == null) {
                     return this;
                 }
-                Set<String> set = this.ignoreActivity;
+                Set set = this.ignoreActivity;
                 if (set == null) {
                     this.ignoreActivity = new HashSet(strArr.length);
                 } else {
@@ -499,18 +378,6 @@ public class HiidoSDK {
             return (Options) invokeZ.objValue;
         }
 
-        public Options setSensorThreshold(float f, float f2, float f3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                this.gyroscopeThreshold = f;
-                this.accelerometerThreshold = f2;
-                this.lightThreshold = f3;
-                return this;
-            }
-            return (Options) invokeCommon.objValue;
-        }
-
         public Options setShowFloatingDialog(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -550,11 +417,197 @@ public class HiidoSDK {
             }
             return (Options) invokeZ.objValue;
         }
+
+        public long getBackgroundDurationMillisAsQuit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.backgroundDurationMillisAsQuit;
+            }
+            return invokeV.longValue;
+        }
+
+        public String getBdCuid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.bdCuid;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getBehaviorSendThreshold() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.behaviorSendThreshold;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getDefaultMetricsExpire() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.defaultMetricsExpire;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getDefaultMetricsInterval() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.defaultMetricsInterval;
+            }
+            return invokeV.intValue;
+        }
+
+        public Set getIgnoreActivity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.ignoreActivity;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        public int getInterval() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.interval;
+            }
+            return invokeV.intValue;
+        }
+
+        @Deprecated
+        public boolean isAbroad() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.isAbroad;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isGaidEnable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.gaidEnable;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isLogOn() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.isLogOn;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isOpenAutoTrack() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.openAutoTrack;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isOpenCrashMonitor() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.isOpenCrashMonitor;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Deprecated
+        public boolean isOpenDoShort() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.isOpenDoShort;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isOpenSDKMetrics() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.openSDKMetrics;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isOpenSensorMonitor() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.openSensorMonitor;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isShowFloatingDialog() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return FloatingService.INSTANCT.isDebug();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isUseOaid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.useOaid;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isWaitGrant() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.waitGrant;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public Options needUserAgree() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                HiidoSDK.instance().setUserAgreed(false);
+                return this;
+            }
+            return (Options) invokeV.objValue;
+        }
+
+        public Options setSensorThreshold(float f, float f2, float f3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                this.gyroscopeThreshold = f;
+                this.accelerometerThreshold = f2;
+                this.lightThreshold = f3;
+                return this;
+            }
+            return (Options) invokeCommon.objValue;
+        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class PageActionReportOption {
+    public final class PageActionReportOption {
         public static final /* synthetic */ PageActionReportOption[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PageActionReportOption DO_NOT_REPORT_ON_FUTURE_RESUME;
@@ -602,13 +655,19 @@ public class HiidoSDK {
         public static PageActionReportOption valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PageActionReportOption) Enum.valueOf(PageActionReportOption.class, str) : (PageActionReportOption) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PageActionReportOption) Enum.valueOf(PageActionReportOption.class, str);
+            }
+            return (PageActionReportOption) invokeL.objValue;
         }
 
         public static PageActionReportOption[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PageActionReportOption[]) $VALUES.clone() : (PageActionReportOption[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PageActionReportOption[]) $VALUES.clone();
+            }
+            return (PageActionReportOption[]) invokeV.objValue;
         }
     }
 
@@ -648,86 +707,6 @@ public class HiidoSDK {
         this.isInited = false;
     }
 
-    public static String getHiidoHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? HIIDO_HOST : (String) invokeV.objValue;
-    }
-
-    public static String[] getHiidoIps() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? HIIDO_IPS : (String[]) invokeV.objValue;
-    }
-
-    public static HiidoSDK instance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? instance : (HiidoSDK) invokeV.objValue;
-    }
-
-    public static void setHiidoHost(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, list) == null) {
-            if (str != null && !str.isEmpty()) {
-                HIIDO_HOST = str;
-            }
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            String[] strArr = new String[list.size()];
-            for (int i = 0; i < list.size(); i++) {
-                strArr[i] = list.get(i);
-            }
-            HIIDO_IPS = strArr;
-        }
-    }
-
-    public void addActAdditionListener(ActListener actListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, actListener) == null) {
-            this.api.addActAdditionListener(actListener);
-        }
-    }
-
-    public MetricsWorker addMetricsWorker(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) ? this.api.addMetricsWorker(str, j) : (MetricsWorker) invokeLJ.objValue;
-    }
-
-    public void appRun() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.api.appRun();
-        }
-    }
-
-    public void appStartLaunchWithAppKey(Context context, String str, String str2, String str3, OnStatisListener onStatisListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, context, str, str2, str3, onStatisListener) == null) {
-            StatisOption statisOption = new StatisOption();
-            statisOption.setAppId(str2);
-            statisOption.setAppkey(str);
-            statisOption.setFrom(str3);
-            appStartLaunchWithAppKey(context, statisOption, onStatisListener);
-        }
-    }
-
-    public void beginSession(String str, String str2, long j, Map<String, Long> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
-            this.api.beginSession(str, str2, j, map);
-        }
-    }
-
-    public void closeSession(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.api.closeSession(str);
-        }
-    }
-
     public StatisAPI createNewStatisApi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -741,121 +720,177 @@ public class HiidoSDK {
         return (StatisAPI) invokeV.objValue;
     }
 
-    public boolean flushSession(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String getHiidoHost() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) ? this.api.flushSession(str, str2) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return HIIDO_HOST;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public boolean flushSessionAll(String str) {
-        InterceptResult invokeL;
+    public static String[] getHiidoIps() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? flushSessionAll(str, null) : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return HIIDO_IPS;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public static HiidoSDK instance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return instance;
+        }
+        return (HiidoSDK) invokeV.objValue;
+    }
+
+    public void appRun() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.api.appRun();
+        }
     }
 
     public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.api.getAppId() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.api.getAppId();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getAppKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.api.getAppKey() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.api.getAppKey();
+        }
+        return (String) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.api.getContext() : (Context) invokeV.objValue;
-    }
-
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) ? CommonFiller.getIMEI(AndroidUtil.applicationContext(context)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.api.getContext();
+        }
+        return (Context) invokeV.objValue;
     }
 
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.api.getFrom() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.api.getFrom();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public OnStatisListener getOnStatisListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.api.getOnStatisListener();
+        }
+        return (OnStatisListener) invokeV.objValue;
+    }
+
+    public Options getOptions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mOptions;
+        }
+        return (Options) invokeV.objValue;
+    }
+
+    public StatisOption getStatisOption() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.api.getStatisOption();
+        }
+        return (StatisOption) invokeV.objValue;
+    }
+
+    public static void setHiidoHost(String str, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, list) == null) {
+            if (str != null && !str.isEmpty()) {
+                HIIDO_HOST = str;
+            }
+            if (list != null && !list.isEmpty()) {
+                String[] strArr = new String[list.size()];
+                for (int i = 0; i < list.size(); i++) {
+                    strArr[i] = (String) list.get(i);
+                }
+                HIIDO_IPS = strArr;
+            }
+        }
+    }
+
+    public void addActAdditionListener(ActListener actListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, actListener) == null) {
+            this.api.addActAdditionListener(actListener);
+        }
+    }
+
+    public void closeSession(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.api.closeSession(str);
+        }
+    }
+
+    public boolean flushSessionAll(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return flushSessionAll(str, null);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String getDeviceId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
+            return CommonFiller.getIMEI(AndroidUtil.applicationContext(context));
+        }
+        return (String) invokeL.objValue;
     }
 
     @Deprecated
     public String getHdid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, context)) == null) ? DeviceProxy.getHdid(AndroidUtil.applicationContext(context)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, context)) == null) {
+            return DeviceProxy.getHdid(AndroidUtil.applicationContext(context));
+        }
+        return (String) invokeL.objValue;
     }
 
     public String getHdidSync(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? DeviceProxy.getHdid(AndroidUtil.applicationContext(context)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
+            return DeviceProxy.getHdid(AndroidUtil.applicationContext(context));
+        }
+        return (String) invokeL.objValue;
     }
 
     public String getMac(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) ? CommonFiller.getMacAddr(AndroidUtil.applicationContext(context)) : (String) invokeL.objValue;
-    }
-
-    public OnStatisListener getOnStatisListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.api.getOnStatisListener() : (OnStatisListener) invokeV.objValue;
-    }
-
-    public String getOnlineConfigParams(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, context, str)) == null) ? this.api.getOnlineConfigParams(AndroidUtil.applicationContext(context), str) : (String) invokeLL.objValue;
-    }
-
-    public Options getOptions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mOptions : (Options) invokeV.objValue;
-    }
-
-    public StatisOption getStatisOption() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.api.getStatisOption() : (StatisOption) invokeV.objValue;
-    }
-
-    public boolean isUserAgreed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 23 || this.userAgreed) {
-                return true;
-            }
-            String str = null;
-            try {
-                str = ArdUtil.getSjp(this.appContext).trim();
-            } catch (Throwable th) {
-                L.debug(this, th.toString(), new Object[0]);
-            }
-            return str != null && (str.equalsIgnoreCase("OPPO") || str.equalsIgnoreCase("VIVO"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
+            return CommonFiller.getMacAddr(AndroidUtil.applicationContext(context));
         }
-        return invokeV.booleanValue;
-    }
-
-    public void onPause(String str, PageActionReportOption pageActionReportOption) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, str, pageActionReportOption) == null) {
-            this.api.onPause(str, pageActionReportOption);
-        }
-    }
-
-    public void onResume(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048604, this, j, str) == null) {
-            this.api.onResume(j, str);
-        }
+        return (String) invokeL.objValue;
     }
 
     public void onScreenMonitor(MotionEvent motionEvent) {
@@ -879,16 +914,13 @@ public class HiidoSDK {
         }
     }
 
-    public boolean pushToSession(String str, String str2, List<EventValue> list, Map<String, String> map, Map<String, String> map2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048609, this, str, str2, list, map, map2)) == null) ? this.api.pushToSession(str, str2, list, map, map2) : invokeLLLLL.booleanValue;
-    }
-
     public boolean registerActivityLifecycleMonitor(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, context)) == null) ? this.api.registerActivityLifecycleMonitor(AndroidUtil.applicationContext(context)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, context)) == null) {
+            return this.api.registerActivityLifecycleMonitor(AndroidUtil.applicationContext(context));
+        }
+        return invokeL.booleanValue;
     }
 
     public void removeActAdditionListerner(ActListener actListener) {
@@ -902,68 +934,6 @@ public class HiidoSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.api.reportAppsflyer(str);
-        }
-    }
-
-    public void reportCount(int i, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j)}) == null) {
-            this.api.reportCount(i, str, str2, j);
-        }
-    }
-
-    public void reportCountEvent(long j, String str, double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) {
-            this.api.reportCountEvent(j, str, d);
-        }
-    }
-
-    public void reportCrash(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048620, this, j, str) == null) {
-            this.api.reportCrash(j, str);
-        }
-    }
-
-    public void reportCustomContent(long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            this.api.reportCustomContent(j, str, str2);
-        }
-    }
-
-    public void reportErrorEvent(long j, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
-            this.api.reportErrorEvent(j, str, str2, str3);
-        }
-    }
-
-    public void reportFailure(long j, String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, str5}) == null) {
-            this.api.reportFailure(j, str, str2, str3, str4, str5);
-        }
-    }
-
-    public boolean reportFeedBack(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048625, this, str, str2, str3)) == null) ? this.api.reportFeedBack(str, str2, str3) : invokeLLL.booleanValue;
-    }
-
-    public void reportIM(String str, String str2, String str3, Date date, Date date2, String str4, int i, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{str, str2, str3, date, date2, str4, Integer.valueOf(i), str5}) == null) {
-            this.api.reportIM(str, str2, str3, date, date2, str4, i, str5);
-        }
-    }
-
-    public void reportLocation(double d, double d2, double d3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)}) == null) {
-            this.api.reportLocation(d, d2, d3);
         }
     }
 
@@ -981,73 +951,10 @@ public class HiidoSDK {
         }
     }
 
-    public void reportReg(String str, String str2, String str3, Map<String, String> map) {
+    public void setABTest(Map map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048630, this, str, str2, str3, map) == null) {
-            this.api.reportReg(str, str2, str3, map);
-        }
-    }
-
-    public void reportReturnCode(int i, String str, long j, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2}) == null) {
-            this.api.reportReturnCode(i, str, j, str2, null);
-        }
-    }
-
-    public void reportShare(String str, int i, String str2, ShareType shareType, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Integer.valueOf(i), str2, shareType, str3, str4, str5}) == null) {
-            this.api.reportShare(str, i, str2, shareType, str3, str4, str5);
-        }
-    }
-
-    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
-            this.api.reportSrcData(i, str, str2, j, map);
-        }
-    }
-
-    public void reportStatisticContent(String str, StatisContent statisContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048638, this, str, statisContent) == null) {
-            this.api.reportStatisticContent(str, statisContent);
-        }
-    }
-
-    public void reportStatisticContentTemporary(String str, StatisContent statisContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048640, this, str, statisContent) == null) {
-            this.api.reportStatisticContentTemporary(str, statisContent);
-        }
-    }
-
-    public void reportStatisticContentWithNoComm(Context context, String str, StatisContent statisContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048641, this, context, str, statisContent) == null) {
-            this.api.reportStatisticContentWithNoComm(AndroidUtil.applicationContext(context), str, statisContent);
-        }
-    }
-
-    public void reportSuccess(long j, String str, String str2, long j2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2), str3}) == null) {
-            this.api.reportSuccess(j, str, str2, j2, str3);
-        }
-    }
-
-    public void reportTimesEvent(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048644, this, j, str) == null) {
-            this.api.reportTimesEvent(j, str);
-        }
-    }
-
-    public void setABTest(String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, strArr) == null) {
-            ABTestHandler.updateValue(this.appContext, strArr);
+        if (interceptable == null || interceptable.invokeL(1048647, this, map) == null) {
+            ABTestHandler.updateValue(this.appContext, map);
         }
     }
 
@@ -1069,13 +976,6 @@ public class HiidoSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
             this.api.setCurPageParam(str);
-        }
-    }
-
-    public void setHeartbeatField(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048652, this, str, str2) == null) {
-            this.api.setHeartbeatField(str, str2);
         }
     }
 
@@ -1117,10 +1017,31 @@ public class HiidoSDK {
         }
     }
 
-    public boolean flushSessionAll(String str, Set<String> set) {
+    public MetricsWorker addMetricsWorker(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return this.api.addMetricsWorker(str, j);
+        }
+        return (MetricsWorker) invokeLJ.objValue;
+    }
+
+    public boolean flushSession(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) ? this.api.flushSessionAll(str, set) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            return this.api.flushSession(str, str2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean flushSessionAll(String str, Set set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) {
+            return this.api.flushSessionAll(str, set);
+        }
+        return invokeLL.booleanValue;
     }
 
     public void getHdid(Context context, HdidReceiver hdidReceiver) {
@@ -1164,6 +1085,15 @@ public class HiidoSDK {
         }
     }
 
+    public String getOnlineConfigParams(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, context, str)) == null) {
+            return this.api.getOnlineConfigParams(AndroidUtil.applicationContext(context), str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public void onPause(Activity activity, PageActionReportOption pageActionReportOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, activity, pageActionReportOption) == null) {
@@ -1178,114 +1108,38 @@ public class HiidoSDK {
         }
     }
 
-    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map<String, String> map, Map<String, String> map2) {
-        InterceptResult invokeCommon;
+    public void reportCrash(long j, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{str, str2, calAction, str3, number, map, map2})) == null) ? this.api.pushToSession(str, str2, calAction, str3, number, map, map2) : invokeCommon.booleanValue;
-    }
-
-    public void reportCount(int i, String str, String str2, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            this.api.reportCount(i, str, str2, j, i2);
+        if (interceptable == null || interceptable.invokeJL(1048620, this, j, str) == null) {
+            this.api.reportCrash(j, str);
         }
     }
 
-    public void reportCountEvent(long j, String str, double d, String str2) {
+    public void reportStatisticContent(String str, StatisContent statisContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
-            this.api.reportCountEvent(j, str, d, str2);
+        if (interceptable == null || interceptable.invokeLL(1048638, this, str, statisContent) == null) {
+            this.api.reportStatisticContent(str, statisContent);
         }
     }
 
-    public void reportCrash(long j, Throwable th) {
+    public void reportStatisticContentTemporary(String str, StatisContent statisContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048621, this, j, th) == null) {
-            this.api.reportCrash(j, th);
+        if (interceptable == null || interceptable.invokeLL(1048640, this, str, statisContent) == null) {
+            this.api.reportStatisticContentTemporary(str, statisContent);
         }
     }
 
-    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
+    public void reportTimesEvent(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
-            this.api.reportReturnCode(i, str, j, str2, map);
+        if (interceptable == null || interceptable.invokeJL(1048644, this, j, str) == null) {
+            this.api.reportTimesEvent(j, str);
         }
     }
 
-    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
+    public void setHeartbeatField(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
-            this.api.reportSrcData(str, i, str2, str3, j, map);
-        }
-    }
-
-    public void reportStatisticContent(String str, StatisContent statisContent, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048639, this, str, statisContent, z) == null) {
-            this.api.reportStatisticContent(str, statisContent, z);
-        }
-    }
-
-    public void reportStatisticContentWithNoComm(Context context, String str, StatisContent statisContent, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{context, str, statisContent, Boolean.valueOf(z)}) == null) {
-            this.api.reportStatisticContentWithNoComm(AndroidUtil.applicationContext(context), str, statisContent, z);
-        }
-    }
-
-    public void reportTimesEvent(long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            this.api.reportTimesEvent(j, str, str2);
-        }
-    }
-
-    public void setABTest(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048647, this, map) == null) {
-            ABTestHandler.updateValue(this.appContext, map);
-        }
-    }
-
-    public void reportCount(String str, int i, String str2, String str3, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j)}) == null) {
-            this.api.reportCount(str, i, str2, str3, j, 1);
-        }
-    }
-
-    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) {
-            this.api.reportCountEvent(j, str, d, str2, property);
-        }
-    }
-
-    public void reportReturnCode(String str, int i, String str2, long j, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3}) == null) {
-            this.api.reportReturnCode(str, i, str2, j, str3, null);
-        }
-    }
-
-    public void reportTimesEvent(long j, String str, String str2, Property property) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j), str, str2, property}) == null) {
-            this.api.reportTimesEvent(j, str, str2, property);
-        }
-    }
-
-    public void reportCount(String str, int i, String str2, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            this.api.reportCount(str, i, str2, str3, j, i2);
-        }
-    }
-
-    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
-            this.api.reportReturnCode(str, i, str2, j, str3, map);
+        if (interceptable == null || interceptable.invokeLL(1048652, this, str, str2) == null) {
+            this.api.setHeartbeatField(str, str2);
         }
     }
 
@@ -1293,11 +1147,15 @@ public class HiidoSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, statisOption, onStatisListener) == null) {
             synchronized (this) {
+                boolean z = false;
                 if (this.isInited) {
                     L.warnOn(this, "appStartLaunchWithAppKey isInited is true", new Object[0]);
                     return;
                 }
-                isDebugMode = NoNull.isEmpty(instance().getOptions().testServer) ? false : true;
+                if (!NoNull.isEmpty(instance().getOptions().testServer)) {
+                    z = true;
+                }
+                isDebugMode = z;
                 Context applicationContext = AndroidUtil.applicationContext(context);
                 this.appContext = applicationContext;
                 ABTestHandler.initInstance(applicationContext);
@@ -1310,6 +1168,282 @@ public class HiidoSDK {
                 this.api.appStartLaunchWithAppKey(this.appContext, statisOption, onStatisListener);
                 this.isInited = true;
             }
+        }
+    }
+
+    public void appStartLaunchWithAppKey(Context context, String str, String str2, String str3, OnStatisListener onStatisListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, context, str, str2, str3, onStatisListener) == null) {
+            StatisOption statisOption = new StatisOption();
+            statisOption.setAppId(str2);
+            statisOption.setAppkey(str);
+            statisOption.setFrom(str3);
+            appStartLaunchWithAppKey(context, statisOption, onStatisListener);
+        }
+    }
+
+    public boolean pushToSession(String str, String str2, List list, Map map, Map map2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048609, this, str, str2, list, map, map2)) == null) {
+            return this.api.pushToSession(str, str2, list, map, map2);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public void beginSession(String str, String str2, long j, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
+            this.api.beginSession(str, str2, j, map);
+        }
+    }
+
+    public void reportErrorEvent(long j, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
+            this.api.reportErrorEvent(j, str, str2, str3);
+        }
+    }
+
+    public void reportReg(String str, String str2, String str3, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048630, this, str, str2, str3, map) == null) {
+            this.api.reportReg(str, str2, str3, map);
+        }
+    }
+
+    public void reportStatisticContentWithNoComm(Context context, String str, StatisContent statisContent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{context, str, statisContent, Boolean.valueOf(z)}) == null) {
+            this.api.reportStatisticContentWithNoComm(AndroidUtil.applicationContext(context), str, statisContent, z);
+        }
+    }
+
+    public void reportTimesEvent(long j, String str, String str2, Property property) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j), str, str2, property}) == null) {
+            this.api.reportTimesEvent(j, str, str2, property);
+        }
+    }
+
+    public boolean isUserAgreed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 23 || this.userAgreed) {
+                return true;
+            }
+            String str = null;
+            try {
+                str = ArdUtil.getSjp(this.appContext).trim();
+            } catch (Throwable th) {
+                L.debug(this, th.toString(), new Object[0]);
+            }
+            if (str != null && (str.equalsIgnoreCase("OPPO") || str.equalsIgnoreCase("VIVO"))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onPause(String str, PageActionReportOption pageActionReportOption) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, str, pageActionReportOption) == null) {
+            this.api.onPause(str, pageActionReportOption);
+        }
+    }
+
+    public void onResume(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048604, this, j, str) == null) {
+            this.api.onResume(j, str);
+        }
+    }
+
+    public void reportCrash(long j, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048621, this, j, th) == null) {
+            this.api.reportCrash(j, th);
+        }
+    }
+
+    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map map, Map map2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{str, str2, calAction, str3, number, map, map2})) == null) {
+            return this.api.pushToSession(str, str2, calAction, str3, number, map, map2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void reportShare(String str, int i, String str2, ShareType shareType, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Integer.valueOf(i), str2, shareType, str3, str4, str5}) == null) {
+            this.api.reportShare(str, i, str2, shareType, str3, str4, str5);
+        }
+    }
+
+    public void reportCount(int i, String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j)}) == null) {
+            this.api.reportCount(i, str, str2, j);
+        }
+    }
+
+    public void reportCountEvent(long j, String str, double d, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
+            this.api.reportCountEvent(j, str, d, str2);
+        }
+    }
+
+    public void reportReturnCode(int i, String str, long j, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2}) == null) {
+            this.api.reportReturnCode(i, str, j, str2, null);
+        }
+    }
+
+    public void reportCount(int i, String str, String str2, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            this.api.reportCount(i, str, str2, j, i2);
+        }
+    }
+
+    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) {
+            this.api.reportCountEvent(j, str, d, str2, property);
+        }
+    }
+
+    public void reportReturnCode(int i, String str, long j, String str2, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
+            this.api.reportReturnCode(i, str, j, str2, map);
+        }
+    }
+
+    public void reportSrcData(int i, String str, String str2, long j, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
+            this.api.reportSrcData(i, str, str2, j, map);
+        }
+    }
+
+    public void reportSuccess(long j, String str, String str2, long j2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2), str3}) == null) {
+            this.api.reportSuccess(j, str, str2, j2, str3);
+        }
+    }
+
+    public void reportCount(String str, int i, String str2, String str3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j)}) == null) {
+            this.api.reportCount(str, i, str2, str3, j, 1);
+        }
+    }
+
+    public void reportReturnCode(String str, int i, String str2, long j, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3}) == null) {
+            this.api.reportReturnCode(str, i, str2, j, str3, null);
+        }
+    }
+
+    public void reportCount(String str, int i, String str2, String str3, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            this.api.reportCount(str, i, str2, str3, j, i2);
+        }
+    }
+
+    public void reportFailure(long j, String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, str5}) == null) {
+            this.api.reportFailure(j, str, str2, str3, str4, str5);
+        }
+    }
+
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
+            this.api.reportReturnCode(str, i, str2, j, str3, map);
+        }
+    }
+
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
+            this.api.reportSrcData(str, i, str2, str3, j, map);
+        }
+    }
+
+    public void reportCountEvent(long j, String str, double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) {
+            this.api.reportCountEvent(j, str, d);
+        }
+    }
+
+    public void reportCustomContent(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            this.api.reportCustomContent(j, str, str2);
+        }
+    }
+
+    public boolean reportFeedBack(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048625, this, str, str2, str3)) == null) {
+            return this.api.reportFeedBack(str, str2, str3);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void reportStatisticContent(String str, StatisContent statisContent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048639, this, str, statisContent, z) == null) {
+            this.api.reportStatisticContent(str, statisContent, z);
+        }
+    }
+
+    public void reportStatisticContentWithNoComm(Context context, String str, StatisContent statisContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048641, this, context, str, statisContent) == null) {
+            this.api.reportStatisticContentWithNoComm(AndroidUtil.applicationContext(context), str, statisContent);
+        }
+    }
+
+    public void reportTimesEvent(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            this.api.reportTimesEvent(j, str, str2);
+        }
+    }
+
+    public void reportIM(String str, String str2, String str3, Date date, Date date2, String str4, int i, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{str, str2, str3, date, date2, str4, Integer.valueOf(i), str5}) == null) {
+            this.api.reportIM(str, str2, str3, date, date2, str4, i, str5);
+        }
+    }
+
+    public void reportLocation(double d, double d2, double d3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)}) == null) {
+            this.api.reportLocation(d, d2, d3);
+        }
+    }
+
+    public void setABTest(String... strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048648, this, strArr) == null) {
+            ABTestHandler.updateValue(this.appContext, strArr);
         }
     }
 }

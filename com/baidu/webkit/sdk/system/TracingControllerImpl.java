@@ -2,8 +2,6 @@ package com.baidu.webkit.sdk.system;
 
 import android.os.Build;
 import android.webkit.TracingConfig;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,7 +45,7 @@ public class TracingControllerImpl extends TracingController {
     }
 
     @Override // com.baidu.webkit.sdk.TracingController
-    public void start(@NonNull TracingConfig tracingConfig) {
+    public void start(TracingConfig tracingConfig) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tracingConfig) == null) || Build.VERSION.SDK_INT < 28) {
             return;
@@ -56,7 +54,7 @@ public class TracingControllerImpl extends TracingController {
     }
 
     @Override // com.baidu.webkit.sdk.TracingController
-    public boolean stop(@Nullable OutputStream outputStream, @NonNull Executor executor) {
+    public boolean stop(OutputStream outputStream, Executor executor) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, outputStream, executor)) == null) {

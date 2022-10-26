@@ -1,12 +1,10 @@
 package tv.athena.revenue.payui.model;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes9.dex */
 public class NativeOperationParams {
     public static /* synthetic */ Interceptable $ic;
@@ -32,15 +30,6 @@ public class NativeOperationParams {
         this.opCode = i;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "NativeOperationParams{opCode=" + this.opCode + "params=" + this.params + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
     public NativeOperationParams(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,5 +47,14 @@ public class NativeOperationParams {
         }
         this.opCode = i;
         this.params = str;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "NativeOperationParams{opCode=" + this.opCode + "params=" + this.params + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -3,7 +3,6 @@ package com.ss.android.downloadlib.addownload.compliance;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.c;
 import com.ss.android.downloadlib.g.l;
@@ -16,8 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class d extends h<Long, Bitmap> {
-    public final Map<Long, SoftReference<a>> a;
+public class d extends h {
+    public final Map a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -25,15 +24,8 @@ public class d extends h<Long, Bitmap> {
     }
 
     /* loaded from: classes8.dex */
-    public static class b {
+    public class b {
         public static d a = new d();
-    }
-
-    public static int b(int i, int i2, BitmapFactory.Options options) {
-        if (options.outWidth > i || options.outHeight > i2) {
-            return Math.min(Math.round(options.outWidth / i), Math.round(options.outHeight / i2));
-        }
-        return 1;
     }
 
     public d() {
@@ -45,30 +37,29 @@ public class d extends h<Long, Bitmap> {
         return b.a;
     }
 
-    public void a(long j, @NonNull a aVar) {
-        if (get(Long.valueOf(j)) != null) {
-            aVar.a(get(Long.valueOf(j)));
-        } else {
-            this.a.put(Long.valueOf(j), new SoftReference<>(aVar));
+    public static int b(int i, int i2, BitmapFactory.Options options) {
+        if (options.outWidth <= i && options.outHeight <= i2) {
+            return 1;
         }
+        return Math.min(Math.round(options.outWidth / i), Math.round(options.outHeight / i2));
     }
 
     public void a(final long j, final long j2, final String str) {
         if (get(Long.valueOf(j)) != null) {
-            SoftReference<a> remove = this.a.remove(Long.valueOf(j));
-            if (remove == null || remove.get() == null) {
-                return;
+            SoftReference softReference = (SoftReference) this.a.remove(Long.valueOf(j));
+            if (softReference != null && softReference.get() != null) {
+                ((a) softReference.get()).a((Bitmap) get(Long.valueOf(j)));
             }
-            remove.get().a(get(Long.valueOf(j)));
         } else if (TextUtils.isEmpty(str)) {
             e.a(12, j2);
         } else {
-            com.ss.android.downloadlib.g.c.a((c.a<Object, R>) new c.a<Object, Object>() { // from class: com.ss.android.downloadlib.addownload.compliance.d.2
+            com.ss.android.downloadlib.g.c.a(new c.a() { // from class: com.ss.android.downloadlib.addownload.compliance.d.2
                 @Override // com.ss.android.downloadlib.g.c.a
                 public Object a(Object obj) {
                     BufferedInputStream bufferedInputStream;
                     Throwable th;
                     i a2;
+                    int byteCount;
                     try {
                         a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, str, null);
                     } catch (Exception e) {
@@ -103,7 +94,12 @@ public class d extends h<Long, Bitmap> {
                                 jSONObject.putOpt("ttdownloader_type", "load_bitmap");
                                 jSONObject.putOpt("bm_original_w", Integer.valueOf(i));
                                 jSONObject.putOpt("bm_original_h", Integer.valueOf(i2));
-                                jSONObject.putOpt("bm_bytes", Integer.valueOf(decodeStream == null ? -1 : decodeStream.getByteCount()));
+                                if (decodeStream == null) {
+                                    byteCount = -1;
+                                } else {
+                                    byteCount = decodeStream.getByteCount();
+                                }
+                                jSONObject.putOpt("bm_bytes", Integer.valueOf(byteCount));
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
@@ -123,17 +119,25 @@ public class d extends h<Long, Bitmap> {
                         throw th;
                     }
                 }
-            }, (Object) null).a(new c.a<Object, Object>() { // from class: com.ss.android.downloadlib.addownload.compliance.d.1
+            }, (Object) null).a(new c.a() { // from class: com.ss.android.downloadlib.addownload.compliance.d.1
                 @Override // com.ss.android.downloadlib.g.c.a
                 public Object a(Object obj) {
-                    SoftReference softReference = (SoftReference) d.this.a.remove(Long.valueOf(j));
-                    if (softReference == null || softReference.get() == null) {
+                    SoftReference softReference2 = (SoftReference) d.this.a.remove(Long.valueOf(j));
+                    if (softReference2 != null && softReference2.get() != null) {
+                        ((a) softReference2.get()).a((Bitmap) d.this.get(Long.valueOf(j)));
                         return null;
                     }
-                    ((a) softReference.get()).a(d.this.get(Long.valueOf(j)));
                     return null;
                 }
             }).a();
+        }
+    }
+
+    public void a(long j, a aVar) {
+        if (get(Long.valueOf(j)) != null) {
+            aVar.a((Bitmap) get(Long.valueOf(j)));
+        } else {
+            this.a.put(Long.valueOf(j), new SoftReference(aVar));
         }
     }
 }

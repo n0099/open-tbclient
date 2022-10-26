@@ -1,9 +1,6 @@
 package androidx.transition;
 
-import android.annotation.SuppressLint;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(22)
 /* loaded from: classes.dex */
 public class ViewUtilsApi22 extends ViewUtilsApi21 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,8 +44,7 @@ public class ViewUtilsApi22 extends ViewUtilsApi21 {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    @SuppressLint({"NewApi"})
-    public void setLeftTopRightBottom(@NonNull View view2, int i, int i2, int i3, int i4) {
+    public void setLeftTopRightBottom(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && sTryHiddenSetLeftTopRightBottom) {
             try {

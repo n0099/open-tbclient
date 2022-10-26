@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mz8;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.wp8;
+import com.baidu.tieba.wz8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class BubbleLayout extends FrameLayout {
     public static float j = -1.0f;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrowDirection a;
-    public mz8 b;
+    public wz8 b;
     public float c;
     public float d;
     public float e;
@@ -32,8 +32,23 @@ public class BubbleLayout extends FrameLayout {
     public float h;
     public int i;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1626336483, "Lcom/baidu/tieba/view/bubbleView/BubbleLayout;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1626336483, "Lcom/baidu/tieba/view/bubbleView/BubbleLayout;");
+        }
+    }
+
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,21 +87,6 @@ public class BubbleLayout extends FrameLayout {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1626336483, "Lcom/baidu/tieba/view/bubbleView/BubbleLayout;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1626336483, "Lcom/baidu/tieba/view/bubbleView/BubbleLayout;");
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BubbleLayout(Context context) {
         this(context, null, 0);
@@ -105,128 +105,6 @@ public class BubbleLayout extends FrameLayout {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-    }
-
-    public static float a(float f, Context context) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), context})) == null) ? f * (context.getResources().getDisplayMetrics().densityDpi / 160.0f) : invokeCommon.floatValue;
-    }
-
-    public final void b(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) || i2 < i || i4 < i3) {
-            return;
-        }
-        this.b = new mz8(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int paddingLeft = getPaddingLeft();
-            int paddingRight = getPaddingRight();
-            int paddingTop = getPaddingTop();
-            int paddingBottom = getPaddingBottom();
-            int i = a.a[this.a.ordinal()];
-            if (i == 1) {
-                paddingLeft = (int) (paddingLeft + this.c);
-            } else if (i == 2) {
-                paddingRight = (int) (paddingRight + this.c);
-            } else if (i == 3) {
-                paddingTop = (int) (paddingTop + this.e);
-            } else if (i == 4) {
-                paddingBottom = (int) (paddingBottom + this.e);
-            }
-            float f = this.h;
-            if (f > 0.0f) {
-                paddingLeft = (int) (paddingLeft + f);
-                paddingRight = (int) (paddingRight + f);
-                paddingTop = (int) (paddingTop + f);
-                paddingBottom = (int) (paddingBottom + f);
-            }
-            setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-        }
-    }
-
-    public BubbleLayout d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.g = i;
-            requestLayout();
-            return this;
-        }
-        return (BubbleLayout) invokeI.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            mz8 mz8Var = this.b;
-            if (mz8Var != null) {
-                mz8Var.draw(canvas);
-            }
-            super.dispatchDraw(canvas);
-        }
-    }
-
-    public ArrowDirection getArrowDirection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ArrowDirection) invokeV.objValue;
-    }
-
-    public float getArrowHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.floatValue;
-    }
-
-    public float getArrowPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.floatValue;
-    }
-
-    public float getArrowWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.floatValue;
-    }
-
-    public int getBubbleColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public float getCornersRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : invokeV.floatValue;
-    }
-
-    public int getStrokeColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public float getStrokeWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.h : invokeV.floatValue;
-    }
-
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            b(0, getWidth(), 0, getHeight());
         }
     }
 
@@ -270,7 +148,7 @@ public class BubbleLayout extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, pp8.BubbleLayout);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, wp8.BubbleLayout);
         this.c = obtainStyledAttributes.getDimension(2, a(8.0f, context));
         this.e = obtainStyledAttributes.getDimension(0, a(8.0f, context));
         this.d = obtainStyledAttributes.getDimension(4, 0.0f);
@@ -281,5 +159,159 @@ public class BubbleLayout extends FrameLayout {
         this.a = ArrowDirection.fromInt(obtainStyledAttributes.getInt(7, ArrowDirection.LEFT.getValue()));
         obtainStyledAttributes.recycle();
         c();
+    }
+
+    public static float a(float f, Context context) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), context})) == null) {
+            return f * (context.getResources().getDisplayMetrics().densityDpi / 160.0f);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final void b(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) && i2 >= i && i4 >= i3) {
+            this.b = new wz8(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int paddingLeft = getPaddingLeft();
+            int paddingRight = getPaddingRight();
+            int paddingTop = getPaddingTop();
+            int paddingBottom = getPaddingBottom();
+            int i = a.a[this.a.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            paddingBottom = (int) (paddingBottom + this.e);
+                        }
+                    } else {
+                        paddingTop = (int) (paddingTop + this.e);
+                    }
+                } else {
+                    paddingRight = (int) (paddingRight + this.c);
+                }
+            } else {
+                paddingLeft = (int) (paddingLeft + this.c);
+            }
+            float f = this.h;
+            if (f > 0.0f) {
+                paddingLeft = (int) (paddingLeft + f);
+                paddingRight = (int) (paddingRight + f);
+                paddingTop = (int) (paddingTop + f);
+                paddingBottom = (int) (paddingBottom + f);
+            }
+            setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        }
+    }
+
+    public BubbleLayout d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.g = i;
+            requestLayout();
+            return this;
+        }
+        return (BubbleLayout) invokeI.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            wz8 wz8Var = this.b;
+            if (wz8Var != null) {
+                wz8Var.draw(canvas);
+            }
+            super.dispatchDraw(canvas);
+        }
+    }
+
+    public ArrowDirection getArrowDirection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (ArrowDirection) invokeV.objValue;
+    }
+
+    public float getArrowHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getArrowPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getArrowWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getBubbleColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getCornersRadius() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getStrokeColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getStrokeWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.h;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            b(0, getWidth(), 0, getHeight());
+        }
     }
 }

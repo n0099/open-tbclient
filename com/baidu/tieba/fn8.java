@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Timgs;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActHot;
+import tbclient.ActPost;
+import tbclient.LinkInfo;
 /* loaded from: classes4.dex */
-public class fn8 implements mv4 {
+public class fn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
+    public ArrayList<dn8> a;
+    public ArrayList<en8> b;
 
-    public fn8(Timgs timgs) {
+    public fn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {timgs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,54 +29,30 @@ public class fn8 implements mv4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = 1;
-        this.d = 1;
-        if (timgs == null) {
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+    }
+
+    public void a(ActPost actPost) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
             return;
         }
-        this.a = timgs.img_url;
-        timgs.flag.intValue();
-        this.b = timgs.url;
-        String str = timgs.big_cdn_url;
-        String str2 = timgs.des_main;
-        String str3 = timgs.des_sub;
-        String str4 = timgs.bsize;
-        if (str4 != null) {
-            try {
-                String[] split = str4.split(",");
-                this.c = dh.e(split[0], 1);
-                this.d = dh.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        String str = actPost.list_head;
+        for (ActHot actHot : actPost.act_hot) {
+            if (actHot != null) {
+                dn8 dn8Var = new dn8();
+                dn8Var.g(actHot);
+                this.a.add(dn8Var);
             }
         }
-        if (this.c <= 0) {
-            this.c = 1;
+        List<LinkInfo> list = actPost.link_info;
+        for (LinkInfo linkInfo : list) {
+            if (list != null) {
+                en8 en8Var = new en8();
+                en8Var.a(linkInfo);
+                this.b.add(en8Var);
+            }
         }
-        if (this.d <= 0) {
-            this.d = 1;
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mv4
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mv4
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

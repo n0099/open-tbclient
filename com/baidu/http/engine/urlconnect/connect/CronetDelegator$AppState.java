@@ -57,12 +57,18 @@ public final class CronetDelegator$AppState {
     public static CronetDelegator$AppState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CronetDelegator$AppState) Enum.valueOf(CronetDelegator$AppState.class, str) : (CronetDelegator$AppState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (CronetDelegator$AppState) Enum.valueOf(CronetDelegator$AppState.class, str);
+        }
+        return (CronetDelegator$AppState) invokeL.objValue;
     }
 
     public static CronetDelegator$AppState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CronetDelegator$AppState[]) $VALUES.clone() : (CronetDelegator$AppState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (CronetDelegator$AppState[]) $VALUES.clone();
+        }
+        return (CronetDelegator$AppState[]) invokeV.objValue;
     }
 }

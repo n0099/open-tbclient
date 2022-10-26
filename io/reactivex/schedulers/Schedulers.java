@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.schedulers.ComputationScheduler;
 import io.reactivex.internal.schedulers.ExecutorScheduler;
 import io.reactivex.internal.schedulers.IoScheduler;
@@ -23,20 +22,15 @@ import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
 public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
     public static final Scheduler COMPUTATION;
-    @NonNull
     public static final Scheduler IO;
-    @NonNull
     public static final Scheduler NEW_THREAD;
-    @NonNull
     public static final Scheduler SINGLE;
-    @NonNull
     public static final Scheduler TRAMPOLINE;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class ComputationHolder {
+    public final class ComputationHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +67,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public static final class ComputationTask implements Callable<Scheduler> {
+    public final class ComputationTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,17 +86,19 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ComputationHolder.DEFAULT : (Scheduler) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ComputationHolder.DEFAULT;
+            }
+            return (Scheduler) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class IOTask implements Callable<Scheduler> {
+    public final class IOTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -121,17 +117,19 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? IoHolder.DEFAULT : (Scheduler) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return IoHolder.DEFAULT;
+            }
+            return (Scheduler) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class IoHolder {
+    public final class IoHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +166,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public static final class NewThreadHolder {
+    public final class NewThreadHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +203,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public static final class NewThreadTask implements Callable<Scheduler> {
+    public final class NewThreadTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -224,17 +222,19 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NewThreadHolder.DEFAULT : (Scheduler) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return NewThreadHolder.DEFAULT;
+            }
+            return (Scheduler) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class SingleHolder {
+    public final class SingleHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,7 +271,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SingleTask implements Callable<Scheduler> {
+    public final class SingleTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -290,12 +290,14 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SingleHolder.DEFAULT : (Scheduler) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return SingleHolder.DEFAULT;
+            }
+            return (Scheduler) invokeV.objValue;
         }
     }
 
@@ -335,32 +337,58 @@ public final class Schedulers {
         throw new IllegalStateException("No instances!");
     }
 
-    @NonNull
     public static Scheduler computation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? RxJavaPlugins.onComputationScheduler(COMPUTATION) : (Scheduler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return RxJavaPlugins.onComputationScheduler(COMPUTATION);
+        }
+        return (Scheduler) invokeV.objValue;
     }
 
-    @NonNull
-    public static Scheduler from(@NonNull Executor executor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, executor)) == null) ? new ExecutorScheduler(executor) : (Scheduler) invokeL.objValue;
-    }
-
-    @NonNull
     public static Scheduler io() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? RxJavaPlugins.onIoScheduler(IO) : (Scheduler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return RxJavaPlugins.onIoScheduler(IO);
+        }
+        return (Scheduler) invokeV.objValue;
     }
 
-    @NonNull
     public static Scheduler newThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? RxJavaPlugins.onNewThreadScheduler(NEW_THREAD) : (Scheduler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return RxJavaPlugins.onNewThreadScheduler(NEW_THREAD);
+        }
+        return (Scheduler) invokeV.objValue;
+    }
+
+    public static Scheduler single() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return RxJavaPlugins.onSingleScheduler(SINGLE);
+        }
+        return (Scheduler) invokeV.objValue;
+    }
+
+    public static Scheduler trampoline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return TRAMPOLINE;
+        }
+        return (Scheduler) invokeV.objValue;
+    }
+
+    public static Scheduler from(Executor executor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, executor)) == null) {
+            return new ExecutorScheduler(executor);
+        }
+        return (Scheduler) invokeL.objValue;
     }
 
     public static void shutdown() {
@@ -375,13 +403,6 @@ public final class Schedulers {
         }
     }
 
-    @NonNull
-    public static Scheduler single() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? RxJavaPlugins.onSingleScheduler(SINGLE) : (Scheduler) invokeV.objValue;
-    }
-
     public static void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
@@ -392,12 +413,5 @@ public final class Schedulers {
             trampoline().start();
             SchedulerPoolFactory.start();
         }
-    }
-
-    @NonNull
-    public static Scheduler trampoline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? TRAMPOLINE : (Scheduler) invokeV.objValue;
     }
 }

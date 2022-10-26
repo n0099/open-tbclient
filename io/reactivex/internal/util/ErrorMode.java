@@ -59,12 +59,18 @@ public final class ErrorMode {
     public static ErrorMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ErrorMode) Enum.valueOf(ErrorMode.class, str) : (ErrorMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ErrorMode) Enum.valueOf(ErrorMode.class, str);
+        }
+        return (ErrorMode) invokeL.objValue;
     }
 
     public static ErrorMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ErrorMode[]) $VALUES.clone() : (ErrorMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ErrorMode[]) $VALUES.clone();
+        }
+        return (ErrorMode[]) invokeV.objValue;
     }
 }

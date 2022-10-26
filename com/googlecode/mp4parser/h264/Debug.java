@@ -12,6 +12,30 @@ public class Debug {
     public static final boolean debug = false;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void print(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+        }
+    }
+
+    public static void print(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+        }
+    }
+
+    public static void println(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+        }
+    }
+
+    public static void trace(String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, objArr) == null) {
+        }
+    }
+
     public Debug() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,18 +50,6 @@ public class Debug {
         }
     }
 
-    public static void print(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-        }
-    }
-
-    public static void print(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-        }
-    }
-
     public static void print(short[] sArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, sArr) == null) {
@@ -46,6 +58,18 @@ public class Debug {
                 for (int i3 = 0; i3 < 8; i3++) {
                     System.out.printf("%3d, ", Short.valueOf(sArr[i]));
                     i++;
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public static final void print8x8(ShortBuffer shortBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shortBuffer) == null) {
+            for (int i = 0; i < 8; i++) {
+                for (int i2 = 0; i2 < 8; i2++) {
+                    System.out.printf("%3d, ", Short.valueOf(shortBuffer.get()));
                 }
                 System.out.println();
             }
@@ -66,18 +90,6 @@ public class Debug {
         }
     }
 
-    public static void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-        }
-    }
-
-    public static void trace(String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, objArr) == null) {
-        }
-    }
-
     public static final void print8x8(short[] sArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, sArr) == null) {
@@ -86,18 +98,6 @@ public class Debug {
                 for (int i3 = 0; i3 < 8; i3++) {
                     System.out.printf("%3d, ", Short.valueOf(sArr[i]));
                     i++;
-                }
-                System.out.println();
-            }
-        }
-    }
-
-    public static final void print8x8(ShortBuffer shortBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shortBuffer) == null) {
-            for (int i = 0; i < 8; i++) {
-                for (int i2 = 0; i2 < 8; i2++) {
-                    System.out.printf("%3d, ", Short.valueOf(shortBuffer.get()));
                 }
                 System.out.println();
             }

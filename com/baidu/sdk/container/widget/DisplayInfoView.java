@@ -24,6 +24,13 @@ public class DisplayInfoView extends LinearLayout {
     public d g;
 
     /* loaded from: classes2.dex */
+    public interface d {
+        void b();
+
+        void c();
+    }
+
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,10 +57,9 @@ public class DisplayInfoView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null) {
+                this.a.g.c();
             }
-            this.a.g.c();
         }
     }
 
@@ -84,15 +90,14 @@ public class DisplayInfoView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null) {
+                this.a.g.b();
             }
-            this.a.g.b();
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DisplayInfoView a;
@@ -153,15 +158,37 @@ public class DisplayInfoView extends LinearLayout {
         public DisplayInfoView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (DisplayInfoView) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return (DisplayInfoView) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface d {
-        void b();
-
-        void c();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DisplayInfoView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0.027777777777777776d;
+        this.b = 0.0196078431372549d;
+        this.c = -1728053248;
+        setOrientation(0);
+        this.f = context;
+        removeAllViews();
     }
 
     public /* synthetic */ DisplayInfoView(Context context, a aVar) {
@@ -213,31 +240,5 @@ public class DisplayInfoView extends LinearLayout {
             super.onAttachedToWindow();
             h();
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DisplayInfoView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0.027777777777777776d;
-        this.b = 0.0196078431372549d;
-        this.c = -1728053248;
-        setOrientation(0);
-        this.f = context;
-        removeAllViews();
     }
 }

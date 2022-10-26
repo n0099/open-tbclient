@@ -5,8 +5,6 @@ import android.database.DataSetObserver;
 import android.os.Parcelable;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,46 +21,16 @@ public abstract class PagerAdapter {
     public final DataSetObservable mObservable;
     public DataSetObserver mViewPagerObserver;
 
-    public PagerAdapter() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mObservable = new DataSetObservable();
-    }
-
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, obj) == null) {
-            destroyItem((View) viewGroup, i, obj);
-        }
-    }
-
     @Deprecated
-    public void finishUpdate(@NonNull View view2) {
+    public void finishUpdate(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
         }
     }
 
-    public void finishUpdate(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
-            finishUpdate((View) viewGroup);
-        }
-    }
-
     public abstract int getCount();
 
-    public int getItemPosition(@NonNull Object obj) {
+    public int getItemPosition(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
@@ -71,7 +39,6 @@ public abstract class PagerAdapter {
         return invokeL.intValue;
     }
 
-    @Nullable
     public CharSequence getPageTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -90,14 +57,52 @@ public abstract class PagerAdapter {
         return invokeI.floatValue;
     }
 
-    @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public abstract boolean isViewFromObject(View view2, Object obj);
+
+    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) ? instantiateItem((View) viewGroup, i) : invokeLI.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, parcelable, classLoader) == null) {
+        }
     }
 
-    public abstract boolean isViewFromObject(@NonNull View view2, @NonNull Object obj);
+    public Parcelable saveState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    @Deprecated
+    public void setPrimaryItem(View view2, int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048591, this, view2, i, obj) == null) {
+        }
+    }
+
+    @Deprecated
+    public void startUpdate(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
+        }
+    }
+
+    public PagerAdapter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mObservable = new DataSetObservable();
+    }
 
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
@@ -111,40 +116,39 @@ public abstract class PagerAdapter {
         }
     }
 
-    public void registerDataSetObserver(@NonNull DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, dataSetObserver) == null) {
-            this.mObservable.registerObserver(dataSetObserver);
-        }
-    }
-
-    public void restoreState(@Nullable Parcelable parcelable, @Nullable ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, parcelable, classLoader) == null) {
-        }
-    }
-
-    @Nullable
-    public Parcelable saveState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
     @Deprecated
-    public void setPrimaryItem(@NonNull View view2, int i, @NonNull Object obj) {
+    public void destroyItem(View view2, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048591, this, view2, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, obj) == null) {
+            throw new UnsupportedOperationException("Required method destroyItem was not overridden");
         }
     }
 
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048592, this, viewGroup, i, obj) == null) {
             setPrimaryItem((View) viewGroup, i, obj);
+        }
+    }
+
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, obj) == null) {
+            destroyItem((View) viewGroup, i, obj);
+        }
+    }
+
+    public void finishUpdate(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
+            finishUpdate((View) viewGroup);
+        }
+    }
+
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, dataSetObserver) == null) {
+            this.mObservable.registerObserver(dataSetObserver);
         }
     }
 
@@ -157,21 +161,14 @@ public abstract class PagerAdapter {
         }
     }
 
-    @Deprecated
-    public void startUpdate(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
-        }
-    }
-
-    public void startUpdate(@NonNull ViewGroup viewGroup) {
+    public void startUpdate(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, viewGroup) == null) {
             startUpdate((View) viewGroup);
         }
     }
 
-    public void unregisterDataSetObserver(@NonNull DataSetObserver dataSetObserver) {
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, dataSetObserver) == null) {
             this.mObservable.unregisterObserver(dataSetObserver);
@@ -179,20 +176,20 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void destroyItem(@NonNull View view2, int i, @NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, obj) == null) {
-            throw new UnsupportedOperationException("Required method destroyItem was not overridden");
-        }
-    }
-
-    @NonNull
-    @Deprecated
-    public Object instantiateItem(@NonNull View view2, int i) {
+    public Object instantiateItem(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i)) == null) {
             throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
+        }
+        return invokeLI.objValue;
+    }
+
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) {
+            return instantiateItem((View) viewGroup, i);
         }
         return invokeLI.objValue;
     }

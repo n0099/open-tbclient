@@ -68,11 +68,11 @@ public class I1 implements Runnable {
                 e2.a = System.getProperty("http.agent");
                 if (Build.VERSION.SDK_INT >= 17) {
                     userAgentString = WebSettings.getDefaultUserAgent(context);
-                } else if (Looper.myLooper() != Looper.getMainLooper()) {
+                } else if (Looper.myLooper() == Looper.getMainLooper()) {
+                    userAgentString = new WebView(context).getSettings().getUserAgentString();
+                } else {
                     c2.a.post(new d2(context));
                     return;
-                } else {
-                    userAgentString = new WebView(context).getSettings().getUserAgentString();
                 }
                 e2.a = userAgentString;
             } catch (Exception unused3) {

@@ -2,7 +2,6 @@ package androidx.appcompat.view;
 
 import android.view.View;
 import android.view.animation.Interpolator;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListener;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ViewPropertyAnimatorCompatSet {
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +84,7 @@ public class ViewPropertyAnimatorCompatSet {
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
             public void onAnimationStart(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.mProxyStarted) {
+                if ((interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.mProxyStarted) {
                     return;
                 }
                 this.mProxyStarted = true;
@@ -110,13 +108,14 @@ public class ViewPropertyAnimatorCompatSet {
 
     public void cancel() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIsStarted) {
-            Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
-            while (it.hasNext()) {
-                it.next().cancel();
-            }
-            this.mIsStarted = false;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.mIsStarted) {
+            return;
         }
+        Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
+        while (it.hasNext()) {
+            it.next().cancel();
+        }
+        this.mIsStarted = false;
     }
 
     public void onAnimationsEnded() {
@@ -136,18 +135,6 @@ public class ViewPropertyAnimatorCompatSet {
             return this;
         }
         return (ViewPropertyAnimatorCompatSet) invokeL.objValue;
-    }
-
-    public ViewPropertyAnimatorCompatSet playSequentially(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, ViewPropertyAnimatorCompat viewPropertyAnimatorCompat2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewPropertyAnimatorCompat, viewPropertyAnimatorCompat2)) == null) {
-            this.mAnimators.add(viewPropertyAnimatorCompat);
-            viewPropertyAnimatorCompat2.setStartDelay(viewPropertyAnimatorCompat.getDuration());
-            this.mAnimators.add(viewPropertyAnimatorCompat2);
-            return this;
-        }
-        return (ViewPropertyAnimatorCompatSet) invokeLL.objValue;
     }
 
     public ViewPropertyAnimatorCompatSet setDuration(long j) {
@@ -186,9 +173,21 @@ public class ViewPropertyAnimatorCompatSet {
         return (ViewPropertyAnimatorCompatSet) invokeL.objValue;
     }
 
+    public ViewPropertyAnimatorCompatSet playSequentially(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, ViewPropertyAnimatorCompat viewPropertyAnimatorCompat2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewPropertyAnimatorCompat, viewPropertyAnimatorCompat2)) == null) {
+            this.mAnimators.add(viewPropertyAnimatorCompat);
+            viewPropertyAnimatorCompat2.setStartDelay(viewPropertyAnimatorCompat.getDuration());
+            this.mAnimators.add(viewPropertyAnimatorCompat2);
+            return this;
+        }
+        return (ViewPropertyAnimatorCompatSet) invokeLL.objValue;
+    }
+
     public void start() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.mIsStarted) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.mIsStarted) {
             return;
         }
         Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();

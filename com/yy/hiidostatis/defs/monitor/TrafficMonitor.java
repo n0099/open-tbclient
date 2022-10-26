@@ -46,35 +46,13 @@ public final class TrafficMonitor {
         $VALUES = new TrafficMonitor[]{trafficMonitor};
     }
 
-    public TrafficMonitor(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static TrafficMonitor valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TrafficMonitor) Enum.valueOf(TrafficMonitor.class, str) : (TrafficMonitor) invokeL.objValue;
-    }
-
     public static TrafficMonitor[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TrafficMonitor[]) $VALUES.clone() : (TrafficMonitor[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (TrafficMonitor[]) $VALUES.clone();
+        }
+        return (TrafficMonitor[]) invokeV.objValue;
     }
 
     public void end() {
@@ -141,6 +119,34 @@ public final class TrafficMonitor {
             return j - j2;
         }
         return invokeV.longValue;
+    }
+
+    public TrafficMonitor(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static TrafficMonitor valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (TrafficMonitor) Enum.valueOf(TrafficMonitor.class, str);
+        }
+        return (TrafficMonitor) invokeL.objValue;
     }
 
     public void init(Context context) {

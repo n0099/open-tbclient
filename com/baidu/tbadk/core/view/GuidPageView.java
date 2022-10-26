@@ -43,15 +43,14 @@ public class GuidPageView extends ImageView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || view2.getBackground() == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getBackground() != null) {
+                Bitmap bitmap = ((BitmapDrawable) view2.getBackground()).getBitmap();
+                view2.setBackgroundDrawable(null);
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    bitmap.recycle();
+                }
+                view2.setVisibility(8);
             }
-            Bitmap bitmap = ((BitmapDrawable) view2.getBackground()).getBitmap();
-            view2.setBackgroundDrawable(null);
-            if (bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            view2.setVisibility(8);
         }
     }
 
@@ -76,26 +75,6 @@ public class GuidPageView extends ImageView {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOnClickListener(new a(this));
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getBackground() == null) {
-            return;
-        }
-        Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
-        setBackgroundDrawable(null);
-        if (bitmap == null || bitmap.isRecycled()) {
-            return;
-        }
-        bitmap.recycle();
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GuidPageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -116,5 +95,24 @@ public class GuidPageView extends ImageView {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOnClickListener(new a(this));
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getBackground() == null) {
+            return;
+        }
+        Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
+        setBackgroundDrawable(null);
+        if (bitmap != null && !bitmap.isRecycled()) {
+            bitmap.recycle();
+        }
     }
 }

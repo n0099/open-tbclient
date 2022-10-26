@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.response.kwai;
 
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.core.b.kwai.dd;
 import com.kwad.sdk.core.d;
@@ -9,8 +8,8 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a implements b {
-    public static final List<String> WHITE_LIST;
-    public List<d<a>> mHolders;
+    public static final List WHITE_LIST;
+    public List mHolders;
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -18,31 +17,31 @@ public class a implements b {
         arrayList.add("com.kwad.sdk.core.report.BaseReportAction");
     }
 
-    private d<a> getHolder(Class<? extends a> cls) {
+    private d getHolder(Class cls) {
         if (a.class.equals(cls) || WHITE_LIST.contains(cls.getName())) {
             return null;
         }
         return dd.getHolder(cls);
     }
 
-    private List<d<a>> getHolders() {
+    private List getHolders() {
         if (this.mHolders == null) {
             this.mHolders = new ArrayList();
             for (Class<?> cls = getClass(); cls != null && a.class.isAssignableFrom(cls); cls = cls.getSuperclass()) {
-                d<a> holder = getHolder(cls);
+                d holder = getHolder(cls);
                 if (holder != null) {
                     this.mHolders.add(0, holder);
                 }
             }
         }
-        List<d<a>> list = this.mHolders;
+        List list = this.mHolders;
         if (list == null || list.isEmpty()) {
             com.kwad.sdk.core.e.b.printStackTrace(new IllegalStateException("no holders for class: " + getClass()));
         }
         return this.mHolders;
     }
 
-    public void afterParseJson(@Nullable JSONObject jSONObject) {
+    public void afterParseJson(JSONObject jSONObject) {
     }
 
     public void afterToJson(JSONObject jSONObject) {
@@ -52,24 +51,24 @@ public class a implements b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
-        List<d<a>> holders = getHolders();
+    public void parseJson(JSONObject jSONObject) {
+        List holders = getHolders();
         for (int size = holders.size() - 1; size >= 0; size--) {
-            holders.get(size).a(this, jSONObject);
+            ((d) holders.get(size)).a(this, jSONObject);
         }
         afterParseJson(jSONObject);
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
-        List<d<a>> holders = getHolders();
+        List holders = getHolders();
         JSONObject jSONObject = new JSONObject();
         beforeToJson(jSONObject);
         if (holders == null) {
             return jSONObject;
         }
         for (int size = holders.size() - 1; size >= 0; size--) {
-            d<a> dVar = holders.get(size);
+            d dVar = (d) holders.get(size);
             if (dVar != null) {
                 dVar.b(this, jSONObject);
             }

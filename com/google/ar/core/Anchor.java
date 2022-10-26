@@ -17,9 +17,21 @@ public class Anchor {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
+    private native void nativeDetach(long j, long j2);
+
+    private native String nativeGetCloudAnchorId(long j, long j2);
+
+    private native int nativeGetCloudAnchorState(long j, long j2);
+
+    private native Pose nativeGetPose(long j, long j2);
+
+    private native int nativeGetTrackingState(long j, long j2);
+
+    public static native void nativeReleaseAnchor(long j);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class CloudAnchorState {
+    public final class CloudAnchorState {
         public static final /* synthetic */ CloudAnchorState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CloudAnchorState ERROR_CLOUD_ID_NOT_FOUND;
@@ -108,19 +120,31 @@ public class Anchor {
         public static CloudAnchorState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (CloudAnchorState) Enum.valueOf(CloudAnchorState.class, str) : (CloudAnchorState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (CloudAnchorState) Enum.valueOf(CloudAnchorState.class, str);
+            }
+            return (CloudAnchorState) invokeL.objValue;
         }
 
         public static CloudAnchorState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (CloudAnchorState[]) $VALUES.clone() : (CloudAnchorState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (CloudAnchorState[]) $VALUES.clone();
+            }
+            return (CloudAnchorState[]) invokeV.objValue;
         }
 
         public final boolean isError() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.nativeCode < 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.nativeCode < 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -140,24 +164,6 @@ public class Anchor {
         this.a = 0L;
     }
 
-    private native void nativeDetach(long j, long j2);
-
-    private native String nativeGetCloudAnchorId(long j, long j2);
-
-    private native int nativeGetCloudAnchorState(long j, long j2);
-
-    private native Pose nativeGetPose(long j, long j2);
-
-    private native int nativeGetTrackingState(long j, long j2);
-
-    public static native void nativeReleaseAnchor(long j);
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == Anchor.class && ((Anchor) obj).a == this.a : invokeL.booleanValue;
-    }
-
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -172,6 +178,21 @@ public class Anchor {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.a).hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Long.valueOf(this.a).hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null || obj.getClass() != Anchor.class || ((Anchor) obj).a != this.a) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

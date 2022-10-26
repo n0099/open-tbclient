@@ -1,221 +1,143 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class yn6 {
+public class yn6 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> a;
-    public List<ThreadData> b;
-    public Object[] c;
+    public TbPageContext a;
+    public r16 b;
+    public String c;
+    public String d;
+    public p26 e;
 
-    public yn6() {
+    /* loaded from: classes6.dex */
+    public class a extends p26 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yn6 b;
+
+        public a(yn6 yn6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yn6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yn6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.p26
+        /* renamed from: d */
+        public void a(View view2, g76 g76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, g76Var) == null) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 2).param("fid", this.b.c));
+                this.b.u(view2, g76Var);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yn6(TbPageContext tbPageContext, String str, String str2) {
+        super(tbPageContext.getPageActivity(), g76.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
+        this.c = str;
+        this.d = str2;
+        this.a = tbPageContext;
     }
 
-    public List<Cdo> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: v */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            this.b = new r16(this.a, this.c, this.d);
+            return new CardViewHolder(this.b);
+        }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void b() {
+    public void x(p26 p26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < this.b.size(); i++) {
-                ThreadData threadData = this.b.get(i);
-                if (threadData != null) {
-                    if (i % 4 == 0) {
-                        z66 z66Var = new z66();
-                        z66Var.c(threadData);
-                        this.a.add(z66Var);
-                    } else {
-                        a76 a76Var = new a76();
-                        a76Var.c(threadData);
-                        this.a.add(a76Var);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, p26Var) == null) {
+            this.e = p26Var;
         }
     }
 
-    public void c(int i, wn6 wn6Var) {
+    public final void u(View view2, g76 g76Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, wn6Var) == null) || wn6Var == null) {
-            return;
-        }
-        if (1 == i) {
-            this.a.clear();
-            this.b.clear();
-            this.c = new Object[wn6Var.b + 10];
-        }
-        if (!ListUtils.isEmpty(wn6Var.c)) {
-            ArrayList arrayList = new ArrayList(wn6Var.c.size());
-            for (ThreadData threadData : wn6Var.c) {
-                if (threadData != null) {
-                    arrayList.add(threadData);
-                }
-            }
-            this.b.addAll(arrayList);
-        }
-        if (1 == i) {
-            e(wn6Var);
-        }
-        this.a.clear();
-        b();
-        g();
-        f(wn6Var);
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            Object[] objArr = this.c;
-            if (i >= objArr.length) {
-                this.c = Arrays.copyOf(objArr, i + 1);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, g76Var) == null) {
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.a.getPageActivity()).createFromThreadCfg(g76Var.getThreadData(), null, a26.g(), 18003, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(g76Var.getThreadData().getFid()));
+            createFromThreadCfg.setForumName(g76Var.getThreadData().getForum_name());
+            createFromThreadCfg.setStartFrom(0);
+            a26.a(g76Var.getThreadData().getTid());
+            this.a.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
+            p26 p26Var = this.e;
+            if (p26Var != null) {
+                p26Var.a(view2, g76Var);
             }
         }
     }
 
-    public final void e(wn6 wn6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, g76 g76Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, wn6Var) == null) {
-            if (!ListUtils.isEmpty(wn6Var.e)) {
-                for (FeatureCardHot featureCardHot : wn6Var.e) {
-                    if (featureCardHot != null && featureCardHot.isValid()) {
-                        d(featureCardHot.floor.intValue());
-                        this.c[featureCardHot.floor.intValue()] = featureCardHot;
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g76Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
             }
-            if (!ListUtils.isEmpty(wn6Var.f)) {
-                for (FeatureCardTopic featureCardTopic : wn6Var.f) {
-                    if (featureCardTopic != null && featureCardTopic.isValid()) {
-                        d(featureCardTopic.floor.intValue());
-                        this.c[featureCardTopic.floor.intValue()] = featureCardTopic;
-                    }
-                }
-            }
-            if (!ListUtils.isEmpty(wn6Var.g)) {
-                for (xn6 xn6Var : wn6Var.g) {
-                    if (xn6Var != null && xn6Var.a()) {
-                        d(xn6Var.c.intValue());
-                        this.c[xn6Var.c.intValue()] = xn6Var;
-                    }
-                }
-            }
-            if (!ListUtils.isEmpty(wn6Var.h)) {
-                for (FeatureCardCompetition featureCardCompetition : wn6Var.h) {
-                    if (featureCardCompetition != null && featureCardCompetition.isValid()) {
-                        d(featureCardCompetition.floor.intValue());
-                        this.c[featureCardCompetition.floor.intValue()] = featureCardCompetition;
-                    }
-                }
-            }
-            if (!ListUtils.isEmpty(wn6Var.i)) {
-                for (FeatureCardGod featureCardGod : wn6Var.i) {
-                    if (featureCardGod != null && featureCardGod.isValid()) {
-                        d(featureCardGod.floor.intValue());
-                        this.c[featureCardGod.floor.intValue()] = featureCardGod;
-                    }
-                }
-            }
-            if (ListUtils.isEmpty(wn6Var.j)) {
-                return;
-            }
-            for (FeatureCardGame featureCardGame : wn6Var.j) {
-                if (featureCardGame != null && featureCardGame.isValid()) {
-                    d(featureCardGame.floor.intValue());
-                    this.c[featureCardGame.floor.intValue()] = featureCardGame;
-                }
-            }
+            ((r16) cardViewHolder.a()).l(g76Var);
+            ((r16) cardViewHolder.a()).m(this.a, TbadkCoreApplication.getInst().getSkinType());
+            ((r16) cardViewHolder.a()).n(new a(this));
+            return ((r16) cardViewHolder.a()).k();
         }
-    }
-
-    public final void f(wn6 wn6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wn6Var) == null) {
-            f76 f76Var = new f76();
-            f76Var.f(wn6Var.d);
-            this.a.add(0, f76Var);
-        }
-    }
-
-    public final void g() {
-        Object[] objArr;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (objArr = this.c) == null || objArr.length <= 0) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            Object[] objArr2 = this.c;
-            if (i >= objArr2.length) {
-                return;
-            }
-            Object obj = objArr2[i];
-            if (obj != null) {
-                int i2 = i - 1;
-                if (i2 < 0) {
-                    i2 = 0;
-                } else if (i2 >= this.a.size()) {
-                    i2 = this.a.size();
-                }
-                if (obj instanceof FeatureCardHot) {
-                    d76 d76Var = new d76();
-                    d76Var.f((FeatureCardHot) obj);
-                    this.a.add(i2, d76Var);
-                } else if (obj instanceof FeatureCardTopic) {
-                    g76 g76Var = new g76();
-                    g76Var.b((FeatureCardTopic) obj);
-                    this.a.add(i2, g76Var);
-                } else if (obj instanceof xn6) {
-                    c76 c76Var = new c76();
-                    c76Var.f((xn6) obj);
-                    this.a.add(i2, c76Var);
-                } else if (obj instanceof FeatureCardCompetition) {
-                    b76 b76Var = new b76();
-                    b76Var.b((FeatureCardCompetition) obj);
-                    this.a.add(i2, b76Var);
-                } else if (obj instanceof FeatureCardGod) {
-                    qh6 qh6Var = new qh6();
-                    qh6Var.g((FeatureCardGod) obj);
-                    this.a.add(i2, qh6Var);
-                } else if (obj instanceof FeatureCardGame) {
-                    e76 e76Var = new e76();
-                    e76Var.b((FeatureCardGame) obj);
-                    this.a.add(i2, e76Var);
-                }
-            }
-            i++;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

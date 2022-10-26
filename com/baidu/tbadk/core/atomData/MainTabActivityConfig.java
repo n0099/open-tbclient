@@ -94,6 +94,96 @@ public class MainTabActivityConfig extends IntentConfig {
         return (MainTabActivityConfig) invokeL.objValue;
     }
 
+    public MainTabActivityConfig createNormalCfg(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return createNewUserCfg(i, false, false);
+        }
+        return (MainTabActivityConfig) invokeI.objValue;
+    }
+
+    public MainTabActivityConfig createUriCfg(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
+            getIntent().setData(uri);
+            return this;
+        }
+        return (MainTabActivityConfig) invokeL.objValue;
+    }
+
+    public void setBottomTab(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && getIntent() != null && i >= 0) {
+            getIntent().putExtra("locate_type", i);
+        }
+    }
+
+    public void setPushDesPage(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(PUSH_DES_PAGE, str);
+        }
+    }
+
+    public void setPushFollowUpAction(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);
+        }
+    }
+
+    public void setPushTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            getIntent().putExtra(PUSH_TID, str);
+        }
+    }
+
+    public void setSubTabName(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("sub_tab_name", str);
+        }
+    }
+
+    public void setTargetScheme(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            getIntent().putExtra("target_scheme", str);
+        }
+    }
+
+    public MainTabActivityConfig createNewUserCfg(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return createNewUserCfg(i, z, false);
+        }
+        return (MainTabActivityConfig) invokeCommon.objValue;
+    }
+
+    public MainTabActivityConfig createNormalCfg(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return createNewUserCfg(i, false, z);
+        }
+        return (MainTabActivityConfig) invokeCommon.objValue;
+    }
+
+    public void setSubTab(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) && getIntent() != null) {
+            if (str == null) {
+                getIntent().putExtra("sub_locate_type", i);
+            } else {
+                getIntent().putExtra("sub_locate_type", str);
+            }
+        }
+    }
+
     public MainTabActivityConfig createNewUserCfg(int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -112,12 +202,6 @@ public class MainTabActivityConfig extends IntentConfig {
             return this;
         }
         return (MainTabActivityConfig) invokeCommon.objValue;
-    }
-
-    public MainTabActivityConfig createNormalCfg(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? createNewUserCfg(i, false, false) : (MainTabActivityConfig) invokeI.objValue;
     }
 
     public MainTabActivityConfig createRefreshCfg(int i, boolean z) {
@@ -141,85 +225,5 @@ public class MainTabActivityConfig extends IntentConfig {
             return this;
         }
         return (MainTabActivityConfig) invokeCommon.objValue;
-    }
-
-    public MainTabActivityConfig createUriCfg(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
-            getIntent().setData(uri);
-            return this;
-        }
-        return (MainTabActivityConfig) invokeL.objValue;
-    }
-
-    public void setBottomTab(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || getIntent() == null || i < 0) {
-            return;
-        }
-        getIntent().putExtra("locate_type", i);
-    }
-
-    public void setPushDesPage(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(PUSH_DES_PAGE, str);
-    }
-
-    public void setPushFollowUpAction(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);
-    }
-
-    public void setPushTid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            getIntent().putExtra(PUSH_TID, str);
-        }
-    }
-
-    public void setSubTab(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) || getIntent() == null) {
-            return;
-        }
-        if (str == null) {
-            getIntent().putExtra("sub_locate_type", i);
-        } else {
-            getIntent().putExtra("sub_locate_type", str);
-        }
-    }
-
-    public void setSubTabName(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("sub_tab_name", str);
-    }
-
-    public void setTargetScheme(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            getIntent().putExtra("target_scheme", str);
-        }
-    }
-
-    public MainTabActivityConfig createNormalCfg(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? createNewUserCfg(i, false, z) : (MainTabActivityConfig) invokeCommon.objValue;
-    }
-
-    public MainTabActivityConfig createNewUserCfg(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? createNewUserCfg(i, z, false) : (MainTabActivityConfig) invokeCommon.objValue;
     }
 }

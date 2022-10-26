@@ -27,17 +27,15 @@ public class TrafficStatsUtils {
 
     public static void clearThreadStatsTag() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || Build.VERSION.SDK_INT < 15) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && Build.VERSION.SDK_INT >= 15) {
+            TrafficStats.clearThreadStatsTag();
         }
-        TrafficStats.clearThreadStatsTag();
     }
 
     public static void setThreadStatsTag(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, null, i) == null) || Build.VERSION.SDK_INT < 15) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(65538, null, i) == null) && Build.VERSION.SDK_INT >= 15) {
+            TrafficStats.setThreadStatsTag(i);
         }
-        TrafficStats.setThreadStatsTag(i);
     }
 }

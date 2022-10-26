@@ -1,21 +1,19 @@
 package com.airbnb.lottie.value;
-
-import androidx.annotation.RestrictTo;
 /* loaded from: classes.dex */
-public class LottieFrameInfo<T> {
+public class LottieFrameInfo {
     public float endFrame;
-    public T endValue;
+    public Object endValue;
     public float interpolatedKeyframeProgress;
     public float linearKeyframeProgress;
     public float overallProgress;
     public float startFrame;
-    public T startValue;
+    public Object startValue;
 
     public float getEndFrame() {
         return this.endFrame;
     }
 
-    public T getEndValue() {
+    public Object getEndValue() {
         return this.endValue;
     }
 
@@ -35,16 +33,15 @@ public class LottieFrameInfo<T> {
         return this.startFrame;
     }
 
-    public T getStartValue() {
+    public Object getStartValue() {
         return this.startValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public LottieFrameInfo<T> set(float f, float f2, T t, T t2, float f3, float f4, float f5) {
+    public LottieFrameInfo set(float f, float f2, Object obj, Object obj2, float f3, float f4, float f5) {
         this.startFrame = f;
         this.endFrame = f2;
-        this.startValue = t;
-        this.endValue = t2;
+        this.startValue = obj;
+        this.endValue = obj2;
         this.linearKeyframeProgress = f3;
         this.interpolatedKeyframeProgress = f4;
         this.overallProgress = f5;

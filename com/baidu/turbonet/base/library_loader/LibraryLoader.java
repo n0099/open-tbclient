@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
 /* loaded from: classes6.dex */
@@ -30,19 +29,6 @@ public class LibraryLoader {
         }
     }
 
-    @CalledByNative
-    public static int getLibraryProcessType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                return 0;
-            }
-            return b.a;
-        }
-        return invokeV.intValue;
-    }
-
     public static native boolean nativeForkAndPrefetchNativeLibrary();
 
     private native String nativeGetVersionNumber();
@@ -60,4 +46,16 @@ public class LibraryLoader {
     private native void nativeRegisterChromiumAndroidLinkerRendererHistogram(boolean z, boolean z2, long j);
 
     private native void nativeRegisterLibraryPreloaderRendererHistogram(int i);
+
+    public static int getLibraryProcessType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                return 0;
+            }
+            return b.a;
+        }
+        return invokeV.intValue;
+    }
 }

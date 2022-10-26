@@ -37,30 +37,6 @@ public class ParseError extends Exception {
         }
     }
 
-    public static ParseError contentError(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) ? new ParseError(10, i, str) : (ParseError) invokeIL.objValue;
-    }
-
-    public static ParseError parseError(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, str)) == null) ? parseError(i, str, null) : (ParseError) invokeIL.objValue;
-    }
-
-    public static ParseError smoothScroll(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new ParseError(4, -1, str) : (ParseError) invokeL.objValue;
-    }
-
-    public static ParseError timeOut(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? new ParseError(5, -1, str) : (ParseError) invokeL.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ParseError(int i, int i2, String str, String str2) {
         this(i, i2, str, str2, null);
@@ -80,18 +56,6 @@ public class ParseError extends Exception {
                 return;
             }
         }
-    }
-
-    public static ParseError contentError(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str, str2)) == null) ? new ParseError(10, i, str, str2, null) : (ParseError) invokeILL.objValue;
-    }
-
-    public static ParseError parseError(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65542, null, i, str, str2)) == null) ? new ParseError(10, i, null, str, str2) : (ParseError) invokeILL.objValue;
     }
 
     public ParseError(int i, int i2, String str, String str2, String str3) {
@@ -114,5 +78,59 @@ public class ParseError extends Exception {
         this.mTplName = str;
         this.mExtraParam = str2;
         this.mPid = str3;
+    }
+
+    public static ParseError contentError(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
+            return new ParseError(10, i, str);
+        }
+        return (ParseError) invokeIL.objValue;
+    }
+
+    public static ParseError parseError(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, str)) == null) {
+            return parseError(i, str, null);
+        }
+        return (ParseError) invokeIL.objValue;
+    }
+
+    public static ParseError contentError(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str, str2)) == null) {
+            return new ParseError(10, i, str, str2, null);
+        }
+        return (ParseError) invokeILL.objValue;
+    }
+
+    public static ParseError parseError(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65542, null, i, str, str2)) == null) {
+            return new ParseError(10, i, null, str, str2);
+        }
+        return (ParseError) invokeILL.objValue;
+    }
+
+    public static ParseError smoothScroll(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return new ParseError(4, -1, str);
+        }
+        return (ParseError) invokeL.objValue;
+    }
+
+    public static ParseError timeOut(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return new ParseError(5, -1, str);
+        }
+        return (ParseError) invokeL.objValue;
     }
 }

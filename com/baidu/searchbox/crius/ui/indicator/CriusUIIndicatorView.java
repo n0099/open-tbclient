@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUIIndicatorView extends CriusUI<SwiperIndicatorView> {
+public class CriusUIIndicatorView extends CriusUI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SwiperIndicatorView mIndicatorView;
@@ -49,7 +49,7 @@ public class CriusUIIndicatorView extends CriusUI<SwiperIndicatorView> {
             CriusData criusData = this.renderObject.parent;
             if (criusData != null && criusData.children != null) {
                 for (int i = 0; i < criusData.children.size(); i++) {
-                    CriusData criusData2 = criusData.children.get(i);
+                    CriusData criusData2 = (CriusData) criusData.children.get(i);
                     if (TextUtils.equals(NativeConstants.TYPE_SWIPER, criusData2.type) && TextUtils.equals(this.renderObject.indicatorAttrs.swiperId, criusData2.swiperAttrs.id)) {
                         return (ViewPager) criusData2.getUI().getView();
                     }
@@ -58,34 +58,6 @@ public class CriusUIIndicatorView extends CriusUI<SwiperIndicatorView> {
             return null;
         }
         return (ViewPager) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
-    public void layout(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            CriusData criusData = this.renderObject;
-            if (criusData != null && criusData.parent != null) {
-                if (criusData.indicatorAttrs.isHorizontalCenter) {
-                    if (getView().getVisibility() == 8) {
-                        return;
-                    }
-                    CriusData criusData2 = this.renderObject;
-                    CriusNode criusNode = criusData2.criusNode;
-                    CriusData criusData3 = criusData2.parent;
-                    View view2 = (View) criusNode.getData();
-                    float layoutWidth = criusData3.criusNode.getLayoutWidth();
-                    view2.measure(View.MeasureSpec.makeMeasureSpec(Math.round(criusNode.getLayoutWidth()), 1073741824), View.MeasureSpec.makeMeasureSpec(Math.round(criusNode.getLayoutHeight()), 1073741824));
-                    int round = Math.round(f + ((layoutWidth - view2.getMeasuredWidth()) / 2.0f));
-                    int round2 = Math.round(f2 + criusNode.getLayoutY());
-                    view2.layout(round, round2, view2.getMeasuredWidth() + round, view2.getMeasuredHeight() + round2);
-                    return;
-                }
-                super.layout(f, f2);
-                return;
-            }
-            super.layout(f, f2);
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,5 +78,33 @@ public class CriusUIIndicatorView extends CriusUI<SwiperIndicatorView> {
             return this.mIndicatorView;
         }
         return (SwiperIndicatorView) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
+    public void layout(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            CriusData criusData = this.renderObject;
+            if (criusData != null && criusData.parent != null) {
+                if (criusData.indicatorAttrs.isHorizontalCenter) {
+                    if (((SwiperIndicatorView) getView()).getVisibility() == 8) {
+                        return;
+                    }
+                    CriusData criusData2 = this.renderObject;
+                    CriusNode criusNode = criusData2.criusNode;
+                    CriusData criusData3 = criusData2.parent;
+                    View view2 = (View) criusNode.getData();
+                    float layoutWidth = criusData3.criusNode.getLayoutWidth();
+                    view2.measure(View.MeasureSpec.makeMeasureSpec(Math.round(criusNode.getLayoutWidth()), 1073741824), View.MeasureSpec.makeMeasureSpec(Math.round(criusNode.getLayoutHeight()), 1073741824));
+                    int round = Math.round(f + ((layoutWidth - view2.getMeasuredWidth()) / 2.0f));
+                    int round2 = Math.round(f2 + criusNode.getLayoutY());
+                    view2.layout(round, round2, view2.getMeasuredWidth() + round, view2.getMeasuredHeight() + round2);
+                    return;
+                }
+                super.layout(f, f2);
+                return;
+            }
+            super.layout(f, f2);
+        }
     }
 }

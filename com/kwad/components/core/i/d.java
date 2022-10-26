@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import androidx.annotation.LayoutRes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +40,6 @@ public abstract class d extends AlertDialog {
         this.mContext = Wrapper.wrapContextIfNeed(activity);
     }
 
-    @LayoutRes
     public abstract int getLayoutId();
 
     @Override // android.app.AlertDialog, android.app.Dialog

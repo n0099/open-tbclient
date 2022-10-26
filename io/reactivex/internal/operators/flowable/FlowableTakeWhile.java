@@ -14,21 +14,21 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTakeWhile<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableTakeWhile extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate<? super T> predicate;
+    public final Predicate predicate;
 
     /* loaded from: classes8.dex */
-    public static final class TakeWhileSubscriber<T> implements FlowableSubscriber<T>, Subscription {
+    public final class TakeWhileSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean done;
-        public final Predicate<? super T> predicate;
+        public final Predicate predicate;
         public Subscription s;
 
-        public TakeWhileSubscriber(Subscriber<? super T> subscriber, Predicate<? super T> predicate) {
+        public TakeWhileSubscriber(Subscriber subscriber, Predicate predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public final class FlowableTakeWhile<T> extends AbstractFlowableWithUpstream<T, 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -78,27 +78,6 @@ public final class FlowableTakeWhile<T> extends AbstractFlowableWithUpstream<T, 
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
-                return;
-            }
-            try {
-                if (!this.predicate.test(t)) {
-                    this.done = true;
-                    this.s.cancel();
-                    this.actual.onComplete();
-                    return;
-                }
-                this.actual.onNext(t);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.cancel();
-                onError(th);
-            }
-        }
-
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
@@ -115,10 +94,31 @@ public final class FlowableTakeWhile<T> extends AbstractFlowableWithUpstream<T, 
                 this.s.request(j);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+                return;
+            }
+            try {
+                if (!this.predicate.test(obj)) {
+                    this.done = true;
+                    this.s.cancel();
+                    this.actual.onComplete();
+                    return;
+                }
+                this.actual.onNext(obj);
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                this.s.cancel();
+                onError(th);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTakeWhile(Flowable<T> flowable, Predicate<? super T> predicate) {
+    public FlowableTakeWhile(Flowable flowable, Predicate predicate) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -139,7 +139,7 @@ public final class FlowableTakeWhile<T> extends AbstractFlowableWithUpstream<T, 
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new TakeWhileSubscriber(subscriber, this.predicate));

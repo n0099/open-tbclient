@@ -24,26 +24,26 @@ public class IntProgression implements Iterable<Integer>, KMappedMarker {
         public Companion() {
         }
 
-        public final IntProgression fromClosedRange(int i, int i2, int i3) {
-            return new IntProgression(i, i2, i3);
-        }
-
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
+        }
+
+        public final IntProgression fromClosedRange(int i, int i2, int i3) {
+            return new IntProgression(i, i2, i3);
         }
     }
 
     public IntProgression(int i, int i2, int i3) {
-        if (i3 == 0) {
-            throw new IllegalArgumentException("Step must be non-zero.");
+        if (i3 != 0) {
+            if (i3 != Integer.MIN_VALUE) {
+                this.first = i;
+                this.last = ProgressionUtilKt.getProgressionLastElement(i, i2, i3);
+                this.step = i3;
+                return;
+            }
+            throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        if (i3 != Integer.MIN_VALUE) {
-            this.first = i;
-            this.last = ProgressionUtilKt.getProgressionLastElement(i, i2, i3);
-            this.step = i3;
-            return;
-        }
-        throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
+        throw new IllegalArgumentException("Step must be non-zero.");
     }
 
     public boolean equals(Object obj) {
@@ -88,6 +88,13 @@ public class IntProgression implements Iterable<Integer>, KMappedMarker {
         return false;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'kotlin.collections.IntIterator' to match base method */
+    @Override // java.lang.Iterable
+    public Iterator<Integer> iterator() {
+        return new IntProgressionIterator(this.first, this.last, this.step);
+    }
+
     public String toString() {
         StringBuilder sb;
         int i;
@@ -108,12 +115,5 @@ public class IntProgression implements Iterable<Integer>, KMappedMarker {
         }
         sb.append(i);
         return sb.toString();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'kotlin.collections.IntIterator' to match base method */
-    @Override // java.lang.Iterable
-    public Iterator<Integer> iterator() {
-        return new IntProgressionIterator(this.first, this.last, this.step);
     }
 }

@@ -9,6 +9,7 @@ import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.lv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,18 +54,20 @@ public class NightPluginManager {
         @Override // com.baidu.nps.main.invoke.IInvokeCallback
         public void onResult(int i, String str, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, obj) == null) && i == 14) {
-                try {
-                    if (this.b.mINightPlugin == null) {
-                        this.b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
-                    }
-                    SkinManager.setPackageName(this.b.mINightPlugin.getNightPluginPackageName());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.a)));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e2) {
-                    e2.printStackTrace();
+            if ((interceptable != null && interceptable.invokeILL(1048576, this, i, str, obj) != null) || i != 14) {
+                return;
+            }
+            try {
+                if (this.b.mINightPlugin == null) {
+                    this.b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
                 }
+                SkinManager.setPackageName(this.b.mINightPlugin.getNightPluginPackageName());
+                lv4.a();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.a)));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -74,6 +77,13 @@ public class NightPluginManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IInvokeCallback a;
+
+        @Override // com.baidu.nps.main.install.IInstallCallback
+        public void onProgress(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            }
+        }
 
         public b(NightPluginManager nightPluginManager, IInvokeCallback iInvokeCallback) {
             Interceptable interceptable = $ic;
@@ -94,13 +104,6 @@ public class NightPluginManager {
         }
 
         @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onProgress(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            }
-        }
-
-        @Override // com.baidu.nps.main.install.IInstallCallback
         public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i == 13) {
@@ -110,7 +113,7 @@ public class NightPluginManager {
     }
 
     /* loaded from: classes5.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public static final NightPluginManager a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,14 +135,43 @@ public class NightPluginManager {
         }
     }
 
-    public /* synthetic */ NightPluginManager(a aVar) {
-        this();
+    public NightPluginManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public static NightPluginManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a : (NightPluginManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c.a;
+        }
+        return (NightPluginManager) invokeV.objValue;
+    }
+
+    public boolean isInvokePlugin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) != 43 && this.mINightPlugin == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ NightPluginManager(a aVar) {
+        this();
     }
 
     private void invokePlugin(IInvokeCallback iInvokeCallback) {
@@ -165,25 +197,5 @@ public class NightPluginManager {
             return iNightPlugin.getNightPluginPackageName();
         }
         return (String) invokeI.objValue;
-    }
-
-    public boolean isInvokePlugin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43 || this.mINightPlugin != null : invokeV.booleanValue;
-    }
-
-    public NightPluginManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

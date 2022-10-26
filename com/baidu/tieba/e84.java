@@ -2,10 +2,6 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class e84 extends x74<wp2> {
+public class e84 extends y74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +29,7 @@ public class e84 extends x74<wp2> {
                 return;
             }
         }
-        boolean z = vj1.a;
+        boolean z = wj1.a;
     }
 
     public e84() {
@@ -50,61 +46,48 @@ public class e84 extends x74<wp2> {
         }
     }
 
-    public static e84 e() {
+    public static e84 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new e84() : (e84) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new e84();
+        }
+        return (e84) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x74
-    /* renamed from: d */
-    public boolean b(Context context, wp2 wp2Var, up2 up2Var, l33 l33Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.y74
+    public boolean b(Context context, yp2 yp2Var, vp2 vp2Var, m33 m33Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, wp2Var, up2Var, l33Var, jSONObject)) == null) ? f(context, wp2Var, up2Var, l33Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final boolean f(Context context, wp2 wp2Var, up2 up2Var, l33 l33Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, wp2Var, up2Var, l33Var)) == null) {
-            l02.i("map", "IncludePointsAction start");
-            tp1 A = yo2.U().A(wp2Var.c);
-            if (!(A instanceof rp1)) {
-                l02.c("map", "WebViewManager is null");
-                return false;
-            }
-            v84 d = u74.b().c((rp1) A).d(wp2Var.b);
-            if (d == null) {
-                l02.c("map", "can not find map by id " + wp2Var.b);
-                return false;
-            }
-            l02.i("map", "IncludePointsAction end");
-            return g(wp2Var, d);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, yp2Var, vp2Var, m33Var, jSONObject)) == null) {
+            return e(context, yp2Var, vp2Var, m33Var, jSONObject);
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean g(wp2 wp2Var, v84 v84Var) {
-        InterceptResult invokeLL;
+    public final boolean e(Context context, yp2 yp2Var, vp2 vp2Var, m33 m33Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, wp2Var, v84Var)) == null) {
-            if (wp2Var == null || !wp2Var.isValid()) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yp2Var, vp2Var, m33Var, jSONObject)) == null) {
+            m02.i("map", "GetScaleAction start");
+            up1 A = zo2.U().A(yp2Var.c);
+            if (!(A instanceof sp1)) {
+                m02.c("map", "WebViewManager is null");
                 return false;
             }
-            BaiduMap map = v84Var.l.getMap();
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            Iterator<eq2> it = wp2Var.z.iterator();
-            while (it.hasNext()) {
-                eq2 next = it.next();
-                builder.include(new LatLng(next.a, next.b));
+            w84 d = v74.b().c((sp1) A).d(yp2Var.b);
+            if (d == null) {
+                m02.c("map", "can not find map by id " + yp2Var.b);
+                return false;
             }
-            LatLngBounds build = builder.build();
-            int[] iArr = wp2Var.A;
-            map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, iArr[3], iArr[0], iArr[1], iArr[2]));
+            try {
+                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            m02.i("map", "GetScaleAction end");
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

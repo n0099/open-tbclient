@@ -83,19 +83,18 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.infoCoreData = jsonToLiveInfoData(optJSONObject);
             }
-            if (this.remindType != 1 || (optJSONArray = jSONObject.optJSONArray("switch_live_list")) == null) {
-                return;
-            }
-            AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
-            this.listCoreData = alaLiveInfoListCoreData;
-            alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            if (optJSONArray.length() >= 1) {
-                this.listCoreData.mLiveInfoList.add(this.infoCoreData);
-            }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject jSONObject2 = (JSONObject) optJSONArray.get(i2);
-                if (jSONObject2 != null && (jsonToLiveInfoData = jsonToLiveInfoData(jSONObject2)) != null) {
-                    this.listCoreData.mLiveInfoList.add(jsonToLiveInfoData);
+            if (this.remindType == 1 && (optJSONArray = jSONObject.optJSONArray("switch_live_list")) != null) {
+                AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
+                this.listCoreData = alaLiveInfoListCoreData;
+                alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
+                if (optJSONArray.length() >= 1) {
+                    this.listCoreData.mLiveInfoList.add(this.infoCoreData);
+                }
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = (JSONObject) optJSONArray.get(i2);
+                    if (jSONObject2 != null && (jsonToLiveInfoData = jsonToLiveInfoData(jSONObject2)) != null) {
+                        this.listCoreData.mLiveInfoList.add(jsonToLiveInfoData);
+                    }
                 }
             }
         }

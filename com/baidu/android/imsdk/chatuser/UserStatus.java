@@ -13,11 +13,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class UserStatus implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<UserStatus> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsOnline;
     public long mLastOnlineTime;
     public long mUid;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +42,7 @@ public class UserStatus implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<UserStatus>() { // from class: com.baidu.android.imsdk.chatuser.UserStatus.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatuser.UserStatus.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,23 +61,54 @@ public class UserStatus implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserStatus createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new UserStatus(parcel) : (UserStatus) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new UserStatus(parcel);
+                }
+                return (UserStatus) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserStatus[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new UserStatus[i] : (UserStatus[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new UserStatus[i];
+                }
+                return (UserStatus[]) invokeI.objValue;
             }
         };
+    }
+
+    public long getLastOnlineTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLastOnlineTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mUid;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean isOnline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsOnline;
+        }
+        return invokeV.booleanValue;
     }
 
     public UserStatus(long j, boolean z, long j2) {
@@ -90,32 +131,30 @@ public class UserStatus implements Parcelable {
         this.mLastOnlineTime = j2;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public UserStatus(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public long getLastOnlineTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLastOnlineTime : invokeV.longValue;
-    }
-
-    public long getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUid : invokeV.longValue;
-    }
-
-    public boolean isOnline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsOnline : invokeV.booleanValue;
+        this.mUid = parcel.readLong();
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mIsOnline = z;
+        this.mLastOnlineTime = parcel.readLong();
     }
 
     public void setLastOnlineTime(long j) {
@@ -147,25 +186,5 @@ public class UserStatus implements Parcelable {
             parcel.writeByte(this.mIsOnline ? (byte) 1 : (byte) 0);
             parcel.writeLong(this.mLastOnlineTime);
         }
-    }
-
-    public UserStatus(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mUid = parcel.readLong();
-        this.mIsOnline = parcel.readByte() != 0;
-        this.mLastOnlineTime = parcel.readLong();
     }
 }

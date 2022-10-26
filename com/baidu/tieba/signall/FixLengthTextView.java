@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,35 +38,6 @@ public class FixLengthTextView extends TextView {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public String getmMeasureText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (!TextUtils.isEmpty(this.a)) {
-                int desiredWidth = ((int) Layout.getDesiredWidth(this.a, getPaint())) + getPaddingLeft() + getPaddingRight();
-                int size = View.MeasureSpec.getSize(i);
-                if (View.MeasureSpec.getMode(i) == 1073741824) {
-                    desiredWidth = Math.max(desiredWidth, size);
-                }
-                i = View.MeasureSpec.makeMeasureSpec(desiredWidth, 1073741824);
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public void setmMeasureText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
         }
     }
 
@@ -110,8 +81,40 @@ public class FixLengthTextView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.fixtextview);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.fixtextview);
         this.a = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(0));
         obtainStyledAttributes.recycle();
+    }
+
+    public String getmMeasureText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                int desiredWidth = ((int) Layout.getDesiredWidth(this.a, getPaint())) + getPaddingLeft() + getPaddingRight();
+                int size = View.MeasureSpec.getSize(i);
+                if (View.MeasureSpec.getMode(i) == 1073741824) {
+                    desiredWidth = Math.max(desiredWidth, size);
+                }
+                i = View.MeasureSpec.makeMeasureSpec(desiredWidth, 1073741824);
+            }
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public void setmMeasureText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
     }
 }

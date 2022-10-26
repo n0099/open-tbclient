@@ -20,48 +20,48 @@ public class f {
     public final String d;
     public final String e;
     public final int f;
-    public final List<String> g;
-    public final List<String> h;
+    public final List g;
+    public final List h;
     public final String i;
     public final String j;
 
     /* renamed from: com.meizu.cloud.pushsdk.b.c.f$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
         static {
-            int[] iArr = new int[a.EnumC0640a.values().length];
+            int[] iArr = new int[a.EnumC0636a.values().length];
             a = iArr;
             try {
-                iArr[a.EnumC0640a.SUCCESS.ordinal()] = 1;
+                iArr[a.EnumC0636a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[a.EnumC0640a.INVALID_HOST.ordinal()] = 2;
+                a[a.EnumC0636a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[a.EnumC0640a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                a[a.EnumC0636a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[a.EnumC0640a.MISSING_SCHEME.ordinal()] = 4;
+                a[a.EnumC0636a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[a.EnumC0640a.INVALID_PORT.ordinal()] = 5;
+                a[a.EnumC0636a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public String a;
         public String d;
-        public final List<String> f;
-        public List<String> g;
+        public final List f;
+        public List g;
         public String h;
         public String b = "";
         public String c = "";
@@ -69,7 +69,7 @@ public class f {
 
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public enum EnumC0640a {
+        public enum EnumC0636a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -146,15 +146,15 @@ public class f {
                 if (r0 != r1) goto L13
                 goto L1e
             L13:
-                java.util.List<java.lang.String> r0 = r10.f
+                java.util.List r0 = r10.f
                 int r1 = r0.size()
                 int r1 = r1 - r3
                 r0.set(r1, r2)
                 goto L29
             L1e:
-                java.util.List<java.lang.String> r0 = r10.f
+                java.util.List r0 = r10.f
                 r0.clear()
-                java.util.List<java.lang.String> r0 = r10.f
+                java.util.List r0 = r10.f
                 r0.add(r2)
                 goto L41
             L29:
@@ -193,9 +193,9 @@ public class f {
                 c();
                 return;
             }
-            List<String> list = this.f;
-            if (list.get(list.size() - 1).isEmpty()) {
-                List<String> list2 = this.f;
+            List list = this.f;
+            if (((String) list.get(list.size() - 1)).isEmpty()) {
+                List list2 = this.f;
                 list2.set(list2.size() - 1, a);
             } else {
                 this.f.add(a);
@@ -285,12 +285,12 @@ public class f {
         }
 
         private void c() {
-            List<String> list = this.f;
-            if (!list.remove(list.size() - 1).isEmpty() || this.f.isEmpty()) {
+            List list = this.f;
+            if (!((String) list.remove(list.size() - 1)).isEmpty() || this.f.isEmpty()) {
                 this.f.add("");
                 return;
             }
-            List<String> list2 = this.f;
+            List list2 = this.f;
             list2.set(list2.size() - 1, "");
         }
 
@@ -436,7 +436,7 @@ public class f {
             return i != -1 ? i : f.a(this.a);
         }
 
-        public EnumC0640a a(f fVar, String str) {
+        public EnumC0636a a(f fVar, String str) {
             int a;
             int i;
             int a2 = m.a(str, 0, str.length());
@@ -446,13 +446,13 @@ public class f {
                     this.a = "https";
                     a2 += 6;
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC0640a.UNSUPPORTED_SCHEME;
+                    return EnumC0636a.UNSUPPORTED_SCHEME;
                 } else {
                     this.a = "http";
                     a2 += 5;
                 }
             } else if (fVar == null) {
-                return EnumC0640a.MISSING_SCHEME;
+                return EnumC0636a.MISSING_SCHEME;
             } else {
                 this.a = fVar.b;
             }
@@ -499,13 +499,13 @@ public class f {
                     int g = g(str, i3, a);
                     this.e = g;
                     if (g == -1) {
-                        return EnumC0640a.INVALID_PORT;
+                        return EnumC0636a.INVALID_PORT;
                     }
                 } else {
                     this.e = f.a(this.a);
                 }
                 if (this.d == null) {
-                    return EnumC0640a.INVALID_HOST;
+                    return EnumC0636a.INVALID_HOST;
                 }
                 a2 = a;
             } else {
@@ -529,7 +529,7 @@ public class f {
             if (a5 < b && str.charAt(a5) == '#') {
                 this.h = f.a(str, 1 + a5, b, "", true, false, false, false);
             }
-            return EnumC0640a.SUCCESS;
+            return EnumC0636a.SUCCESS;
         }
 
         public a a(String str) {
@@ -603,7 +603,7 @@ public class f {
         this.e = aVar.d;
         this.f = aVar.a();
         this.g = a(aVar.f, false);
-        List<String> list = aVar.g;
+        List list = aVar.g;
         this.h = list != null ? a(list, true) : null;
         String str = aVar.h;
         this.i = str != null ? a(str, false) : null;
@@ -673,12 +673,12 @@ public class f {
         return a(str, 0, str.length(), z);
     }
 
-    private List<String> a(List<String> list, boolean z) {
+    private List a(List list, boolean z) {
         ArrayList arrayList = new ArrayList(list.size());
-        Iterator<String> it = list.iterator();
+        Iterator it = list.iterator();
         while (it.hasNext()) {
-            String next = it.next();
-            arrayList.add(next != null ? a(next, z) : null);
+            String str = (String) it.next();
+            arrayList.add(str != null ? a(str, z) : null);
         }
         return Collections.unmodifiableList(arrayList);
     }
@@ -731,11 +731,11 @@ public class f {
         }
     }
 
-    public static void a(StringBuilder sb, List<String> list) {
+    public static void a(StringBuilder sb, List list) {
         int size = list.size();
         for (int i = 0; i < size; i++) {
             sb.append(WebvttCueParser.CHAR_SLASH);
-            sb.append(list.get(i));
+            sb.append((String) list.get(i));
         }
     }
 
@@ -744,7 +744,7 @@ public class f {
         return i3 < i2 && str.charAt(i) == '%' && a(str.charAt(i + 1)) != -1 && a(str.charAt(i3)) != -1;
     }
 
-    public static List<String> b(String str) {
+    public static List b(String str) {
         String str2;
         ArrayList arrayList = new ArrayList();
         int i = 0;
@@ -767,11 +767,11 @@ public class f {
         return arrayList;
     }
 
-    public static void b(StringBuilder sb, List<String> list) {
+    public static void b(StringBuilder sb, List list) {
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
-            String str = list.get(i);
-            String str2 = list.get(i + 1);
+            String str = (String) list.get(i);
+            String str2 = (String) list.get(i + 1);
             if (i > 0) {
                 sb.append('&');
             }
@@ -785,7 +785,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC0640a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC0636a.SUCCESS) {
             return aVar.b();
         }
         return null;
@@ -812,7 +812,7 @@ public class f {
         return this.j.substring(this.j.indexOf(58, this.b.length() + 3) + 1, indexOf);
     }
 
-    public List<String> d() {
+    public List d() {
         int indexOf = this.j.indexOf(47, this.b.length() + 3);
         String str = this.j;
         int a2 = m.a(str, indexOf, str.length(), "?#");

@@ -3,7 +3,6 @@ package androidx.documentfile.provider;
 import android.net.Uri;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,8 +19,18 @@ public class RawDocumentFile extends DocumentFile {
     public transient /* synthetic */ FieldHolder $fh;
     public File mFile;
 
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean isVirtual() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RawDocumentFile(@Nullable DocumentFile documentFile, File file) {
+    public RawDocumentFile(DocumentFile documentFile, File file) {
         super(documentFile);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +79,10 @@ public class RawDocumentFile extends DocumentFile {
             int lastIndexOf = str.lastIndexOf(46);
             if (lastIndexOf >= 0) {
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(str.substring(lastIndexOf + 1).toLowerCase());
-                return mimeTypeFromExtension != null ? mimeTypeFromExtension : "application/octet-stream";
+                if (mimeTypeFromExtension != null) {
+                    return mimeTypeFromExtension;
+                }
+                return "application/octet-stream";
             }
             return "application/octet-stream";
         }
@@ -81,33 +93,146 @@ public class RawDocumentFile extends DocumentFile {
     public boolean canRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFile.canRead() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFile.canRead();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
     public boolean canWrite() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFile.canWrite() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFile.canWrite();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
-    @Nullable
+    public boolean delete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            deleteContents(this.mFile);
+            return this.mFile.delete();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean exists() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mFile.exists();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mFile.getName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.mFile.isDirectory()) {
+                return null;
+            }
+            return getTypeForName(this.mFile.getName());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return Uri.fromFile(this.mFile);
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean isDirectory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mFile.isDirectory();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean isFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mFile.isFile();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public long lastModified() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mFile.lastModified();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public long length() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mFile.length();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
     public DocumentFile createDirectory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             File file = new File(this.mFile, str);
-            if (file.isDirectory() || file.mkdir()) {
-                return new RawDocumentFile(this, file);
+            if (!file.isDirectory() && !file.mkdir()) {
+                return null;
             }
-            return null;
+            return new RawDocumentFile(this, file);
         }
         return (DocumentFile) invokeL.objValue;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
-    @Nullable
+    public boolean renameTo(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            File file = new File(this.mFile.getParentFile(), str);
+            if (this.mFile.renameTo(file)) {
+                this.mFile = file;
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
     public DocumentFile createFile(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -129,90 +254,6 @@ public class RawDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
-    public boolean delete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            deleteContents(this.mFile);
-            return this.mFile.delete();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean exists() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFile.exists() : invokeV.booleanValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mFile.getName() : (String) invokeV.objValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    @Nullable
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.mFile.isDirectory()) {
-                return null;
-            }
-            return getTypeForName(this.mFile.getName());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Uri.fromFile(this.mFile) : (Uri) invokeV.objValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean isDirectory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mFile.isDirectory() : invokeV.booleanValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean isFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mFile.isFile() : invokeV.booleanValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean isVirtual() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public long lastModified() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mFile.lastModified() : invokeV.longValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public long length() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mFile.length() : invokeV.longValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
     public DocumentFile[] listFiles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -227,20 +268,5 @@ public class RawDocumentFile extends DocumentFile {
             return (DocumentFile[]) arrayList.toArray(new DocumentFile[arrayList.size()]);
         }
         return (DocumentFile[]) invokeV.objValue;
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean renameTo(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            File file = new File(this.mFile.getParentFile(), str);
-            if (this.mFile.renameTo(file)) {
-                this.mFile = file;
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -22,9 +22,25 @@ public final class StatisticManager implements IBDDownloadStatistic {
     public transient /* synthetic */ FieldHolder $fh;
     public IBDDownloadStatistic mDownloadReport;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(482910772, "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(482910772, "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\n\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\t\u0010\nJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R$\u0010\u0004\u001a\u0004\u0018\u00010\u00018B@\u0002X\u0082\u000e¢\u0006\u0012\n\u0004\b\u0004\u0010\u0005\u001a\u0004\b\u0006\u0010\u0003\"\u0004\b\u0007\u0010\b¨\u0006\u000b"}, d2 = {"Lcom/baidu/searchbox/bddownload/statistic/StatisticManager$Companion;", "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", "get", "()Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", Transition.MATCH_INSTANCE_STR, "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", "getInstance", "setInstance", "(Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;)V", "<init>", "()V", "lib-bddownload_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,13 +70,6 @@ public final class StatisticManager implements IBDDownloadStatistic {
             return (StatisticManager) invokeV.objValue;
         }
 
-        private final void setInstance(StatisticManager statisticManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65539, this, statisticManager) == null) {
-                StatisticManager.instance = statisticManager;
-            }
-        }
-
         public final StatisticManager get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -75,22 +84,13 @@ public final class StatisticManager implements IBDDownloadStatistic {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(482910772, "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(482910772, "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;");
-                return;
+        private final void setInstance(StatisticManager statisticManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65539, this, statisticManager) == null) {
+                StatisticManager.instance = statisticManager;
             }
         }
-        Companion = new Companion(null);
     }
 
     public StatisticManager() {
@@ -109,6 +109,10 @@ public final class StatisticManager implements IBDDownloadStatistic {
         BdDownload with = BdDownload.with();
         Intrinsics.checkNotNullExpressionValue(with, "BdDownload.with()");
         this.mDownloadReport = with.getStatistic();
+    }
+
+    public /* synthetic */ StatisticManager(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
     }
 
     @Override // com.baidu.searchbox.bddownload.statistic.IBDDownloadStatistic
@@ -181,9 +185,5 @@ public final class StatisticManager implements IBDDownloadStatistic {
                 iBDDownloadStatistic.downloadSuccessReport(info);
             }
         }
-    }
-
-    public /* synthetic */ StatisticManager(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
     }
 }

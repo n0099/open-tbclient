@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,8 +46,23 @@ public class BdMemberCenterListView extends BdTypeListView {
         void onRefresh();
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-472985160, "Lcom/baidu/tieba/memberCenter/index/BdMemberCenterListView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-472985160, "Lcom/baidu/tieba/memberCenter/index/BdMemberCenterListView;");
+        }
+    }
+
     /* loaded from: classes5.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -75,22 +90,10 @@ public class BdMemberCenterListView extends BdTypeListView {
         public int a(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (int) (this.a + (f / 2.5f)) : invokeF.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-472985160, "Lcom/baidu/tieba/memberCenter/index/BdMemberCenterListView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-472985160, "Lcom/baidu/tieba/memberCenter/index/BdMemberCenterListView;");
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                return (int) (this.a + (f / 2.5f));
+            }
+            return invokeF.intValue;
         }
     }
 
@@ -117,7 +120,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.ExpandListView);
         this.T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }
@@ -129,22 +132,59 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
     }
 
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (this.P) {
+                return true;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            if (this.P) {
+                return true;
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setMemberCenterListRefreshListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            this.U = aVar;
+        }
+    }
+
     public void J() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.U) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.U) != null) {
+            aVar.onRefresh();
         }
-        aVar.onRefresh();
     }
 
     public void K() {
+        int height;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.O == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.O == null) {
             return;
         }
         View view2 = this.L;
-        int height = view2 == null ? 0 : view2.getHeight();
+        if (view2 == null) {
+            height = 0;
+        } else {
+            height = view2.getHeight();
+        }
         if (height >= this.O.b - (this.T / 2)) {
             J();
         } else {
@@ -176,83 +216,62 @@ public class BdMemberCenterListView extends BdTypeListView {
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
+        int height;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
-            if (this.K.isFinished()) {
-                float y = motionEvent.getY();
-                this.N = y;
-                if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            float f = this.R;
-                            float f2 = f - this.Q;
-                            float f3 = y - this.M;
-                            this.Q = f;
-                            View view2 = this.L;
-                            if (view2 != null && view2.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f3) >= this.S && Math.abs(f2) < this.S) {
-                                int a2 = this.O.a(this.N - this.M);
-                                b bVar = this.O;
-                                if (a2 > bVar.a && a2 <= bVar.b) {
-                                    this.P = true;
-                                    this.L.setLayoutParams(new AbsListView.LayoutParams(this.L.getWidth(), a2));
-                                    I(a2 - this.O.a);
-                                } else {
-                                    b bVar2 = this.O;
-                                    if (a2 <= bVar2.a) {
-                                        this.P = false;
-                                    } else if (a2 > bVar2.b) {
-                                        this.P = true;
-                                    } else {
-                                        this.P = false;
-                                    }
-                                }
+            if (!this.K.isFinished()) {
+                return true;
+            }
+            float y = motionEvent.getY();
+            this.N = y;
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        float f = this.R;
+                        float f2 = f - this.Q;
+                        float f3 = y - this.M;
+                        this.Q = f;
+                        View view2 = this.L;
+                        if (view2 != null && view2.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f3) >= this.S && Math.abs(f2) < this.S) {
+                            int a2 = this.O.a(this.N - this.M);
+                            b bVar = this.O;
+                            if (a2 > bVar.a && a2 <= bVar.b) {
+                                this.P = true;
+                                this.L.setLayoutParams(new AbsListView.LayoutParams(this.L.getWidth(), a2));
+                                I(a2 - this.O.a);
                             } else {
-                                this.P = false;
+                                b bVar2 = this.O;
+                                if (a2 <= bVar2.a) {
+                                    this.P = false;
+                                } else if (a2 > bVar2.b) {
+                                    this.P = true;
+                                } else {
+                                    this.P = false;
+                                }
                             }
+                        } else {
+                            this.P = false;
                         }
                     }
-                    if (this.P) {
-                        K();
-                    } else {
-                        this.U.b();
-                    }
-                } else {
-                    View view3 = this.L;
-                    int height = view3 == null ? 0 : view3.getHeight();
-                    this.M = this.N;
-                    this.Q = this.R;
-                    this.O = new b(0, height, 0, this.T + height);
                 }
-                return super.dispatchTouchEvent(motionEvent);
+                if (this.P) {
+                    K();
+                } else {
+                    this.U.b();
+                }
+            } else {
+                View view3 = this.L;
+                if (view3 == null) {
+                    height = 0;
+                } else {
+                    height = view3.getHeight();
+                }
+                this.M = this.N;
+                this.Q = this.R;
+                this.O = new b(0, height, 0, this.T + height);
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (this.P) {
-                return true;
-            }
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.P) {
-                return true;
-            }
-            return super.onTouchEvent(motionEvent);
+            return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -261,13 +280,6 @@ public class BdMemberCenterListView extends BdTypeListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
             this.L = view2;
-        }
-    }
-
-    public void setMemberCenterListRefreshListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.U = aVar;
         }
     }
 }

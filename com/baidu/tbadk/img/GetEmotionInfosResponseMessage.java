@@ -2,7 +2,7 @@ package com.baidu.tbadk.img;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.l85;
+import com.baidu.tieba.p85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<l85> mEmotionList;
+    public List mEmotionList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetEmotionInfosResponseMessage(int i) {
@@ -42,13 +42,13 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
 
     private void parseEmotionImages(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONArray) == null) || jSONArray == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, jSONArray) != null) || jSONArray == null) {
             return;
         }
         this.mEmotionList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                this.mEmotionList.add(l85.a(jSONArray.getJSONObject(i)));
+                this.mEmotionList.add(p85.a(jSONArray.getJSONObject(i)));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -67,9 +67,12 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<l85> getEmotionList() {
+    public List getEmotionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEmotionList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEmotionList;
+        }
+        return (List) invokeV.objValue;
     }
 }

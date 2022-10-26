@@ -2,7 +2,6 @@ package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.plugin.capture.bean.Jsonable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,17 +10,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ApsMessage<T extends Jsonable> implements Jsonable {
+public class ApsMessage implements Jsonable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JN_K_DATA = "data";
     public static final String JN_K_MSG = "msg";
     public static final String JN_K_STATUS = "status";
     public static final String JN_K_TYPE = "type";
     public transient /* synthetic */ FieldHolder $fh;
-    public T data;
+    public Jsonable data;
     public String msg;
     public int status;
     public int type;
+
+    public boolean parseData(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
     public ApsMessage() {
         Interceptable interceptable = $ic;
@@ -37,10 +45,13 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
         }
     }
 
-    public T getData() {
+    public Jsonable getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.data : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.data;
+        }
+        return (Jsonable) invokeV.objValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
@@ -66,19 +77,10 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
         return invokeL.booleanValue;
     }
 
-    public boolean parseData(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void setData(Jsonable jsonable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setData(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            this.data = t;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jsonable) == null) {
+            this.data = jsonable;
         }
     }
 
@@ -99,7 +101,7 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
                 jSONObject.put("status", this.status);
                 jSONObject.put("msg", this.msg);
                 jSONObject.put("type", this.type);
-                T data = getData();
+                Jsonable data = getData();
                 if (data != null) {
                     jSONObject.put("data", data.toJson());
                 }

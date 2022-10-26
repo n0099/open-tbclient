@@ -54,52 +54,6 @@ public class SyncGroupMessage extends SyncStrategy {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public boolean commitDeviceMaxNotifyMsgid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (DialogRecordDBManager.getInstance(this.mContext).add(this.mDialogRecord) >= 0) {
-                return true;
-            }
-            LogUtils.e(TAG, "add dailogRecord exception!!");
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long getContacter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDialogRecord.getContacter() : invokeV.longValue;
-    }
-
-    public DialogRecord getDialogRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDialogRecord : (DialogRecord) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public int getJumpToRecent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDialogRecord.getJumpToRecent() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public long getStartMsgid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDialogRecord.getMaxMsgid() : invokeV.longValue;
-    }
-
-    public int getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mState : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
     public void onComplete(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -117,6 +71,78 @@ public class SyncGroupMessage extends SyncStrategy {
         if (interceptable == null || interceptable.invokeL(1048583, this, completeListener) == null) {
             this.completeListener = completeListener;
         }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
+    public boolean commitDeviceMaxNotifyMsgid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (DialogRecordDBManager.getInstance(this.mContext).add(this.mDialogRecord) >= 0) {
+                return true;
+            }
+            LogUtils.e(TAG, "add dailogRecord exception!!");
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long getContacter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDialogRecord.getContacter();
+        }
+        return invokeV.longValue;
+    }
+
+    public DialogRecord getDialogRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDialogRecord;
+        }
+        return (DialogRecord) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
+    public int getJumpToRecent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDialogRecord.getJumpToRecent();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
+    public long getStartMsgid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDialogRecord.getMaxMsgid();
+        }
+        return invokeV.longValue;
+    }
+
+    public int getState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mState;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
+    public boolean updateJumpToRecent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            this.mDialogRecord.setJumpToRecent(0);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setDialogRecord(DialogRecord dialogRecord) {
@@ -147,16 +173,5 @@ public class SyncGroupMessage extends SyncStrategy {
             }
             this.mDialogRecord.setMaxMsgid(j);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public boolean updateJumpToRecent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            this.mDialogRecord.setJumpToRecent(0);
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

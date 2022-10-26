@@ -38,24 +38,33 @@ public class LiveRemindData implements Serializable {
     public List<LiveRemindRecommendData> getLiveRecommendList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.liveRecommendList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.liveRecommendList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public LiveRemindNormalConfigData getNormalConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.normalConfig : (LiveRemindNormalConfigData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.normalConfig;
+        }
+        return (LiveRemindNormalConfigData) invokeV.objValue;
     }
 
     public boolean isPollingEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isPollingEnd : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isPollingEnd;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parserProtobuf(LiveRes liveRes) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, liveRes) == null) || liveRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, liveRes) != null) || liveRes == null) {
             return;
         }
         List<YyLiveInfoSimple> list = liveRes.live_list;

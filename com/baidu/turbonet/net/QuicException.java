@@ -36,6 +36,9 @@ public class QuicException extends TurbonetException {
     public int getQuicDetailedErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mQuicDetailedErrorCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mQuicDetailedErrorCode;
+        }
+        return invokeV.intValue;
     }
 }

@@ -53,7 +53,7 @@ public class ix extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m534a() {
+    public byte[] m533a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((ByteArrayOutputStream) this).buf : (byte[]) invokeV.objValue;

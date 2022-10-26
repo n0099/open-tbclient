@@ -35,7 +35,7 @@ public class GeneratedTexture {
 
     /* renamed from: com.faceunity.gles.GeneratedTexture$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$GeneratedTexture$Image;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class GeneratedTexture {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Image {
+    public final class Image {
         public static final /* synthetic */ Image[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Image COARSE;
@@ -116,13 +116,19 @@ public class GeneratedTexture {
         public static Image valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Image) Enum.valueOf(Image.class, str) : (Image) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Image) Enum.valueOf(Image.class, str);
+            }
+            return (Image) invokeL.objValue;
         }
 
         public static Image[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Image[]) $VALUES.clone() : (Image[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Image[]) $VALUES.clone();
+            }
+            return (Image[]) invokeV.objValue;
         }
     }
 
@@ -144,6 +150,23 @@ public class GeneratedTexture {
         sFineImageData = generateFineData();
     }
 
+    public static ByteBuffer generateFineData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            byte[] bArr = new byte[16384];
+            checkerPattern(bArr, 0, 0, 32, 32, -16776961, -65536, 1);
+            checkerPattern(bArr, 32, 32, 64, 64, -16776961, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 2);
+            checkerPattern(bArr, 0, 32, 32, 64, -65536, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 4);
+            checkerPattern(bArr, 32, 0, 64, 32, -1, -16777216, 8);
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(16384);
+            allocateDirect.put(bArr);
+            allocateDirect.position(0);
+            return allocateDirect;
+        }
+        return (ByteBuffer) invokeV.objValue;
+    }
+
     public GeneratedTexture() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -159,20 +182,25 @@ public class GeneratedTexture {
     }
 
     public static void checkerPattern(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+        int i8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            for (int i8 = i2; i8 < i4; i8++) {
-                int i9 = i8 * 64 * 4;
-                for (int i10 = i; i10 < i3; i10++) {
-                    int i11 = (i10 * 4) + i9;
-                    int i12 = ((i8 & i7) ^ (i10 & i7)) == 0 ? i5 : i6;
-                    int i13 = i12 & 255;
-                    int i14 = (i12 >> 24) & 255;
+            for (int i9 = i2; i9 < i4; i9++) {
+                int i10 = i9 * 64 * 4;
+                for (int i11 = i; i11 < i3; i11++) {
+                    int i12 = (i11 * 4) + i10;
+                    if (((i9 & i7) ^ (i11 & i7)) == 0) {
+                        i8 = i5;
+                    } else {
+                        i8 = i6;
+                    }
+                    int i13 = i8 & 255;
+                    int i14 = (i8 >> 24) & 255;
                     float f = i14 / 255.0f;
-                    bArr[i11] = (byte) (i13 * f);
-                    bArr[i11 + 1] = (byte) (((i12 >> 8) & 255) * f);
-                    bArr[i11 + 2] = (byte) (((i12 >> 16) & 255) * f);
-                    bArr[i11 + 3] = (byte) i14;
+                    bArr[i12] = (byte) (i13 * f);
+                    bArr[i12 + 1] = (byte) (((i8 >> 8) & 255) * f);
+                    bArr[i12 + 2] = (byte) (((i8 >> 16) & 255) * f);
+                    bArr[i12 + 3] = (byte) i14;
                 }
             }
         }
@@ -184,12 +212,14 @@ public class GeneratedTexture {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, image)) == null) {
             int i = AnonymousClass1.$SwitchMap$com$faceunity$gles$GeneratedTexture$Image[image.ordinal()];
-            if (i == 1) {
-                byteBuffer = sCoarseImageData;
-            } else if (i == 2) {
-                byteBuffer = sFineImageData;
+            if (i != 1) {
+                if (i == 2) {
+                    byteBuffer = sFineImageData;
+                } else {
+                    throw new RuntimeException("unknown image");
+                }
             } else {
-                throw new RuntimeException("unknown image");
+                byteBuffer = sCoarseImageData;
             }
             return GlUtil.createImageTexture(byteBuffer, 64, 64, FORMAT);
         }
@@ -215,23 +245,6 @@ public class GeneratedTexture {
                 bArr[i + 2] = (byte) (((i3 >> 16) & 255) * f);
                 bArr[i + 3] = (byte) i5;
             }
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(16384);
-            allocateDirect.put(bArr);
-            allocateDirect.position(0);
-            return allocateDirect;
-        }
-        return (ByteBuffer) invokeV.objValue;
-    }
-
-    public static ByteBuffer generateFineData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            byte[] bArr = new byte[16384];
-            checkerPattern(bArr, 0, 0, 32, 32, -16776961, -65536, 1);
-            checkerPattern(bArr, 32, 32, 64, 64, -16776961, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 2);
-            checkerPattern(bArr, 0, 32, 32, 64, -65536, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 4);
-            checkerPattern(bArr, 32, 0, 64, 32, -1, -16777216, 8);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(16384);
             allocateDirect.put(bArr);
             allocateDirect.position(0);

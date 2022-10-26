@@ -1,6 +1,5 @@
 package com.airbnb.lottie.parser;
 
-import android.graphics.PointF;
 import androidx.appcompat.widget.SearchView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatablePointValue;
@@ -13,28 +12,44 @@ public class CircleShapeParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", "hd", "d");
 
     public static CircleShape parse(JsonReader jsonReader, LottieComposition lottieComposition, int i) throws IOException {
-        boolean z = i == 3;
+        boolean z;
+        if (i == 3) {
+            z = true;
+        } else {
+            z = false;
+        }
+        boolean z2 = z;
         String str = null;
-        AnimatableValue<PointF, PointF> animatableValue = null;
+        AnimatableValue animatableValue = null;
         AnimatablePointValue animatablePointValue = null;
-        boolean z2 = false;
+        boolean z3 = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                animatableValue = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
-            } else if (selectName == 2) {
-                animatablePointValue = AnimatableValueParser.parsePoint(jsonReader, lottieComposition);
-            } else if (selectName == 3) {
-                z2 = jsonReader.nextBoolean();
-            } else if (selectName != 4) {
-                jsonReader.skipName();
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            if (selectName != 4) {
+                                jsonReader.skipName();
+                                jsonReader.skipValue();
+                            } else if (jsonReader.nextInt() == 3) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                        } else {
+                            z3 = jsonReader.nextBoolean();
+                        }
+                    } else {
+                        animatablePointValue = AnimatableValueParser.parsePoint(jsonReader, lottieComposition);
+                    }
+                } else {
+                    animatableValue = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
+                }
             } else {
-                z = jsonReader.nextInt() == 3;
+                str = jsonReader.nextString();
             }
         }
-        return new CircleShape(str, animatableValue, animatablePointValue, z, z2);
+        return new CircleShape(str, animatableValue, animatablePointValue, z2, z3);
     }
 }

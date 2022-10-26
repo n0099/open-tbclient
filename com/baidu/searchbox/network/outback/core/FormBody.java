@@ -1,6 +1,5 @@
 package com.baidu.searchbox.network.outback.core;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,16 +21,16 @@ public final class FormBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType CONTENT_TYPE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> encodedNames;
-    public final List<String> encodedValues;
+    public final List encodedNames;
+    public final List encodedValues;
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Charset charset;
-        public final List<String> names;
-        public final List<String> values;
+        public final List names;
+        public final List values;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public Builder() {
@@ -49,6 +48,35 @@ public final class FormBody extends RequestBody {
                     return;
                 }
             }
+        }
+
+        public FormBody build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new FormBody(this.names, this.values);
+            }
+            return (FormBody) invokeV.objValue;
+        }
+
+        public Builder(Charset charset) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {charset};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.names = new ArrayList();
+            this.values = new ArrayList();
+            this.charset = charset;
         }
 
         public Builder add(String str, String str2) {
@@ -84,32 +112,6 @@ public final class FormBody extends RequestBody {
             }
             return (Builder) invokeLL.objValue;
         }
-
-        public FormBody build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new FormBody(this.names, this.values) : (FormBody) invokeV.objValue;
-        }
-
-        public Builder(Charset charset) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {charset};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.names = new ArrayList();
-            this.values = new ArrayList();
-            this.charset = charset;
-        }
     }
 
     static {
@@ -126,51 +128,6 @@ public final class FormBody extends RequestBody {
             }
         }
         CONTENT_TYPE = MediaType.get("application/x-www-form-urlencoded");
-    }
-
-    public FormBody(List<String> list, List<String> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, list2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.encodedNames = Util.immutableList(list);
-        this.encodedValues = Util.immutableList(list2);
-    }
-
-    private long writeOrCountBytes(@Nullable OutputStream outputStream, boolean z) throws IOException {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, this, outputStream, z)) == null) {
-            if (z) {
-                outputStream = new ByteArrayOutputStream();
-            }
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
-            int size = this.encodedNames.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    bufferedOutputStream.write(38);
-                }
-                Util.writeUtf8(bufferedOutputStream, this.encodedNames.get(i));
-                bufferedOutputStream.write(61);
-                Util.writeUtf8(bufferedOutputStream, this.encodedValues.get(i));
-            }
-            bufferedOutputStream.flush();
-            if (z) {
-                return ((ByteArrayOutputStream) outputStream).size();
-            }
-            return 0L;
-        }
-        return invokeLZ.longValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.core.RequestBody
@@ -191,37 +148,100 @@ public final class FormBody extends RequestBody {
     public MediaType contentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CONTENT_TYPE : (MediaType) invokeV.objValue;
-    }
-
-    public String encodedName(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.encodedNames.get(i) : (String) invokeI.objValue;
-    }
-
-    public String encodedValue(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.encodedValues.get(i) : (String) invokeI.objValue;
-    }
-
-    public String name(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? HttpUrl.percentDecode(encodedName(i), true) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return CONTENT_TYPE;
+        }
+        return (MediaType) invokeV.objValue;
     }
 
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.encodedNames.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.encodedNames.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public FormBody(List list, List list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, list2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.encodedNames = Util.immutableList(list);
+        this.encodedValues = Util.immutableList(list2);
+    }
+
+    private long writeOrCountBytes(OutputStream outputStream, boolean z) throws IOException {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, this, outputStream, z)) == null) {
+            if (z) {
+                outputStream = new ByteArrayOutputStream();
+            }
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+            int size = this.encodedNames.size();
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
+                    bufferedOutputStream.write(38);
+                }
+                Util.writeUtf8(bufferedOutputStream, (String) this.encodedNames.get(i));
+                bufferedOutputStream.write(61);
+                Util.writeUtf8(bufferedOutputStream, (String) this.encodedValues.get(i));
+            }
+            bufferedOutputStream.flush();
+            if (z) {
+                return ((ByteArrayOutputStream) outputStream).size();
+            }
+            return 0L;
+        }
+        return invokeLZ.longValue;
+    }
+
+    public String encodedName(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return (String) this.encodedNames.get(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public String encodedValue(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return (String) this.encodedValues.get(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public String name(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return HttpUrl.percentDecode(encodedName(i), true);
+        }
+        return (String) invokeI.objValue;
     }
 
     public String value(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? HttpUrl.percentDecode(encodedValue(i), true) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return HttpUrl.percentDecode(encodedValue(i), true);
+        }
+        return (String) invokeI.objValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.core.RequestBody

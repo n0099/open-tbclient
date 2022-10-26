@@ -24,7 +24,6 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventT
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
-import kotlin.UShort;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
@@ -37,11 +36,17 @@ public abstract class AppleDataBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
-    public static HashMap<String, String> language;
+    public static HashMap language;
     public transient /* synthetic */ FieldHolder $fh;
     public int dataCountry;
     public int dataLanguage;
     public int dataType;
+
+    public abstract int getDataLength();
+
+    public abstract void parseData(ByteBuffer byteBuffer);
+
+    public abstract byte[] writeData();
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +62,7 @@ public abstract class AppleDataBox extends AbstractBox {
             }
         }
         ajc$preClinit();
-        HashMap<String, String> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         language = hashMap;
         hashMap.put("0", "English");
         language.put("1", "French");
@@ -216,11 +221,42 @@ public abstract class AppleDataBox extends AbstractBox {
         }
     }
 
+    public void setDataCountry(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            this.dataCountry = i;
+        }
+    }
+
+    public void setDataLanguage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+            this.dataLanguage = i;
+        }
+    }
+
+    @DoNotParseDetail
+    public void writeDataLength4ccTypeCountryLanguage(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, byteBuffer) == null) {
+            byteBuffer.putInt(getDataLength() + 16);
+            byteBuffer.put("data".getBytes());
+            byteBuffer.putInt(this.dataType);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.dataCountry);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.dataLanguage);
+        }
+    }
+
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? getDataLength() + 16 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getDataLength() + 16;
+        }
+        return invokeV.longValue;
     }
 
     public int getDataCountry() {
@@ -243,8 +279,6 @@ public abstract class AppleDataBox extends AbstractBox {
         return invokeV.intValue;
     }
 
-    public abstract int getDataLength();
-
     public int getDataType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,10 +295,10 @@ public abstract class AppleDataBox extends AbstractBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            HashMap<String, String> hashMap = language;
+            HashMap hashMap = language;
             StringBuilder sb = new StringBuilder();
             sb.append(this.dataLanguage);
-            String str = hashMap.get(sb.toString());
+            String str = (String) hashMap.get(sb.toString());
             if (str == null) {
                 ByteBuffer wrap = ByteBuffer.wrap(new byte[2]);
                 IsoTypeWriter.writeUInt16(wrap, this.dataLanguage);
@@ -275,8 +309,6 @@ public abstract class AppleDataBox extends AbstractBox {
         }
         return (String) invokeV.objValue;
     }
-
-    public abstract void parseData(ByteBuffer byteBuffer);
 
     @DoNotParseDetail
     public ByteBuffer parseDataLength4ccTypeCountryLanguageAndReturnRest(ByteBuffer byteBuffer) {
@@ -289,12 +321,12 @@ public abstract class AppleDataBox extends AbstractBox {
             short s = byteBuffer.getShort();
             this.dataCountry = s;
             if (s < 0) {
-                this.dataCountry = s + UShort.MIN_VALUE;
+                this.dataCountry = s + 65536;
             }
             short s2 = byteBuffer.getShort();
             this.dataLanguage = s2;
             if (s2 < 0) {
-                this.dataLanguage = s2 + UShort.MIN_VALUE;
+                this.dataLanguage = s2 + 65536;
             }
             int i2 = i - 16;
             ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i2);
@@ -302,35 +334,5 @@ public abstract class AppleDataBox extends AbstractBox {
             return byteBuffer2;
         }
         return (ByteBuffer) invokeL.objValue;
-    }
-
-    public void setDataCountry(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
-            this.dataCountry = i;
-        }
-    }
-
-    public void setDataLanguage(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
-            this.dataLanguage = i;
-        }
-    }
-
-    public abstract byte[] writeData();
-
-    @DoNotParseDetail
-    public void writeDataLength4ccTypeCountryLanguage(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, byteBuffer) == null) {
-            byteBuffer.putInt(getDataLength() + 16);
-            byteBuffer.put("data".getBytes());
-            byteBuffer.putInt(this.dataType);
-            IsoTypeWriter.writeUInt16(byteBuffer, this.dataCountry);
-            IsoTypeWriter.writeUInt16(byteBuffer, this.dataLanguage);
-        }
     }
 }

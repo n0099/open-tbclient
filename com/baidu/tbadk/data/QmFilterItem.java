@@ -31,8 +31,18 @@ public class QmFilterItem extends OrmObject implements Serializable, Parcelable 
     public String localPath;
     public String name;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<QmFilterItem> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +66,10 @@ public class QmFilterItem extends OrmObject implements Serializable, Parcelable 
         public QmFilterItem createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new QmFilterItem(parcel) : (QmFilterItem) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new QmFilterItem(parcel);
+            }
+            return (QmFilterItem) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +78,10 @@ public class QmFilterItem extends OrmObject implements Serializable, Parcelable 
         public QmFilterItem[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new QmFilterItem[i] : (QmFilterItem[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new QmFilterItem[i];
+            }
+            return (QmFilterItem[]) invokeI.objValue;
         }
     }
 
@@ -99,64 +115,8 @@ public class QmFilterItem extends OrmObject implements Serializable, Parcelable 
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void parseJson(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.id = jSONObject.getString("id");
-        this.name = jSONObject.getString("name");
-        this.fileUrl = jSONObject.getString("file");
-        this.bgurl = jSONObject.getString("bgurl");
-        this.effect = jSONObject.getString("effect");
-        this.complex = jSONObject.getString("complex");
-        this.complexFileUrl = jSONObject.getString("complex_file");
-    }
-
-    public void readFromParcel(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parcel) == null) {
-            this.id = parcel.readString();
-            this.name = parcel.readString();
-            this.fileUrl = parcel.readString();
-            this.bgurl = parcel.readString();
-            this.effect = parcel.readString();
-            this.complex = parcel.readString();
-            this.complexFileUrl = parcel.readString();
-            this.isSelect = parcel.readByte() != 0;
-            this.isDownLoading = parcel.readByte() != 0;
-            this.localPath = parcel.readString();
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.id);
-            parcel.writeString(this.name);
-            parcel.writeString(this.fileUrl);
-            parcel.writeString(this.bgurl);
-            parcel.writeString(this.effect);
-            parcel.writeString(this.complex);
-            parcel.writeString(this.complexFileUrl);
-            parcel.writeByte(this.isSelect ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.isDownLoading ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.localPath);
-        }
-    }
-
     public QmFilterItem(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,8 +138,70 @@ public class QmFilterItem extends OrmObject implements Serializable, Parcelable 
         this.effect = parcel.readString();
         this.complex = parcel.readString();
         this.complexFileUrl = parcel.readString();
-        this.isSelect = parcel.readByte() != 0;
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isSelect = z;
         this.isDownLoading = parcel.readByte() != 0;
         this.localPath = parcel.readString();
+    }
+
+    public void parseJson(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.id = jSONObject.getString("id");
+        this.name = jSONObject.getString("name");
+        this.fileUrl = jSONObject.getString("file");
+        this.bgurl = jSONObject.getString("bgurl");
+        this.effect = jSONObject.getString("effect");
+        this.complex = jSONObject.getString("complex");
+        this.complexFileUrl = jSONObject.getString("complex_file");
+    }
+
+    public void readFromParcel(Parcel parcel) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parcel) == null) {
+            this.id = parcel.readString();
+            this.name = parcel.readString();
+            this.fileUrl = parcel.readString();
+            this.bgurl = parcel.readString();
+            this.effect = parcel.readString();
+            this.complex = parcel.readString();
+            this.complexFileUrl = parcel.readString();
+            boolean z2 = true;
+            if (parcel.readByte() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.isSelect = z;
+            if (parcel.readByte() == 0) {
+                z2 = false;
+            }
+            this.isDownLoading = z2;
+            this.localPath = parcel.readString();
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.id);
+            parcel.writeString(this.name);
+            parcel.writeString(this.fileUrl);
+            parcel.writeString(this.bgurl);
+            parcel.writeString(this.effect);
+            parcel.writeString(this.complex);
+            parcel.writeString(this.complexFileUrl);
+            parcel.writeByte(this.isSelect ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.isDownLoading ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.localPath);
+        }
     }
 }

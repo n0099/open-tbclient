@@ -45,6 +45,9 @@ public class Config {
     public static boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? DEBUG : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return DEBUG;
+        }
+        return invokeV.booleanValue;
     }
 }

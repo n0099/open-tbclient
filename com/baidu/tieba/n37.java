@@ -1,228 +1,174 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.ImagesContract;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class n37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HomePageTabFeedFragment a;
-    public BdTypeRecyclerView b;
-    public j47 c;
-    public c47 d;
-    public x37 e;
-    public z37 f;
-    public y37 g;
-    public a47 h;
-    public k47 i;
-    public b47 j;
-    public e47 k;
-    public g47 l;
-    public f47 m;
-    public i47 n;
-    public v37 o;
-    public t37 p;
-    public s37 q;
-    public u37 r;
-    public d47 s;
-    public h47 t;
-    public w37 u;
-    public l47 v;
-    public List<qn> w;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n37 a;
-
-        public a(n37 n37Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n37Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n37Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TbSingleton.getInstance().setShouldShowHomeLocalCompleteInfoCard(false);
-                if (this.a.b.getCount() != 0 && (this.a.b.B(0) instanceof m47)) {
-                    this.a.b.D(0);
-                }
-            }
-        }
-    }
-
-    public n37(HomePageTabFeedFragment homePageTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+    public static void a(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {homePageTabFeedFragment, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            int l = ux4.k().l("key_card_interest_close_click_num_" + currentAccount, 0);
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount);
+            if (l != 0) {
+                i2 = 2;
+            } else {
+                i2 = 1;
             }
+            TiebaStatic.log(param.param("obj_param1", i2).param("obj_locate", i));
         }
-        this.w = new LinkedList();
-        this.a = homePageTabFeedFragment;
-        this.b = bdTypeRecyclerView;
-        c();
     }
 
-    public final View.OnClickListener b() {
+    public static void b() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            int l = ux4.k().l("key_card_interest_close_click_num_" + currentAccount, 0);
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount);
+            if (l != 0) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            TiebaStatic.log(param.param("obj_param1", i));
+        }
+    }
+
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (View.OnClickListener) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            j47 j47Var = new j47(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.E1(), this.a.D1());
-            this.c = j47Var;
-            j47Var.w(this.b);
-            this.w.add(this.c);
-            c47 c47Var = new c47(this.a.getPageContext());
-            this.d = c47Var;
-            c47Var.v(this.b);
-            this.w.add(this.d);
-            x37 x37Var = new x37(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.E1());
-            this.e = x37Var;
-            x37Var.x(this.b);
-            this.w.add(this.e);
-            z37 z37Var = new z37(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.E1());
-            this.f = z37Var;
-            z37Var.w(this.b);
-            this.w.add(this.f);
-            y37 y37Var = new y37(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.E1());
-            this.g = y37Var;
-            y37Var.w(this.b);
-            this.w.add(this.g);
-            a47 a47Var = new a47(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.E1());
-            this.h = a47Var;
-            a47Var.w(this.b);
-            this.w.add(this.h);
-            k47 k47Var = new k47(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.E1());
-            this.i = k47Var;
-            k47Var.z(this.b);
-            this.w.add(this.i);
-            b47 b47Var = new b47(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.E1());
-            this.j = b47Var;
-            b47Var.w(this.b);
-            if ("fashion".equals(this.a.D1()) || ImagesContract.LOCAL.equals(this.a.D1())) {
-                this.w.add(this.j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (!UbsABTestHelper.isRecommendCardInterestABTestA() || !h()) {
+                return false;
             }
-            e47 e47Var = new e47(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.E1());
-            this.k = e47Var;
-            e47Var.u(this.b);
-            this.w.add(this.k);
-            g47 g47Var = new g47(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.E1());
-            this.l = g47Var;
-            g47Var.v(this.b);
-            this.w.add(this.l);
-            f47 f47Var = new f47(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.E1());
-            this.m = f47Var;
-            f47Var.u(this.b);
-            this.w.add(this.m);
-            i47 i47Var = new i47(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.E1());
-            this.n = i47Var;
-            i47Var.v(this.b);
-            this.w.add(this.n);
-            v37 v37Var = new v37(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.E1());
-            this.o = v37Var;
-            v37Var.x(this.b);
-            this.w.add(this.o);
-            u37 u37Var = new u37(this.a.getPageContext(), w26.N0, this.a.E1());
-            this.r = u37Var;
-            this.w.add(u37Var);
-            t37 t37Var = new t37(this.a.getPageContext(), st4.e);
-            this.p = t37Var;
-            t37Var.v(this.b);
-            this.w.add(this.p);
-            s37 s37Var = new s37(this.a.getPageContext(), wr4.b);
-            this.q = s37Var;
-            s37Var.y(this.b);
-            this.w.add(this.q);
-            d47 d47Var = new d47(this.a.getPageContext());
-            this.s = d47Var;
-            d47Var.u(this.b);
-            this.w.add(this.s);
-            h47 h47Var = new h47(this.a.getPageContext());
-            this.t = h47Var;
-            h47Var.u(this.b);
-            this.w.add(this.t);
-            w37 w37Var = new w37(this.a.getPageContext(), b());
-            this.u = w37Var;
-            this.w.add(w37Var);
-            l47 l47Var = new l47(this.a.getPageContext());
-            this.v = l47Var;
-            this.w.add(l47Var);
-            this.b.a(this.w);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void e(ArrayList<Cdo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b.setData(arrayList);
-        }
-    }
-
-    public void f(boolean z) {
-        l47 l47Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (l47Var = this.v) == null) {
-            return;
-        }
-        l47Var.u(z);
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            for (qn qnVar : this.w) {
-                if (qnVar instanceof p37) {
-                    ((p37) qnVar).h(str);
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            m15 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+            if (homepageInterestConfig == null) {
+                return false;
+            }
+            if (d(homepageInterestConfig)) {
+                return true;
+            }
+            if (ux4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                if (c(homepageInterestConfig, currentAccount)) {
+                    return true;
                 }
+            } else if (g(homepageInterestConfig)) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                return false;
+            }
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            m15 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+            if (homepageInterestConfig == null) {
+                return false;
+            }
+            if (ux4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) >= homepageInterestConfig.b()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            ux4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
+            String str = "key_card_interest_close_click_num_" + currentAccount;
+            ux4.k().w(str, ux4.k().l(str, 0) + 1);
+        }
+    }
+
+    public static boolean c(m15 m15Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, m15Var, str)) == null) {
+            long m = ux4.k().m("key_card_interest_close_click_time_" + str, 0L);
+            if (m != 0) {
+                int currentTimeMillis = (int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24);
+                if (m15Var.a() != -1 && currentTimeMillis >= m15Var.a()) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            if (!h()) {
+                return false;
+            }
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            m15 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+            if (homepageInterestConfig == null || i2 <= 0) {
+                return false;
+            }
+            if (d(homepageInterestConfig)) {
+                return true;
+            }
+            if (ux4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                if (c(homepageInterestConfig, currentAccount) && i == 0) {
+                    return true;
+                }
+            } else if (g(homepageInterestConfig) && i == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public static boolean d(m15 m15Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, m15Var)) == null) {
+            if (m15Var.c() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(m15 m15Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, m15Var)) == null) {
+            if (m15Var.d() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

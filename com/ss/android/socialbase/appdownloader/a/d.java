@@ -44,12 +44,12 @@ public class d {
         } else if (str.equals("custom")) {
             return new c(context, a, file.getAbsolutePath(), jSONObject);
         } else {
-            if (str.equals("vbi")) {
-                IDownloadFileUriProvider downloadFileUriProvider = Downloader.getInstance(context).getDownloadFileUriProvider(downloadInfo.getId());
-                String d = com.ss.android.socialbase.appdownloader.d.j().d();
-                return new m(context, a, com.ss.android.socialbase.appdownloader.c.a(downloadInfo.getId(), downloadFileUriProvider, context, d, new File(downloadInfo.getSavePath() + File.separator + downloadInfo.getName())).toString());
+            if (!str.equals("vbi")) {
+                return null;
             }
-            return null;
+            IDownloadFileUriProvider downloadFileUriProvider = Downloader.getInstance(context).getDownloadFileUriProvider(downloadInfo.getId());
+            String d = com.ss.android.socialbase.appdownloader.d.j().d();
+            return new m(context, a, com.ss.android.socialbase.appdownloader.c.a(downloadInfo.getId(), downloadFileUriProvider, context, d, new File(downloadInfo.getSavePath() + File.separator + downloadInfo.getName())).toString());
         }
     }
 
@@ -79,6 +79,9 @@ public class d {
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("vbi")) {
             aVar2 = new m(context, aVar, b);
         }
-        return aVar2 != null && aVar2.a();
+        if (aVar2 == null || !aVar2.a()) {
+            return false;
+        }
+        return true;
     }
 }

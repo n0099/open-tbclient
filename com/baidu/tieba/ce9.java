@@ -1,17 +1,37 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ce9 implements be9 {
+public abstract class ce9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public int b;
+    public ce9 c;
+    public zd9 d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public String g;
+
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(ce9 ce9Var);
+
+        void b(ce9 ce9Var);
+
+        void c(int i, int i2);
+
+        void d(String str, ce9 ce9Var);
+    }
 
     public ce9() {
         Interceptable interceptable = $ic;
@@ -27,57 +47,137 @@ public class ce9 implements be9 {
         }
     }
 
-    @Override // com.baidu.tieba.be9
-    public String a(Object obj) {
-        InterceptResult invokeL;
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String fileNameWithOutExtention;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (tc9.c().d() != null && tc9.c().d().c() != null) {
-                    return tc9.c().d().c().a(obj);
-                }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                wg9.b(e.getMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return "";
             }
+            if (str2 == null) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(this.g)) {
+                sb = new StringBuilder();
+                fileNameWithOutExtention = FileUtils.removeExtention(str);
+            } else {
+                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
+                sb = new StringBuilder();
+                sb.append(this.g);
+            }
+            sb.append(fileNameWithOutExtention);
+            sb.append(str2);
+            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.be9
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
+    public abstract void b();
+
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (tc9.c().d() != null && tc9.c().d().c() != null) {
-                    return (T) tc9.c().d().c().b(str, cls);
-                }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                wg9.b(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
         }
-        return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.be9
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
+    public abstract void d(zd9 zd9Var);
+
+    public void e(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (tc9.c().d() != null && tc9.c().d().c() != null) {
-                    return (T) tc9.c().d().c().c(str, type);
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public void f(ce9 ce9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ce9Var) == null) {
+            this.c = ce9Var;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
+            return;
+        }
+        this.e = true;
+        a aVar = this.a;
+        if (aVar != null) {
+            aVar.d(getClass().getName() + str, this);
+        }
+    }
+
+    public abstract void h();
+
+    public void i(int i) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
+            return;
+        }
+        aVar.c(this.b, i);
+    }
+
+    public boolean j(zd9 zd9Var) {
+        InterceptResult invokeL;
+        List<xd9> a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zd9Var)) == null) {
+            if (zd9Var != null && zd9Var.c() != null && zd9Var.c().size() == 1 && zd9Var.c().get(0).a() != null && (a2 = zd9Var.c().get(0).a()) != null && a2.size() == 1) {
+                xd9 xd9Var = a2.get(0);
+                if (xd9Var.b() != null && !xd9Var.b().isNeedEdit()) {
+                    return false;
                 }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                wg9.b(e.getMessage());
-                return null;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void l(zd9 zd9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, zd9Var) == null) {
+            this.d = zd9Var;
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.c(this.b, 100);
+                this.a.b(this);
+            }
+            ce9 ce9Var = this.c;
+            if (ce9Var != null) {
+                ce9Var.d(zd9Var);
             }
         }
-        return (T) invokeLL.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
+    }
+
+    public zd9 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (zd9) invokeV.objValue;
+    }
+
+    public void o() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
+            return;
+        }
+        aVar.a(this);
     }
 }

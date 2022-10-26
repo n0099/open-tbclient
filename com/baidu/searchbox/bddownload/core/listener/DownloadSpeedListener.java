@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload.core.listener;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
@@ -22,13 +20,48 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
 
     /* renamed from: com.baidu.searchbox.bddownload.core.listener.DownloadSpeedListener$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
+    public final void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadTask, i, blockInfo) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
+    public final void infoReady(DownloadTask downloadTask, BreakpointInfo breakpointInfo, boolean z, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, breakpointInfo, Boolean.valueOf(z), listener4Model}) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
+    public final void progress(DownloadTask downloadTask, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, downloadTask, j) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
+    public final void progressBlock(DownloadTask downloadTask, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
+    public final void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, downloadTask, endCause, exc, listener4Model) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class Listener4WithSpeedModelCreator implements ListenerModelHandler.ModelCreator<ListenerSpeedAssistExtend.Listener4SpeedModel> {
+    public class Listener4WithSpeedModelCreator implements ListenerModelHandler.ModelCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +88,28 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
         public ListenerSpeedAssistExtend.Listener4SpeedModel create(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ListenerSpeedAssistExtend.Listener4SpeedModel(i) : (ListenerSpeedAssistExtend.Listener4SpeedModel) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ListenerSpeedAssistExtend.Listener4SpeedModel(i);
+            }
+            return (ListenerSpeedAssistExtend.Listener4SpeedModel) invokeI.objValue;
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public DownloadSpeedListener() {
+        this(new ListenerSpeedAssistExtend());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((ListenerSpeedAssistExtend) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
@@ -79,58 +133,5 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
         }
         listenerSpeedAssistExtend.setCallback(this);
         setAssistExtend(listenerSpeedAssistExtend);
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadTask, i, blockInfo) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void infoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, breakpointInfo, Boolean.valueOf(z), listener4Model}) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void progress(DownloadTask downloadTask, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, downloadTask, j) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void progressBlock(DownloadTask downloadTask, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, downloadTask, endCause, exc, listener4Model) == null) {
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DownloadSpeedListener() {
-        this(new ListenerSpeedAssistExtend());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((ListenerSpeedAssistExtend) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 }

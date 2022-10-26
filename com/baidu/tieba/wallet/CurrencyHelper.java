@@ -11,6 +11,12 @@ public class CurrencyHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static float switchYFenToYBean(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? ((float) j) / 100.0f : invokeJ.floatValue;
+    }
+
     public CurrencyHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,12 +41,6 @@ public class CurrencyHelper {
             return StringHelper.formatOverBaiwanNum(j);
         }
         return (String) invokeCommon.objValue;
-    }
-
-    public static float switchYFenToYBean(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? ((float) j) / 100.0f : invokeJ.floatValue;
     }
 
     public static String getFormatOverBaiwanNum(long j) {

@@ -1,236 +1,192 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.YuvImage;
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class pv8 {
+public final class pv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public Object c;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948075607, "Lcom/baidu/tieba/pv8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948075607, "Lcom/baidu/tieba/pv8;");
         }
     }
 
-    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public pv8() {
+        this(0, false, null, 7, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            SparseArray sparseArray = new SparseArray();
-            Iterator<a> it = arrayList.iterator();
-            while (it.hasNext()) {
-                a next = it.next();
-                int i = next.a;
-                int i2 = next.b;
-                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
-                    return false;
-                }
-                int pixel = bitmap.getPixel(i, i2);
-                if (sparseArray.get(pixel) != null) {
-                    return false;
-                }
-                next.c = pixel;
-                sparseArray.put(pixel, next);
-            }
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Bitmap b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public pv8(int i) {
+        this(i, false, null, 6, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            Bitmap bitmap = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
-                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
-                byteArrayOutputStream.close();
-                return bitmap;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return bitmap;
-            }
-        }
-        return (Bitmap) invokeLII.objValue;
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            try {
-                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
-                context.sendBroadcast(intent);
-            } catch (Exception unused) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
     }
 
-    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
-            int i3 = i * i2;
-            int i4 = 0;
-            int i5 = 0;
-            for (int i6 = 0; i6 < i2; i6++) {
-                int i7 = 0;
-                while (i7 < i) {
-                    int i8 = iArr[i5];
-                    int i9 = (iArr[i5] & 16711680) >> 16;
-                    int i10 = (iArr[i5] & 65280) >> 8;
-                    int i11 = 255;
-                    int i12 = (iArr[i5] & 255) >> 0;
-                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
-                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
-                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
-                    int i16 = i4 + 1;
-                    if (i13 < 0) {
-                        i13 = 0;
-                    } else if (i13 > 255) {
-                        i13 = 255;
-                    }
-                    bArr[i4] = (byte) i13;
-                    if (i6 % 2 == 0 && i5 % 2 == 0) {
-                        int i17 = i3 + 1;
-                        if (i15 < 0) {
-                            i15 = 0;
-                        } else if (i15 > 255) {
-                            i15 = 255;
-                        }
-                        bArr[i3] = (byte) i15;
-                        i3 = i17 + 1;
-                        if (i14 < 0) {
-                            i11 = 0;
-                        } else if (i14 <= 255) {
-                            i11 = i14;
-                        }
-                        bArr[i17] = (byte) i11;
-                    }
-                    i5++;
-                    i7++;
-                    i4 = i16;
-                }
-            }
-        }
-    }
-
-    public static byte[] e(Bitmap bitmap) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) ? g(bitmap.getWidth(), bitmap.getHeight(), bitmap) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof pv8) {
+                pv8 pv8Var = (pv8) obj;
+                return this.a == pv8Var.a && this.b == pv8Var.b && Intrinsics.areEqual(this.c, pv8Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.baidu.tieba.pv8$a> */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> f(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                SparseArray sparseArray = new SparseArray();
-                int i = 0;
-                loop0: for (int i2 = 0; i2 < width; i2++) {
-                    for (int i3 = 0; i3 < height; i3++) {
-                        int pixel = bitmap.getPixel(i2, i3);
-                        a aVar = new a(i2, i3);
-                        if (sparseArray.get(pixel) == null) {
-                            sparseArray.put(pixel, aVar);
-                            i++;
-                        }
-                        if (i == 3) {
-                            break loop0;
-                        }
-                    }
-                }
-                ArrayList<a> arrayList = new ArrayList<>();
-                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
-                    arrayList.add(sparseArray.valueAt(i4));
-                }
-                return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.a * 31;
+            boolean z = this.b;
+            int i2 = z;
+            if (z != 0) {
+                i2 = 1;
             }
-            return new ArrayList<>();
+            int i3 = (i + i2) * 31;
+            Object obj = this.c;
+            return i3 + (obj == null ? 0 : obj.hashCode());
         }
-        return (ArrayList) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static byte[] g(int i, int i2, Bitmap bitmap) {
-        InterceptResult invokeIIL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
-            int i3 = i * i2;
-            try {
-                int[] iArr = new int[i3];
-                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
-                byte[] bArr = new byte[(i3 * 3) / 2];
-                d(bArr, iArr, i, i2);
-                return bArr;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "VideoAdData(agreeNum=" + this.a + ", agreed=" + this.b + ", funNativeAd=" + this.c + ')';
         }
-        return (byte[]) invokeIIL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static Bitmap h(Bitmap bitmap, float f) {
-        InterceptResult invokeLF;
+    public pv8(int i, boolean z, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), obj};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
-            Matrix matrix = new Matrix();
-            matrix.postRotate(f);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
-        return (Bitmap) invokeLF.objValue;
+        this.a = i;
+        this.b = z;
+        this.c = obj;
+    }
+
+    public /* synthetic */ pv8(int i, boolean z, Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? 0 : i, (i2 & 2) != 0 ? false : z, (i2 & 4) != 0 ? null : obj);
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Object c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.objValue;
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public final void f(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.c = obj;
+        }
     }
 }

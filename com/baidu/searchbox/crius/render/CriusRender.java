@@ -5,8 +5,6 @@ import android.graphics.Paint;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -42,14 +40,14 @@ public class CriusRender {
     public static final String TAG = "CriusRender";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean canReuse;
-    public Map<String, View> componentToView;
+    public Map componentToView;
     public CriusData criusData;
     public IHrefClick iHrefClick;
-    public Map<String, View> idToView;
+    public Map idToView;
     public IHScrollListener mHScrollListener;
     public boolean mIgnoreImageNightMode;
     public int mImageTemplateFlag;
-    public Map<SyncInfo, List<View>> mSyncInfoToViews;
+    public Map mSyncInfoToViews;
     public ViewGroup rootView;
 
     /* loaded from: classes2.dex */
@@ -59,7 +57,7 @@ public class CriusRender {
 
     /* loaded from: classes2.dex */
     public interface IHrefClick {
-        void onClick(View view2, String str, Map<String, String> map);
+        void onClick(View view2, String str, Map map);
     }
 
     public CriusRender() {
@@ -82,6 +80,73 @@ public class CriusRender {
         this.canReuse = false;
     }
 
+    public View getViewByComponent(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return (View) this.componentToView.get(str);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public View getViewById(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return (View) this.idToView.get(str);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public List getViewsBySyncInfo(SyncInfo syncInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, syncInfo)) == null) {
+            return (List) this.mSyncInfoToViews.get(syncInfo);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void setHScrollListener(IHScrollListener iHScrollListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iHScrollListener) == null) {
+            this.mHScrollListener = iHScrollListener;
+        }
+    }
+
+    public void setHrefClick(IHrefClick iHrefClick) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iHrefClick) == null) {
+            this.iHrefClick = iHrefClick;
+        }
+    }
+
+    public void setIgnoreImageNightMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.mIgnoreImageNightMode = z;
+        }
+    }
+
+    public void setImageTemplateFlag(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mImageTemplateFlag = i;
+        }
+    }
+
+    private void putSyncToView(SyncInfo syncInfo, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, this, syncInfo, view2) == null) {
+            List list = (List) this.mSyncInfoToViews.get(syncInfo);
+            if (list == null) {
+                list = new ArrayList();
+            }
+            list.add(view2);
+            this.mSyncInfoToViews.put(syncInfo, list);
+        }
+    }
+
     private boolean canReuse(CriusData criusData, CriusData criusData2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -89,29 +154,29 @@ public class CriusRender {
             if (criusData == null || criusData2 == null) {
                 return false;
             }
-            if (TextUtils.isEmpty(criusData.component) || criusData.component.equals(criusData2.component)) {
-                if ((TextUtils.isEmpty(criusData.type) || (criusData.type.equals(criusData2.type) && !NativeConstants.TYPE_SWIPER.equals(criusData.type))) && TextUtils.equals(criusData.getDisplay(), criusData2.getDisplay())) {
-                    if (criusData.type.equals(criusData2.type) && criusData.isText() && isTextNeedRemeasure(criusData, criusData2)) {
-                        return false;
-                    }
-                    List<CriusData> list = criusData.children;
-                    if (list != null) {
-                        if (criusData2.children != null && list.size() == criusData2.children.size()) {
-                            int size = criusData.children.size();
-                            for (int i = 0; i < size; i++) {
-                                if (!canReuse(criusData.children.get(i), criusData2.children.get(i))) {
-                                    return false;
-                                }
-                            }
-                            return true;
-                        }
-                        return false;
-                    }
-                    return true;
-                }
+            if (!TextUtils.isEmpty(criusData.component) && !criusData.component.equals(criusData2.component)) {
                 return false;
             }
-            return false;
+            if ((!TextUtils.isEmpty(criusData.type) && (!criusData.type.equals(criusData2.type) || NativeConstants.TYPE_SWIPER.equals(criusData.type))) || !TextUtils.equals(criusData.getDisplay(), criusData2.getDisplay())) {
+                return false;
+            }
+            if (criusData.type.equals(criusData2.type) && criusData.isText() && isTextNeedRemeasure(criusData, criusData2)) {
+                return false;
+            }
+            List list = criusData.children;
+            if (list != null) {
+                if (criusData2.children == null || list.size() != criusData2.children.size()) {
+                    return false;
+                }
+                int size = criusData.children.size();
+                for (int i = 0; i < size; i++) {
+                    if (!canReuse((CriusData) criusData.children.get(i), (CriusData) criusData2.children.get(i))) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }
@@ -124,16 +189,28 @@ public class CriusRender {
                 return false;
             }
             if (criusLayout.getChildCount() > 0) {
-                if (criusData.children != null && criusLayout.getChildCount() == criusData.children.size()) {
-                    int childCount = criusLayout.getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        View childAt = criusLayout.getChildAt(i);
-                        if ((childAt instanceof CriusLayout) && !checkDataInCriusLayout((CriusLayout) childAt, criusData.children.get(i))) {
-                            return false;
-                        }
-                    }
-                    return true;
+                if (criusData.children == null || criusLayout.getChildCount() != criusData.children.size()) {
+                    return false;
                 }
+                int childCount = criusLayout.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = criusLayout.getChildAt(i);
+                    if ((childAt instanceof CriusLayout) && !checkDataInCriusLayout((CriusLayout) childAt, (CriusData) criusData.children.get(i))) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    private boolean isTextNeedRemeasure(CriusData criusData, CriusData criusData2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, criusData, criusData2)) == null) {
+            if (TextUtils.equals(criusData.text, criusData2.text) && criusData.lineSpace == criusData2.lineSpace && criusData.lineMulti == criusData2.lineMulti && criusData.maxLines == criusData2.maxLines && criusData.ignoreTextPadding == criusData2.ignoreTextPadding && criusData.fontSize() == criusData2.fontSize()) {
                 return false;
             }
             return true;
@@ -142,7 +219,7 @@ public class CriusRender {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, String> generateHrefExtraInfo(CriusData criusData) {
+    public Map generateHrefExtraInfo(CriusData criusData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, criusData)) == null) {
@@ -159,70 +236,50 @@ public class CriusRender {
         return (Map) invokeL.objValue;
     }
 
-    private boolean isTextNeedRemeasure(CriusData criusData, CriusData criusData2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, criusData, criusData2)) == null) ? (TextUtils.equals(criusData.text, criusData2.text) && criusData.lineSpace == criusData2.lineSpace && criusData.lineMulti == criusData2.lineMulti && criusData.maxLines == criusData2.maxLines && criusData.ignoreTextPadding == criusData2.ignoreTextPadding && criusData.fontSize() == criusData2.fontSize()) ? false : true : invokeLL.booleanValue;
-    }
-
-    private void putSyncToView(@NonNull SyncInfo syncInfo, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, this, syncInfo, view2) == null) {
-            List<View> list = this.mSyncInfoToViews.get(syncInfo);
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            list.add(view2);
-            this.mSyncInfoToViews.put(syncInfo, list);
-        }
-    }
-
     private void recursiveRender(Context context, CriusData criusData, View view2, boolean z, boolean z2) {
         CriusNode criusNode;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{context, criusData, view2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || criusData == null || (criusNode = criusData.criusNode) == null || view2 == null) {
-            return;
-        }
-        if (criusNode.getDisplay() == CriusDisplay.NONE) {
-            view2.setVisibility(8);
-        } else {
-            view2.setVisibility(0);
-        }
-        if (!TextUtils.isEmpty(criusData.component)) {
-            renderComponent(criusData.component, view2, criusData, z, z2);
-            if (NativeConstants.COMPONENT_VIEWBTN.equals(criusData.component)) {
+        if ((interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{context, criusData, view2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && criusData != null && (criusNode = criusData.criusNode) != null && view2 != null) {
+            if (criusNode.getDisplay() == CriusDisplay.NONE) {
+                view2.setVisibility(8);
+            } else {
+                view2.setVisibility(0);
+            }
+            if (!TextUtils.isEmpty(criusData.component)) {
+                renderComponent(criusData.component, view2, criusData, z, z2);
+                if (NativeConstants.COMPONENT_VIEWBTN.equals(criusData.component)) {
+                    renderNative(context, view2, criusData, z, z2);
+                }
+            } else {
                 renderNative(context, view2, criusData, z, z2);
             }
-        } else {
-            renderNative(context, view2, criusData, z, z2);
-        }
-        setLink(context, view2, criusData);
-        setRVScrollListener(context, view2, criusData);
-        List<CriusData> list = criusData.children;
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        for (int i = 0; i < criusData.children.size(); i++) {
-            View view3 = null;
-            CriusData criusData2 = criusData.children.get(i);
-            if (this.canReuse && (view2 instanceof ViewGroup)) {
-                view3 = criusData.getUI().getChildAt(i);
-            }
-            if (view3 == null && !this.canReuse && (view3 = criusData2.createView(context)) != null) {
-                if (criusData2.getUI() instanceof CriusUIComponent) {
-                    this.componentToView.put(criusData2.component, view3);
+            setLink(context, view2, criusData);
+            setRVScrollListener(context, view2, criusData);
+            List list = criusData.children;
+            if (list != null && list.size() > 0) {
+                for (int i = 0; i < criusData.children.size(); i++) {
+                    View view3 = null;
+                    CriusData criusData2 = (CriusData) criusData.children.get(i);
+                    if (this.canReuse && (view2 instanceof ViewGroup)) {
+                        view3 = criusData.getUI().getChildAt(i);
+                    }
+                    if (view3 == null && !this.canReuse && (view3 = criusData2.createView(context)) != null) {
+                        if (criusData2.getUI() instanceof CriusUIComponent) {
+                            this.componentToView.put(criusData2.component, view3);
+                        }
+                        if (!TextUtils.isEmpty(criusData2.id)) {
+                            this.idToView.put(criusData2.id, view3);
+                        }
+                        SyncInfo syncInfo = criusData2.syncInfo;
+                        if (syncInfo != null && syncInfo.isDataValid()) {
+                            putSyncToView(criusData2.syncInfo, view3);
+                        }
+                    }
+                    recursiveRenderChildren(context, criusData2, view3, z, z2);
+                    if (!this.canReuse) {
+                        criusData.insertChild(criusData2, i);
+                    }
                 }
-                if (!TextUtils.isEmpty(criusData2.id)) {
-                    this.idToView.put(criusData2.id, view3);
-                }
-                SyncInfo syncInfo = criusData2.syncInfo;
-                if (syncInfo != null && syncInfo.isDataValid()) {
-                    putSyncToView(criusData2.syncInfo, view3);
-                }
-            }
-            recursiveRenderChildren(context, criusData2, view3, z, z2);
-            if (!this.canReuse) {
-                criusData.insertChild(criusData2, i);
             }
         }
     }
@@ -236,7 +293,7 @@ public class CriusRender {
 
     private void renderComponent(String str, View view2, CriusData criusData, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{str, view2, criusData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || criusData == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65547, this, new Object[]{str, view2, criusData, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || criusData == null) {
             return;
         }
         view2.setMinimumWidth((int) criusData.criusNode.getLayoutWidth());
@@ -244,48 +301,46 @@ public class CriusRender {
         ComponentFactory.getInstance().renderComponent(str, view2, RenderData.initFrom(criusData, z, z2), z, this.mIgnoreImageNightMode, z2);
     }
 
-    private void renderImageView(View view2, CriusData criusData, boolean z, boolean z2) {
+    private void renderNative(Context context, View view2, CriusData criusData, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{view2, criusData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || view2 == null || criusData == null) {
-            return;
-        }
-        if ("image".equalsIgnoreCase(criusData.type) || NativeConstants.TYPE_GIF.equals(criusData.type)) {
-            view2.setMinimumWidth((int) criusData.criusNode.getLayoutWidth());
-            view2.setMinimumHeight((int) criusData.criusNode.getLayoutHeight());
-            RenderData renderData = new RenderData();
-            renderData.src = criusData.imageSrc(z, z2);
-            renderData.width = (int) criusData.criusNode.getLayoutWidth();
-            renderData.height = (int) criusData.criusNode.getLayoutHeight();
-            renderData.borderRadius = criusData.convertedBorderRadius();
-            renderData.borderRadiusWidth = criusData.convertedBorderWidth();
-            renderData.borderRadiusColor = ColorUtils.parseColor(criusData.borderColor);
-            renderData.borderRadiusLeftTop = criusData.convertedBorderRadiusLT();
-            renderData.borderRadiusLeftBottom = criusData.convertedBorderRadiusLB();
-            renderData.borderRadiusRightTop = criusData.convertedBorderRadiusRT();
-            renderData.borderRadiusRightBottom = criusData.convertedBorderRadiusRB();
-            renderData.placeHolderImage = criusData.placeHolderImage;
-            renderData.placeHolderImageNight = criusData.placeHolderImageNight;
-            renderData.backgroundImage = criusData.backgroundImage;
-            renderData.backgroundImageNight = criusData.backgroundImageNight;
-            renderData.imageTemplateFlag = this.mImageTemplateFlag;
-            renderData.imageScaleType = criusData.imageScaleType;
-            renderData.placeHolderScaleType = criusData.placeHolderScaleType;
-            renderData.focusPoint = criusData.focusPoint;
-            NativeRenderFactory.getInstance().renderView(criusData.type, view2, renderData, z, this.mIgnoreImageNightMode);
+        if ((interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{context, view2, criusData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && context != null && criusData != null) {
+            RenderData initFrom = RenderData.initFrom(criusData, z, z2);
+            RenderUtils.setBackground(view2, criusData.type, initFrom, z, z2);
+            RenderUtils.setInitAlphaAndController(view2, RenderData.Opacities.initFrom(criusData), z, z2);
+            renderVideoView(view2, criusData, z, z2);
+            renderImageView(view2, criusData, z, z2);
+            RenderUtils.renderTextView(view2, initFrom, z, z2);
         }
     }
 
-    private void renderNative(Context context, View view2, CriusData criusData, boolean z, boolean z2) {
+    private void renderImageView(View view2, CriusData criusData, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{context, view2, criusData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || context == null || criusData == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{view2, criusData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && view2 != null && criusData != null) {
+            if ("image".equalsIgnoreCase(criusData.type) || NativeConstants.TYPE_GIF.equals(criusData.type)) {
+                view2.setMinimumWidth((int) criusData.criusNode.getLayoutWidth());
+                view2.setMinimumHeight((int) criusData.criusNode.getLayoutHeight());
+                RenderData renderData = new RenderData();
+                renderData.src = criusData.imageSrc(z, z2);
+                renderData.width = (int) criusData.criusNode.getLayoutWidth();
+                renderData.height = (int) criusData.criusNode.getLayoutHeight();
+                renderData.borderRadius = criusData.convertedBorderRadius();
+                renderData.borderRadiusWidth = criusData.convertedBorderWidth();
+                renderData.borderRadiusColor = ColorUtils.parseColor(criusData.borderColor);
+                renderData.borderRadiusLeftTop = criusData.convertedBorderRadiusLT();
+                renderData.borderRadiusLeftBottom = criusData.convertedBorderRadiusLB();
+                renderData.borderRadiusRightTop = criusData.convertedBorderRadiusRT();
+                renderData.borderRadiusRightBottom = criusData.convertedBorderRadiusRB();
+                renderData.placeHolderImage = criusData.placeHolderImage;
+                renderData.placeHolderImageNight = criusData.placeHolderImageNight;
+                renderData.backgroundImage = criusData.backgroundImage;
+                renderData.backgroundImageNight = criusData.backgroundImageNight;
+                renderData.imageTemplateFlag = this.mImageTemplateFlag;
+                renderData.imageScaleType = criusData.imageScaleType;
+                renderData.placeHolderScaleType = criusData.placeHolderScaleType;
+                renderData.focusPoint = criusData.focusPoint;
+                NativeRenderFactory.getInstance().renderView(criusData.type, view2, renderData, z, this.mIgnoreImageNightMode);
+            }
         }
-        RenderData initFrom = RenderData.initFrom(criusData, z, z2);
-        RenderUtils.setBackground(view2, criusData.type, initFrom, z, z2);
-        RenderUtils.setInitAlphaAndController(view2, RenderData.Opacities.initFrom(criusData), z, z2);
-        renderVideoView(view2, criusData, z, z2);
-        renderImageView(view2, criusData, z, z2);
-        RenderUtils.renderTextView(view2, initFrom, z, z2);
     }
 
     private void renderVideoView(View view2, CriusData criusData, boolean z, boolean z2) {
@@ -305,56 +360,55 @@ public class CriusRender {
 
     private void setLink(Context context, View view2, CriusData criusData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65551, this, context, view2, criusData) == null) || view2 == null || criusData == null) {
-            return;
-        }
-        String decoratedHref = criusData.decoratedHref();
-        if (TextUtils.isEmpty(decoratedHref)) {
-            return;
-        }
-        view2.setClickable(true);
-        view2.setOnClickListener(new View.OnClickListener(this, decoratedHref, criusData, context) { // from class: com.baidu.searchbox.crius.render.CriusRender.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ CriusRender this$0;
-            public final /* synthetic */ Context val$context;
-            public final /* synthetic */ CriusData val$criusData;
-            public final /* synthetic */ String val$href;
+        if ((interceptable == null || interceptable.invokeLLL(65551, this, context, view2, criusData) == null) && view2 != null && criusData != null) {
+            String decoratedHref = criusData.decoratedHref();
+            if (TextUtils.isEmpty(decoratedHref)) {
+                return;
+            }
+            view2.setClickable(true);
+            view2.setOnClickListener(new View.OnClickListener(this, decoratedHref, criusData, context) { // from class: com.baidu.searchbox.crius.render.CriusRender.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CriusRender this$0;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ CriusData val$criusData;
+                public final /* synthetic */ String val$href;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, decoratedHref, criusData, context};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, decoratedHref, criusData, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$href = decoratedHref;
+                    this.val$criusData = criusData;
+                    this.val$context = context;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view3) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, view3) != null) || TextUtils.isEmpty(this.val$href)) {
                         return;
                     }
+                    if (this.this$0.iHrefClick != null) {
+                        this.this$0.iHrefClick.onClick(view3, this.val$href, this.this$0.generateHrefExtraInfo(this.val$criusData));
+                    } else {
+                        LinkUtil.dealLink(this.val$context, this.val$href);
+                    }
                 }
-                this.this$0 = this;
-                this.val$href = decoratedHref;
-                this.val$criusData = criusData;
-                this.val$context = context;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view3) {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) || TextUtils.isEmpty(this.val$href)) {
-                    return;
-                }
-                if (this.this$0.iHrefClick != null) {
-                    this.this$0.iHrefClick.onClick(view3, this.val$href, this.this$0.generateHrefExtraInfo(this.val$criusData));
-                } else {
-                    LinkUtil.dealLink(this.val$context, this.val$href);
-                }
-            }
-        });
+            });
+        }
     }
 
     private void setRVScrollListener(Context context, View view2, CriusData criusData) {
@@ -386,12 +440,11 @@ public class CriusRender {
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
+                public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i) == null) || this.this$0.mHScrollListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i) == null) && this.this$0.mHScrollListener != null) {
+                        this.this$0.mHScrollListener.onScrollStateChanged(i, this.val$criusData);
                     }
-                    this.this$0.mHScrollListener.onScrollStateChanged(i, this.val$criusData);
                 }
             });
         }
@@ -401,7 +454,7 @@ public class CriusRender {
         boolean z;
         RuntimeException runtimeException;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65553, this, criusData) == null) || criusData == null) {
+        if ((interceptable != null && interceptable.invokeL(65553, this, criusData) != null) || criusData == null) {
             return;
         }
         try {
@@ -413,7 +466,7 @@ public class CriusRender {
             }
             int size = criusData.children.size();
             for (int i = 0; i < size; i++) {
-                tagNodeFontSize(criusData.children.get(i));
+                tagNodeFontSize((CriusData) criusData.children.get(i));
             }
         } finally {
             if (!z) {
@@ -421,59 +474,39 @@ public class CriusRender {
         }
     }
 
-    private void updatePrefixLabelPos(@NonNull CriusData criusData, int i) {
+    private void updatePrefixLabelPos(CriusData criusData, int i) {
         CriusData prefixLabel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65554, this, criusData, i) == null) || (prefixLabel = criusData.getPrefixLabel()) == null || prefixLabel.criusNode == null) {
-            return;
-        }
-        Paint paint = new Paint();
-        paint.setTextSize(DeviceUtils.ScreenInfo.dp2px(AppRuntime.getAppContext(), (float) criusData.fontSize()));
-        paint.measureText(criusData.text);
-        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        float layoutY = criusData.criusNode.getLayoutY() + i;
-        float f = fontMetrics.ascent;
-        float layoutHeight = layoutY + f + (((fontMetrics.descent - f) - prefixLabel.criusNode.getLayoutHeight()) / 2.0f);
-        View view2 = null;
-        if (prefixLabel.hasUI()) {
-            view2 = prefixLabel.getUI().getView();
-        } else if (this.idToView.get(criusData.preLabelAttrs.bindingId) != null) {
-            view2 = this.idToView.get(criusData.preLabelAttrs.bindingId);
-        }
-        if (view2 != null) {
-            view2.setX(criusData.criusNode.getLayoutX());
-            if (layoutHeight >= 0.0f) {
-                view2.setY(layoutHeight);
+        if ((interceptable == null || interceptable.invokeLI(65554, this, criusData, i) == null) && (prefixLabel = criusData.getPrefixLabel()) != null && prefixLabel.criusNode != null) {
+            Paint paint = new Paint();
+            paint.setTextSize(DeviceUtils.ScreenInfo.dp2px(AppRuntime.getAppContext(), (float) criusData.fontSize()));
+            paint.measureText(criusData.text);
+            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+            float layoutY = criusData.criusNode.getLayoutY() + i;
+            float f = fontMetrics.ascent;
+            float layoutHeight = layoutY + f + (((fontMetrics.descent - f) - prefixLabel.criusNode.getLayoutHeight()) / 2.0f);
+            View view2 = null;
+            if (prefixLabel.hasUI()) {
+                view2 = prefixLabel.getUI().getView();
+            } else if (this.idToView.get(criusData.preLabelAttrs.bindingId) != null) {
+                view2 = (View) this.idToView.get(criusData.preLabelAttrs.bindingId);
+            }
+            if (view2 != null) {
+                view2.setX(criusData.criusNode.getLayoutX());
+                if (layoutHeight >= 0.0f) {
+                    view2.setY(layoutHeight);
+                }
             }
         }
     }
 
     public void changeFontSize(Context context, boolean z, boolean z2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || i == CriusData.fontLevel) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || i == CriusData.fontLevel) {
             return;
         }
         this.canReuse = true;
         initCriusView(context, this.criusData, z, z2, i);
-    }
-
-    public View getViewByComponent(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.componentToView.get(str) : (View) invokeL.objValue;
-    }
-
-    public View getViewById(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.idToView.get(str) : (View) invokeL.objValue;
-    }
-
-    @Nullable
-    public List<View> getViewsBySyncInfo(@NonNull SyncInfo syncInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, syncInfo)) == null) ? this.mSyncInfoToViews.get(syncInfo) : (List) invokeL.objValue;
     }
 
     public ViewGroup initCriusView(Context context, CriusData criusData, boolean z, boolean z2, int i) {
@@ -514,46 +547,17 @@ public class CriusRender {
         return (ViewGroup) invokeCommon.objValue;
     }
 
-    public void setHScrollListener(IHScrollListener iHScrollListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iHScrollListener) == null) {
-            this.mHScrollListener = iHScrollListener;
-        }
-    }
-
-    public void setHrefClick(IHrefClick iHrefClick) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iHrefClick) == null) {
-            this.iHrefClick = iHrefClick;
-        }
-    }
-
-    public void setIgnoreImageNightMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.mIgnoreImageNightMode = z;
-        }
-    }
-
-    public void setImageTemplateFlag(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.mImageTemplateFlag = i;
-        }
-    }
-
     public void setNightMode(Context context, boolean z, boolean z2) {
         boolean z3;
         RuntimeException runtimeException;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) {
-            return;
-        }
-        try {
-            this.canReuse = true;
-            initCriusView(context, this.criusData, z, z2, CriusData.fontLevel);
-        } finally {
-            if (!z3) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            try {
+                this.canReuse = true;
+                initCriusView(context, this.criusData, z, z2, CriusData.fontLevel);
+            } finally {
+                if (!z3) {
+                }
             }
         }
     }

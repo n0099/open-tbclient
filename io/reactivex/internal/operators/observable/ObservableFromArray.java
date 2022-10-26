@@ -8,31 +8,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
 /* loaded from: classes8.dex */
-public final class ObservableFromArray<T> extends Observable<T> {
+public final class ObservableFromArray extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T[] array;
+    public final Object[] array;
 
     /* loaded from: classes8.dex */
-    public static final class FromArrayDisposable<T> extends BasicQueueDisposable<T> {
+    public final class FromArrayDisposable extends BasicQueueDisposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
-        public final T[] array;
+        public final Observer actual;
+        public final Object[] array;
         public volatile boolean disposed;
         public boolean fusionMode;
         public int index;
 
-        public FromArrayDisposable(Observer<? super T> observer, T[] tArr) {
+        public FromArrayDisposable(Observer observer, Object[] objArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, tArr};
+                Object[] objArr2 = {observer, objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,7 +42,7 @@ public final class ObservableFromArray<T> extends Observable<T> {
                 }
             }
             this.actual = observer;
-            this.array = tArr;
+            this.array = objArr;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -66,31 +65,39 @@ public final class ObservableFromArray<T> extends Observable<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.disposed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.index == this.array.length : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.index == this.array.length) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() {
+        public Object poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 int i = this.index;
-                T[] tArr = this.array;
-                if (i != tArr.length) {
+                Object[] objArr = this.array;
+                if (i != objArr.length) {
                     this.index = i + 1;
-                    return (T) ObjectHelper.requireNonNull(tArr[i], "The array element is null");
+                    return ObjectHelper.requireNonNull(objArr[i], "The array element is null");
                 }
                 return null;
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -110,31 +117,30 @@ public final class ObservableFromArray<T> extends Observable<T> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                T[] tArr = this.array;
-                int length = tArr.length;
+                Object[] objArr = this.array;
+                int length = objArr.length;
                 for (int i = 0; i < length && !isDisposed(); i++) {
-                    T t = tArr[i];
-                    if (t == null) {
-                        Observer<? super T> observer = this.actual;
+                    Object obj = objArr[i];
+                    if (obj == null) {
+                        Observer observer = this.actual;
                         observer.onError(new NullPointerException("The " + i + "th element is null"));
                         return;
                     }
-                    this.actual.onNext(t);
+                    this.actual.onNext(obj);
                 }
-                if (isDisposed()) {
-                    return;
+                if (!isDisposed()) {
+                    this.actual.onComplete();
                 }
-                this.actual.onComplete();
             }
         }
     }
 
-    public ObservableFromArray(T[] tArr) {
+    public ObservableFromArray(Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tArr};
+            Object[] objArr2 = {objArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -144,11 +150,11 @@ public final class ObservableFromArray<T> extends Observable<T> {
                 return;
             }
         }
-        this.array = tArr;
+        this.array = objArr;
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             FromArrayDisposable fromArrayDisposable = new FromArrayDisposable(observer, this.array);

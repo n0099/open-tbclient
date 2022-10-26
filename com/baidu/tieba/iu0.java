@@ -1,28 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class iu0 implements au0 {
+public class iu0 extends yt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nr0 a;
-    public ViewGroup b;
+    public final br0 c;
 
-    public iu0(@NonNull nr0 nr0Var) {
+    public iu0(br0 br0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nr0Var};
+            Object[] objArr = {br0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,54 +26,25 @@ public class iu0 implements au0 {
                 return;
             }
         }
-        this.a = nr0Var;
+        this.c = br0Var;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public final void b(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int M = this.a.M();
-            int J = this.a.J();
-            return M <= 0 || J <= 0 || M > J;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void b(@Nullable Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
-            return;
-        }
-        activity.getWindow().addFlags(128);
-    }
-
-    @Override // com.baidu.tieba.au0
-    public void switchToFullStyle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = this.a.n();
-            this.a.Y0(true);
-            Activity activity = this.a.getActivity();
-            if (a()) {
-                vy0.a(activity, this.a.X0());
-            }
-            b(activity);
-            fz0.b(activity, this.a.v());
+        if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i2 > 0) {
+            this.c.y().p(i, (i3 * 100) / i2, i2);
         }
     }
 
-    @Override // com.baidu.tieba.au0
-    public void switchToNormalStyle() {
+    @Override // com.baidu.tieba.cu0
+    public void doTask() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int C = this.c.C();
+            int r = this.c.r();
+            int p = this.c.p();
+            this.c.q().j(C, r, p);
+            b(C, r, p);
         }
-        this.b = this.a.n();
-        this.a.Y0(false);
-        vy0.b(this.a.getActivity());
-        fz0.k(this.a.v());
-        fz0.j(this.a.n());
-        fz0.c(this.a.v(), this.b);
     }
 }

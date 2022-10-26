@@ -18,17 +18,17 @@ public class CustomMessageTask extends MessageTask {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isImme;
     public BdAsyncTaskParallel mBdAsyncTaskParallel;
-    public CustomRunnable<?> mRunnable;
+    public CustomRunnable mRunnable;
     public TASK_TYPE mType;
 
     /* loaded from: classes.dex */
-    public interface CustomRunnable<T> {
-        CustomResponsedMessage<?> run(CustomMessage<T> customMessage);
+    public interface CustomRunnable {
+        CustomResponsedMessage run(CustomMessage customMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class TASK_TYPE {
+    public final class TASK_TYPE {
         public static final /* synthetic */ TASK_TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TASK_TYPE ASYNCHRONIZED;
@@ -76,18 +76,24 @@ public class CustomMessageTask extends MessageTask {
         public static TASK_TYPE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TASK_TYPE) Enum.valueOf(TASK_TYPE.class, str) : (TASK_TYPE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TASK_TYPE) Enum.valueOf(TASK_TYPE.class, str);
+            }
+            return (TASK_TYPE) invokeL.objValue;
         }
 
         public static TASK_TYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TASK_TYPE[]) $VALUES.clone() : (TASK_TYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TASK_TYPE[]) $VALUES.clone();
+            }
+            return (TASK_TYPE[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomMessageTask(int i, CustomRunnable<?> customRunnable) {
+    public CustomMessageTask(int i, CustomRunnable customRunnable) {
         super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -115,31 +121,46 @@ public class CustomMessageTask extends MessageTask {
     public boolean checkCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FrameHelper.a(this.mCmd) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return FrameHelper.a(this.mCmd);
+        }
+        return invokeV.booleanValue;
     }
 
-    public CustomRunnable<?> getRunnable() {
+    public CustomRunnable getRunnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRunnable : (CustomRunnable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRunnable;
+        }
+        return (CustomRunnable) invokeV.objValue;
     }
 
     public BdAsyncTaskParallel getTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBdAsyncTaskParallel : (BdAsyncTaskParallel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBdAsyncTaskParallel;
+        }
+        return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
     public TASK_TYPE getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mType : (TASK_TYPE) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mType;
+        }
+        return (TASK_TYPE) invokeV.objValue;
     }
 
     public boolean isImme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isImme : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isImme;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setTaskParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {

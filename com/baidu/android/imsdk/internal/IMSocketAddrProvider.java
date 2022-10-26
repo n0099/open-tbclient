@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class IMSocketAddrProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SMART_DNS_TIME_OUT = 5000;
-    public static ConcurrentLinkedQueue<String> SOCKET_ADDR_PRIORITY_QUEUE = null;
+    public static ConcurrentLinkedQueue SOCKET_ADDR_PRIORITY_QUEUE = null;
     public static final String TAG = "IMSocketAddrProvider";
     public static Context mContext;
     public static volatile IMSocketAddrProvider mInstance;
@@ -53,11 +53,67 @@ public class IMSocketAddrProvider {
             }
         }
         mContext = context.getApplicationContext();
-        SOCKET_ADDR_PRIORITY_QUEUE = new ConcurrentLinkedQueue<>();
+        SOCKET_ADDR_PRIORITY_QUEUE = new ConcurrentLinkedQueue();
+    }
+
+    public void onFailSocketAddr(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            LogUtils.d(TAG, "socket queue onFailSocketAddr = " + str);
+            if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, this.mLastSuccAddr)) {
+                SOCKET_ADDR_PRIORITY_QUEUE.remove(str);
+            }
+        }
+    }
+
+    public void onSuccessSocketAddr(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            LogUtils.d(TAG, "socket queue onSuccessSocketAddr = " + str);
+            this.mLastSuccAddr = str;
+            ConcurrentLinkedQueue concurrentLinkedQueue = SOCKET_ADDR_PRIORITY_QUEUE;
+            if (concurrentLinkedQueue != null) {
+                concurrentLinkedQueue.clear();
+                if (!this.mLastSuccAddr.startsWith(Constants.URL_SOCKET_SERVER)) {
+                    SOCKET_ADDR_PRIORITY_QUEUE.offer(this.mLastSuccAddr);
+                }
+            }
+        }
+    }
+
+    public static IMSocketAddrProvider getInstance(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (mInstance == null) {
+                synchronized (IMSocketAddrProvider.class) {
+                    if (mInstance == null) {
+                        mInstance = new IMSocketAddrProvider(context);
+                    }
+                }
+            }
+            return mInstance;
+        }
+        return (IMSocketAddrProvider) invokeL.objValue;
+    }
+
+    private void offerSocketAddressToQueue(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, this, str) == null) && !TextUtils.isEmpty(str) && !SOCKET_ADDR_PRIORITY_QUEUE.contains(str)) {
+            SOCKET_ADDR_PRIORITY_QUEUE.offer(str);
+        }
+    }
+
+    public void onGetHttpDNSAddressResult(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            fullDnsAndUrlAddress(list);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fullDnsAndUrlAddress(List<String> list) {
+    public void fullDnsAndUrlAddress(List list) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, list) == null) {
             LogUtils.d(TAG, "socket queue is adding...... ");
@@ -65,15 +121,22 @@ public class IMSocketAddrProvider {
             ArrayList arrayList2 = new ArrayList();
             if (list != null && !list.isEmpty()) {
                 for (int i = 0; i < list.size(); i++) {
-                    if (Utility.isIpv4(list.get(i))) {
+                    if (Utility.isIpv4((String) list.get(i))) {
                         arrayList.add(list.get(i));
                     } else {
                         arrayList2.add(list.get(i));
                     }
                 }
             }
-            String str = !arrayList.isEmpty() ? (String) arrayList.get(0) : null;
-            String str2 = arrayList2.isEmpty() ? null : (String) arrayList2.get(0);
+            String str2 = null;
+            if (!arrayList.isEmpty()) {
+                str = (String) arrayList.get(0);
+            } else {
+                str = null;
+            }
+            if (!arrayList2.isEmpty()) {
+                str2 = (String) arrayList2.get(0);
+            }
             if (str != null) {
                 offerSocketAddressToQueue(str + ":443");
             }
@@ -118,20 +181,12 @@ public class IMSocketAddrProvider {
         }
     }
 
-    public static IMSocketAddrProvider getInstance(Context context) {
-        InterceptResult invokeL;
+    private void pollSocketAddrsQueue() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (mInstance == null) {
-                synchronized (IMSocketAddrProvider.class) {
-                    if (mInstance == null) {
-                        mInstance = new IMSocketAddrProvider(context);
-                    }
-                }
-            }
-            return mInstance;
+        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.mSocketAddrListener != null && !SOCKET_ADDR_PRIORITY_QUEUE.isEmpty()) {
+            this.mNowConnectAddr = (String) SOCKET_ADDR_PRIORITY_QUEUE.poll();
+            returnSmartestSocketAdderss();
         }
-        return (IMSocketAddrProvider) invokeL.objValue;
     }
 
     private void getSmartSocketAddrs() {
@@ -204,7 +259,7 @@ public class IMSocketAddrProvider {
                             }, 5000L);
                             DnsHelper dnsHelper = new DnsHelper(IMSocketAddrProvider.mContext);
                             dnsHelper.setHttpDnsState(false, null, false, true);
-                            List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(Constants.URL_SOCKET_SERVER);
+                            List ipListForceHttp = dnsHelper.getIpListForceHttp(Constants.URL_SOCKET_SERVER);
                             LogUtils.d(IMSocketAddrProvider.TAG, "bddns > bdDnsIps = " + ipListForceHttp);
                             Context context = IMSocketAddrProvider.mContext;
                             Utility.writeLoginFlag(context, "11Y", "BDHttpDNS success, ip=" + ipListForceHttp);
@@ -220,23 +275,6 @@ public class IMSocketAddrProvider {
                 th.printStackTrace();
             }
         }
-    }
-
-    private void offerSocketAddressToQueue(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, str) == null) || TextUtils.isEmpty(str) || SOCKET_ADDR_PRIORITY_QUEUE.contains(str)) {
-            return;
-        }
-        SOCKET_ADDR_PRIORITY_QUEUE.offer(str);
-    }
-
-    private void pollSocketAddrsQueue() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.mSocketAddrListener == null || SOCKET_ADDR_PRIORITY_QUEUE.isEmpty()) {
-            return;
-        }
-        this.mNowConnectAddr = SOCKET_ADDR_PRIORITY_QUEUE.poll();
-        returnSmartestSocketAdderss();
     }
 
     private void returnSmartestSocketAdderss() {
@@ -256,7 +294,7 @@ public class IMSocketAddrProvider {
 
     public void getSocketAddr(IGetSocketAddrListener iGetSocketAddrListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iGetSocketAddrListener) == null) || iGetSocketAddrListener == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, iGetSocketAddrListener) != null) || iGetSocketAddrListener == null) {
             return;
         }
         this.mSocketAddrListener = iGetSocketAddrListener;
@@ -269,39 +307,5 @@ public class IMSocketAddrProvider {
         IGetSocketAddrListener iGetSocketAddrListener2 = this.mSocketAddrListener;
         iGetSocketAddrListener2.onGetSocketAddrResult(Constants.URL_SOCKET_SERVER + ":" + Constants.URL_SOCKET_PORT);
         this.mSocketAddrListener = null;
-    }
-
-    public void onFailSocketAddr(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            LogUtils.d(TAG, "socket queue onFailSocketAddr = " + str);
-            if (TextUtils.isEmpty(str) || TextUtils.equals(str, this.mLastSuccAddr)) {
-                return;
-            }
-            SOCKET_ADDR_PRIORITY_QUEUE.remove(str);
-        }
-    }
-
-    public void onGetHttpDNSAddressResult(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            fullDnsAndUrlAddress(list);
-        }
-    }
-
-    public void onSuccessSocketAddr(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            LogUtils.d(TAG, "socket queue onSuccessSocketAddr = " + str);
-            this.mLastSuccAddr = str;
-            ConcurrentLinkedQueue<String> concurrentLinkedQueue = SOCKET_ADDR_PRIORITY_QUEUE;
-            if (concurrentLinkedQueue != null) {
-                concurrentLinkedQueue.clear();
-                if (this.mLastSuccAddr.startsWith(Constants.URL_SOCKET_SERVER)) {
-                    return;
-                }
-                SOCKET_ADDR_PRIORITY_QUEUE.offer(this.mLastSuccAddr);
-            }
-        }
     }
 }

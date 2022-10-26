@@ -10,14 +10,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes7.dex */
-public class NoTransition<R> implements Transition<R> {
+public class NoTransition implements Transition {
     public static /* synthetic */ Interceptable $ic;
-    public static final NoTransition<?> NO_ANIMATION;
-    public static final TransitionFactory<?> NO_ANIMATION_FACTORY;
+    public static final NoTransition NO_ANIMATION;
+    public static final TransitionFactory NO_ANIMATION_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.bumptech.glide.request.transition.Transition
+    public boolean transition(Object obj, Transition.ViewAdapter viewAdapter) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, viewAdapter)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class NoAnimationFactory<R> implements TransitionFactory<R> {
+    public class NoAnimationFactory implements TransitionFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,10 +46,13 @@ public class NoTransition<R> implements Transition<R> {
         }
 
         @Override // com.bumptech.glide.request.transition.TransitionFactory
-        public Transition<R> build(DataSource dataSource, boolean z) {
+        public Transition build(DataSource dataSource, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) ? NoTransition.NO_ANIMATION : (Transition) invokeLZ.objValue;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {
+                return NoTransition.NO_ANIMATION;
+            }
+            return (Transition) invokeLZ.objValue;
         }
     }
 
@@ -56,7 +69,7 @@ public class NoTransition<R> implements Transition<R> {
                 return;
             }
         }
-        NO_ANIMATION = new NoTransition<>();
+        NO_ANIMATION = new NoTransition();
         NO_ANIMATION_FACTORY = new NoAnimationFactory();
     }
 
@@ -74,25 +87,21 @@ public class NoTransition<R> implements Transition<R> {
         }
     }
 
-    public static <R> Transition<R> get() {
+    public static Transition get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? NO_ANIMATION : (Transition) invokeV.objValue;
-    }
-
-    public static <R> TransitionFactory<R> getFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitionFactory<R>) NO_ANIMATION_FACTORY : (TransitionFactory) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.request.transition.Transition
-    public boolean transition(Object obj, Transition.ViewAdapter viewAdapter) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, viewAdapter)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return NO_ANIMATION;
         }
-        return invokeLL.booleanValue;
+        return (Transition) invokeV.objValue;
+    }
+
+    public static TransitionFactory getFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return NO_ANIMATION_FACTORY;
+        }
+        return (TransitionFactory) invokeV.objValue;
     }
 }

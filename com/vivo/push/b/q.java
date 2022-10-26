@@ -15,6 +15,13 @@ public final class q extends v {
     public InsideNotificationItem a;
     public String b;
 
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnNotifyArrivedCommand" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q() {
         super(4);
@@ -33,21 +40,13 @@ public final class q extends v {
         }
     }
 
-    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
-    public final void c(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            super.c(aVar);
-            String b = com.vivo.push.util.q.b(this.a);
-            this.b = b;
-            aVar.a("notification_v1", b);
-        }
-    }
-
     public final InsideNotificationItem d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (InsideNotificationItem) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (InsideNotificationItem) invokeV.objValue;
     }
 
     public final String e() {
@@ -66,11 +65,15 @@ public final class q extends v {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.vivo.push.b.s, com.vivo.push.o
-    public final String toString() {
-        InterceptResult invokeV;
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
+    public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnNotifyArrivedCommand" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            super.c(aVar);
+            String b = com.vivo.push.util.q.b(this.a);
+            this.b = b;
+            aVar.a("notification_v1", b);
+        }
     }
 
     @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
@@ -80,13 +83,12 @@ public final class q extends v {
             super.d(aVar);
             String a = aVar.a("notification_v1");
             this.b = a;
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            InsideNotificationItem a2 = com.vivo.push.util.q.a(this.b);
-            this.a = a2;
-            if (a2 != null) {
-                a2.setMsgId(f());
+            if (!TextUtils.isEmpty(a)) {
+                InsideNotificationItem a2 = com.vivo.push.util.q.a(this.b);
+                this.a = a2;
+                if (a2 != null) {
+                    a2.setMsgId(f());
+                }
             }
         }
     }

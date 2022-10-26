@@ -34,10 +34,9 @@ public class r0 implements Runnable {
     public void run() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.a.b) == null || bitmap.isRecycled()) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bitmap = this.a.b) != null && !bitmap.isRecycled()) {
+            GifImageView gifImageView = this.a;
+            gifImageView.setImageBitmap(gifImageView.b);
         }
-        GifImageView gifImageView = this.a;
-        gifImageView.setImageBitmap(gifImageView.b);
     }
 }

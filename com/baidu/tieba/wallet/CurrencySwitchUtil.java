@@ -16,6 +16,12 @@ public class CurrencySwitchUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isYyIsConvert(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i == 1 : invokeI.booleanValue;
+    }
+
     public CurrencySwitchUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,12 +36,6 @@ public class CurrencySwitchUtil {
         }
     }
 
-    public static int getGiftMoneyIconResId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? isYyIsConvert(i) ? R.drawable.icon_gift_my_ydou : R.drawable.icon_gift_my_tdou : invokeI.intValue;
-    }
-
     public static Drawable getMoneyIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,16 +48,16 @@ public class CurrencySwitchUtil {
         return (Drawable) invokeV.objValue;
     }
 
-    public static Bitmap getMoneyIconBitmap(int i) {
-        InterceptResult invokeI;
+    public static Bitmap getMoneyIconBitmap() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (isYyIsConvert(i)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (isYyIsConvert()) {
                 return SkinManager.getBitmap(R.drawable.icon_huobi_ydou);
             }
             return SkinManager.getBitmap(R.drawable.icon_huobi_tdou);
         }
-        return (Bitmap) invokeI.objValue;
+        return (Bitmap) invokeV.objValue;
     }
 
     public static Drawable getNormalSkinMoneyIcon() {
@@ -72,34 +72,16 @@ public class CurrencySwitchUtil {
         return (Drawable) invokeV.objValue;
     }
 
-    public static boolean isNeedConfirmTDouToYBeanSwitchOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (TbSingleton.getInstance() == null || TbSingleton.getInstance().getYYLiveConfig() == null) {
-                return false;
-            }
-            return TbSingleton.getInstance().getYYLiveConfig().isYYPayNeedConfirm();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isYyIsConvert() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (TbSingleton.getInstance() == null || TbSingleton.getInstance().getYYLiveConfig() == null) {
-                return false;
-            }
-            return TbSingleton.getInstance().getYYLiveConfig().isYyIsConvert();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isYyIsConvert(int i) {
+    public static int getGiftMoneyIconResId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i == 1 : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (isYyIsConvert(i)) {
+                return R.drawable.icon_gift_my_ydou;
+            }
+            return R.drawable.icon_gift_my_tdou;
+        }
+        return invokeI.intValue;
     }
 
     public static Drawable getMoneyIcon(int i) {
@@ -114,15 +96,39 @@ public class CurrencySwitchUtil {
         return (Drawable) invokeI.objValue;
     }
 
-    public static Bitmap getMoneyIconBitmap() {
-        InterceptResult invokeV;
+    public static Bitmap getMoneyIconBitmap(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (isYyIsConvert()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (isYyIsConvert(i)) {
                 return SkinManager.getBitmap(R.drawable.icon_huobi_ydou);
             }
             return SkinManager.getBitmap(R.drawable.icon_huobi_tdou);
         }
-        return (Bitmap) invokeV.objValue;
+        return (Bitmap) invokeI.objValue;
+    }
+
+    public static boolean isNeedConfirmTDouToYBeanSwitchOpen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (TbSingleton.getInstance() != null && TbSingleton.getInstance().getYYLiveConfig() != null) {
+                return TbSingleton.getInstance().getYYLiveConfig().isYYPayNeedConfirm();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isYyIsConvert() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (TbSingleton.getInstance() != null && TbSingleton.getInstance().getYYLiveConfig() != null) {
+                return TbSingleton.getInstance().getYYLiveConfig().isYyIsConvert();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

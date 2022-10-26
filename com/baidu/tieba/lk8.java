@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lk8 extends bk8 {
+public abstract class lk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<nk8> c;
+    public String a;
+    public int b;
+
+    public abstract void d(JSONObject jSONObject) throws Exception;
 
     public lk8() {
         Interceptable interceptable = $ic;
@@ -25,40 +29,87 @@ public class lk8 extends bk8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.c = new ArrayList<>();
-    }
-
-    @Override // com.baidu.tieba.bk8
-    public void d(JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            ArrayList<nk8> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    nk8 nk8Var = new nk8();
-                    nk8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(nk8Var);
-                }
-            }
-            i(arrayList);
         }
     }
 
-    public ArrayList<nk8> h() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
-    public void i(ArrayList<nk8> arrayList) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.c = arrayList;
-            g(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                f(new JSONObject(str));
+            } catch (Exception e) {
+                g("网络不给力呀");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                int optInt = jSONObject.optInt("error_code", 0);
+                this.b = optInt;
+                if (optInt != 0) {
+                    g(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络不给力呀"));
+                    return;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject != null) {
+                    int optInt2 = optJSONObject.optInt("errno", 0);
+                    this.b = optInt2;
+                    if (optInt2 != 0) {
+                        g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
+                        return;
+                    }
+                }
+                long optLong = jSONObject.optLong("ctime", 0L);
+                if (optLong > 0) {
+                    new Date(optLong * 1000);
+                }
+                d(jSONObject);
+            } catch (Exception e) {
+                g("网络不给力呀");
+                e.printStackTrace();
+            }
         }
     }
 }

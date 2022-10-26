@@ -1,27 +1,27 @@
 package com.fun;
 
-import com.baidu.tieba.ll9;
-import com.baidu.tieba.nq9;
+import com.baidu.tieba.dm9;
+import com.baidu.tieba.fr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class s0 extends HashMap<String, Object> {
+public class s0 extends HashMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Object[] a;
     public final /* synthetic */ String b;
-    public final /* synthetic */ nq9 c;
+    public final /* synthetic */ fr9 c;
 
-    public s0(nq9 nq9Var, Object[] objArr, String str) {
+    public s0(fr9 fr9Var, Object[] objArr, String str) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr2 = {nq9Var, objArr, str};
+            Object[] objArr2 = {fr9Var, objArr, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,7 +31,7 @@ public class s0 extends HashMap<String, Object> {
                 return;
             }
         }
-        this.c = nq9Var;
+        this.c = fr9Var;
         this.a = objArr;
         this.b = str;
         if (objArr != null && objArr.length > 0) {
@@ -51,7 +51,7 @@ public class s0 extends HashMap<String, Object> {
         put("st", this.b);
         put("sid", this.c.b);
         put("sidv", Integer.valueOf(this.c.c));
-        put("ldr_i", Integer.valueOf(ll9.a(this.c.b)));
+        put("ldr_i", Integer.valueOf(dm9.a(this.c.b)));
         str2 = this.c.d;
         put("type", str2);
     }

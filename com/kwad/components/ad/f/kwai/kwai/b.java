@@ -1,7 +1,5 @@
 package com.kwad.components.ad.f.kwai.kwai;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -26,13 +23,11 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public int ku;
     public int kv;
     public c kw;
-    public InterfaceC0525b kx;
-    @Nullable
+    public InterfaceC0521b kx;
     public Runnable ky;
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class a extends com.kwad.sdk.core.response.kwai.a {
+    public class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int kA;
@@ -55,12 +50,12 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
 
     /* renamed from: com.kwad.components.ad.f.kwai.kwai.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0525b {
+    public interface InterfaceC0521b {
         void C(int i);
     }
 
     /* loaded from: classes7.dex */
-    public class c implements Runnable {
+    public final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean kC;
@@ -167,9 +162,9 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
             com.kwad.sdk.core.e.b.d("RegisterTimer", "updateTimer: " + i + ", mCallBackFunction: " + this.kr);
             if (i >= 0 && this.kr != null) {
-                InterfaceC0525b interfaceC0525b = this.kx;
-                if (interfaceC0525b != null && i == 0) {
-                    interfaceC0525b.C(this.ku);
+                InterfaceC0521b interfaceC0521b = this.kx;
+                if (interfaceC0521b != null && i == 0) {
+                    interfaceC0521b.C(this.ku);
                 }
                 a aVar = new a();
                 aVar.kB = i;
@@ -182,7 +177,6 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    @Nullable
     public static b j(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -203,15 +197,15 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         return (b) invokeL.objValue;
     }
 
-    public final void a(InterfaceC0525b interfaceC0525b) {
+    public final void a(InterfaceC0521b interfaceC0521b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0525b) == null) {
-            this.kx = interfaceC0525b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0521b) == null) {
+            this.kx = interfaceC0521b;
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             this.kr = cVar;
@@ -281,7 +275,6 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

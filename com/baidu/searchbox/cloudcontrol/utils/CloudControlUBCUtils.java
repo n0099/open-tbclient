@@ -44,7 +44,7 @@ public class CloudControlUBCUtils {
 
     public void doStatistics(CloudControlUBCData cloudControlUBCData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cloudControlUBCData) == null) || cloudControlUBCData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, cloudControlUBCData) != null) || cloudControlUBCData == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();

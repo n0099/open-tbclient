@@ -40,19 +40,21 @@ public class AddExperiencedResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("info")) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("info")) != null) {
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("contri_info");
+            ContriInfo contriInfo = new ContriInfo();
+            this.mContriInfo = contriInfo;
+            contriInfo.parseJson(optJSONObject2);
         }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject("contri_info");
-        ContriInfo contriInfo = new ContriInfo();
-        this.mContriInfo = contriInfo;
-        contriInfo.parseJson(optJSONObject2);
     }
 
     public ContriInfo getContriInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mContriInfo : (ContriInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mContriInfo;
+        }
+        return (ContriInfo) invokeV.objValue;
     }
 
     public void setContriInfo(ContriInfo contriInfo) {

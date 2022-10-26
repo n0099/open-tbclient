@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class j extends com.baidu.ar.ability.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Object> ib;
+    public HashMap ib;
     public String mNodeName;
 
     public j() {
@@ -35,7 +35,7 @@ public class j extends com.baidu.ar.ability.c {
         }
     }
 
-    public HashMap<String, Object> bT() {
+    public HashMap bT() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.ib : (HashMap) invokeV.objValue;
@@ -47,7 +47,7 @@ public class j extends com.baidu.ar.ability.c {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mNodeName : (String) invokeV.objValue;
     }
 
-    public void h(HashMap<String, Object> hashMap) {
+    public void h(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
             this.ib = hashMap;

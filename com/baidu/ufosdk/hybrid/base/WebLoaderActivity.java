@@ -123,24 +123,66 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
     }
 
     @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
-    public void a(String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            d();
-            if (this.z == null) {
-                this.z = new Timer();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
+            FrameLayout frameLayout = this.o;
+            if (frameLayout != null) {
+                frameLayout.setVisibility(0);
             }
-            this.z.schedule(new m(this), 9000L, 1L);
-            this.x.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
-    public void b(int i) {
+    public final void d() {
+        Timer timer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.n.f.setProgress(i);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (timer = this.z) != null) {
+            timer.cancel();
+            this.z.purge();
+            this.z = null;
         }
+    }
+
+    @Override // com.baidu.ufosdk.hybrid.base.BaseActivity, android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.finish();
+        }
+    }
+
+    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.onResume();
+            if (this.C) {
+                this.o.setVisibility(0);
+                this.p.setVisibility(8);
+                this.u.setVisibility(8);
+                return;
+            }
+            this.y.sendEmptyMessage(1001);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.k.a
+    public void a(int i) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (frameLayout = this.o) == null) {
+            return;
+        }
+        if (this.l == 1) {
+            int height = i - (getWindow().getDecorView().getHeight() - this.o.getHeight());
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.o.getLayoutParams();
+            layoutParams.setMargins(0, -height, 0, 0);
+            this.o.setLayoutParams(layoutParams);
+            return;
+        }
+        frameLayout.getChildAt(0).getLayoutParams().height = getWindow().getDecorView().getHeight() - i;
+        this.o.requestLayout();
     }
 
     @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
@@ -173,32 +215,100 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                 throw th;
             }
             this.y.sendEmptyMessageDelayed(1004, j);
-            if (this.E) {
-                return;
+            if (!this.E) {
+                this.o.setVisibility(0);
+                this.p.setVisibility(8);
+                this.u.setVisibility(8);
+                this.C = true;
             }
-            this.o.setVisibility(0);
-            this.p.setVisibility(8);
-            this.u.setVisibility(8);
-            this.C = true;
         }
     }
 
-    public final void d() {
-        Timer timer;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (timer = this.z) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            if (view2 == this.s) {
+                WebView webView = this.d;
+                if (p1.e(this) && webView != null && !TextUtils.isEmpty(webView.getUrl())) {
+                    webView.reload();
+                } else if (webView == null) {
+                    Toast.makeText(this, (int) R.string.feedback_network_tips, 0).show();
+                    finish();
+                } else {
+                    this.x.setVisibility(0);
+                    this.y.sendEmptyMessage(1001);
+                }
+            } else if (view2 == this.v) {
+                onBackPressed();
+            }
+        }
+    }
+
+    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
+    public void a(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            this.E = true;
+            this.y.obtainMessage(1002).sendToTarget();
+        }
+    }
+
+    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
+    public void a(View view2, WebChromeClient.CustomViewCallback customViewCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, customViewCallback) == null) {
+            FrameLayout frameLayout = this.o;
+            if (frameLayout != null) {
+                frameLayout.setVisibility(8);
+            }
+            super.a(view2, customViewCallback);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            d();
+            if (this.z == null) {
+                this.z = new Timer();
+            }
+            this.z.schedule(new m(this), 9000L, 1L);
+            this.x.setVisibility(0);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.n.f.setProgress(i);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.k.a
+    public void b() {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (frameLayout = this.o) == null) {
             return;
         }
-        timer.cancel();
-        this.z.purge();
-        this.z = null;
+        if (this.l == 1) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
+            layoutParams.setMargins(0, 0, 0, 0);
+            this.o.setLayoutParams(layoutParams);
+            return;
+        }
+        frameLayout.getChildAt(0).getLayoutParams().height = -1;
+        this.o.requestLayout();
     }
 
-    @Override // com.baidu.ufosdk.hybrid.base.BaseActivity, android.app.Activity
-    public void finish() {
+    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.finish();
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.G == 0 && TextUtils.isEmpty(this.H)) {
+            this.n.d.setText(str);
         }
     }
 
@@ -226,7 +336,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                         e0 e0Var = this.D;
                         FeedbackBrowserActivity.b bVar = (FeedbackBrowserActivity.b) fVar;
                         String str2 = str + "?os=" + b.e((Context) bVar.a) + "&appid=" + e0Var.b + "&devid=" + e0Var.c + "&clientid=" + e0Var.a + "&appvn=" + c.b() + "&pkgname=" + c.a() + "&sdkvn=4.1.9.1&baiducuid=" + b.f() + "&nettype=" + p1.b((Context) bVar.a) + "&channel_id=" + b.h() + "&nightMode=" + (this.b ? 1 : 0) + "&digital=" + (((Context) bVar.a).getSharedPreferences("feedback_switch_prefs", 0).getBoolean("ab_dg_h", false) ? 1 : 0);
-                        WebView webView = bVar.b.get();
+                        WebView webView = (WebView) bVar.b.get();
                         if (webView != null) {
                             webView.loadUrl(str2);
                             return;
@@ -236,7 +346,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                         f fVar2 = this.f;
                         if (fVar2 != null) {
                             String str3 = this.F;
-                            WebView webView2 = ((FeedbackBrowserActivity.b) fVar2).b.get();
+                            WebView webView2 = (WebView) ((FeedbackBrowserActivity.b) fVar2).b.get();
                             if (webView2 != null) {
                                 webView2.loadUrl(str3);
                                 return;
@@ -277,34 +387,27 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            if (view2 == this.s) {
-                WebView webView = this.d;
-                if (p1.e(this) && webView != null && !TextUtils.isEmpty(webView.getUrl())) {
-                    webView.reload();
-                } else if (webView == null) {
-                    Toast.makeText(this, (int) R.string.feedback_network_tips, 0).show();
-                    finish();
-                } else {
-                    this.x.setVisibility(0);
-                    this.y.sendEmptyMessage(1001);
-                }
-            } else if (view2 == this.v) {
-                onBackPressed();
-            }
-        }
-    }
-
     @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.hybrid.base.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        boolean z;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             super.onCreate(bundle);
-            int i = 1;
-            this.b = b.m() == 1;
+            int i9 = 1;
+            if (b.m() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.b = z;
             this.y = new o1(this);
             this.D = e0.a(this);
             this.B = b.a(getIntent(), "help_center_url");
@@ -312,12 +415,12 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             Intent intent = getIntent();
             if (intent != null) {
                 try {
-                    i = intent.getIntExtra("titlebar_visbility", 1);
+                    i9 = intent.getIntExtra("titlebar_visbility", 1);
                 } catch (Exception unused) {
                     intent.replaceExtras((Bundle) null);
                 }
             }
-            this.G = i;
+            this.G = i9;
             this.H = b.a(getIntent(), "titlebar_title");
             k kVar = new k(this, false);
             this.A = kVar;
@@ -326,51 +429,96 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             this.I = aVar;
             registerReceiver(aVar, new IntentFilter("com.baidu.ufosdk.ACTION_SIGN"));
             setContentView(R.layout.ufo_webload_layout);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c84);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c80);
             this.m = relativeLayout;
-            boolean z = this.b;
-            int i2 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
-            relativeLayout.setBackgroundColor(z ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            boolean z2 = this.b;
+            int i10 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+            if (z2) {
+                i = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+            } else {
+                i = -1;
+            }
+            relativeLayout.setBackgroundColor(i);
             FeedbackTitleBar feedbackTitleBar = (FeedbackTitleBar) findViewById(R.id.webload_titlebar);
             this.n = feedbackTitleBar;
             Resources resources = getResources();
-            int i3 = R.color.common_white;
+            int i11 = R.color.common_white;
             feedbackTitleBar.setBackgroundColor(resources.getColor(R.color.common_white));
             this.n.b.setVisibility(8);
             BdShimmerView bdShimmerView = (BdShimmerView) findViewById(R.id.bd_shimmer_view);
             this.x = bdShimmerView;
-            bdShimmerView.setBackgroundColor(this.b ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            if (this.b) {
+                i2 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+            } else {
+                i2 = -1;
+            }
+            bdShimmerView.setBackgroundColor(i2);
             this.x.setType(b.m());
             RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(R.id.network_exception_layout);
             this.p = relativeLayout2;
             Resources resources2 = getResources();
             if (this.b) {
-                i3 = R.color.common_black;
+                i11 = R.color.common_black;
             }
-            relativeLayout2.setBackgroundColor(resources2.getColor(i3));
+            relativeLayout2.setBackgroundColor(resources2.getColor(i11));
             ImageView imageView = (ImageView) findViewById(R.id.nework_image);
             this.q = imageView;
-            imageView.setBackgroundResource(this.b ? R.drawable.network_exception_dark : R.drawable.network_exception);
+            if (this.b) {
+                i3 = R.drawable.network_exception_dark;
+            } else {
+                i3 = R.drawable.network_exception;
+            }
+            imageView.setBackgroundResource(i3);
             TextView textView = (TextView) findViewById(R.id.netwrok_tips);
             this.r = textView;
-            textView.setTextColor(getResources().getColor(this.b ? R.color.network_tips_color_dark : R.color.network_tips_color));
+            Resources resources3 = getResources();
+            if (this.b) {
+                i4 = R.color.network_tips_color_dark;
+            } else {
+                i4 = R.color.network_tips_color;
+            }
+            textView.setTextColor(resources3.getColor(i4));
             Button button = (Button) findViewById(R.id.reload_btn);
             this.s = button;
-            button.setTextColor(getResources().getColor(this.b ? R.color.network_button_reload_color_dark : R.color.network_button_reload_color));
-            this.s.setBackgroundResource(this.b ? R.drawable.network_btn_selector_dark : R.drawable.network_btn_selector);
+            Resources resources4 = getResources();
+            if (this.b) {
+                i5 = R.color.network_button_reload_color_dark;
+            } else {
+                i5 = R.color.network_button_reload_color;
+            }
+            button.setTextColor(resources4.getColor(i5));
+            Button button2 = this.s;
+            if (this.b) {
+                i6 = R.drawable.network_btn_selector_dark;
+            } else {
+                i6 = R.drawable.network_btn_selector;
+            }
+            button2.setBackgroundResource(i6);
             View findViewById = findViewById(R.id.divider_line);
             this.t = findViewById;
-            findViewById.setBackgroundColor(getResources().getColor(this.b ? R.color.bottom_bar_diriver_color_dark : R.color.bottom_bar_diriver_color));
+            Resources resources5 = getResources();
+            if (this.b) {
+                i7 = R.color.bottom_bar_diriver_color_dark;
+            } else {
+                i7 = R.color.bottom_bar_diriver_color;
+            }
+            findViewById.setBackgroundColor(resources5.getColor(i7));
             this.u = (RelativeLayout) findViewById(R.id.bottom_bar);
             this.v = (FrameLayout) findViewById(R.id.back_layout);
             this.w = (ImageView) findViewById(R.id.back_button);
             RelativeLayout relativeLayout3 = this.u;
             if (!this.b) {
-                i2 = -1;
+                i10 = -1;
             }
-            relativeLayout3.setBackgroundColor(i2);
-            this.w.setBackgroundResource(this.b ? R.drawable.bottom_back_button_dark : R.drawable.bottom_back_button);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
+            relativeLayout3.setBackgroundColor(i10);
+            ImageView imageView2 = this.w;
+            if (this.b) {
+                i8 = R.drawable.bottom_back_button_dark;
+            } else {
+                i8 = R.drawable.bottom_back_button;
+            }
+            imageView2.setBackgroundResource(i8);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906dc);
             this.o = frameLayout;
             frameLayout.post(new l(this));
             this.v.setOnClickListener(this);
@@ -381,7 +529,8 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             feedbackTitleBar3.e.setOnClickListener(new e(feedbackTitleBar3, this));
             if (this.G == 0) {
                 this.n.b.setVisibility(0);
-                this.n.d.setText(this.H);
+                FeedbackTitleBar feedbackTitleBar4 = this.n;
+                feedbackTitleBar4.d.setText(this.H);
             }
         }
     }
@@ -418,96 +567,5 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             }
             super.onDestroy();
         }
-    }
-
-    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onResume();
-            if (this.C) {
-                this.o.setVisibility(0);
-                this.p.setVisibility(8);
-                this.u.setVisibility(8);
-                return;
-            }
-            this.y.sendEmptyMessage(1001);
-        }
-    }
-
-    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.G == 0 && TextUtils.isEmpty(this.H)) {
-            this.n.d.setText(str);
-        }
-    }
-
-    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
-    public void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            this.E = true;
-            this.y.obtainMessage(1002).sendToTarget();
-        }
-    }
-
-    @Override // com.baidu.ufosdk.k.a
-    public void b() {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (frameLayout = this.o) == null) {
-            return;
-        }
-        if (this.l == 1) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
-            layoutParams.setMargins(0, 0, 0, 0);
-            this.o.setLayoutParams(layoutParams);
-            return;
-        }
-        frameLayout.getChildAt(0).getLayoutParams().height = -1;
-        this.o.requestLayout();
-    }
-
-    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
-    public void a(View view2, WebChromeClient.CustomViewCallback customViewCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, customViewCallback) == null) {
-            FrameLayout frameLayout = this.o;
-            if (frameLayout != null) {
-                frameLayout.setVisibility(8);
-            }
-            super.a(view2, customViewCallback);
-        }
-    }
-
-    @Override // com.baidu.ufosdk.hybrid.base.FeedbackBrowserActivity, com.baidu.ufosdk.h
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            FrameLayout frameLayout = this.o;
-            if (frameLayout != null) {
-                frameLayout.setVisibility(0);
-            }
-        }
-    }
-
-    @Override // com.baidu.ufosdk.k.a
-    public void a(int i) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (frameLayout = this.o) == null) {
-            return;
-        }
-        if (this.l == 1) {
-            int height = i - (getWindow().getDecorView().getHeight() - this.o.getHeight());
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.o.getLayoutParams();
-            layoutParams.setMargins(0, -height, 0, 0);
-            this.o.setLayoutParams(layoutParams);
-            return;
-        }
-        frameLayout.getChildAt(0).getLayoutParams().height = getWindow().getDecorView().getHeight() - i;
-        this.o.requestLayout();
     }
 }

@@ -72,6 +72,21 @@ public class RequsetNetworkUtils {
         return (ConnectivityManager) invokeL.objValue;
     }
 
+    public static TelephonyManager getTelephonyManager(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context == null) {
+                return mTelephonyManager;
+            }
+            if (context.checkCallingOrSelfPermission(h.c) == 0 && mTelephonyManager == null) {
+                mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
+            }
+            return mTelephonyManager;
+        }
+        return (TelephonyManager) invokeL.objValue;
+    }
+
     public static String getMobileIp(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -139,6 +154,20 @@ public class RequsetNetworkUtils {
         return (String) invokeL.objValue;
     }
 
+    public static String getWifiIp(Context context) {
+        InterceptResult invokeL;
+        WifiInfo connectionInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (context.checkCallingOrSelfPermission(h.d) == 0 && (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) != null) {
+                int ipAddress = connectionInfo.getIpAddress();
+                return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
+            }
+            return "nonWifiIp";
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String getNetInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -184,34 +213,11 @@ public class RequsetNetworkUtils {
     public static String getOperatorName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? getTelephonyManager(context) != null ? getTelephonyManager(context).getSimOperatorName() : "noPermission" : (String) invokeL.objValue;
-    }
-
-    public static TelephonyManager getTelephonyManager(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (context == null) {
-                return mTelephonyManager;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (getTelephonyManager(context) != null) {
+                return getTelephonyManager(context).getSimOperatorName();
             }
-            if (context.checkCallingOrSelfPermission(h.c) == 0 && mTelephonyManager == null) {
-                mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
-            }
-            return mTelephonyManager;
-        }
-        return (TelephonyManager) invokeL.objValue;
-    }
-
-    public static String getWifiIp(Context context) {
-        InterceptResult invokeL;
-        WifiInfo connectionInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(h.d) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
-                return "nonWifiIp";
-            }
-            int ipAddress = connectionInfo.getIpAddress();
-            return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
+            return "noPermission";
         }
         return (String) invokeL.objValue;
     }
@@ -221,7 +227,10 @@ public class RequsetNetworkUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -244,7 +253,10 @@ public class RequsetNetworkUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             NetworkInfo netWorkInfo = getNetWorkInfo(context);
-            return netWorkInfo != null && netWorkInfo.getType() == 1;
+            if (netWorkInfo != null && netWorkInfo.getType() == 1) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

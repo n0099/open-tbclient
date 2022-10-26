@@ -46,7 +46,7 @@ public class q3 {
         return (Field) invokeLL.objValue;
     }
 
-    public static Method a(Object obj, String str, Class<?>... clsArr) {
+    public static Method a(Object obj, String str, Class... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {

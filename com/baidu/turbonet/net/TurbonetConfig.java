@@ -44,6 +44,33 @@ public class TurbonetConfig {
         this.a = new JSONObject();
     }
 
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -65,32 +92,6 @@ public class TurbonetConfig {
         }
     }
 
-    public void d(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i != 3 && i != 2) {
-                if (l() != null) {
-                    throw new IllegalArgumentException("Storage path must not be set");
-                }
-            } else if (l() != null) {
-                this.c = true;
-            } else {
-                throw new IllegalArgumentException("Storage path must be set");
-            }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!(i == 0 || i == 2)));
-            if (i == 0) {
-                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISABLED");
-            } else if (i == 1) {
-                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "MEMORY");
-            } else if (i != 2 && i != 3) {
-                throw new IllegalArgumentException("Unknown cache mode");
-            } else {
-                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
-            }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
-        }
-    }
-
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -105,16 +106,50 @@ public class TurbonetConfig {
         }
     }
 
-    public JSONObject g() {
-        InterceptResult invokeV;
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            if (new File(str).isDirectory()) {
+                this.b = str;
+                return;
+            }
+            throw new IllegalArgumentException("Storage path must be set to existing directory");
+        }
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public void d(int i, long j) {
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (i != 3 && i != 2) {
+                if (l() != null) {
+                    throw new IllegalArgumentException("Storage path must not be set");
+                }
+            } else if (l() != null) {
+                this.c = true;
+            } else {
+                throw new IllegalArgumentException("Storage path must be set");
+            }
+            if (i != 0 && i != 2) {
+                z = false;
+            } else {
+                z = true;
+            }
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!z));
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2 && i != 3) {
+                        throw new IllegalArgumentException("Unknown cache mode");
+                    }
+                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
+                } else {
+                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "MEMORY");
+                }
+            } else {
+                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISABLED");
+            }
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
+        }
     }
 
     public void i(String str, String str2, Object obj) {
@@ -142,22 +177,5 @@ public class TurbonetConfig {
             }
             throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
         }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            if (new File(str).isDirectory()) {
-                this.b = str;
-                return;
-            }
-            throw new IllegalArgumentException("Storage path must be set to existing directory");
-        }
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

@@ -27,33 +27,17 @@ public final class Version {
 
     /* renamed from: com.google.zxing.datamatrix.decoder.Version$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class ECB {
+    public final class ECB {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int count;
         public final int dataCodewords;
-
-        public /* synthetic */ ECB(int i, int i2, AnonymousClass1 anonymousClass1) {
-            this(i, i2);
-        }
-
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.count : invokeV.intValue;
-        }
-
-        public int getDataCodewords() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataCodewords : invokeV.intValue;
-        }
 
         public ECB(int i, int i2) {
             Interceptable interceptable = $ic;
@@ -73,34 +57,36 @@ public final class Version {
             this.count = i;
             this.dataCodewords = i2;
         }
+
+        public /* synthetic */ ECB(int i, int i2, AnonymousClass1 anonymousClass1) {
+            this(i, i2);
+        }
+
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.count;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getDataCodewords() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.dataCodewords;
+            }
+            return invokeV.intValue;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class ECBlocks {
+    public final class ECBlocks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ECB[] ecBlocks;
         public final int ecCodewords;
-
-        public /* synthetic */ ECBlocks(int i, ECB ecb, AnonymousClass1 anonymousClass1) {
-            this(i, ecb);
-        }
-
-        public ECB[] getECBlocks() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.ecBlocks : (ECB[]) invokeV.objValue;
-        }
-
-        public int getECCodewords() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.ecCodewords : invokeV.intValue;
-        }
-
-        public /* synthetic */ ECBlocks(int i, ECB ecb, ECB ecb2, AnonymousClass1 anonymousClass1) {
-            this(i, ecb, ecb2);
-        }
 
         public ECBlocks(int i, ECB ecb) {
             Interceptable interceptable = $ic;
@@ -121,6 +107,10 @@ public final class Version {
             this.ecBlocks = new ECB[]{ecb};
         }
 
+        public /* synthetic */ ECBlocks(int i, ECB ecb, AnonymousClass1 anonymousClass1) {
+            this(i, ecb);
+        }
+
         public ECBlocks(int i, ECB ecb, ECB ecb2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -139,6 +129,28 @@ public final class Version {
             this.ecCodewords = i;
             this.ecBlocks = new ECB[]{ecb, ecb2};
         }
+
+        public /* synthetic */ ECBlocks(int i, ECB ecb, ECB ecb2, AnonymousClass1 anonymousClass1) {
+            this(i, ecb, ecb2);
+        }
+
+        public ECB[] getECBlocks() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.ecBlocks;
+            }
+            return (ECB[]) invokeV.objValue;
+        }
+
+        public int getECCodewords() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.ecCodewords;
+            }
+            return invokeV.intValue;
+        }
     }
 
     static {
@@ -155,6 +167,78 @@ public final class Version {
             }
         }
         VERSIONS = buildVersions();
+    }
+
+    public int getDataRegionSizeColumns() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dataRegionSizeColumns;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDataRegionSizeRows() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dataRegionSizeRows;
+        }
+        return invokeV.intValue;
+    }
+
+    public ECBlocks getECBlocks() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.ecBlocks;
+        }
+        return (ECBlocks) invokeV.objValue;
+    }
+
+    public int getSymbolSizeColumns() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.symbolSizeColumns;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSymbolSizeRows() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.symbolSizeRows;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getTotalCodewords() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.totalCodewords;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getVersionNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.versionNumber;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return String.valueOf(this.versionNumber);
+        }
+        return (String) invokeV.objValue;
     }
 
     public Version(int i, int i2, int i3, int i4, int i5, ECBlocks eCBlocks) {
@@ -209,53 +293,5 @@ public final class Version {
             throw FormatException.getFormatInstance();
         }
         return (Version) invokeII.objValue;
-    }
-
-    public int getDataRegionSizeColumns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dataRegionSizeColumns : invokeV.intValue;
-    }
-
-    public int getDataRegionSizeRows() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataRegionSizeRows : invokeV.intValue;
-    }
-
-    public ECBlocks getECBlocks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ecBlocks : (ECBlocks) invokeV.objValue;
-    }
-
-    public int getSymbolSizeColumns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.symbolSizeColumns : invokeV.intValue;
-    }
-
-    public int getSymbolSizeRows() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.symbolSizeRows : invokeV.intValue;
-    }
-
-    public int getTotalCodewords() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.totalCodewords : invokeV.intValue;
-    }
-
-    public int getVersionNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.versionNumber : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.versionNumber) : (String) invokeV.objValue;
     }
 }

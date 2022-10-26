@@ -35,12 +35,12 @@ public class TailAppendingInputStream extends FilterInputStream {
                 return;
             }
         }
-        if (inputStream == null) {
+        if (inputStream != null) {
+            if (bArr != null) {
+                this.mTail = bArr;
+                return;
+            }
             throw null;
-        }
-        if (bArr != null) {
-            this.mTail = bArr;
-            return;
         }
         throw null;
     }
@@ -61,21 +61,15 @@ public class TailAppendingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && ((FilterInputStream) this).in.markSupported()) {
-            super.mark(i);
-            this.mMarkedTailOffset = this.mTailOffset;
-        }
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int read = ((FilterInputStream) this).in.read();
-            return read != -1 ? read : readNextTailByte();
+            if (read != -1) {
+                return read;
+            }
+            return readNextTailByte();
         }
         return invokeV.intValue;
     }
@@ -94,10 +88,22 @@ public class TailAppendingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
+    public void mark(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && ((FilterInputStream) this).in.markSupported()) {
+            super.mark(i);
+            this.mMarkedTailOffset = this.mTailOffset;
+        }
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) ? read(bArr, 0, bArr.length) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            return read(bArr, 0, bArr.length);
+        }
+        return invokeL.intValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -121,10 +127,10 @@ public class TailAppendingInputStream extends FilterInputStream {
                 bArr[i + i3] = (byte) readNextTailByte;
                 i3++;
             }
-            if (i3 > 0) {
-                return i3;
+            if (i3 <= 0) {
+                return -1;
             }
-            return -1;
+            return i3;
         }
         return invokeLII.intValue;
     }

@@ -59,14 +59,14 @@ public abstract class Overlay {
         }
     }
 
-    public static void a(List<LatLng> list, Bundle bundle) {
+    public static void a(List list, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, list, bundle) == null) {
             int size = list.size();
             double[] dArr = new double[size];
             double[] dArr2 = new double[size];
             for (int i = 0; i < size; i++) {
-                GeoPoint ll2mc = CoordUtil.ll2mc(list.get(i));
+                GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) list.get(i));
                 dArr[i] = ll2mc.getLongitudeE6();
                 dArr2[i] = ll2mc.getLatitudeE6();
             }

@@ -33,6 +33,46 @@ public final class URIParsedResult extends ParsedResult {
         USER_IN_HOST = Pattern.compile(":/*([^/@]+)@[^/]+");
     }
 
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = new StringBuilder(30);
+            ParsedResult.maybeAppend(this.title, sb);
+            ParsedResult.maybeAppend(this.uri, sb);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getURI() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.uri;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isPossiblyMaliciousURI() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return USER_IN_HOST.matcher(this.uri).find();
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public URIParsedResult(String str, String str2) {
         super(ParsedResultType.URI);
@@ -81,36 +121,5 @@ public final class URIParsedResult extends ParsedResult {
             return trim;
         }
         return (String) invokeL.objValue;
-    }
-
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder(30);
-            ParsedResult.maybeAppend(this.title, sb);
-            ParsedResult.maybeAppend(this.uri, sb);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.title : (String) invokeV.objValue;
-    }
-
-    public String getURI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.uri : (String) invokeV.objValue;
-    }
-
-    public boolean isPossiblyMaliciousURI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? USER_IN_HOST.matcher(this.uri).find() : invokeV.booleanValue;
     }
 }

@@ -1,223 +1,300 @@
 package com.baidu.mobstat;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.view.ActionMode;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.SearchEvent;
+import android.view.View;
 import android.view.Window;
-import androidx.appcompat.widget.TooltipCompatHandler;
+import android.view.WindowManager;
+import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.al;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class ak {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile boolean a = true;
+public class ak implements Window.Callback {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Window.Callback a;
     public a b;
-    public Activity c;
-    public Handler d;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a();
+        void a(KeyEvent keyEvent);
+
+        void a(MotionEvent motionEvent);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(581657160, "Lcom/baidu/mobstat/ak;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(581657160, "Lcom/baidu/mobstat/ak;");
-        }
-    }
-
-    public ak(a aVar) {
+    public ak(Window.Callback callback, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {callback, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ak a;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r8);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, r8};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super((Looper) newInitContext2.callArgs[0]);
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.a.b != null) {
-                    this.a.b.a();
-                }
-            }
-        };
+        this.a = callback;
         this.b = aVar;
     }
 
-    private void c(Activity activity) {
-        Window window;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, activity) == null) || activity == null || (window = activity.getWindow()) == null) {
-            return;
-        }
-        window.setCallback(a(window.getCallback()));
-    }
-
-    private void d(Activity activity) {
-        Window window;
-        Window.Callback callback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, activity) == null) || (window = activity.getWindow()) == null || (callback = window.getCallback()) == null) {
-            return;
-        }
-        window.setCallback(new al(callback, new al.a(this) { // from class: com.baidu.mobstat.ak.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ak a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
-            @Override // com.baidu.mobstat.al.a
-            public void a(KeyEvent keyEvent) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, keyEvent) == null) {
-                }
-            }
-
-            @Override // com.baidu.mobstat.al.a
-            public void a(MotionEvent motionEvent) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
-                    ak.a(true);
-                    int actionMasked = motionEvent.getActionMasked();
-                    if (actionMasked != 5) {
-                        if (actionMasked == 6 && motionEvent.getEventTime() - motionEvent.getDownTime() < TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
-                            this.a.d.removeMessages(100);
-                            return;
-                        }
-                        return;
-                    }
-                    int pointerCount = motionEvent.getPointerCount();
-                    if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
-                        this.a.d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
-                    } else if (pointerCount > 3) {
-                        this.a.d.removeMessages(100);
-                    }
-                }
-            }
-        }));
-    }
-
-    public static void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            if (z) {
-                an.a();
-            }
-            a = z;
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(this.c);
-            this.c = null;
-        }
-    }
-
-    public static boolean a() {
+    public Window.Callback a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Window.Callback) invokeV.objValue;
     }
 
-    private void b(Activity activity) {
+    @Override // android.view.Window.Callback
+    public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, activity) == null) {
-            d(activity);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onAttachedToWindow();
         }
     }
 
-    public void a(Activity activity) {
+    @Override // android.view.Window.Callback
+    public void onContentChanged() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.a.onContentChanged();
         }
-        this.c = activity;
-        b(activity);
     }
 
-    private Window.Callback a(Window.Callback callback) {
+    @Override // android.view.Window.Callback
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.a.onDetachedFromWindow();
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onSearchRequested() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.a.onSearchRequested();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, callback)) == null) {
-            while (callback != null && (callback instanceof al)) {
-                callback = ((al) callback).a();
-            }
-            return callback;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            return this.a.dispatchGenericMotionEvent(motionEvent);
         }
-        return (Window.Callback) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.a(keyEvent);
+            }
+            return this.a.dispatchKeyEvent(keyEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, keyEvent)) == null) {
+            return this.a.dispatchKeyShortcutEvent(keyEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, accessibilityEvent)) == null) {
+            return this.a.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.a(motionEvent);
+            }
+            return this.a.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            return this.a.dispatchTrackballEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onActionModeFinished(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, actionMode) == null) {
+            this.a.onActionModeFinished(actionMode);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onActionModeStarted(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actionMode) == null) {
+            this.a.onActionModeStarted(actionMode);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public View onCreatePanelView(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            return this.a.onCreatePanelView(i);
+        }
+        return (View) invokeI.objValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onPointerCaptureChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.a.onPointerCaptureChanged(z);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onSearchRequested(SearchEvent searchEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, searchEvent)) == null) {
+            return this.a.onSearchRequested(searchEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, layoutParams) == null) {
+            this.a.onWindowAttributesChanged(layoutParams);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.a.onWindowFocusChanged(z);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, callback)) == null) {
+            return this.a.onWindowStartingActionMode(callback);
+        }
+        return (ActionMode) invokeL.objValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onCreatePanelMenu(int i, Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, menu)) == null) {
+            return this.a.onCreatePanelMenu(i, menu);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i, menuItem)) == null) {
+            return this.a.onMenuItemSelected(i, menuItem);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onMenuOpened(int i, Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, menu)) == null) {
+            return this.a.onMenuOpened(i, menu);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onPanelClosed(int i, Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i, menu) == null) {
+            this.a.onPanelClosed(i, menu);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048601, this, callback, i)) == null) {
+            return this.a.onWindowStartingActionMode(callback, i);
+        }
+        return (ActionMode) invokeLI.objValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i, view2, menu)) == null) {
+            return this.a.onPreparePanel(i, view2, menu);
+        }
+        return invokeILL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048595, this, list, menu, i) == null) {
+            this.a.onProvideKeyboardShortcuts(list, menu, i);
+        }
     }
 }

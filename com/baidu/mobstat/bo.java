@@ -1,34 +1,19 @@
 package com.baidu.mobstat;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ConectivityUtils;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
+import java.io.UnsupportedEncodingException;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes2.dex */
 public final class bo {
     public static /* synthetic */ Interceptable $ic;
-    public static final Proxy a;
-    public static final Proxy b;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,251 +29,155 @@ public final class bo {
                 return;
             }
         }
-        a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return Environment.getExternalStorageState();
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65544, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        File a2 = a(str);
-        if (a2 == null || !a2.exists()) {
-            return "";
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(a2);
-            try {
-                byte[] a3 = a(fileInputStream2);
-                if (a3 == null) {
-                    bu.a(fileInputStream2);
-                    return "";
-                }
-                String str2 = new String(a3, IMAudioTransRequest.CHARSET);
-                bu.a(fileInputStream2);
-                return str2;
-            } catch (Exception unused) {
-                fileInputStream = fileInputStream2;
-                bu.a(fileInputStream);
-                return "";
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                bu.a(fileInputStream);
-                throw th;
-            }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            File a2 = a(str);
-            if (a2 == null || !a2.isFile()) {
-                return false;
-            }
-            return a2.delete();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static HttpURLConnection d(Context context, String str) throws IOException {
+    public static String a(byte[] bArr, String str) throws UnsupportedEncodingException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) ? a(context, str, 50000, 50000) : (HttpURLConnection) invokeLL.objValue;
-    }
-
-    public static boolean e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
-            boolean z = false;
-            try {
-                if (context.checkCallingOrSelfPermission(str) == 0) {
-                    z = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, str)) == null) {
+            int length = (bArr.length * 4) / 3;
+            byte[] bArr2 = new byte[length + (length / 76) + 3];
+            int length2 = bArr.length - (bArr.length % 3);
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < length2; i3 += 3) {
+                int i4 = i + 1;
+                byte[] bArr3 = a;
+                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
+                int i5 = i4 + 1;
+                int i6 = i3 + 1;
+                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
+                int i7 = i5 + 1;
+                int i8 = i3 + 2;
+                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
+                i = i7 + 1;
+                bArr2[i7] = bArr3[bArr[i8] & 63];
+                if ((i - i2) % 76 == 0 && i != 0) {
+                    i2++;
                 }
-            } catch (Exception unused) {
             }
-            if (!z) {
-                bc c = bc.c();
-                c.b("[WARNING] not have permission " + str + ", please add it in AndroidManifest.xml according our developer doc");
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static File a(String str) {
-        InterceptResult invokeL;
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if ("mounted".equals(a())) {
-                try {
-                    file = Environment.getExternalStorageDirectory();
-                } catch (Exception unused) {
-                    file = null;
+            int length3 = bArr.length % 3;
+            if (length3 != 1) {
+                if (length3 == 2) {
+                    int i9 = i + 1;
+                    byte[] bArr4 = a;
+                    bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
+                    int i10 = i9 + 1;
+                    int i11 = length2 + 1;
+                    bArr2[i9] = bArr4[((bArr[i11] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
+                    int i12 = i10 + 1;
+                    bArr2[i10] = bArr4[(bArr[i11] & 15) << 2];
+                    i = i12 + 1;
+                    bArr2[i12] = BaseNCodec.PAD_DEFAULT;
                 }
-                if (file == null) {
-                    return null;
-                }
-                return new File(file, str);
+            } else {
+                int i13 = i + 1;
+                byte[] bArr5 = a;
+                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
+                int i14 = i13 + 1;
+                bArr2[i13] = bArr5[(bArr[length2] & 3) << 4];
+                int i15 = i14 + 1;
+                bArr2[i14] = BaseNCodec.PAD_DEFAULT;
+                i = i15 + 1;
+                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
             }
-            return null;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? context.getFileStreamPath(str).exists() : invokeLL.booleanValue;
-    }
-
-    public static void a(Context context, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) || context == null) {
-            return;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            fileOutputStream = context.openFileOutput(str, z ? 32768 : 0);
-            bu.a(new ByteArrayInputStream(str2.getBytes(IMAudioTransRequest.CHARSET)), fileOutputStream);
-        } catch (Exception unused) {
-            bu.a(fileOutputStream);
-        } catch (Throwable th) {
-            bu.a(fileOutputStream);
-            throw th;
-        }
-    }
-
-    public static boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) ? context.deleteFile(str) : invokeLL.booleanValue;
-    }
-
-    public static void a(String str, String str2, boolean z) {
-        File parentFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
-            FileOutputStream fileOutputStream = null;
-            try {
-                File a2 = a(str);
-                if (a2 != null) {
-                    if (!a2.exists() && (parentFile = a2.getParentFile()) != null) {
-                        parentFile.mkdirs();
-                    }
-                    FileOutputStream fileOutputStream2 = new FileOutputStream(a2, z);
-                    try {
-                        bu.a(new ByteArrayInputStream(str2.getBytes(IMAudioTransRequest.CHARSET)), fileOutputStream2);
-                    } catch (Exception unused) {
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        bu.a(fileOutputStream);
-                        throw th;
-                    }
-                    fileOutputStream = fileOutputStream2;
-                }
-            } catch (Exception unused2) {
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            bu.a(fileOutputStream);
-        }
-    }
-
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            FileInputStream fileInputStream = null;
-            try {
-                fileInputStream = context.openFileInput(str);
-                byte[] a2 = a(fileInputStream);
-                if (a2 != null) {
-                    String str2 = new String(a2, IMAudioTransRequest.CHARSET);
-                    bu.a(fileInputStream);
-                    return str2;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                bu.a(fileInputStream);
-                throw th;
-            }
-            bu.a(fileInputStream);
-            return "";
+            return new String(bArr2, 0, i, str);
         }
         return (String) invokeLL.objValue;
     }
 
-    public static byte[] a(InputStream inputStream) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            if (bu.a(inputStream, byteArrayOutputStream)) {
-                return byteArrayOutputStream.toByteArray();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            return a(bArr, bArr.length);
         }
         return (byte[]) invokeL.objValue;
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public static HttpURLConnection a(Context context, String str, int i, int i2) throws IOException {
-        InterceptResult invokeLLII;
-        HttpURLConnection httpURLConnection;
+    public static String b(byte[] bArr) throws UnsupportedEncodingException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i, i2)) == null) {
-            URL url = new URL(str);
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
-            NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
-            if (networkInfo2 != null && networkInfo2.isAvailable()) {
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-            } else {
-                if (networkInfo != null && networkInfo.isAvailable()) {
-                    String extraInfo = networkInfo.getExtraInfo();
-                    String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
-                    if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
-                        if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(b);
-                        }
-                    } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(a);
-                    }
-                }
-                httpURLConnection = null;
-            }
-            if (httpURLConnection == null) {
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-            }
-            httpURLConnection.setConnectTimeout(i);
-            httpURLConnection.setReadTimeout(i2);
-            return httpURLConnection;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            return a(bArr, IMAudioTransRequest.CHARSET);
         }
-        return (HttpURLConnection) invokeLLII.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        byte b;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            int i3 = (i / 4) * 3;
+            if (i3 == 0) {
+                return new byte[0];
+            }
+            byte[] bArr2 = new byte[i3];
+            int i4 = i;
+            int i5 = 0;
+            while (true) {
+                byte b2 = bArr[i4 - 1];
+                b = 10;
+                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
+                    if (b2 != 61) {
+                        break;
+                    }
+                    i5++;
+                }
+                i4--;
+            }
+            int i6 = 0;
+            int i7 = 0;
+            int i8 = 0;
+            int i9 = 0;
+            while (i6 < i4) {
+                byte b3 = bArr[i6];
+                if (b3 != b && b3 != 13 && b3 != 32 && b3 != 9) {
+                    if (b3 >= 65 && b3 <= 90) {
+                        i2 = b3 - 65;
+                    } else if (b3 >= 97 && b3 <= 122) {
+                        i2 = b3 - 71;
+                    } else if (b3 >= 48 && b3 <= 57) {
+                        i2 = b3 + 4;
+                    } else if (b3 == 43) {
+                        i2 = 62;
+                    } else if (b3 == 47) {
+                        i2 = 63;
+                    } else {
+                        return null;
+                    }
+                    i7 = ((byte) i2) | (i7 << 6);
+                    if (i9 % 4 == 3) {
+                        int i10 = i8 + 1;
+                        bArr2[i8] = (byte) ((16711680 & i7) >> 16);
+                        int i11 = i10 + 1;
+                        bArr2[i10] = (byte) ((65280 & i7) >> 8);
+                        bArr2[i11] = (byte) (i7 & 255);
+                        i8 = i11 + 1;
+                    }
+                    i9++;
+                }
+                i6++;
+                b = 10;
+            }
+            if (i5 > 0) {
+                int i12 = i7 << (i5 * 6);
+                int i13 = i8 + 1;
+                bArr2[i8] = (byte) ((i12 & 16711680) >> 16);
+                if (i5 == 1) {
+                    i8 = i13 + 1;
+                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
+                } else {
+                    i8 = i13;
+                }
+            }
+            byte[] bArr3 = new byte[i8];
+            System.arraycopy(bArr2, 0, bArr3, 0, i8);
+            return bArr3;
+        }
+        return (byte[]) invokeLI.objValue;
     }
 }

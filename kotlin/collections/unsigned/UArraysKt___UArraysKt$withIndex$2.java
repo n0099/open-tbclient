@@ -18,9 +18,8 @@ public final class UArraysKt___UArraysKt$withIndex$2 extends Lambda implements F
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'java.util.Iterator<kotlin.ULong>' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public final Iterator<? extends ULong> invoke() {
-        return ULongArray.m934iteratorimpl(this.$this_withIndex);
+    public final Iterator<ULong> invoke() {
+        return ULongArray.m933iteratorimpl(this.$this_withIndex);
     }
 }

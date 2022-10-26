@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.ForumList;
-import tbclient.GetDislikeList.DataRes;
+import tbclient.GetMoreMsg.DataRes;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes5.dex */
 public class qg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<og8> a;
-    public boolean b;
+    public boolean a;
+    public ArrayList b;
 
     public qg8() {
         Interceptable interceptable = $ic;
@@ -28,22 +30,43 @@ public class qg8 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = true;
+        this.a = true;
+        this.b = null;
     }
 
-    public void a(DataRes dataRes) {
+    public ArrayList a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        for (ForumList forumList : dataRes.forum_list) {
-            og8 og8Var = new og8();
-            og8Var.a = forumList.avatar;
-            og8Var.b = forumList.forum_name;
-            og8Var.c = String.valueOf(forumList.forum_id);
-            this.a.add(og8Var);
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        this.b = dataRes.has_more.intValue() == 1;
+        return invokeV.booleanValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) && dataRes != null) {
+            boolean z = true;
+            if (dataRes.has_more.intValue() != 1) {
+                z = false;
+            }
+            this.a = z;
+            List<MsgContent> list = dataRes.msg_content;
+            if (list != null && list.size() > 0) {
+                this.b = new ArrayList();
+                for (MsgContent msgContent : dataRes.msg_content) {
+                    this.b.add(new pg8(msgContent));
+                }
+            }
+        }
     }
 }

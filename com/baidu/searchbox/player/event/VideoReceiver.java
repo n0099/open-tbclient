@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
@@ -44,7 +43,7 @@ public class VideoReceiver extends BroadcastReceiver {
         void onVolumeChanged(int i);
     }
 
-    public VideoReceiver(@NonNull VideoReceiverListener videoReceiverListener) {
+    public VideoReceiver(VideoReceiverListener videoReceiverListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,6 +63,24 @@ public class VideoReceiver extends BroadcastReceiver {
         this.mListener = videoReceiverListener;
     }
 
+    private void onVolumeChanged(Context context) {
+        AudioManager audioManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, this, context) != null) || (audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio")) == null) {
+            return;
+        }
+        int i = this.mLastVolume;
+        try {
+            i = audioManager.getStreamVolume(3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (i != this.mLastVolume) {
+            this.mLastVolume = i;
+            this.mListener.onVolumeChanged(i);
+        }
+    }
+
     private void onConnectChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
@@ -79,29 +96,11 @@ public class VideoReceiver extends BroadcastReceiver {
         }
     }
 
-    private void onVolumeChanged(@NonNull Context context) {
-        AudioManager audioManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, context) == null) || (audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio")) == null) {
-            return;
-        }
-        int i = this.mLastVolume;
-        try {
-            i = audioManager.getStreamVolume(3);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (i != this.mLastVolume) {
-            this.mLastVolume = i;
-            this.mListener.onVolumeChanged(i);
-        }
-    }
-
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String action;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || this.mListener == null || (action = intent.getAction()) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null || this.mListener == null || (action = intent.getAction()) == null) {
             return;
         }
         char c = 65535;

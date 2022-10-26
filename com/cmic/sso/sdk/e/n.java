@@ -21,38 +21,13 @@ public class n {
     public static final ExecutorService a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1436789891, "Lcom/cmic/sso/sdk/e/n;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1436789891, "Lcom/cmic/sso/sdk/e/n;");
-                return;
-            }
-        }
-        a = new ThreadPoolExecutor(0, 30, 60L, TimeUnit.SECONDS, new SynchronousQueue());
-    }
-
-    public static void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
-            try {
-                a.execute(aVar);
-            } catch (Exception e) {
-                aVar.a.uncaughtException(Thread.currentThread(), e);
-            }
-        }
-    }
-
     /* loaded from: classes7.dex */
-    public static abstract class a implements Runnable {
+    public abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Thread.UncaughtExceptionHandler a;
+
+        public abstract void a();
 
         public a() {
             Interceptable interceptable = $ic;
@@ -99,8 +74,6 @@ public class n {
                 }
             };
         }
-
-        public abstract void a();
 
         @Override // java.lang.Runnable
         public void run() {
@@ -163,6 +136,33 @@ public class n {
                     }
                 }
             };
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1436789891, "Lcom/cmic/sso/sdk/e/n;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1436789891, "Lcom/cmic/sso/sdk/e/n;");
+                return;
+            }
+        }
+        a = new ThreadPoolExecutor(0, 30, 60L, TimeUnit.SECONDS, new SynchronousQueue());
+    }
+
+    public static void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
+            try {
+                a.execute(aVar);
+            } catch (Exception e) {
+                aVar.a.uncaughtException(Thread.currentThread(), e);
+            }
         }
     }
 }

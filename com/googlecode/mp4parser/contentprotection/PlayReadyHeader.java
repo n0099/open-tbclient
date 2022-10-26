@@ -24,16 +24,20 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static UUID PROTECTION_SYSTEM_ID;
     public transient /* synthetic */ FieldHolder $fh;
     public long length;
-    public List<PlayReadyRecord> records;
+    public List records;
 
     /* loaded from: classes7.dex */
-    public static abstract class PlayReadyRecord {
+    public abstract class PlayReadyRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int type;
 
+        public abstract ByteBuffer getValue();
+
+        public abstract void parse(ByteBuffer byteBuffer);
+
         /* loaded from: classes7.dex */
-        public static class DefaulPlayReadyRecord extends PlayReadyRecord {
+        public class DefaulPlayReadyRecord extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public ByteBuffer value;
@@ -62,7 +66,10 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             public ByteBuffer getValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (ByteBuffer) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.value;
+                }
+                return (ByteBuffer) invokeV.objValue;
             }
 
             @Override // com.googlecode.mp4parser.contentprotection.PlayReadyHeader.PlayReadyRecord
@@ -75,7 +82,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
 
         /* loaded from: classes7.dex */
-        public static class EmeddedLicenseStore extends PlayReadyRecord {
+        public class EmeddedLicenseStore extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public ByteBuffer value;
@@ -102,7 +109,10 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             public ByteBuffer getValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (ByteBuffer) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.value;
+                }
+                return (ByteBuffer) invokeV.objValue;
             }
 
             @Override // com.googlecode.mp4parser.contentprotection.PlayReadyHeader.PlayReadyRecord
@@ -125,7 +135,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
 
         /* loaded from: classes7.dex */
-        public static class RMHeader extends PlayReadyRecord {
+        public class RMHeader extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String header;
@@ -151,7 +161,10 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             public String getHeader() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.header : (String) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.header;
+                }
+                return (String) invokeV.objValue;
             }
 
             @Override // com.googlecode.mp4parser.contentprotection.PlayReadyHeader.PlayReadyRecord
@@ -218,7 +231,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             this.type = i;
         }
 
-        public static List<PlayReadyRecord> createFor(ByteBuffer byteBuffer, int i) {
+        public static List createFor(ByteBuffer byteBuffer, int i) {
             InterceptResult invokeLI;
             PlayReadyRecord rMHeader;
             Interceptable interceptable = $ic;
@@ -227,14 +240,18 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 for (int i2 = 0; i2 < i; i2++) {
                     int readUInt16BE = IsoTypeReader.readUInt16BE(byteBuffer);
                     int readUInt16BE2 = IsoTypeReader.readUInt16BE(byteBuffer);
-                    if (readUInt16BE == 1) {
-                        rMHeader = new RMHeader();
-                    } else if (readUInt16BE == 2) {
-                        rMHeader = new DefaulPlayReadyRecord(2);
-                    } else if (readUInt16BE != 3) {
-                        rMHeader = new DefaulPlayReadyRecord(readUInt16BE);
+                    if (readUInt16BE != 1) {
+                        if (readUInt16BE != 2) {
+                            if (readUInt16BE != 3) {
+                                rMHeader = new DefaulPlayReadyRecord(readUInt16BE);
+                            } else {
+                                rMHeader = new EmeddedLicenseStore();
+                            }
+                        } else {
+                            rMHeader = new DefaulPlayReadyRecord(2);
+                        }
                     } else {
-                        rMHeader = new EmeddedLicenseStore();
+                        rMHeader = new RMHeader();
                     }
                     rMHeader.parse((ByteBuffer) byteBuffer.slice().limit(readUInt16BE2));
                     byteBuffer.position(byteBuffer.position() + readUInt16BE2);
@@ -244,10 +261,6 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
             return (List) invokeLI.objValue;
         }
-
-        public abstract ByteBuffer getValue();
-
-        public abstract void parse(ByteBuffer byteBuffer);
 
         public String toString() {
             InterceptResult invokeV;
@@ -290,6 +303,25 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
     }
 
+    public List getRecords() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Collections.unmodifiableList(this.records);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader
+    public UUID getSystemId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return PROTECTION_SYSTEM_ID;
+        }
+        return (UUID) invokeV.objValue;
+    }
+
     @Override // com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader
     public ByteBuffer getData() {
         InterceptResult invokeV;
@@ -312,19 +344,6 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         return (ByteBuffer) invokeV.objValue;
     }
 
-    public List<PlayReadyRecord> getRecords() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Collections.unmodifiableList(this.records) : (List) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader
-    public UUID getSystemId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PROTECTION_SYSTEM_ID : (UUID) invokeV.objValue;
-    }
-
     @Override // com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader
     public void parse(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -334,7 +353,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
     }
 
-    public void setRecords(List<PlayReadyRecord> list) {
+    public void setRecords(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.records = list;

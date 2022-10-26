@@ -18,13 +18,32 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFuture<V> {
+public class ScheduledFutureImpl implements RunnableFuture, ScheduledFuture {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler mHandler;
-    public final FutureTask<V> mListenableFuture;
+    public final FutureTask mListenableFuture;
 
-    public ScheduledFutureImpl(Handler handler, Callable<V> callable) {
+    public ScheduledFutureImpl(Handler handler, Runnable runnable, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler, runnable, obj};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mHandler = handler;
+        this.mListenableFuture = new FutureTask(runnable, obj);
+    }
+
+    public ScheduledFutureImpl(Handler handler, Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,21 +59,17 @@ public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFutur
             }
         }
         this.mHandler = handler;
-        this.mListenableFuture = new FutureTask<>(callable);
+        this.mListenableFuture = new FutureTask(callable);
     }
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this.mListenableFuture.cancel(z) : invokeZ.booleanValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public V get() throws InterruptedException, ExecutionException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mListenableFuture.get() : (V) invokeV.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            return this.mListenableFuture.cancel(z);
+        }
+        return invokeZ.booleanValue;
     }
 
     @Override // java.util.concurrent.Delayed
@@ -65,28 +80,6 @@ public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFutur
             throw new UnsupportedOperationException();
         }
         return invokeL.longValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mListenableFuture.isCancelled() : invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public boolean isDone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mListenableFuture.isDone() : invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.RunnableFuture, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mListenableFuture.run();
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -101,28 +94,50 @@ public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFutur
     }
 
     @Override // java.util.concurrent.Future
-    public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        InterceptResult invokeJL;
+    public Object get() throws InterruptedException, ExecutionException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) ? this.mListenableFuture.get(j, timeUnit) : (V) invokeJL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mListenableFuture.get();
+        }
+        return invokeV.objValue;
     }
 
-    public ScheduledFutureImpl(Handler handler, Runnable runnable, @Nullable V v) {
+    @Override // java.util.concurrent.Future
+    public boolean isCancelled() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {handler, runnable, v};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mListenableFuture.isCancelled();
         }
-        this.mHandler = handler;
-        this.mListenableFuture = new FutureTask<>(runnable, v);
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean isDone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mListenableFuture.isDone();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.RunnableFuture, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mListenableFuture.run();
+        }
+    }
+
+    @Override // java.util.concurrent.Future
+    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
+            return this.mListenableFuture.get(j, timeUnit);
+        }
+        return invokeJL.objValue;
     }
 }

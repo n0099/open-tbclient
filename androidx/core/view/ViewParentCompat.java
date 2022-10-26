@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,10 +49,25 @@ public final class ViewParentCompat {
 
     public static void notifySubtreeAccessibilityStateChanged(ViewParent viewParent, View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65538, null, viewParent, view2, view3, i) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLI(65538, null, viewParent, view2, view3, i) == null) && Build.VERSION.SDK_INT >= 19) {
+            viewParent.notifySubtreeAccessibilityStateChanged(view2, view3, i);
         }
-        viewParent.notifySubtreeAccessibilityStateChanged(view2, view3, i);
+    }
+
+    public static void onNestedScrollAccepted(ViewParent viewParent, View view2, View view3, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65546, null, viewParent, view2, view3, i) == null) {
+            onNestedScrollAccepted(viewParent, view2, view3, i, 0);
+        }
+    }
+
+    public static boolean onStartNestedScroll(ViewParent viewParent, View view2, View view3, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65548, null, viewParent, view2, view3, i)) == null) {
+            return onStartNestedScroll(viewParent, view2, view3, i, 0);
+        }
+        return invokeLLLI.booleanValue;
     }
 
     public static boolean onNestedFling(ViewParent viewParent, View view2, float f, float f2, boolean z) {
@@ -74,86 +88,6 @@ public final class ViewParentCompat {
             }
         }
         return invokeCommon.booleanValue;
-    }
-
-    public static boolean onNestedPreFling(ViewParent viewParent, View view2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{viewParent, view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                try {
-                    return viewParent.onNestedPreFling(view2, f, f2);
-                } catch (AbstractMethodError e) {
-                    Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedPreFling", e);
-                    return false;
-                }
-            } else if (viewParent instanceof NestedScrollingParent) {
-                return ((NestedScrollingParent) viewParent).onNestedPreFling(view2, f, f2);
-            } else {
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void onNestedPreScroll(ViewParent viewParent, View view2, int i, int i2, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
-            onNestedPreScroll(viewParent, view2, i, i2, iArr, 0);
-        }
-    }
-
-    public static void onNestedScroll(ViewParent viewParent, View view2, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            onNestedScroll(viewParent, view2, i, i2, i3, i4, 0, getTempNestedScrollConsumed());
-        }
-    }
-
-    public static void onNestedScrollAccepted(ViewParent viewParent, View view2, View view3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65546, null, viewParent, view2, view3, i) == null) {
-            onNestedScrollAccepted(viewParent, view2, view3, i, 0);
-        }
-    }
-
-    public static boolean onStartNestedScroll(ViewParent viewParent, View view2, View view3, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65548, null, viewParent, view2, view3, i)) == null) ? onStartNestedScroll(viewParent, view2, view3, i, 0) : invokeLLLI.booleanValue;
-    }
-
-    public static void onStopNestedScroll(ViewParent viewParent, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, viewParent, view2) == null) {
-            onStopNestedScroll(viewParent, view2, 0);
-        }
-    }
-
-    @Deprecated
-    public static boolean requestSendAccessibilityEvent(ViewParent viewParent, View view2, AccessibilityEvent accessibilityEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, viewParent, view2, accessibilityEvent)) == null) ? viewParent.requestSendAccessibilityEvent(view2, accessibilityEvent) : invokeLLL.booleanValue;
-    }
-
-    public static void onNestedPreScroll(ViewParent viewParent, View view2, int i, int i2, int[] iArr, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
-            if (viewParent instanceof NestedScrollingParent2) {
-                ((NestedScrollingParent2) viewParent).onNestedPreScroll(view2, i, i2, iArr, i3);
-            } else if (i3 == 0) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    try {
-                        viewParent.onNestedPreScroll(view2, i, i2, iArr);
-                    } catch (AbstractMethodError e) {
-                        Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedPreScroll", e);
-                    }
-                } else if (viewParent instanceof NestedScrollingParent) {
-                    ((NestedScrollingParent) viewParent).onNestedPreScroll(view2, i, i2, iArr);
-                }
-            }
-        }
     }
 
     public static void onNestedScrollAccepted(ViewParent viewParent, View view2, View view3, int i, int i2) {
@@ -201,22 +135,56 @@ public final class ViewParentCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static void onStopNestedScroll(ViewParent viewParent, View view2, int i) {
+    public static boolean onNestedPreFling(ViewParent viewParent, View view2, float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65551, null, viewParent, view2, i) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{viewParent, view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                try {
+                    return viewParent.onNestedPreFling(view2, f, f2);
+                } catch (AbstractMethodError e) {
+                    Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedPreFling", e);
+                    return false;
+                }
+            } else if (viewParent instanceof NestedScrollingParent) {
+                return ((NestedScrollingParent) viewParent).onNestedPreFling(view2, f, f2);
+            } else {
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void onNestedPreScroll(ViewParent viewParent, View view2, int i, int i2, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
+            onNestedPreScroll(viewParent, view2, i, i2, iArr, 0);
+        }
+    }
+
+    public static void onNestedPreScroll(ViewParent viewParent, View view2, int i, int i2, int[] iArr, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
             if (viewParent instanceof NestedScrollingParent2) {
-                ((NestedScrollingParent2) viewParent).onStopNestedScroll(view2, i);
-            } else if (i == 0) {
+                ((NestedScrollingParent2) viewParent).onNestedPreScroll(view2, i, i2, iArr, i3);
+            } else if (i3 == 0) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     try {
-                        viewParent.onStopNestedScroll(view2);
+                        viewParent.onNestedPreScroll(view2, i, i2, iArr);
                     } catch (AbstractMethodError e) {
-                        Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onStopNestedScroll", e);
+                        Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedPreScroll", e);
                     }
                 } else if (viewParent instanceof NestedScrollingParent) {
-                    ((NestedScrollingParent) viewParent).onStopNestedScroll(view2);
+                    ((NestedScrollingParent) viewParent).onNestedPreScroll(view2, i, i2, iArr);
                 }
             }
+        }
+    }
+
+    public static void onNestedScroll(ViewParent viewParent, View view2, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            onNestedScroll(viewParent, view2, i, i2, i3, i4, 0, getTempNestedScrollConsumed());
         }
     }
 
@@ -227,7 +195,7 @@ public final class ViewParentCompat {
         }
     }
 
-    public static void onNestedScroll(ViewParent viewParent, View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
+    public static void onNestedScroll(ViewParent viewParent, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
             if (viewParent instanceof NestedScrollingParent3) {
@@ -250,5 +218,41 @@ public final class ViewParentCompat {
                 }
             }
         }
+    }
+
+    public static void onStopNestedScroll(ViewParent viewParent, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, viewParent, view2) == null) {
+            onStopNestedScroll(viewParent, view2, 0);
+        }
+    }
+
+    public static void onStopNestedScroll(ViewParent viewParent, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65551, null, viewParent, view2, i) == null) {
+            if (viewParent instanceof NestedScrollingParent2) {
+                ((NestedScrollingParent2) viewParent).onStopNestedScroll(view2, i);
+            } else if (i == 0) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    try {
+                        viewParent.onStopNestedScroll(view2);
+                    } catch (AbstractMethodError e) {
+                        Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onStopNestedScroll", e);
+                    }
+                } else if (viewParent instanceof NestedScrollingParent) {
+                    ((NestedScrollingParent) viewParent).onStopNestedScroll(view2);
+                }
+            }
+        }
+    }
+
+    @Deprecated
+    public static boolean requestSendAccessibilityEvent(ViewParent viewParent, View view2, AccessibilityEvent accessibilityEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, viewParent, view2, accessibilityEvent)) == null) {
+            return viewParent.requestSendAccessibilityEvent(view2, accessibilityEvent);
+        }
+        return invokeLLL.booleanValue;
     }
 }

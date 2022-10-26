@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipRank;
-import tbclient.GetVipInfo.VipUser;
+import com.baidu.webkit.sdk.SevenZipUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes3.dex */
-public class dn7 implements Cdo {
+public class dn7 implements eo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
+    public static int d;
+    public static boolean e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public rm7 a;
+    public cn7 a;
+    public List b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,15 +39,29 @@ public class dn7 implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
+        d = 3;
+        e = false;
     }
 
-    public dn7(VipRank vipRank, VipUser vipUser) {
+    @Override // com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public dn7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipRank, vipUser};
+            Object[] objArr = {vipSpecialList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,23 +71,35 @@ public class dn7 implements Cdo {
                 return;
             }
         }
-        if (vipRank == null) {
-            return;
+        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
+            String str2 = vipSpecialList.card_id;
+            cn7 cn7Var = new cn7();
+            this.a = cn7Var;
+            cn7Var.e(4);
+            this.a.d(vipSpecialList.class_name);
+            this.a.f(vipSpecialList.class_url_name);
+            this.a.g(vipSpecialList.class_url);
+            if (TbadkCoreApplication.isLogin()) {
+                str = TbadkCoreApplication.getCurrentAccount();
+            } else {
+                str = SevenZipUtils.FILE_NAME_TEMP;
+            }
+            if (StringUtils.isNull(f) || !f.equals(str)) {
+                e = false;
+                f = str;
+            }
+            this.b = new ArrayList();
+            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
+                this.b.add(new en7(vipSpecialList.item.get(i3)));
+                if (e) {
+                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
+                        this.b.add(new en7(true, true));
+                    }
+                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
+                    this.b.add(new en7(true, false));
+                    return;
+                }
+            }
         }
-        String str = vipRank.card_id;
-        rm7 rm7Var = new rm7();
-        this.a = rm7Var;
-        rm7Var.d(vipRank.class_name);
-        this.a.f(vipRank.class_url_name);
-        this.a.g(vipRank.class_url);
-        vipRank.my_score_rank.intValue();
-        String str2 = vipUser.portrait;
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

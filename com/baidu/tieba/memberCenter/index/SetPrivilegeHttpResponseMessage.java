@@ -45,7 +45,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
 
         public void a(JSONObject jSONObject) throws Exception {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.a = jSONObject.optInt("error_code");
@@ -77,10 +77,19 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public a getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.resultData;
+        }
+        return (a) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, jSONObject) != null) || jSONObject == null) {
             return;
         }
         a aVar = new a(this);
@@ -91,11 +100,5 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             this.resultData = null;
             BdLog.e(e.getMessage());
         }
-    }
-
-    public a getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (a) invokeV.objValue;
     }
 }

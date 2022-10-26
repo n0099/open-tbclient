@@ -1,6 +1,5 @@
 package com.baidu.nadcore.video.plugin.videoplayer.model;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-@SuppressLint({"KotlinPropertyAccess"})
 /* loaded from: classes2.dex */
 public class BdVideo implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -124,48 +122,6 @@ public class BdVideo implements Serializable, Cloneable {
         this.mType = 101;
     }
 
-    public void clearWatchedInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mCurrentLength = "-1";
-        }
-    }
-
-    public boolean equalsCustom(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj instanceof BdVideo) {
-                BdVideo bdVideo = (BdVideo) obj;
-                String playUrl = bdVideo.getPlayUrl();
-                String sourceUrl = bdVideo.getSourceUrl();
-                if (playUrl != null && sourceUrl != null) {
-                    return playUrl.equals(this.mPlayUrl) && sourceUrl.equals(this.mSourceUrl);
-                } else if (playUrl != null) {
-                    return playUrl.equals(this.mPlayUrl);
-                } else {
-                    if (sourceUrl != null) {
-                        return sourceUrl.equals(this.mSourceUrl);
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String getAlbumId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAlbumId : (String) invokeV.objValue;
-    }
-
-    public String getBitRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBitRate : (String) invokeV.objValue;
-    }
-
     public String getCurrentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -179,142 +135,278 @@ public class BdVideo implements Serializable, Cloneable {
         return (String) invokeV.objValue;
     }
 
+    public void clearWatchedInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mCurrentLength = "-1";
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public BdVideo m37clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                return (BdVideo) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (BdVideo) invokeV.objValue;
+    }
+
+    public String getAlbumId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAlbumId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getBitRate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mBitRate;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public int getDecodeMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mDecodeMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mDecodeMode;
+        }
+        return invokeV.intValue;
     }
 
     public int getDownloadFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDownloadFrom : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mDownloadFrom;
+        }
+        return invokeV.intValue;
     }
 
     public String getDownloadKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mDownloadKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mDownloadKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getDownloadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mDownloadUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mDownloadUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mId;
+        }
+        return invokeV.longValue;
     }
 
     public String getImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mImgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mImgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLocalSavePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mLocalSavePath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mLocalSavePath;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mPlayUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mPlayUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getReserve() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mReserve : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mReserve;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getSeriesId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mSeriesId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mSeriesId;
+        }
+        return invokeV.longValue;
     }
 
     public int getSeriesNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mSeriesNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mSeriesNum;
+        }
+        return invokeV.intValue;
     }
 
     public boolean getShowShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? Boolean.parseBoolean(this.mShowShare) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return Boolean.parseBoolean(this.mShowShare);
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean getShowTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? Boolean.parseBoolean(this.mShowTitle) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return Boolean.parseBoolean(this.mShowTitle);
+        }
+        return invokeV.booleanValue;
     }
 
     public String getSourceUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mSourceUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mSourceUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Object getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTag : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mTag;
+        }
+        return invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mTitle;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTotalLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mTotalLength : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mTotalLength;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTvId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mTvId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mTvId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.mType;
+        }
+        return invokeV.intValue;
     }
 
     public String getVideoFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mVideoFrom : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mVideoFrom;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getVideoId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mVideoId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mVideoId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getVideoType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mVideoType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mVideoType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isNew() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mIsNew : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.mIsNew;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean equalsCustom(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (obj instanceof BdVideo) {
+                BdVideo bdVideo = (BdVideo) obj;
+                String playUrl = bdVideo.getPlayUrl();
+                String sourceUrl = bdVideo.getSourceUrl();
+                if (playUrl != null && sourceUrl != null) {
+                    if (!playUrl.equals(this.mPlayUrl) || !sourceUrl.equals(this.mSourceUrl)) {
+                        return false;
+                    }
+                    return true;
+                } else if (playUrl != null) {
+                    return playUrl.equals(this.mPlayUrl);
+                } else {
+                    if (sourceUrl != null) {
+                        return sourceUrl.equals(this.mSourceUrl);
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void setAlbumId(String str) {
@@ -506,21 +598,5 @@ public class BdVideo implements Serializable, Cloneable {
             return "title: " + getTitle() + "\n play url: " + getPlayUrl() + "\n pos: " + getCurrentLength() + "\n total: " + getTotalLength() + "\n DL url: " + getDownloadUrl() + "\n local path: " + getLocalSavePath() + "\n download from: " + getDownloadFrom();
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public BdVideo m37clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                return (BdVideo) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (BdVideo) invokeV.objValue;
     }
 }

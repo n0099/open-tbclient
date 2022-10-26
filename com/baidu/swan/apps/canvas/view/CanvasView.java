@@ -9,12 +9,12 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx1;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.rw1;
+import com.baidu.tieba.cx1;
+import com.baidu.tieba.gh3;
 import com.baidu.tieba.sw1;
-import com.baidu.tieba.ww1;
-import com.baidu.tieba.wx1;
+import com.baidu.tieba.tw1;
+import com.baidu.tieba.xw1;
+import com.baidu.tieba.xx1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,10 +28,15 @@ import java.util.List;
 public class CanvasView extends AbsCanvasView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b> b;
+    public List b;
     public final DrawFilter c;
     public int d;
-    public HashMap<String, Bitmap> e;
+    public HashMap e;
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a();
+    }
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -60,18 +65,19 @@ public class CanvasView extends AbsCanvasView {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.d();
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<rw1> a;
-        public sw1 b;
+        public List a;
+        public tw1 b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -90,11 +96,6 @@ public class CanvasView extends AbsCanvasView {
         public /* synthetic */ b(a aVar) {
             this();
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -118,124 +119,6 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public void c(List<rw1> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || list == null || this.b.contains(list)) {
-            return;
-        }
-        if (!z) {
-            this.b.clear();
-        }
-        int size = this.b.size();
-        boolean z2 = z && size > 0;
-        b bVar = new b(null);
-        if (z2) {
-            b bVar2 = this.b.get(size - 1);
-            bVar.b = bVar2.b;
-            List<rw1> list2 = bVar2.a;
-            bVar.a = list2;
-            list2.addAll(list);
-        } else {
-            bVar.b = new sw1(this);
-            bVar.a = list;
-        }
-        this.b.add(bVar);
-        fh3.e0(new a(this));
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.d;
-            if (this.b.size() > 0) {
-                for (b bVar : this.b) {
-                    Iterator<rw1> it = bVar.a.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            rw1 next = it.next();
-                            if (next instanceof ww1) {
-                                i = 2;
-                            } else if (next instanceof wx1) {
-                                i = 1;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            if (getLayerType() != i) {
-                setLayerType(i, null);
-            }
-        }
-    }
-
-    public Bitmap e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return this.e.get(str);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.e.clear();
-            }
-        }
-    }
-
-    public sw1 getCanvasContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.size() > 0) {
-                List<b> list = this.b;
-                return list.get(list.size() - 1).b;
-            }
-            return null;
-        }
-        return (sw1) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (this.b.size() > 0) {
-                int save = canvas.save();
-                canvas.setDrawFilter(this.c);
-                for (b bVar : this.b) {
-                    List<rw1> list = bVar.a;
-                    sw1 sw1Var = bVar.b;
-                    sw1Var.d();
-                    for (rw1 rw1Var : list) {
-                        rw1Var.a(sw1Var, canvas);
-                        if (rw1Var instanceof bx1) {
-                            ((bx1) rw1Var).e(this.e);
-                        }
-                    }
-                }
-                if (canvas.getSaveCount() > 0) {
-                    canvas.restoreToCount(save);
-                }
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) ? a() || super.onTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CanvasView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -254,6 +137,35 @@ public class CanvasView extends AbsCanvasView {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void c(List list, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) && list != null && !this.b.contains(list)) {
+            if (!z) {
+                this.b.clear();
+            }
+            int size = this.b.size();
+            if (z && size > 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            b bVar = new b(null);
+            if (z2) {
+                b bVar2 = (b) this.b.get(size - 1);
+                bVar.b = bVar2.b;
+                List list2 = bVar2.a;
+                bVar.a = list2;
+                list2.addAll(list);
+            } else {
+                bVar.b = new tw1(this);
+                bVar.a = list;
+            }
+            this.b.add(bVar);
+            gh3.e0(new a(this));
         }
     }
 
@@ -279,7 +191,106 @@ public class CanvasView extends AbsCanvasView {
         this.b = new ArrayList();
         this.c = new PaintFlagsDrawFilter(0, 3);
         this.d = 0;
-        this.e = new HashMap<>();
+        this.e = new HashMap();
         this.d = getLayerType();
+    }
+
+    public Bitmap e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return (Bitmap) this.e.get(str);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            if (!a() && !super.onTouchEvent(motionEvent)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.d;
+            if (this.b.size() > 0) {
+                for (b bVar : this.b) {
+                    Iterator it = bVar.a.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            sw1 sw1Var = (sw1) it.next();
+                            if (sw1Var instanceof xw1) {
+                                i = 2;
+                            } else if (sw1Var instanceof xx1) {
+                                i = 1;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (getLayerType() != i) {
+                setLayerType(i, null);
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.e.clear();
+            }
+        }
+    }
+
+    public tw1 getCanvasContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.size() > 0) {
+                List list = this.b;
+                return ((b) list.get(list.size() - 1)).b;
+            }
+            return null;
+        }
+        return (tw1) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.b.size() > 0) {
+                int save = canvas.save();
+                canvas.setDrawFilter(this.c);
+                for (b bVar : this.b) {
+                    List<sw1> list = bVar.a;
+                    tw1 tw1Var = bVar.b;
+                    tw1Var.d();
+                    for (sw1 sw1Var : list) {
+                        sw1Var.a(tw1Var, canvas);
+                        if (sw1Var instanceof cx1) {
+                            ((cx1) sw1Var).e(this.e);
+                        }
+                    }
+                }
+                if (canvas.getSaveCount() > 0) {
+                    canvas.restoreToCount(save);
+                }
+            }
+        }
     }
 }

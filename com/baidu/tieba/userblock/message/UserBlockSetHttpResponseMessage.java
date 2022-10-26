@@ -39,11 +39,10 @@ public class UserBlockSetHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             try {
                 SetUserBlackResIdl setUserBlackResIdl = (SetUserBlackResIdl) new Wire(new Class[0]).parseFrom(bArr, SetUserBlackResIdl.class);
-                if (setUserBlackResIdl == null || setUserBlackResIdl.error == null) {
-                    return;
+                if (setUserBlackResIdl != null && setUserBlackResIdl.error != null) {
+                    setError(setUserBlackResIdl.error.errorno.intValue());
+                    setErrorString(setUserBlackResIdl.error.usermsg);
                 }
-                setError(setUserBlackResIdl.error.errorno.intValue());
-                setErrorString(setUserBlackResIdl.error.usermsg);
             } catch (Exception e) {
                 e.printStackTrace();
                 setError(-2);

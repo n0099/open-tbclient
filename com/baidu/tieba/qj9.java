@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class qj9 extends ff1<ij9> {
+public class qj9 implements qe1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,12 +26,15 @@ public class qj9 extends ff1<ij9> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ff1
-    /* renamed from: a */
-    public ij9 createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.qe1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jj9() : (ij9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AcUploadResultObserver());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

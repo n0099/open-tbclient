@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.sh5;
-import com.baidu.tieba.xn4;
+import com.baidu.tieba.yh5;
+import com.baidu.tieba.yn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.AdNewLog.DataReq;
 public class AdBillingLogReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xn4 mReqData;
+    public yn4 mReqData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdBillingLogReqMsg() {
@@ -39,13 +39,13 @@ public class AdBillingLogReqMsg extends NetMessage {
     }
 
     private void fillReqData(DataReq.Builder builder) {
-        xn4 xn4Var;
+        yn4 yn4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (xn4Var = this.mReqData) == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, builder) != null) || (yn4Var = this.mReqData) == null) {
             return;
         }
-        builder.token = xn4Var.d;
-        int i = xn4Var.f;
+        builder.token = yn4Var.d;
+        int i = yn4Var.f;
         if (i >= 0) {
             builder.da_locate = String.valueOf(i);
         }
@@ -53,10 +53,10 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (i2 >= 0) {
             builder.da_from = Integer.valueOf(i2);
         }
-        xn4 xn4Var2 = this.mReqData;
-        builder.extra_param = xn4Var2.e;
-        builder.order_id = xn4Var2.c;
-        int i3 = xn4Var2.a;
+        yn4 yn4Var2 = this.mReqData;
+        builder.extra_param = yn4Var2.e;
+        builder.order_id = yn4Var2.c;
+        int i3 = yn4Var2.a;
         if (i3 >= 0) {
             builder.da_type = String.valueOf(i3);
         }
@@ -70,7 +70,7 @@ public class AdBillingLogReqMsg extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 fillReqData(builder);
-                sh5.b(builder, true, true);
+                yh5.b(builder, true, true);
                 AdNewLogReqIdl.Builder builder2 = new AdNewLogReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);
@@ -82,10 +82,10 @@ public class AdBillingLogReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setReqData(xn4 xn4Var) {
+    public void setReqData(yn4 yn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xn4Var) == null) {
-            this.mReqData = xn4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yn4Var) == null) {
+            this.mReqData = yn4Var;
         }
     }
 }

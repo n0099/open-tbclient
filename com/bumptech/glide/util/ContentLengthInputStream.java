@@ -2,8 +2,6 @@ package com.bumptech.glide.util;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +22,7 @@ public final class ContentLengthInputStream extends FilterInputStream {
     public int readSoFar;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentLengthInputStream(@NonNull InputStream inputStream, long j) {
+    public ContentLengthInputStream(InputStream inputStream, long j) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,14 +56,25 @@ public final class ContentLengthInputStream extends FilterInputStream {
         return invokeI.intValue;
     }
 
-    @NonNull
-    public static InputStream obtain(@NonNull InputStream inputStream, @Nullable String str) {
-        InterceptResult invokeLL;
+    public static InputStream obtain(InputStream inputStream, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) ? obtain(inputStream, parseContentLength(str)) : (InputStream) invokeLL.objValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j)) == null) {
+            return new ContentLengthInputStream(inputStream, j);
+        }
+        return (InputStream) invokeLJ.objValue;
     }
 
-    public static int parseContentLength(@Nullable String str) {
+    public static InputStream obtain(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
+            return obtain(inputStream, parseContentLength(str));
+        }
+        return (InputStream) invokeLL.objValue;
+    }
+
+    public static int parseContentLength(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -101,29 +110,31 @@ public final class ContentLengthInputStream extends FilterInputStream {
     public synchronized int read() throws IOException {
         InterceptResult invokeV;
         int read;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
                 read = super.read();
-                checkReadSoFarOrThrow(read >= 0 ? 1 : -1);
+                if (read >= 0) {
+                    i = 1;
+                } else {
+                    i = -1;
+                }
+                checkReadSoFarOrThrow(i);
             }
             return read;
         }
         return invokeV.intValue;
     }
 
-    @NonNull
-    public static InputStream obtain(@NonNull InputStream inputStream, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j)) == null) ? new ContentLengthInputStream(inputStream, j) : (InputStream) invokeLJ.objValue;
-    }
-
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) ? read(bArr, 0, bArr.length) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            return read(bArr, 0, bArr.length);
+        }
+        return invokeL.intValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

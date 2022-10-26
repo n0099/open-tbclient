@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.common.NameValuePair;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public OnWebRequestListener mOnWebRequestListener;
-    public List<NameValuePair> mParams;
+    public List mParams;
     public String mRequestType;
     public int mTryCount;
     public String mUrl;
@@ -61,7 +60,14 @@ public class HttpURLExecutorRunnable implements Runnable {
         THREAD_POOL = Executors.newFixedThreadPool(2);
     }
 
-    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener) {
+    public void execute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            THREAD_POOL.execute(this);
+        }
+    }
+
+    public HttpURLExecutorRunnable(Context context, boolean z, String str, List list, OnWebRequestListener onWebRequestListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,16 +92,44 @@ public class HttpURLExecutorRunnable implements Runnable {
         this.mOnWebRequestListener = onWebRequestListener;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public HttpURLExecutorRunnable(Context context, boolean z, String str, List list, OnWebRequestListener onWebRequestListener, int i) {
+        this(context, z, str, list, onWebRequestListener);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, Boolean.valueOf(z), str, list, onWebRequestListener, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (String) objArr2[2], (List) objArr2[3], (OnWebRequestListener) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mTryCount = i;
+    }
+
     private boolean isGzip(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? str != null && str.contains("gzip") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+            if (str != null && str.contains("gzip")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public void execute() {
+    public void setRequestType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            THREAD_POOL.execute(this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.mRequestType = str;
         }
     }
 
@@ -268,34 +302,5 @@ public class HttpURLExecutorRunnable implements Runnable {
                 onWebRequestListener2.onFailed();
             }
         }
-    }
-
-    public void setRequestType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.mRequestType = str;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener, int i) {
-        this(context, z, str, list, onWebRequestListener);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, Boolean.valueOf(z), str, list, onWebRequestListener, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (String) objArr2[2], (List) objArr2[3], (OnWebRequestListener) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mTryCount = i;
     }
 }

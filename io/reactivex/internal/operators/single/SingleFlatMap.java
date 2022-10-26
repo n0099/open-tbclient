@@ -16,28 +16,28 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleFlatMap<T, R> extends Single<R> {
+public final class SingleFlatMap extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
-    public final SingleSource<? extends T> source;
+    public final Function mapper;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class SingleFlatMapCallback<T, R> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
+    public final class SingleFlatMapCallback extends AtomicReference implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3258103020495908596L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super R> actual;
-        public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
+        public final SingleObserver actual;
+        public final Function mapper;
 
         /* loaded from: classes8.dex */
-        public static final class FlatMapSingleObserver<R> implements SingleObserver<R> {
+        public final class FlatMapSingleObserver implements SingleObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final SingleObserver<? super R> actual;
-            public final AtomicReference<Disposable> parent;
+            public final SingleObserver actual;
+            public final AtomicReference parent;
 
-            public FlatMapSingleObserver(AtomicReference<Disposable> atomicReference, SingleObserver<? super R> singleObserver) {
+            public FlatMapSingleObserver(AtomicReference atomicReference, SingleObserver singleObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,15 +73,15 @@ public final class SingleFlatMap<T, R> extends Single<R> {
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(R r) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r) == null) {
-                    this.actual.onSuccess(r);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    this.actual.onSuccess(obj);
                 }
             }
         }
 
-        public SingleFlatMapCallback(SingleObserver<? super R> singleObserver, Function<? super T, ? extends SingleSource<? extends R>> function) {
+        public SingleFlatMapCallback(SingleObserver singleObserver, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,10 @@ public final class SingleFlatMap<T, R> extends Single<R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -132,15 +135,14 @@ public final class SingleFlatMap<T, R> extends Single<R> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 try {
-                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The single returned by the mapper is null");
-                    if (isDisposed()) {
-                        return;
+                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The single returned by the mapper is null");
+                    if (!isDisposed()) {
+                        singleSource.subscribe(new FlatMapSingleObserver(this, this.actual));
                     }
-                    singleSource.subscribe(new FlatMapSingleObserver(this, this.actual));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.actual.onError(th);
@@ -149,7 +151,7 @@ public final class SingleFlatMap<T, R> extends Single<R> {
         }
     }
 
-    public SingleFlatMap(SingleSource<? extends T> singleSource, Function<? super T, ? extends SingleSource<? extends R>> function) {
+    public SingleFlatMap(SingleSource singleSource, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,7 +171,7 @@ public final class SingleFlatMap<T, R> extends Single<R> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super R> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new SingleFlatMapCallback(singleObserver, this.mapper));

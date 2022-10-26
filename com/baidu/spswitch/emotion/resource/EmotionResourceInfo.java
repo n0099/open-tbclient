@@ -70,10 +70,25 @@ public final class EmotionResourceInfo {
                     return false;
                 }
                 long convertToLongValue = convertToLongValue(packageInfo.versionName);
-                return convertToLongValue(this.mMinHostVer) <= convertToLongValue && convertToLongValue <= convertToLongValue(this.mMaxHostVer);
+                if (convertToLongValue(this.mMinHostVer) > convertToLongValue || convertToLongValue > convertToLongValue(this.mMaxHostVer)) {
+                    return false;
+                }
+                return true;
             } catch (PackageManager.NameNotFoundException unused) {
                 return false;
             }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TextUtils.isEmpty(this.mPkgName) && !TextUtils.isEmpty(this.mDownloadFilePath) && !TextUtils.isEmpty(this.mMinHostVer) && !TextUtils.isEmpty(this.mMaxHostVer)) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -83,12 +98,14 @@ public final class EmotionResourceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             String[] split = str.split(VERSION_NAME_SEPARATOR_REGEX);
-            int i = 0;
             long j = 0;
-            while (i < 4) {
+            for (int i = 0; i < 4; i++) {
                 try {
-                    j = i < split.length ? (j * 100) + Integer.valueOf(split[i]).intValue() : j * 100;
-                    i++;
+                    if (i < split.length) {
+                        j = (j * 100) + Integer.valueOf(split[i]).intValue();
+                    } else {
+                        j *= 100;
+                    }
                 } catch (NumberFormatException unused) {
                     return 0L;
                 }
@@ -127,22 +144,45 @@ public final class EmotionResourceInfo {
                 return false;
             }
             EmotionResourceInfo emotionResourceInfo = (EmotionResourceInfo) obj;
-            if (this.mVersion == emotionResourceInfo.mVersion && TextUtils.equals(this.mPkgName, emotionResourceInfo.mPkgName) && TextUtils.equals(this.mEmotionResSavePath, emotionResourceInfo.mEmotionResSavePath) && TextUtils.equals(this.mMinHostVer, emotionResourceInfo.mMinHostVer)) {
-                return TextUtils.equals(this.mMaxHostVer, emotionResourceInfo.mMaxHostVer);
+            if (this.mVersion != emotionResourceInfo.mVersion || !TextUtils.equals(this.mPkgName, emotionResourceInfo.mPkgName) || !TextUtils.equals(this.mEmotionResSavePath, emotionResourceInfo.mEmotionResSavePath) || !TextUtils.equals(this.mMinHostVer, emotionResourceInfo.mMinHostVer)) {
+                return false;
             }
-            return false;
+            return TextUtils.equals(this.mMaxHostVer, emotionResourceInfo.mMaxHostVer);
         }
         return invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int hashCode;
+        int hashCode2;
+        int hashCode3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = (TextUtils.isEmpty(this.mPkgName) ? 0 : this.mPkgName.hashCode()) * 31;
-            int hashCode2 = TextUtils.isEmpty(this.mEmotionResSavePath) ? 0 : this.mEmotionResSavePath.hashCode();
+            int i = 0;
+            if (TextUtils.isEmpty(this.mPkgName)) {
+                hashCode = 0;
+            } else {
+                hashCode = this.mPkgName.hashCode();
+            }
+            int i2 = hashCode * 31;
+            if (TextUtils.isEmpty(this.mEmotionResSavePath)) {
+                hashCode2 = 0;
+            } else {
+                hashCode2 = this.mEmotionResSavePath.hashCode();
+            }
             long j = this.mVersion;
-            return ((((((hashCode + hashCode2) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + (TextUtils.isEmpty(this.mMinHostVer) ? 0 : this.mMinHostVer.hashCode())) * 31) + (TextUtils.isEmpty(this.mMaxHostVer) ? 0 : this.mMaxHostVer.hashCode());
+            int i3 = (((i2 + hashCode2) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
+            if (TextUtils.isEmpty(this.mMinHostVer)) {
+                hashCode3 = 0;
+            } else {
+                hashCode3 = this.mMinHostVer.hashCode();
+            }
+            int i4 = (i3 + hashCode3) * 31;
+            if (!TextUtils.isEmpty(this.mMaxHostVer)) {
+                i = this.mMaxHostVer.hashCode();
+            }
+            return i4 + i;
         }
         return invokeV.intValue;
     }
@@ -150,13 +190,22 @@ public final class EmotionResourceInfo {
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new File(this.mEmotionResSavePath).exists() && checkHostVersion() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!new File(this.mEmotionResSavePath).exists() || !checkHostVersion()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public boolean isValid() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (TextUtils.isEmpty(this.mPkgName) || TextUtils.isEmpty(this.mDownloadFilePath) || TextUtils.isEmpty(this.mMinHostVer) || TextUtils.isEmpty(this.mMaxHostVer)) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return toJSONString();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String toJSONString() {
@@ -177,11 +226,5 @@ public final class EmotionResourceInfo {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? toJSONString() : (String) invokeV.objValue;
     }
 }

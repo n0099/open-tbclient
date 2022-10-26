@@ -1,80 +1,77 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
-import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.Charset;
-@Singleton
-@Service
+import java.net.URLEncoder;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tr5 implements pn2 {
+public class tr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov1 a;
-
-        public a(tr5 tr5Var, ov1 ov1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tr5Var, ov1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("tiebaclient://");
+            if (num.intValue() > 0) {
+                sb.append("swangame/");
+            } else {
+                sb.append("swan/");
+            }
+            sb.append(str);
+            if (!TextUtils.isEmpty(str2)) {
+                if (!str2.startsWith("/")) {
+                    sb.append("/");
                 }
+                sb.append(str2);
+            } else {
+                sb.append("/");
             }
-            this.a = ov1Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
+                sb.append("&");
+            } else {
+                if (!sb.toString().endsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append("?");
             }
+            sb.append("_baiduboxapp=");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sb.append(URLEncoder.encode(jSONObject.toString()));
+            sb.append("&callback=_bdbox_js_275&upgrade=0");
+            return sb.toString();
         }
+        return (String) invokeLLLL.objValue;
     }
 
-    public tr5() {
+    public static final boolean b(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
+            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
+                return false;
             }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.pn2
-    public void a(Context context, ov1 ov1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, ov1Var) == null) && (context instanceof Activity)) {
-            DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, sr5.class, new Bundle(), new a(this, ov1Var));
-        }
+        return invokeLLLL.booleanValue;
     }
 }

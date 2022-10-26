@@ -1,36 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.InputStream;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class d70 implements f70 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface d70 extends Closeable {
+    void disconnect();
 
-    public d70() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getCode() throws IOException;
 
-    @Override // com.baidu.tieba.f70
-    public HttpURLConnection a(URL url) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) ? (HttpURLConnection) url.openConnection() : (HttpURLConnection) invokeL.objValue;
-    }
+    Map getHeaders() throws IOException;
+
+    InputStream getInputStream() throws IOException;
+
+    String getMessage() throws IOException;
+
+    InputStream q() throws IOException;
+
+    void t(int i);
+
+    int u();
 }

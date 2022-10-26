@@ -37,20 +37,22 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
             }
         }
         this.b = view2;
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092565);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09254f);
     }
 
     public void a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) && bitmap != null && !bitmap.isRecycled()) {
+            this.a.setImageBitmap(bitmap);
         }
-        this.a.setImageBitmap(bitmap);
     }
 
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
     }
 }

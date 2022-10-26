@@ -15,6 +15,8 @@ public abstract class UnsafeAllocator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract <T> T newInstance(Class<T> cls) throws Exception;
+
     public UnsafeAllocator() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,10 +36,10 @@ public abstract class UnsafeAllocator {
         if (interceptable == null || interceptable.invokeL(65537, null, cls) == null) {
             int modifiers = cls.getModifiers();
             if (!Modifier.isInterface(modifiers)) {
-                if (Modifier.isAbstract(modifiers)) {
-                    throw new UnsupportedOperationException("Abstract class can't be instantiated! Class name: " + cls.getName());
+                if (!Modifier.isAbstract(modifiers)) {
+                    return;
                 }
-                return;
+                throw new UnsupportedOperationException("Abstract class can't be instantiated! Class name: " + cls.getName());
             }
             throw new UnsupportedOperationException("Interface can't be instantiated! Interface name: " + cls.getName());
         }
@@ -203,6 +205,4 @@ public abstract class UnsafeAllocator {
         }
         return (UnsafeAllocator) invokeV.objValue;
     }
-
-    public abstract <T> T newInstance(Class<T> cls) throws Exception;
 }

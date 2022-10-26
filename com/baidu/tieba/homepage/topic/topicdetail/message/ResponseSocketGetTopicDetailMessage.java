@@ -1,9 +1,8 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a57;
+import com.baidu.tieba.i57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import tbclient.NewHottopic.NewHottopicResIdl;
 public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a57 mTopicDetailData;
+    public i57 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicDetailMessage() {
@@ -35,8 +34,16 @@ public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage 
         }
     }
 
+    public i57 getTopicDetailData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTopicDetailData;
+        }
+        return (i57) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -48,18 +55,12 @@ public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage 
             setError(newHottopicResIdl.error.errorno.intValue());
             setErrorString(newHottopicResIdl.error.usermsg);
             if (getError() == 0 && newHottopicResIdl.data != null) {
-                a57 a57Var = new a57();
-                this.mTopicDetailData = a57Var;
-                a57Var.b(newHottopicResIdl.data);
+                i57 i57Var = new i57();
+                this.mTopicDetailData = i57Var;
+                i57Var.b(newHottopicResIdl.data);
             }
             return newHottopicResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public a57 getTopicDetailData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTopicDetailData : (a57) invokeV.objValue;
     }
 }

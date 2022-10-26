@@ -5,10 +5,6 @@ import android.telephony.TelephonyManager;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface ICooperService {
-    boolean checkCellLocationSetting(Context context);
-
-    boolean checkGPSLocationSetting(Context context);
-
     boolean checkWifiLocationSetting(Context context);
 
     String getAppChannel(Context context);

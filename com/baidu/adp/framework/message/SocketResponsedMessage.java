@@ -1,7 +1,5 @@
 package com.baidu.adp.framework.message;
 
-import androidx.annotation.CallSuper;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,11 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
+public abstract class SocketResponsedMessage extends ResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mRetry;
     public long sequenceID;
+
+    public void decodeExtraDataInBackGround(int i, byte[] bArr) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
+        }
+    }
+
+    public abstract Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SocketResponsedMessage(int i) {
@@ -36,42 +42,41 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         this.mRetry = 0;
     }
 
-    public void decodeExtraDataInBackGround(int i, byte[] bArr) throws Exception {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
+            this.decodeData = decodeInBackGroundNeedResult(i, bArr);
         }
     }
-
-    @Nullable
-    public abstract Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception;
 
     public int getRetry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRetry : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRetry;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public boolean hasError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getError() != 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (getError() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setRetry(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.mRetry = i;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    @CallSuper
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
-            this.decodeData = decodeInBackGroundNeedResult(i, bArr);
         }
     }
 }

@@ -10,13 +10,37 @@ import android.os.RemoteException;
 public interface IPatchInstallObserver extends IInterface {
 
     /* loaded from: classes6.dex */
-    public static abstract class Stub extends Binder implements IPatchInstallObserver {
+    public class Default implements IPatchInstallObserver {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return null;
+        }
+
+        @Override // com.baidu.titan.sdk.pm.IPatchInstallObserver
+        public void onPatchInstalled(int i, Bundle bundle) throws RemoteException {
+        }
+    }
+
+    void onPatchInstalled(int i, Bundle bundle) throws RemoteException;
+
+    /* loaded from: classes6.dex */
+    public abstract class Stub extends Binder implements IPatchInstallObserver {
         public static final String DESCRIPTOR = "com.baidu.titan.sdk.pm.IPatchInstallObserver";
         public static final int TRANSACTION_onPatchInstalled = 1;
 
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
+
         /* loaded from: classes6.dex */
-        public static class Proxy implements IPatchInstallObserver {
+        public class Proxy implements IPatchInstallObserver {
+            public static IPatchInstallObserver sDefaultImpl;
             public IBinder mRemote;
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
+            }
 
             public Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
@@ -25,10 +49,6 @@ public interface IPatchInstallObserver extends IInterface {
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
-            }
-
-            public String getInterfaceDescriptor() {
-                return Stub.DESCRIPTOR;
             }
 
             @Override // com.baidu.titan.sdk.pm.IPatchInstallObserver
@@ -43,7 +63,9 @@ public interface IPatchInstallObserver extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.mRemote.transact(1, obtain, null, 1);
+                    if (!this.mRemote.transact(1, obtain, null, 1) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onPatchInstalled(i, bundle);
+                    }
                 } finally {
                     obtain.recycle();
                 }
@@ -52,6 +74,10 @@ public interface IPatchInstallObserver extends IInterface {
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
+        }
+
+        public static IPatchInstallObserver getDefaultImpl() {
+            return Proxy.sDefaultImpl;
         }
 
         public static IPatchInstallObserver asInterface(IBinder iBinder) {
@@ -65,25 +91,36 @@ public interface IPatchInstallObserver extends IInterface {
             return new Proxy(iBinder);
         }
 
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+        public static boolean setDefaultImpl(IPatchInstallObserver iPatchInstallObserver) {
+            if (Proxy.sDefaultImpl == null) {
+                if (iPatchInstallObserver != null) {
+                    Proxy.sDefaultImpl = iPatchInstallObserver;
+                    return true;
+                }
+                return false;
+            }
+            throw new IllegalStateException("setDefaultImpl() called twice");
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
-                parcel.enforceInterface(DESCRIPTOR);
-                onPatchInstalled(parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
-                return true;
-            } else if (i != 1598968902) {
-                return super.onTransact(i, parcel, parcel2, i2);
-            } else {
+            Bundle bundle;
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
                 parcel2.writeString(DESCRIPTOR);
                 return true;
             }
+            parcel.enforceInterface(DESCRIPTOR);
+            int readInt = parcel.readInt();
+            if (parcel.readInt() != 0) {
+                bundle = (Bundle) Bundle.CREATOR.createFromParcel(parcel);
+            } else {
+                bundle = null;
+            }
+            onPatchInstalled(readInt, bundle);
+            return true;
         }
     }
-
-    void onPatchInstalled(int i, Bundle bundle) throws RemoteException;
 }

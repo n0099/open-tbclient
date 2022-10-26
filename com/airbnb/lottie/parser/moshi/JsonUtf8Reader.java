@@ -1,6 +1,5 @@
 package com.airbnb.lottie.parser.moshi;
 
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -44,7 +43,6 @@ public final class JsonUtf8Reader extends JsonReader {
     public int peeked = 0;
     public long peekedLong;
     public int peekedNumberLength;
-    @Nullable
     public String peekedString;
     public final BufferedSource source;
     public static final ByteString SINGLE_QUOTE_OR_SLASH = ByteString.encodeUtf8("'\\");
@@ -52,6 +50,86 @@ public final class JsonUtf8Reader extends JsonReader {
     public static final ByteString UNQUOTED_STRING_TERMINALS = ByteString.encodeUtf8("{}[]:, \n\t\r\f/\\;#=");
     public static final ByteString LINEFEED_OR_CARRIAGE_RETURN = ByteString.encodeUtf8("\n\r");
     public static final ByteString CLOSING_BLOCK_COMMENT = ByteString.encodeUtf8("*/");
+
+    private void checkLenient() throws IOException {
+        if (this.lenient) {
+            return;
+        }
+        throw syntaxError("Use JsonReader.setLenient(true) to accept malformed JSON");
+    }
+
+    private String nextUnquotedValue() throws IOException {
+        long indexOfElement = this.source.indexOfElement(UNQUOTED_STRING_TERMINALS);
+        if (indexOfElement != -1) {
+            return this.buffer.readUtf8(indexOfElement);
+        }
+        return this.buffer.readUtf8();
+    }
+
+    private boolean skipToEndOfBlockComment() throws IOException {
+        boolean z;
+        long size;
+        long indexOf = this.source.indexOf(CLOSING_BLOCK_COMMENT);
+        if (indexOf != -1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Buffer buffer = this.buffer;
+        if (z) {
+            size = indexOf + CLOSING_BLOCK_COMMENT.size();
+        } else {
+            size = buffer.size();
+        }
+        buffer.skip(size);
+        return z;
+    }
+
+    private void skipToEndOfLine() throws IOException {
+        long size;
+        long indexOfElement = this.source.indexOfElement(LINEFEED_OR_CARRIAGE_RETURN);
+        Buffer buffer = this.buffer;
+        if (indexOfElement != -1) {
+            size = indexOfElement + 1;
+        } else {
+            size = buffer.size();
+        }
+        buffer.skip(size);
+    }
+
+    private void skipUnquotedValue() throws IOException {
+        long indexOfElement = this.source.indexOfElement(UNQUOTED_STRING_TERMINALS);
+        Buffer buffer = this.buffer;
+        if (indexOfElement == -1) {
+            indexOfElement = buffer.size();
+        }
+        buffer.skip(indexOfElement);
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        this.peeked = 0;
+        this.scopes[0] = 8;
+        this.stackSize = 1;
+        this.buffer.clear();
+        this.source.close();
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public boolean hasNext() throws IOException {
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i != 2 && i != 4 && i != 18) {
+            return true;
+        }
+        return false;
+    }
+
+    public String toString() {
+        return "JsonReader(" + this.source + SmallTailInfo.EMOTION_SUFFIX;
+    }
 
     public JsonUtf8Reader(BufferedSource bufferedSource) {
         if (bufferedSource != null) {
@@ -63,9 +141,20 @@ public final class JsonUtf8Reader extends JsonReader {
         throw new NullPointerException("source == null");
     }
 
-    private void checkLenient() throws IOException {
-        if (!this.lenient) {
-            throw syntaxError("Use JsonReader.setLenient(true) to accept malformed JSON");
+    private void skipQuotedValue(ByteString byteString) throws IOException {
+        while (true) {
+            long indexOfElement = this.source.indexOfElement(byteString);
+            if (indexOfElement != -1) {
+                if (this.buffer.getByte(indexOfElement) == 92) {
+                    this.buffer.skip(indexOfElement + 1);
+                    readEscapeCharacter();
+                } else {
+                    this.buffer.skip(indexOfElement + 1);
+                    return;
+                }
+            } else {
+                throw syntaxError("Unterminated string");
+            }
         }
     }
 
@@ -88,14 +177,40 @@ public final class JsonUtf8Reader extends JsonReader {
                 }
                 checkLenient();
             }
-        } else if (i2 == 3 || i2 == 5) {
-            this.scopes[this.stackSize - 1] = 4;
-            if (i2 == 5) {
+        } else if (i2 != 3 && i2 != 5) {
+            if (i2 == 4) {
+                iArr[i - 1] = 5;
                 int nextNonWhitespace2 = nextNonWhitespace(true);
                 this.buffer.readByte();
-                if (nextNonWhitespace2 != 44) {
-                    if (nextNonWhitespace2 != 59) {
-                        if (nextNonWhitespace2 == 125) {
+                if (nextNonWhitespace2 != 58) {
+                    if (nextNonWhitespace2 == 61) {
+                        checkLenient();
+                        if (this.source.request(1L) && this.buffer.getByte(0L) == 62) {
+                            this.buffer.readByte();
+                        }
+                    } else {
+                        throw syntaxError("Expected ':'");
+                    }
+                }
+            } else if (i2 == 6) {
+                iArr[i - 1] = 7;
+            } else if (i2 == 7) {
+                if (nextNonWhitespace(false) == -1) {
+                    this.peeked = 18;
+                    return 18;
+                }
+                checkLenient();
+            } else if (i2 == 8) {
+                throw new IllegalStateException("JsonReader is closed");
+            }
+        } else {
+            this.scopes[this.stackSize - 1] = 4;
+            if (i2 == 5) {
+                int nextNonWhitespace3 = nextNonWhitespace(true);
+                this.buffer.readByte();
+                if (nextNonWhitespace3 != 44) {
+                    if (nextNonWhitespace3 != 59) {
+                        if (nextNonWhitespace3 == 125) {
                             this.peeked = 2;
                             return 2;
                         }
@@ -104,104 +219,84 @@ public final class JsonUtf8Reader extends JsonReader {
                     checkLenient();
                 }
             }
-            int nextNonWhitespace3 = nextNonWhitespace(true);
-            if (nextNonWhitespace3 == 34) {
-                this.buffer.readByte();
-                this.peeked = 13;
-                return 13;
-            } else if (nextNonWhitespace3 == 39) {
+            int nextNonWhitespace4 = nextNonWhitespace(true);
+            if (nextNonWhitespace4 != 34) {
+                if (nextNonWhitespace4 != 39) {
+                    if (nextNonWhitespace4 != 125) {
+                        checkLenient();
+                        if (isLiteral((char) nextNonWhitespace4)) {
+                            this.peeked = 14;
+                            return 14;
+                        }
+                        throw syntaxError("Expected name");
+                    } else if (i2 != 5) {
+                        this.buffer.readByte();
+                        this.peeked = 2;
+                        return 2;
+                    } else {
+                        throw syntaxError("Expected name");
+                    }
+                }
                 this.buffer.readByte();
                 checkLenient();
                 this.peeked = 12;
                 return 12;
-            } else if (nextNonWhitespace3 != 125) {
-                checkLenient();
-                if (isLiteral((char) nextNonWhitespace3)) {
-                    this.peeked = 14;
-                    return 14;
-                }
-                throw syntaxError("Expected name");
-            } else if (i2 != 5) {
-                this.buffer.readByte();
-                this.peeked = 2;
-                return 2;
-            } else {
-                throw syntaxError("Expected name");
             }
-        } else if (i2 == 4) {
-            iArr[i - 1] = 5;
-            int nextNonWhitespace4 = nextNonWhitespace(true);
             this.buffer.readByte();
-            if (nextNonWhitespace4 != 58) {
-                if (nextNonWhitespace4 == 61) {
-                    checkLenient();
-                    if (this.source.request(1L) && this.buffer.getByte(0L) == 62) {
-                        this.buffer.readByte();
-                    }
-                } else {
-                    throw syntaxError("Expected ':'");
-                }
-            }
-        } else if (i2 == 6) {
-            iArr[i - 1] = 7;
-        } else if (i2 == 7) {
-            if (nextNonWhitespace(false) == -1) {
-                this.peeked = 18;
-                return 18;
-            }
-            checkLenient();
-        } else if (i2 == 8) {
-            throw new IllegalStateException("JsonReader is closed");
+            this.peeked = 13;
+            return 13;
         }
         int nextNonWhitespace5 = nextNonWhitespace(true);
-        if (nextNonWhitespace5 == 34) {
-            this.buffer.readByte();
-            this.peeked = 9;
-            return 9;
-        } else if (nextNonWhitespace5 == 39) {
+        if (nextNonWhitespace5 != 34) {
+            if (nextNonWhitespace5 != 39) {
+                if (nextNonWhitespace5 != 44 && nextNonWhitespace5 != 59) {
+                    if (nextNonWhitespace5 != 91) {
+                        if (nextNonWhitespace5 != 93) {
+                            if (nextNonWhitespace5 != 123) {
+                                int peekKeyword = peekKeyword();
+                                if (peekKeyword != 0) {
+                                    return peekKeyword;
+                                }
+                                int peekNumber = peekNumber();
+                                if (peekNumber != 0) {
+                                    return peekNumber;
+                                }
+                                if (isLiteral(this.buffer.getByte(0L))) {
+                                    checkLenient();
+                                    this.peeked = 10;
+                                    return 10;
+                                }
+                                throw syntaxError("Expected value");
+                            }
+                            this.buffer.readByte();
+                            this.peeked = 1;
+                            return 1;
+                        } else if (i2 == 1) {
+                            this.buffer.readByte();
+                            this.peeked = 4;
+                            return 4;
+                        }
+                    } else {
+                        this.buffer.readByte();
+                        this.peeked = 3;
+                        return 3;
+                    }
+                }
+                if (i2 != 1 && i2 != 2) {
+                    throw syntaxError("Unexpected value");
+                }
+                checkLenient();
+                this.peeked = 7;
+                return 7;
+            }
             checkLenient();
             this.buffer.readByte();
             this.peeked = 8;
             return 8;
-        } else {
-            if (nextNonWhitespace5 != 44 && nextNonWhitespace5 != 59) {
-                if (nextNonWhitespace5 == 91) {
-                    this.buffer.readByte();
-                    this.peeked = 3;
-                    return 3;
-                } else if (nextNonWhitespace5 != 93) {
-                    if (nextNonWhitespace5 != 123) {
-                        int peekKeyword = peekKeyword();
-                        if (peekKeyword != 0) {
-                            return peekKeyword;
-                        }
-                        int peekNumber = peekNumber();
-                        if (peekNumber != 0) {
-                            return peekNumber;
-                        }
-                        if (isLiteral(this.buffer.getByte(0L))) {
-                            checkLenient();
-                            this.peeked = 10;
-                            return 10;
-                        }
-                        throw syntaxError("Expected value");
-                    }
-                    this.buffer.readByte();
-                    this.peeked = 1;
-                    return 1;
-                } else if (i2 == 1) {
-                    this.buffer.readByte();
-                    this.peeked = 4;
-                    return 4;
-                }
-            }
-            if (i2 != 1 && i2 != 2) {
-                throw syntaxError("Unexpected value");
-            }
-            checkLenient();
-            this.peeked = 7;
-            return 7;
         }
+        this.buffer.readByte();
+        this.peeked = 9;
+        return 9;
     }
 
     private int findName(String str, JsonReader.Options options) {
@@ -231,32 +326,90 @@ public final class JsonUtf8Reader extends JsonReader {
     }
 
     private boolean isLiteral(int i) throws IOException {
-        if (i == 9 || i == 10 || i == 12 || i == 13 || i == 32) {
-            return false;
-        }
-        if (i != 35) {
-            if (i == 44) {
-                return false;
-            }
-            if (i != 47 && i != 61) {
-                if (i == 123 || i == 125 || i == 58) {
+        if (i != 9 && i != 10 && i != 12 && i != 13 && i != 32) {
+            if (i != 35) {
+                if (i != 44) {
+                    if (i != 47 && i != 61) {
+                        if (i != 123 && i != 125 && i != 58) {
+                            if (i != 59) {
+                                switch (i) {
+                                    case 91:
+                                    case 93:
+                                        return false;
+                                    case 92:
+                                        break;
+                                    default:
+                                        return true;
+                                }
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
                     return false;
                 }
-                if (i != 59) {
-                    switch (i) {
-                        case 91:
-                        case 93:
-                            return false;
-                        case 92:
-                            break;
-                        default:
-                            return true;
+            }
+            checkLenient();
+            return false;
+        }
+        return false;
+    }
+
+    private String nextQuotedValue(ByteString byteString) throws IOException {
+        StringBuilder sb = null;
+        while (true) {
+            long indexOfElement = this.source.indexOfElement(byteString);
+            if (indexOfElement != -1) {
+                if (this.buffer.getByte(indexOfElement) == 92) {
+                    if (sb == null) {
+                        sb = new StringBuilder();
                     }
+                    sb.append(this.buffer.readUtf8(indexOfElement));
+                    this.buffer.readByte();
+                    sb.append(readEscapeCharacter());
+                } else if (sb == null) {
+                    String readUtf8 = this.buffer.readUtf8(indexOfElement);
+                    this.buffer.readByte();
+                    return readUtf8;
+                } else {
+                    sb.append(this.buffer.readUtf8(indexOfElement));
+                    this.buffer.readByte();
+                    return sb.toString();
                 }
+            } else {
+                throw syntaxError("Unterminated string");
             }
         }
-        checkLenient();
-        return false;
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public int selectName(JsonReader.Options options) throws IOException {
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i < 12 || i > 15) {
+            return -1;
+        }
+        if (i == 15) {
+            return findName(this.peekedString, options);
+        }
+        int select = this.source.select(options.doubleQuoteSuffix);
+        if (select != -1) {
+            this.peeked = 0;
+            this.pathNames[this.stackSize - 1] = options.strings[select];
+            return select;
+        }
+        String str = this.pathNames[this.stackSize - 1];
+        String nextName = nextName();
+        int findName = findName(nextName, options);
+        if (findName == -1) {
+            this.peeked = 15;
+            this.peekedString = nextName;
+            this.pathNames[this.stackSize - 1] = str;
+        }
+        return findName;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
@@ -317,51 +470,19 @@ public final class JsonUtf8Reader extends JsonReader {
             int i = 0;
             while (true) {
                 int i2 = i + 1;
-                if (!this.source.request(i2)) {
-                    if (z) {
-                        throw new EOFException("End of input");
+                if (this.source.request(i2)) {
+                    byte b = this.buffer.getByte(i);
+                    if (b != 10 && b != 32 && b != 13 && b != 9) {
+                        break;
                     }
+                    i = i2;
+                } else if (!z) {
                     return -1;
+                } else {
+                    throw new EOFException("End of input");
                 }
-                byte b = this.buffer.getByte(i);
-                if (b != 10 && b != 32 && b != 13 && b != 9) {
-                    break;
-                }
-                i = i2;
             }
         }
-    }
-
-    private String nextQuotedValue(ByteString byteString) throws IOException {
-        StringBuilder sb = null;
-        while (true) {
-            long indexOfElement = this.source.indexOfElement(byteString);
-            if (indexOfElement != -1) {
-                if (this.buffer.getByte(indexOfElement) != 92) {
-                    if (sb == null) {
-                        String readUtf8 = this.buffer.readUtf8(indexOfElement);
-                        this.buffer.readByte();
-                        return readUtf8;
-                    }
-                    sb.append(this.buffer.readUtf8(indexOfElement));
-                    this.buffer.readByte();
-                    return sb.toString();
-                }
-                if (sb == null) {
-                    sb = new StringBuilder();
-                }
-                sb.append(this.buffer.readUtf8(indexOfElement));
-                this.buffer.readByte();
-                sb.append(readEscapeCharacter());
-            } else {
-                throw syntaxError("Unterminated string");
-            }
-        }
-    }
-
-    private String nextUnquotedValue() throws IOException {
-        long indexOfElement = this.source.indexOfElement(UNQUOTED_STRING_TERMINALS);
-        return indexOfElement != -1 ? this.buffer.readUtf8(indexOfElement) : this.buffer.readUtf8();
     }
 
     private int peekKeyword() throws IOException {
@@ -369,20 +490,23 @@ public final class JsonUtf8Reader extends JsonReader {
         String str;
         String str2;
         byte b = this.buffer.getByte(0L);
-        if (b == 116 || b == 84) {
+        if (b != 116 && b != 84) {
+            if (b != 102 && b != 70) {
+                if (b != 110 && b != 78) {
+                    return 0;
+                }
+                i = 7;
+                str = StringUtil.NULL_STRING;
+                str2 = "NULL";
+            } else {
+                i = 6;
+                str = "false";
+                str2 = "FALSE";
+            }
+        } else {
             i = 5;
             str = "true";
             str2 = "TRUE";
-        } else if (b == 102 || b == 70) {
-            i = 6;
-            str = "false";
-            str2 = "FALSE";
-        } else if (b != 110 && b != 78) {
-            return 0;
-        } else {
-            i = 7;
-            str = StringUtil.NULL_STRING;
-            str2 = "NULL";
         }
         int length = str.length();
         int i2 = 1;
@@ -403,6 +527,59 @@ public final class JsonUtf8Reader extends JsonReader {
         this.buffer.skip(length);
         this.peeked = i;
         return i;
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public String nextString() throws IOException {
+        String readUtf8;
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i == 10) {
+            readUtf8 = nextUnquotedValue();
+        } else if (i == 9) {
+            readUtf8 = nextQuotedValue(DOUBLE_QUOTE_OR_SLASH);
+        } else if (i == 8) {
+            readUtf8 = nextQuotedValue(SINGLE_QUOTE_OR_SLASH);
+        } else if (i == 11) {
+            readUtf8 = this.peekedString;
+            this.peekedString = null;
+        } else if (i == 16) {
+            readUtf8 = Long.toString(this.peekedLong);
+        } else if (i == 17) {
+            readUtf8 = this.buffer.readUtf8(this.peekedNumberLength);
+        } else {
+            throw new JsonDataException("Expected a string but was " + peek() + " at path " + getPath());
+        }
+        this.peeked = 0;
+        int[] iArr = this.pathIndices;
+        int i2 = this.stackSize - 1;
+        iArr[i2] = iArr[i2] + 1;
+        return readUtf8;
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public void skipName() throws IOException {
+        if (!this.failOnUnknown) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i == 14) {
+                skipUnquotedValue();
+            } else if (i == 13) {
+                skipQuotedValue(DOUBLE_QUOTE_OR_SLASH);
+            } else if (i == 12) {
+                skipQuotedValue(SINGLE_QUOTE_OR_SLASH);
+            } else if (i != 15) {
+                throw new JsonDataException("Expected a name but was " + peek() + " at path " + getPath());
+            }
+            this.peeked = 0;
+            this.pathNames[this.stackSize - 1] = StringUtil.NULL_STRING;
+            return;
+        }
+        throw new JsonDataException("Cannot skip unexpected " + peek() + " at " + getPath());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:48:0x0087, code lost:
@@ -466,13 +643,14 @@ public final class JsonUtf8Reader extends JsonReader {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private int peekNumber() throws IOException {
+        boolean z;
         char c = 1;
         int i = 0;
         long j = 0;
         int i2 = 0;
         char c2 = 0;
-        boolean z = true;
-        boolean z2 = false;
+        boolean z2 = true;
+        boolean z3 = false;
         while (true) {
             int i3 = i2 + 1;
             if (!this.source.request(i3)) {
@@ -480,47 +658,53 @@ public final class JsonUtf8Reader extends JsonReader {
             }
             byte b = this.buffer.getByte(i2);
             if (b != 43) {
-                if (b == 69 || b == 101) {
-                    if (c2 != 2 && c2 != 4) {
-                        return i;
-                    }
-                    c2 = 5;
-                } else if (b != 45) {
-                    if (b != 46) {
-                        if (b < 48 || b > 57) {
-                            break;
-                        } else if (c2 == c || c2 == 0) {
-                            j = -(b - 48);
-                            i = 0;
-                            c2 = 2;
-                        } else {
-                            if (c2 == 2) {
-                                if (j == 0) {
-                                    return i;
+                if (b != 69 && b != 101) {
+                    if (b != 45) {
+                        if (b != 46) {
+                            if (b < 48 || b > 57) {
+                                break;
+                            } else if (c2 != c && c2 != 0) {
+                                if (c2 == 2) {
+                                    if (j == 0) {
+                                        return i;
+                                    }
+                                    long j2 = (10 * j) - (b - 48);
+                                    int i4 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
+                                    if (i4 <= 0 && (i4 != 0 || j2 >= j)) {
+                                        z = false;
+                                    } else {
+                                        z = true;
+                                    }
+                                    z2 &= z;
+                                    j = j2;
+                                } else if (c2 == 3) {
+                                    i = 0;
+                                    c2 = 4;
+                                } else if (c2 == 5 || c2 == 6) {
+                                    i = 0;
+                                    c2 = 7;
                                 }
-                                long j2 = (10 * j) - (b - 48);
-                                int i4 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
-                                z &= i4 > 0 || (i4 == 0 && j2 < j);
-                                j = j2;
-                            } else if (c2 == 3) {
                                 i = 0;
-                                c2 = 4;
-                            } else if (c2 == 5 || c2 == 6) {
+                            } else {
+                                j = -(b - 48);
                                 i = 0;
-                                c2 = 7;
+                                c2 = 2;
                             }
-                            i = 0;
+                        } else if (c2 == 2) {
+                            c2 = 3;
+                        } else {
+                            return i;
                         }
-                    } else if (c2 != 2) {
+                    } else if (c2 == 0) {
+                        c2 = 1;
+                        z3 = true;
+                    } else if (c2 != 5) {
                         return i;
-                    } else {
-                        c2 = 3;
                     }
-                } else if (c2 == 0) {
-                    c2 = 1;
-                    z2 = true;
-                } else if (c2 != 5) {
+                } else if (c2 != 2 && c2 != 4) {
                     return i;
+                } else {
+                    c2 = 5;
                 }
                 i2 = i3;
                 c = 1;
@@ -538,12 +722,12 @@ public final class JsonUtf8Reader extends JsonReader {
         int i2;
         if (this.source.request(1L)) {
             byte readByte = this.buffer.readByte();
-            if (readByte == 10 || readByte == 34 || readByte == 39 || readByte == 47 || readByte == 92) {
-                return (char) readByte;
-            }
-            if (readByte != 98) {
-                if (readByte != 102) {
-                    if (readByte != 110) {
+            if (readByte != 10 && readByte != 34 && readByte != 39 && readByte != 47 && readByte != 92) {
+                if (readByte != 98) {
+                    if (readByte != 102) {
+                        if (readByte == 110) {
+                            return '\n';
+                        }
                         if (readByte != 114) {
                             if (readByte != 116) {
                                 if (readByte != 117) {
@@ -556,7 +740,9 @@ public final class JsonUtf8Reader extends JsonReader {
                                     for (int i3 = 0; i3 < 4; i3++) {
                                         byte b = this.buffer.getByte(i3);
                                         char c2 = (char) (c << 4);
-                                        if (b < 48 || b > 57) {
+                                        if (b >= 48 && b <= 57) {
+                                            i2 = b - 48;
+                                        } else {
                                             if (b >= 97 && b <= 102) {
                                                 i = b - 97;
                                             } else if (b < 65 || b > 70) {
@@ -565,8 +751,6 @@ public final class JsonUtf8Reader extends JsonReader {
                                                 i = b - 65;
                                             }
                                             i2 = i + 10;
-                                        } else {
-                                            i2 = b - 48;
                                         }
                                         c = (char) (c2 + i2);
                                     }
@@ -580,160 +764,13 @@ public final class JsonUtf8Reader extends JsonReader {
                         }
                         return '\r';
                     }
-                    return '\n';
+                    return '\f';
                 }
-                return '\f';
+                return '\b';
             }
-            return '\b';
+            return (char) readByte;
         }
         throw syntaxError("Unterminated escape sequence");
-    }
-
-    private void skipQuotedValue(ByteString byteString) throws IOException {
-        while (true) {
-            long indexOfElement = this.source.indexOfElement(byteString);
-            if (indexOfElement != -1) {
-                if (this.buffer.getByte(indexOfElement) == 92) {
-                    this.buffer.skip(indexOfElement + 1);
-                    readEscapeCharacter();
-                } else {
-                    this.buffer.skip(indexOfElement + 1);
-                    return;
-                }
-            } else {
-                throw syntaxError("Unterminated string");
-            }
-        }
-    }
-
-    private boolean skipToEndOfBlockComment() throws IOException {
-        long indexOf = this.source.indexOf(CLOSING_BLOCK_COMMENT);
-        boolean z = indexOf != -1;
-        Buffer buffer = this.buffer;
-        buffer.skip(z ? indexOf + CLOSING_BLOCK_COMMENT.size() : buffer.size());
-        return z;
-    }
-
-    private void skipToEndOfLine() throws IOException {
-        long indexOfElement = this.source.indexOfElement(LINEFEED_OR_CARRIAGE_RETURN);
-        Buffer buffer = this.buffer;
-        buffer.skip(indexOfElement != -1 ? indexOfElement + 1 : buffer.size());
-    }
-
-    private void skipUnquotedValue() throws IOException {
-        long indexOfElement = this.source.indexOfElement(UNQUOTED_STRING_TERMINALS);
-        Buffer buffer = this.buffer;
-        if (indexOfElement == -1) {
-            indexOfElement = buffer.size();
-        }
-        buffer.skip(indexOfElement);
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public void beginArray() throws IOException {
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        if (i == 3) {
-            pushScope(1);
-            this.pathIndices[this.stackSize - 1] = 0;
-            this.peeked = 0;
-            return;
-        }
-        throw new JsonDataException("Expected BEGIN_ARRAY but was " + peek() + " at path " + getPath());
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public void beginObject() throws IOException {
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        if (i == 1) {
-            pushScope(3);
-            this.peeked = 0;
-            return;
-        }
-        throw new JsonDataException("Expected BEGIN_OBJECT but was " + peek() + " at path " + getPath());
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        this.peeked = 0;
-        this.scopes[0] = 8;
-        this.stackSize = 1;
-        this.buffer.clear();
-        this.source.close();
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public void endArray() throws IOException {
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        if (i == 4) {
-            int i2 = this.stackSize - 1;
-            this.stackSize = i2;
-            int[] iArr = this.pathIndices;
-            int i3 = i2 - 1;
-            iArr[i3] = iArr[i3] + 1;
-            this.peeked = 0;
-            return;
-        }
-        throw new JsonDataException("Expected END_ARRAY but was " + peek() + " at path " + getPath());
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public void endObject() throws IOException {
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        if (i == 2) {
-            int i2 = this.stackSize - 1;
-            this.stackSize = i2;
-            this.pathNames[i2] = null;
-            int[] iArr = this.pathIndices;
-            int i3 = i2 - 1;
-            iArr[i3] = iArr[i3] + 1;
-            this.peeked = 0;
-            return;
-        }
-        throw new JsonDataException("Expected END_OBJECT but was " + peek() + " at path " + getPath());
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public boolean hasNext() throws IOException {
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        return (i == 2 || i == 4 || i == 18) ? false : true;
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public boolean nextBoolean() throws IOException {
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        if (i == 5) {
-            this.peeked = 0;
-            int[] iArr = this.pathIndices;
-            int i2 = this.stackSize - 1;
-            iArr[i2] = iArr[i2] + 1;
-            return true;
-        } else if (i == 6) {
-            this.peeked = 0;
-            int[] iArr2 = this.pathIndices;
-            int i3 = this.stackSize - 1;
-            iArr2[i3] = iArr2[i3] + 1;
-            return false;
-        } else {
-            throw new JsonDataException("Expected a boolean but was " + peek() + " at path " + getPath());
-        }
     }
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
@@ -798,7 +835,11 @@ public final class JsonUtf8Reader extends JsonReader {
         }
         if (i == 17) {
             this.peekedString = this.buffer.readUtf8(this.peekedNumberLength);
-        } else if (i == 9 || i == 8) {
+        } else if (i != 9 && i != 8) {
+            if (i != 11) {
+                throw new JsonDataException("Expected an int but was " + peek() + " at path " + getPath());
+            }
+        } else {
             if (i == 9) {
                 nextQuotedValue = nextQuotedValue(DOUBLE_QUOTE_OR_SLASH);
             } else {
@@ -814,8 +855,6 @@ public final class JsonUtf8Reader extends JsonReader {
                 return parseInt;
             } catch (NumberFormatException unused) {
             }
-        } else if (i != 11) {
-            throw new JsonDataException("Expected an int but was " + peek() + " at path " + getPath());
         }
         this.peeked = 11;
         try {
@@ -832,6 +871,155 @@ public final class JsonUtf8Reader extends JsonReader {
             throw new JsonDataException("Expected an int but was " + this.peekedString + " at path " + getPath());
         } catch (NumberFormatException unused2) {
             throw new JsonDataException("Expected an int but was " + this.peekedString + " at path " + getPath());
+        }
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public void skipValue() throws IOException {
+        if (!this.failOnUnknown) {
+            int i = 0;
+            do {
+                int i2 = this.peeked;
+                if (i2 == 0) {
+                    i2 = doPeek();
+                }
+                if (i2 == 3) {
+                    pushScope(1);
+                } else if (i2 == 1) {
+                    pushScope(3);
+                } else {
+                    if (i2 == 4) {
+                        i--;
+                        if (i >= 0) {
+                            this.stackSize--;
+                        } else {
+                            throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
+                        }
+                    } else if (i2 == 2) {
+                        i--;
+                        if (i >= 0) {
+                            this.stackSize--;
+                        } else {
+                            throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
+                        }
+                    } else if (i2 != 14 && i2 != 10) {
+                        if (i2 != 9 && i2 != 13) {
+                            if (i2 != 8 && i2 != 12) {
+                                if (i2 == 17) {
+                                    this.buffer.skip(this.peekedNumberLength);
+                                } else if (i2 == 18) {
+                                    throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
+                                }
+                            } else {
+                                skipQuotedValue(SINGLE_QUOTE_OR_SLASH);
+                            }
+                        } else {
+                            skipQuotedValue(DOUBLE_QUOTE_OR_SLASH);
+                        }
+                    } else {
+                        skipUnquotedValue();
+                    }
+                    this.peeked = 0;
+                }
+                i++;
+                this.peeked = 0;
+            } while (i != 0);
+            int[] iArr = this.pathIndices;
+            int i3 = this.stackSize;
+            int i4 = i3 - 1;
+            iArr[i4] = iArr[i4] + 1;
+            this.pathNames[i3 - 1] = StringUtil.NULL_STRING;
+            return;
+        }
+        throw new JsonDataException("Cannot skip unexpected " + peek() + " at " + getPath());
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public void beginArray() throws IOException {
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i == 3) {
+            pushScope(1);
+            this.pathIndices[this.stackSize - 1] = 0;
+            this.peeked = 0;
+            return;
+        }
+        throw new JsonDataException("Expected BEGIN_ARRAY but was " + peek() + " at path " + getPath());
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public void beginObject() throws IOException {
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i == 1) {
+            pushScope(3);
+            this.peeked = 0;
+            return;
+        }
+        throw new JsonDataException("Expected BEGIN_OBJECT but was " + peek() + " at path " + getPath());
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public void endArray() throws IOException {
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i == 4) {
+            int i2 = this.stackSize - 1;
+            this.stackSize = i2;
+            int[] iArr = this.pathIndices;
+            int i3 = i2 - 1;
+            iArr[i3] = iArr[i3] + 1;
+            this.peeked = 0;
+            return;
+        }
+        throw new JsonDataException("Expected END_ARRAY but was " + peek() + " at path " + getPath());
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public void endObject() throws IOException {
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i == 2) {
+            int i2 = this.stackSize - 1;
+            this.stackSize = i2;
+            this.pathNames[i2] = null;
+            int[] iArr = this.pathIndices;
+            int i3 = i2 - 1;
+            iArr[i3] = iArr[i3] + 1;
+            this.peeked = 0;
+            return;
+        }
+        throw new JsonDataException("Expected END_OBJECT but was " + peek() + " at path " + getPath());
+    }
+
+    @Override // com.airbnb.lottie.parser.moshi.JsonReader
+    public boolean nextBoolean() throws IOException {
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
+        }
+        if (i == 5) {
+            this.peeked = 0;
+            int[] iArr = this.pathIndices;
+            int i2 = this.stackSize - 1;
+            iArr[i2] = iArr[i2] + 1;
+            return true;
+        } else if (i == 6) {
+            this.peeked = 0;
+            int[] iArr2 = this.pathIndices;
+            int i3 = this.stackSize - 1;
+            iArr2[i3] = iArr2[i3] + 1;
+            return false;
+        } else {
+            throw new JsonDataException("Expected a boolean but was " + peek() + " at path " + getPath());
         }
     }
 
@@ -856,36 +1044,6 @@ public final class JsonUtf8Reader extends JsonReader {
         this.peeked = 0;
         this.pathNames[this.stackSize - 1] = str;
         return str;
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public String nextString() throws IOException {
-        String readUtf8;
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        if (i == 10) {
-            readUtf8 = nextUnquotedValue();
-        } else if (i == 9) {
-            readUtf8 = nextQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-        } else if (i == 8) {
-            readUtf8 = nextQuotedValue(SINGLE_QUOTE_OR_SLASH);
-        } else if (i == 11) {
-            readUtf8 = this.peekedString;
-            this.peekedString = null;
-        } else if (i == 16) {
-            readUtf8 = Long.toString(this.peekedLong);
-        } else if (i == 17) {
-            readUtf8 = this.buffer.readUtf8(this.peekedNumberLength);
-        } else {
-            throw new JsonDataException("Expected a string but was " + peek() + " at path " + getPath());
-        }
-        this.peeked = 0;
-        int[] iArr = this.pathIndices;
-        int i2 = this.stackSize - 1;
-        iArr[i2] = iArr[i2] + 1;
-        return readUtf8;
     }
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
@@ -926,115 +1084,5 @@ public final class JsonUtf8Reader extends JsonReader {
             default:
                 throw new AssertionError();
         }
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public int selectName(JsonReader.Options options) throws IOException {
-        int i = this.peeked;
-        if (i == 0) {
-            i = doPeek();
-        }
-        if (i < 12 || i > 15) {
-            return -1;
-        }
-        if (i == 15) {
-            return findName(this.peekedString, options);
-        }
-        int select = this.source.select(options.doubleQuoteSuffix);
-        if (select != -1) {
-            this.peeked = 0;
-            this.pathNames[this.stackSize - 1] = options.strings[select];
-            return select;
-        }
-        String str = this.pathNames[this.stackSize - 1];
-        String nextName = nextName();
-        int findName = findName(nextName, options);
-        if (findName == -1) {
-            this.peeked = 15;
-            this.peekedString = nextName;
-            this.pathNames[this.stackSize - 1] = str;
-        }
-        return findName;
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public void skipName() throws IOException {
-        if (!this.failOnUnknown) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            if (i == 14) {
-                skipUnquotedValue();
-            } else if (i == 13) {
-                skipQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-            } else if (i == 12) {
-                skipQuotedValue(SINGLE_QUOTE_OR_SLASH);
-            } else if (i != 15) {
-                throw new JsonDataException("Expected a name but was " + peek() + " at path " + getPath());
-            }
-            this.peeked = 0;
-            this.pathNames[this.stackSize - 1] = StringUtil.NULL_STRING;
-            return;
-        }
-        throw new JsonDataException("Cannot skip unexpected " + peek() + " at " + getPath());
-    }
-
-    @Override // com.airbnb.lottie.parser.moshi.JsonReader
-    public void skipValue() throws IOException {
-        if (!this.failOnUnknown) {
-            int i = 0;
-            do {
-                int i2 = this.peeked;
-                if (i2 == 0) {
-                    i2 = doPeek();
-                }
-                if (i2 == 3) {
-                    pushScope(1);
-                } else if (i2 == 1) {
-                    pushScope(3);
-                } else {
-                    if (i2 == 4) {
-                        i--;
-                        if (i >= 0) {
-                            this.stackSize--;
-                        } else {
-                            throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
-                        }
-                    } else if (i2 == 2) {
-                        i--;
-                        if (i >= 0) {
-                            this.stackSize--;
-                        } else {
-                            throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
-                        }
-                    } else if (i2 == 14 || i2 == 10) {
-                        skipUnquotedValue();
-                    } else if (i2 == 9 || i2 == 13) {
-                        skipQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-                    } else if (i2 == 8 || i2 == 12) {
-                        skipQuotedValue(SINGLE_QUOTE_OR_SLASH);
-                    } else if (i2 == 17) {
-                        this.buffer.skip(this.peekedNumberLength);
-                    } else if (i2 == 18) {
-                        throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
-                    }
-                    this.peeked = 0;
-                }
-                i++;
-                this.peeked = 0;
-            } while (i != 0);
-            int[] iArr = this.pathIndices;
-            int i3 = this.stackSize;
-            int i4 = i3 - 1;
-            iArr[i4] = iArr[i4] + 1;
-            this.pathNames[i3 - 1] = StringUtil.NULL_STRING;
-            return;
-        }
-        throw new JsonDataException("Cannot skip unexpected " + peek() + " at " + getPath());
-    }
-
-    public String toString() {
-        return "JsonReader(" + this.source + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

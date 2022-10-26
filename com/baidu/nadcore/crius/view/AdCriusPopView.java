@@ -9,8 +9,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.crius.uiwidget.ApkDownloadView;
@@ -19,19 +17,19 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap0;
-import com.baidu.tieba.b81;
-import com.baidu.tieba.d81;
-import com.baidu.tieba.el0;
-import com.baidu.tieba.h01;
-import com.baidu.tieba.ip0;
-import com.baidu.tieba.lk0;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.tj0;
+import com.baidu.tieba.bp0;
+import com.baidu.tieba.c81;
+import com.baidu.tieba.e81;
+import com.baidu.tieba.fl0;
+import com.baidu.tieba.i01;
+import com.baidu.tieba.jp0;
+import com.baidu.tieba.mk0;
+import com.baidu.tieba.u21;
 import com.baidu.tieba.uj0;
-import com.baidu.tieba.uo0;
-import com.baidu.tieba.xo0;
-import com.baidu.tieba.yk0;
+import com.baidu.tieba.vj0;
+import com.baidu.tieba.vo0;
+import com.baidu.tieba.yo0;
+import com.baidu.tieba.zk0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,20 +39,63 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.OnClickListener, d81<View> {
+public class AdCriusPopView extends AdCriusBaseView implements View.OnClickListener, e81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yk0 e;
+    public zk0 e;
     public Animation f;
     public Animation g;
-    public b81 h;
+    public c81 h;
     public boolean i;
+
+    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f0915cb : invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e81
+    public View getRealView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.layout.obfuscated_res_0x7f0d05e5 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.id.obfuscated_res_0x7f0915cc : invokeV.intValue;
+    }
 
     /* loaded from: classes2.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdCriusPopView a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
 
         public a(AdCriusPopView adCriusPopView) {
             Interceptable interceptable = $ic;
@@ -80,20 +121,6 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.setVisibility(8);
                 this.a.g = null;
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
             }
         }
     }
@@ -145,6 +172,23 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         }
     }
 
+    @Override // com.baidu.tieba.e81
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Animation animation = this.f;
+            if (animation != null) {
+                animation.cancel();
+                this.f = null;
+            }
+            Animation animation2 = this.g;
+            if (animation2 != null) {
+                animation2.cancel();
+                this.g = null;
+            }
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdCriusPopView(Context context) {
         this(context, null);
@@ -166,272 +210,36 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         }
     }
 
-    @Override // com.baidu.tieba.d81
-    public void a() {
+    public final void p(yo0 yo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Animation animation = this.f;
-            if (animation != null) {
-                animation.cancel();
-                this.f = null;
-            }
-            Animation animation2 = this.g;
-            if (animation2 != null) {
-                animation2.cancel();
-                this.g = null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048589, this, yo0Var) == null) {
+            i01.b(new ClogBuilder().z(yo0Var.c).v(yo0Var.a).j(yo0Var.b).p(yo0Var.d).k(yo0Var.e).l(yo0Var.f).m(yo0Var.g));
         }
     }
 
-    @Override // com.baidu.tieba.d81
-    public void b(String str, boolean z) {
-        xo0 xo0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            this.i = false;
-            this.f = null;
-            if (!z || this.g == null) {
-                b81 b81Var = this.h;
-                if (b81Var != null) {
-                    b81Var.a(z, 480L);
-                }
-                if (z) {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ab);
-                    this.g = loadAnimation;
-                    loadAnimation.setDuration(480L);
-                    this.g.setAnimationListener(new a(this));
-                    startAnimation(this.g);
-                } else {
-                    setVisibility(8);
-                }
-                if ((getTag() instanceof ap0) && (xo0Var = ((ap0) getTag()).e) != null) {
-                    xo0Var.a();
-                    xo0Var.c = ClogBuilder.LogType.NAVIDEO_POP_CLOSE.type;
-                    xo0Var.g = str;
-                    p(xo0Var);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d81
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getVisibility() == 0) {
-            return;
-        }
-        if (z) {
-            q();
-            return;
-        }
-        setVisibility(0);
-        b81 b81Var = this.h;
-        if (b81Var != null) {
-            b81Var.c();
-        }
-    }
-
-    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f0915d9 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
-    public void e(CriusData criusData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, criusData) == null) {
-            View viewByComponent = this.d.getViewByComponent(NativeConstants.COMPONENT_CLOSEAD);
-            if (viewByComponent instanceof ImageView) {
-                ImageView imageView = (ImageView) viewByComponent;
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080df3);
-                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                imageView.setOnClickListener(this);
-            }
-            View viewByComponent2 = this.d.getViewByComponent("download");
-            if (viewByComponent2 instanceof ApkDownloadView) {
-                uj0 realDownloadView = ((ApkDownloadView) viewByComponent2).getRealDownloadView();
-                if ((realDownloadView instanceof el0) && (getTag() instanceof ap0)) {
-                    n((ap0) getTag(), (el0) realDownloadView);
-                    return;
-                } else {
-                    this.e = null;
-                    return;
-                }
-            }
-            this.e = null;
-        }
-    }
-
-    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
-    public void f(View view2, String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, view2, str, map) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0915d3) {
-                b("1", true);
-            } else {
-                o(str, map);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.d81
-    public View getRealView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.layout.obfuscated_res_0x7f0d05e5 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.id.obfuscated_res_0x7f0915da : invokeV.intValue;
-    }
-
-    public final void n(@NonNull ap0 ap0Var, el0 el0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, ap0Var, el0Var) == null) {
-            uo0 uo0Var = ap0Var.d;
-            xo0 xo0Var = ap0Var.e;
-            if (uo0Var == null || xo0Var == null) {
-                return;
-            }
-            ap0Var.a = 2;
-            this.e = new yk0(lk0.d(uo0Var, xo0Var.d, ""), el0Var);
-            if (el0Var instanceof NadCriusMiniVideoDownloadView) {
-                NadCriusMiniVideoDownloadView nadCriusMiniVideoDownloadView = (NadCriusMiniVideoDownloadView) el0Var;
-                int a2 = t21.c.a(getContext(), 12.0f);
-                nadCriusMiniVideoDownloadView.setImageViewLayout(new FrameLayout.LayoutParams(a2, a2));
-                nadCriusMiniVideoDownloadView.setVisibility(0);
-                nadCriusMiniVideoDownloadView.setOnClickListener(new b(this));
-            }
-        }
-    }
-
-    public final void o(String str, Map<String, String> map) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, map) == null) {
-            if (map != null && !TextUtils.isEmpty(map.get(NativeConstants.URL_STAT))) {
-                map.get(NativeConstants.URL_STAT);
-            }
-            if (map != null && !TextUtils.isEmpty(map.get(NativeConstants.ALS_STAT))) {
-                str2 = map.get(NativeConstants.ALS_STAT);
-            } else {
-                str2 = ClogBuilder.Area.HOTAREA.type;
-            }
-            if (this.h != null) {
-                ip0 ip0Var = new ip0();
-                ip0Var.a = str;
-                ip0Var.b = str2;
-                ip0Var.c = true;
-                if (map != null) {
-                    TextUtils.equals("1", map.get(NativeConstants.CHARGE_TYPE));
-                }
-                this.h.b(ip0Var);
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0915d3) {
-            b("1", true);
-        }
-    }
-
-    public final void p(xo0 xo0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, xo0Var) == null) {
-            h01.b(new ClogBuilder().z(xo0Var.c).v(xo0Var.a).j(xo0Var.b).p(xo0Var.d).k(xo0Var.e).l(xo0Var.f).m(xo0Var.g));
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.f == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100aa);
-            this.f = loadAnimation;
-            loadAnimation.setDuration(480L);
-            setVisibility(0);
-            startAnimation(this.f);
-            b81 b81Var = this.h;
-            if (b81Var != null) {
-                b81Var.c();
-            }
-            this.i = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.d81
-    public void setContainer(@Nullable ViewGroup viewGroup, @Nullable ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048591, this, viewGroup, layoutParams) == null) || viewGroup == null) {
-            return;
-        }
-        View view2 = (View) getParent();
-        if (view2 instanceof ViewGroup) {
-            ((ViewGroup) view2).removeView(this);
-        }
-        if (layoutParams != null) {
-            viewGroup.addView(this, layoutParams);
-        } else {
-            viewGroup.addView(this);
-        }
-        setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.d81
-    public void setCriusPopListener(@NonNull b81 b81Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, b81Var) == null) {
-            this.h = b81Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.d81
-    public void setData(@NonNull ap0 ap0Var) {
+    @Override // com.baidu.tieba.e81
+    public void setData(bp0 bp0Var) {
         CriusData criusData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, ap0Var) == null) {
-            setTag(ap0Var);
-            Object obj = ap0Var.c;
-            if (obj instanceof tj0) {
-                Map<String, tj0.a> map = ((tj0) obj).b;
-                if (map == null) {
-                    setVisibility(8);
-                    return;
-                }
-                tj0.a aVar = map.get("crius_pop");
-                if (aVar != null && (criusData = aVar.a) != null) {
-                    k(criusData, false);
-                    a();
-                    return;
-                }
-                setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048593, this, bp0Var) == null) {
+            setTag(bp0Var);
+            Object obj = bp0Var.c;
+            if (!(obj instanceof uj0)) {
+                return;
             }
+            Map map = ((uj0) obj).b;
+            if (map == null) {
+                setVisibility(8);
+                return;
+            }
+            uj0.a aVar = (uj0.a) map.get("crius_pop");
+            if (aVar != null && (criusData = aVar.a) != null) {
+                k(criusData, false);
+                a();
+                return;
+            }
+            setVisibility(8);
         }
-    }
-
-    public void update(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || !(getTag() instanceof ap0) || (i2 = ((ap0) getTag()).b) < 0 || this.i || i < i2) {
-            return;
-        }
-        q();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -451,6 +259,25 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
+            }
+        }
+    }
+
+    public final void n(bp0 bp0Var, fl0 fl0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, bp0Var, fl0Var) == null) {
+            vo0 vo0Var = bp0Var.d;
+            yo0 yo0Var = bp0Var.e;
+            if (vo0Var != null && yo0Var != null) {
+                bp0Var.a = 2;
+                this.e = new zk0(mk0.d(vo0Var, yo0Var.d, ""), fl0Var);
+                if (fl0Var instanceof NadCriusMiniVideoDownloadView) {
+                    NadCriusMiniVideoDownloadView nadCriusMiniVideoDownloadView = (NadCriusMiniVideoDownloadView) fl0Var;
+                    int a2 = u21.c.a(getContext(), 12.0f);
+                    nadCriusMiniVideoDownloadView.setImageViewLayout(new FrameLayout.LayoutParams(a2, a2));
+                    nadCriusMiniVideoDownloadView.setVisibility(0);
+                    nadCriusMiniVideoDownloadView.setOnClickListener(new b(this));
+                }
             }
         }
     }
@@ -475,5 +302,176 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             }
         }
         this.d.setIgnoreImageNightMode(true);
+    }
+
+    @Override // com.baidu.tieba.e81
+    public void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048591, this, viewGroup, layoutParams) != null) || viewGroup == null) {
+            return;
+        }
+        View view2 = (View) getParent();
+        if (view2 instanceof ViewGroup) {
+            ((ViewGroup) view2).removeView(this);
+        }
+        if (layoutParams != null) {
+            viewGroup.addView(this, layoutParams);
+        } else {
+            viewGroup.addView(this);
+        }
+        setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.e81
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || getVisibility() == 0) {
+            return;
+        }
+        if (z) {
+            q();
+            return;
+        }
+        setVisibility(0);
+        c81 c81Var = this.h;
+        if (c81Var != null) {
+            c81Var.c();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0915c5) {
+            b("1", true);
+        }
+    }
+
+    @Override // com.baidu.tieba.e81
+    public void setCriusPopListener(c81 c81Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, c81Var) == null) {
+            this.h = c81Var;
+        }
+    }
+
+    public void update(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && (getTag() instanceof bp0) && (i2 = ((bp0) getTag()).b) >= 0 && !this.i && i >= i2) {
+            q();
+        }
+    }
+
+    @Override // com.baidu.tieba.e81
+    public void b(String str, boolean z) {
+        yo0 yo0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+            this.i = false;
+            this.f = null;
+            if (z && this.g != null) {
+                return;
+            }
+            c81 c81Var = this.h;
+            if (c81Var != null) {
+                c81Var.a(z, 480L);
+            }
+            if (z) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ab);
+                this.g = loadAnimation;
+                loadAnimation.setDuration(480L);
+                this.g.setAnimationListener(new a(this));
+                startAnimation(this.g);
+            } else {
+                setVisibility(8);
+            }
+            if (!(getTag() instanceof bp0) || (yo0Var = ((bp0) getTag()).e) == null) {
+                return;
+            }
+            yo0Var.a();
+            yo0Var.c = ClogBuilder.LogType.NAVIDEO_POP_CLOSE.type;
+            yo0Var.g = str;
+            p(yo0Var);
+        }
+    }
+
+    public final void o(String str, Map map) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, map) == null) {
+            if (map != null && !TextUtils.isEmpty((CharSequence) map.get(NativeConstants.URL_STAT))) {
+                String str3 = (String) map.get(NativeConstants.URL_STAT);
+            }
+            if (map != null && !TextUtils.isEmpty((CharSequence) map.get(NativeConstants.ALS_STAT))) {
+                str2 = (String) map.get(NativeConstants.ALS_STAT);
+            } else {
+                str2 = ClogBuilder.Area.HOTAREA.type;
+            }
+            if (this.h != null) {
+                jp0 jp0Var = new jp0();
+                jp0Var.a = str;
+                jp0Var.b = str2;
+                jp0Var.c = true;
+                if (map != null) {
+                    TextUtils.equals("1", (CharSequence) map.get(NativeConstants.CHARGE_TYPE));
+                }
+                this.h.b(jp0Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
+    public void e(CriusData criusData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, criusData) == null) {
+            View viewByComponent = this.d.getViewByComponent(NativeConstants.COMPONENT_CLOSEAD);
+            if (viewByComponent instanceof ImageView) {
+                ImageView imageView = (ImageView) viewByComponent;
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080e04);
+                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                imageView.setOnClickListener(this);
+            }
+            View viewByComponent2 = this.d.getViewByComponent("download");
+            if (viewByComponent2 instanceof ApkDownloadView) {
+                vj0 realDownloadView = ((ApkDownloadView) viewByComponent2).getRealDownloadView();
+                if ((realDownloadView instanceof fl0) && (getTag() instanceof bp0)) {
+                    n((bp0) getTag(), (fl0) realDownloadView);
+                    return;
+                } else {
+                    this.e = null;
+                    return;
+                }
+            }
+            this.e = null;
+        }
+    }
+
+    @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
+    public void f(View view2, String str, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, view2, str, map) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0915c5) {
+                b("1", true);
+            } else {
+                o(str, map);
+            }
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.f == null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100aa);
+            this.f = loadAnimation;
+            loadAnimation.setDuration(480L);
+            setVisibility(0);
+            startAnimation(this.f);
+            c81 c81Var = this.h;
+            if (c81Var != null) {
+                c81Var.c();
+            }
+            this.i = true;
+        }
     }
 }

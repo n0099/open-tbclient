@@ -1,89 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.Userlike.ConcernData;
 /* loaded from: classes3.dex */
-public class dy6 extends gx<st4> {
+public class dy6 extends ut4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcernRecommendLayout f;
-    public int g;
+    public boolean f;
+    public List g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dy6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    @Override // com.baidu.tieba.ut4, com.baidu.tieba.ar4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947720936, "Lcom/baidu/tieba/dy6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947720936, "Lcom/baidu/tieba/dy6;");
                 return;
             }
         }
-        this.g = 3;
-        ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
-        this.f = concernRecommendLayout;
-        concernRecommendLayout.setPageContext(tbPageContext);
-        this.f.setPageUniqueId(bdUniqueId);
+        h = 6;
     }
 
-    @Override // com.baidu.tieba.gx
-    public View h() {
+    public dy6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = new ArrayList();
+    }
+
+    @Override // com.baidu.tieba.ut4
+    public List c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.ut4, com.baidu.tieba.ar4
+    public xs4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.onChangeSkinType(tbPageContext, i);
-                n(this.f, 3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new xs4();
+        }
+        return (xs4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ut4, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ut4.e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean j(ConcernData concernData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
+            if (concernData == null) {
+                return false;
             }
-            this.g = i;
+            return concernData.recom_type.equals(h);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: p */
-    public void a(st4 st4Var) {
+    @Override // com.baidu.tieba.ut4
+    public void f(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, st4Var) == null) {
-            this.f.setData(st4Var);
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f.setHasBorder(z);
-        }
-    }
-
-    public void r(qp4<MetaData> qp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qp4Var) == null) {
-            this.f.setOnItemCoverListener(qp4Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
+            int min = Math.min(list.size(), 10);
+            for (int i = 0; i < min; i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserProtobuf((User) list.get(i));
+                this.g.add(metaData);
+            }
         }
     }
 }

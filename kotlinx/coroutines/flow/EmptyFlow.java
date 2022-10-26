@@ -9,7 +9,7 @@ public final class EmptyFlow implements Flow {
     public static final EmptyFlow INSTANCE = new EmptyFlow();
 
     @Override // kotlinx.coroutines.flow.Flow
-    public Object collect(FlowCollector<?> flowCollector, Continuation<? super Unit> continuation) {
+    public Object collect(FlowCollector flowCollector, Continuation continuation) {
         return Unit.INSTANCE;
     }
 }

@@ -1,35 +1,27 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes5.dex */
 public interface mn2 {
-    boolean a(Context context, bq2 bq2Var, up2 up2Var, l33 l33Var);
 
-    boolean b(Context context, wp2 wp2Var, up2 up2Var, l33 l33Var);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(l63 l63Var);
 
-    boolean c(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var);
+        void onFailed(int i);
+    }
 
-    void d(rp1 rp1Var);
+    void a();
 
-    boolean e(Context context, vp2 vp2Var, up2 up2Var, l33 l33Var);
+    void b(String str, boolean z, boolean z2, a aVar);
 
-    void f(rp1 rp1Var);
+    void c();
 
-    boolean g(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var);
+    void d();
 
-    boolean h(Context context, zp2 zp2Var, up2 up2Var, l33 l33Var);
+    void e();
 
-    void i(rp1 rp1Var);
+    void f(a aVar);
 
-    boolean j(Context context, aq2 aq2Var, up2 up2Var, l33 l33Var);
+    double[] g(l63 l63Var, String str);
 
-    boolean k(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var);
-
-    boolean l(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var);
-
-    boolean m(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var);
-
-    boolean n(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var);
-
-    boolean update(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var);
+    l63 h();
 }

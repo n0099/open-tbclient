@@ -37,6 +37,18 @@ public @interface InspectableProperty {
         int target();
     }
 
+    int attributeId() default 0;
+
+    EnumEntry[] enumMapping() default {};
+
+    FlagEntry[] flagMapping() default {};
+
+    boolean hasAttributeId() default true;
+
+    String name() default "";
+
+    ValueType valueType() default ValueType.INFERRED;
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
     public static final class ValueType {
@@ -97,25 +109,19 @@ public @interface InspectableProperty {
         public static ValueType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ValueType) Enum.valueOf(ValueType.class, str) : (ValueType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ValueType) Enum.valueOf(ValueType.class, str);
+            }
+            return (ValueType) invokeL.objValue;
         }
 
         public static ValueType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ValueType[]) $VALUES.clone() : (ValueType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ValueType[]) $VALUES.clone();
+            }
+            return (ValueType[]) invokeV.objValue;
         }
     }
-
-    int attributeId() default 0;
-
-    EnumEntry[] enumMapping() default {};
-
-    FlagEntry[] flagMapping() default {};
-
-    boolean hasAttributeId() default true;
-
-    String name() default "";
-
-    ValueType valueType() default ValueType.INFERRED;
 }

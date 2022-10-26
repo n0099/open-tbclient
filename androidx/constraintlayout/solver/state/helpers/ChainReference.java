@@ -45,22 +45,28 @@ public class ChainReference extends HelperReference {
         }
     }
 
-    public float getBias() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBias : invokeV.floatValue;
-    }
-
-    public State.Chain getStyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? State.Chain.SPREAD : (State.Chain) invokeV.objValue;
-    }
-
     public void style(State.Chain chain) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, chain) == null) {
             this.mStyle = chain;
         }
+    }
+
+    public float getBias() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBias;
+        }
+        return invokeV.floatValue;
+    }
+
+    public State.Chain getStyle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return State.Chain.SPREAD;
+        }
+        return (State.Chain) invokeV.objValue;
     }
 }

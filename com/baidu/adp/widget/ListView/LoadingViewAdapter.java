@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.f95;
-import com.baidu.tieba.ko;
-import com.baidu.tieba.qn;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.j95;
+import com.baidu.tieba.lo;
+import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,18 +22,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
+public class LoadingViewAdapter extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<Pair<RelativeLayout, f95>> a;
+    public final LinkedList a;
     public int b;
     public int c;
 
     /* loaded from: classes.dex */
-    public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
+    public class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public f95 a;
+        public j95 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TabLoadingViewHolder(View view2) {
@@ -57,8 +57,8 @@ public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), ko.a);
+    public LoadingViewAdapter(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), lo.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,26 +75,28 @@ public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.a = new LinkedList();
         this.b = s(R.dimen.tbds304);
         this.c = s(R.dimen.tbds198);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ko koVar, TabLoadingViewHolder tabLoadingViewHolder) {
-        u(i, view2, viewGroup, koVar, tabLoadingViewHolder);
-        return view2;
     }
 
     public final int s(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? ej.f(TbadkCoreApplication.getInst(), i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return fj.f(TbadkCoreApplication.getInst(), i);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.rn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        u(i, view2, viewGroup, (lo) obj, (TabLoadingViewHolder) viewHolder);
+        return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: t */
     public TabLoadingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -106,31 +108,31 @@ public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
             generateLayoutParamsByParent.height = -1;
             relativeLayout.setLayoutParams(generateLayoutParamsByParent);
             relativeLayout.setGravity(1);
-            f95 f95Var = new f95(this.mContext, 0);
-            f95Var.attachView(relativeLayout);
-            f95Var.s(this.b);
-            f95Var.p(this.c);
-            View view2 = f95Var.getView();
+            j95 j95Var = new j95(this.mContext, 0);
+            j95Var.attachView(relativeLayout);
+            j95Var.s(this.b);
+            j95Var.p(this.c);
+            View view2 = j95Var.getView();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -2;
             layoutParams.addRule(14);
             view2.setLayoutParams(layoutParams);
-            this.a.add(new Pair<>(relativeLayout, f95Var));
+            this.a.add(new Pair(relativeLayout, j95Var));
             TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-            tabLoadingViewHolder.a = f95Var;
+            tabLoadingViewHolder.a = j95Var;
             return tabLoadingViewHolder;
         }
         return (TabLoadingViewHolder) invokeL.objValue;
     }
 
-    public View u(int i, View view2, ViewGroup viewGroup, ko koVar, TabLoadingViewHolder tabLoadingViewHolder) {
+    public View u(int i, View view2, ViewGroup viewGroup, lo loVar, TabLoadingViewHolder tabLoadingViewHolder) {
         InterceptResult invokeCommon;
-        f95 f95Var;
+        j95 j95Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, koVar, tabLoadingViewHolder})) == null) {
-            if (tabLoadingViewHolder != null && (f95Var = tabLoadingViewHolder.a) != null) {
-                f95Var.m(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, loVar, tabLoadingViewHolder})) == null) {
+            if (tabLoadingViewHolder != null && (j95Var = tabLoadingViewHolder.a) != null) {
+                j95Var.m(TbadkCoreApplication.getInst().getSkinType());
             }
             return view2;
         }

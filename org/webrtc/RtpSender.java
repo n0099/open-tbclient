@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RtpSender {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,8 +19,22 @@ public class RtpSender {
     public long nativeRtpSender;
     public boolean ownsTrack;
 
-    @CalledByNative
+    public static native long nativeGetDtmfSender(long j);
+
+    public static native String nativeGetId(long j);
+
+    public static native RtpParameters nativeGetParameters(long j);
+
+    public static native long nativeGetTrack(long j);
+
+    public static native void nativeSetFrameEncryptor(long j, long j2);
+
+    public static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
+
+    public static native boolean nativeSetTrack(long j, long j2);
+
     public RtpSender(long j) {
+        DtmfSender dtmfSender;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,29 +53,21 @@ public class RtpSender {
         this.nativeRtpSender = j;
         this.cachedTrack = MediaStreamTrack.createMediaStreamTrack(nativeGetTrack(j));
         long nativeGetDtmfSender = nativeGetDtmfSender(j);
-        this.dtmfSender = nativeGetDtmfSender != 0 ? new DtmfSender(nativeGetDtmfSender) : null;
+        if (nativeGetDtmfSender != 0) {
+            dtmfSender = new DtmfSender(nativeGetDtmfSender);
+        } else {
+            dtmfSender = null;
+        }
+        this.dtmfSender = dtmfSender;
     }
 
     private void checkRtpSenderExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeRtpSender == 0) {
-            throw new IllegalStateException("RtpSender has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeRtpSender != 0) {
+            return;
         }
+        throw new IllegalStateException("RtpSender has been disposed.");
     }
-
-    public static native long nativeGetDtmfSender(long j);
-
-    public static native String nativeGetId(long j);
-
-    public static native RtpParameters nativeGetParameters(long j);
-
-    public static native long nativeGetTrack(long j);
-
-    public static native void nativeSetFrameEncryptor(long j, long j2);
-
-    public static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
-
-    public static native boolean nativeSetTrack(long j, long j2);
 
     public void dispose() {
         Interceptable interceptable = $ic;
@@ -84,7 +90,10 @@ public class RtpSender {
     public DtmfSender dtmf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dtmfSender : (DtmfSender) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dtmfSender;
+        }
+        return (DtmfSender) invokeV.objValue;
     }
 
     public long getNativeRtpSender() {
@@ -117,6 +126,16 @@ public class RtpSender {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
+    public MediaStreamTrack track() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.cachedTrack;
+        }
+        return (MediaStreamTrack) invokeV.objValue;
+    }
+
     public void setFrameEncryptor(FrameEncryptor frameEncryptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, frameEncryptor) == null) {
@@ -137,27 +156,27 @@ public class RtpSender {
 
     public boolean setTrack(@Nullable MediaStreamTrack mediaStreamTrack, boolean z) {
         InterceptResult invokeLZ;
+        long nativeMediaStreamTrack;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, mediaStreamTrack, z)) == null) {
             checkRtpSenderExists();
-            if (nativeSetTrack(this.nativeRtpSender, mediaStreamTrack == null ? 0L : mediaStreamTrack.getNativeMediaStreamTrack())) {
-                MediaStreamTrack mediaStreamTrack2 = this.cachedTrack;
-                if (mediaStreamTrack2 != null && this.ownsTrack) {
-                    mediaStreamTrack2.dispose();
-                }
-                this.cachedTrack = mediaStreamTrack;
-                this.ownsTrack = z;
-                return true;
+            long j = this.nativeRtpSender;
+            if (mediaStreamTrack == null) {
+                nativeMediaStreamTrack = 0;
+            } else {
+                nativeMediaStreamTrack = mediaStreamTrack.getNativeMediaStreamTrack();
             }
-            return false;
+            if (!nativeSetTrack(j, nativeMediaStreamTrack)) {
+                return false;
+            }
+            MediaStreamTrack mediaStreamTrack2 = this.cachedTrack;
+            if (mediaStreamTrack2 != null && this.ownsTrack) {
+                mediaStreamTrack2.dispose();
+            }
+            this.cachedTrack = mediaStreamTrack;
+            this.ownsTrack = z;
+            return true;
         }
         return invokeLZ.booleanValue;
-    }
-
-    @Nullable
-    public MediaStreamTrack track() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.cachedTrack : (MediaStreamTrack) invokeV.objValue;
     }
 }

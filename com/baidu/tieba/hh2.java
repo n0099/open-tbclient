@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih2;
+import com.baidu.tieba.jh2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +11,62 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class hh2<W extends ih2> {
+public abstract class hh2 implements ZeusPlugin {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, fh2<W>> a;
+    public ih2 a;
+    public ZeusPlugin.Callback b;
+    public jh2 c;
+    public boolean d;
+    public final List e;
+    public jh2.a f;
+
+    /* loaded from: classes4.dex */
+    public class a implements jh2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hh2 a;
+
+        public a(hh2 hh2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hh2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hh2Var;
+        }
+
+        @Override // com.baidu.tieba.jh2.a
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                synchronized (this.a) {
+                    if (hh2.g) {
+                        Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
+                    }
+                    this.a.d();
+                    this.a.d = true;
+                    if (hh2.g) {
+                        Log.i("BaseInlineController", "指令flush完成=========================");
+                    }
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,13 +81,15 @@ public final class hh2<W extends ih2> {
                 return;
             }
         }
-        b = vj1.a;
+        g = wj1.a;
     }
 
-    public hh2() {
+    public hh2(jh2 jh2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jh2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,65 +99,69 @@ public final class hh2<W extends ih2> {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.d = false;
+        this.e = new ArrayList();
+        this.f = new a(this);
+        this.a = new ih2();
+        this.c = jh2Var;
+        if (g) {
+            Log.i("BaseInlineController", "开始初始化组件");
+        }
+        this.c.A(this.f);
     }
 
-    public void a(fh2<W> fh2Var) {
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void setCallback(ZeusPlugin.Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fh2Var) == null) {
-            if (b) {
-                Log.v("CommandDispatcher", fh2Var.b() + " command added to supported command list");
-            }
-            this.a.put(fh2Var.b(), fh2Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
+            this.b = callback;
         }
     }
 
-    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
-            if (command == null || TextUtils.isEmpty(command.what)) {
-                if (b) {
-                    Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
-                }
-            } else if (w == null) {
-                if (b) {
-                    Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
-                }
-            } else {
-                fh2<W> fh2Var = this.a.get(command.what);
-                if (fh2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " command dispatched");
-                }
-                fh2Var.a(command, w);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e.size() == 0) {
+            return;
+        }
+        Iterator it = this.e.iterator();
+        while (it.hasNext()) {
+            ZeusPlugin.Command command = (ZeusPlugin.Command) it.next();
+            if (g) {
+                Log.i("BaseInlineController", "flush-尝试分发Command: + " + command.what);
             }
+            this.a.b(command, this.c);
+            it.remove();
         }
     }
 
-    public void c(@Nullable ZeusPlugin.Command command) {
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void sendCommand(ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                fh2<W> fh2Var = this.a.get(command.what);
-                if (fh2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
+            synchronized (this) {
+                if (command == null) {
                     return;
                 }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
+                if (this.d) {
+                    if (g) {
+                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
+                    }
+                    this.a.b(command, this.c);
+                } else {
+                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
+                    command2.what = command.what;
+                    command2.arg1 = command.arg1;
+                    command2.arg2 = command.arg2;
+                    command2.arg3 = command.arg3;
+                    command2.arg4 = command.arg4;
+                    command2.arg5 = command.arg5;
+                    command2.obj = command.obj;
+                    this.e.add(command2);
+                    if (g) {
+                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
+                    }
+                    this.a.c(command);
                 }
-                fh2Var.c(command);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
             }
         }
     }

@@ -20,7 +20,7 @@ public final class g {
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) || inputStream == null) {
+        if ((interceptable != null && interceptable.invokeLL(65536, null, inputStream, outputStream) != null) || inputStream == null) {
             return;
         }
         ReadableByteChannel newChannel = Channels.newChannel(inputStream);
@@ -28,6 +28,20 @@ public final class g {
         a(newChannel, newChannel2);
         newChannel.close();
         newChannel2.close();
+    }
+
+    public static void a(ReadableByteChannel readableByteChannel, WritableByteChannel writableByteChannel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, readableByteChannel, writableByteChannel) == null) {
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(4096);
+            while (readableByteChannel.read(allocateDirect) != -1) {
+                allocateDirect.flip();
+                while (allocateDirect.hasRemaining()) {
+                    writableByteChannel.write(allocateDirect);
+                }
+                allocateDirect.clear();
+            }
+        }
     }
 
     public static boolean a(String str, File file) {
@@ -46,19 +60,5 @@ public final class g {
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public static void a(ReadableByteChannel readableByteChannel, WritableByteChannel writableByteChannel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, readableByteChannel, writableByteChannel) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(4096);
-            while (readableByteChannel.read(allocateDirect) != -1) {
-                allocateDirect.flip();
-                while (allocateDirect.hasRemaining()) {
-                    writableByteChannel.write(allocateDirect);
-                }
-                allocateDirect.clear();
-            }
-        }
     }
 }

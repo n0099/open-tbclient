@@ -64,19 +64,28 @@ public final class BodyStyle {
     public static BodyStyle valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BodyStyle) Enum.valueOf(BodyStyle.class, str) : (BodyStyle) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BodyStyle) Enum.valueOf(BodyStyle.class, str);
+        }
+        return (BodyStyle) invokeL.objValue;
     }
 
     public static BodyStyle[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BodyStyle[]) $VALUES.clone() : (BodyStyle[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BodyStyle[]) $VALUES.clone();
+        }
+        return (BodyStyle[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

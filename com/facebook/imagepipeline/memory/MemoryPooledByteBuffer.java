@@ -8,24 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
 public class MemoryPooledByteBuffer implements PooledByteBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
-    @GuardedBy("this")
-    public CloseableReference<MemoryChunk> mBufRef;
+    public CloseableReference mBufRef;
     public final int mSize;
 
-    public MemoryPooledByteBuffer(CloseableReference<MemoryChunk> closeableReference, int i) {
+    public MemoryPooledByteBuffer(CloseableReference closeableReference, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,8 +36,13 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
             }
         }
         Preconditions.checkNotNull(closeableReference);
-        Preconditions.checkArgument(i >= 0 && i <= closeableReference.get().getSize());
-        this.mBufRef = closeableReference.m77clone();
+        if (i >= 0 && i <= ((MemoryChunk) closeableReference.get()).getSize()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z);
+        this.mBufRef = closeableReference.m76clone();
         this.mSize = i;
     }
 
@@ -76,19 +76,20 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                byteBuffer = this.mBufRef.get().getByteBuffer();
+                byteBuffer = ((MemoryChunk) this.mBufRef.get()).getByteBuffer();
             }
             return byteBuffer;
         }
         return (ByteBuffer) invokeV.objValue;
     }
 
-    @VisibleForTesting
-    @GuardedBy("this")
-    public CloseableReference<MemoryChunk> getCloseableReference() {
+    public CloseableReference getCloseableReference() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBufRef : (CloseableReference) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mBufRef;
+        }
+        return (CloseableReference) invokeV.objValue;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
@@ -99,7 +100,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 ensureValid();
-                nativePtr = this.mBufRef.get().getNativePtr();
+                nativePtr = ((MemoryChunk) this.mBufRef.get()).getNativePtr();
             }
             return nativePtr;
         }
@@ -121,27 +122,6 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized byte read(int i) {
-        InterceptResult invokeI;
-        byte read;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            synchronized (this) {
-                ensureValid();
-                boolean z = true;
-                Preconditions.checkArgument(i >= 0);
-                if (i >= this.mSize) {
-                    z = false;
-                }
-                Preconditions.checkArgument(z);
-                read = this.mBufRef.get().read(i);
-            }
-            return read;
-        }
-        return invokeI.byteValue;
-    }
-
-    @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
         InterceptResult invokeV;
         int i;
@@ -157,15 +137,48 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
+    public synchronized byte read(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        byte read;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            synchronized (this) {
+                ensureValid();
+                boolean z2 = true;
+                if (i >= 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z);
+                if (i >= this.mSize) {
+                    z2 = false;
+                }
+                Preconditions.checkArgument(z2);
+                read = ((MemoryChunk) this.mBufRef.get()).read(i);
+            }
+            return read;
+        }
+        return invokeI.byteValue;
+    }
+
+    @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int read(int i, byte[] bArr, int i2, int i3) {
         InterceptResult invokeCommon;
+        boolean z;
         int read;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             synchronized (this) {
                 ensureValid();
-                Preconditions.checkArgument(i + i3 <= this.mSize);
-                read = this.mBufRef.get().read(i, bArr, i2, i3);
+                if (i + i3 <= this.mSize) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z);
+                read = ((MemoryChunk) this.mBufRef.get()).read(i, bArr, i2, i3);
             }
             return read;
         }

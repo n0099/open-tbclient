@@ -7,13 +7,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class LogContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONArray content;
-    public List<JSONObject> copyWaitingJsonList;
+    public List copyWaitingJsonList;
     public AtomicInteger retryCount;
 
     public LogContent() {

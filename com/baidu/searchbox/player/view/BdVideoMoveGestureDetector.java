@@ -39,25 +39,20 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
         void onMoveEnd(BdVideoMoveGestureDetector bdVideoMoveGestureDetector);
     }
 
+    public int minPointerCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\b\u0016\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0007\u0010\u0006¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector$SimpleOnMoveGestureListener;", "com/baidu/searchbox/player/view/BdVideoMoveGestureDetector$OnMoveGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector;", "detector", "", "onMoveBegin", "(Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector;)V", "onMoveEnd", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static class SimpleOnMoveGestureListener implements OnMoveGestureListener {
+    public class SimpleOnMoveGestureListener implements OnMoveGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public SimpleOnMoveGestureListener() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.baidu.searchbox.player.view.BdVideoMoveGestureDetector.OnMoveGestureListener
         public void onMoveBegin(BdVideoMoveGestureDetector detector) {
@@ -72,6 +67,20 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, detector) == null) {
                 Intrinsics.checkNotNullParameter(detector, "detector");
+            }
+        }
+
+        public SimpleOnMoveGestureListener() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
@@ -96,6 +105,10 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
         this.listener = onMoveGestureListener;
     }
 
+    public /* synthetic */ BdVideoMoveGestureDetector(View view2, OnMoveGestureListener onMoveGestureListener, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(view2, (i & 2) != 0 ? null : onMoveGestureListener);
+    }
+
     private final void cancelMove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -112,28 +125,28 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
     public final OnMoveGestureListener getListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.listener : (OnMoveGestureListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.listener;
+        }
+        return (OnMoveGestureListener) invokeV.objValue;
     }
 
     public final View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1039view : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f1039view;
+        }
+        return (View) invokeV.objValue;
     }
 
     public final boolean isMoveDetected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isMoveDetected : invokeV.booleanValue;
-    }
-
-    public int minPointerCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isMoveDetected;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:25:0x006a, code lost:
@@ -145,12 +158,19 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
     */
     public boolean onTouchEvent(MotionEvent event) {
         InterceptResult invokeL;
+        int minPointerCount;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "BdVideoMoveGestureDetector->event: " + event + ".action");
             int pointerCount = event.getPointerCount();
-            if (pointerCount < (minPointerCount() < 2 ? 2 : minPointerCount())) {
+            if (minPointerCount() < 2) {
+                minPointerCount = 2;
+            } else {
+                minPointerCount = minPointerCount();
+            }
+            if (pointerCount < minPointerCount) {
                 this.lastPointerCount = 0;
                 return false;
             }
@@ -170,12 +190,19 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
             this.lastPointerCount = pointerCount;
             int actionMasked = event.getActionMasked();
             if (actionMasked != 0 && actionMasked != 1) {
-                if (actionMasked == 2) {
+                if (actionMasked != 2) {
+                    if (actionMasked != 3) {
+                    }
+                } else {
                     float f6 = f4 - this.lastX;
                     float f7 = f5 - this.lastY;
                     BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "BdVideoMoveGestureDetector->dx=" + f6 + ", y=" + f7);
                     if (!this.isMoveDetected) {
-                        boolean z = Math.abs(event.getX(1) - event.getX(0)) > ((float) BdGestureHelper.touchSlop(this.f1039view)) || Math.abs(event.getY(1) - event.getY(0)) > ((float) BdGestureHelper.touchSlop(this.f1039view));
+                        if (Math.abs(event.getX(1) - event.getX(0)) <= BdGestureHelper.touchSlop(this.f1039view) && Math.abs(event.getY(1) - event.getY(0)) <= BdGestureHelper.touchSlop(this.f1039view)) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
                         this.isMoveDetected = z;
                         if (z) {
                             return false;
@@ -193,7 +220,6 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
                         this.lastX = f4;
                         this.lastY = f5;
                     }
-                } else if (actionMasked != 3) {
                 }
                 return true;
             }
@@ -230,9 +256,5 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
                 view5.setTranslationY(view5.getTranslationY() + scaleMovePointF$default.y);
             }
         }
-    }
-
-    public /* synthetic */ BdVideoMoveGestureDetector(View view2, OnMoveGestureListener onMoveGestureListener, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(view2, (i & 2) != 0 ? null : onMoveGestureListener);
     }
 }

@@ -27,6 +27,29 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
         }
     }
 
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        PipedInputStreamAndroid25 pipedInputStreamAndroid25;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pipedInputStreamAndroid25 = this.a) != null) {
+            pipedInputStreamAndroid25.j();
+        }
+    }
+
+    @Override // java.io.OutputStream, java.io.Flushable
+    public synchronized void flush() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    synchronized (this.a) {
+                        this.a.notifyAll();
+                    }
+                }
+            }
+        }
+    }
+
     public synchronized void a(PipedInputStreamAndroid25 pipedInputStreamAndroid25) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pipedInputStreamAndroid25) == null) {
@@ -51,30 +74,6 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
         }
     }
 
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        PipedInputStreamAndroid25 pipedInputStreamAndroid25;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pipedInputStreamAndroid25 = this.a) == null) {
-            return;
-        }
-        pipedInputStreamAndroid25.j();
-    }
-
-    @Override // java.io.OutputStream, java.io.Flushable
-    public synchronized void flush() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    synchronized (this.a) {
-                        this.a.notifyAll();
-                    }
-                }
-            }
-        }
-    }
-
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
@@ -94,20 +93,20 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.a;
-            if (pipedInputStreamAndroid25 == null) {
-                throw new IOException("Pipe not connected");
-            }
-            if (bArr != null) {
-                if (i < 0 || i > bArr.length || i2 < 0 || (i3 = i + i2) > bArr.length || i3 < 0) {
+            if (pipedInputStreamAndroid25 != null) {
+                if (bArr != null) {
+                    if (i >= 0 && i <= bArr.length && i2 >= 0 && (i3 = i + i2) <= bArr.length && i3 >= 0) {
+                        if (i2 == 0) {
+                            return;
+                        }
+                        pipedInputStreamAndroid25.g(bArr, i, i2);
+                        return;
+                    }
                     throw new IndexOutOfBoundsException();
                 }
-                if (i2 == 0) {
-                    return;
-                }
-                pipedInputStreamAndroid25.g(bArr, i, i2);
-                return;
+                throw null;
             }
-            throw null;
+            throw new IOException("Pipe not connected");
         }
     }
 }

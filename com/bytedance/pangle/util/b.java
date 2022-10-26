@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -51,7 +50,7 @@ public final class b {
         return invokeV.booleanValue;
     }
 
-    public static boolean a(@NonNull Context context) {
+    public static boolean a(Context context) {
         InterceptResult invokeL;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         ComponentName componentName;

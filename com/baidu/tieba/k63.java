@@ -1,118 +1,165 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.qs1;
+import com.baidu.tieba.rs1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class k63 {
+public final class k63 extends j53 implements rs1.c {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean q;
-    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final double b;
-    public final double c;
-    public final float d;
-    public final double e;
-    public final double f;
-    public final double g;
-    public final double h;
-    public final String i;
-    public final String j;
-    public final String k;
-    public final String l;
-    public final String m;
-    public final String n;
-    public final String o;
-    public final String p;
+    public CallbackHandler c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864993, "Lcom/baidu/tieba/k63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements fi3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ qs1.c b;
+        public final /* synthetic */ m33 c;
+        public final /* synthetic */ k63 d;
+
+        public a(k63 k63Var, CallbackHandler callbackHandler, qs1.c cVar, m33 m33Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k63Var, callbackHandler, cVar, m33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947864993, "Lcom/baidu/tieba/k63;");
-                return;
+            this.d = k63Var;
+            this.a = callbackHandler;
+            this.b = cVar;
+            this.c = m33Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fi3
+        /* renamed from: b */
+        public void a(p83 p83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var) == null) {
+                this.d.k(p83Var, this.a, this.b, this.c.n0());
             }
         }
-        q = vj1.a;
-        r = "LocationResult";
     }
 
-    public k63(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k63(j43 j43Var) {
+        super(j43Var, "/swanAPI/getLocation");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {j43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = d;
-        this.c = d2;
-        this.d = f;
-        this.e = d3;
-        this.f = d4;
-        this.g = 0.0d;
-        this.h = d3;
-        this.i = str2;
-        this.j = str3;
-        this.k = str4;
-        this.l = str5;
-        this.m = str6;
-        this.n = str7;
-        this.o = str8;
-        this.p = str9;
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rs1.c
+    public void b(qs1.c cVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("longitude", this.b);
-                jSONObject.put("latitude", this.c);
-                jSONObject.put("speed", this.d);
-                jSONObject.put("accuracy", this.e);
-                jSONObject.put("altitude", this.f);
-                jSONObject.put("verticalAccuracy", this.g);
-                jSONObject.put("horizontalAccuracy", this.h);
-                jSONObject.put("country", this.i);
-                jSONObject.put("countryCode", this.j);
-                jSONObject.put("city", this.k);
-                jSONObject.put("cityCode", this.l);
-                jSONObject.put("province", this.m);
-                jSONObject.put("district", this.n);
-                jSONObject.put("street", this.o);
-                jSONObject.put("streetNumber", this.p);
-                jSONObject.put("isFullAccuracy", true);
-            } catch (JSONException e) {
-                if (q) {
-                    String str = r;
-                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject;
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, cVar, i) != null) || this.c == null) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
+        m02.c("GetLocationAction", "request location error code : " + i);
+        this.c.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+    }
+
+    @Override // com.baidu.tieba.rs1.c
+    public void g(qs1.c cVar, l63 l63Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, l63Var) == null) {
+            if (j53.b) {
+                Log.d("GetLocationAction", "convert info : " + l63Var.a());
+            }
+            CallbackHandler callbackHandler = this.c;
+            if (callbackHandler == null) {
+                return;
+            }
+            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(l63Var.a(), 0).toString());
+        }
+    }
+
+    @Override // com.baidu.tieba.j53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
+            if (j53.b) {
+                Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            this.c = callbackHandler;
+            if (m33Var == null) {
+                m02.c("location", "swan app is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            qs1.c b = qs1.c.b(unitedSchemeEntity.getParam("params"));
+            if (b != null && b.a()) {
+                if (TextUtils.isEmpty(b.c)) {
+                    m02.c("location", "empty cb");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                    return false;
+                }
+                m33Var.e0().g(context, "mapp_location", new a(this, callbackHandler, b, m33Var));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+            m02.c("location", "params is invalid");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rs1.c
+    public void f(qs1.c cVar, String str) {
+        CallbackHandler callbackHandler;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) != null) || (callbackHandler = this.c) == null) {
+            return;
+        }
+        callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
+    }
+
+    public final void k(p83 p83Var, CallbackHandler callbackHandler, qs1.c cVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{p83Var, callbackHandler, cVar, Boolean.valueOf(z)}) == null) {
+            m02.i("GetLocationAction", "authorized result is " + p83Var);
+            if (k83.h(p83Var)) {
+                rs1.d().e(cVar, this, z);
+                return;
+            }
+            int b = p83Var.b();
+            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(b, k83.f(b)).toString());
+        }
     }
 }

@@ -12,7 +12,7 @@ import java.util.Map;
 public class BundleInfoGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Integer, BundleInfo> bundleInfoMap;
+    public Map bundleInfoMap;
     public long timeStamp;
 
     public BundleInfoGroup(long j) {
@@ -41,24 +41,11 @@ public class BundleInfoGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             synchronized (this) {
-                bundleInfo = this.bundleInfoMap.get(Integer.valueOf(i));
+                bundleInfo = (BundleInfo) this.bundleInfoMap.get(Integer.valueOf(i));
             }
             return bundleInfo;
         }
         return (BundleInfo) invokeI.objValue;
-    }
-
-    public synchronized long getTimeStamp() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                j = this.timeStamp;
-            }
-            return j;
-        }
-        return invokeV.longValue;
     }
 
     public synchronized void removeBundleByType(int i) {
@@ -79,13 +66,26 @@ public class BundleInfoGroup {
         }
     }
 
+    public synchronized long getTimeStamp() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                j = this.timeStamp;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
     public synchronized void swapBundleByType(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             synchronized (this) {
-                BundleInfo remove = this.bundleInfoMap.remove(Integer.valueOf(i));
-                if (remove != null) {
-                    this.bundleInfoMap.put(Integer.valueOf(i2), remove);
+                BundleInfo bundleInfo = (BundleInfo) this.bundleInfoMap.remove(Integer.valueOf(i));
+                if (bundleInfo != null) {
+                    this.bundleInfoMap.put(Integer.valueOf(i2), bundleInfo);
                 }
             }
         }

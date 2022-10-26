@@ -28,6 +28,8 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void assertOpen() throws IllegalStateException;
+
     public AbstractHttpClientConnection() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,8 +45,6 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
         }
         throw new RuntimeException("Stub!");
     }
-
-    public abstract void assertOpen() throws IllegalStateException;
 
     public EntityDeserializer createEntityDeserializer() {
         InterceptResult invokeV;
@@ -73,24 +73,6 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
         return (HttpResponseFactory) invokeV.objValue;
     }
 
-    public HttpMessageWriter createRequestWriter(SessionOutputBuffer sessionOutputBuffer, HttpParams httpParams) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, sessionOutputBuffer, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpMessageWriter) invokeLL.objValue;
-    }
-
-    public HttpMessageParser createResponseParser(SessionInputBuffer sessionInputBuffer, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, sessionInputBuffer, httpResponseFactory, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpMessageParser) invokeLLL.objValue;
-    }
-
     public void doFlush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -116,6 +98,44 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
         return (HttpConnectionMetrics) invokeV.objValue;
     }
 
+    @Override // org.apache.http.HttpConnection
+    public boolean isStale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public HttpResponse receiveResponseHeader() throws HttpException, IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpResponse) invokeV.objValue;
+    }
+
+    public HttpMessageWriter createRequestWriter(SessionOutputBuffer sessionOutputBuffer, HttpParams httpParams) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, sessionOutputBuffer, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpMessageWriter) invokeLL.objValue;
+    }
+
+    public HttpMessageParser createResponseParser(SessionInputBuffer sessionInputBuffer, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, sessionInputBuffer, httpResponseFactory, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpMessageParser) invokeLLL.objValue;
+    }
+
     public void init(SessionInputBuffer sessionInputBuffer, SessionOutputBuffer sessionOutputBuffer, HttpParams httpParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, sessionInputBuffer, sessionOutputBuffer, httpParams) == null) {
@@ -133,32 +153,12 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
         return invokeI.booleanValue;
     }
 
-    @Override // org.apache.http.HttpConnection
-    public boolean isStale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // org.apache.http.HttpClientConnection
     public void receiveResponseEntity(HttpResponse httpResponse) throws HttpException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, httpResponse) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    @Override // org.apache.http.HttpClientConnection
-    public HttpResponse receiveResponseHeader() throws HttpException, IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpResponse) invokeV.objValue;
     }
 
     @Override // org.apache.http.HttpClientConnection

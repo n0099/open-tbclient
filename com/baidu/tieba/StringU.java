@@ -16,6 +16,8 @@ public class StringU {
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native String toUpper(String str);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -30,7 +32,7 @@ public class StringU {
             }
         }
         try {
-            boolean h = bj.d().h("stringu", 2);
+            boolean h = cj.d().h("stringu", 2);
             a = h;
             if (h) {
                 a("stringu_so_load_success", null);
@@ -97,10 +99,11 @@ public class StringU {
                     }
                 }
             }
-            return str2 != null ? "" : str2;
+            if (str2 != null) {
+                return "";
+            }
+            return str2;
         }
         return (String) invokeL.objValue;
     }
-
-    public static native String toUpper(String str);
 }

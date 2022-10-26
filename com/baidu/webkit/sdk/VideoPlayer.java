@@ -137,7 +137,7 @@ public abstract class VideoPlayer {
 
     public abstract void seekTo(int i);
 
-    public abstract void setDataSource(HashMap<Integer, String> hashMap);
+    public abstract void setDataSource(HashMap hashMap);
 
     public void setListener(VideoPlayerListener videoPlayerListener) {
         Interceptable interceptable = $ic;

@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010&\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0012\u0010\u0002\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00050\u0003H\n¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "", "model", "", "", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveItemModelWrapper;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class LiveRoomInfoStatPlugin$registerService$1$getUploadIds$1 extends Lambda implements Function1<Map.Entry<? extends String, ? extends LiveRoomInfoStatPlugin.LiveItemModelWrapper>, Boolean> {
+public final class LiveRoomInfoStatPlugin$registerService$1$getUploadIds$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public static final LiveRoomInfoStatPlugin$registerService$1$getUploadIds$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,17 +54,20 @@ public final class LiveRoomInfoStatPlugin$registerService$1$getUploadIds$1 exten
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Boolean invoke(Map.Entry<? extends String, ? extends LiveRoomInfoStatPlugin.LiveItemModelWrapper> entry) {
-        return Boolean.valueOf(invoke2((Map.Entry<String, LiveRoomInfoStatPlugin.LiveItemModelWrapper>) entry));
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        return Boolean.valueOf(invoke((Map.Entry) obj));
     }
 
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final boolean invoke2(Map.Entry<String, LiveRoomInfoStatPlugin.LiveItemModelWrapper> entry) {
+    public final boolean invoke(Map.Entry entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? entry.getValue().getHasShow() && !entry.getValue().getSlidReported() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) {
+            if (((LiveRoomInfoStatPlugin.LiveItemModelWrapper) entry.getValue()).getHasShow() && !((LiveRoomInfoStatPlugin.LiveItemModelWrapper) entry.getValue()).getSlidReported()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

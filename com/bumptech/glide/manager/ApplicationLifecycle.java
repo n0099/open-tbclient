@@ -1,6 +1,5 @@
 package com.bumptech.glide.manager;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,6 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ApplicationLifecycle implements Lifecycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.bumptech.glide.manager.Lifecycle
+    public void removeListener(LifecycleListener lifecycleListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lifecycleListener) == null) {
+        }
+    }
 
     public ApplicationLifecycle() {
         Interceptable interceptable = $ic;
@@ -26,17 +32,10 @@ public class ApplicationLifecycle implements Lifecycle {
     }
 
     @Override // com.bumptech.glide.manager.Lifecycle
-    public void addListener(@NonNull LifecycleListener lifecycleListener) {
+    public void addListener(LifecycleListener lifecycleListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, lifecycleListener) == null) {
             lifecycleListener.onStart();
-        }
-    }
-
-    @Override // com.bumptech.glide.manager.Lifecycle
-    public void removeListener(@NonNull LifecycleListener lifecycleListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lifecycleListener) == null) {
         }
     }
 }

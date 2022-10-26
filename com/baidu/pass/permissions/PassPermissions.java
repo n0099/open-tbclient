@@ -35,20 +35,14 @@ public class PassPermissions implements com.baidu.pass.a {
         }
     }
 
-    public static boolean checkRequestPermission(String str, Context context) {
-        InterceptResult invokeLL;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) {
-            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
-                if (Build.VERSION.SDK_INT < 23) {
-                    if (context.checkCallingOrSelfPermission(str) == 0) {
-                    }
-                }
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            this.b = null;
+            this.c = null;
+            a = null;
         }
-        return invokeLL.booleanValue;
     }
 
     public static synchronized PassPermissions getInstance() {
@@ -70,13 +64,49 @@ public class PassPermissions implements com.baidu.pass.a {
     public PermissionsCallback getPermissionsCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (PermissionsCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (PermissionsCallback) invokeV.objValue;
     }
 
     public PermissionsDTO getPermissionsDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (PermissionsDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (PermissionsDTO) invokeV.objValue;
+    }
+
+    public static boolean checkRequestPermission(String str, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
+                if (Build.VERSION.SDK_INT < 23) {
+                    if (context.checkCallingOrSelfPermission(str) == 0) {
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean a(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            for (String str : strArr) {
+                if (!checkRequestPermission(str, this.b.context)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public void requestPermissions(PermissionsDTO permissionsDTO, PermissionsCallback permissionsCallback) {
@@ -147,30 +177,6 @@ public class PassPermissions implements com.baidu.pass.a {
                 }
             }
             throw new IllegalArgumentException("params is error");
-        }
-    }
-
-    public boolean a(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            for (String str : strArr) {
-                if (!checkRequestPermission(str, this.b.context)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.b = null;
-            this.c = null;
-            a = null;
         }
     }
 }

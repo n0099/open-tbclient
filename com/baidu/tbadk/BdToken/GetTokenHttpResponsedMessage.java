@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.om4;
+import com.baidu.tieba.pm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetToken.GetTokenResIdl;
 public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public om4 mData;
+    public pm4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenHttpResponsedMessage() {
@@ -36,10 +36,13 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public om4 getData() {
+    public pm4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (om4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mData;
+        }
+        return (pm4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +50,7 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetTokenResIdl getTokenResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getTokenResIdl = (GetTokenResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTokenResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getTokenResIdl = (GetTokenResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTokenResIdl.class)) == null) {
             return;
         }
         Error error = getTokenResIdl.error;
@@ -56,9 +59,9 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
             setErrorString(getTokenResIdl.error.usermsg);
         }
         if (getTokenResIdl.data != null) {
-            om4 om4Var = new om4();
-            this.mData = om4Var;
-            om4Var.d(getTokenResIdl.data);
+            pm4 pm4Var = new pm4();
+            this.mData = pm4Var;
+            pm4Var.d(getTokenResIdl.data);
         }
     }
 }

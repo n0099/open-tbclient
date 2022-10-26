@@ -20,7 +20,7 @@ public class GroupMember implements Parcelable, NoProGuard {
     public static final int ADDSTATUSFAIL = 1;
     public static final int ADDSTATUSORIG = 2;
     public static final int ADDSTATUSSUC = 0;
-    public static final Parcelable.Creator<GroupMember> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int ROLECOMMON = 0;
     public static final int ROLEMANAGER = 2;
     public static final int ROLEMASTER = 1;
@@ -36,6 +36,16 @@ public class GroupMember implements Parcelable, NoProGuard {
     public int role;
     public int valid;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -49,7 +59,7 @@ public class GroupMember implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<GroupMember>() { // from class: com.baidu.android.imsdk.group.GroupMember.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.group.GroupMember.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,23 +78,129 @@ public class GroupMember implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMember createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new GroupMember(parcel) : (GroupMember) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new GroupMember(parcel);
+                }
+                return (GroupMember) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMember[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GroupMember[i] : (GroupMember[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new GroupMember[i];
+                }
+                return (GroupMember[]) invokeI.objValue;
             }
         };
+    }
+
+    public int getAddStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.addStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getBduid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBduid;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getGroupid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.groupid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getJointime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.jointime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getNickName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mNickName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mPortrait;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getRole() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.role;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getShowName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (TextUtils.isEmpty(this.mNickName)) {
+                return this.mName;
+            }
+            return this.mNickName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.valid;
+        }
+        return invokeV.intValue;
     }
 
     public GroupMember(long j, String str, int i) {
@@ -115,80 +231,67 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.role = i;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public GroupMember(Parcel parcel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.mUk = -1L;
+        this.mName = "";
+        this.role = 0;
+        this.jointime = 0L;
+        this.addStatus = 0;
+        this.valid = 0;
+        this.mNickName = "";
+        this.mPortrait = "";
+        this.mUk = parcel.readLong();
+        this.mName = parcel.readString();
+        this.role = parcel.readInt();
+        this.jointime = parcel.readLong();
+        this.mBduid = parcel.readLong();
+        this.groupid = parcel.readString();
+        setPortrait(parcel.readString());
     }
 
-    public int getAddStatus() {
-        InterceptResult invokeV;
+    public GroupMember(String str, long j, String str2, long j2, int i, long j3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addStatus : invokeV.intValue;
-    }
-
-    public long getBduid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBduid : invokeV.longValue;
-    }
-
-    public String getGroupid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.groupid : (String) invokeV.objValue;
-    }
-
-    public long getJointime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.jointime : invokeV.longValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mName : (String) invokeV.objValue;
-    }
-
-    public String getNickName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mNickName : (String) invokeV.objValue;
-    }
-
-    public String getPortrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPortrait : (String) invokeV.objValue;
-    }
-
-    public int getRole() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.role : invokeV.intValue;
-    }
-
-    public String getShowName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? TextUtils.isEmpty(this.mNickName) ? this.mName : this.mNickName : (String) invokeV.objValue;
-    }
-
-    public long getUk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mUk : invokeV.longValue;
-    }
-
-    public int getValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.valid : invokeV.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), str2, Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mUk = -1L;
+        this.mName = "";
+        this.role = 0;
+        this.jointime = 0L;
+        this.addStatus = 0;
+        this.valid = 0;
+        this.mNickName = "";
+        this.mPortrait = "";
+        this.groupid = str;
+        this.mUk = j;
+        this.mName = str2;
+        this.mBduid = j2;
+        this.role = i;
+        this.jointime = j3;
     }
 
     public void setAddStatus(int i) {
@@ -275,68 +378,5 @@ public class GroupMember implements Parcelable, NoProGuard {
             parcel.writeString(this.groupid);
             parcel.writeString(getPortrait());
         }
-    }
-
-    public GroupMember(String str, long j, String str2, long j2, int i, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2, Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mUk = -1L;
-        this.mName = "";
-        this.role = 0;
-        this.jointime = 0L;
-        this.addStatus = 0;
-        this.valid = 0;
-        this.mNickName = "";
-        this.mPortrait = "";
-        this.groupid = str;
-        this.mUk = j;
-        this.mName = str2;
-        this.mBduid = j2;
-        this.role = i;
-        this.jointime = j3;
-    }
-
-    public GroupMember(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mUk = -1L;
-        this.mName = "";
-        this.role = 0;
-        this.jointime = 0L;
-        this.addStatus = 0;
-        this.valid = 0;
-        this.mNickName = "";
-        this.mPortrait = "";
-        this.mUk = parcel.readLong();
-        this.mName = parcel.readString();
-        this.role = parcel.readInt();
-        this.jointime = parcel.readLong();
-        this.mBduid = parcel.readLong();
-        this.groupid = parcel.readString();
-        setPortrait(parcel.readString());
     }
 }

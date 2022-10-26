@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.internal.api.reporter;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iq9;
+import com.baidu.tieba.ar9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public interface Reporter {
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -37,7 +37,7 @@ public interface Reporter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.a != null) {
-                    return new iq9(this.a, false);
+                    return new ar9(this.a, false);
                 }
                 throw new RuntimeException("Call setUrl(String url) first.");
             }
@@ -57,7 +57,7 @@ public interface Reporter {
 
     void logEvent(String str, String str2, Object obj);
 
-    void logEvent(String str, Map<String, Object> map);
+    void logEvent(String str, Map map);
 
     void logEvent(String str, JSONObject jSONObject);
 }

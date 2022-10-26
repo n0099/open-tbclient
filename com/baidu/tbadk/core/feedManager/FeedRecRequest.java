@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.feedManager.PersonalizedReqIdl;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,8 @@ public class FeedRecRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            sh5.c(builder, true, false, true);
+            int i = 1;
+            yh5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -64,10 +65,13 @@ public class FeedRecRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(ej.h(TbadkCoreApplication.getInst()));
-            builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
+            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(fj.h(TbadkCoreApplication.getInst()));
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i = 2;
+            }
+            builder.q_type = Integer.valueOf(i);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
             builder.new_net_type = Integer.valueOf(BdNetTypeUtil.netType());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
@@ -83,13 +87,19 @@ public class FeedRecRequest extends NetMessage {
     public int getLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.loadType;
+        }
+        return invokeV.intValue;
     }
 
     public int getNeedForumlist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.needForumlist : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.needForumlist;
+        }
+        return invokeV.intValue;
     }
 
     public void setLoadType(int i) {

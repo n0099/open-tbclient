@@ -2,7 +2,6 @@ package androidx.core.util;
 
 import android.util.Size;
 import android.util.SizeF;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,31 +12,39 @@ public final class SizeKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @RequiresApi(21)
-    public static final int component1(Size size) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, size)) == null) ? size.getWidth() : invokeL.intValue;
-    }
-
-    @RequiresApi(21)
-    public static final int component2(Size size) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, size)) == null) ? size.getHeight() : invokeL.intValue;
-    }
-
-    @RequiresApi(21)
     public static final float component1(SizeF sizeF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sizeF)) == null) ? sizeF.getWidth() : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sizeF)) == null) {
+            return sizeF.getWidth();
+        }
+        return invokeL.floatValue;
     }
 
-    @RequiresApi(21)
     public static final float component2(SizeF sizeF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sizeF)) == null) ? sizeF.getHeight() : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sizeF)) == null) {
+            return sizeF.getHeight();
+        }
+        return invokeL.floatValue;
+    }
+
+    public static final int component1(Size size) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, size)) == null) {
+            return size.getWidth();
+        }
+        return invokeL.intValue;
+    }
+
+    public static final int component2(Size size) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, size)) == null) {
+            return size.getHeight();
+        }
+        return invokeL.intValue;
     }
 }

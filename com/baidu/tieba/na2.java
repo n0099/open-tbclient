@@ -1,52 +1,40 @@
 package com.baidu.tieba;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class na2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947995658, "Lcom/baidu/tieba/na2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947995658, "Lcom/baidu/tieba/na2;");
-                return;
+    public static void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
+            } catch (Exception e) {
+                m02.d("SwanLaunchBehaviorTable", "createTable", e);
             }
         }
-        a = "content://" + ka2.b + "/history_with_app";
-        b = "content://" + ka2.b + "/history";
-        c = "content://" + ka2.b + "/history_with_aps_pms";
     }
 
-    public static Uri a() {
+    public static synchronized Uri b() {
         InterceptResult invokeV;
+        Uri uri;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(b) : (Uri) invokeV.objValue;
-    }
-
-    public static Uri b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Uri.parse(a) : (Uri) invokeV.objValue;
-    }
-
-    public static Uri c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(c) : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (na2.class) {
+                if (a == null) {
+                    a = la2.c.buildUpon().appendPath("user_behavior").build();
+                }
+                uri = a;
+            }
+            return uri;
+        }
+        return (Uri) invokeV.objValue;
     }
 }

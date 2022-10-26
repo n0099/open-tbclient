@@ -14,10 +14,10 @@ import java.util.List;
 public final class HevcConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<byte[]> initializationData;
+    public final List initializationData;
     public final int nalUnitLengthFieldLength;
 
-    public HevcConfig(List<byte[]> list, int i) {
+    public HevcConfig(List list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,6 +38,7 @@ public final class HevcConfig {
 
     public static HevcConfig parse(ParsableByteArray parsableByteArray) throws ParserException {
         InterceptResult invokeL;
+        List singletonList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parsableByteArray)) == null) {
             try {
@@ -70,7 +71,12 @@ public final class HevcConfig {
                         parsableByteArray.skipBytes(readUnsignedShort4);
                     }
                 }
-                return new HevcConfig(i == 0 ? null : Collections.singletonList(bArr), readUnsignedByte + 1);
+                if (i == 0) {
+                    singletonList = null;
+                } else {
+                    singletonList = Collections.singletonList(bArr);
+                }
+                return new HevcConfig(singletonList, readUnsignedByte + 1);
             } catch (ArrayIndexOutOfBoundsException e) {
                 throw new ParserException("Error parsing HEVC config", e);
             }

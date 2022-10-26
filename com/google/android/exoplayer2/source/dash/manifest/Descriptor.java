@@ -1,7 +1,5 @@
 package com.google.android.exoplayer2.source.dash.manifest;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,14 +11,11 @@ import com.google.android.exoplayer2.util.Util;
 public final class Descriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final String id;
-    @NonNull
     public final String schemeIdUri;
-    @Nullable
     public final String value;
 
-    public Descriptor(@NonNull String str, @Nullable String str2, @Nullable String str3) {
+    public Descriptor(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,21 +46,40 @@ public final class Descriptor {
                 return false;
             }
             Descriptor descriptor = (Descriptor) obj;
-            return Util.areEqual(this.schemeIdUri, descriptor.schemeIdUri) && Util.areEqual(this.value, descriptor.value) && Util.areEqual(this.id, descriptor.id);
+            if (Util.areEqual(this.schemeIdUri, descriptor.schemeIdUri) && Util.areEqual(this.value, descriptor.value) && Util.areEqual(this.id, descriptor.id)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.schemeIdUri;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            int i3 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i4 = i * 31;
             String str2 = this.value;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            } else {
+                i2 = 0;
+            }
+            int i5 = (i4 + i2) * 31;
             String str3 = this.id;
-            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
+            if (str3 != null) {
+                i3 = str3.hashCode();
+            }
+            return i5 + i3;
         }
         return invokeV.intValue;
     }

@@ -38,23 +38,48 @@ public final class BaseMediaChunkOutput implements ChunkExtractorWrapper.TrackOu
         this.sampleQueues = sampleQueueArr;
     }
 
+    @Override // com.google.android.exoplayer2.source.chunk.ChunkExtractorWrapper.TrackOutputProvider
+    public TrackOutput track(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            int i3 = 0;
+            while (true) {
+                int[] iArr = this.trackTypes;
+                if (i3 < iArr.length) {
+                    if (i2 == iArr[i3]) {
+                        return this.sampleQueues[i3];
+                    }
+                    i3++;
+                } else {
+                    Log.e(TAG, "Unmatched track of type: " + i2);
+                    return new DummyTrackOutput();
+                }
+            }
+        } else {
+            return (TrackOutput) invokeII.objValue;
+        }
+    }
+
     public int[] getWriteIndices() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = new int[this.sampleQueues.length];
+            int i = 0;
+            while (true) {
+                SampleQueue[] sampleQueueArr = this.sampleQueues;
+                if (i < sampleQueueArr.length) {
+                    if (sampleQueueArr[i] != null) {
+                        iArr[i] = sampleQueueArr[i].getWriteIndex();
+                    }
+                    i++;
+                } else {
+                    return iArr;
+                }
+            }
+        } else {
             return (int[]) invokeV.objValue;
-        }
-        int[] iArr = new int[this.sampleQueues.length];
-        int i = 0;
-        while (true) {
-            SampleQueue[] sampleQueueArr = this.sampleQueues;
-            if (i >= sampleQueueArr.length) {
-                return iArr;
-            }
-            if (sampleQueueArr[i] != null) {
-                iArr[i] = sampleQueueArr[i].getWriteIndex();
-            }
-            i++;
         }
     }
 
@@ -66,28 +91,6 @@ public final class BaseMediaChunkOutput implements ChunkExtractorWrapper.TrackOu
                 if (sampleQueue != null) {
                     sampleQueue.setSampleOffsetUs(j);
                 }
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.chunk.ChunkExtractorWrapper.TrackOutputProvider
-    public TrackOutput track(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) != null) {
-            return (TrackOutput) invokeII.objValue;
-        }
-        int i3 = 0;
-        while (true) {
-            int[] iArr = this.trackTypes;
-            if (i3 < iArr.length) {
-                if (i2 == iArr[i3]) {
-                    return this.sampleQueues[i3];
-                }
-                i3++;
-            } else {
-                Log.e(TAG, "Unmatched track of type: " + i2);
-                return new DummyTrackOutput();
             }
         }
     }

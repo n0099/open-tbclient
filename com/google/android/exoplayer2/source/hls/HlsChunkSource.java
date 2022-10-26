@@ -45,7 +45,7 @@ public class HlsChunkSource {
     public boolean isTimestampMaster;
     public long liveEdgeTimeUs;
     public final DataSource mediaDataSource;
-    public final List<Format> muxedCaptionFormats;
+    public final List muxedCaptionFormats;
     public final HlsPlaylistTracker playlistTracker;
     public byte[] scratchSpace;
     public final TimestampAdjusterProvider timestampAdjusterProvider;
@@ -54,7 +54,7 @@ public class HlsChunkSource {
     public final HlsMasterPlaylist.HlsUrl[] variants;
 
     /* loaded from: classes7.dex */
-    public static final class EncryptionKeyChunk extends DataChunk {
+    public final class EncryptionKeyChunk extends DataChunk {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String iv;
@@ -93,12 +93,15 @@ public class HlsChunkSource {
         public byte[] getResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.result : (byte[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.result;
+            }
+            return (byte[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class HlsChunkHolder {
+    public final class HlsChunkHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Chunk chunk;
@@ -132,10 +135,30 @@ public class HlsChunkSource {
     }
 
     /* loaded from: classes7.dex */
-    public static final class InitializationTrackSelection extends BaseTrackSelection {
+    public final class InitializationTrackSelection extends BaseTrackSelection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int selectedIndex;
+
+        @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+        public Object getSelectionData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
+        }
+
+        @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+        public int getSelectionReason() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public InitializationTrackSelection(TrackGroup trackGroup, int[] iArr) {
@@ -163,25 +186,8 @@ public class HlsChunkSource {
         public int getSelectedIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.selectedIndex : invokeV.intValue;
-        }
-
-        @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-        public Object getSelectionData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-        public int getSelectionReason() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.selectedIndex;
             }
             return invokeV.intValue;
         }
@@ -191,20 +197,21 @@ public class HlsChunkSource {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (isBlacklisted(this.selectedIndex, elapsedRealtime)) {
-                    for (int i = this.length - 1; i >= 0; i--) {
-                        if (!isBlacklisted(i, elapsedRealtime)) {
-                            this.selectedIndex = i;
-                            return;
-                        }
-                    }
-                    throw new IllegalStateException();
+                if (!isBlacklisted(this.selectedIndex, elapsedRealtime)) {
+                    return;
                 }
+                for (int i = this.length - 1; i >= 0; i--) {
+                    if (!isBlacklisted(i, elapsedRealtime)) {
+                        this.selectedIndex = i;
+                        return;
+                    }
+                }
+                throw new IllegalStateException();
             }
         }
     }
 
-    public HlsChunkSource(HlsExtractorFactory hlsExtractorFactory, HlsPlaylistTracker hlsPlaylistTracker, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, HlsDataSourceFactory hlsDataSourceFactory, TimestampAdjusterProvider timestampAdjusterProvider, List<Format> list) {
+    public HlsChunkSource(HlsExtractorFactory hlsExtractorFactory, HlsPlaylistTracker hlsPlaylistTracker, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, HlsDataSourceFactory hlsDataSourceFactory, TimestampAdjusterProvider timestampAdjusterProvider, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,150 +255,22 @@ public class HlsChunkSource {
         }
     }
 
-    private EncryptionKeyChunk newEncryptionKeyChunk(Uri uri, String str, int i, int i2, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{uri, str, Integer.valueOf(i), Integer.valueOf(i2), obj})) == null) ? new EncryptionKeyChunk(this.encryptionDataSource, new DataSpec(uri, 0L, -1L, null, 1), this.variants[i].format, i2, obj, this.scratchSpace, str) : (EncryptionKeyChunk) invokeCommon.objValue;
-    }
-
-    private long resolveTimeToLiveEdgeUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
-            return (this.liveEdgeTimeUs > C.TIME_UNSET ? 1 : (this.liveEdgeTimeUs == C.TIME_UNSET ? 0 : -1)) != 0 ? this.liveEdgeTimeUs - j : C.TIME_UNSET;
-        }
-        return invokeJ.longValue;
-    }
-
-    private void setEncryptionData(Uri uri, String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri, str, bArr) == null) {
-            byte[] byteArray = new BigInteger(Util.toLowerInvariant(str).startsWith("0x") ? str.substring(2) : str, 16).toByteArray();
-            byte[] bArr2 = new byte[16];
-            int length = byteArray.length > 16 ? byteArray.length - 16 : 0;
-            System.arraycopy(byteArray, length, bArr2, (16 - byteArray.length) + length, byteArray.length - length);
-            this.encryptionKeyUri = uri;
-            this.encryptionKey = bArr;
-            this.encryptionIvString = str;
-            this.encryptionIv = bArr2;
-        }
-    }
-
-    private void updateLiveEdgeTimeUs(HlsMediaPlaylist hlsMediaPlaylist) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, hlsMediaPlaylist) == null) {
-            this.liveEdgeTimeUs = hlsMediaPlaylist.hasEndTag ? C.TIME_UNSET : hlsMediaPlaylist.getEndTimeUs();
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00d6  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00de  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void getNextChunk(HlsMediaChunk hlsMediaChunk, long j, long j2, HlsChunkHolder hlsChunkHolder) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{hlsMediaChunk, Long.valueOf(j), Long.valueOf(j2), hlsChunkHolder}) != null) {
-            return;
-        }
-        int indexOf = hlsMediaChunk == null ? -1 : this.trackGroup.indexOf(hlsMediaChunk.trackFormat);
-        this.expectedPlaylistUrl = null;
-        long j3 = j2 - j;
-        long resolveTimeToLiveEdgeUs = resolveTimeToLiveEdgeUs(j);
-        if (hlsMediaChunk != null && !this.independentSegments) {
-            long durationUs = hlsMediaChunk.getDurationUs();
-            j3 = Math.max(0L, j3 - durationUs);
-            if (resolveTimeToLiveEdgeUs != C.TIME_UNSET) {
-                resolveTimeToLiveEdgeUs = Math.max(0L, resolveTimeToLiveEdgeUs - durationUs);
-            }
-        }
-        this.trackSelection.updateSelectedTrack(j, j3, resolveTimeToLiveEdgeUs);
-        int selectedIndexInTrackGroup = this.trackSelection.getSelectedIndexInTrackGroup();
-        boolean z = false;
-        boolean z2 = indexOf != selectedIndexInTrackGroup;
-        HlsMasterPlaylist.HlsUrl hlsUrl = this.variants[selectedIndexInTrackGroup];
-        if (!this.playlistTracker.isSnapshotValid(hlsUrl)) {
-            hlsChunkHolder.playlist = hlsUrl;
-            this.expectedPlaylistUrl = hlsUrl;
-            return;
-        }
-        HlsMediaPlaylist playlistSnapshot = this.playlistTracker.getPlaylistSnapshot(hlsUrl);
-        this.independentSegments = playlistSnapshot.hasIndependentSegmentsTag;
-        updateLiveEdgeTimeUs(playlistSnapshot);
-        if (hlsMediaChunk != null && !z2) {
-            i = hlsMediaChunk.getNextChunkIndex();
-        } else {
-            long j4 = (hlsMediaChunk == null || this.independentSegments) ? j2 : hlsMediaChunk.startTimeUs;
-            if (!playlistSnapshot.hasEndTag && j4 >= playlistSnapshot.getEndTimeUs()) {
-                i = playlistSnapshot.mediaSequence + playlistSnapshot.segments.size();
-            } else {
-                int binarySearchFloor = Util.binarySearchFloor((List<? extends Comparable<? super Long>>) playlistSnapshot.segments, Long.valueOf(j4 - playlistSnapshot.startTimeUs), true, (!this.playlistTracker.isLive() || hlsMediaChunk == null) ? true : true);
-                int i3 = playlistSnapshot.mediaSequence;
-                i = binarySearchFloor + i3;
-                if (i < i3 && hlsMediaChunk != null) {
-                    hlsUrl = this.variants[indexOf];
-                    HlsMediaPlaylist playlistSnapshot2 = this.playlistTracker.getPlaylistSnapshot(hlsUrl);
-                    i = hlsMediaChunk.getNextChunkIndex();
-                    playlistSnapshot = playlistSnapshot2;
-                    HlsMasterPlaylist.HlsUrl hlsUrl2 = hlsUrl;
-                    HlsMediaPlaylist hlsMediaPlaylist = playlistSnapshot;
-                    i2 = hlsMediaPlaylist.mediaSequence;
-                    if (i >= i2) {
-                        this.fatalError = new BehindLiveWindowException();
-                        return;
-                    }
-                    int i4 = i - i2;
-                    if (i4 >= hlsMediaPlaylist.segments.size()) {
-                        if (hlsMediaPlaylist.hasEndTag) {
-                            hlsChunkHolder.endOfStream = true;
-                            return;
-                        }
-                        hlsChunkHolder.playlist = hlsUrl2;
-                        this.expectedPlaylistUrl = hlsUrl2;
-                        return;
-                    }
-                    HlsMediaPlaylist.Segment segment = hlsMediaPlaylist.segments.get(i4);
-                    String str = segment.fullSegmentEncryptionKeyUri;
-                    if (str != null) {
-                        Uri resolveToUri = UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, str);
-                        if (!resolveToUri.equals(this.encryptionKeyUri)) {
-                            hlsChunkHolder.chunk = newEncryptionKeyChunk(resolveToUri, segment.encryptionIV, indexOf, this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData());
-                            return;
-                        } else if (!Util.areEqual(segment.encryptionIV, this.encryptionIvString)) {
-                            setEncryptionData(resolveToUri, segment.encryptionIV, this.encryptionKey);
-                        }
-                    } else {
-                        clearEncryptionData();
-                    }
-                    HlsMediaPlaylist.Segment segment2 = hlsMediaPlaylist.initializationSegment;
-                    DataSpec dataSpec = segment2 != null ? new DataSpec(UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, segment2.url), segment2.byterangeOffset, segment2.byterangeLength, null) : null;
-                    long j5 = hlsMediaPlaylist.startTimeUs + segment.relativeStartTimeUs;
-                    int i5 = hlsMediaPlaylist.discontinuitySequence + segment.relativeDiscontinuitySequence;
-                    hlsChunkHolder.chunk = new HlsMediaChunk(this.extractorFactory, this.mediaDataSource, new DataSpec(UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, segment.url), segment.byterangeOffset, segment.byterangeLength, null), dataSpec, hlsUrl2, this.muxedCaptionFormats, this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData(), j5, j5 + segment.durationUs, i, i5, this.isTimestampMaster, this.timestampAdjusterProvider.getAdjuster(i5), hlsMediaChunk, hlsMediaPlaylist.drmInitData, this.encryptionKey, this.encryptionIv);
-                    return;
-                }
-            }
-        }
-        indexOf = selectedIndexInTrackGroup;
-        HlsMasterPlaylist.HlsUrl hlsUrl22 = hlsUrl;
-        HlsMediaPlaylist hlsMediaPlaylist2 = playlistSnapshot;
-        i2 = hlsMediaPlaylist2.mediaSequence;
-        if (i >= i2) {
-        }
-    }
-
     public TrackGroup getTrackGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.trackGroup : (TrackGroup) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.trackGroup;
+        }
+        return (TrackGroup) invokeV.objValue;
     }
 
     public TrackSelection getTrackSelection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.trackSelection : (TrackSelection) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.trackSelection;
+        }
+        return (TrackSelection) invokeV.objValue;
     }
 
     public void maybeThrowError() throws IOException {
@@ -410,12 +289,213 @@ public class HlsChunkSource {
         }
     }
 
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.fatalError = null;
+        }
+    }
+
+    private EncryptionKeyChunk newEncryptionKeyChunk(Uri uri, String str, int i, int i2, Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{uri, str, Integer.valueOf(i), Integer.valueOf(i2), obj})) == null) {
+            return new EncryptionKeyChunk(this.encryptionDataSource, new DataSpec(uri, 0L, -1L, null, 1), this.variants[i].format, i2, obj, this.scratchSpace, str);
+        }
+        return (EncryptionKeyChunk) invokeCommon.objValue;
+    }
+
+    private long resolveTimeToLiveEdgeUs(long j) {
+        InterceptResult invokeJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
+            if (this.liveEdgeTimeUs != C.TIME_UNSET) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return C.TIME_UNSET;
+            }
+            return this.liveEdgeTimeUs - j;
+        }
+        return invokeJ.longValue;
+    }
+
+    private void updateLiveEdgeTimeUs(HlsMediaPlaylist hlsMediaPlaylist) {
+        long endTimeUs;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, hlsMediaPlaylist) == null) {
+            if (hlsMediaPlaylist.hasEndTag) {
+                endTimeUs = C.TIME_UNSET;
+            } else {
+                endTimeUs = hlsMediaPlaylist.getEndTimeUs();
+            }
+            this.liveEdgeTimeUs = endTimeUs;
+        }
+    }
+
     public void onChunkLoadCompleted(Chunk chunk) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, chunk) == null) && (chunk instanceof EncryptionKeyChunk)) {
             EncryptionKeyChunk encryptionKeyChunk = (EncryptionKeyChunk) chunk;
             this.scratchSpace = encryptionKeyChunk.getDataHolder();
             setEncryptionData(encryptionKeyChunk.dataSpec.uri, encryptionKeyChunk.iv, encryptionKeyChunk.getResult());
+        }
+    }
+
+    public void selectTracks(TrackSelection trackSelection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, trackSelection) == null) {
+            this.trackSelection = trackSelection;
+        }
+    }
+
+    public void setIsTimestampMaster(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.isTimestampMaster = z;
+        }
+    }
+
+    private void setEncryptionData(Uri uri, String str, byte[] bArr) {
+        String str2;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri, str, bArr) == null) {
+            if (Util.toLowerInvariant(str).startsWith("0x")) {
+                str2 = str.substring(2);
+            } else {
+                str2 = str;
+            }
+            byte[] byteArray = new BigInteger(str2, 16).toByteArray();
+            byte[] bArr2 = new byte[16];
+            if (byteArray.length > 16) {
+                i = byteArray.length - 16;
+            } else {
+                i = 0;
+            }
+            System.arraycopy(byteArray, i, bArr2, (16 - byteArray.length) + i, byteArray.length - i);
+            this.encryptionKeyUri = uri;
+            this.encryptionKey = bArr;
+            this.encryptionIvString = str;
+            this.encryptionIv = bArr2;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00d6  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00de  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void getNextChunk(HlsMediaChunk hlsMediaChunk, long j, long j2, HlsChunkHolder hlsChunkHolder) {
+        int indexOf;
+        boolean z;
+        long j3;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hlsMediaChunk, Long.valueOf(j), Long.valueOf(j2), hlsChunkHolder}) == null) {
+            if (hlsMediaChunk == null) {
+                indexOf = -1;
+            } else {
+                indexOf = this.trackGroup.indexOf(hlsMediaChunk.trackFormat);
+            }
+            DataSpec dataSpec = null;
+            this.expectedPlaylistUrl = null;
+            long j4 = j2 - j;
+            long resolveTimeToLiveEdgeUs = resolveTimeToLiveEdgeUs(j);
+            if (hlsMediaChunk != null && !this.independentSegments) {
+                long durationUs = hlsMediaChunk.getDurationUs();
+                j4 = Math.max(0L, j4 - durationUs);
+                if (resolveTimeToLiveEdgeUs != C.TIME_UNSET) {
+                    resolveTimeToLiveEdgeUs = Math.max(0L, resolveTimeToLiveEdgeUs - durationUs);
+                }
+            }
+            this.trackSelection.updateSelectedTrack(j, j4, resolveTimeToLiveEdgeUs);
+            int selectedIndexInTrackGroup = this.trackSelection.getSelectedIndexInTrackGroup();
+            boolean z2 = false;
+            if (indexOf != selectedIndexInTrackGroup) {
+                z = true;
+            } else {
+                z = false;
+            }
+            HlsMasterPlaylist.HlsUrl hlsUrl = this.variants[selectedIndexInTrackGroup];
+            if (!this.playlistTracker.isSnapshotValid(hlsUrl)) {
+                hlsChunkHolder.playlist = hlsUrl;
+                this.expectedPlaylistUrl = hlsUrl;
+                return;
+            }
+            HlsMediaPlaylist playlistSnapshot = this.playlistTracker.getPlaylistSnapshot(hlsUrl);
+            this.independentSegments = playlistSnapshot.hasIndependentSegmentsTag;
+            updateLiveEdgeTimeUs(playlistSnapshot);
+            if (hlsMediaChunk != null && !z) {
+                i = hlsMediaChunk.getNextChunkIndex();
+            } else {
+                if (hlsMediaChunk != null && !this.independentSegments) {
+                    j3 = hlsMediaChunk.startTimeUs;
+                } else {
+                    j3 = j2;
+                }
+                if (!playlistSnapshot.hasEndTag && j3 >= playlistSnapshot.getEndTimeUs()) {
+                    i = playlistSnapshot.mediaSequence + playlistSnapshot.segments.size();
+                } else {
+                    int binarySearchFloor = Util.binarySearchFloor(playlistSnapshot.segments, (Object) Long.valueOf(j3 - playlistSnapshot.startTimeUs), true, (!this.playlistTracker.isLive() || hlsMediaChunk == null) ? true : true);
+                    int i3 = playlistSnapshot.mediaSequence;
+                    i = binarySearchFloor + i3;
+                    if (i < i3 && hlsMediaChunk != null) {
+                        hlsUrl = this.variants[indexOf];
+                        HlsMediaPlaylist playlistSnapshot2 = this.playlistTracker.getPlaylistSnapshot(hlsUrl);
+                        i = hlsMediaChunk.getNextChunkIndex();
+                        playlistSnapshot = playlistSnapshot2;
+                        HlsMasterPlaylist.HlsUrl hlsUrl2 = hlsUrl;
+                        HlsMediaPlaylist hlsMediaPlaylist = playlistSnapshot;
+                        i2 = hlsMediaPlaylist.mediaSequence;
+                        if (i >= i2) {
+                            this.fatalError = new BehindLiveWindowException();
+                            return;
+                        }
+                        int i4 = i - i2;
+                        if (i4 >= hlsMediaPlaylist.segments.size()) {
+                            if (hlsMediaPlaylist.hasEndTag) {
+                                hlsChunkHolder.endOfStream = true;
+                                return;
+                            }
+                            hlsChunkHolder.playlist = hlsUrl2;
+                            this.expectedPlaylistUrl = hlsUrl2;
+                            return;
+                        }
+                        HlsMediaPlaylist.Segment segment = (HlsMediaPlaylist.Segment) hlsMediaPlaylist.segments.get(i4);
+                        String str = segment.fullSegmentEncryptionKeyUri;
+                        if (str != null) {
+                            Uri resolveToUri = UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, str);
+                            if (!resolveToUri.equals(this.encryptionKeyUri)) {
+                                hlsChunkHolder.chunk = newEncryptionKeyChunk(resolveToUri, segment.encryptionIV, indexOf, this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData());
+                                return;
+                            } else if (!Util.areEqual(segment.encryptionIV, this.encryptionIvString)) {
+                                setEncryptionData(resolveToUri, segment.encryptionIV, this.encryptionKey);
+                            }
+                        } else {
+                            clearEncryptionData();
+                        }
+                        HlsMediaPlaylist.Segment segment2 = hlsMediaPlaylist.initializationSegment;
+                        if (segment2 != null) {
+                            dataSpec = new DataSpec(UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, segment2.url), segment2.byterangeOffset, segment2.byterangeLength, null);
+                        }
+                        long j5 = hlsMediaPlaylist.startTimeUs + segment.relativeStartTimeUs;
+                        int i5 = hlsMediaPlaylist.discontinuitySequence + segment.relativeDiscontinuitySequence;
+                        hlsChunkHolder.chunk = new HlsMediaChunk(this.extractorFactory, this.mediaDataSource, new DataSpec(UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, segment.url), segment.byterangeOffset, segment.byterangeLength, null), dataSpec, hlsUrl2, this.muxedCaptionFormats, this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData(), j5, j5 + segment.durationUs, i, i5, this.isTimestampMaster, this.timestampAdjusterProvider.getAdjuster(i5), hlsMediaChunk, hlsMediaPlaylist.drmInitData, this.encryptionKey, this.encryptionIv);
+                        return;
+                    }
+                }
+            }
+            indexOf = selectedIndexInTrackGroup;
+            HlsMasterPlaylist.HlsUrl hlsUrl22 = hlsUrl;
+            HlsMediaPlaylist hlsMediaPlaylist2 = playlistSnapshot;
+            i2 = hlsMediaPlaylist2.mediaSequence;
+            if (i >= i2) {
+            }
         }
     }
 
@@ -438,30 +518,8 @@ public class HlsChunkSource {
         int indexOf;
         int indexOf2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048582, this, hlsUrl, j) == null) || (indexOf = this.trackGroup.indexOf(hlsUrl.format)) == -1 || (indexOf2 = this.trackSelection.indexOf(indexOf)) == -1) {
-            return;
-        }
-        this.trackSelection.blacklist(indexOf2, j);
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.fatalError = null;
-        }
-    }
-
-    public void selectTracks(TrackSelection trackSelection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, trackSelection) == null) {
-            this.trackSelection = trackSelection;
-        }
-    }
-
-    public void setIsTimestampMaster(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.isTimestampMaster = z;
+        if ((interceptable == null || interceptable.invokeLJ(1048582, this, hlsUrl, j) == null) && (indexOf = this.trackGroup.indexOf(hlsUrl.format)) != -1 && (indexOf2 = this.trackSelection.indexOf(indexOf)) != -1) {
+            this.trackSelection.blacklist(indexOf2, j);
         }
     }
 }

@@ -32,7 +32,7 @@ public class OfflineMapUtil {
 
     public static MKOLSearchRecord getSearchRecordFromLocalCityInfo(q qVar) {
         InterceptResult invokeL;
-        q next;
+        q qVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qVar)) == null) {
             if (qVar == null) {
@@ -44,11 +44,11 @@ public class OfflineMapUtil {
             mKOLSearchRecord.cityType = qVar.d;
             long j = 0;
             if (qVar.a() != null) {
-                ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
-                Iterator<q> it = qVar.a().iterator();
+                ArrayList arrayList = new ArrayList();
+                Iterator it = qVar.a().iterator();
                 while (it.hasNext()) {
-                    arrayList.add(getSearchRecordFromLocalCityInfo(it.next()));
-                    j += next.c;
+                    arrayList.add(getSearchRecordFromLocalCityInfo((q) it.next()));
+                    j += qVar2.c;
                     mKOLSearchRecord.childCities = arrayList;
                 }
             }

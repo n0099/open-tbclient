@@ -26,6 +26,27 @@ public class HttpDNSProtocolMgr {
     public static final String TAG = "HttpDNSProtocolMgr";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int translateErrCode(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 4) {
+                        if (i != 1002) {
+                            return i != 2002 ? 8 : 6;
+                        }
+                        return 5;
+                    }
+                    return 7;
+                }
+                return 4;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
     public HttpDNSProtocolMgr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,109 +80,6 @@ public class HttpDNSProtocolMgr {
         return (String) invokeLLZ.objValue;
     }
 
-    public static String[] requestHttpDnsV2(String[] strArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, strArr, str, z)) == null) ? requestHttpDnsV2(strArr, str, z, false, "") : (String[]) invokeLLZ.objValue;
-    }
-
-    public static int responseProtocolV2(String str, ResInfo resInfo, int i) {
-        InterceptResult invokeLLI;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, resInfo, i)) == null) {
-            String str3 = "ips";
-            try {
-                if (str != null && resInfo != null) {
-                    JSONObject jSONObject = new JSONObject(str);
-                    resInfo.setStatus(translateErrCode(jSONObject.getInt("s")));
-                    resInfo.setUserIp(jSONObject.getString("u"));
-                    resInfo.setUserView(jSONObject.getString("v"));
-                    LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray("dns");
-                    int i2 = 0;
-                    while (i2 < jSONArray.length()) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                        DnsInfo dnsInfo = new DnsInfo();
-                        dnsInfo.setView(jSONObject.getString("v"));
-                        dnsInfo.setUip(jSONObject.getString("u"));
-                        dnsInfo.setHost(jSONObject2.getString("name"));
-                        dnsInfo.setTtl(Math.max(jSONObject2.getInt(ResultTB.TTL), GlobalTools.sMinSecondTTL));
-                        LinkedList<String> linkedList = new LinkedList<>();
-                        if (jSONObject2.isNull(str3)) {
-                            str2 = str3;
-                        } else {
-                            JSONArray jSONArray2 = jSONObject2.getJSONArray(str3);
-                            str2 = str3;
-                            for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                                linkedList.add(jSONArray2.getString(i3));
-                            }
-                            dnsInfo.setIps(linkedList);
-                        }
-                        CmdInfo cmdInfo = new CmdInfo();
-                        JSONObject jSONObject3 = jSONObject2.getJSONObject("cmd");
-                        cmdInfo.setPe(jSONObject3.getBoolean("pe"));
-                        cmdInfo.setRe(jSONObject3.getBoolean("re"));
-                        dnsInfo.setCmd(cmdInfo);
-                        if (resInfo.getNetInfo() != null) {
-                            dnsInfo.setNt(resInfo.getNetInfo().getNetType());
-                        }
-                        dnsInfo.setSource(i);
-                        linkedHashMap.put(dnsInfo.getHost(), dnsInfo);
-                        i2++;
-                        str3 = str2;
-                    }
-                    resInfo.setDns(linkedHashMap);
-                    JSONObject jSONObject4 = jSONObject.getJSONObject("httpdns");
-                    HttpDnsInfo httpDnsInfo = new HttpDnsInfo();
-                    httpDnsInfo.setVer(jSONObject4.getInt("ver"));
-                    httpDnsInfo.setRe(jSONObject4.getBoolean("re"));
-                    resInfo.setHttpdns(httpDnsInfo);
-                    JSONArray optJSONArray = jSONObject.optJSONArray("rd1");
-                    if (optJSONArray != null) {
-                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
-                            HashMap hashMap = new HashMap();
-                            hashMap.put(u.A, optJSONObject.optString(u.A, ""));
-                            hashMap.put("ut", optJSONObject.optString("ut", "0"));
-                            resInfo.addRefresh(hashMap);
-                        }
-                        return 0;
-                    }
-                    return 0;
-                }
-                resInfo.setStatus(5);
-                return 5;
-            } catch (Exception e) {
-                LogTools.printError(TAG, "responseProtocolV2: " + e.getMessage());
-                resInfo.setStatus(3);
-                return 3;
-            }
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static int translateErrCode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 4) {
-                        if (i != 1002) {
-                            return i != 2002 ? 8 : 6;
-                        }
-                        return 5;
-                    }
-                    return 7;
-                }
-                return 4;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
     public static String udpRequestProtocolV2(String[] strArr, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -187,6 +105,15 @@ public class HttpDNSProtocolMgr {
             return null;
         }
         return (String) invokeCommon.objValue;
+    }
+
+    public static String[] requestHttpDnsV2(String[] strArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, strArr, str, z)) == null) {
+            return requestHttpDnsV2(strArr, str, z, false, "");
+        }
+        return (String[]) invokeLLZ.objValue;
     }
 
     public static String[] requestHttpDnsV2(String[] strArr, String str, boolean z, boolean z2, String str2) {
@@ -233,5 +160,81 @@ public class HttpDNSProtocolMgr {
             return HTTPMgr.postHttp(str5, sb.toString(), hashMap);
         }
         return (String[]) invokeCommon.objValue;
+    }
+
+    public static int responseProtocolV2(String str, ResInfo resInfo, int i) {
+        InterceptResult invokeLLI;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, resInfo, i)) == null) {
+            String str3 = "ips";
+            try {
+                if (str != null && resInfo != null) {
+                    JSONObject jSONObject = new JSONObject(str);
+                    resInfo.setStatus(translateErrCode(jSONObject.getInt("s")));
+                    resInfo.setUserIp(jSONObject.getString("u"));
+                    resInfo.setUserView(jSONObject.getString("v"));
+                    LinkedHashMap linkedHashMap = new LinkedHashMap();
+                    JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                    int i2 = 0;
+                    while (i2 < jSONArray.length()) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                        DnsInfo dnsInfo = new DnsInfo();
+                        dnsInfo.setView(jSONObject.getString("v"));
+                        dnsInfo.setUip(jSONObject.getString("u"));
+                        dnsInfo.setHost(jSONObject2.getString("name"));
+                        dnsInfo.setTtl(Math.max(jSONObject2.getInt(ResultTB.TTL), GlobalTools.sMinSecondTTL));
+                        LinkedList linkedList = new LinkedList();
+                        if (!jSONObject2.isNull(str3)) {
+                            JSONArray jSONArray2 = jSONObject2.getJSONArray(str3);
+                            str2 = str3;
+                            for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
+                                linkedList.add(jSONArray2.getString(i3));
+                            }
+                            dnsInfo.setIps(linkedList);
+                        } else {
+                            str2 = str3;
+                        }
+                        CmdInfo cmdInfo = new CmdInfo();
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("cmd");
+                        cmdInfo.setPe(jSONObject3.getBoolean("pe"));
+                        cmdInfo.setRe(jSONObject3.getBoolean("re"));
+                        dnsInfo.setCmd(cmdInfo);
+                        if (resInfo.getNetInfo() != null) {
+                            dnsInfo.setNt(resInfo.getNetInfo().getNetType());
+                        }
+                        dnsInfo.setSource(i);
+                        linkedHashMap.put(dnsInfo.getHost(), dnsInfo);
+                        i2++;
+                        str3 = str2;
+                    }
+                    resInfo.setDns(linkedHashMap);
+                    JSONObject jSONObject4 = jSONObject.getJSONObject("httpdns");
+                    HttpDnsInfo httpDnsInfo = new HttpDnsInfo();
+                    httpDnsInfo.setVer(jSONObject4.getInt("ver"));
+                    httpDnsInfo.setRe(jSONObject4.getBoolean("re"));
+                    resInfo.setHttpdns(httpDnsInfo);
+                    JSONArray optJSONArray = jSONObject.optJSONArray("rd1");
+                    if (optJSONArray != null) {
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
+                            HashMap hashMap = new HashMap();
+                            hashMap.put(u.A, optJSONObject.optString(u.A, ""));
+                            hashMap.put("ut", optJSONObject.optString("ut", "0"));
+                            resInfo.addRefresh(hashMap);
+                        }
+                        return 0;
+                    }
+                    return 0;
+                }
+                resInfo.setStatus(5);
+                return 5;
+            } catch (Exception e) {
+                LogTools.printError(TAG, "responseProtocolV2: " + e.getMessage());
+                resInfo.setStatus(3);
+                return 3;
+            }
+        }
+        return invokeLLI.intValue;
     }
 }

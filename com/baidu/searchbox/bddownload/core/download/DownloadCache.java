@@ -1,6 +1,5 @@
 package com.baidu.searchbox.bddownload.core.download;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -33,7 +32,7 @@ public class DownloadCache {
     public volatile boolean userCanceled;
 
     /* loaded from: classes2.dex */
-    public static class PreError extends DownloadCache {
+    public class PreError extends DownloadCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,47 +58,22 @@ public class DownloadCache {
         }
     }
 
-    public DownloadCache(@NonNull MultiPointOutputStream multiPointOutputStream) {
+    public DownloadCache() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {multiPointOutputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.outputStream = multiPointOutputStream;
+        this.outputStream = null;
     }
 
-    public void catchException(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) || isUserCanceled()) {
-            return;
-        }
-        if (iOException instanceof ResumeFailedException) {
-            setPreconditionFailed(iOException);
-        } else if (iOException instanceof ServerCanceledException) {
-            setServerCanceled(iOException);
-        } else if (iOException == FileBusyAfterRunException.SIGNAL) {
-            setFileBusyAfterRun();
-        } else if (iOException instanceof PreAllocateException) {
-            setPreAllocateFailed(iOException);
-        } else if (iOException != InterruptException.SIGNAL) {
-            setUnknownError(iOException);
-            if (iOException instanceof SocketException) {
-                return;
-            }
-            Util.d("DownloadCache", "catch unknown error " + iOException);
-        }
-    }
-
-    @NonNull
     public MultiPointOutputStream getOutputStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,61 +90,94 @@ public class DownloadCache {
     public IOException getRealCause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.realCause : (IOException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.realCause;
+        }
+        return (IOException) invokeV.objValue;
     }
 
     public String getRedirectLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.redirectLocation : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.redirectLocation;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ResumeFailedCause getResumeFailedCause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((ResumeFailedException) this.realCause).getResumeFailedCause() : (ResumeFailedCause) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ((ResumeFailedException) this.realCause).getResumeFailedCause();
+        }
+        return (ResumeFailedCause) invokeV.objValue;
     }
 
     public boolean isFileBusyAfterRun() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.fileBusyAfterRun : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.fileBusyAfterRun;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isInterrupt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.preconditionFailed || this.userCanceled || this.serverCanceled || this.unknownError || this.fileBusyAfterRun || this.preAllocateFailed : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.preconditionFailed && !this.userCanceled && !this.serverCanceled && !this.unknownError && !this.fileBusyAfterRun && !this.preAllocateFailed) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isPreAllocateFailed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.preAllocateFailed : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.preAllocateFailed;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isPreconditionFailed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.preconditionFailed : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.preconditionFailed;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isServerCanceled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.serverCanceled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.serverCanceled;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isUnknownError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.unknownError : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.unknownError;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isUserCanceled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.userCanceled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.userCanceled;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setFileBusyAfterRun() {
@@ -178,6 +185,31 @@ public class DownloadCache {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.fileBusyAfterRun = true;
         }
+    }
+
+    public void setUserCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.userCanceled = true;
+        }
+    }
+
+    public DownloadCache(MultiPointOutputStream multiPointOutputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {multiPointOutputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.outputStream = multiPointOutputStream;
     }
 
     public void setPreAllocateFailed(IOException iOException) {
@@ -219,26 +251,24 @@ public class DownloadCache {
         }
     }
 
-    public void setUserCanceled() {
+    public void catchException(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.userCanceled = true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, iOException) != null) || isUserCanceled()) {
+            return;
         }
-    }
-
-    public DownloadCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (iOException instanceof ResumeFailedException) {
+            setPreconditionFailed(iOException);
+        } else if (iOException instanceof ServerCanceledException) {
+            setServerCanceled(iOException);
+        } else if (iOException == FileBusyAfterRunException.SIGNAL) {
+            setFileBusyAfterRun();
+        } else if (iOException instanceof PreAllocateException) {
+            setPreAllocateFailed(iOException);
+        } else if (iOException != InterruptException.SIGNAL) {
+            setUnknownError(iOException);
+            if (!(iOException instanceof SocketException)) {
+                Util.d("DownloadCache", "catch unknown error " + iOException);
             }
         }
-        this.outputStream = null;
     }
 }

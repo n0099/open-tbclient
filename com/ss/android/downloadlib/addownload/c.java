@@ -9,11 +9,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class c {
     public static String a = "c";
     public static volatile c b;
-    public ConcurrentHashMap<Long, Runnable> c;
+    public ConcurrentHashMap c;
 
     public c() {
         this.c = null;
-        this.c = new ConcurrentHashMap<>();
+        this.c = new ConcurrentHashMap();
     }
 
     public static c a() {
@@ -31,45 +31,18 @@ public class c {
         return j.i().optLong("quick_app_check_internal", IMLikeRequest.TIME_INTERVAL);
     }
 
-    public void a(e eVar, boolean z, int i, DownloadModel downloadModel) {
-        if (downloadModel instanceof AdDownloadModel) {
-            ((AdDownloadModel) downloadModel).setFunnelType(3);
-        }
-        long id = downloadModel.getId();
-        if (i == 4) {
-            if (!z) {
-                a(id, false, 2);
-                eVar.b(false);
-                return;
-            }
-            a(id, true, 2);
-        } else if (i == 5) {
-            if (!z) {
-                a(id, false, 1);
-                eVar.c(false);
-                return;
-            }
-            a(id, true, 1);
-        } else if (i != 7) {
-        } else {
-            Runnable remove = this.c.remove(Long.valueOf(id));
-            if (z) {
-                com.ss.android.downloadlib.d.a.a().a(id, 1);
-                a(id, true, 1);
-                return;
-            }
-            if (remove != null) {
-                com.ss.android.downloadlib.f.a().b().post(remove);
-            }
-            a(id, false, 1);
-        }
-    }
-
     private void a(long j, boolean z, int i) {
         com.ss.android.downloadlib.d.a.a().a(j, z, i);
         if (z) {
             j.t().a(null, null, null, null, null, 3);
         }
+    }
+
+    public static boolean a(DownloadInfo downloadInfo) {
+        if (downloadInfo != null && downloadInfo.getStatus() != 0 && downloadInfo.getStatus() != -4) {
+            return false;
+        }
+        return true;
     }
 
     public void a(final e eVar, final int i, final DownloadModel downloadModel) {
@@ -81,7 +54,36 @@ public class c {
         }, b());
     }
 
-    public static boolean a(DownloadInfo downloadInfo) {
-        return downloadInfo == null || downloadInfo.getStatus() == 0 || downloadInfo.getStatus() == -4;
+    public void a(e eVar, boolean z, int i, DownloadModel downloadModel) {
+        if (downloadModel instanceof AdDownloadModel) {
+            ((AdDownloadModel) downloadModel).setFunnelType(3);
+        }
+        long id = downloadModel.getId();
+        if (i != 4) {
+            if (i != 5) {
+                if (i == 7) {
+                    Runnable runnable = (Runnable) this.c.remove(Long.valueOf(id));
+                    if (z) {
+                        com.ss.android.downloadlib.d.a.a().a(id, 1);
+                        a(id, true, 1);
+                        return;
+                    }
+                    if (runnable != null) {
+                        com.ss.android.downloadlib.f.a().b().post(runnable);
+                    }
+                    a(id, false, 1);
+                }
+            } else if (!z) {
+                a(id, false, 1);
+                eVar.c(false);
+            } else {
+                a(id, true, 1);
+            }
+        } else if (!z) {
+            a(id, false, 2);
+            eVar.b(false);
+        } else {
+            a(id, true, 2);
+        }
     }
 }

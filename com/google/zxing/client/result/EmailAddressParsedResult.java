@@ -17,6 +17,13 @@ public final class EmailAddressParsedResult extends ParsedResult {
     public final String subject;
     public final String[] tos;
 
+    @Deprecated
+    public String getMailtoURI() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WebView.SCHEME_MAILTO : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EmailAddressParsedResult(String str) {
         this(new String[]{str}, null, null, null, null);
@@ -36,73 +43,6 @@ public final class EmailAddressParsedResult extends ParsedResult {
                 return;
             }
         }
-    }
-
-    public String[] getBCCs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bccs : (String[]) invokeV.objValue;
-    }
-
-    public String getBody() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.body : (String) invokeV.objValue;
-    }
-
-    public String[] getCCs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ccs : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder(30);
-            ParsedResult.maybeAppend(this.tos, sb);
-            ParsedResult.maybeAppend(this.ccs, sb);
-            ParsedResult.maybeAppend(this.bccs, sb);
-            ParsedResult.maybeAppend(this.subject, sb);
-            ParsedResult.maybeAppend(this.body, sb);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Deprecated
-    public String getEmailAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String[] strArr = this.tos;
-            if (strArr == null || strArr.length == 0) {
-                return null;
-            }
-            return strArr[0];
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Deprecated
-    public String getMailtoURI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WebView.SCHEME_MAILTO : (String) invokeV.objValue;
-    }
-
-    public String getSubject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.subject : (String) invokeV.objValue;
-    }
-
-    public String[] getTos() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tos : (String[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -128,5 +68,80 @@ public final class EmailAddressParsedResult extends ParsedResult {
         this.bccs = strArr3;
         this.subject = str;
         this.body = str2;
+    }
+
+    public String[] getBCCs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bccs;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String getBody() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.body;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String[] getCCs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.ccs;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Deprecated
+    public String getEmailAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String[] strArr = this.tos;
+            if (strArr != null && strArr.length != 0) {
+                return strArr[0];
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSubject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.subject;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String[] getTos() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.tos;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder(30);
+            ParsedResult.maybeAppend(this.tos, sb);
+            ParsedResult.maybeAppend(this.ccs, sb);
+            ParsedResult.maybeAppend(this.bccs, sb);
+            ParsedResult.maybeAppend(this.subject, sb);
+            ParsedResult.maybeAppend(this.body, sb);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

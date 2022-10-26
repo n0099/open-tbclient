@@ -10,15 +10,15 @@ import io.reactivex.internal.util.ErrorMode;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableConcatMapPublisher<T, R> extends Flowable<R> {
+public final class FlowableConcatMapPublisher extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
-    public final Function<? super T, ? extends Publisher<? extends R>> mapper;
+    public final Function mapper;
     public final int prefetch;
-    public final Publisher<T> source;
+    public final Publisher source;
 
-    public FlowableConcatMapPublisher(Publisher<T> publisher, Function<? super T, ? extends Publisher<? extends R>> function, int i, ErrorMode errorMode) {
+    public FlowableConcatMapPublisher(Publisher publisher, Function function, int i, ErrorMode errorMode) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,9 +40,9 @@ public final class FlowableConcatMapPublisher<T, R> extends Flowable<R> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) || FlowableScalarXMap.tryScalarXMapSubscribe(this.source, subscriber, this.mapper)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, subscriber) != null) || FlowableScalarXMap.tryScalarXMapSubscribe(this.source, subscriber, this.mapper)) {
             return;
         }
         this.source.subscribe(FlowableConcatMap.subscribe(subscriber, this.mapper, this.prefetch, this.errorMode));

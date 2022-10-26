@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.ah3;
+import com.baidu.tieba.bh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<SwanCoreVersion> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int TYPE_DEBUG = 2;
     public static final int TYPE_PRESET = 0;
     public static final int TYPE_REMOTE = 1;
@@ -26,8 +26,24 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public long swanCoreVersionCode;
     public String swanCoreVersionName;
 
+    public static String getTypeString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? "" : "debug" : "remote" : "preset" : (String) invokeI.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<SwanCoreVersion> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +67,10 @@ public class SwanCoreVersion extends SwanAppIPCData {
         public SwanCoreVersion createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SwanCoreVersion(parcel, null) : (SwanCoreVersion) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new SwanCoreVersion(parcel, null);
+            }
+            return (SwanCoreVersion) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +79,10 @@ public class SwanCoreVersion extends SwanAppIPCData {
         public SwanCoreVersion[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SwanCoreVersion[i] : (SwanCoreVersion[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new SwanCoreVersion[i];
+            }
+            return (SwanCoreVersion[]) invokeI.objValue;
         }
     }
 
@@ -80,52 +102,6 @@ public class SwanCoreVersion extends SwanAppIPCData {
         CREATOR = new a();
     }
 
-    public /* synthetic */ SwanCoreVersion(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    public static String getTypeString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? "" : "debug" : "remote" : "preset" : (String) invokeI.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ah3.e(this.swanCorePath) : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "SwanCoreVersion{swanCorePath='" + this.swanCorePath + "', swanCoreVersionName=" + this.swanCoreVersionName + ", swanCoreVersionCode=" + this.swanCoreVersionCode + ", swanCoreType=" + this.swanCoreType + ", isAvailable=" + isAvailable() + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeInt(this.swanCoreType);
-            parcel.writeLong(this.swanCoreVersionCode);
-            parcel.writeString(this.swanCoreVersionName);
-            parcel.writeString(this.swanCorePath);
-        }
-    }
-
     public SwanCoreVersion() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,6 +114,15 @@ public class SwanCoreVersion extends SwanAppIPCData {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public boolean isAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return bh3.e(this.swanCorePath);
+        }
+        return invokeV.booleanValue;
     }
 
     public SwanCoreVersion(Parcel parcel) {
@@ -159,5 +144,29 @@ public class SwanCoreVersion extends SwanAppIPCData {
         this.swanCoreVersionCode = parcel.readLong();
         this.swanCoreVersionName = parcel.readString();
         this.swanCorePath = parcel.readString();
+    }
+
+    public /* synthetic */ SwanCoreVersion(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeInt(this.swanCoreType);
+            parcel.writeLong(this.swanCoreVersionCode);
+            parcel.writeString(this.swanCoreVersionName);
+            parcel.writeString(this.swanCorePath);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "SwanCoreVersion{swanCorePath='" + this.swanCorePath + "', swanCoreVersionName=" + this.swanCoreVersionName + ", swanCoreVersionCode=" + this.swanCoreVersionCode + ", swanCoreType=" + this.swanCoreType + ", isAvailable=" + isAvailable() + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

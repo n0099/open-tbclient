@@ -33,66 +33,6 @@ public final class j {
         a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i : bArr) {
-                if (i < 0) {
-                    i += 256;
-                }
-                StringBuilder sb = new StringBuilder();
-                String[] strArr = a;
-                sb.append(strArr[i / 16]);
-                sb.append(strArr[i % 16]);
-                stringBuffer.append(sb.toString());
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-            char[] cArr2 = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                byte b = bArr[i];
-                int i2 = i * 2;
-                cArr2[i2] = cArr[(b >>> 4) & 15];
-                cArr2[i2 + 1] = cArr[b & 15];
-            }
-            return new String(cArr2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        String str2 = null;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            String str3 = new String(str);
-            try {
-                return a(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
-            } catch (Throwable unused) {
-                str2 = str3;
-                int i = com.baidu.sofire.a.b.a;
-                return str2;
-            }
-        } catch (Throwable unused2) {
-        }
-    }
-
     public static String a(File file) {
         InterceptResult invokeL;
         FileInputStream fileInputStream;
@@ -138,6 +78,67 @@ public final class j {
                     }
                 }
             }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+            char[] cArr2 = new char[bArr.length * 2];
+            for (int i = 0; i < bArr.length; i++) {
+                byte b = bArr[i];
+                int i2 = i * 2;
+                cArr2[i2] = cArr[(b >>> 4) & 15];
+                cArr2[i2 + 1] = cArr[b & 15];
+            }
+            return new String(cArr2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String str2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                String str3 = new String(str);
+                try {
+                    return a(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
+                } catch (Throwable unused) {
+                    str2 = str3;
+                    int i = com.baidu.sofire.a.b.a;
+                    return str2;
+                }
+            } catch (Throwable unused2) {
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i : bArr) {
+                if (i < 0) {
+                    i += 256;
+                }
+                StringBuilder sb = new StringBuilder();
+                String[] strArr = a;
+                sb.append(strArr[i / 16]);
+                sb.append(strArr[i % 16]);
+                stringBuffer.append(sb.toString());
+            }
+            return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
     }

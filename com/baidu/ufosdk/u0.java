@@ -43,17 +43,17 @@ public class u0 implements Runnable {
                     String str = "SendFeedback --> 反馈发送成功！--" + feedbackInputActivity.Z.getText().toString();
                     feedbackInputActivity.W.obtainMessage(1, feedbackInputActivity.Z.getText().toString()).sendToTarget();
                     String str2 = "346 --> tempRobotSwitch = " + feedbackInputActivity.C;
-                    if (feedbackInputActivity.C || feedbackInputActivity.l.contains("newMessage") || feedbackInputActivity.z || !feedbackInputActivity.h0) {
+                    if (!feedbackInputActivity.C && !feedbackInputActivity.l.contains("newMessage") && !feedbackInputActivity.z && feedbackInputActivity.h0) {
+                        feedbackInputActivity.W.obtainMessage(8).sendToTarget();
                         return;
                     }
-                    feedbackInputActivity.W.obtainMessage(8).sendToTarget();
                     return;
                 }
                 return;
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < feedbackInputActivity.c.size() - 1; i++) {
-                jSONArray.put(Base64.encodeToString(feedbackInputActivity.c.get(i), 0));
+                jSONArray.put(Base64.encodeToString((byte[]) feedbackInputActivity.c.get(i), 0));
             }
             if (jSONArray.toString().length() < 2097152) {
                 if (feedbackInputActivity.a(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.l0.a, feedbackInputActivity.l, feedbackInputActivity.n, feedbackInputActivity.Z.getText().toString(), feedbackInputActivity.f0, jSONArray.toString(), feedbackInputActivity.W, -999)) {
@@ -61,10 +61,10 @@ public class u0 implements Runnable {
                     for (int i2 = 0; i2 < feedbackInputActivity.c.size() - 1; i2++) {
                         feedbackInputActivity.W.obtainMessage(3, feedbackInputActivity.c.get(i2)).sendToTarget();
                     }
-                    if (feedbackInputActivity.C || feedbackInputActivity.l.contains("newMessage") || feedbackInputActivity.z || !feedbackInputActivity.h0) {
+                    if (!feedbackInputActivity.C && !feedbackInputActivity.l.contains("newMessage") && !feedbackInputActivity.z && feedbackInputActivity.h0) {
+                        feedbackInputActivity.W.obtainMessage(8).sendToTarget();
                         return;
                     }
-                    feedbackInputActivity.W.obtainMessage(8).sendToTarget();
                     return;
                 }
                 return;

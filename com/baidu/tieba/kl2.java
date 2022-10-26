@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,9 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class kl2 extends fh2<wl2> {
+public class kl2 extends gh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gh2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+    }
 
     public kl2() {
         Interceptable interceptable = $ic;
@@ -27,22 +34,17 @@ public class kl2 extends fh2<wl2> {
         }
     }
 
-    @Override // com.baidu.tieba.fh2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUseFreeFlow" : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh2
+    @Override // com.baidu.tieba.gh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull wl2 wl2Var) {
+    public void a(ZeusPlugin.Command command, xl2 xl2Var) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wl2Var) == null) {
-            wl2Var.B(command.arg1 == 1);
-            d(wl2Var, command.what, null, false);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xl2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
+        xl2Var.setSurface((Surface) obj);
+        String str = command.what;
+        d(xl2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

@@ -28,30 +28,6 @@ public class SdkException extends Exception {
         }
     }
 
-    public String getStackMessage() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Throwable cause = getCause();
-            if (cause == null) {
-                str = null;
-            } else if (cause instanceof SdkException) {
-                str = cause.toString();
-            } else {
-                StringWriter stringWriter = new StringWriter();
-                cause.printStackTrace(new PrintWriter((Writer) stringWriter, true));
-                str = stringWriter.getBuffer().toString();
-            }
-            String exc = toString();
-            if (TextUtils.isEmpty(str)) {
-                return exc;
-            }
-            return exc + "\nCaused by: " + str;
-        }
-        return (String) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SdkException(String str) {
         super(str);
@@ -111,5 +87,31 @@ public class SdkException extends Exception {
                 return;
             }
         }
+    }
+
+    public String getStackMessage() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Throwable cause = getCause();
+            if (cause != null) {
+                if (cause instanceof SdkException) {
+                    str = cause.toString();
+                } else {
+                    StringWriter stringWriter = new StringWriter();
+                    cause.printStackTrace(new PrintWriter((Writer) stringWriter, true));
+                    str = stringWriter.getBuffer().toString();
+                }
+            } else {
+                str = null;
+            }
+            String exc = toString();
+            if (!TextUtils.isEmpty(str)) {
+                return exc + "\nCaused by: " + str;
+            }
+            return exc;
+        }
+        return (String) invokeV.objValue;
     }
 }

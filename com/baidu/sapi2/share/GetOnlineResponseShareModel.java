@@ -30,30 +30,6 @@ public class GetOnlineResponseShareModel {
         }
     }
 
-    public static JSONObject parseModel2JsonObject(GetOnlineResponseShareModel getOnlineResponseShareModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, getOnlineResponseShareModel)) == null) {
-            if (getOnlineResponseShareModel == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                String str = "";
-                jSONObject.put("app", getOnlineResponseShareModel.app == null ? "" : getOnlineResponseShareModel.app);
-                jSONObject.put("pkg", getOnlineResponseShareModel.pkg == null ? "" : getOnlineResponseShareModel.pkg);
-                if (getOnlineResponseShareModel.bduss != null) {
-                    str = getOnlineResponseShareModel.bduss;
-                }
-                jSONObject.put("bduss", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
     public GetOnlineResponseShareModel(ShareStorage.StorageModel storageModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,5 +51,41 @@ public class GetOnlineResponseShareModel {
         this.app = storageModel.app;
         this.pkg = storageModel.pkg;
         this.bduss = storageModel.bduss;
+    }
+
+    public static JSONObject parseModel2JsonObject(GetOnlineResponseShareModel getOnlineResponseShareModel) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, getOnlineResponseShareModel)) == null) {
+            if (getOnlineResponseShareModel == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                String str3 = "";
+                if (getOnlineResponseShareModel.app == null) {
+                    str = "";
+                } else {
+                    str = getOnlineResponseShareModel.app;
+                }
+                jSONObject.put("app", str);
+                if (getOnlineResponseShareModel.pkg == null) {
+                    str2 = "";
+                } else {
+                    str2 = getOnlineResponseShareModel.pkg;
+                }
+                jSONObject.put("pkg", str2);
+                if (getOnlineResponseShareModel.bduss != null) {
+                    str3 = getOnlineResponseShareModel.bduss;
+                }
+                jSONObject.put("bduss", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

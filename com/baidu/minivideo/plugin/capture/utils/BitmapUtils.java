@@ -27,6 +27,19 @@ public class BitmapUtils {
         }
     }
 
+    public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
+            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
     public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -42,15 +55,28 @@ public class BitmapUtils {
 
     public static Bitmap scaleCover(Bitmap bitmap, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i > 0) {
                 if ((i2 > 0 || bitmap != null) && !bitmap.isRecycled()) {
-                    if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
+                    boolean z3 = true;
+                    if (bitmap.getWidth() > bitmap.getHeight()) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (i <= i2) {
+                        z3 = false;
+                    }
+                    if (z2 != z3) {
                         i2 = i;
                         i = i2;
                     }
-                    return (i == bitmap.getWidth() && i2 == bitmap.getHeight()) ? bitmap : scaleImage(bitmap, i, i2, z);
+                    if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
+                        return scaleImage(bitmap, i, i2, z);
+                    }
+                    return bitmap;
                 }
                 return bitmap;
             }
@@ -63,31 +89,18 @@ public class BitmapUtils {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return null;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                Matrix matrix = new Matrix();
+                matrix.postScale(i / width, i2 / height);
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                    bitmap.recycle();
+                }
+                return createBitmap;
             }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                bitmap.recycle();
-            }
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
-            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            return createBitmap;
+            return null;
         }
         return (Bitmap) invokeCommon.objValue;
     }

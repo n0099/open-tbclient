@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import androidx.annotation.Nullable;
 import androidx.cardview.widget.RoundRectDrawableWithShadow;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,6 +19,13 @@ public class CardViewBaseImpl implements CardViewImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final RectF mCornerRect;
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public void onCompatPaddingChanged(CardViewDelegate cardViewDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cardViewDelegate) == null) {
+        }
+    }
 
     public CardViewBaseImpl() {
         Interceptable interceptable = $ic;
@@ -35,60 +41,6 @@ public class CardViewBaseImpl implements CardViewImpl {
             }
         }
         this.mCornerRect = new RectF();
-    }
-
-    private RoundRectDrawableWithShadow createBackground(Context context, ColorStateList colorStateList, float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? new RoundRectDrawableWithShadow(context.getResources(), colorStateList, f, f2, f3) : (RoundRectDrawableWithShadow) invokeCommon.objValue;
-    }
-
-    private RoundRectDrawableWithShadow getShadowBackground(CardViewDelegate cardViewDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, cardViewDelegate)) == null) ? (RoundRectDrawableWithShadow) cardViewDelegate.getCardBackground() : (RoundRectDrawableWithShadow) invokeL.objValue;
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cardViewDelegate)) == null) ? getShadowBackground(cardViewDelegate).getColor() : (ColorStateList) invokeL.objValue;
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public float getElevation(CardViewDelegate cardViewDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardViewDelegate)) == null) ? getShadowBackground(cardViewDelegate).getShadowSize() : invokeL.floatValue;
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public float getMaxElevation(CardViewDelegate cardViewDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cardViewDelegate)) == null) ? getShadowBackground(cardViewDelegate).getMaxShadowSize() : invokeL.floatValue;
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public float getMinHeight(CardViewDelegate cardViewDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cardViewDelegate)) == null) ? getShadowBackground(cardViewDelegate).getMinHeight() : invokeL.floatValue;
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public float getMinWidth(CardViewDelegate cardViewDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cardViewDelegate)) == null) ? getShadowBackground(cardViewDelegate).getMinWidth() : invokeL.floatValue;
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public float getRadius(CardViewDelegate cardViewDelegate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cardViewDelegate)) == null) ? getShadowBackground(cardViewDelegate).getCornerRadius() : invokeL.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
@@ -154,22 +106,82 @@ public class CardViewBaseImpl implements CardViewImpl {
         }
     }
 
-    @Override // androidx.cardview.widget.CardViewImpl
-    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3) {
+    private RoundRectDrawableWithShadow createBackground(Context context, ColorStateList colorStateList, float f, float f2, float f3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            RoundRectDrawableWithShadow createBackground = createBackground(context, colorStateList, f, f2, f3);
-            createBackground.setAddPaddingForCorners(cardViewDelegate.getPreventCornerOverlap());
-            cardViewDelegate.setCardBackground(createBackground);
-            updatePadding(cardViewDelegate);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            return new RoundRectDrawableWithShadow(context.getResources(), colorStateList, f, f2, f3);
         }
+        return (RoundRectDrawableWithShadow) invokeCommon.objValue;
+    }
+
+    private RoundRectDrawableWithShadow getShadowBackground(CardViewDelegate cardViewDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, cardViewDelegate)) == null) {
+            return (RoundRectDrawableWithShadow) cardViewDelegate.getCardBackground();
+        }
+        return (RoundRectDrawableWithShadow) invokeL.objValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void onCompatPaddingChanged(CardViewDelegate cardViewDelegate) {
+    public ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cardViewDelegate) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cardViewDelegate)) == null) {
+            return getShadowBackground(cardViewDelegate).getColor();
         }
+        return (ColorStateList) invokeL.objValue;
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public float getElevation(CardViewDelegate cardViewDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardViewDelegate)) == null) {
+            return getShadowBackground(cardViewDelegate).getShadowSize();
+        }
+        return invokeL.floatValue;
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public float getMaxElevation(CardViewDelegate cardViewDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cardViewDelegate)) == null) {
+            return getShadowBackground(cardViewDelegate).getMaxShadowSize();
+        }
+        return invokeL.floatValue;
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public float getMinHeight(CardViewDelegate cardViewDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cardViewDelegate)) == null) {
+            return getShadowBackground(cardViewDelegate).getMinHeight();
+        }
+        return invokeL.floatValue;
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public float getMinWidth(CardViewDelegate cardViewDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cardViewDelegate)) == null) {
+            return getShadowBackground(cardViewDelegate).getMinWidth();
+        }
+        return invokeL.floatValue;
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public float getRadius(CardViewDelegate cardViewDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cardViewDelegate)) == null) {
+            return getShadowBackground(cardViewDelegate).getCornerRadius();
+        }
+        return invokeL.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
@@ -182,7 +194,18 @@ public class CardViewBaseImpl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setBackgroundColor(CardViewDelegate cardViewDelegate, @Nullable ColorStateList colorStateList) {
+    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            RoundRectDrawableWithShadow createBackground = createBackground(context, colorStateList, f, f2, f3);
+            createBackground.setAddPaddingForCorners(cardViewDelegate.getPreventCornerOverlap());
+            cardViewDelegate.setCardBackground(createBackground);
+            updatePadding(cardViewDelegate);
+        }
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public void setBackgroundColor(CardViewDelegate cardViewDelegate, ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, cardViewDelegate, colorStateList) == null) {
             getShadowBackground(cardViewDelegate).setColor(colorStateList);

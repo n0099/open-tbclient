@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.request.model;
 
 import android.content.Context;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import com.kwad.sdk.utils.ac;
@@ -10,7 +9,6 @@ import com.kwad.sdk.utils.az;
 import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.w;
 import org.json.JSONArray;
-@KsJson
 /* loaded from: classes7.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public String Ig;

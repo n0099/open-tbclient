@@ -18,8 +18,8 @@ import java.util.List;
 public abstract class a implements o {
     public static final String e = "a";
     public volatile boolean c;
-    public WeakReference<Service> f;
-    public final SparseArray<List<DownloadTask>> a = new SparseArray<>();
+    public WeakReference f;
+    public final SparseArray a = new SparseArray();
     public volatile boolean b = false;
     public volatile boolean d = false;
     public Handler g = new Handler(Looper.getMainLooper());
@@ -29,13 +29,12 @@ public abstract class a implements o {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
                 com.ss.android.socialbase.downloader.c.a.b(a.e, "tryDownload: 2 try");
             }
-            if (a.this.b) {
-                return;
+            if (!a.this.b) {
+                if (com.ss.android.socialbase.downloader.c.a.a()) {
+                    com.ss.android.socialbase.downloader.c.a.b(a.e, "tryDownload: 2 error");
+                }
+                a.this.startService(c.N(), null);
             }
-            if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(a.e, "tryDownload: 2 error");
-            }
-            a.this.startService(c.N(), null);
         }
     };
 
@@ -48,62 +47,11 @@ public abstract class a implements o {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
-    public void a(WeakReference weakReference) {
-        this.f = weakReference;
-    }
-
-    @Override // com.ss.android.socialbase.downloader.downloader.o
-    public boolean b() {
-        String str = e;
-        com.ss.android.socialbase.downloader.c.a.c(str, "isServiceForeground = " + this.c);
-        return this.c;
-    }
-
-    @Override // com.ss.android.socialbase.downloader.downloader.o
     public void c() {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
     public void c(DownloadTask downloadTask) {
-    }
-
-    @Override // com.ss.android.socialbase.downloader.downloader.o
-    public void d() {
-        this.b = false;
-    }
-
-    public void e() {
-        SparseArray<List<DownloadTask>> clone;
-        synchronized (this.a) {
-            String str = e;
-            com.ss.android.socialbase.downloader.c.a.b(str, "resumePendingTask pendingTasks.size:" + this.a.size());
-            clone = this.a.clone();
-            this.a.clear();
-        }
-        com.ss.android.socialbase.downloader.impls.a C = c.C();
-        if (C != null) {
-            for (int i = 0; i < clone.size(); i++) {
-                List<DownloadTask> list = clone.get(clone.keyAt(i));
-                if (list != null) {
-                    for (DownloadTask downloadTask : list) {
-                        String str2 = e;
-                        com.ss.android.socialbase.downloader.c.a.b(str2, "resumePendingTask key:" + downloadTask.getDownloadId());
-                        C.a(downloadTask);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.ss.android.socialbase.downloader.downloader.o
-    public void startService() {
-        if (this.b) {
-            return;
-        }
-        if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(e, "startService");
-        }
-        startService(c.N(), null);
     }
 
     public void startService(Context context, ServiceConnection serviceConnection) {
@@ -118,9 +66,75 @@ public abstract class a implements o {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
+    public boolean b() {
+        String str = e;
+        com.ss.android.socialbase.downloader.c.a.c(str, "isServiceForeground = " + this.c);
+        return this.c;
+    }
+
+    @Override // com.ss.android.socialbase.downloader.downloader.o
+    public void d() {
+        this.b = false;
+    }
+
+    @Override // com.ss.android.socialbase.downloader.downloader.o
+    public void startService() {
+        if (!this.b) {
+            if (com.ss.android.socialbase.downloader.c.a.a()) {
+                com.ss.android.socialbase.downloader.c.a.b(e, "startService");
+            }
+            startService(c.N(), null);
+        }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.downloader.o
     public IBinder a(Intent intent) {
         com.ss.android.socialbase.downloader.c.a.b(e, "onBind Abs");
         return new Binder();
+    }
+
+    @Override // com.ss.android.socialbase.downloader.downloader.o
+    public void a(int i) {
+        com.ss.android.socialbase.downloader.c.a.a(i);
+    }
+
+    @Override // com.ss.android.socialbase.downloader.downloader.o
+    public void a(int i, Notification notification) {
+        WeakReference weakReference = this.f;
+        if (weakReference != null && weakReference.get() != null) {
+            String str = e;
+            com.ss.android.socialbase.downloader.c.a.c(str, "startForeground  id = " + i + ", service = " + this.f.get() + ",  isServiceAlive = " + this.b);
+            try {
+                ((Service) this.f.get()).startForeground(i, notification);
+                this.c = true;
+                return;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return;
+            }
+        }
+        com.ss.android.socialbase.downloader.c.a.d(e, "startForeground: downloadService is null, do nothing!");
+    }
+
+    public void a(DownloadTask downloadTask) {
+        if (downloadTask == null) {
+            return;
+        }
+        int downloadId = downloadTask.getDownloadId();
+        synchronized (this.a) {
+            String str = e;
+            com.ss.android.socialbase.downloader.c.a.b(str, "pendDownloadTask pendingTasks.size:" + this.a.size() + " downloadId:" + downloadId);
+            List list = (List) this.a.get(downloadId);
+            if (list == null) {
+                list = new ArrayList();
+                this.a.put(downloadId, list);
+            }
+            String str2 = e;
+            com.ss.android.socialbase.downloader.c.a.b(str2, "before pendDownloadTask taskArray.size:" + list.size());
+            list.add(downloadTask);
+            String str3 = e;
+            com.ss.android.socialbase.downloader.c.a.b(str3, "after pendDownloadTask pendingTasks.size:" + this.a.size());
+        }
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
@@ -161,62 +175,45 @@ public abstract class a implements o {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
-    public void a(int i, Notification notification) {
-        WeakReference<Service> weakReference = this.f;
-        if (weakReference != null && weakReference.get() != null) {
-            String str = e;
-            com.ss.android.socialbase.downloader.c.a.c(str, "startForeground  id = " + i + ", service = " + this.f.get() + ",  isServiceAlive = " + this.b);
-            try {
-                this.f.get().startForeground(i, notification);
-                this.c = true;
-                return;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return;
-            }
-        }
-        com.ss.android.socialbase.downloader.c.a.d(e, "startForeground: downloadService is null, do nothing!");
+    public void a(WeakReference weakReference) {
+        this.f = weakReference;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
     public void a(boolean z) {
-        WeakReference<Service> weakReference = this.f;
-        if (weakReference == null || weakReference.get() == null) {
-            return;
-        }
-        String str = e;
-        com.ss.android.socialbase.downloader.c.a.c(str, "stopForeground  service = " + this.f.get() + ",  isServiceAlive = " + this.b);
-        try {
-            this.c = false;
-            this.f.get().stopForeground(z);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        WeakReference weakReference = this.f;
+        if (weakReference != null && weakReference.get() != null) {
+            String str = e;
+            com.ss.android.socialbase.downloader.c.a.c(str, "stopForeground  service = " + this.f.get() + ",  isServiceAlive = " + this.b);
+            try {
+                this.c = false;
+                ((Service) this.f.get()).stopForeground(z);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
-    public void a(DownloadTask downloadTask) {
-        if (downloadTask == null) {
-            return;
-        }
-        int downloadId = downloadTask.getDownloadId();
+    public void e() {
+        SparseArray clone;
         synchronized (this.a) {
             String str = e;
-            com.ss.android.socialbase.downloader.c.a.b(str, "pendDownloadTask pendingTasks.size:" + this.a.size() + " downloadId:" + downloadId);
-            List<DownloadTask> list = this.a.get(downloadId);
-            if (list == null) {
-                list = new ArrayList<>();
-                this.a.put(downloadId, list);
-            }
-            String str2 = e;
-            com.ss.android.socialbase.downloader.c.a.b(str2, "before pendDownloadTask taskArray.size:" + list.size());
-            list.add(downloadTask);
-            String str3 = e;
-            com.ss.android.socialbase.downloader.c.a.b(str3, "after pendDownloadTask pendingTasks.size:" + this.a.size());
+            com.ss.android.socialbase.downloader.c.a.b(str, "resumePendingTask pendingTasks.size:" + this.a.size());
+            clone = this.a.clone();
+            this.a.clear();
         }
-    }
-
-    @Override // com.ss.android.socialbase.downloader.downloader.o
-    public void a(int i) {
-        com.ss.android.socialbase.downloader.c.a.a(i);
+        com.ss.android.socialbase.downloader.impls.a C = c.C();
+        if (C != null) {
+            for (int i = 0; i < clone.size(); i++) {
+                List<DownloadTask> list = (List) clone.get(clone.keyAt(i));
+                if (list != null) {
+                    for (DownloadTask downloadTask : list) {
+                        String str2 = e;
+                        com.ss.android.socialbase.downloader.c.a.b(str2, "resumePendingTask key:" + downloadTask.getDownloadId());
+                        C.a(downloadTask);
+                    }
+                }
+            }
+        }
     }
 }

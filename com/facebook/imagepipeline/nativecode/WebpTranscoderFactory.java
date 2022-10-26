@@ -52,6 +52,9 @@ public class WebpTranscoderFactory {
     public static WebpTranscoder getWebpTranscoder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sWebpTranscoder : (WebpTranscoder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sWebpTranscoder;
+        }
+        return (WebpTranscoder) invokeV.objValue;
     }
 }

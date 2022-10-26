@@ -60,12 +60,18 @@ public final class DecodeFormat {
     public static DecodeFormat valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DecodeFormat) Enum.valueOf(DecodeFormat.class, str) : (DecodeFormat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DecodeFormat) Enum.valueOf(DecodeFormat.class, str);
+        }
+        return (DecodeFormat) invokeL.objValue;
     }
 
     public static DecodeFormat[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DecodeFormat[]) $VALUES.clone() : (DecodeFormat[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DecodeFormat[]) $VALUES.clone();
+        }
+        return (DecodeFormat[]) invokeV.objValue;
     }
 }

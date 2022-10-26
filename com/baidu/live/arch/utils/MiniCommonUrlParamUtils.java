@@ -46,6 +46,18 @@ public class MiniCommonUrlParamUtils {
         }
     }
 
+    public static boolean isMappingAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (!hasCheck) {
+                checkMapping();
+            }
+            return isMappingAvailable;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static String appendParam(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -61,20 +73,6 @@ public class MiniCommonUrlParamUtils {
         return (String) invokeL.objValue;
     }
 
-    public static void checkMapping() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                isMappingAvailable = Class.forName("com.baidu.common.param.CommonUrlParamManager").getMethod("appendParam", String.class, Integer.TYPE) != null;
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e2) {
-                e2.printStackTrace();
-            }
-            hasCheck = true;
-        }
-    }
-
     public static String invokeParamMethod(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -87,15 +85,21 @@ public class MiniCommonUrlParamUtils {
         return (String) invokeL.objValue;
     }
 
-    public static boolean isMappingAvailable() {
-        InterceptResult invokeV;
+    public static void checkMapping() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (!hasCheck) {
-                checkMapping();
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                boolean z = false;
+                if (Class.forName("com.baidu.common.param.CommonUrlParamManager").getMethod("appendParam", String.class, Integer.TYPE) != null) {
+                    z = true;
+                }
+                isMappingAvailable = z;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e2) {
+                e2.printStackTrace();
             }
-            return isMappingAvailable;
+            hasCheck = true;
         }
-        return invokeV.booleanValue;
     }
 }

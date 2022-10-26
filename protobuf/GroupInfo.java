@@ -121,7 +121,13 @@ public final class GroupInfo extends Message {
     public final Integer status;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<GroupInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer activeDay;
@@ -237,14 +243,11 @@ public final class GroupInfo extends Message {
         public GroupInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new GroupInfo(this, z, null) : (GroupInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new GroupInfo(this, z, null);
+            }
+            return (GroupInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -283,10 +286,6 @@ public final class GroupInfo extends Message {
         DEFAULT_ISNEWLYCREATE = 0;
         DEFAULT_ISRECENTLYREPLY = 0;
         DEFAULT_ISMEMBERGROUP = 0;
-    }
-
-    public /* synthetic */ GroupInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -556,5 +555,9 @@ public final class GroupInfo extends Message {
         this.isRecentlyReply = builder.isRecentlyReply;
         this.isMemberGroup = builder.isMemberGroup;
         this.authorNameShow = builder.authorNameShow;
+    }
+
+    public /* synthetic */ GroupInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

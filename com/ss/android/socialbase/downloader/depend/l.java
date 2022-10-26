@@ -13,15 +13,19 @@ public interface l extends IInterface {
     boolean b(DownloadInfo downloadInfo) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements l {
+    public abstract class a extends Binder implements l {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0683a implements l {
+        public class C0679a implements l {
             public static l a;
             public IBinder b;
 
-            public C0683a(IBinder iBinder) {
+            public C0679a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -48,17 +52,13 @@ public interface l extends IInterface {
                 }
             }
 
-            @Override // android.os.IInterface
-            public IBinder asBinder() {
-                return this.b;
-            }
-
             @Override // com.ss.android.socialbase.downloader.depend.l
             public boolean b(DownloadInfo downloadInfo) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
+                    boolean z = true;
                     if (downloadInfo != null) {
                         obtain.writeInt(1);
                         downloadInfo.writeToParcel(obtain, 0);
@@ -69,16 +69,28 @@ public interface l extends IInterface {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
-                    return obtain2.readInt() != 0;
+                    if (obtain2.readInt() == 0) {
+                        z = false;
+                    }
+                    return z;
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
                 }
             }
+
+            @Override // android.os.IInterface
+            public IBinder asBinder() {
+                return this.b;
+            }
         }
 
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
+        }
+
+        public static l a() {
+            return C0679a.a;
         }
 
         public static l a(IBinder iBinder) {
@@ -89,38 +101,36 @@ public interface l extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                 return (l) queryLocalInterface;
             }
-            return new C0683a(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+            return new C0679a(iBinder);
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
-                parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
-                a(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
-                parcel2.writeNoException();
-                return true;
-            } else if (i != 2) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            DownloadInfo downloadInfo = null;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 1598968902) {
+                        return super.onTransact(i, parcel, parcel2, i2);
+                    }
+                    parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
+                    return true;
                 }
-                parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
-                return true;
-            } else {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
-                boolean b = b(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
+                if (parcel.readInt() != 0) {
+                    downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                }
+                boolean b = b(downloadInfo);
                 parcel2.writeNoException();
                 parcel2.writeInt(b ? 1 : 0);
                 return true;
             }
-        }
-
-        public static l a() {
-            return C0683a.a;
+            parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
+            if (parcel.readInt() != 0) {
+                downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+            }
+            a(downloadInfo);
+            parcel2.writeNoException();
+            return true;
         }
     }
 }

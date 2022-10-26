@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.upstream;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,27 +44,28 @@ public final class DataSourceInputStream extends InputStream {
 
     private void checkOpened() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.opened) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && !this.opened) {
+            this.dataSource.open(this.dataSpec);
+            this.opened = true;
         }
-        this.dataSource.open(this.dataSpec);
-        this.opened = true;
     }
 
     public long bytesRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.totalBytesRead : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.totalBytesRead;
+        }
+        return invokeV.longValue;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.closed) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.closed) {
+            this.dataSource.close();
+            this.closed = true;
         }
-        this.dataSource.close();
-        this.closed = true;
     }
 
     public void open() throws IOException {
@@ -89,14 +89,17 @@ public final class DataSourceInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr) throws IOException {
+    public int read(byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) ? read(bArr, 0, bArr.length) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+            return read(bArr, 0, bArr.length);
+        }
+        return invokeL.intValue;
     }
 
     @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {

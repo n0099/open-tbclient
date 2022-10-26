@@ -41,6 +41,41 @@ public class MetaBox extends AbstractContainerBox {
         }
     }
 
+    public int getFlags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.flags;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long containerSize = getContainerSize() + 4;
+            if (!this.largeBox && containerSize < 4294967296L) {
+                i = 8;
+            } else {
+                i = 16;
+            }
+            return containerSize + i;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.version;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public void getBox(WritableByteChannel writableByteChannel) throws IOException {
         Interceptable interceptable = $ic;
@@ -50,40 +85,6 @@ public class MetaBox extends AbstractContainerBox {
             writeVersionAndFlags(allocate);
             writableByteChannel.write((ByteBuffer) allocate.rewind());
             writeContainer(writableByteChannel);
-        }
-    }
-
-    public int getFlags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.flags : invokeV.intValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long containerSize = getContainerSize() + 4;
-            return containerSize + ((this.largeBox || containerSize >= 4294967296L) ? 16 : 8);
-        }
-        return invokeV.longValue;
-    }
-
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.version : invokeV.intValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(4);
-            dataSource.read(allocate);
-            parseVersionAndFlags((ByteBuffer) allocate.rewind());
-            parseContainer(dataSource, j - 4, boxParser);
         }
     }
 
@@ -117,6 +118,17 @@ public class MetaBox extends AbstractContainerBox {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer) == null) {
             IsoTypeWriter.writeUInt8(byteBuffer, this.version);
             IsoTypeWriter.writeUInt24(byteBuffer, this.flags);
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(4);
+            dataSource.read(allocate);
+            parseVersionAndFlags((ByteBuffer) allocate.rewind());
+            parseContainer(dataSource, j - 4, boxParser);
         }
     }
 }

@@ -1,14 +1,12 @@
 package androidx.core.util;
 
 import android.util.Log;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Writer;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 @Deprecated
 /* loaded from: classes.dex */
 public class LogWriter extends Writer {
@@ -38,12 +36,11 @@ public class LogWriter extends Writer {
 
     private void flushBuilder() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mBuilder.length() <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.mBuilder.length() > 0) {
+            Log.d(this.mTag, this.mBuilder.toString());
+            StringBuilder sb = this.mBuilder;
+            sb.delete(0, sb.length());
         }
-        Log.d(this.mTag, this.mBuilder.toString());
-        StringBuilder sb = this.mBuilder;
-        sb.delete(0, sb.length());
     }
 
     @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable

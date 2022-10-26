@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
@@ -32,7 +31,6 @@ public class NetStringUtil {
         }
     }
 
-    @CalledByNative
     public static String convertToUnicode(ByteBuffer byteBuffer, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -46,7 +44,6 @@ public class NetStringUtil {
         return (String) invokeLL.objValue;
     }
 
-    @CalledByNative
     public static String convertToUnicodeAndNormalize(ByteBuffer byteBuffer, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -60,7 +57,6 @@ public class NetStringUtil {
         return (String) invokeLL.objValue;
     }
 
-    @CalledByNative
     public static String convertToUnicodeWithSubstitutions(ByteBuffer byteBuffer, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

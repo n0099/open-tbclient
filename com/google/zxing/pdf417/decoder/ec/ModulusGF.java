@@ -37,6 +37,33 @@ public final class ModulusGF {
         PDF417_GF = new ModulusGF(PDF417Common.NUMBER_OF_CODEWORDS, 3);
     }
 
+    public ModulusPoly getOne() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.one;
+        }
+        return (ModulusPoly) invokeV.objValue;
+    }
+
+    public int getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.modulus;
+        }
+        return invokeV.intValue;
+    }
+
+    public ModulusPoly getZero() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.zero;
+        }
+        return (ModulusPoly) invokeV.objValue;
+    }
+
     public ModulusGF(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +97,10 @@ public final class ModulusGF {
     public int add(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? (i + i2) % this.modulus : invokeII.intValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            return (i + i2) % this.modulus;
+        }
+        return invokeII.intValue;
     }
 
     public ModulusPoly buildMonomial(int i, int i2) {
@@ -90,28 +120,37 @@ public final class ModulusGF {
         return (ModulusPoly) invokeII.objValue;
     }
 
+    public int multiply(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
+            if (i != 0 && i2 != 0) {
+                int[] iArr = this.expTable;
+                int[] iArr2 = this.logTable;
+                return iArr[(iArr2[i] + iArr2[i2]) % (this.modulus - 1)];
+            }
+            return 0;
+        }
+        return invokeII.intValue;
+    }
+
+    public int subtract(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
+            int i3 = this.modulus;
+            return ((i + i3) - i2) % i3;
+        }
+        return invokeII.intValue;
+    }
+
     public int exp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.expTable[i] : invokeI.intValue;
-    }
-
-    public ModulusPoly getOne() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.one : (ModulusPoly) invokeV.objValue;
-    }
-
-    public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.modulus : invokeV.intValue;
-    }
-
-    public ModulusPoly getZero() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zero : (ModulusPoly) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.expTable[i];
+        }
+        return invokeI.intValue;
     }
 
     public int inverse(int i) {
@@ -136,29 +175,5 @@ public final class ModulusGF {
             throw new IllegalArgumentException();
         }
         return invokeI.intValue;
-    }
-
-    public int multiply(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
-            if (i == 0 || i2 == 0) {
-                return 0;
-            }
-            int[] iArr = this.expTable;
-            int[] iArr2 = this.logTable;
-            return iArr[(iArr2[i] + iArr2[i2]) % (this.modulus - 1)];
-        }
-        return invokeII.intValue;
-    }
-
-    public int subtract(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
-            int i3 = this.modulus;
-            return ((i + i3) - i2) % i3;
-        }
-        return invokeII.intValue;
     }
 }

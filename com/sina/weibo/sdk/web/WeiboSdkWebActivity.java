@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.web;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -73,6 +72,23 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     public WebView webView;
     public BaseWebViewClient webViewClient;
 
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public void onPageStartedCallBack(WebView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, str, bitmap) == null) {
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public boolean shouldOverrideUrlLoadingCallBack(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
     /* loaded from: classes8.dex */
     public class MyChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
@@ -98,6 +114,17 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         }
 
         @Override // android.webkit.WebChromeClient
+        public void onReceivedTitle(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+                super.onReceivedTitle(webView, str);
+                if (TextUtils.isEmpty(this.this$0.baseParam.getBaseData().getSpecifyTitle())) {
+                    this.this$0.titleText.setText(str);
+                }
+            }
+        }
+
+        @Override // android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
@@ -107,17 +134,6 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                     this.this$0.loadingBar.setVisibility(4);
                 } else {
                     this.this$0.loadingBar.setVisibility(0);
-                }
-            }
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public void onReceivedTitle(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-                super.onReceivedTitle(webView, str);
-                if (TextUtils.isEmpty(this.this$0.baseParam.getBaseData().getSpecifyTitle())) {
-                    this.this$0.titleText.setText(str);
                 }
             }
         }
@@ -140,23 +156,105 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkRequestUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.startsWith(ShareWebViewRequestParam.SHARE_URL) || str.startsWith(BaseSsoHandler.OAUTH2_BASE_URL);
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void closeActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             finish();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showDefaultPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+            this.retryLayout.setVisibility(8);
+            this.webView.setVisibility(0);
+        }
+    }
+
+    private void showErrorPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            this.retryLayout.setVisibility(0);
+            this.webView.setVisibility(8);
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public void closePage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            finish();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean checkRequestUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (str.startsWith(ShareWebViewRequestParam.SHARE_URL) || str.startsWith(BaseSsoHandler.OAUTH2_BASE_URL)) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            LogUtil.i("Share", "startWebActivity");
+            requestWindowFeature(1);
+            super.onCreate(bundle);
+            setContentView(initView());
+            initLoad();
+        }
+    }
+
+    public static void removeJavascriptInterface(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, webView, str) == null) {
+            try {
+                WebView.class.getDeclaredMethod("removeJavascriptInterface", String.class).invoke(webView, str);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
+            if (i == 4) {
+                if (this.webViewClient.onBackKeyDown()) {
+                    return true;
+                }
+                if (this.webView.canGoBack()) {
+                    this.webView.goBack();
+                    return true;
+                }
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public void onPageFinishedCallBack(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
+            if (this.pageStatus == -1) {
+                showErrorPage();
+            } else {
+                showDefaultPage();
+            }
         }
     }
 
@@ -174,15 +272,19 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 finish();
                 return;
             }
-            if (i == 0) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
+                        this.baseParam = new AuthWebViewRequestParam();
+                        this.webViewClient = new AuthWebViewClient(this, this, this.baseParam);
+                    }
+                } else {
+                    this.baseParam = new ShareWebViewRequestParam(this);
+                    this.webViewClient = new ShareWebViewClient(this, this, this.baseParam);
+                }
+            } else {
                 this.baseParam = new DefaultWebViewRequestParam();
                 this.webViewClient = new DefaultWebViewClient(this, this.baseParam);
-            } else if (i == 1) {
-                this.baseParam = new ShareWebViewRequestParam(this);
-                this.webViewClient = new ShareWebViewClient(this, this, this.baseParam);
-            } else if (i == 2) {
-                this.baseParam = new AuthWebViewRequestParam();
-                this.webViewClient = new AuthWebViewClient(this, this, this.baseParam);
             }
             this.webView.setWebViewClient(this.webViewClient);
             this.baseParam.transformBundle(extras);
@@ -212,6 +314,16 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                     }
 
                     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam.ExtraTaskCallback
+                    public void onException(String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                            LogUtil.i("Share", "WebActivity.sharePic.onException()");
+                            this.this$0.webViewClient.errorBack(this.this$0, "pic upload error");
+                            this.this$0.finish();
+                        }
+                    }
+
+                    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam.ExtraTaskCallback
                     public void onComplete(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -220,16 +332,6 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                             if (weiboSdkWebActivity.checkRequestUrl(weiboSdkWebActivity.baseParam.getRequestUrl())) {
                                 this.this$0.webView.loadUrl(this.this$0.baseParam.getRequestUrl());
                             }
-                        }
-                    }
-
-                    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam.ExtraTaskCallback
-                    public void onException(String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                            LogUtil.i("Share", "WebActivity.sharePic.onException()");
-                            this.this$0.webViewClient.errorBack(this.this$0, "pic upload error");
-                            this.this$0.finish();
                         }
                     }
                 });
@@ -369,11 +471,12 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        this.this$0.pageStatus = 0;
-                        this.this$0.showDefaultPage();
-                        this.this$0.webView.reload();
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, view3) != null) {
+                        return;
                     }
+                    this.this$0.pageStatus = 0;
+                    this.this$0.showDefaultPage();
+                    this.this$0.webView.reload();
                 }
             });
             this.retryTitle.setText(ResourceManager.getString(this, EMPTY_PROMPT_BAD_NETWORK_UI_EN, EMPTY_PROMPT_BAD_NETWORK_UI_ZH_CN, EMPTY_PROMPT_BAD_NETWORK_UI_ZH_TW));
@@ -383,7 +486,6 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         return (View) invokeV.objValue;
     }
 
-    @SuppressLint({"SetJavaScriptEnabled"})
     private void initWebView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
@@ -404,105 +506,18 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         }
     }
 
-    public static void removeJavascriptInterface(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, webView, str) == null) {
-            try {
-                WebView.class.getDeclaredMethod("removeJavascriptInterface", String.class).invoke(webView, str);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showDefaultPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            this.retryLayout.setVisibility(8);
-            this.webView.setVisibility(0);
-        }
-    }
-
-    private void showErrorPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.retryLayout.setVisibility(0);
-            this.webView.setVisibility(8);
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void closePage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            finish();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            LogUtil.i("Share", "startWebActivity");
-            requestWindowFeature(1);
-            super.onCreate(bundle);
-            setContentView(initView());
-            initLoad();
-        }
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
-            if (i == 4) {
-                if (this.webViewClient.onBackKeyDown()) {
-                    return true;
-                }
-                if (this.webView.canGoBack()) {
-                    this.webView.goBack();
-                    return true;
-                }
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onPageFinishedCallBack(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
-            if (this.pageStatus == -1) {
-                showErrorPage();
-            } else {
-                showDefaultPage();
-            }
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onPageStartedCallBack(WebView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, str, bitmap) == null) {
-        }
-    }
-
     @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
     public void onReceivedErrorCallBack(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i, str, str2) == null) {
             String url = webView.getUrl();
             try {
-                if (TextUtils.isEmpty(url) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                Uri parse = Uri.parse(url);
-                Uri parse2 = Uri.parse(str2);
-                if (parse.getHost().equals(parse2.getHost()) && parse.getScheme().equals(parse2.getScheme())) {
-                    this.pageStatus = -1;
+                if (!TextUtils.isEmpty(url) && !TextUtils.isEmpty(str2)) {
+                    Uri parse = Uri.parse(url);
+                    Uri parse2 = Uri.parse(str2);
+                    if (parse.getHost().equals(parse2.getHost()) && parse.getScheme().equals(parse2.getScheme())) {
+                        this.pageStatus = -1;
+                    }
                 }
             } catch (Exception unused) {
             }
@@ -584,15 +599,5 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             });
             builder.create().show();
         }
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public boolean shouldOverrideUrlLoadingCallBack(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

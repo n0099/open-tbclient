@@ -1,152 +1,233 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public final class qz9 implements mx9 {
+public final class qz9 implements zx9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final zx9 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mx9> a;
-    public volatile boolean b;
+    public long a;
+    public zx9 b;
+    public boolean c;
+    public long d;
+    public long e;
+    public zx9 f;
+
+    /* loaded from: classes5.dex */
+    public final class a implements zx9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.zx9
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948109273, "Lcom/baidu/tieba/qz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948109273, "Lcom/baidu/tieba/qz9;");
+                return;
+            }
+        }
+        g = new a();
+    }
 
     public qz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void c(Collection<mx9> collection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, collection) == null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (mx9 mx9Var : collection) {
-            try {
-                mx9Var.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        rx9.d(arrayList);
-    }
-
-    public void a(mx9 mx9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, mx9Var) == null) || mx9Var.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    List list = this.a;
-                    if (list == null) {
-                        list = new LinkedList();
-                        this.a = list;
-                    }
-                    list.add(mx9Var);
-                    return;
-                }
-            }
-        }
-        mx9Var.unsubscribe();
-    }
-
-    public void b(mx9 mx9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx9Var) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            List<mx9> list = this.a;
-            if (!this.b && list != null) {
-                boolean remove = list.remove(mx9Var);
-                if (remove) {
-                    mx9Var.unsubscribe();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            List<mx9> list = this.a;
-            this.a = null;
-            c(list);
-        }
-    }
-
-    public qz9(mx9... mx9VarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mx9VarArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedList(Arrays.asList(mx9VarArr));
-    }
-
-    public qz9(mx9 mx9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mx9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        LinkedList linkedList = new LinkedList();
-        this.a = linkedList;
-        linkedList.add(mx9Var);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        while (true) {
+            synchronized (this) {
+                long j = this.d;
+                long j2 = this.e;
+                zx9 zx9Var = this.f;
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i == 0 && j2 == 0 && zx9Var == null) {
+                    this.c = false;
+                    return;
+                }
+                this.d = 0L;
+                this.e = 0L;
+                this.f = null;
+                long j3 = this.a;
+                if (j3 != Long.MAX_VALUE) {
+                    long j4 = j3 + j;
+                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
+                        j3 = j4 - j2;
+                        if (j3 >= 0) {
+                            this.a = j3;
+                        } else {
+                            throw new IllegalStateException("more produced than requested");
+                        }
+                    } else {
+                        this.a = Long.MAX_VALUE;
+                        j3 = Long.MAX_VALUE;
+                    }
+                }
+                if (zx9Var != null) {
+                    if (zx9Var == g) {
+                        this.b = null;
+                    } else {
+                        this.b = zx9Var;
+                        zx9Var.request(j3);
+                    }
+                } else {
+                    zx9 zx9Var2 = this.b;
+                    if (zx9Var2 != null && i != 0) {
+                        zx9Var2.request(j);
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (j > 0) {
+                synchronized (this) {
+                    if (this.c) {
+                        this.e += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a;
+                        if (j2 != Long.MAX_VALUE) {
+                            long j3 = j2 - j;
+                            if (j3 >= 0) {
+                                this.a = j3;
+                            } else {
+                                throw new IllegalStateException("more items arrived than were requested");
+                            }
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n > 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    @Override // com.baidu.tieba.zx9
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    return;
+                }
+                synchronized (this) {
+                    if (this.c) {
+                        this.d += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a + j;
+                        if (j2 < 0) {
+                            j2 = Long.MAX_VALUE;
+                        }
+                        this.a = j2;
+                        zx9 zx9Var = this.b;
+                        if (zx9Var != null) {
+                            zx9Var.request(j);
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n >= 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void c(zx9 zx9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx9Var) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    if (zx9Var == null) {
+                        zx9Var = g;
+                    }
+                    this.f = zx9Var;
+                    return;
+                }
+                this.c = true;
+                try {
+                    this.b = zx9Var;
+                    if (zx9Var != null) {
+                        zx9Var.request(this.a);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
+            }
+        }
     }
 }

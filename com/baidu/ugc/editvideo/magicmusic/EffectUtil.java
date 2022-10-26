@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.magicmusic;
 
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.nh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class EffectUtil {
@@ -28,7 +29,7 @@ public class EffectUtil {
         }
     }
 
-    public static void addEffect(BaseEffect baseEffect, List<BaseEffect> list) {
+    public static void addEffect(BaseEffect baseEffect, List list) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
@@ -36,7 +37,9 @@ public class EffectUtil {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (BaseEffect baseEffect2 : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            BaseEffect baseEffect2 = (BaseEffect) it.next();
             int i3 = baseEffect2.startTime;
             int i4 = baseEffect.startTime;
             if (i3 > i4 || (i2 = baseEffect2.endTime) < i4) {
@@ -74,15 +77,15 @@ public class EffectUtil {
         list.add(baseEffect);
     }
 
-    public static BaseEffect getEffectInList(int i, List<BaseEffect> list) {
+    public static BaseEffect getEffectInList(int i, List list) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, list)) == null) {
-            if (vg9.e(list)) {
+            if (nh9.e(list)) {
                 return null;
             }
             for (int size = list.size() - 1; size >= 0; size--) {
-                BaseEffect baseEffect = list.get(size);
+                BaseEffect baseEffect = (BaseEffect) list.get(size);
                 if (baseEffect.startTime <= i && baseEffect.endTime >= i) {
                     return baseEffect;
                 }

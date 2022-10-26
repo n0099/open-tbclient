@@ -7,10 +7,9 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.kj3;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.lj3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,15 +48,84 @@ public class CommonTagView extends TextView {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CommonTagView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CommonTagView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = true;
+        this.f = true;
+        a(context, attributeSet, i);
+    }
+
     public final void a(Context context, AttributeSet attributeSet, int i) {
+        int paddingLeft;
+        int paddingRight;
+        int paddingTop;
+        int paddingBottom;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, kj3.CommonTagView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, lj3.CommonTagView);
             this.b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
             this.c = obtainStyledAttributes.getColor(0, -16777216);
             this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
-            setPadding(getPaddingLeft() == 0 ? ch3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? ch3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? ch3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? ch3.f(context, 1.0f) : getPaddingBottom());
+            if (getPaddingLeft() == 0) {
+                paddingLeft = dh3.f(context, 2.0f);
+            } else {
+                paddingLeft = getPaddingLeft();
+            }
+            if (getPaddingRight() == 0) {
+                paddingRight = dh3.f(context, 2.0f);
+            } else {
+                paddingRight = getPaddingRight();
+            }
+            if (getPaddingTop() == 0) {
+                paddingTop = dh3.f(context, 1.0f);
+            } else {
+                paddingTop = getPaddingTop();
+            }
+            if (getPaddingBottom() == 0) {
+                paddingBottom = dh3.f(context, 1.0f);
+            } else {
+                paddingBottom = getPaddingBottom();
+            }
+            setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             b(context);
         }
     }
@@ -95,50 +163,5 @@ public class CommonTagView extends TextView {
                 canvas.drawRoundRect(rectF2, i2, i2, this.g);
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CommonTagView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = true;
-        this.f = true;
-        a(context, attributeSet, i);
     }
 }

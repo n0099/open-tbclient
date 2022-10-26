@@ -4,7 +4,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,10 +39,9 @@ public class ViewUtils {
             try {
                 Method declaredMethod = View.class.getDeclaredMethod("computeFitSystemWindows", Rect.class, Rect.class);
                 sComputeFitSystemWindowsMethod = declaredMethod;
-                if (declaredMethod.isAccessible()) {
-                    return;
+                if (!declaredMethod.isAccessible()) {
+                    sComputeFitSystemWindowsMethod.setAccessible(true);
                 }
-                sComputeFitSystemWindowsMethod.setAccessible(true);
             } catch (NoSuchMethodException unused) {
                 Log.d("ViewUtils", "Could not find method computeFitSystemWindows. Oh well.");
             }
@@ -68,39 +65,43 @@ public class ViewUtils {
     public static void computeFitSystemWindows(View view2, Rect rect, Rect rect2) {
         Method method;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, rect, rect2) == null) || (method = sComputeFitSystemWindowsMethod) == null) {
-            return;
-        }
-        try {
-            method.invoke(view2, rect, rect2);
-        } catch (Exception e) {
-            Log.d("ViewUtils", "Could not invoke computeFitSystemWindows", e);
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, view2, rect, rect2) == null) && (method = sComputeFitSystemWindowsMethod) != null) {
+            try {
+                method.invoke(view2, rect, rect2);
+            } catch (Exception e) {
+                Log.d("ViewUtils", "Could not invoke computeFitSystemWindows", e);
+            }
         }
     }
 
     public static boolean isLayoutRtl(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            if (ViewCompat.getLayoutDirection(view2) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static void makeOptionalFitsSystemWindows(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) || Build.VERSION.SDK_INT < 16) {
-            return;
-        }
-        try {
-            Method method = view2.getClass().getMethod("makeOptionalFitsSystemWindows", new Class[0]);
-            if (!method.isAccessible()) {
-                method.setAccessible(true);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && Build.VERSION.SDK_INT >= 16) {
+            try {
+                Method method = view2.getClass().getMethod("makeOptionalFitsSystemWindows", new Class[0]);
+                if (!method.isAccessible()) {
+                    method.setAccessible(true);
+                }
+                method.invoke(view2, new Object[0]);
+            } catch (IllegalAccessException e) {
+                Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e);
+            } catch (NoSuchMethodException unused) {
+                Log.d("ViewUtils", "Could not find method makeOptionalFitsSystemWindows. Oh well...");
+            } catch (InvocationTargetException e2) {
+                Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e2);
             }
-            method.invoke(view2, new Object[0]);
-        } catch (IllegalAccessException e) {
-            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e);
-        } catch (NoSuchMethodException unused) {
-            Log.d("ViewUtils", "Could not find method makeOptionalFitsSystemWindows. Oh well...");
-        } catch (InvocationTargetException e2) {
-            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e2);
         }
     }
 }

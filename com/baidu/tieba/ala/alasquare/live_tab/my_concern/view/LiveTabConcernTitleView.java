@@ -10,21 +10,35 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i16;
-import com.baidu.tieba.wv5;
+import com.baidu.tieba.dw5;
+import com.baidu.tieba.p16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class LiveTabConcernTitleView extends i16<wv5> {
+public class LiveTabConcernTitleView extends p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
 
+    @Override // com.baidu.tieba.p16
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0855 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
     /* loaded from: classes3.dex */
-    public static class ViewHolder extends TypeAdapter.ViewHolder {
+    public class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LiveTabConcernTitleView a;
@@ -33,7 +47,7 @@ public class LiveTabConcernTitleView extends i16<wv5> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
-            super(liveTabConcernTitleView.h());
+            super(liveTabConcernTitleView.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,14 +64,14 @@ public class LiveTabConcernTitleView extends i16<wv5> {
                 }
             }
             this.a = liveTabConcernTitleView;
-            View h = liveTabConcernTitleView.h();
-            this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092020);
+            View k = liveTabConcernTitleView.k();
+            this.b = k;
+            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09201f);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveTabConcernTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+    public LiveTabConcernTitleView(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,41 +90,26 @@ public class LiveTabConcernTitleView extends i16<wv5> {
             }
         }
         this.i = new ViewHolder(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.i16
-    public int d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p16
+    /* renamed from: r */
+    public void l(dw5 dw5Var) {
+        ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0854 : invokeV.intValue;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, dw5Var) == null) && dw5Var != null && !StringUtils.isNull(dw5Var.a) && (viewHolder = this.i) != null) {
+            viewHolder.c.setText(dw5Var.a);
+        }
     }
 
-    @Override // com.baidu.tieba.i16
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.baidu.tieba.p16
+    public void m(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             SkinManager.setBackgroundColor(this.i.b, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.i.c, (int) R.color.CAM_X0105);
         }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i16
-    /* renamed from: r */
-    public void i(wv5 wv5Var) {
-        ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, wv5Var) == null) || wv5Var == null || StringUtils.isNull(wv5Var.a) || (viewHolder = this.i) == null) {
-            return;
-        }
-        viewHolder.c.setText(wv5Var.a);
     }
 }

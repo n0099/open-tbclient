@@ -57,12 +57,18 @@ public final class ToastLocation {
     public static ToastLocation valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ToastLocation) Enum.valueOf(ToastLocation.class, str) : (ToastLocation) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ToastLocation) Enum.valueOf(ToastLocation.class, str);
+        }
+        return (ToastLocation) invokeL.objValue;
     }
 
     public static ToastLocation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ToastLocation[]) $VALUES.clone() : (ToastLocation[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ToastLocation[]) $VALUES.clone();
+        }
+        return (ToastLocation[]) invokeV.objValue;
     }
 }

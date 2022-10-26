@@ -11,45 +11,17 @@ public final class ArraysKt___ArraysJvmKt$asList$6 extends AbstractList<Double> 
         this.$this_asList = dArr;
     }
 
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public final /* bridge */ boolean contains(Object obj) {
-        if (obj instanceof Double) {
-            return contains(((Number) obj).doubleValue());
-        }
-        return false;
-    }
-
-    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
-    public int getSize() {
-        return this.$this_asList.length;
-    }
-
-    @Override // kotlin.collections.AbstractList, java.util.List
-    public final /* bridge */ int indexOf(Object obj) {
-        if (obj instanceof Double) {
-            return indexOf(((Number) obj).doubleValue());
-        }
-        return -1;
-    }
-
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        return this.$this_asList.length == 0;
-    }
-
-    @Override // kotlin.collections.AbstractList, java.util.List
-    public final /* bridge */ int lastIndexOf(Object obj) {
-        if (obj instanceof Double) {
-            return lastIndexOf(((Number) obj).doubleValue());
-        }
-        return -1;
-    }
-
     public boolean contains(double d) {
+        boolean z;
         double[] dArr = this.$this_asList;
         int length = dArr.length;
         for (int i = 0; i < length; i++) {
             if (Double.doubleToLongBits(dArr[i]) == Double.doubleToLongBits(d)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return true;
             }
         }
@@ -63,10 +35,16 @@ public final class ArraysKt___ArraysJvmKt$asList$6 extends AbstractList<Double> 
     }
 
     public int indexOf(double d) {
+        boolean z;
         double[] dArr = this.$this_asList;
         int length = dArr.length;
         for (int i = 0; i < length; i++) {
             if (Double.doubleToLongBits(dArr[i]) == Double.doubleToLongBits(d)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return i;
             }
         }
@@ -74,12 +52,55 @@ public final class ArraysKt___ArraysJvmKt$asList$6 extends AbstractList<Double> 
     }
 
     public int lastIndexOf(double d) {
+        boolean z;
         double[] dArr = this.$this_asList;
         for (int length = dArr.length - 1; length >= 0; length--) {
             if (Double.doubleToLongBits(dArr[length]) == Double.doubleToLongBits(d)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return length;
             }
         }
         return -1;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public final /* bridge */ boolean contains(Object obj) {
+        if (obj instanceof Double) {
+            return contains(((Number) obj).doubleValue());
+        }
+        return false;
+    }
+
+    @Override // kotlin.collections.AbstractList, java.util.List
+    public final /* bridge */ int indexOf(Object obj) {
+        if (obj instanceof Double) {
+            return indexOf(((Number) obj).doubleValue());
+        }
+        return -1;
+    }
+
+    @Override // kotlin.collections.AbstractList, java.util.List
+    public final /* bridge */ int lastIndexOf(Object obj) {
+        if (obj instanceof Double) {
+            return lastIndexOf(((Number) obj).doubleValue());
+        }
+        return -1;
+    }
+
+    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
+    public int getSize() {
+        return this.$this_asList.length;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        if (this.$this_asList.length == 0) {
+            return true;
+        }
+        return false;
     }
 }

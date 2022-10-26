@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
-@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeBlurFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native void nativeIterativeBoxBlur(Bitmap bitmap, int i, int i2);
 
     static {
         InterceptResult invokeClinit;
@@ -47,15 +47,22 @@ public class NativeBlurFilter {
     }
 
     public static void iterativeBoxBlur(Bitmap bitmap, int i, int i2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, bitmap, i, i2) == null) {
             Preconditions.checkNotNull(bitmap);
-            Preconditions.checkArgument(i > 0);
-            Preconditions.checkArgument(i2 > 0);
+            boolean z2 = true;
+            if (i > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            if (i2 <= 0) {
+                z2 = false;
+            }
+            Preconditions.checkArgument(z2);
             nativeIterativeBoxBlur(bitmap, i, i2);
         }
     }
-
-    @DoNotStrip
-    public static native void nativeIterativeBoxBlur(Bitmap bitmap, int i, int i2);
 }

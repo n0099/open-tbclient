@@ -38,7 +38,10 @@ public abstract class b1 implements Input {
     public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.c.c(i) : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.c.c(i);
+        }
+        return invokeI.booleanValue;
     }
 
     public void b(int i, boolean z) {

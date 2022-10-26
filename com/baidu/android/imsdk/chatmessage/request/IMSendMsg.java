@@ -30,8 +30,8 @@ public class IMSendMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSendMsg";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> mAtUsers;
-    public List<Long> mCastids;
+    public List mAtUsers;
+    public List mCastids;
     public ChatMsg mChatMsg;
     public String mContent;
     public Context mContext;
@@ -40,7 +40,7 @@ public class IMSendMsg extends Message {
     public long mToUser;
     public int mType;
 
-    public IMSendMsg(Context context, long j, int i, String str, String str2, List<Long> list, List<Long> list2) {
+    public IMSendMsg(Context context, long j, int i, String str, String str2, List list, List list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,11 +79,11 @@ public class IMSendMsg extends Message {
             }
             int chatType = chatMsg.getChatType();
             int msgType = chatMsg.getMsgType();
-            if (chatType == 7 || chatType == 16 || chatType == 25 || msgType == 18) {
+            if (chatType != 7 && chatType != 16 && chatType != 25 && msgType != 18) {
+                i = msgType;
+            } else {
                 DuzhanUpMsgCreator.reCreateChatMsg(chatType, chatMsg);
                 i = 80;
-            } else {
-                i = msgType;
             }
             IMSendMsg iMSendMsg = new IMSendMsg(context, chatMsg.getContacter(), i, chatMsg.getSendMsgContent(), chatMsg.getMsgKey(), chatMsg.getAtUsers(), chatMsg.getCastids());
             iMSendMsg.setChatMsg(chatMsg);
@@ -140,7 +140,7 @@ public class IMSendMsg extends Message {
                     this.mBody = jSONObject.toString();
                 }
                 jSONObject.put("method", 55);
-                Map<String, Object> otherParameters = IMConfigInternal.getInstance().getIMConfig(this.mContext).getOtherParameters(this.mContext, this.mChatMsg);
+                Map otherParameters = IMConfigInternal.getInstance().getIMConfig(this.mContext).getOtherParameters(this.mContext, this.mChatMsg);
                 if (otherParameters != null) {
                     for (String str : otherParameters.keySet()) {
                         jSONObject.put(str, otherParameters.get(str));
@@ -172,7 +172,10 @@ public class IMSendMsg extends Message {
     public ChatMsg getChatMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mChatMsg : (ChatMsg) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mChatMsg;
+        }
+        return (ChatMsg) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -196,11 +199,11 @@ public class IMSendMsg extends Message {
                 LogUtils.e(TAG, "handle IMSendMsg exception :", e);
             }
             long j2 = j;
-            if (i != 0 || z) {
-                i2 = i;
-            } else {
+            if (i == 0 && !z) {
                 str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
                 i2 = 1015;
+            } else {
+                i2 = i;
             }
             super.handleMessageResult(context, jSONObject, i2, str);
             LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);

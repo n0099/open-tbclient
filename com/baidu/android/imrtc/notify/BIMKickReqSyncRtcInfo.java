@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.notify;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.send.BIMUser;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -39,23 +38,29 @@ public class BIMKickReqSyncRtcInfo extends BIMSyncRtcInfo {
     public BIMUser getBIMKickUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mKickUser : (BIMUser) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mKickUser;
+        }
+        return (BIMUser) invokeV.objValue;
     }
 
     public BIMUser getBIMKickedUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mKickedUser : (BIMUser) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mKickedUser;
+        }
+        return (BIMUser) invokeV.objValue;
     }
 
-    public void setBIMKickUser(@NonNull BIMUser bIMUser) {
+    public void setBIMKickUser(BIMUser bIMUser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bIMUser) == null) {
             this.mKickUser = bIMUser;
         }
     }
 
-    public void setBIMKickedUser(@NonNull BIMUser bIMUser) {
+    public void setBIMKickedUser(BIMUser bIMUser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bIMUser) == null) {
             this.mKickedUser = bIMUser;
@@ -63,7 +68,6 @@ public class BIMKickReqSyncRtcInfo extends BIMSyncRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.notify.BIMSyncRtcInfo, com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.b.kwai.a;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
@@ -95,12 +94,12 @@ public class ImageLoadImpl implements IImageLoader {
     }
 
     @Override // com.kwad.sdk.service.kwai.g
-    public void load(@NonNull Context context, ImageView imageView, Object obj, int i, int i2) {
+    public void load(Context context, ImageView imageView, Object obj, int i, int i2) {
         ImageLoader.getInstance().displayImage(parseModel(obj), imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(i2).showImageForEmptyUri(i).showImageOnFail(i).build());
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void load(@NonNull Context context, String str, ImageView imageView, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
+    public void load(Context context, String str, ImageView imageView, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
         ImageLoader.getInstance().displayImage(str, imageView, adapter(displayImageOptionsCompat), imageLoadingListener);
     }
 
@@ -125,17 +124,17 @@ public class ImageLoadImpl implements IImageLoader {
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void load(KsFragment ksFragment, @NonNull Context context, String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
+    public void load(KsFragment ksFragment, Context context, String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
         ImageLoader.getInstance().loadImage(str, adapter(displayImageOptionsCompat), imageLoadingListener);
     }
 
     @Override // com.kwad.sdk.service.kwai.g
-    public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2) {
+    public void load(KsFragment ksFragment, String str, ImageView imageView, Drawable drawable, Drawable drawable2) {
         ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(drawable).showImageOnFail(drawable2).build());
     }
 
     @Override // com.kwad.sdk.service.kwai.g
-    public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2, float f) {
+    public void load(KsFragment ksFragment, String str, ImageView imageView, Drawable drawable, Drawable drawable2, float f) {
         ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(drawable).showImageOnFail(drawable2).displayer(new RoundedBitmapDisplayer(a.a(imageView.getContext(), f))).build());
     }
 

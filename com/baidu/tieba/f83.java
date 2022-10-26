@@ -1,38 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.u73;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class f83 extends i53 {
+public class f83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements u73.j {
+    public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u73 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ oa3 a;
 
-        public a(f83 f83Var, u73 u73Var, CallbackHandler callbackHandler, String str) {
+        public a(oa3 oa3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f83Var, u73Var, callbackHandler, str};
+                Object[] objArr = {oa3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,77 +38,199 @@ public class f83 extends i53 {
                     return;
                 }
             }
-            this.a = u73Var;
-            this.b = callbackHandler;
-            this.c = str;
+            this.a = oa3Var;
         }
 
-        @Override // com.baidu.tieba.u73.j
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.F(this);
-                kt1.L(this.b, this.c);
+                t93.k("4178", this.a.f());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f83(i43 i43Var) {
-        super(i43Var, "/swanAPI/openSetting");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public class b extends oa3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String k;
+        public String l;
+        public String m;
+        public String n;
+        public String o;
+        public String p;
+        public String q;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void o() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                f83.e();
+                g();
+                f83.f(this);
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public b h(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.q = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b i(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.l = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b j(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.p = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b k(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.n = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b l(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.o = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b m(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                this.m = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b n(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.k = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e = this.k;
+                a("isAuthorized", this.l);
+                a("isUserLogin", this.m);
+                a("isCompleteLogin", this.n);
+                a("isUserCertificated", this.o);
+                a("isAuthorizeBtnConfirm", this.q);
+                a("isCompleteCertificated", this.p);
+                f83.c(this);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717960, "Lcom/baidu/tieba/f83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947717960, "Lcom/baidu/tieba/f83;");
                 return;
             }
         }
+        a = wj1.a;
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
-        InterceptResult invokeLLLL;
+    public static synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            if (l33Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else if (l33Var.n0()) {
-                if (i53.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                    return false;
-                }
-                u73 e0 = l33Var.e0();
-                if (!l33Var.e0().E()) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not open setting page");
-                    return false;
-                }
-                e0.C(new a(this, e0, callbackHandler, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (f83.class) {
+                b = null;
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
+            bVar.a = fa3.n(l33.K().q().W().G());
+            bVar.b = "trigger";
+            bVar.g = "multiAuthorize";
+        }
+    }
+
+    public static void f(oa3 oa3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, oa3Var) == null) {
+            gg3.j(new a(oa3Var), "SwanAppUBCOnEvent");
+        }
+    }
+
+    public static synchronized b d() {
+        InterceptResult invokeV;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (f83.class) {
+                if (b == null) {
+                    b = new b(null);
+                    if (a) {
+                        Log.i("MultiAuthorizeStatisticManager", "MultiAuthorizeInfo-new instance.");
+                    }
+                }
+                bVar = b;
+            }
+            return bVar;
+        }
+        return (b) invokeV.objValue;
     }
 }

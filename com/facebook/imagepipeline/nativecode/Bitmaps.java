@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
-@DoNotStrip
 /* loaded from: classes7.dex */
 public class Bitmaps {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native void nativeCopyBitmap(Bitmap bitmap, int i, Bitmap bitmap2, int i2, int i3);
 
     static {
         InterceptResult invokeClinit;
@@ -46,18 +46,30 @@ public class Bitmaps {
         }
     }
 
-    @DoNotStrip
     public static void copyBitmap(Bitmap bitmap, Bitmap bitmap2) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, bitmap, bitmap2) == null) {
-            Preconditions.checkArgument(bitmap2.getConfig() == bitmap.getConfig());
+            boolean z3 = true;
+            if (bitmap2.getConfig() == bitmap.getConfig()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
             Preconditions.checkArgument(bitmap.isMutable());
-            Preconditions.checkArgument(bitmap.getWidth() == bitmap2.getWidth());
-            Preconditions.checkArgument(bitmap.getHeight() == bitmap2.getHeight());
+            if (bitmap.getWidth() == bitmap2.getWidth()) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Preconditions.checkArgument(z2);
+            if (bitmap.getHeight() != bitmap2.getHeight()) {
+                z3 = false;
+            }
+            Preconditions.checkArgument(z3);
             nativeCopyBitmap(bitmap, bitmap.getRowBytes(), bitmap2, bitmap2.getRowBytes(), bitmap.getHeight());
         }
     }
-
-    @DoNotStrip
-    public static native void nativeCopyBitmap(Bitmap bitmap, int i, Bitmap bitmap2, int i2, int i3);
 }

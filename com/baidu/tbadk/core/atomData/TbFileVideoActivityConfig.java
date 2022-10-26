@@ -59,14 +59,6 @@ public class TbFileVideoActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForResult() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setIntentAction(IntentAction.ActivityForResult);
-            setRequestCode(25062);
-        }
-    }
-
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -85,6 +77,14 @@ public class TbFileVideoActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
             getIntent().putExtra(WriteActivityConfig.VIDEO_INFO, videoInfo);
+        }
+    }
+
+    public void setForResult() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setIntentAction(IntentAction.ActivityForResult);
+            setRequestCode(25062);
         }
     }
 }

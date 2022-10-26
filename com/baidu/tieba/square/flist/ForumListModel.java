@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
+public class ForumListModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "_list";
     public static boolean isOk = false;
@@ -38,8 +38,43 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1028157534, "Lcom/baidu/tieba/square/flist/ForumListModel;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1028157534, "Lcom/baidu/tieba/square/flist/ForumListModel;");
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes5.dex */
-    public static class List extends OrmObject implements Serializable {
+    public class List extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3206282936395220632L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +99,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     }
 
     /* loaded from: classes5.dex */
-    public static class RequestParams extends OrmObject implements Serializable {
+    public class RequestParams extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8487620337266534315L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,21 +138,6 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1028157534, "Lcom/baidu/tieba/square/flist/ForumListModel;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1028157534, "Lcom/baidu/tieba/square/flist/ForumListModel;");
-        }
-    }
-
     public ForumListModel() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,66 +156,17 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         this.logid = 0L;
     }
 
-    public static ForumListModel new_fetch(RequestParams requestParams) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, requestParams)) == null) {
-            if (requestParams.menu_id == 0) {
-                i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
-            } else {
-                i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? Cea708Decoder.COMMAND_DSW : 136;
-            }
-            menu_name = requestParams.menu_name;
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumrank");
-            netWork.addPostData("rn", String.valueOf(requestParams.rn));
-            netWork.addPostData("offset", String.valueOf(requestParams.offset));
-            netWork.addPostData("recommend_type", String.valueOf(requestParams.recommend_type));
-            netWork.addPostData("menu_name", requestParams.menu_name);
-            netWork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i));
-            String postNetData = netWork.postNetData();
-            isOk = netWork.isNetSuccess();
-            ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
-            if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
-                mu4.f();
-                jf<String> g = mu4.g("tb.my_posts");
-                if (g != null) {
-                    g.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
-                }
-            }
-            return forumListModel;
-        }
-        return (ForumListModel) invokeL.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public boolean isOk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? isOk : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return isOk;
         }
         return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumListModel(TbPageContext<ForumListActivity> tbPageContext) {
+    public ForumListModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -215,5 +186,43 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         this.time = 0L;
         this.ctime = 0L;
         this.logid = 0L;
+    }
+
+    public static ForumListModel new_fetch(RequestParams requestParams) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, requestParams)) == null) {
+            if (requestParams.menu_id == 0) {
+                if (requestParams.menu_name.equals(requestParams.parent_menu_name)) {
+                    i = 9;
+                } else {
+                    i = 10;
+                }
+            } else if (requestParams.menu_type != 2 && requestParams.menu_name.equals(requestParams.parent_menu_name)) {
+                i = 136;
+            } else {
+                i = Cea708Decoder.COMMAND_DSW;
+            }
+            menu_name = requestParams.menu_name;
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumrank");
+            netWork.addPostData("rn", String.valueOf(requestParams.rn));
+            netWork.addPostData("offset", String.valueOf(requestParams.offset));
+            netWork.addPostData("recommend_type", String.valueOf(requestParams.recommend_type));
+            netWork.addPostData("menu_name", requestParams.menu_name);
+            netWork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i));
+            String postNetData = netWork.postNetData();
+            isOk = netWork.isNetSuccess();
+            ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
+            if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
+                ou4.f();
+                kf g = ou4.g("tb.my_posts");
+                if (g != null) {
+                    g.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
+                }
+            }
+            return forumListModel;
+        }
+        return (ForumListModel) invokeL.objValue;
     }
 }

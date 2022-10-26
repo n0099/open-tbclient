@@ -22,27 +22,6 @@ public class PoolParams {
     public final int minBucketSize;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PoolParams(int i, @Nullable SparseIntArray sparseIntArray) {
-        this(i, i, sparseIntArray, 0, Integer.MAX_VALUE, -1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), sparseIntArray};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (SparseIntArray) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PoolParams(int i, int i2, @Nullable SparseIntArray sparseIntArray) {
         this(i, i2, sparseIntArray, 0, Integer.MAX_VALUE, -1);
         Interceptable interceptable = $ic;
@@ -64,6 +43,7 @@ public class PoolParams {
     }
 
     public PoolParams(int i, int i2, @Nullable SparseIntArray sparseIntArray, int i3, int i4, int i5) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,12 +58,38 @@ public class PoolParams {
                 return;
             }
         }
-        Preconditions.checkState(i >= 0 && i2 >= i);
+        if (i >= 0 && i2 >= i) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkState(z);
         this.maxSizeSoftCap = i;
         this.maxSizeHardCap = i2;
         this.bucketSizes = sparseIntArray;
         this.minBucketSize = i3;
         this.maxBucketSize = i4;
         this.maxNumThreads = i5;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PoolParams(int i, @Nullable SparseIntArray sparseIntArray) {
+        this(i, i, sparseIntArray, 0, Integer.MAX_VALUE, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), sparseIntArray};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (SparseIntArray) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 }

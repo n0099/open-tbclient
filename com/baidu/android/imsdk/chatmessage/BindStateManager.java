@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class BindStateManager {
     public static final String KEY_UNBIND_UK = "unbind_uk";
     public static final long SPACE_TIME = 86400000;
     public static final String TAG = "BindStateManager";
-    public static final List<IOnRegisterNotifyListener> listeners;
+    public static final List listeners;
     public static BindState mIsBind;
     public static Object mTinerSync;
     public static SetUnBindRunable runable;
@@ -47,7 +47,7 @@ public class BindStateManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class BindState {
+    public final class BindState {
         public static final /* synthetic */ BindState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BindState BINDED;
@@ -97,18 +97,24 @@ public class BindStateManager {
         public static BindState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BindState) Enum.valueOf(BindState.class, str) : (BindState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (BindState) Enum.valueOf(BindState.class, str);
+            }
+            return (BindState) invokeL.objValue;
         }
 
         public static BindState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BindState[]) $VALUES.clone() : (BindState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (BindState[]) $VALUES.clone();
+            }
+            return (BindState[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class MyTimeTask extends TimerTask {
+    public class MyTimeTask extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -146,7 +152,7 @@ public class BindStateManager {
     }
 
     /* loaded from: classes.dex */
-    public static class SetUnBindRunable implements Runnable {
+    public class SetUnBindRunable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -256,19 +262,6 @@ public class BindStateManager {
         }
     }
 
-    public static synchronized int getBindPush(Context context) {
-        InterceptResult invokeL;
-        int readIntData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            synchronized (BindStateManager.class) {
-                readIntData = Utility.readIntData(context, AccountManager.getUK(context) + KEY_BIND_PUSH, -1);
-            }
-            return readIntData;
-        }
-        return invokeL.intValue;
-    }
-
     public static BindState getCurrentState(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -288,19 +281,79 @@ public class BindStateManager {
     public static String getunBindBduss(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? Utility.readStringData(context, KEY_UNBIND_PUSH_BDUSS, "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return Utility.readStringData(context, KEY_UNBIND_PUSH_BDUSS, "");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getunBindDeviceId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? Utility.readStringData(context, KEY_UNBIND_PUSH_DEVICEID, "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return Utility.readStringData(context, KEY_UNBIND_PUSH_DEVICEID, "");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static Long getunBindUk(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? Long.valueOf(Utility.readLongData(context, KEY_UNBIND_UK, 0L)) : (Long) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return Long.valueOf(Utility.readLongData(context, KEY_UNBIND_UK, 0L));
+        }
+        return (Long) invokeL.objValue;
+    }
+
+    public static synchronized void removeBindPush(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
+            synchronized (BindStateManager.class) {
+                Utility.removeKey(context, AccountManager.getUK(context) + KEY_BIND_PUSH);
+            }
+        }
+    }
+
+    public static void setBindPushSuc(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
+            mIsBind = BindState.BINDED;
+            setBindPush(context, 1);
+        }
+    }
+
+    public static synchronized void setunBindPush(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, context) == null) {
+            synchronized (BindStateManager.class) {
+                mIsBind = BindState.NOTBIND;
+                setBindPush(context, -1);
+            }
+        }
+    }
+
+    public synchronized void unBindPush(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            synchronized (this) {
+                saveUnBindInfo(context, AccountManager.getToken(context), Utility.getIMDeviceId(context), Long.valueOf(AccountManager.getUK(context)));
+                ChatMsgManagerImpl.getInstance(context).unRegisterNotify(null);
+                removeBindPush(context);
+            }
+        }
+    }
+
+    public static synchronized int getBindPush(Context context) {
+        InterceptResult invokeL;
+        int readIntData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            synchronized (BindStateManager.class) {
+                readIntData = Utility.readIntData(context, AccountManager.getUK(context) + KEY_BIND_PUSH, -1);
+            }
+            return readIntData;
+        }
+        return invokeL.intValue;
     }
 
     public static void onRegisterNotifyResult(Context context, String str, int i, String str2, boolean z) {
@@ -328,11 +381,11 @@ public class BindStateManager {
             }
             IOnRegisterNotifyListener iOnRegisterNotifyListener = (IOnRegisterNotifyListener) ListenerManager.getInstance().removeListener(str);
             synchronized (listeners) {
-                Iterator<IOnRegisterNotifyListener> it = listeners.iterator();
+                Iterator it = listeners.iterator();
                 while (it.hasNext()) {
-                    IOnRegisterNotifyListener next = it.next();
-                    if (next != null) {
-                        next.onRegisterNotifyResult(i, str2);
+                    IOnRegisterNotifyListener iOnRegisterNotifyListener2 = (IOnRegisterNotifyListener) it.next();
+                    if (iOnRegisterNotifyListener2 != null) {
+                        iOnRegisterNotifyListener2.onRegisterNotifyResult(i, str2);
                     }
                     it.remove();
                 }
@@ -358,7 +411,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        b80.g(context).f(context, creatMethodIntent);
+                        c80.g(context).f(context, creatMethodIntent);
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
                         onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -374,15 +427,6 @@ public class BindStateManager {
             return savePushCUID;
         }
         return invokeLLLLL.booleanValue;
-    }
-
-    public static synchronized void removeBindPush(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            synchronized (BindStateManager.class) {
-                Utility.removeKey(context, AccountManager.getUK(context) + KEY_BIND_PUSH);
-            }
-        }
     }
 
     public static void saveUnBindInfo(Context context, String str, String str2, Long l) {
@@ -403,14 +447,6 @@ public class BindStateManager {
         }
     }
 
-    public static void setBindPushSuc(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            mIsBind = BindState.BINDED;
-            setBindPush(context, 1);
-        }
-    }
-
     public static void setunBindBduss(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, context, str) == null) {
@@ -422,16 +458,6 @@ public class BindStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
             Utility.writeStringData(context, KEY_UNBIND_PUSH_DEVICEID, str);
-        }
-    }
-
-    public static synchronized void setunBindPush(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, context) == null) {
-            synchronized (BindStateManager.class) {
-                mIsBind = BindState.NOTBIND;
-                setBindPush(context, -1);
-            }
         }
     }
 
@@ -508,7 +534,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        b80.g(context).f(context, creatMethodIntent);
+                        c80.g(context).f(context, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         LogUtils.e(TAG, "Exception ", e);
@@ -518,17 +544,6 @@ public class BindStateManager {
                 return;
             }
             LogUtils.d(TAG, "syncPushInfo methodId :190 by intercept because unlogin ");
-        }
-    }
-
-    public synchronized void unBindPush(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            synchronized (this) {
-                saveUnBindInfo(context, AccountManager.getToken(context), Utility.getIMDeviceId(context), Long.valueOf(AccountManager.getUK(context)));
-                ChatMsgManagerImpl.getInstance(context).unRegisterNotify(null);
-                removeBindPush(context);
-            }
         }
     }
 }

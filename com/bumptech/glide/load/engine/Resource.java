@@ -1,13 +1,9 @@
 package com.bumptech.glide.load.engine;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
-public interface Resource<Z> {
-    @NonNull
-    Z get();
+public interface Resource {
+    Object get();
 
-    @NonNull
-    Class<Z> getResourceClass();
+    Class getResourceClass();
 
     int getSize();
 

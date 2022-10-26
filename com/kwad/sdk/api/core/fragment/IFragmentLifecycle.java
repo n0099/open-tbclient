@@ -15,12 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 /* loaded from: classes7.dex */
 public interface IFragmentLifecycle {
     @Deprecated
-    void onActivityCreated(@Nullable Bundle bundle);
+    void onActivityCreated(Bundle bundle);
 
     void onActivityResult(int i, int i2, Intent intent);
 
@@ -34,7 +32,7 @@ public interface IFragmentLifecycle {
 
     boolean onContextItemSelected(MenuItem menuItem);
 
-    void onCreate(@Nullable Bundle bundle);
+    void onCreate(Bundle bundle);
 
     Animation onCreateAnimation(int i, boolean z, int i2);
 
@@ -44,8 +42,7 @@ public interface IFragmentLifecycle {
 
     void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater);
 
-    @Nullable
-    View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle);
+    View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle);
 
     void onDestroy();
 
@@ -75,17 +72,17 @@ public interface IFragmentLifecycle {
 
     void onPrepareOptionsMenu(Menu menu);
 
-    void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
 
     void onResume();
 
-    void onSaveInstanceState(@NonNull Bundle bundle);
+    void onSaveInstanceState(Bundle bundle);
 
     void onStart();
 
     void onStop();
 
-    void onViewCreated(@NonNull View view2, @Nullable Bundle bundle);
+    void onViewCreated(View view2, Bundle bundle);
 
-    void onViewStateRestored(@Nullable Bundle bundle);
+    void onViewStateRestored(Bundle bundle);
 }

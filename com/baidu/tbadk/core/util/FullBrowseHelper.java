@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -31,14 +30,14 @@ import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.gb;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.pu4;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.ux4;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.yo4;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +60,7 @@ public class FullBrowseHelper {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class NoLineClickableSpan extends ClickableSpan {
+    public abstract class NoLineClickableSpan extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public r9 context;
@@ -107,29 +106,19 @@ public class FullBrowseHelper {
         }
     }
 
-    public static boolean checkAndShowFullBrowseModeDialog(r9 r9Var, IAcceptPrivacyConfirm iAcceptPrivacyConfirm) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, r9Var, iAcceptPrivacyConfirm)) == null) {
-            boolean checkIsFullBrowseMode = checkIsFullBrowseMode();
-            if (checkIsFullBrowseMode) {
-                showDialog(r9Var, iAcceptPrivacyConfirm);
-            }
-            return checkIsFullBrowseMode;
-        }
-        return invokeLL.booleanValue;
-    }
-
     public static boolean checkIsFullBrowseMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? !PermissionUtil.isAgreePrivacyPolicy() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return !PermissionUtil.isAgreePrivacyPolicy();
+        }
+        return invokeV.booleanValue;
     }
 
     public static void registerBrowseModeRule() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && checkIsFullBrowseMode()) {
-            MessageManager.getInstance().addMessageRule(new fb(0) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5
+            MessageManager.getInstance().addMessageRule(new gb(0) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -154,8 +143,8 @@ public class FullBrowseHelper {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.jb
-                public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+                @Override // com.baidu.tieba.kb
+                public CustomMessage process(CustomMessage customMessage, CustomMessageTask customMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, customMessage, customMessageTask)) == null) {
@@ -221,19 +210,33 @@ public class FullBrowseHelper {
         }
     }
 
+    public static boolean checkAndShowFullBrowseModeDialog(r9 r9Var, IAcceptPrivacyConfirm iAcceptPrivacyConfirm) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, r9Var, iAcceptPrivacyConfirm)) == null) {
+            boolean checkIsFullBrowseMode = checkIsFullBrowseMode();
+            if (checkIsFullBrowseMode) {
+                showDialog(r9Var, iAcceptPrivacyConfirm);
+            }
+            return checkIsFullBrowseMode;
+        }
+        return invokeLL.booleanValue;
+    }
+
     public static void showDialog(r9 r9Var, IAcceptPrivacyConfirm iAcceptPrivacyConfirm) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, r9Var, iAcceptPrivacyConfirm) == null) {
-            View inflate = LayoutInflater.from(r9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d035b, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a92);
-            inflate.findViewById(R.id.obfuscated_res_0x7f091ad7).setVisibility(0);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ad8);
-            hv4.d(textView2).v(R.color.CAM_X0107);
+            View inflate = LayoutInflater.from(r9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d035a, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a8e);
+            inflate.findViewById(R.id.obfuscated_res_0x7f091ad3).setVisibility(0);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ad4);
+            nv4.d(textView2).v(R.color.CAM_X0107);
             textView2.setHighlightColor(0);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a93);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a8e);
-            textView.setText(R.string.obfuscated_res_0x7f0f10ee);
-            String string = r9Var.getResources().getString(R.string.obfuscated_res_0x7f0f10ef);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a8f);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a8a);
+            textView.setText(R.string.obfuscated_res_0x7f0f1100);
+            String string = r9Var.getResources().getString(R.string.obfuscated_res_0x7f0f1101);
             SpannableString spannableString = new SpannableString(string);
             spannableString.setSpan(new NoLineClickableSpan(r9Var, r9Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.1
                 public static /* synthetic */ Interceptable $ic;
@@ -249,9 +252,9 @@ public class FullBrowseHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9Var, r9Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             super((r9) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -262,11 +265,11 @@ public class FullBrowseHelper {
                 }
 
                 @Override // android.text.style.ClickableSpan
-                public void onClick(@NonNull View view2) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         Context context = this.val$pageContext.getContext();
-                        yo4.l(context, TbConfig.TIEBA_ADDRESS + "tb/mobile/wisemainstatic/secretright.html");
+                        zo4.l(context, TbConfig.TIEBA_ADDRESS + "tb/mobile/wisemainstatic/secretright.html");
                     }
                 }
             }, 47, 53, 33);
@@ -284,9 +287,9 @@ public class FullBrowseHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9Var, r9Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             super((r9) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -297,15 +300,16 @@ public class FullBrowseHelper {
                 }
 
                 @Override // android.text.style.ClickableSpan
-                public void onClick(@NonNull View view2) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        yo4.l(this.val$pageContext.getContext(), "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+                        zo4.l(this.val$pageContext.getContext(), "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
                     }
                 }
             }, 54, 60, 33);
             Matcher matcher = Pattern.compile("\n\n").matcher(string);
             while (true) {
+                i = 2;
                 if (!matcher.find()) {
                     break;
                 }
@@ -313,46 +317,47 @@ public class FullBrowseHelper {
             }
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setText(spannableString);
-            nu4 nu4Var = new nu4(r9Var.getPageActivity());
-            nu4Var.setContentView(inflate);
-            nu4Var.setContentViewSize(8);
-            nu4Var.setCanceledOnTouchOutside(false);
-            nu4Var.setAutoNight(true);
-            nu4Var.setCancelable(false);
-            hv4 d = hv4.d(textView3);
+            pu4 pu4Var = new pu4(r9Var.getPageActivity());
+            pu4Var.setContentView(inflate);
+            pu4Var.setContentViewSize(8);
+            pu4Var.setCanceledOnTouchOutside(false);
+            pu4Var.setAutoNight(true);
+            pu4Var.setCancelable(false);
+            nv4 d = nv4.d(textView3);
             d.n(R.string.J_X07);
             d.f(R.color.CAM_X0303);
             SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
             SkinManager.setViewTextColorSelector(textView4, R.color.CAM_X0110, R.color.CAM_X0110, 0);
-            textView3.setOnClickListener(new View.OnClickListener(iAcceptPrivacyConfirm, nu4Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.3
+            textView3.setOnClickListener(new View.OnClickListener(iAcceptPrivacyConfirm, pu4Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IAcceptPrivacyConfirm val$acceptPrivacyConfirm;
-                public final /* synthetic */ nu4 val$mPrivateDialog;
+                public final /* synthetic */ pu4 val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {iAcceptPrivacyConfirm, nu4Var};
+                        Object[] objArr = {iAcceptPrivacyConfirm, pu4Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.val$acceptPrivacyConfirm = iAcceptPrivacyConfirm;
-                    this.val$mPrivateDialog = nu4Var;
+                    this.val$mPrivateDialog = pu4Var;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        int i2 = 1;
                         PermissionUtil.setIsAgreePrivacyPolicy(true);
                         TbSingleton.getInstance().setBrowseMode(false);
                         IAcceptPrivacyConfirm iAcceptPrivacyConfirm2 = this.val$acceptPrivacyConfirm;
@@ -361,53 +366,66 @@ public class FullBrowseHelper {
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921562, Boolean.FALSE));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921563));
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 2).param("obj_locate", ox4.k().l("app_restart_times", 0) >= 2 ? 2 : 1));
+                        StatisticItem param = new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 2);
+                        if (ux4.k().l("app_restart_times", 0) >= 2) {
+                            i2 = 2;
+                        }
+                        TiebaStatic.log(param.param("obj_locate", i2));
                         this.val$mPrivateDialog.dismiss();
                     }
                 }
             });
-            textView4.setOnClickListener(new View.OnClickListener(nu4Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
+            textView4.setOnClickListener(new View.OnClickListener(pu4Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ nu4 val$mPrivateDialog;
+                public final /* synthetic */ pu4 val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {nu4Var};
+                        Object[] objArr = {pu4Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.val$mPrivateDialog = nu4Var;
+                    this.val$mPrivateDialog = pu4Var;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 1).param("obj_locate", ox4.k().l("app_restart_times", 0) >= 2 ? 2 : 1));
+                        int i2 = 1;
+                        StatisticItem param = new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 1);
+                        if (ux4.k().l("app_restart_times", 0) >= 2) {
+                            i2 = 2;
+                        }
+                        TiebaStatic.log(param.param("obj_locate", i2));
                         this.val$mPrivateDialog.dismiss();
                     }
                 }
             });
-            nu4Var.create(r9Var);
-            nu4Var.show();
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4).addParam("obj_locate", ox4.k().l("app_restart_times", 0) < 2 ? 1 : 2));
-            hv4.d(textView).v(R.color.CAM_X0105);
-            WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c26), R.drawable.obfuscated_res_0x7f0805a7, null);
-            hv4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c29)).v(R.color.CAM_X0105);
-            WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c27), R.drawable.obfuscated_res_0x7f0805a5, null);
-            hv4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c2a)).v(R.color.CAM_X0105);
-            WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c28), R.drawable.obfuscated_res_0x7f0805a6, null);
-            hv4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c2b)).v(R.color.CAM_X0105);
+            pu4Var.create(r9Var);
+            pu4Var.show();
+            StatisticItem addParam = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4);
+            if (ux4.k().l("app_restart_times", 0) < 2) {
+                i = 1;
+            }
+            TiebaStatic.log(addParam.addParam("obj_locate", i));
+            nv4.d(textView).v(R.color.CAM_X0105);
+            WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c30), R.drawable.obfuscated_res_0x7f0805a8, null);
+            nv4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c33)).v(R.color.CAM_X0105);
+            WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c31), R.drawable.obfuscated_res_0x7f0805a6, null);
+            nv4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c34)).v(R.color.CAM_X0105);
+            WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c32), R.drawable.obfuscated_res_0x7f0805a7, null);
+            nv4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c35)).v(R.color.CAM_X0105);
         }
     }
 }

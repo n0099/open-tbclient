@@ -27,20 +27,6 @@ public class NativeLoader {
         }
     }
 
-    public static String getLibraryPath(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (NativeLoader.class) {
-                if (sDelegate == null) {
-                    throw new IllegalStateException("NativeLoader has not been initialized.  To use standard native library loading, call NativeLoader.init(new SystemDelegate()).");
-                }
-            }
-            return sDelegate.getLibraryPath(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static int getSoSourcesVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,6 +39,37 @@ public class NativeLoader {
             return sDelegate.getSoSourcesVersion();
         }
         return invokeV.intValue;
+    }
+
+    public static synchronized boolean isInitialized() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (NativeLoader.class) {
+                if (sDelegate != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String getLibraryPath(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (NativeLoader.class) {
+                if (sDelegate == null) {
+                    throw new IllegalStateException("NativeLoader has not been initialized.  To use standard native library loading, call NativeLoader.init(new SystemDelegate()).");
+                }
+            }
+            return sDelegate.getLibraryPath(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static synchronized void init(NativeLoaderDelegate nativeLoaderDelegate) {
@@ -68,23 +85,13 @@ public class NativeLoader {
         }
     }
 
-    public static synchronized boolean isInitialized() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (NativeLoader.class) {
-                z = sDelegate != null;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean loadLibrary(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? loadLibrary(str, 0) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return loadLibrary(str, 0);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean loadLibrary(String str, int i) {

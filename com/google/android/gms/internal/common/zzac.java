@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public abstract class zzac<E> extends AbstractCollection<E> implements Serializable {
+public abstract class zzac extends AbstractCollection implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Object[] zza;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,91 +35,6 @@ public abstract class zzac<E> extends AbstractCollection<E> implements Serializa
             }
         }
         zza = new Object[0];
-    }
-
-    public zzac() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    @Deprecated
-    public final boolean add(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    @Deprecated
-    public final boolean addAll(Collection<? extends E> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    @Deprecated
-    public final void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            throw new UnsupportedOperationException();
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    @Deprecated
-    public final boolean remove(@CheckForNull Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    @Deprecated
-    public final boolean removeAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    @Deprecated
-    public final boolean retainAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final Object[] toArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? toArray(zza) : (Object[]) invokeV.objValue;
     }
 
     public int zza(Object[] objArr, int i) {
@@ -149,7 +64,7 @@ public abstract class zzac<E> extends AbstractCollection<E> implements Serializa
         return invokeV.intValue;
     }
 
-    public zzag<E> zzd() {
+    public zzag zzd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -161,7 +76,7 @@ public abstract class zzac<E> extends AbstractCollection<E> implements Serializa
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
     /* renamed from: zze */
-    public abstract zzaj<E> iterator();
+    public abstract zzaj iterator();
 
     public abstract boolean zzf();
 
@@ -175,29 +90,117 @@ public abstract class zzac<E> extends AbstractCollection<E> implements Serializa
         return (Object[]) invokeV.objValue;
     }
 
+    public zzac() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     @Override // java.util.AbstractCollection, java.util.Collection
-    public final <T> T[] toArray(T[] tArr) {
+    @Deprecated
+    public final void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final Object[] toArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return toArray(zza);
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    @Deprecated
+    public final boolean add(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tArr)) == null) {
-            if (tArr != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    @Deprecated
+    public final boolean addAll(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    @Deprecated
+    public final boolean remove(@CheckForNull Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    @Deprecated
+    public final boolean removeAll(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    @Deprecated
+    public final boolean retainAll(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final Object[] toArray(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objArr)) == null) {
+            if (objArr != null) {
                 int size = size();
-                int length = tArr.length;
+                int length = objArr.length;
                 if (length < size) {
                     Object[] zzg = zzg();
                     if (zzg == null) {
-                        tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
+                        objArr = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), size);
                     } else {
-                        return (T[]) Arrays.copyOfRange(zzg, zzc(), zzb(), tArr.getClass());
+                        return Arrays.copyOfRange(zzg, zzc(), zzb(), objArr.getClass());
                     }
                 } else if (length > size) {
-                    tArr[size] = null;
+                    objArr[size] = null;
                 }
-                zza(tArr, 0);
-                return tArr;
+                zza(objArr, 0);
+                return objArr;
             }
             throw null;
         }
-        return (T[]) ((Object[]) invokeL.objValue);
+        return (Object[]) invokeL.objValue;
     }
 }

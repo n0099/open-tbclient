@@ -1,9 +1,8 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fn7;
+import com.baidu.tieba.qn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,15 +14,14 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetMemberTaskList.DataRes;
 import tbclient.GetMemberTaskList.GetMemberTaskListResIdl;
-import tbclient.GetMemberTaskList.ImgInfo;
 import tbclient.GetMemberTaskList.PointTaskInfo;
 import tbclient.GetMemberTaskList.UserPointInfo;
 /* loaded from: classes5.dex */
 public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImgInfo> mImageList;
-    public List<fn7> mTaskList;
+    public List mImageList;
+    public List mTaskList;
     public UserPointInfo mUserPointInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,7 +44,6 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -71,7 +68,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
                 int size = getMemberTaskListResIdl.data.task_list.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                        this.mTaskList.add(new fn7(getMemberTaskListResIdl.data.task_list.get(i2)));
+                        this.mTaskList.add(new qn7(getMemberTaskListResIdl.data.task_list.get(i2)));
                     }
                 }
             }
@@ -80,21 +77,30 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<ImgInfo> getImageList() {
+    public List getImageList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImageList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mImageList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<fn7> getTaskList() {
+    public List getTaskList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTaskList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mTaskList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public UserPointInfo getUserPointInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUserPointInfo : (UserPointInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUserPointInfo;
+        }
+        return (UserPointInfo) invokeV.objValue;
     }
 }

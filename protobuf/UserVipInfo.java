@@ -40,7 +40,13 @@ public final class UserVipInfo extends Message {
     public final Integer vStatus;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<UserVipInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer aScore;
@@ -102,14 +108,11 @@ public final class UserVipInfo extends Message {
         public UserVipInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new UserVipInfo(this, z, null) : (UserVipInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new UserVipInfo(this, z, null);
+            }
+            return (UserVipInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -132,10 +135,6 @@ public final class UserVipInfo extends Message {
         DEFAULT_VLEVEL = 0;
         DEFAULT_ASCORE = 0;
         DEFAULT_NSCORE = 0;
-    }
-
-    public /* synthetic */ UserVipInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -216,5 +215,9 @@ public final class UserVipInfo extends Message {
         this.aScore = builder.aScore;
         this.nScore = builder.nScore;
         this.iconUrl = builder.iconUrl;
+    }
+
+    public /* synthetic */ UserVipInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

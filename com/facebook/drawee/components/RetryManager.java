@@ -34,7 +34,10 @@ public class RetryManager {
     public static RetryManager newInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new RetryManager() : (RetryManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new RetryManager();
+        }
+        return (RetryManager) invokeV.objValue;
     }
 
     public void init() {
@@ -49,7 +52,10 @@ public class RetryManager {
     public boolean isTapToRetryEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTapToRetryEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTapToRetryEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public void notifyTapToRetry() {
@@ -66,6 +72,18 @@ public class RetryManager {
         }
     }
 
+    public boolean shouldRetryOnTap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mTapToRetryEnabled && this.mTapToRetryAttempts < this.mMaxTapToRetryAttempts) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void setMaxTapToRetryAttemps(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -78,11 +96,5 @@ public class RetryManager {
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.mTapToRetryEnabled = z;
         }
-    }
-
-    public boolean shouldRetryOnTap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTapToRetryEnabled && this.mTapToRetryAttempts < this.mMaxTapToRetryAttempts : invokeV.booleanValue;
     }
 }

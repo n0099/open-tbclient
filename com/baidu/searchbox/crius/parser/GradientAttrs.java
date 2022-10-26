@@ -29,9 +29,25 @@ public final class GradientAttrs {
     public Float startX;
     public Float startY;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1787279144, "Lcom/baidu/searchbox/crius/parser/GradientAttrs;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1787279144, "Lcom/baidu/searchbox/crius/parser/GradientAttrs;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/crius/parser/GradientAttrs$Companion;", "Lorg/json/JSONObject;", "json", "Lcom/baidu/searchbox/crius/parser/GradientAttrs;", "parseGradient", "(Lorg/json/JSONObject;)Lcom/baidu/searchbox/crius/parser/GradientAttrs;", "<init>", "()V", "lib-crius_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,8 +65,15 @@ public final class GradientAttrs {
             }
         }
 
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         public final GradientAttrs parseGradient(JSONObject json) {
             InterceptResult invokeL;
+            Float f;
+            Float f2;
+            Float f3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, json)) == null) {
                 Intrinsics.checkNotNullParameter(json, "json");
@@ -89,37 +112,36 @@ public final class GradientAttrs {
                     }
                 }
                 JSONObject optJSONObject2 = json.optJSONObject("start");
-                gradientAttrs.startX = optJSONObject2 != null ? Float.valueOf((float) optJSONObject2.optDouble("x", 0.0d)) : null;
+                Float f4 = null;
+                if (optJSONObject2 != null) {
+                    f = Float.valueOf((float) optJSONObject2.optDouble("x", 0.0d));
+                } else {
+                    f = null;
+                }
+                gradientAttrs.startX = f;
                 JSONObject optJSONObject3 = json.optJSONObject("start");
-                gradientAttrs.startY = optJSONObject3 != null ? Float.valueOf((float) optJSONObject3.optDouble("y", 0.0d)) : null;
+                if (optJSONObject3 != null) {
+                    f2 = Float.valueOf((float) optJSONObject3.optDouble("y", 0.0d));
+                } else {
+                    f2 = null;
+                }
+                gradientAttrs.startY = f2;
                 JSONObject optJSONObject4 = json.optJSONObject("end");
-                gradientAttrs.endX = optJSONObject4 != null ? Float.valueOf((float) optJSONObject4.optDouble("x", 0.0d)) : null;
+                if (optJSONObject4 != null) {
+                    f3 = Float.valueOf((float) optJSONObject4.optDouble("x", 0.0d));
+                } else {
+                    f3 = null;
+                }
+                gradientAttrs.endX = f3;
                 JSONObject optJSONObject5 = json.optJSONObject("end");
-                gradientAttrs.endY = optJSONObject5 != null ? Float.valueOf((float) optJSONObject5.optDouble("y", 0.0d)) : null;
+                if (optJSONObject5 != null) {
+                    f4 = Float.valueOf((float) optJSONObject5.optDouble("y", 0.0d));
+                }
+                gradientAttrs.endY = f4;
                 return gradientAttrs;
             }
             return (GradientAttrs) invokeL.objValue;
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1787279144, "Lcom/baidu/searchbox/crius/parser/GradientAttrs;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1787279144, "Lcom/baidu/searchbox/crius/parser/GradientAttrs;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
     }
 
     public GradientAttrs() {
@@ -139,42 +161,63 @@ public final class GradientAttrs {
     public final int[] getDayColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dayColors : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dayColors;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public final Float getEndX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.endX : (Float) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.endX;
+        }
+        return (Float) invokeV.objValue;
     }
 
     public final Float getEndY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.endY : (Float) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.endY;
+        }
+        return (Float) invokeV.objValue;
     }
 
     public final float[] getLocations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.locations : (float[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.locations;
+        }
+        return (float[]) invokeV.objValue;
     }
 
     public final int[] getNightColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.nightColors : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.nightColors;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public final Float getStartX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.startX : (Float) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.startX;
+        }
+        return (Float) invokeV.objValue;
     }
 
     public final Float getStartY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.startY : (Float) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.startY;
+        }
+        return (Float) invokeV.objValue;
     }
 }

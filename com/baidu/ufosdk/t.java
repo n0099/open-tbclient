@@ -1,6 +1,5 @@
 package com.baidu.ufosdk;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.WebSettings;
@@ -36,8 +35,8 @@ public class t extends WebView {
         a(context);
     }
 
-    @SuppressLint({"SetJavaScriptEnabled"})
     public final void a(Context context) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setVerticalScrollBarEnabled(false);
@@ -48,7 +47,12 @@ public class t extends WebView {
             settings.setUseWideViewPort(true);
             settings.setLoadWithOverviewMode(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-            settings.setCacheMode(p1.e(context) ? -1 : 1);
+            if (p1.e(context)) {
+                i = -1;
+            } else {
+                i = 1;
+            }
+            settings.setCacheMode(i);
             settings.setAppCacheMaxSize(8388608L);
             String str = context.getFilesDir().getAbsolutePath() + "/UfoCacheFile";
             File file = new File(str);

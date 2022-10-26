@@ -34,23 +34,6 @@ public final class Div implements Externalizable {
         }
     }
 
-    public void parse(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.start = jSONObject.optInt("start");
-            this.stop = jSONObject.optInt(IntentConfig.STOP);
-        }
-    }
-
-    @Override // java.io.Externalizable
-    public void readExternal(ObjectInput objectInput) throws IOException, ClassNotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objectInput) == null) {
-            this.start = objectInput.readByte();
-            this.stop = objectInput.readByte();
-        }
-    }
-
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,15 +48,6 @@ public final class Div implements Externalizable {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // java.io.Externalizable
-    public void writeExternal(ObjectOutput objectOutput) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
-            objectOutput.writeByte(this.start);
-            objectOutput.writeByte(this.stop);
-        }
     }
 
     public Div(int i, int i2) {
@@ -93,5 +67,31 @@ public final class Div implements Externalizable {
         }
         this.start = i;
         this.stop = i2;
+    }
+
+    public void parse(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.start = jSONObject.optInt("start");
+            this.stop = jSONObject.optInt(IntentConfig.STOP);
+        }
+    }
+
+    @Override // java.io.Externalizable
+    public void readExternal(ObjectInput objectInput) throws IOException, ClassNotFoundException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objectInput) == null) {
+            this.start = objectInput.readByte();
+            this.stop = objectInput.readByte();
+        }
+    }
+
+    @Override // java.io.Externalizable
+    public void writeExternal(ObjectOutput objectOutput) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
+            objectOutput.writeByte(this.start);
+            objectOutput.writeByte(this.stop);
+        }
     }
 }

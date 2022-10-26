@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.source;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,11 +17,21 @@ public interface MediaSource {
 
     /* loaded from: classes7.dex */
     public interface Listener {
-        void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, @Nullable Object obj);
+        void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj);
     }
 
+    MediaPeriod createPeriod(MediaPeriodId mediaPeriodId, Allocator allocator);
+
+    void maybeThrowSourceInfoRefreshError() throws IOException;
+
+    void prepareSource(ExoPlayer exoPlayer, boolean z, Listener listener);
+
+    void releasePeriod(MediaPeriod mediaPeriod);
+
+    void releaseSource();
+
     /* loaded from: classes7.dex */
-    public static final class MediaPeriodId {
+    public final class MediaPeriodId {
         public static /* synthetic */ Interceptable $ic;
         public static final MediaPeriodId UNSET;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,6 +55,27 @@ public interface MediaSource {
             UNSET = new MediaPeriodId(-1, -1, -1);
         }
 
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return ((((527 + this.periodIndex) * 31) + this.adGroupIndex) * 31) + this.adIndexInAdGroup;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean isAd() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.adGroupIndex != -1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public MediaPeriodId(int i) {
             this(i, -1, -1);
@@ -67,40 +97,6 @@ public interface MediaSource {
             }
         }
 
-        public MediaPeriodId copyWithPeriodIndex(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.periodIndex == i ? this : new MediaPeriodId(i, this.adGroupIndex, this.adIndexInAdGroup) : (MediaPeriodId) invokeI.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || MediaPeriodId.class != obj.getClass()) {
-                    return false;
-                }
-                MediaPeriodId mediaPeriodId = (MediaPeriodId) obj;
-                return this.periodIndex == mediaPeriodId.periodIndex && this.adGroupIndex == mediaPeriodId.adGroupIndex && this.adIndexInAdGroup == mediaPeriodId.adIndexInAdGroup;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.periodIndex) * 31) + this.adGroupIndex) * 31) + this.adIndexInAdGroup : invokeV.intValue;
-        }
-
-        public boolean isAd() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.adGroupIndex != -1 : invokeV.booleanValue;
-        }
-
         public MediaPeriodId(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -120,15 +116,36 @@ public interface MediaSource {
             this.adGroupIndex = i2;
             this.adIndexInAdGroup = i3;
         }
+
+        public MediaPeriodId copyWithPeriodIndex(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (this.periodIndex == i) {
+                    return this;
+                }
+                return new MediaPeriodId(i, this.adGroupIndex, this.adIndexInAdGroup);
+            }
+            return (MediaPeriodId) invokeI.objValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || MediaPeriodId.class != obj.getClass()) {
+                    return false;
+                }
+                MediaPeriodId mediaPeriodId = (MediaPeriodId) obj;
+                if (this.periodIndex == mediaPeriodId.periodIndex && this.adGroupIndex == mediaPeriodId.adGroupIndex && this.adIndexInAdGroup == mediaPeriodId.adIndexInAdGroup) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
     }
-
-    MediaPeriod createPeriod(MediaPeriodId mediaPeriodId, Allocator allocator);
-
-    void maybeThrowSourceInfoRefreshError() throws IOException;
-
-    void prepareSource(ExoPlayer exoPlayer, boolean z, Listener listener);
-
-    void releasePeriod(MediaPeriod mediaPeriod);
-
-    void releaseSource();
 }

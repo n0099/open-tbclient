@@ -82,7 +82,7 @@ public class GDTADManager implements IGDTAdManager {
     }
 
     /* loaded from: classes8.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static GDTADManager a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,41 +156,10 @@ public class GDTADManager implements IGDTAdManager {
         }
     }
 
-    public static void a(GDTADManager gDTADManager, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, gDTADManager, j) == null) {
-            if (gDTADManager == null) {
-                throw null;
-            }
-            com.qq.e.comm.b.a.a().a(gDTADManager.b, gDTADManager.c, gDTADManager.d, gDTADManager.g, gDTADManager.f, j);
-        }
-    }
-
     public static GDTADManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b.a : (GDTADManager) invokeV.objValue;
-    }
-
-    public JSONObject buildS2SSBaseInfo() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (isInitialized()) {
-                SM sm = this.c;
-                JSONObject jSONObject = new JSONObject();
-                if (sm != null) {
-                    jSONObject.putOpt("suid", sm.getSuid());
-                    jSONObject.putOpt("sid", sm.getSid());
-                }
-                jSONObject.put("app", com.qq.e.comm.net.a.a(this.f));
-                jSONObject.put("c", com.qq.e.comm.net.a.a(this.g));
-                jSONObject.put("sdk", com.qq.e.comm.net.a.a(this.d));
-                return jSONObject;
-            }
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 
     public String getADActivityClazz() {
@@ -356,5 +325,37 @@ public class GDTADManager implements IGDTAdManager {
             return 0;
         }
         return invokeL.intValue;
+    }
+
+    public static void a(GDTADManager gDTADManager, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, gDTADManager, j) == null) {
+            if (gDTADManager != null) {
+                com.qq.e.comm.b.a.a().a(gDTADManager.b, gDTADManager.c, gDTADManager.d, gDTADManager.g, gDTADManager.f, j);
+                return;
+            }
+            throw null;
+        }
+    }
+
+    public JSONObject buildS2SSBaseInfo() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (isInitialized()) {
+                SM sm = this.c;
+                JSONObject jSONObject = new JSONObject();
+                if (sm != null) {
+                    jSONObject.putOpt("suid", sm.getSuid());
+                    jSONObject.putOpt("sid", sm.getSid());
+                }
+                jSONObject.put("app", com.qq.e.comm.net.a.a(this.f));
+                jSONObject.put("c", com.qq.e.comm.net.a.a(this.g));
+                jSONObject.put("sdk", com.qq.e.comm.net.a.a(this.d));
+                return jSONObject;
+            }
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

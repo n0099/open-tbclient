@@ -8,7 +8,7 @@ import com.bun.lib.MsaIdInterface;
 public interface f extends IInterface {
 
     /* loaded from: classes7.dex */
-    public static final class a implements f {
+    public final class a implements f {
         public IBinder Zy;
 
         public a(IBinder iBinder) {

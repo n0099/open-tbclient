@@ -7,8 +7,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c31;
-import com.baidu.tieba.rg1;
+import com.baidu.tieba.d31;
+import com.baidu.tieba.sg1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,12 +24,12 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     public MediaPlayer a;
     public Surface b;
     public SurfaceHolder c;
-    public rg1 d;
+    public sg1 d;
     public State e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State END;
@@ -93,13 +93,19 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
@@ -121,6 +127,106 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         e();
     }
 
+    public final void f(int i) {
+        sg1 sg1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (sg1Var = this.d) != null) {
+            sg1Var.a(i);
+        }
+    }
+
+    public void k(int i) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            State state = this.e;
+            if ((state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) && (mediaPlayer = this.a) != null) {
+                try {
+                    mediaPlayer.seekTo(i);
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    public void l(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, surfaceHolder) == null) {
+            this.c = surfaceHolder;
+            MediaPlayer mediaPlayer = this.a;
+            if (mediaPlayer != null) {
+                mediaPlayer.setDisplay(surfaceHolder);
+                this.a.setScreenOnWhilePlaying(true);
+            }
+        }
+    }
+
+    public void m(sg1 sg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, sg1Var) == null) {
+            this.d = sg1Var;
+        }
+    }
+
+    public void n(boolean z) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (mediaPlayer = this.a) != null) {
+            mediaPlayer.setScreenOnWhilePlaying(z);
+        }
+    }
+
+    public void o(Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, surface) == null) {
+            this.b = surface;
+            MediaPlayer mediaPlayer = this.a;
+            if (mediaPlayer != null) {
+                mediaPlayer.setSurface(surface);
+            }
+        }
+    }
+
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, mediaPlayer) == null) {
+            this.e = State.PLAYBACKCOMPLETED;
+            f(256);
+        }
+    }
+
+    @Override // android.media.MediaPlayer.OnPreparedListener
+    public void onPrepared(MediaPlayer mediaPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, mediaPlayer) == null) {
+            this.e = State.PREPARED;
+            f(ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512);
+        }
+    }
+
+    @Override // android.media.MediaPlayer.OnSeekCompleteListener
+    public void onSeekComplete(MediaPlayer mediaPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, mediaPlayer) == null) {
+            Log.e("AdVideoView", "onSeekComplete");
+            f(ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256);
+        }
+    }
+
+    public void p(String str) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (mediaPlayer = this.a) != null) {
+            try {
+                mediaPlayer.setDataSource(str);
+                this.e = State.INITIALIZED;
+                h();
+            } catch (Exception unused) {
+            }
+        }
+    }
+
     public int a() {
         InterceptResult invokeV;
         MediaPlayer mediaPlayer;
@@ -133,6 +239,35 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
             return 0;
         }
         return invokeV.intValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            this.a = mediaPlayer;
+            this.e = State.IDLE;
+            mediaPlayer.setAudioStreamType(3);
+            this.a.setOnPreparedListener(this);
+            this.a.setOnCompletionListener(this);
+            this.a.setOnErrorListener(this);
+            this.a.setOnInfoListener(this);
+            this.a.setOnSeekCompleteListener(this);
+        }
+    }
+
+    public void i() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (mediaPlayer = this.a) != null) {
+            mediaPlayer.release();
+            this.e = State.END;
+            this.a.setOnSeekCompleteListener(null);
+            this.a.setOnInfoListener(null);
+            this.a.setOnErrorListener(null);
+            this.a.setOnPreparedListener(null);
+            this.a.setOnCompletionListener(null);
+        }
     }
 
     public int b() {
@@ -175,39 +310,14 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         return invokeV.intValue;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            this.a = mediaPlayer;
-            this.e = State.IDLE;
-            mediaPlayer.setAudioStreamType(3);
-            this.a.setOnPreparedListener(this);
-            this.a.setOnCompletionListener(this);
-            this.a.setOnErrorListener(this);
-            this.a.setOnInfoListener(this);
-            this.a.setOnSeekCompleteListener(this);
-        }
-    }
-
-    public final void f(int i) {
-        rg1 rg1Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (rg1Var = this.d) == null) {
-            return;
-        }
-        rg1Var.a(i);
-    }
-
     public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null) {
-            return;
-        }
-        State state = this.e;
-        if (state == State.STARTED || state == State.PLAYBACKCOMPLETED) {
-            this.a.pause();
-            this.e = State.PAUSED;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null) {
+            State state = this.e;
+            if (state == State.STARTED || state == State.PLAYBACKCOMPLETED) {
+                this.a.pause();
+                this.e = State.PAUSED;
+            }
         }
     }
 
@@ -219,90 +329,34 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         }
     }
 
-    public void i() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.release();
-        this.e = State.END;
-        this.a.setOnSeekCompleteListener(null);
-        this.a.setOnInfoListener(null);
-        this.a.setOnErrorListener(null);
-        this.a.setOnPreparedListener(null);
-        this.a.setOnCompletionListener(null);
-    }
-
     public void j() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (mediaPlayer = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (mediaPlayer = this.a) != null) {
+            this.e = State.IDLE;
+            mediaPlayer.reset();
         }
-        this.e = State.IDLE;
-        mediaPlayer.reset();
     }
 
-    public void k(int i) {
-        MediaPlayer mediaPlayer;
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && this.a != null) {
             State state = this.e;
-            if ((state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) && (mediaPlayer = this.a) != null) {
-                try {
-                    mediaPlayer.seekTo(i);
-                } catch (Exception unused) {
-                }
+            if (state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
+                this.a.start();
+                this.e = State.STARTED;
             }
         }
     }
 
-    public void l(SurfaceHolder surfaceHolder) {
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, surfaceHolder) == null) {
-            this.c = surfaceHolder;
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null) {
-                mediaPlayer.setDisplay(surfaceHolder);
-                this.a.setScreenOnWhilePlaying(true);
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.a != null) {
+            State state = this.e;
+            if (state == State.STARTED || state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
+                this.a.stop();
+                this.e = State.STOPPED;
             }
-        }
-    }
-
-    public void m(rg1 rg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, rg1Var) == null) {
-            this.d = rg1Var;
-        }
-    }
-
-    public void n(boolean z) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.setScreenOnWhilePlaying(z);
-    }
-
-    public void o(Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, surface) == null) {
-            this.b = surface;
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null) {
-                mediaPlayer.setSurface(surface);
-            }
-        }
-    }
-
-    @Override // android.media.MediaPlayer.OnCompletionListener
-    public void onCompletion(MediaPlayer mediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, mediaPlayer) == null) {
-            this.e = State.PLAYBACKCOMPLETED;
-            f(256);
         }
     }
 
@@ -323,92 +377,35 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048593, this, mediaPlayer, i, i2)) == null) {
-            if (i == 3) {
-                f(260);
-                return false;
-            } else if (i == 701) {
+            if (i != 3) {
+                if (i != 701) {
+                    if (i == 702) {
+                        f(262);
+                        return false;
+                    }
+                    return false;
+                }
                 f(261);
                 return false;
-            } else if (i != 702) {
-                return false;
-            } else {
-                f(262);
-                return false;
             }
+            f(260);
+            return false;
         }
         return invokeLII.booleanValue;
-    }
-
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, mediaPlayer) == null) {
-            this.e = State.PREPARED;
-            f(ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512);
-        }
-    }
-
-    @Override // android.media.MediaPlayer.OnSeekCompleteListener
-    public void onSeekComplete(MediaPlayer mediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, mediaPlayer) == null) {
-            Log.e("AdVideoView", "onSeekComplete");
-            f(ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256);
-        }
-    }
-
-    public void p(String str) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        try {
-            mediaPlayer.setDataSource(str);
-            this.e = State.INITIALIZED;
-            h();
-        } catch (Exception unused) {
-        }
     }
 
     public void q(float f, float f2) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || this.e == State.ERROR || (mediaPlayer = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && this.e != State.ERROR && (mediaPlayer = this.a) != null) {
+            mediaPlayer.setVolume(f, f2);
         }
-        mediaPlayer.setVolume(f, f2);
     }
 
     public void r(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) || this.a == null || context == null || !c31.a(context, "android.permission.WAKE_LOCK")) {
-            return;
-        }
-        this.a.setWakeMode(context.getApplicationContext(), i);
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || this.a == null) {
-            return;
-        }
-        State state = this.e;
-        if (state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
-            this.a.start();
-            this.e = State.STARTED;
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.a == null) {
-            return;
-        }
-        State state = this.e;
-        if (state == State.STARTED || state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
-            this.a.stop();
-            this.e = State.STOPPED;
+        if ((interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) && this.a != null && context != null && d31.a(context, "android.permission.WAKE_LOCK")) {
+            this.a.setWakeMode(context.getApplicationContext(), i);
         }
     }
 }

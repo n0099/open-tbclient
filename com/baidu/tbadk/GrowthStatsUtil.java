@@ -9,7 +9,7 @@ import com.baidu.searchbox.datacollector.growth.model.ChannelData;
 import com.baidu.searchbox.datacollector.growth.model.ClipBoardData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.h85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class GrowthStatsUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class SPLASH_SOURCE {
+    public class SPLASH_SOURCE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PUSH = "push";
         public static final String THIRD_PARTY = "third_party";
@@ -45,7 +45,7 @@ public class GrowthStatsUtil {
     }
 
     /* loaded from: classes3.dex */
-    public static class SPLASH_TYPE {
+    public class SPLASH_TYPE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLD = "cold_start";
         public static final String WARM = "warm_start";
@@ -80,22 +80,57 @@ public class GrowthStatsUtil {
         }
     }
 
+    public static String getSplashType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbadkCoreApplication.getInst().getStartType() == 2) {
+                return "cold_start";
+            }
+            return "warm_start";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void statisticActivity() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        GrowthCollectManager.statisticActiveData(new ActiveData.Builder(TbadkCoreApplication.getFrom()).build(), TbadkCoreApplication.getInst());
+        h85.b();
+    }
+
+    public static void statisticDeviceInfo() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65546, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        GrowthCollectManager.init();
+    }
+
     public static String getDownChannelFromSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : getValue(new String[]{"source", "downchannel", "channel"}, Uri.parse(str)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return getValue(new String[]{"source", "downchannel", "channel"}, Uri.parse(str));
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getLaunchChannelFromSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : getValue(new String[]{"activitysource", "obj_source"}, Uri.parse(str)) : (String) invokeL.objValue;
-    }
-
-    public static String getSplashType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TbadkCoreApplication.getInst().getStartType() == 2 ? "cold_start" : "warm_start" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return getValue(new String[]{"activitysource", "obj_source"}, Uri.parse(str));
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getValue(String[] strArr, Uri uri) {
@@ -104,17 +139,27 @@ public class GrowthStatsUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, uri)) == null) {
             String valueFromSchema = getValueFromSchema(strArr, uri);
-            if (!TextUtils.isEmpty(valueFromSchema) || (queryParameter = uri.getQueryParameter("extdata")) == null) {
-                return valueFromSchema;
+            if (TextUtils.isEmpty(valueFromSchema) && (queryParameter = uri.getQueryParameter("extdata")) != null) {
+                try {
+                    return getValueFromJson(strArr, new JSONObject(queryParameter));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return valueFromSchema;
+                }
             }
-            try {
-                return getValueFromJson(strArr, new JSONObject(queryParameter));
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return valueFromSchema;
-            }
+            return valueFromSchema;
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static void statisticChannel(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, str, str2) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        String splashType = getSplashType();
+        String launchChannelFromSchema = getLaunchChannelFromSchema(str2);
+        GrowthCollectManager.statisticChannelData(new ChannelData.Builder(splashType).setSource(str).setLaunchChannel(launchChannelFromSchema).setDownChannel(getDownChannelFromSchema(str2)).setSchema(str2).build());
     }
 
     public static String getValueFromJson(String[] strArr, JSONObject jSONObject) {
@@ -153,35 +198,12 @@ public class GrowthStatsUtil {
         return (String) invokeLL.objValue;
     }
 
-    public static void statisticActivity() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            GrowthCollectManager.statisticActiveData(new ActiveData.Builder(TbadkCoreApplication.getFrom()).build(), TbadkCoreApplication.getInst());
-            d85.b();
-        }
-    }
-
-    public static void statisticChannel(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            String splashType = getSplashType();
-            String launchChannelFromSchema = getLaunchChannelFromSchema(str2);
-            GrowthCollectManager.statisticChannelData(new ChannelData.Builder(splashType).setSource(str).setLaunchChannel(launchChannelFromSchema).setDownChannel(getDownChannelFromSchema(str2)).setSchema(str2).build());
-        }
-    }
-
     public static void statisticClipBoard(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            String launchChannelFromSchema = getLaunchChannelFromSchema(str);
-            GrowthCollectManager.statisticClipBoardData(new ClipBoardData.Builder().setLaunchChannel(launchChannelFromSchema).setDownChannel(getDownChannelFromSchema(str)).setSchema(str).build());
+        if ((interceptable != null && interceptable.invokeL(65545, null, str) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
         }
-    }
-
-    public static void statisticDeviceInfo() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            GrowthCollectManager.init();
-        }
+        String launchChannelFromSchema = getLaunchChannelFromSchema(str);
+        GrowthCollectManager.statisticClipBoardData(new ClipBoardData.Builder().setLaunchChannel(launchChannelFromSchema).setDownChannel(getDownChannelFromSchema(str)).setSchema(str).build());
     }
 }

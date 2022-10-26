@@ -18,6 +18,42 @@ public class ClientParamsStack extends AbstractHttpParams {
     public final HttpParams overrideParams;
     public final HttpParams requestParams;
 
+    public ClientParamsStack(ClientParamsStack clientParamsStack) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {clientParamsStack};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
+    public ClientParamsStack(ClientParamsStack clientParamsStack, HttpParams httpParams, HttpParams httpParams2, HttpParams httpParams3, HttpParams httpParams4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {clientParamsStack, httpParams, httpParams2, httpParams3, httpParams4};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public ClientParamsStack(HttpParams httpParams, HttpParams httpParams2, HttpParams httpParams3, HttpParams httpParams4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,6 +109,15 @@ public class ClientParamsStack extends AbstractHttpParams {
         return (HttpParams) invokeV.objValue;
     }
 
+    public final HttpParams getRequestParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpParams) invokeV.objValue;
+    }
+
     @Override // org.apache.http.params.HttpParams
     public Object getParameter(String str) {
         InterceptResult invokeL;
@@ -81,15 +126,6 @@ public class ClientParamsStack extends AbstractHttpParams {
             throw new RuntimeException("Stub!");
         }
         return invokeL.objValue;
-    }
-
-    public final HttpParams getRequestParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpParams) invokeV.objValue;
     }
 
     @Override // org.apache.http.params.HttpParams
@@ -110,41 +146,5 @@ public class ClientParamsStack extends AbstractHttpParams {
             throw new RuntimeException("Stub!");
         }
         return (HttpParams) invokeLL.objValue;
-    }
-
-    public ClientParamsStack(ClientParamsStack clientParamsStack) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {clientParamsStack};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
-    public ClientParamsStack(ClientParamsStack clientParamsStack, HttpParams httpParams, HttpParams httpParams2, HttpParams httpParams3, HttpParams httpParams4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {clientParamsStack, httpParams, httpParams2, httpParams3, httpParams4};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 }
